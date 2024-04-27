@@ -1,0 +1,150 @@
+﻿add_namespace = aurora_news
+
+#news_event_FIN_continuation_uusima_ship - looks like a WW1 russian destroyer.
+
+
+#Anthony dies
+news_event = {
+	id = aurora_news.1
+	title = aurora_news.1.t
+	desc = aurora_news.1.desc
+	picture = GFX_news_event_generic_funeral
+	
+	major = no
+
+	fire_only_once = yes
+
+	immediate = {
+		set_global_flag = RUS_metropolitan_anthony_dead
+	}
+
+	trigger = {
+		original_tag = RUS #important so that the event fires for RUS
+		has_character = RUS_metropolitan_anthony
+		date > 1936.08.10
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		#modifier = {
+		#	factor = 0.1
+		#	date > 1939.06.01
+		#}
+	}
+
+	option = {
+		name = aurora_news.1.a
+
+		custom_effect_tooltip = RUS_metropolitan_anthony_dies
+
+		hidden_effect = {
+			retire_character = RUS_metropolitan_anthony
+		}
+	}
+}
+
+news_event = { #Guchkov dies
+	id = aurora_news.2
+	title = aurora_news.2.t
+	desc = aurora_news.2.desc
+	picture = GFX_news_event_generic_funeral
+	
+	major = no
+
+	fire_only_once = yes
+
+	immediate = {
+		set_global_flag = RUS_alexander_guchkov_dead
+	}
+
+	trigger = {
+		original_tag = RUS
+		has_character = RUS_alexander_guchkov
+		date > 1937.011.10
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		#modifier = {
+		#	factor = 0.1
+		#	date > 1939.06.01
+		#}
+	}
+
+	option = {
+		name = aurora_news.2.a
+
+		custom_effect_tooltip = RUS_alexander_guchkov_dies
+
+		hidden_effect = {
+			retire_character = RUS_alexander_guchkov
+		}
+	}
+}
+
+news_event = { #white russia (in the south!) is back!
+	id = aurora_news.3
+	title = aurora_news.3.t
+	desc = aurora_news.3.desc
+	picture = GFX_news_event_generic_funeral
+	
+	major = yes
+
+	fire_only_once = yes
+
+	immediate = {
+	}
+
+	trigger = {
+		RUS = { has_completed_focus = RUS_second_kornilov_affair }
+	}
+
+	mean_time_to_happen = {
+		days = 10
+		#modifier = {
+		#	factor = 0.1
+		#	date > 1939.06.01
+		#}
+	}
+
+	option = { 
+		name = aurora_news.3.a
+	}
+}
+
+news_event = { #horvat dis
+	id = aurora_news.4
+	title = aurora_news.4.t
+	desc = aurora_news.4.desc
+	picture = GFX_news_event_generic_funeral
+	
+	major = yes
+
+	fire_only_once = yes
+
+	immediate = {
+	}
+
+	trigger = {
+		original_tag = VLA
+		has_character = VLA_dimitry_horvat
+		date > 1937.06.06
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		#modifier = {
+		#	factor = 0.1
+		#	date > 1939.06.01
+		#}
+	}
+
+	option = { 
+		name = aurora_news.4.a
+		custom_effect_tooltip = VLA_dimitry_horvat_dies
+		add_stability = -0.01
+		hidden_effect = {
+			retire_character = VLA_dimitry_horvat
+		}
+	}
+}

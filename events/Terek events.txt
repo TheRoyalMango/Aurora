@@ -1,0 +1,96 @@
+add_namespace = ter
+
+###COUNTRY EVENTS###
+country_event = { #Soviets have won the war.
+	id = ter.1
+	title = ter.1.t
+	desc = ter.1.d
+	picture = report_event_gre_greek_cavalry
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = ter.1.b
+		add_popularity = {
+			ideology = communism
+			popularity = 0.1
+		}
+		add_stability = 0.05
+		add_political_power = 100
+	}
+}
+
+country_event = { #Soviets have lost the war.
+	id = ter.2
+	title = ter.2.t
+	desc = ter.2.d
+	picture = report_event_korean_war_march
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = ter.2.b
+		add_popularity = {
+			ideology = communism
+			popularity = -0.15
+		}
+		add_stability = -0.1
+		add_war_support = -0.1
+		add_political_power = -50
+	}
+}
+
+
+country_event = { #catch-all event for the peace treaty
+	id = ter.3
+	title = ter.3.t
+	desc = ter.3.d
+	picture = report_event_korean_war_march
+	is_triggered_only = yes
+	fire_only_once = no
+
+	option = { #make all of this hidden, and add a tooltip that just describes it "ends the Third Soviet-Caucasus War, and the Free People's of the Caucasus faction collapses. territory controlled by either side during the war is kept."
+		name = ter.3.b
+		TER = {
+			white_peace = CAU
+			white_peace = GEO
+			white_peace = KUB
+		}
+		ATR = {
+			white_peace = CAU
+			white_peace = GEO
+			white_peace = KUB
+		}
+		KAL = {
+			white_peace = CAU
+			white_peace = GEO
+			white_peace = KUB
+		}
+		VLG = {
+			white_peace = CAU
+			white_peace = GEO
+			white_peace = KUB
+		}
+		CAU = {
+			dismantle_faction = yes
+			white_peace = VLG
+			white_peace = TER
+			white_peace = ATR
+			white_peace = KAL
+		}
+		KUB = {
+			dismantle_faction = yes
+			white_peace = VLG
+			white_peace = TER
+			white_peace = ATR
+			white_peace = KAL
+		}
+		GEO = {
+			dismantle_faction = yes
+			white_peace = VLG
+			white_peace = TER
+			white_peace = ATR
+			white_peace = KAL
+		}
+	}
+}

@@ -1,0 +1,279 @@
+add_namespace = newsov
+
+###COUNTRY EVENTS###
+country_event = { #Huge discontent in the south - set up regional republics for now?
+	id = newsov.1
+	title = newsov.1.t
+	desc = newsov.1.d
+	picture = GFX_report_event_gre_greek_cavalry
+	is_triggered_only = yes
+	fire_only_once = yes
+ 
+	option = { #it is the only choice we got - buys time against a white invasion of moscow
+		name = newsov.1.a
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+		trigger = {
+			#always = no
+		}
+		add_stability = 0.05
+		add_political_power = 50
+		#Don Soviet Republic #915 218 918 245 265 238 914
+		IF = {
+			limit = {
+				218 = { is_owned_and_controlled_by = SOV } #rostov
+			}
+			218 = { 
+				remove_core_of = SOV
+				transfer_state_to = DON 
+			}
+		}
+		IF = {
+			limit = {
+				238 = { is_owned_and_controlled_by = SOV } #salsk
+			}
+			238 = { 
+				remove_core_of = SOV
+				transfer_state_to = DON 
+			}
+		}
+		IF = {
+			limit = {
+				265 = { is_owned_and_controlled_by = SOV }#mikhaylovka
+			}
+			265 = { 
+				remove_core_of = SOV
+				transfer_state_to = DON 
+			}
+		}
+		IF = {
+			limit = {
+				245 = { is_owned_and_controlled_by = SOV } #millerovo
+			}
+			245 = { 
+				remove_core_of = SOV
+				transfer_state_to = DON 
+			}
+		}
+		DON = {
+			load_oob = "DON_cossack_host" 
+			set_cosmetic_tag = SOV_puppet
+			}
+		#Terek Soviet Republic #235 925
+		IF = {
+			limit = {
+				235 = { is_owned_and_controlled_by = SOV } #stravropol
+			}
+			235 = { 
+				remove_core_of = SOV
+				transfer_state_to = TER 
+			}
+		}
+		#IF = {
+		#	limit = {
+		#		925 = { is_owned_and_controlled_by = SOV }
+		#	}
+		#	925 = { 
+		#		remove_core_of = SOV
+		#		transfer_state_to = TER 
+		#	}
+		#}
+		TER = { 
+			load_oob = "TER_1936" 
+			set_cosmetic_tag = SOV_puppet
+			}
+		#Kalmyk ASSR 237
+		IF = {
+			limit = {
+				237 = { is_owned_and_controlled_by = SOV } #kalmykia
+			}
+			237 = { 
+				remove_core_of = SOV
+				transfer_state_to = KAL 
+			}
+		}
+		KAL = { 
+			load_oob = "KAL_cossack_host" 
+			set_cosmetic_tag = SOV_puppet
+			}
+		#Astrakhan Soviet #236
+		IF = {
+			limit = {
+				236 = { is_owned_and_controlled_by = SOV } #Astrakhan
+			}
+			236 = { 
+				remove_core_of = SOV
+				transfer_state_to = ATR 
+			}
+		}
+		ATR = { 
+			load_oob = "ATR_1936" 
+			set_cosmetic_tag = SOV_puppet
+		}
+		ai_chance = {
+            modifier = {
+            factor = 0
+            }
+        }
+	}
+	option = { #it is the only choice we got - buys time against a white invasion of moscow - but we will consolidate our holdings there.
+		name = newsov.1.b
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+		trigger = {
+			always = no
+		}
+		add_stability = 0.05
+		add_political_power = 50
+		IF = {
+			limit = {
+				914 = { is_owned_and_controlled_by = SOV }
+			}
+			914 = { 
+				remove_core_of = SOV
+				transfer_state_to = DON 
+			}
+		}
+		IF = {
+			limit = {
+				915 = { is_owned_and_controlled_by = SOV }
+			}
+			915 = { 
+				remove_core_of = SOV
+				transfer_state_to = DON 
+			}
+		}
+		IF = {
+			limit = {
+				918 = { is_owned_and_controlled_by = SOV }
+			}
+			918 = { 
+				remove_core_of = SOV
+				transfer_state_to = DON 
+			}
+		}
+		IF = {
+			limit = {
+				218 = { is_owned_and_controlled_by = SOV }
+			}
+			218 = { 
+				remove_core_of = SOV
+				transfer_state_to = DON 
+			}
+		}
+		IF = {
+			limit = {
+				245 = { is_owned_and_controlled_by = SOV }
+			}
+			245 = { 
+				remove_core_of = SOV
+				transfer_state_to = DON 
+			}
+		}
+		IF = {
+			limit = {
+				265 = { is_owned_and_controlled_by = SOV }
+			}
+			265 = { 
+				remove_core_of = SOV
+				transfer_state_to = DON 
+			}
+		}
+		IF = {
+			limit = {
+				238 = { is_owned_and_controlled_by = SOV }
+			}
+			238 = { 
+				remove_core_of = SOV
+				transfer_state_to = DON 
+			}
+		}
+		DON = { 
+			load_oob = "DON_cossack_host" 
+			hidden_effect = { add_equipment_to_stockpile = { type = train_equipment amount = 5 producer = SOV } }
+			}
+		IF = {
+			limit = {
+				235 = { is_owned_and_controlled_by = SOV }
+			}
+			235 = { 
+				remove_core_of = SOV
+				transfer_state_to = ATR 
+			}
+		}
+		IF = {
+			limit = {
+				925 = { is_owned_and_controlled_by = SOV }
+			}
+			925 = { transfer_state_to = ATR }
+		}
+		IF = {
+			limit = {
+				237 = { is_owned_and_controlled_by = SOV }
+			}
+			237 = { 
+				remove_core_of = SOV
+				transfer_state_to = ATR 
+			}
+		}
+		IF = {
+			limit = {
+				236 = { is_owned_and_controlled_by = SOV }
+			}
+			236 = { 
+				remove_core_of = SOV
+				transfer_state_to = ATR 
+			}
+		}
+		235 = { add_core_of = ATR }
+		925 = { add_core_of = ATR }
+		237 = { add_core_of = ATR }
+		ATR = {
+			set_cosmetic_tag = skvo_tag
+			load_oob = "skvo_oob"
+			load_oob = "ATR_1936" 
+			hidden_effect = { add_equipment_to_stockpile = { type = train_equipment amount = 10 producer = SOV } }
+			#add_equipment_to_stockpile = { type = infantry_equipment_0 amount = 2000 producer = SOV }
+		}
+		ai_chance = {
+            modifier = {
+            factor = 100
+            }
+        }
+	}
+	option = { #no. we must hold on! - causes uprisings, meant to be the objectively very bad option. 
+		name = newsov.1.c
+		add_popularity = {
+			ideology = communism
+			popularity = -0.1
+		}
+		trigger = {
+			always = no
+		}
+		every_state = {
+			limit = { 
+				OR = {
+				 is_core_of = KAL
+				 is_core_of = DON
+				 is_core_of = TER
+				 is_core_of = ATR
+				}
+				is_owned_and_controlled_by = SOV
+			}
+			remove_core_of = SOV
+			add_resistance = 65
+		}
+		add_stability = -0.15
+		add_war_support = -0.15
+		add_political_power = -250
+		ai_chance = {
+            modifier = {
+            factor = 0
+            }
+        }
+	}
+}
