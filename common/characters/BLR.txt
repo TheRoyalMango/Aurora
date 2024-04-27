@@ -1,0 +1,507 @@
+characters = {
+
+	BLR_stanislaw_bulk = { #Stanisław Bułak-Bałachowicz
+		name = BLR_stanislaw_bulk
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BLR/GFX_portrait_stanislav_bulak.png"
+			}
+			army = {
+				large = "gfx/leaders/BLR/GFX_portrait_stanislav_bulak.png"
+				small=GFX_idea_BLR_stanislaw_bulk
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = stanislaw_bulk 
+			allowed = {
+				original_tag = BLR
+			}
+			available = {
+				has_country_flag = BLR_generals_return
+			}				
+			traits = {
+				army_chief_organizational_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
+		country_leader = {
+			ideology = liberalism
+			traits = { 
+				hardened_officer 
+				indomitable_perseverance
+				popular_figurehead2
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+
+		country_leader = {
+			ideology = moderatism
+			traits = { 
+				hardened_officer 
+				indomitable_perseverance
+				#popular_figurehead2
+				SWI_guisan_leader_trait
+				#generallissimo
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+
+		
+		field_marshal = {  #some removed due to too much clutter
+			traits = {  
+				war_hero
+				aggressive_assaulter
+				scavenger
+				cavalry_leader
+				#irregulars_officer 
+				#militias_officer
+				#trickster
+				#commando
+				ambusher
+				#expert_improviser
+				guerilla_fighter
+				inspirational_leader
+				BALTIC_ex_russian
+			}
+			skill = 4
+			attack_skill = 4
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 4
+			visible = {
+				#ROOT = { has_completed_focus = RUS_return_of_the_black_baron }
+				has_country_flag = BLR_generals_return
+			}
+		}
+	}
+
+	BLR_Panteleimon_Ponomarenko = { 
+		name = "Panteleimon Ponomarenko"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BLR/Portrait_Belarus_Panteleimon_Ponomarenko.png"
+			}
+		}
+		allowed_civil_war = {
+			has_government = communism
+		}
+		field_marshal = { 
+			traits = {  
+				scavenger
+				ambusher
+				guerilla_fighter
+			}
+			skill = 3
+			attack_skill = 4
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 3
+			visible = {
+			}
+		}
+		country_leader = {
+			ideology = stalinism
+			traits = { }#partisans_organizer #famous partisan leadfer in ww2, maybe can gain this trait via focus.
+			expire = "1953.3.1.1"
+			id = -1
+		}
+	}
+
+	BLR_branislau_taraskievic = {
+		name = BLR_branislau_taraskievic
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BLR/Portrait_BLR_Branislau_Taraskievic.png"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+		}
+		#country_leader = {
+		#	ideology = socialism
+		#}
+	}
+                                                                                       
+
+	BLR_Vasil_Zacharka = {
+		name = "Vasil Zacharka"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BLR/Portrait_Belarus_Vasil_Zacharka.png"
+			}
+		}
+		country_leader = {
+			ideology = centrism
+			traits = {  }
+			expire = "1953.3.1.1"
+			id = -1
+		}
+	}
+	
+	BLR_Radaslau_Astrouski = {
+		name = "Radasłaŭ Astroŭski"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BLR/Portrait_Belarus_Radaslau_Astrouski.png"
+			}
+		}
+		country_leader = {
+			ideology = fascism_ideology
+			traits = {  }
+			expire = "1953.3.1.1"
+			id = -1
+		}
+	}
+	BLR_Adam_Stankievic = {
+		name = "Adam Stankievič"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BLR/Portrait_WHR_Adam_Stankievic.png"
+			}
+		}
+		country_leader = {
+			ideology = socialism
+			traits = {  }
+			expire = "1953.3.1.1"
+			id = -1
+		}
+	}
+
+	BLR_vasily_korzh = {
+		name = SOV_vasily_korzh
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_vasily_korzh"
+				small = GFX_portrait_SOV_vasily_korzh_small
+			}
+		}
+		allowed_civil_war = {
+			has_government = communism
+		}
+		corps_commander = {
+			traits = { trait_cautious war_hero trickster ambusher guerilla_fighter scavenger }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 3
+			legacy_id = 0
+			visible = {
+				has_government = communism
+			}
+		}
+	}
+
+	BLR_pyotr_masherov = { #Pyotr Masherov
+		name = BLR_pyotr_masherov
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_vasily_korzh"
+				small = GFX_portrait_SOV_vasily_korzh_small
+			}
+		}
+		allowed_civil_war = {
+			has_government = communism
+		}
+		corps_commander = {
+			traits = { trickster guerilla_fighter scavenger politically_connected }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 3
+			legacy_id = 0
+			visible = {
+				has_government = communism
+			}
+		}
+	}
+	
+	BLR_Francisak_Kusal= { 
+		name = "Francisak Kusal"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BLR/Portrait_WHR_Francisak_Kusal.png"
+				small = "gfx/interface/ideas/idea_WHR_Francisak_Kusal.dds"
+			}
+		}
+		corps_commander = {
+			traits = {
+				politically_connected
+				infantry_officer
+				BALTIC_ex_russian
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+			visible = {
+				has_country_flag = BLR_generals_return
+			}
+		}
+	}
+	BLR_Hasan_Kanapatski= { 
+		name = "Hasan Kanapatski"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BLR/Portrait_WHR_Hasan_Kanapatski.png"
+				small = "gfx/interface/ideas/idea_WHR_Hasan_Kanapatski.dds"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = Hasan_Kanapatski
+			allowed = {
+				original_tag = BLR
+			}
+			available = {
+				has_country_flag = BLR_generals_return
+			}				
+			traits = {
+				army_artillery_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
+		corps_commander = {
+		traits = {
+			infantry_officer
+			career_officer
+			BALTIC_ex_russian
+		}
+		skill = 2
+		attack_skill = 2
+		defense_skill = 3
+		planning_skill = 2
+		logistics_skill = 2
+			visible = {
+				has_country_flag = BLR_generals_return
+			}
+		}
+	}
+
+	BLR_jozef_bulak = {  #Józef Bułak-Bałachowicz
+		name = "Józef Bułak-Bałachowicz"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BLR/GFX_portrait_jozef_bulak.png"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = jozef_bulak
+			allowed = {
+				original_tag = BLR
+			}
+			available = {
+				has_country_flag = BLR_generals_return
+			}				
+			traits = {
+				army_concealment_3
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		corps_commander = {
+		traits = {
+			infantry_officer
+			cavalry_leader
+			ambusher
+			guerilla_fighter
+			BALTIC_ex_russian
+		}
+		skill = 2
+		attack_skill = 2
+		defense_skill = 2
+		planning_skill = 2
+		logistics_skill = 2
+			visible = {
+				has_country_flag = BLR_generals_return
+			}
+		}
+	}
+
+	BLR_Kanstancin_Jezavitau= { 
+		name = "Kanstancin Jezavitau"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BLR/Portrait_WHR_Kanstancin_Jezavitau.png"
+				small = "gfx/interface/ideas/idea_WHR_Kanstancin_Jezavitau.dds"
+			}
+		}
+
+		advisor = {
+			slot = army_chief
+			idea_token = kanstancin_jezavitau
+			allowed = {
+				original_tag = BLR
+			}
+			available = {
+				has_country_flag = BLR_generals_return
+			}				
+			traits = {
+				army_chief_planning_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
+		field_marshal = {
+			traits = {
+				infantry_officer
+				career_officer
+				organizer
+				politically_connected
+				BALTIC_ex_russian
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+			visible = {
+				has_country_flag = BLR_generals_return
+			}
+		}
+	}
+		
+	BLR_Mikalaj_Janicki= { 
+		name = "Mikalaj Janicki"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BLR/Portrait_WHR_Mikalaj_Janicki.png"
+				small = "gfx/interface/ideas/idea_WHR_Mikalaj_Janicki.dds"
+			}
+		}
+		corps_commander = {
+			traits = {
+				infantry_officer
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+			visible = {
+				has_country_flag = BLR_generals_return
+			}
+		}
+	}
+
+	BLR_pavel_zhavryd= {
+		name = "Pavel Zhavryd"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BLR/BLR_pavel_zhavryd.png"
+				small = "gfx/interface/ideas/BLR_pavel_zhavryd.dds"
+			}
+		}
+		corps_commander = {
+			traits = {
+				war_hero
+				scavenger
+				militias_officer
+				commando
+				ambusher
+				guerilla_fighter		
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 4
+			visible = {
+				has_country_flag = BLR_generals_return
+			}
+		}
+	}
+		
+	BLR_Paval_Vent= { 
+		name = "Paval Vent"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BLR/Portrait_WHR_Paval_Vent.png"
+				small = "gfx/interface/ideas/idea_WHR_Paval_Vent.dds"
+			}
+		}
+		corps_commander = {
+			traits = {
+				trait_engineer
+				career_officer
+				BALTIC_ex_russian
+				bearer_of_artillery
+				armor_officer #went to the russian military automobile school. we can say he studied tanks in Poland.
+			}
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+			visible = {
+				has_country_flag = BLR_generals_return
+			}
+		}
+	}
+	BLR_Timokh_Khvedashchenya = { 
+		name = "Tomokh Khvedashchenya"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BLR/Portrait_WHR_Timokh_Khvedashchenya.png"
+				small = "gfx/interface/ideas/idea_WHR_Timokh_Khvedashchenya.dds"
+			}
+		}
+		corps_commander = {
+			traits = {
+				guerilla_fighter
+				trickster
+				swamp_fox
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 4
+			planning_skill = 2
+			logistics_skill = 3
+			visible = {
+				has_country_flag = BLR_generals_return
+			}
+		}
+	}
+	BLR_Vital_Kazlou = { 
+		name = "Vital Kazlou"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BLR/Portrait_WHR_Vital_Kazlou.png"
+				small = "gfx/interface/ideas/idea_WHR_Vital_Kazlou.dds"
+			}
+		}
+		corps_commander = { #	
+			traits = {
+				trait_cautious
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 2
+			visible = {
+				ROOT = { has_country_flag = BLR_generals_return }
+			}
+		}
+	}
+
+}

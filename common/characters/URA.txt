@@ -1,0 +1,44 @@
+characters = {
+	URA_andrey_vlasov = {
+		name = SOV_andrey_vlasov
+		portraits = {
+			army = {
+				large = GFX_portrait_SOV_andrey_vlasov
+				small=GFX_portrait_SOV_andrey_vlasov_small
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = andrey_vlasov 
+			allowed = {
+			}
+			available = {
+			}				
+			traits = {
+				army_chief_morale_1
+			}
+			cost = 50
+			ai_will_do = {
+				base = 1.000
+			}
+		}
+		country_leader = {
+			ideology = leninism
+			traits = {
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+		field_marshal = {
+			traits = { infantry_officer winter_specialist }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 3
+			legacy_id = 0
+			visible = {
+			}
+		}
+	}
+}

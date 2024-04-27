@@ -1,0 +1,27 @@
+
+
+BLR_belarus_descisions = { 
+ icon = decision_category_border_conflicts
+
+	visible = {
+            original_tag = BLR
+            #has_completed_focus = BLR_out_of_the_shadows_and_into_the_light
+        }
+
+    allowed = {
+        original_tag = BLR
+    }
+}
+
+BLRC_belarus_descisions = { 
+ icon = decision_category_border_conflicts
+
+	visible = {
+            original_tag = BLR
+            #has_completed_focus = BLR_out_of_the_shadows_and_into_the_light
+        }
+
+    allowed = {
+        original_tag = BLR
+    }
+}

@@ -1,0 +1,202 @@
+characters = {
+	ARM_andranik_ozanyan = { #Andranik Torosovich Ozanyan 
+		name = ARM_andranik_ozanyan
+		portraits = {
+			army = {
+				large = "gfx/leaders/ARM/portrait_ARM_andranik_ozanyan.png"
+			}
+		}
+		field_marshal = { #
+			desc = ARM_andranik_ozanyan_desc
+			traits = { BALTIC_ex_russian old_guard trait_mountaineer war_hero unyielding_defender militias_officer }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 4
+			planning_skill = 3
+			logistics_skill = 4
+		}
+		advisor = {
+			slot = army_chief
+			ledger = army
+			idea_token = ARM_andranik_ozanyan
+			allowed = {
+				original_tag = ARM
+			}
+			traits  = {
+				army_chief_morale_2
+			}
+		}
+	}
+	ARM_movses_silikyan = { #Movses Mikhailovich Silikyan
+		name = ARM_movses_silikyan
+		portraits = {
+			army = {
+				large = "gfx/leaders/ARM/portrait_ARM_movses_silikyan.png"
+			}
+		}
+		corps_commander = { #
+			desc = ARM_movses_silikyan_desc
+			traits = { BALTIC_ex_russian infantry_officer career_officer old_guard }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	ARM_mikhail_areshev = { #Mikhail Vasilievich Areshev 
+		name = ARM_mikhail_areshev
+		portraits = {
+			army = {
+				large = GFX_portrait_ARM_mikhail_areshev
+			}
+		}
+		corps_commander = { #
+			desc = ARM_mikhail_areshev_desc
+			traits = { BALTIC_ex_russian infantry_officer career_officer }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	ARM_drastamat_kanayan = { #Drastamat Kanayan
+		name = ARM_drastamat_kanayan
+		portraits = {
+			army = {
+				large = GFX_portrait_ARM_drastamat_kanayan
+			}
+		}
+		country_leader = {
+			ideology = fascism_ideology
+			traits = { 
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+		corps_commander = { #
+			desc = ARM_drastamat_kanayan_desc
+			traits = { BALTIC_ex_russian war_hero defensive_doctrine politically_connected }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+		}
+	}
+	ARM_hamazasp_srvandztyan = { #Hamazasp Srvandztyan
+		name = ARM_hamazasp_srvandztyan
+		portraits = {
+			army = {
+				large = GFX_portrait_ARM_hamazasp_srvandztyan
+			}
+		}
+		corps_commander = { #
+			desc = ARM_hamazasp_srvandztyan_desc
+			traits = { BALTIC_ex_russian organizer brilliant_strategist harsh_leader }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+		}
+	}
+	ARM_sargis_mehrabyan = { #Sargis Mehrabyan
+		name = ARM_sargis_mehrabyan
+		portraits = {
+			army = {
+				large = GFX_portrait_ARM_sargis_mehrabyan
+			}
+		}
+		corps_commander = { #
+			desc = ARM_sargis_mehrabyan_desc
+			traits = { BALTIC_ex_russian militias_officer unyielding_defender }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	ARM_daniel_pirumyan = { #Daniel-Bek Abisoghomi Pirumyan
+		name = ARM_daniel_pirumyan
+		portraits = {
+			army = {
+				large = GFX_portrait_ARM_daniel_pirumyan
+			}
+		}
+		field_marshal = { #
+			desc = ARM_daniel_pirumyan_desc
+			traits = { BALTIC_ex_russian infantry_leader old_guard trait_mountaineer fortress_buster unyielding_defender } #war_hero career_leader
+			skill = 3
+			attack_skill = 3
+			defense_skill = 4
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+
+	ARM_tovmas_nazarbekian = { #Tovmas Nazarbekian
+		name = ARM_tovmas_nazarbekian
+		portraits = {
+			army = {
+				large = GFX_portrait_ARM_tovmas_nazarbekian
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = ARM_tovmas_nazarbekian
+			allowed = {
+				original_tag = ARM
+			}
+			traits  = {
+				army_artillery_3
+			}
+		}
+		corps_commander = { #
+			desc = ARM_tovmas_nazarbekian_desc
+			traits = { BALTIC_ex_russian cavalry_officer trait_mountaineer bearer_of_artillery } #war_hero career_leader
+			skill = 3
+			attack_skill = 3
+			defense_skill = 4
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	ARM_garegin_nzhdeh = { #Garegin Nzhdeh
+		name = ARM_garegin_nzhdeh
+		portraits = {
+			army = {
+				large = "gfx/leaders/ARM/portrait_ARM_garegin_nzhdeh.png"
+			}
+		}
+		corps_commander = { #
+			desc = ARM_garegin_nzhdeh_desc
+			traits = { BALTIC_ex_russian trait_mountaineer inspirational_leader militias_officer  } #war_hero career_leader
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	ARM_christophor_araratov = { #Christophor Araratov
+		name = ARM_christophor_araratov
+		portraits = {
+			army = {
+				large = "gfx/leaders/ARM/portrait_ARM_christophor_araratov.png"
+			}
+		}
+		corps_commander = { #
+			desc = ARM_christophor_araratov_desc
+			traits = { BALTIC_ex_russian bearer_of_artillery trait_mountaineer career_officer harsh_leader inspirational_leader }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 3
+		}
+	}
+}

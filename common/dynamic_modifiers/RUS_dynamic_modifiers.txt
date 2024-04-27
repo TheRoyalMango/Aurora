@@ -1,0 +1,81 @@
+#	Example:
+# 
+#	example_dynamic_modifier = {
+#		icon = "GFX_idea_unknown" # optional, will show up in guis if icon is specified
+#		enable = { always = yes } #optional, the modifier won't apply if not enabled
+#		remove_trigger = { always = no } #optional, will remove the modifier if true
+#       attacker_modifier = no  # if yes this modifier will also be read in combat for 
+#                               # people engaging in the combat even if not in the state
+#
+#		# list of modifiers
+#		fuel_cost = 321
+#		max_fuel = var_max_fuel # will be taken from a variable
+#	}
+#
+#
+#	In a script file:
+#
+#	effect = {
+#		add_dynamic_modifier = {
+#			modifier = example_dynamic_modifier
+#			scope = GER # optional, if you specify this your dynamic modifier scoped to this scope (root is the effect scope)
+#			days = 14 # optional, will be removed after this many days passes
+#		}
+#	}
+#
+#	can be added to countries, states or unit leaders
+#	will only updated daily, unless forced by force_update_dynamic_modifier effect
+
+
+
+####
+#### WHITE RUSSIAN NATIONAL SPIRITS ####
+####
+RUS_russian_army_dynamic_modifier = { #NATIONAL SPIRIT
+	enable = { always = yes }
+
+	icon = GFX_idea_russia_dominate
+
+#INITIAL
+
+	#veteran army
+	army_core_attack_factor = RUS_russian_army_army_core_attack_factor #0.05
+	#communism_drift = RUS_russian_army_communism_drift #-0.02
+	experience_loss_factor = RUS_russian_army_experience_loss_factor #-0.1
+	cavalry_attack_factor = RUS_russian_army_cavalry_attack_factor #0.05
+	org_loss_when_moving = RUS_russian_army_org_loss_when_moving #0.05
+
+	army_attack_factor = RUS_russian_army_army_attack_factor #0.1
+	army_defence_factor = RUS_russian_army_army_defence_factor #0.05
+
+	#benefits of very high number of officers
+	army_org_factor = RUS_russian_army_army_org_factor #0.05 
+  	max_planning = RUS_russian_army_max_planning #0.15
+    planning_speed = RUS_russian_army_planning_speed #-0.15 #lots of officers bicker and squable over plans
+	command_power_gain_mult = RUS_russian_army_command_power_gain_mult #0.25
+
+	#negative modifiers (mostly issues of old guard / harsh policies)
+	experience_gain_factor = RUS_russian_army_experience_gain_factor #-0.15
+  	compliance_growth = RUS_russian_army_compliance_growth #-0.15 #represents harsh military policies
+	experience_gain_army_factor = RUS_russian_army_experience_gain_army_factor #-0.10 #old guard
+	land_doctrine_cost_factor = RUS_russian_army_land_doctrine_cost_factor #0.15 #old guard
+	army_morale_factor = RUS_russian_army_army_morale_factor #-0.1 #represents harsh military policies
+
+#FUTURE
+
+	#prevent disorder
+	army_org_regain = RUS_russian_army_army_org_regain #0.10
+
+	#restack_the_officer_corps
+	army_leader_cost_factor = RUS_russian_army_army_leader_cost_factor #-0.15
+	promote_cost_factor = RUS_russian_army_promote_cost_factor #-0.15
+
+	#Cossack units
+	cavalry_defence_factor = RUS_russian_army_cavalry_defence_factor #0.1
+	#
+	#custom_modifier_tooltip = RUS_russian_army_desc
+
+	#Shock battalions
+	breakthrough_factor = RUS_russian_army_breakthrough_factor #0.05
+}
+

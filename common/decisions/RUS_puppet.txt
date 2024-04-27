@@ -1,0 +1,173 @@
+RUS_puppet_descisions = { #remember to fix AI_will_do values when fixing descisions
+
+    RUS_puppet_scavenge_for_arms = {
+
+        available = {
+        }
+
+        fire_only_once = yes
+        days_remove = 30
+        cost = 25
+
+        visible = {
+            always = yes
+        }
+
+        icon = generic_industry
+
+        ai_will_do = {
+            base = 1000
+            #Pretty damn important
+            modifier = {
+                add = 100
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            add_equipment_to_stockpile = {
+                type = infantry_equipment_0
+                amount = 3000
+                producer = ROOT
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment_1
+                amount = 35
+                producer = ROOT
+            }
+            add_equipment_to_stockpile = {
+                type = motorized_equipment_1
+                amount = 50
+                producer = SOV
+            }
+        }
+    }
+
+    RUS_puppet_request_arms_from_overlord = {
+
+        available = {
+            is_subject_of = RUS
+        }
+
+        fire_only_once = no
+        days_remove = 360
+        cost = 50
+
+        visible = {
+            original_tag = ROOT
+        }
+
+        icon = generic_industry
+
+        ai_will_do = {
+            base = 100
+            #Pretty damn important
+            modifier = {
+                add = 100
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            RUS = {
+                country_event = rus.34
+            }
+        }
+    }
+
+    RUS_puppet_request_manpower_from_overlord = {
+
+        available = {
+            is_subject_of = RUS
+        }
+
+        fire_only_once = no
+        days_remove = 360
+        cost = 50
+
+        visible = {
+            original_tag = ROOT
+        }
+
+        icon = generic_industry
+
+        ai_will_do = {
+            base = 5
+            modifier = {
+                factor = 100
+                has_manpower < 50000
+            }
+        }
+
+        complete_effect = {
+            RUS = {
+               country_event = rus.58
+            }
+        }
+    }
+
+    RUS_puppet_request_industrial_investment = {
+
+        available = {
+            is_subject_of = RUS
+        }
+
+        fire_only_once = no
+        days_remove = 360
+        cost = 50
+
+        visible = {
+            original_tag = ROOT
+        }
+
+        icon = generic_industry
+
+        ai_will_do = {
+            base = 0
+            modifier = {
+                add = 0
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            RUS = {
+               # country_event = rus.40
+            }
+        }
+    }
+
+    RUS_puppet_request_local_arms_production = {
+
+        available = {
+            is_subject_of = RUS
+        }
+
+        fire_only_once = no
+        days_remove = 360
+        cost = 50
+
+        visible = {
+            original_tag = ROOT
+        }
+
+        icon = generic_industry
+
+        ai_will_do = {
+            base = 0
+            modifier = {
+                add = 0
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            RUS = {
+                #country_event = rus.43
+            }
+        }
+    }
+
+
+#end of category
+}

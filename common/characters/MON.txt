@@ -1,0 +1,81 @@
+characters = {
+	MON_roman_von_ungernsternberg = {
+		name = MON_roman_von_ungernsternberg
+		portraits = {
+			army = {
+				small = "gfx/interface/advisors/MON/MON_roman_von_ungernsternberg.png"
+			}
+			civilian = {
+				large = "gfx/leaders/MON/Portrait_MON_Sternberg.png"
+			}
+		}
+		field_marshal = {
+			desc = MON_roman_von_ungernsternberg_commander_desc
+			traits = { BALTIC_ex_russian scavenger harsh_leader cavalry_leader aggressive_assaulter }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 3
+		}
+		country_leader = {
+			desc = MON_roman_von_ungernsternberg_leader_desc
+			ideology = rexism
+			traits = { MON_the_mad_baron anti_communist}
+		}
+		country_leader = {
+			desc = MON_roman_von_ungernsternberg_leader_desc
+			ideology = despotism
+			traits = { MON_the_mad_baron anti_communist}
+		}
+	}
+	MON_boris_rezukhin = {
+		name = MON_boris_rezukhin
+		portraits = {
+			army = {
+				large = "gfx/leaders/MON/MON_boris_rezukhin.png"
+			}
+		}
+		corps_commander = {
+			traits = { BALTIC_ex_russian scavenger cavalry_leader  }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+		}
+	}
+	MON_andrey_bakich = { #Andrey Stepanovich Bakich
+		name = MON_andrey_bakich
+		portraits = {
+			army = {
+				large = "gfx/leaders/MON/MON_andrey_bakich.png"
+			}
+		}
+		corps_commander = {
+			traits = { BALTIC_ex_russian harsh_leader scavenger infantry_officer  }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 4
+		}
+	}
+	MON_mikhail_tornovsky = { #Mikhail Georgievich Tornovsky. anti-fascist 
+		name = MON_mikhail_tornovsky
+		portraits = {
+			army = {
+				large = GFX_MON_mikhail_tornovsky
+			}
+		}
+		corps_commander = {
+			traits = { BALTIC_ex_russian career_officer  }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 4
+		}
+	}
+#
+}

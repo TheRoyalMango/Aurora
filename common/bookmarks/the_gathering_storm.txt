@@ -1,0 +1,247 @@
+bookmarks = {
+	bookmark = {
+		name = "GATHERING_STORM_NAME"
+		desc = "GATHERING_STORM_DESC"
+		date = 1936.1.1.12
+		picture = "GFX_select_date_1936"
+		default_country = "RUS"
+		default = yes
+		"UKR"={
+			#minor = yes
+			history = "UKR_GATHERING_STORM_DESC"
+			ideology = democratic
+			ideas = {
+				UKR_chaotic_politics
+				UKR_ministry_for_occupied_western_territories
+				UKR_UVO_influence_1
+			}
+			focuses = {
+				UKR_handle_the_economic_freefall
+				UKR_prioritize_the_agriculture
+				UKR_prioritize_the_industry
+			}
+		}
+		"BLR"={
+			#minor = yes
+			history = "BLR_GATHERING_STORM_DESC"
+			ideology = communism
+			ideas = {
+				BLR_impending_civil_war
+				BLR_violence_in_vilna
+				BLR_collectivized_farms
+			}
+			focuses = {
+				BLR_non_submission_to_poland
+				BLR_polish_general_staff
+				BLR_crush_the_revolt
+			}
+		}	
+		"AFS"={
+			#minor = yes
+			history = "AFS_GATHERING_STORM_DESC"
+			ideology = anarchism
+			ideas = {
+			}
+			focuses = {
+			}
+		}
+		"RUS"={
+			#minor = yes
+			history = "RUS_GATHERING_STORM_DESC"
+			ideology = democratic
+			ideas = {
+				RUS_the_crimean_mandate
+				RUS_mandate_army
+				RUS_law_on_land
+			}
+			focuses = {
+				RUS_the_last_faithful_major_ally_of_the_whites
+				RUS_second_kornilov_affair
+				RUS_second_kuban_landing
+			}
+		}
+
+		"BYA"={
+			#minor = yes
+			history = "RUS_GATHERING_STORM_DESC"
+			ideology = neutrality
+			ideas = {
+				BYA_japanese_advisors
+				MON_nomadic
+				cossack_obsolete_army
+			}
+			focuses = {
+				BYA_revitalize_the_chita_CER_connection
+				BYA_power_to_the_ataman
+				BYA_lake_baikal_north_rail
+			}
+		}
+
+		"MON"={
+			#minor = yes
+			history = "MON_GATHERING_STORM_DESC"
+			ideology = fascism #neutrality
+			ideas = {
+				MON_japanese_railways_assistance
+				MON_nomadic
+				MON_bogd_khan
+			}
+			focuses = {
+				MON_power_to_the_baron
+				#MON_continue_pressure_on_the_peasant_republics
+				MON_oppose_sternburg
+			}
+		}
+
+		"SOV"={
+			history = "SOV_GATHERING_STORM_DESC"
+			ideology = communism
+			#available = { has_dlc = "No Step Back" }
+			ideas = {
+				SOV_legacy_of_war_communism
+				SOV_anarchist_militias
+				SOV_second_five_year_plan_fake_1936_ns
+			}
+			focuses = {
+			}	
+		}
+		#"SOV"={
+		#	history = "SOV_GATHERING_STORM_DESC"
+		#	ideology = communism
+		#	available = { NOT = { has_dlc = "No Step Back" } }
+		#	ideas = {
+		#		trotskyite_plot_nsb
+		#		SOV_second_five_year_plan_fake_1936_ns
+		#		SOV_politicized_military
+		#	}
+		#	focuses = {
+		#		SOV_behead_the_snake
+		#		SOV_father_of_nations
+		#		SOV_the_supreme_soviet
+		#	}	
+		#}
+
+		"---"={
+			history = "OTHER_GATHERING_STORM_DESC"
+		}
+		"VLA"={
+			minor = yes
+			history = "VLA_GATHERING_STORM_DESC"
+			ideology = neutrality
+			ideas = {
+				VLA_at_the_mercy_of_the_japanese
+				VLA_far_eastern_republic_partisans
+				VLA_kappelevtsy_semyonovtsky_strife
+			}
+			focuses = {
+				VLA_vlad_petro_rail
+				VLA_maintain_zemsky_sobor_unity
+				VLA_reapprochment_with_semyonov
+			}
+		}
+		"KAZ"={
+			minor = yes
+			history = "KAZ_GATHERING_STORM_DESC"
+			ideology = neutrality
+			ideas = {
+				#BLR_impending_civil_war
+			}
+			focuses = {
+			}
+		}
+		"ALT"={
+			minor = yes
+			history = "ALT_GATHERING_STORM_DESC"
+			ideology = democratic
+			ideas = {
+			}
+			focuses = {
+			}
+		}
+		"KUB"={
+			minor = yes
+			history = "KUB_GATHERING_STORM_DESC"
+			ideology = neutrality
+			ideas = {
+			}
+			focuses = {
+			}
+		}
+		#"SIK"={
+		#	minor = yes
+		#	history = "FIN_GATHERING_STORM_DESC"
+		#	ideology = neutrality
+		#	ideas = {
+		#		SIK_east_turkestan_seperatism
+		#		cossack_obsolete_army
+		#	}
+		#	focuses = {
+		#		CHI_cooperation_with_the_nationalists
+		#		CHI_local_arms_production
+		#	}
+		#}
+		"CAU"={
+			minor = yes
+			history = "CAU_GATHERING_STORM_DESC"
+			ideology = neutrality
+			ideas = {
+				DAG_defense_of_the_nation
+				cossack_obsolete_army
+				RUS_weak_industrial_base
+			}
+			focuses = {
+				cossack_the_first_album
+				cossack_develop_capitalstate
+			}
+		}
+		"TOM"={
+			minor = yes
+			history = "CAU_GATHERING_STORM_DESC"
+			ideology = democratic
+			ideas = {
+			}
+			focuses = {
+			}
+		}
+		"GEO"={
+			minor = yes
+			history = "CAU_GATHERING_STORM_DESC"
+			ideology = democratic
+			ideas = {
+				#GEO_georgian_army
+				GEO_azr_geo_agreements
+				GEO_peoples_gard
+				uncontrolled_exports
+			}
+			focuses = {
+			}
+		}
+		"AZR"={
+			minor = yes
+			history = "CAU_GATHERING_STORM_DESC"
+			ideology = democratic
+			ideas = {
+				AZR_booming_oil_economy
+				AZR_azr_geo_agreements
+			}
+			focuses = {
+			}
+		}
+		"ARM"={
+			minor = yes
+			history = "CAU_GATHERING_STORM_DESC"
+			ideology = democratic
+			ideas = {
+				ARM_armenian_national_army
+				ARM_our_motherland_one_nation_one_homeland
+				ARM_alexandropol_artillery_workshop
+			}
+			focuses = {
+			}
+		}
+		effect = {
+			randomize_weather = 22345 # <- Obligatory in every bookmark !
+			#123 = { rain_light = yes }
+		}
+	}
+}

@@ -1,0 +1,1116 @@
+
+
+FER_civil_war_stockpiles = {
+    FER_open_stockpiles = {
+
+        available = {
+        original_tag = FER
+        num_of_available_civilian_factories > 0
+        }
+
+        fire_only_once = yes
+        days_remove = 70
+        cost = 25
+
+        visible = {
+            original_tag = FER
+        }
+
+        modifier = {
+        civilian_factory_use = 1
+        }
+
+        icon = generic_industry
+
+        ai_will_do = {
+            base = 100
+            #Pretty damn important
+            modifier = {
+                add = 100
+                always = yes
+            }
+        }
+
+        remove_effect = {
+
+            add_equipment_to_stockpile = {
+                type = infantry_equipment_0
+                amount = 350
+                producer = FER
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment_1
+                amount = 12
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 35
+            }
+            #add_equipment_to_stockpile = { #markvs
+            #    type = gw_tank_equipment
+            #    amount = 10
+            #    producer = ENG
+            #}
+        }
+    }
+}
+RUS_weapons_imports_decisions = { 
+
+        FER_soviet_advisors = {
+        icon = generic_decision
+
+        cost = 25
+
+        fire_only_once = yes
+
+        days_remove = 0
+
+        visible = { 
+        }
+
+        modifier = {
+        }
+
+        complete_effect = {
+        add_popularity = { ideology = communism popularity = 0.15 }
+        army_experience = 25
+        add_manpower = 2500
+
+        }
+    }
+##############################################################################################RIFLES
+    FER_soviet_monthly_shipments1 = {
+        icon = generic_decision
+
+        cost = 25
+
+        fire_only_once = no
+
+        days_remove = 5
+
+        visible = { 
+            NOT = { 
+                has_country_flag = rifle_shipments_in_progress1
+                has_country_flag = rifle_shipments_in_progress2   
+                has_country_flag = rifle_shipments_in_progress3
+                has_country_flag = rifle_shipments_in_progress4
+                has_country_flag = rifle_shipments_in_progress5             
+            }
+        }
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            custom_effect_tooltip = pol_foc9_tt
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        set_country_flag = rifle_shipments_in_progress1
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 500
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 10
+                producer = SOV
+            }
+            hidden_effect = {
+                activate_decision = FER_soviet_monthly_shipments1.1
+            }
+        }
+    }
+
+    FER_soviet_monthly_shipments1.1 = {
+        icon = generic_decision
+
+        cost = 25
+
+        fire_only_once = no
+
+        days_remove = 5
+        visible = { has_country_flag = rifle_shipments_in_progress1 }
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            custom_effect_tooltip = pol_foc9_tt
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = rifle_shipments_in_progress1
+        set_country_flag = rifle_shipments_in_progress2
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 500
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 10
+                producer = SOV
+            }
+            hidden_effect = {
+                activate_decision = FER_soviet_monthly_shipments1.2
+            }
+        }
+    }
+
+    FER_soviet_monthly_shipments1.2 = {
+        icon = generic_decision
+
+        cost = 25
+
+        fire_only_once = no
+
+        days_remove = 5
+        visible = { has_country_flag = rifle_shipments_in_progress2 }
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            custom_effect_tooltip = pol_foc9_tt
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = rifle_shipments_in_progress2
+        set_country_flag = rifle_shipments_in_progress3
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 500
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 10
+                producer = SOV
+            }
+            hidden_effect = {
+                activate_decision = FER_soviet_monthly_shipments1.3
+            }
+        }
+    }
+
+    FER_soviet_monthly_shipments1.3 = {
+        icon = generic_decision
+
+        cost = 25
+
+        fire_only_once = no
+
+        days_remove = 5
+        visible = { has_country_flag = rifle_shipments_in_progress3 }
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            custom_effect_tooltip = pol_foc9_tt
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = rifle_shipments_in_progress3
+        set_country_flag = rifle_shipments_in_progress4
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 500
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 10
+                producer = SOV
+            }
+            hidden_effect = {
+                activate_decision = FER_soviet_monthly_shipments1.4
+            }
+        }
+    }
+
+    FER_soviet_monthly_shipments1.4 = {
+        icon = generic_decision
+
+        cost = 25
+
+        fire_only_once = no
+
+        days_remove = 5
+        visible = { has_country_flag = rifle_shipments_in_progress4 }
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            custom_effect_tooltip = pol_foc9_tt
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = rifle_shipments_in_progress4
+        set_country_flag = rifle_shipments_in_progress5
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 500
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 10
+                producer = SOV
+            }
+            hidden_effect = {
+                activate_decision = FER_soviet_monthly_shipments1.5
+            }
+        }
+    }
+
+    FER_soviet_monthly_shipments1.5 = {
+        icon = generic_decision
+
+        cost = 25
+
+        fire_only_once = no
+
+        days_remove = 5
+        visible = { has_country_flag = rifle_shipments_in_progress5 }
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            custom_effect_tooltip = pol_foc9_tt
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = rifle_shipments_in_progress5
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 500
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 10
+                producer = SOV
+            }
+            hidden_effect = {
+                #activate_decision = FER_soviet_monthly_shipments1.6
+            }
+        }
+    }
+
+
+
+########################################################################################HEAVY WEAPONS
+    FER_soviet_monthly_shipments2 = { ###heavy weapons
+        icon = generic_decision
+
+        cost = 50
+
+        fire_only_once = no
+
+        visible = {
+            NOT = { 
+                has_country_flag = heavy_shipments_in_progress1
+                has_country_flag = heavy_shipments_in_progress2
+                has_country_flag = heavy_shipments_in_progress3
+                has_country_flag = heavy_shipments_in_progress4
+                has_country_flag = heavy_shipments_in_progress5
+            }
+        }
+
+        days_remove = 5
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+            }
+        }
+
+        remove_effect = {
+        set_country_flag = heavy_shipments_in_progress1
+            add_equipment_to_stockpile = {
+                type = artillery_equipment_1
+                amount = 24
+                producer = SOV
+            }
+            add_equipment_to_stockpile = { 
+                type = anti_air_equipment
+                amount = 20
+                producer = SOV
+            }
+            hidden_effect = {
+                activate_decision = FER_soviet_monthly_shipments2.1
+            }
+        }
+    }
+
+    FER_soviet_monthly_shipments2.1 = { ###heavy weapons
+        icon = generic_decision
+
+        cost = 50
+
+        fire_only_once = no
+
+        visible = {
+        has_country_flag = heavy_shipments_in_progress1
+        }
+
+        days_remove = 5
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+            }
+        }
+
+        remove_effect = {
+        
+        clr_country_flag = heavy_shipments_in_progress1
+        set_country_flag = heavy_shipments_in_progress2
+            add_equipment_to_stockpile = {
+                type = artillery_equipment_1
+                amount = 24
+                producer = SOV
+            }
+            add_equipment_to_stockpile = { 
+                type = anti_air_equipment
+                amount = 20
+                producer = SOV
+            }
+            hidden_effect = {
+                activate_decision = FER_soviet_monthly_shipments2.2
+            }
+        }
+    }
+
+    FER_soviet_monthly_shipments2.2 = { ###heavy weapons
+        icon = generic_decision
+
+        cost = 50
+
+        fire_only_once = no
+
+        visible = {
+        has_country_flag = heavy_shipments_in_progress2
+        }
+
+        days_remove = 5
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = heavy_shipments_in_progress2
+        set_country_flag = heavy_shipments_in_progress3
+            add_equipment_to_stockpile = {
+                type = artillery_equipment_1
+                amount = 24
+                producer = SOV
+            }
+            add_equipment_to_stockpile = { 
+                type = anti_air_equipment
+                amount = 20
+                producer = SOV
+            }
+            hidden_effect = {
+                activate_decision = FER_soviet_monthly_shipments2.3
+            }
+        }
+    }
+
+    FER_soviet_monthly_shipments2.3 = { ###heavy weapons
+        icon = generic_decision
+
+        cost = 50
+
+        fire_only_once = no
+
+        visible = {
+        has_country_flag = heavy_shipments_in_progress3
+        }
+
+        days_remove = 5
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = heavy_shipments_in_progress3
+        set_country_flag = heavy_shipments_in_progress4
+            add_equipment_to_stockpile = {
+                type = artillery_equipment_1
+                amount = 24
+                producer = SOV
+            }
+            add_equipment_to_stockpile = { 
+                type = anti_air_equipment
+                amount = 20
+                producer = SOV
+            }
+            hidden_effect = {
+                activate_decision = FER_soviet_monthly_shipments2.4
+            }
+        }
+    }
+
+    FER_soviet_monthly_shipments2.4 = { ###heavy weapons
+        icon = generic_decision
+
+        cost = 50
+
+        fire_only_once = no
+
+        visible = {
+        has_country_flag = heavy_shipments_in_progress4
+        }
+
+        days_remove = 5
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = heavy_shipments_in_progress4
+        set_country_flag = heavy_shipments_in_progress5
+            add_equipment_to_stockpile = {
+                type = artillery_equipment_1
+                amount = 24
+                producer = SOV
+            }
+            add_equipment_to_stockpile = { 
+                type = anti_air_equipment
+                amount = 20
+                producer = SOV
+            }
+            hidden_effect = {
+                activate_decision = FER_soviet_monthly_shipments2.5
+            }
+        }
+    }
+
+    FER_soviet_monthly_shipments2.5 = { ###heavy weapons
+        icon = generic_decision
+
+        cost = 50
+
+        fire_only_once = no
+
+        visible = {
+        has_country_flag = heavy_shipments_in_progress5
+        }
+
+        days_remove = 5
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = heavy_shipments_in_progress5
+            add_equipment_to_stockpile = {
+                type = artillery_equipment_1
+                amount = 24
+                producer = SOV
+            }
+            add_equipment_to_stockpile = { 
+                type = anti_air_equipment
+                amount = 20
+                producer = SOV
+            }
+        }
+    }
+
+######################################################################## planes
+    FER_soviet_monthly_shipments3 = { ###planes
+        icon = generic_decision
+
+        cost = 75
+
+        fire_only_once = no
+
+        visible = { 
+            NOT = { 
+                has_country_flag = planes_shipments_in_progress1
+                has_country_flag = planes_shipments_in_progress2   
+                has_country_flag = planes_shipments_in_progress3
+                has_country_flag = planes_shipments_in_progress4
+                has_country_flag = planes_shipments_in_progress5             
+            }
+        }
+
+        days_remove = 5
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+            }
+        }
+
+        remove_effect = {
+        #clr_country_flag = planes_shipments_in_progress3
+        set_country_flag = planes_shipments_in_progress1
+#            add_equipment_to_stockpile = { #r35s
+ #               type = fighter_equipment
+  #              amount = 20
+   #             producer = SOV
+    #        }
+     #       add_equipment_to_stockpile = { #
+      #          type = tac_bomber_equipment
+       #         amount = 10
+        #        producer = SOV
+         #   }
+            hidden_effect = {
+                activate_decision = FER_soviet_monthly_shipments3.1
+            }
+        }
+    }
+
+    FER_soviet_monthly_shipments3.1 = { ###planes
+        icon = generic_decision
+
+        cost = 75
+
+        fire_only_once = no
+
+        visible = { 
+        has_country_flag = planes_shipments_in_progress1
+        }
+
+        days_remove = 5
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = planes_shipments_in_progress1
+        set_country_flag = planes_shipments_in_progress2
+#            add_equipment_to_stockpile = { #r35s
+ #               type = fighter_equipment
+  #              amount = 20
+   #             producer = SOV
+    #        }
+     #       add_equipment_to_stockpile = { #
+      #          type = tac_bomber_equipment
+       #         amount = 10
+        #        producer = SOV
+         #   }
+            hidden_effect = {
+                activate_decision = FER_soviet_monthly_shipments3.2
+            }
+        }
+    }
+
+    FER_soviet_monthly_shipments3.2 = { ###planes
+        icon = generic_decision
+
+        cost = 75
+
+        fire_only_once = no
+
+        visible = { 
+        has_country_flag = planes_shipments_in_progress2
+        }
+
+        days_remove = 5
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = planes_shipments_in_progress2
+        set_country_flag = planes_shipments_in_progress3
+#            add_equipment_to_stockpile = { #r35s
+ #               type = fighter_equipment
+  #              amount = 20
+   #             producer = SOV
+    #        }
+     #       add_equipment_to_stockpile = { #
+      #          type = tac_bomber_equipment
+       #         amount = 10
+        #        producer = SOV
+         #   }
+            hidden_effect = {
+                activate_decision = FER_soviet_monthly_shipments3.3
+            }
+        }
+    }
+
+    FER_soviet_monthly_shipments3.3 = { ###planes
+        icon = generic_decision
+
+        cost = 75
+
+        fire_only_once = no
+
+        visible = { 
+        has_country_flag = planes_shipments_in_progress3
+        }
+
+        days_remove = 5
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = planes_shipments_in_progress3
+        set_country_flag = planes_shipments_in_progress4
+#            add_equipment_to_stockpile = { #r35s
+ #               type = fighter_equipment
+  #              amount = 20
+   #             producer = SOV
+    #        }
+     #       add_equipment_to_stockpile = { #
+      #          type = tac_bomber_equipment
+       #         amount = 10
+        #        producer = SOV
+         #   }
+            hidden_effect = {
+                activate_decision = FER_soviet_monthly_shipments3.4
+            }
+        }
+    }
+
+    FER_soviet_monthly_shipments3.4 = { ###planes
+        icon = generic_decision
+
+        cost = 75
+
+        fire_only_once = no
+
+        visible = { 
+        has_country_flag = planes_shipments_in_progress4
+        }
+
+        days_remove = 5
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = planes_shipments_in_progress4
+        set_country_flag = planes_shipments_in_progress5
+#            add_equipment_to_stockpile = { #r35s
+ #               type = fighter_equipment
+  #              amount = 20
+   #             producer = SOV
+    #        }
+     #       add_equipment_to_stockpile = { #
+      #          type = tac_bomber_equipment
+       #         amount = 10
+        #        producer = SOV
+         #   }
+            hidden_effect = {
+                activate_decision = FER_soviet_monthly_shipments3.5
+            }
+        }
+    }
+
+    FER_soviet_monthly_shipments3.5 = { ###planes
+        icon = generic_decision
+
+        cost = 75
+
+        fire_only_once = no
+
+        visible = { 
+        has_country_flag = planes_shipments_in_progress5
+        }
+
+        days_remove = 5
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = planes_shipments_in_progress5
+        set_country_flag = planes_shipments_in_progress6
+#            add_equipment_to_stockpile = { #r35s
+ #               type = fighter_equipment
+  #              amount = 20
+   #             producer = SOV
+    #        }
+     #       add_equipment_to_stockpile = { #
+      #          type = tac_bomber_equipment
+       #         amount = 10
+        #        producer = SOV
+         #   }
+            hidden_effect = {
+               # activate_decision = FER_soviet_monthly_shipments3.6
+            }
+        }
+    }
+
+##############################################################################tank
+    #########
+    FER_soviet_monthly_shipments4 = { ###tanks
+        icon = generic_decision
+
+        cost = 75
+
+        fire_only_once = no
+
+        visible = { 
+            NOT = { 
+                has_country_flag = tanks_shipments_in_progress1
+                has_country_flag = tanks_shipments_in_progress2   
+                has_country_flag = tanks_shipments_in_progress4
+                has_country_flag = tanks_shipments_in_progress4
+                has_country_flag = tanks_shipments_in_progress5             
+            }
+        }
+
+        days_remove = 5
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+            }
+        }
+
+        remove_effect = {
+        #clr_country_flag = tanks_shipments_in_progress4
+        set_country_flag = tanks_shipments_in_progress1
+#            add_equipment_to_stockpile = { #r35s
+#                type = light_tank_equipment
+#                amount = 60
+#                producer = SOV
+#            }
+#            add_equipment_to_stockpile = { #r35s
+#                type = heavy_tank_equipment
+#                amount = 20
+#                producer = SOV
+#            }
+            add_equipment_to_stockpile = {
+                type = motorized_equipment_1
+                amount = 50
+                producer = SOV
+            }
+            hidden_effect = {
+                activate_decision = FER_soviet_monthly_shipments4.1
+            }
+        }
+    }
+
+    FER_soviet_monthly_shipments4.1 = { ###tanks
+        icon = generic_decision
+
+        cost = 75
+
+        fire_only_once = no
+
+        visible = { 
+        has_country_flag = tanks_shipments_in_progress1
+        }
+
+        days_remove = 5
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = tanks_shipments_in_progress1
+        set_country_flag = tanks_shipments_in_progress2
+#            add_equipment_to_stockpile = { #r35s
+#                type = light_tank_equipment
+#                amount = 60
+#                producer = SOV
+#            }
+#            add_equipment_to_stockpile = { #r35s
+#                type = heavy_tank_equipment
+#                amount = 20
+#                producer = SOV
+#            }
+            add_equipment_to_stockpile = {
+                type = motorized_equipment_1
+                amount = 50
+                producer = SOV
+            }
+            hidden_effect = {
+                activate_decision = FER_soviet_monthly_shipments4.2
+            }
+        }
+    }
+
+    FER_soviet_monthly_shipments4.2 = { ###tanks
+        icon = generic_decision
+
+        cost = 75
+
+        fire_only_once = no
+
+        visible = { 
+        has_country_flag = tanks_shipments_in_progress2
+        }
+
+        days_remove = 5
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = tanks_shipments_in_progress2
+        set_country_flag = tanks_shipments_in_progress3
+#            add_equipment_to_stockpile = { #r35s
+#                type = light_tank_equipment
+#                amount = 60
+#                producer = SOV
+#            }
+#            add_equipment_to_stockpile = { #r35s
+#                type = heavy_tank_equipment
+#                amount = 20
+#                producer = SOV
+#            }
+            add_equipment_to_stockpile = {
+                type = motorized_equipment_1
+                amount = 50
+                producer = SOV
+            }
+            hidden_effect = {
+                activate_decision = FER_soviet_monthly_shipments4.3
+            }
+        }
+    }
+
+    FER_soviet_monthly_shipments4.3 = { ###tanks
+        icon = generic_decision
+
+        cost = 75
+
+        fire_only_once = no
+
+        visible = { 
+        has_country_flag = tanks_shipments_in_progress3
+        }
+
+        days_remove = 5
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = tanks_shipments_in_progress3
+        set_country_flag = tanks_shipments_in_progress4
+#            add_equipment_to_stockpile = { #r35s
+#                type = light_tank_equipment
+#                amount = 60
+#                producer = SOV
+#            }
+#            add_equipment_to_stockpile = { #r35s
+#                type = heavy_tank_equipment
+#                amount = 20
+#                producer = SOV
+#            }
+            add_equipment_to_stockpile = {
+                type = motorized_equipment_1
+                amount = 50
+                producer = SOV
+            }
+            hidden_effect = {
+                activate_decision = FER_soviet_monthly_shipments4.4
+            }
+        }
+    }
+
+    FER_soviet_monthly_shipments4.4 = { ###tanks
+        icon = generic_decision
+
+        cost = 75
+
+        fire_only_once = no
+
+        visible = { 
+        has_country_flag = tanks_shipments_in_progress4
+        }
+
+        days_remove = 5
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = tanks_shipments_in_progress4
+        set_country_flag = tanks_shipments_in_progress5
+#            add_equipment_to_stockpile = { #r35s
+#                type = light_tank_equipment
+#                amount = 60
+#                producer = SOV
+#            }
+#            add_equipment_to_stockpile = { #r35s
+#                type = heavy_tank_equipment
+#                amount = 20
+#                producer = SOV
+#            }
+            add_equipment_to_stockpile = {
+                type = motorized_equipment_1
+                amount = 50
+                producer = SOV
+            }
+            hidden_effect = {
+                activate_decision = FER_soviet_monthly_shipments4.5
+            }
+        }
+    }
+
+    FER_soviet_monthly_shipments4.5 = { ###tanks
+        icon = generic_decision
+
+        cost = 75
+
+        fire_only_once = no
+
+        visible = { 
+        has_country_flag = tanks_shipments_in_progress5
+        }
+
+        days_remove = 5
+
+        modifier = {
+            political_power_gain = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = tanks_shipments_in_progress5
+        set_country_flag = tanks_shipments_in_progress6
+#            add_equipment_to_stockpile = { #r35s
+#                type = light_tank_equipment
+#                amount = 60
+#                producer = SOV
+#            }
+#            add_equipment_to_stockpile = { #r35s
+#                type = heavy_tank_equipment
+#                amount = 20
+#                producer = SOV
+#            }
+            add_equipment_to_stockpile = {
+                type = motorized_equipment_1
+                amount = 50
+                producer = SOV
+            }
+            hidden_effect = {
+               # activate_decision = FER_soviet_monthly_shipments4.6
+            }
+        }
+    }
+

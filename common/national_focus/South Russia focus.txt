@@ -1,0 +1,6857 @@
+﻿
+focus_tree = {
+	id = russian_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = RUS
+		}
+	}
+	
+	default = no
+	
+	continuous_focus_position = { x = 100 y = 1400 }
+
+	focus = {
+		id = RUS_state_of_the_nation
+		icon = GFX_focus_generic_league_of_nations #GFX_RUS_state_of_the_nation #rest in peace russian alaska
+		x = 60
+		y = 0
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 2
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 15
+			RUS = { country_event = rus.2 }
+		}
+
+	}
+	focus = {
+		id = RUS_second_kornilov_affair
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_focus_generic_military_mission
+		x = 0
+		y = 1
+		relative_position_id = RUS_state_of_the_nation
+
+		available = {	
+		}
+		bypass = {
+		}
+		
+		cost = 5
+		prerequisite = { focus = RUS_state_of_the_nation }
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_stability = -0.05
+			RUS = {
+				country_event = rus.4 #kornilov affair
+			}
+			RUS = {
+				news_event = aurora_news.3
+			}
+		}
+	}
+#####evil path :(
+	focus = {
+		id = RUS_russian_fascism
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_goal_RUS_white_legacy
+		x = -10
+		y = 1
+		relative_position_id = RUS_second_kornilov_affair
+		mutually_exclusive = { focus = RUS_strengthened_civilian_government }
+		mutually_exclusive = { focus = RUS_supreme_leadership }
+		prerequisite = { focus = RUS_second_kornilov_affair }
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {	
+			#always = no
+			has_country_flag = RUS_national_union_takeover
+		}
+		bypass = {
+		}
+		
+		cost = 5
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			#RUS_anton_turkul = { 
+			#	promote_character = fascism_ideology
+			#}
+			RUS = {
+				country_event = rus.45
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+			add_ideas = RUS_military_dictatorship_ns
+			#add_ideas = RUS_liberal_opposition
+			#set_politics = { ruling_party = fascism }
+			custom_effect_tooltip = RUS_path_of_fascism_ttp
+			#custom_effect_tooltip = RUS_focus_not_done
+		}
+	}
+
+	focus = {
+		id = RUS_the_great_white_purge 
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_goal_rus_camps
+		x = 0
+		y = 1
+		relative_position_id = RUS_russian_fascism
+		prerequisite = { focus = RUS_russian_fascism }
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		
+		cost = 5
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = { #should make this focus really important to take - maybe a counter-coup brews?
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.15
+			}
+			add_stability = -0.1
+			add_war_support = -0.1
+			add_political_power = 100
+			#known anti-fascist/totialitarian generals
+			retire_character = RUS_pyotr_wrangel
+			retire_character = RUS_pavel_shatilov #Wrangelite
+			retire_character = RUS_alexander_bubnov #Wrangelite
+			retire_character = RUS_boris_savinkov #anti-fascist
+			retire_character = RUS_juan_belaieff #anti-fascist
+			retire_character = RUS_mikhail_fostikov #resisted germany, sons fought alongside partisans
+			retire_character = RUS_alexander_lukomsky #Wrangelite
+
+			#Kornilov was supported by Kadets but was later venerated by nationalists
+			#politicians - hanadled via available= in the character file
+			#retire_character = RUS_alexander_guchkov
+			#retire_character = RUS_pyotr_struve
+			#retire_character = RUS_sofia_panina
+			#retire_character = RUS_vasily_maklakov
+			#retire_character = RUS_pavel_milyukov
+			#retire_character = RUS_alexander_krivosein
+			custom_effect_tooltip = RUS_the_great_white_purge_ttp
+		}
+	}
+
+	focus = {
+		id = RUS_invite_the_wrangel_opposition
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_goal_rus_tsars_men
+		x = -1
+		y = 2
+		relative_position_id = RUS_russian_fascism
+		prerequisite = { focus = RUS_the_great_white_purge }
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		
+		cost = 5
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			show_unit_leaders_tooltip = RUS_Viktor_Pokrovsky
+			show_unit_leaders_tooltip = RUS_nikolai_schilling
+			#show_unit_leaders_tooltip = RUS_Vladimir_Sidorin
+			#show_unit_leaders_tooltip = DON_pyotr_krasnov
+			#not denikin though, he was disliked by fascists for being moderate. he's unlocked in another focus.
+			set_country_flag = RUS_invite_exile_generals
+			#hidden_effect = {
+				KUB = {
+					#country_event = rus.xx #add event to tell Kuban their exiled are going home
+					every_army_leader = {
+						limit = { is_character = RUS_Vladimir_Sidorin }
+						set_nationality = RUS
+					}
+					every_army_leader = {
+						limit = { is_character = DON_pyotr_krasnov }
+						set_nationality = RUS
+					}
+				}
+			#}
+			custom_effect_tooltip = RUS_invite_the_wrangel_opposition_ttp
+		}
+	}
+
+	focus = {
+		id = RUS_totalitarian_dictatorship
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_goal_rus_renovato_imperii
+		x = 1
+		y = 2
+		relative_position_id = RUS_russian_fascism
+		#prerequisite = { focus = RUS_russian_fascism }
+		prerequisite = { focus = RUS_prikaze_no_1 }
+		prerequisite = { focus = RUS_the_great_white_purge }
+		mutually_exclusive { focus = RUS_military_dictatorship }
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		
+		cost = 5
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			swap_ideas = { 
+				remove_idea = RUS_military_dictatorship_ns
+				add_idea = RUS_military_dictatorship_ns3
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+			#add_stability = 0.02
+			#add_war_support = 0.02
+			#add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = RUS_unite_the_fascist_parties
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_RUS_empire_council#GFX_focus_SOV_the_true_tsars
+		x = 1
+		y = 4
+		relative_position_id = RUS_russian_fascism
+		#prerequisite = { focus = RUS_totalitarian_dictatorship }
+		prerequisite = { focus = RUS_puppet_civilian_government }
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		
+		cost = 5
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			#add the fascist characters, they should otherwise be locked.
+			diplomatic_relation = {
+				country = VLA
+				relation = non_aggression_pact
+				active = yes
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.1
+			}
+			add_manpower = 10000
+			add_stability = 0.05
+			add_war_support = 0.05
+			add_political_power = -50
+		}
+	}
+
+	focus = {
+		id = RUS_alliance_with_nationalist_poland
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_focus_POL_reach_out_to_underground_state
+		x = -2
+		y = 1
+		relative_position_id = RUS_unite_the_fascist_parties
+		prerequisite = { focus = RUS_unite_the_fascist_parties }
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		
+		cost = 5
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = RUS_national_alliance_of_russian_solidarists
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_RUS_HTC_icon
+		x = 3
+		y = 5
+		relative_position_id = RUS_russian_fascism
+		prerequisite = { focus = RUS_unite_the_fascist_parties }
+		prerequisite = { focus = RUS_new_volunteerism }
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {	
+		}
+		bypass = {
+		}
+		
+		cost = 5
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_manpower = 20000
+			army_experience = 5
+			add_ideas = RUS_nts_spirit
+		}
+	}
+	focus = {
+		id = RUS_shock_battalions
+		icon = GFX_focus_CHL_departemento_de_las_tropas_nacistas_de_asalto
+		x = 1
+		y = 1
+		relative_position_id = RUS_national_alliance_of_russian_solidarists
+		available = {
+			has_government = fascism
+			has_completed_focus = RUS_the_army_of_wrangel
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_national_alliance_of_russian_solidarists
+		}
+	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 10
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+			custom_effect_tooltip = ITA_battaglioni_d_assalto_tt
+			hidden_effect = {
+				set_technology = { blackshirt_assault_battalion_tech = 1 popup = no }
+			}
+			custom_effect_tooltip = RUS_shock_ttp
+			add_to_variable = { RUS_russian_army_breakthrough_factor = 0.05 }
+		}
+	}
+#####################################MILTARY JUNTA
+	focus = {
+		id = RUS_supreme_leadership
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_RUS_POBC_icon #GFX_RUS_napoleon 
+		x = 0
+		y = 1
+		relative_position_id = RUS_second_kornilov_affair
+		mutually_exclusive = { focus = RUS_strengthened_civilian_government }
+		mutually_exclusive = { focus = RUS_russian_fascism }
+		prerequisite = { focus = RUS_second_kornilov_affair }
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {	
+			has_country_flag = RUS_supreme_leadership_chosen 
+		}
+		bypass = {
+		}
+		
+		cost = 5
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			RUS = {
+				country_event = rus.18
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.05
+			}
+			add_ideas = RUS_military_dictatorship_ns
+			#add_ideas = RUS_liberal_opposition
+			set_politics = { ruling_party = neutrality }
+			custom_effect_tooltip = RUS_path_of_military_ttp
+		}
+
+	}
+	focus = {
+		id = RUS_military_dictatorship
+		icon = GFX_RUS_brusilov_once_more
+		prerequisite = { 
+			focus = RUS_supreme_leadership 
+			#focus = RUS_russian_fascism
+		}
+		prerequisite = { focus = RUS_prikaze_no_1 }
+		#prerequisite = { focus = RUS_totalitarian_dictatorship }
+		x = -5
+		y = 2
+		relative_position_id = RUS_supreme_leadership
+		mutually_exclusive = { focus = RUS_totalitarian_dictatorship }
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			#OR = {
+				has_government = neutrality
+				#has_government = fascism
+			#}
+		}
+
+		bypass = {			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		#search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+			swap_ideas = { 
+				remove_idea = RUS_military_dictatorship_ns
+				add_idea = RUS_military_dictatorship_ns2
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_puppet_civilian_government
+		icon = GFX_focus_LAT_suspend_constitution_of_latvia
+		prerequisite = { 
+			focus = RUS_military_dictatorship 
+			focus = RUS_totalitarian_dictatorship 
+			}
+		x = -4
+		y = 1
+		relative_position_id = RUS_military_dictatorship
+
+		cost = 5	
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+			NOT = { has_idea = RUS_liberal_opposition }
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			remove_ideas = RUS_liberal_opposition
+			#swap_ideas = {
+			#	remove_idea = RUS_liberal_opposition
+			#	add_idea = RUS_puppet_civilian_government_ns
+			#}
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.05
+			}
+			add_stability = -0.05 
+		}
+	}
+
+	focus = {
+		id = RUS_introduce_conscription
+		#search_filters = { FOCUS_FILTER_MANPOWER }
+		icon = GFX_focus_generic_manpower
+		x = -2
+		y = 2
+		relative_position_id = RUS_supreme_leadership
+		prerequisite = { focus = RUS_prikaze_no_1 }
+		#prerequisite = { 
+		#	focus = RUS_supreme_leadership
+		#	focus = RUS_russian_fascism 
+		#}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = extensive_conscription
+			#if = {
+			#	limit = { has_idea = disarmed_nation }
+			#	add_ideas = limited_conscription
+			#}
+			#if = {
+			#	limit = { has_idea = volunteer_only }
+			#	add_ideas = limited_conscription
+			#}
+			#if = {
+			#	limit = { has_idea = limited_conscription }
+			#	add_ideas = extensive_conscription
+			#}
+			#add_popularity = {
+			#	ideology = neutrality
+			#	popularity = -0.05
+			#}
+			#add_war_support = -0.05
+		}
+	}
+
+	focus = {
+		id = RUS_OSVAG
+		#search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+		icon = GFX_goal_rus_propaganda
+		x = -5
+		y = 3
+		relative_position_id = RUS_supreme_leadership
+		prerequisite = { focus = RUS_military_dictatorship focus = RUS_totalitarian_dictatorship }
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {	
+			OR = {
+				has_government = neutrality
+				has_government = fascism
+			}
+		}
+		bypass = {
+		}
+		
+		cost = 5
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = anarchism
+				popularity = -0.05
+			}
+			add_war_support = 0.05
+			add_political_power = 35
+		}
+	}
+
+	focus = {
+		id = RUS_new_volunteerism
+		#search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+		icon = GFX_goal_RUS_white_legacy
+		x = -5
+		y = 4
+		relative_position_id = RUS_supreme_leadership
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {	
+			OR = {
+				has_government = neutrality
+				has_government = fascism
+			}
+			NOT = { 
+				has_country_leader = {
+					character = RUS_pyotr_wrangel
+					ruling_only = yes
+				}
+			}
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		#prerequisite = { 
+		#	focus = RUS_OSVAG
+		#}
+		prerequisite = { 
+			focus = RUS_puppet_civilian_government
+			focus = RUS_OSVAG
+		 }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_war_support = 0.05
+			#add_stability = -0.05
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+		}
+	}
+
+#################DEMOCRATIC BRANCH##################################
+	focus = {
+		id = RUS_strengthened_civilian_government
+		icon = GFX_focus_generic_improve_the_administration
+		x = 10
+		y = 2
+		relative_position_id = RUS_state_of_the_nation
+		mutually_exclusive = { focus = RUS_supreme_leadership }
+		mutually_exclusive = { focus = RUS_russian_fascism }
+		#mutually_exclusive = { focus = RUS_crown_a_romanov } #here lies one of the last remnants of the Russian Alaska tree... I wish i could go back.
+
+		available = {
+			has_country_flag = RUS_civilian_gov_chosen		
+			OR = {
+				has_government = neutrality
+				has_government = democratic
+			}
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = RUS_second_kornilov_affair }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			#add_popularity = {
+			#	ideology = democratic
+			#	popularity = 0.05
+			#}
+			#add_stability = 0.05
+			country_event = rus.62
+			add_ideas = RUS_disgruntled_military
+			#RUS_alexander_krivosein = { promote_character = yes }
+			custom_effect_tooltip = RUS_path_of_democracy_ttp
+		}		
+	}
+
+	focus = {
+		id = RUS_provincial_elections
+		icon = GFX_focus_ETH_re-convene_the_parliament #GFX_focus_generic_self_management
+		prerequisite = { 
+			focus = RUS_strengthened_civilian_government 
+			focus = RUS_supreme_leadership
+			}
+		prerequisite = { focus = RUS_prikaze_no_1 }
+		x = -5
+		y = 2
+		relative_position_id = RUS_strengthened_civilian_government
+
+		cost = 5	
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			OR = {
+				has_government = neutrality
+				has_government = democratic
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_political_power = 100
+			IF = { 
+				limit = { 
+					NOT = { 
+						has_country_leader = {
+							character = RUS_alexander_krivosein
+							ruling_only = yes
+						}
+					}
+				}
+				add_ideas = {
+					RUS_alexander_krivosein
+				}
+			}
+			custom_effect_tooltip = RUS_alexander_krivosein_leader_ttp
+		}
+	}
+
+	focus = {
+		id = RUS_dissolve_far_right_organizations
+		icon = GFX_focus_focus_fra_fascist_threat
+		x = -1
+		y = 2
+		relative_position_id = RUS_strengthened_civilian_government
+
+		available = {
+			OR = {
+				has_government = neutrality
+				has_government = democratic
+			}
+		}
+		bypass = {
+
+		}
+		
+		cost = 10
+		prerequisite = { 
+			focus = RUS_strengthened_civilian_government
+		}
+		prerequisite = { 
+			focus = RUS_prikaze_no_1
+		}
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			#add_stability = 0.05
+			add_manpower = -1000
+			army_experience = -10
+			retire_character = RUS_anton_turkul
+			retire_character = RUS_anastasy_vonsyatsky
+			retire_character = RUS_aleksandr_kazembek
+			retire_character = RUS_victor_baydalakov
+			#custom_effect_tooltip = RUS_dissolve_far_right_organizations_ttp
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.05
+			}
+			remove_ideas = RUS_disgruntled_military
+		}
+	}	
+
+	focus = {
+		id = RUS_guchkovs_second_purge
+		icon = GFX_focus_focus_fra_fascist_threat
+		x = 2
+		y = 1
+		relative_position_id = RUS_dissolve_far_right_organizations
+
+		available = {
+			OR = {
+				has_government = neutrality
+				has_government = democratic
+			}
+		}
+		bypass = {
+
+		}
+		
+		cost = 10
+		prerequisite = { 
+			focus = RUS_dissolve_far_right_organizations
+		}
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {			
+		#should temporarily cause low org and whatnot, but after a period of time grant a 5% org buff and a bonus to doctrine and promoting officers
+		#or maybe just merge this with the above focus idk. could be 2 steps - like turkul stops being a general before his exile.
+			add_manpower = -1000
+			army_experience = 20
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.05
+			}
+		}
+	}	
+  
+ 	focus = {
+		id = RUS_voting_rights_for_women
+		icon = GFX_generic_women_women_women#GFX_focus_SOV_womens_fascist_movement
+		prerequisite = { focus = RUS_dissolve_far_right_organizations }
+		x = 0
+		y = 1
+		relative_position_id = RUS_dissolve_far_right_organizations
+
+		cost = 5	
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			OR = {
+				has_government = neutrality
+				has_government = democratic
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_ideas = FRA_womens_suffrage
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+			add_war_support = 0.05
+			IF = { 
+				limit = {
+					has_country_leader = {
+						character = RUS_sofia_panina
+						ruling_only = yes
+					}
+				}
+				add_political_power = 100
+			}
+			custom_effect_tooltip = RUS_sofia_panina_leader_ttp
+		}
+	}
+
+	focus = {
+		id = RUS_equal_representation
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_RUS_russianpeople
+		x = 0
+		y = 1
+		relative_position_id = RUS_provincial_elections
+
+		available = {
+			OR = {
+				has_government = neutrality
+				has_government = democratic
+			}			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_provincial_elections 
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = -50
+			add_stability = 0.05
+			add_manpower = 10000
+			custom_effect_tooltip = RUS_equal_representation_ttp
+		}
+	}
+
+
+	focus = {
+		id = RUS_free_press
+		#search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+		icon = GFX_RUS_free_press
+		x = -1
+		y = 4
+		relative_position_id = RUS_strengthened_civilian_government
+
+		available = {
+			OR = {
+				has_government = neutrality
+				has_government = democratic
+			}			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = RUS_voting_rights_for_women }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_bare_the_torch_of_russian_liberty
+		#search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		x = -3
+		y = 5
+		relative_position_id = RUS_strengthened_civilian_government
+
+		available = {
+			fascism < 0.10
+			OR = {
+				has_government = neutrality
+				has_government = democratic
+			}
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = RUS_restore_the_law_on_zemstvos_and_rural_communities }
+		prerequisite = { focus = RUS_free_press }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 100
+			add_war_support = 0.05
+			#add_stability = 0.05
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+		}
+	}
+
+focus = {
+		id = RUS_limited_cooperation_with_mensheviks
+		icon = GFX_focus_focus_fra_liberte_egalite_solidarite
+		x = 0
+		y = 1
+		relative_position_id = RUS_strengthened_civilian_government
+
+		available = {
+			NOT = {
+				has_government = communism
+				has_government = anarchism
+			}
+		}
+		bypass = {
+
+		}
+		
+		cost = 10
+		prerequisite = { 
+			focus = RUS_strengthened_civilian_government
+		}
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = { #remember to add SR politicians ad advisors here and maybe even more focuses for an SR-russia branch
+			#add a stability and PP debuff if fascism/nonaligned support is high, and the oppsosite if low.
+			IF = { 
+				limit = { fascism > 0.9 }
+				add_stability = -0.1
+				add_political_power = -50
+			}
+			add_manpower = 10000
+			add_popularity = {
+				ideology = communism
+				popularity = 0.08
+			}
+			add_political_power = 25 
+			custom_effect_tooltip = RUS_limited_cooperation_with_mensheviks_ttp
+		}
+	}
+##################################	Unite
+##################################	South
+##################################	Russia
+	focus = {
+		id = RUS_prikaze_no_1
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_RUS_golddocument#GFX_focus_generic_treaty
+		x = 0
+		y = 2
+		relative_position_id = RUS_second_kornilov_affair
+
+		available = {
+			NOT = {
+				has_government = communism
+				has_government = anarchism
+			}			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_strengthened_civilian_government 
+			focus = RUS_supreme_leadership 
+			focus = RUS_russian_fascism
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			hidden_effect = {
+				#SOV_unlock_propaganda_campaign_slot_effect = yes
+				add_ideas = volunteer_only
+				upgrade_economy_law = yes
+            	#add_state_core = 233
+            	#add_state_core = 234
+            	#add_state_core = 926
+            	add_state_core = 218
+            	add_state_core = 915
+            	add_state_core = 914
+            	add_state_core = 238
+            	add_state_core = 245
+            	add_state_core = 265
+			}
+			custom_effect_tooltip = RUS_prikaze_no_1_ttp
+			#custom_effect_tooltip = RUS_prikaze_unlock_ttp
+			add_war_support = 0.03
+			#unlock_decision_category_tooltip = RUS_propaganda_campaigns
+		}
+	}
+
+	focus = {
+		id = RUS_restore_the_law_on_zemstvos_and_rural_communities
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_focus_generic_treaty #focus_FIN_strengthen_military_administration
+		x = 0
+		y = 2
+		relative_position_id = RUS_provincial_elections
+
+		available = {
+			NOT = {
+				has_government = communism
+				has_government = anarchism
+			}			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_equal_representation 
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			custom_effect_tooltip = RUS_law_on_volost_zemstvos_ttp
+			#custom_effect_tooltip = RUS_prikaze_unlock_ttp
+			add_ideas = RUS_law_on_volost_zemstvos
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.05
+			}
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = RUS_the_army_of_wrangel
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_goal_RUS_army
+		x = 0
+		y = 1
+		relative_position_id = RUS_prikaze_no_1
+
+		available = {
+			NOT = {
+				has_government = communism
+				has_government = anarchism
+			}			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_prikaze_no_1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			#country_event = rus.41
+			#custom_effect_tooltip = RUS_the_army_of_wrangel_ttp
+			#add_dynamic_modifier = { modifier = RUS_russian_army_dynamic_modifier }
+			hidden_effect = {
+				add_dynamic_modifier = { modifier = RUS_russian_army_dynamic_modifier }
+				remove_ideas = RUS_mandate_army
+			}
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = RUS_mandate_army
+					add_idea = RUS_russian_army
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_order_of_st_george
+		#search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+		icon = GFX_goal_generic_military_sphere
+		x = 1
+		y = 1
+		relative_position_id = RUS_the_army_of_wrangel
+		prerequisite = { focus = RUS_the_army_of_wrangel }
+
+		ai_will_do = {
+			factor = 1
+		}		
+
+		allow_branch = {
+			has_dlc = "By Blood Alone"
+		}
+
+		available = {		
+			NOT = {
+				has_government = communism
+				has_government = anarchism
+			}
+		}
+		bypass = {
+		}
+		
+		cost = 1
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			custom_effect_tooltip = RUS_order_of_st_george_ttp
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.01
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_order_of_st_nicholas
+		#search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+		icon = GFX_goal_generic_military_sphere
+		x = -1
+		y = 1
+		relative_position_id = RUS_the_army_of_wrangel
+		prerequisite = { focus = RUS_the_army_of_wrangel }
+		ai_will_do = {
+			factor = 1
+		}		
+
+		allow_branch = {
+			has_dlc = "By Blood Alone"
+		}
+ 
+		available = {	
+			has_country_leader = {
+				character = RUS_pyotr_wrangel
+				ruling_only = yes
+			}
+			NOT = {
+				has_government = communism
+				has_government = anarchism
+			}	
+		}
+		bypass = {
+		}
+		
+		cost = 1
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			custom_effect_tooltip = RUS_order_of_st_nicholas_ttp
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.01
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_unite_south_russia #Return Home
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_focus_generic_black_sea_focus
+		x = 0
+		y = 2
+		relative_position_id = RUS_the_army_of_wrangel
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = RUS_the_army_of_wrangel }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_war_support = 0.05
+			add_command_power = 50
+			add_timed_idea = {
+				idea = RUS_south_russian_maneuvures
+				days = 365
+			}
+			custom_effect_tooltip = RUS_unite_south_russia_ttp
+		}
+	}
+
+	focus = {
+		id = RUS_russia_one_and_indivisible
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_RUS_eagle_sword
+
+		x = -2
+		y = 1
+		relative_position_id = RUS_unite_south_russia
+
+		mutually_exclusive = { focus = RUS_united_front }
+
+		available = {
+			NOT = { 
+				has_country_leader = {
+					character = RUS_pyotr_wrangel
+					ruling_only = yes
+				}
+			}
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			#focus = RUS_russian_fascism 
+			focus = RUS_new_volunteerism
+		}
+		prerequisite = { 
+			focus = RUS_unite_south_russia 
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		will_lead_to_war_with = DON
+
+		completion_reward = {
+			add_war_support = 0.05
+			#add_stability = -0.05
+			#custom_effect_tooltip = RUS_focus_not_done
+			add_political_power = 100
+			add_manpower = 1000
+			create_faction = RUS_faction_name
+			custom_effect_tooltip = RUS_russia_one_and_indivisible_ttp
+		}
+
+	}
+
+	focus = {
+		id = RUS_united_front
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_RUS_rusflag #GFX_focus_BUL_support_macedonian_organizations
+		x = 2
+		y = 1
+		relative_position_id = RUS_unite_south_russia
+
+		mutually_exclusive = { focus = RUS_russia_one_and_indivisible }
+
+		available = {
+			#NOT = {
+			#	has_completed_focus = RUS_new_volunteerism
+			#}
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = RUS_unite_south_russia }
+		prerequisite = { focus = RUS_restore_the_law_on_zemstvos_and_rural_communities }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		will_lead_to_war_with = KUB
+
+		completion_reward = {
+			add_stability = 0.05
+			#add_war_support = -0.05
+			add_manpower = 15000
+			create_faction = RUS_faction_name
+			custom_effect_tooltip = RUS_united_front_ttp
+		}
+	}
+	focus = {
+		id = RUS_mission_to_the_don
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_goal_tripartite_pact
+		x = 1
+		y = 2
+		relative_position_id = RUS_unite_south_russia
+
+		available = {
+			DON = { exists = yes }
+
+		}
+		bypass = {
+			DON = { exists = no }
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_united_front 
+			focus = RUS_russia_one_and_indivisible
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		will_lead_to_war_with = DON
+		will_lead_to_war_with = SOV
+
+		completion_reward = { #if DON does not exist, DON whites will pop up anyway - need to code this in!
+			IF = {
+				limit = { DON = { exists = yes }}
+				custom_effect_tooltip = RUS_don_civil_war_ttp
+				DON = {
+					country_event = rus.14
+				}
+				else = { 
+					create_wargoal = {
+    					type = annex_everything
+    					target = SOV
+					}				
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_second_kuban_landing #return home
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_goal_generic_amphibious_assault
+		x = -1
+		y = 2
+		relative_position_id = RUS_unite_south_russia
+
+		available = {
+			KUB = { exists = yes }
+
+		}
+		bypass = {
+			KUB = { exists = no }
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_united_front 
+			focus = RUS_russia_one_and_indivisible
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		will_lead_to_war_with = KUB
+
+		completion_reward = {
+			234 = { add_claim_by = RUS }
+			233 = { add_claim_by = RUS }
+			custom_effect_tooltip = unite_south_russia_polities_ttp
+			IF = {
+				limit = { has_completed_focus = RUS_russia_one_and_indivisible }
+				create_wargoal = {
+    				type = annex_everything #annex_everything
+    				target = KUB
+				}
+			}
+			custom_effect_tooltip = RUS_kuban_ttp
+			IF = {
+				limit = { has_completed_focus = RUS_united_front }
+				KUB = {
+					country_event = rus.54
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_offer_tundutov_astrakhan
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_focus_SOV_bukharan_republic
+		x = 1
+		y = 3
+		relative_position_id = RUS_unite_south_russia
+
+		available = {
+			
+		}
+		bypass = {
+			AND = {
+				KAL = { exists = no }	
+				ATR = { exists = no }	
+			}
+		}
+		
+		cost = 5
+		prerequisite = { focus = RUS_mission_to_the_don }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		will_lead_to_war_with = KAL
+		will_lead_to_war_with = ATR
+
+		completion_reward = {
+			#custom_effect_tooltip = unite_south_russia_polities_ttp
+			custom_effect_tooltip = RUS_offer_tundutov_astrakhan_ttp
+			IF = {
+				limit = { has_completed_focus = RUS_russia_one_and_indivisible }
+				create_wargoal = {
+    				type = annex_everything #annex_everything
+    				target = KAL
+				}
+				create_wargoal = {
+    				type = annex_everything #annex_everything
+    				target = ATR
+				}
+			}
+			IF = { #you get the ATR wargoal via event
+				limit = { 
+					has_completed_focus = RUS_united_front 
+					KAL = { exists = no }
+					}
+				create_wargoal = {
+    				type = annex_everything #annex_everything
+    				target = ATR
+				}
+			}
+			ELSE = {
+				country_event = rus.10
+			}
+		}
+
+	} 
+
+	focus = {
+		id = RUS_reintegrate_the_terek_army
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_goal_generic_position_armies
+		x = -1
+		y = 3
+		relative_position_id = RUS_unite_south_russia
+
+		available = {
+		}
+		bypass = {
+			TER = { exists = no }	
+		}
+		
+		cost = 5
+		prerequisite = { focus = RUS_second_kuban_landing }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		will_lead_to_war_with = TER
+
+		completion_reward = {
+			235 = { add_core_of = RUS }
+			custom_effect_tooltip = unite_south_russia_polities_ttp
+			IF = {
+				limit = { has_completed_focus = RUS_russia_one_and_indivisible }
+				create_wargoal = {
+    				type = annex_everything #annex_everything
+    				target = TER
+				}
+			}
+			IF = {
+				limit = { has_completed_focus = RUS_united_front }
+				TER = { country_event = rus.37 }
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_potential_allies_in_the_caucasus
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_RUS_independence_for_the_caucasus#GFX_goal_generic_improve_relations
+		x = -1
+		y = 4
+		relative_position_id = RUS_unite_south_russia
+
+		available = {
+			OR = {
+				ARM = { exists = yes }
+				GEO = { exists = yes }
+				AZR = { exists = yes }
+			}
+		}
+		bypass = {
+			ARM = { exists = no }
+			GEO = { exists = no }
+			AZR = { exists = no }
+		}
+		mutually_exclusive = { focus = RUS_direct_russian_rule_in_transcaucasia }
+		cost = 5
+		prerequisite = { 
+			focus = RUS_reintegrate_the_terek_army 
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		}
+	}
+
+
+	focus = {
+		id = RUS_direct_russian_rule_in_transcaucasia
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_focus_SOV_transcaucasian_republic
+		x = -4
+		y = 4
+		relative_position_id = RUS_unite_south_russia
+		mutually_exclusive = { focus = RUS_potential_allies_in_the_caucasus }
+		available = {
+			OR = {
+				ARM = { exists = yes }
+				GEO = { exists = yes }
+				AZR = { exists = yes }
+			}
+		}
+		bypass = {
+			ARM = { exists = no }
+			GEO = { exists = no }
+			AZR = { exists = no }
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_reintegrate_the_terek_army 
+		}
+		prerequisite = { 
+			focus = RUS_russia_one_and_indivisible 
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		will_lead_to_war_with = ARM
+		will_lead_to_war_with = AZR
+		will_lead_to_war_with = GEO
+
+		completion_reward = {
+			create_wargoal = {
+    			type = annex_everything#puppet_wargoal_focus
+    			target = ARM
+			}
+			create_wargoal = {
+    			type = annex_everything#puppet_wargoal_focus
+    			target = AZR
+			}
+			create_wargoal = {
+    			type = annex_everything#puppet_wargoal_focus
+    			target = GEO
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_pressure_the_mountainous_republic
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_focus_GRE_a_land_of_mountains
+		x = -1
+		y = 5
+		relative_position_id = RUS_unite_south_russia
+
+		available = {
+			#has_full_control_of_state = 233	
+			CAU = { exists = yes }
+		}
+		bypass = {
+			CAU = { exists = no }
+		}
+		
+		cost = 5
+		prerequisite = { focus = RUS_potential_allies_in_the_caucasus }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		#will_lead_to_war_with = CAU
+
+		completion_reward = {
+			country_event = rus.19
+			custom_effect_tooltip = cau_rus_ttp
+		}
+	}
+
+	focus = {
+		id = RUS_offer_protection_to_armenia
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_goal_generic_defence
+		x = 0
+		y = 1
+		relative_position_id = RUS_pressure_the_mountainous_republic
+
+		available = {
+			ARM = { exists = yes }
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = RUS_pressure_the_mountainous_republic }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = RUS_universal_land_reform
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_RUS_grain_goal
+		x = 3
+		y = 2
+		relative_position_id = RUS_unite_south_russia
+
+		available = {	
+			num_subjects > 0
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_united_front
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			every_other_country = {
+				limit = {
+					is_subject_of = ROOT
+				}
+				add_ideas = RUS_law_on_land
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_federalize_heavy_industry
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_RUS_rifle2
+		x = 3
+		y = 3
+		relative_position_id = RUS_unite_south_russia
+
+		available = {	
+			num_subjects > 0
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_universal_land_reform
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = RUS_south_eastern_union_of_cossack_troops
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_focus_SOV_transcaucasian_republic
+		mutually_exclusive = { focus = RUS_integrate_the_cossacks }
+		x = 3
+		y = 4
+		relative_position_id = RUS_unite_south_russia
+
+		available = {
+			DON = { is_puppet_of = RUS }
+			any_state = { 
+				is_core_of = DON
+				OR = {
+					is_fully_controlled_by = ROOT
+					controller = {
+						is_subject_of = ROOT
+						has_full_control_of_state = PREV
+					}	
+				}			
+			}
+			any_state = { 
+				is_core_of = KUB
+				OR = {
+					is_fully_controlled_by = ROOT
+					controller = {
+						is_subject_of = ROOT
+						has_full_control_of_state = PREV
+					}	
+				}			
+			}
+			any_state = { 
+				is_core_of = TER
+				OR = {
+					is_fully_controlled_by = ROOT
+					controller = {
+						is_subject_of = ROOT
+						has_full_control_of_state = PREV
+					}	
+				}			
+			}
+			any_state = { 
+				is_core_of = KUB
+				OR = {
+					is_fully_controlled_by = ROOT
+					controller = {
+						is_subject_of = ROOT
+						has_full_control_of_state = PREV
+					}	
+				}			
+			}
+			#any_state = { 
+			#	is_core_of = URC
+			#	OR = {
+			#		is_fully_controlled_by = ROOT
+			#		controller = {
+			#			is_subject_of = ROOT
+			#			has_full_control_of_state = PREV
+			#		}	
+			#	}			
+			#}
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = RUS_federalize_heavy_industry }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			DON = {	set_cosmetic_tag = SOUTHEASTUNION }
+			DON = { 
+				annex_country = {
+    				target = KAL
+    				transfer_troops = yes
+				}
+				annex_country = {
+    				target = TER
+    				transfer_troops = yes
+				}
+				annex_country = {
+    				target = KUB
+    				transfer_troops = yes
+				}
+				#annex_country = {
+    			#	target = URC
+    			#	transfer_troops = yes
+				#}
+			}
+			KAL = {
+				every_unit_leader = {
+					set_nationality = DON
+				}
+			}
+			KUB = {
+				every_unit_leader = {
+					set_nationality = DON
+				}
+			}
+			TER = { 
+				every_unit_leader = {
+					set_nationality = DON
+				}
+			}
+			#URC = {
+			#	every_unit_leader = {
+			#		set_nationality = DON
+			#	}
+			#}
+			custom_effect_tooltip = RUS_south_east_union_cores
+			hidden_effect = { 
+				DON = {
+					add_state_core = 234
+					add_state_core = 233
+					add_state_core = 852
+					#add_state_core = 826
+					#add_state_core = 827
+					#add_state_core = 828
+					#add_state_core = 821
+					add_state_core = 232
+					add_state_core = 235
+					add_state_core = 851
+					add_state_core = 237
+					add_state_core = 236
+					add_state_core = 345
+					add_state_core = 345
+					#add_state_core = 406 #URC
+					#add_state_core = 407 #URC
+					#add_state_core = 938 #URC
+					add_state_core = 925
+
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_integrate_the_cossacks
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_focus_POL_cossack_king
+		mutually_exclusive = { focus = RUS_south_eastern_union_of_cossack_troops }
+		x = 5
+		y = 4
+		relative_position_id = RUS_unite_south_russia
+
+		available = {
+			always = no
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = RUS_federalize_heavy_industry }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		#annex the cossacks
+			RUS = { 
+				annex_country = {
+    				target = KAL
+    				transfer_troops = yes
+				}
+				annex_country = {
+    				target = TER
+    				transfer_troops = yes
+				}
+				annex_country = {
+    				target = URC
+    				transfer_troops = yes
+				}
+				annex_country = {
+    				target = DON
+    				transfer_troops = yes
+				}
+			}
+			KAL = {
+				every_unit_leader = {
+					set_nationality = RUS
+				}
+			}
+			TER = { 
+				every_unit_leader = {
+					set_nationality = RUS
+				}
+			}
+			URC = {
+				every_unit_leader = {
+					set_nationality = RUS
+				}
+			}
+			DON = {
+				every_unit_leader = {
+					set_nationality = RUS
+				}
+			}
+			custom_effect_tooltip = RUS_integrate_the_cossacks_ttp
+		}
+	}
+
+	focus = {
+		id = RUS_march_on_tsaritsyn_once_more
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_focus_SOV_patriarch_of_all_russia
+		x = 1
+		y = 4
+		relative_position_id = RUS_unite_south_russia
+
+		available = {
+			VLG = { exists = yes }
+
+		}
+		bypass = {
+			VLG = { exists = no }
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_offer_tundutov_astrakhan 
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		will_lead_to_war_with = VLG
+
+		completion_reward = {
+			create_wargoal = {
+    			type = annex_everything
+    			target = VLG
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_moscow_directive
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_RUS_angel
+		x = 0
+		y = 1
+		relative_position_id = RUS_march_on_tsaritsyn_once_more
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_march_on_tsaritsyn_once_more
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		will_lead_to_war_with = SOV
+
+		completion_reward = {
+			add_threat = 10
+			every_other_country = { 
+				limit = {
+					original_tag = SOV
+					has_government = anarchism
+				}
+				#hidden_effect = { add_civil_war_target = PREV }
+				RUS = {
+					#add_civil_war_target = PREV
+					declare_war_on = {
+					    target = PREV
+					    type = civil_war
+					}
+				}
+			}
+			every_other_country = { 
+				limit = {
+					original_tag = SOV
+					has_government = communism
+				}
+				#hidden_effect = { add_civil_war_target = PREV }
+				RUS = {
+					#add_civil_war_target = PREV
+					declare_war_on = {
+					    target = PREV
+					    type = civil_war
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_resurrection
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_RUS_resurrection
+		x = 0
+		y = 3
+		relative_position_id = RUS_march_on_tsaritsyn_once_more
+
+		available = {
+			SOV = {
+				exists = no
+			}
+			owns_state = 195
+			owns_state = 219
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_moscow_directive
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			country_event = rus.63 #re-name soviet cities
+			set_cosmetic_tag = SOV_PROVISIONAL_neutrality
+			#TOM either puppet as Siberian Republic or just grant autonomy state modifiers and annex
+			#TOB - annex but grant autonomy state modifiers
+			#VLA depends if they are independent and share ideology
+			add_ideas = RUS_victors_of_the_civil_war
+			every_state  = { 
+				limit = { is_core_of = SOV }
+				add_core_of = RUS
+			}
+			every_state  = { 
+				limit = { is_core_of = URC }
+				add_core_of = RUS
+			}
+			every_state  = { 
+				limit = { is_core_of = TOM }
+				add_core_of = RUS
+			}
+			every_state  = { 
+				limit = { is_core_of = VLA }
+				add_core_of = RUS
+			}
+			every_state  = { 
+				limit = { is_core_of = VGE }
+				add_core_of = RUS
+			}
+			every_state  = { 
+				limit = { is_core_of = TER }
+				add_core_of = RUS
+			}
+			every_state  = { 
+				limit = { is_core_of = KAL }
+				add_core_of = RUS
+			}
+			#annex_country = {
+			#    target = TOM
+			#    transfer_troops = yes
+			#}
+			add_ideas = RUS_communist_wreckers
+        	set_capital = {
+                state = 195
+                remember_old_capital = no
+            }
+		}
+	}
+
+	focus = {
+		id = RUS_inspect_soviet_depots
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_focus_FIN_weapon_caches
+		x = -1
+		y = 1
+		relative_position_id = RUS_resurrection
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_resurrection
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+            add_equipment_to_stockpile = {
+                type = infantry_equipment_0
+                amount = 15000
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = infantry_equipment_1
+                amount = 5000
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment_1
+                amount = 500
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment_1
+                amount = 500
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = motorized_equipment_1
+                amount = 500
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = train_equipment_1
+                amount = 100
+                producer = SOV
+            }
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "No Step Back"
+					}
+				}
+				add_equipment_to_stockpile = { type = light_tank_equipment_1 amount = 550 producer = SOV }
+				add_equipment_to_stockpile = { type = light_tank_equipment_2 amount = 50 producer = SOV }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 450 producer = SOV variant_name = "T-26TU mod. 1933" }
+				add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 100 producer = SOV variant_name = "BT-5" }
+				add_equipment_to_stockpile = { type = light_tank_chassis_2 amount = 50 producer = SOV variant_name = "BT-7" }				
+				add_equipment_to_stockpile = { type = medium_tank_chassis_0 amount = 200 producer = SOV variant_name = "T-28" }
+				add_equipment_to_stockpile = { type = heavy_tank_chassis_0 amount = 60 producer = SOV variant_name = "T-30" }
+			}
+            IF = {
+                limit = {
+                    has_dlc = "La Resistance"
+                }
+                add_equipment_to_stockpile = {
+                    type = gw_armored_car_equipment
+                    amount = 200
+                    producer = SOV
+                }
+            }
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
+					}
+				}
+				add_equipment_to_stockpile = { type = tac_bomber_equipment_0 amount = 50 producer = SOV }
+				add_equipment_to_stockpile = { type = fighter_equipment_0 amount = 100 producer = SOV variant_name = "I-15"}
+				add_equipment_to_stockpile = { type = fighter_equipment_1 amount = 50 producer = SOV variant_name = "I-16"}
+			}
+			else = {
+				add_equipment_to_stockpile = { type = medium_plane_airframe_1 amount = 50 producer = SOV variant_name = "DB-3"}
+				add_equipment_to_stockpile = { type = small_plane_airframe_0 amount = 100 producer = SOV variant_name = "I-15"}
+				add_equipment_to_stockpile = { type = small_plane_airframe_1 amount = 50 producer = SOV variant_name = "I-16"}
+			}
+			add_command_power = -100
+		}
+	}
+
+	focus = {
+		id = RUS_restore_the_russian_empire
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_RUS_imperial_eagle
+		x = -8
+		y = 1
+		relative_position_id = RUS_resurrection
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_resurrection
+		}
+		prerequisite = { 
+			focus = RUS_national_alliance_of_russian_solidarists
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = RUS_election
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_focus_FIN_weapon_caches
+		x = 6
+		y = 1
+		relative_position_id = RUS_resurrection
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_resurrection
+		}
+		prerequisite = { 
+			focus = RUS_bare_the_torch_of_russian_liberty
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		}
+	}
+
+
+	focus = {
+		id = RUS_reclaim_ukraine_and_belarus
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_focus_SOV_free_Rutenia
+		x = 0
+		y = 1
+		relative_position_id = RUS_restore_the_russian_empire
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_restore_the_russian_empire
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		will_lead_to_war_with = UKR
+		will_lead_to_war_with = BLR
+
+		completion_reward = {
+			create_wargoal = {
+    			type = annex_everything
+    			target = UKR
+			}
+			create_wargoal = {
+    			type = annex_everything
+    			target = BLR
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_balts
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_focus_LAT_threat_on_our_border
+		x = -2
+		y = 1
+		relative_position_id = RUS_restore_the_russian_empire
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_restore_the_russian_empire
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		will_lead_to_war_with = EST
+		will_lead_to_war_with = LIT
+		will_lead_to_war_with = LAT
+
+		completion_reward = {
+			create_wargoal = {
+    			type = annex_everything
+    			target = EST
+			}
+			create_wargoal = {
+    			type = annex_everything
+    			target = LIT
+			}
+			create_wargoal = {
+    			type = annex_everything
+    			target = LAT
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_finland
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_focus_generic_attack_finland
+		x = -4
+		y = 1
+		relative_position_id = RUS_restore_the_russian_empire
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_restore_the_russian_empire
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		will_lead_to_war_with = FIN
+
+		completion_reward = {
+			create_wargoal = {
+    			type = annex_everything
+    			target = FIN
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_western_stepp_expidition
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		icon = GFX_focus_SOV_restore_cossack_units
+		x = 3
+		y = 5
+		relative_position_id = RUS_unite_south_russia
+
+		available = {
+			217 = {
+				OR = {
+					is_fully_controlled_by = ROOT
+					controller = {
+						is_subject_of = ROOT
+						has_full_control_of_state = PREV
+					}
+				}
+			}
+			236 = {
+				OR = {
+					is_fully_controlled_by = ROOT
+					controller = {
+						is_subject_of = ROOT
+						has_full_control_of_state = PREV
+					}
+				}
+			}
+			237 = {
+				OR = {
+					is_fully_controlled_by = ROOT
+					controller = {
+						is_subject_of = ROOT
+						has_full_control_of_state = PREV
+					}
+				}
+			}
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_march_on_tsaritsyn_once_more
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		will_lead_to_war_with = URC
+
+		completion_reward = {
+			TCS = {
+				country_event = rus.33
+			}
+			create_wargoal = {
+    			type = annex_everything
+    			target = BUY
+			}
+			RUS = {
+				country_event = rus.27
+			}
+				build_railway = { #
+						level = 2 
+						start_state = 217
+						target_state = 236
+				}
+			build_railway = {
+				level = 3
+				path = { 9753 11736 }
+			}
+			236 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+	focus = {
+        id = RUS_reopen_sevastopol_shipyard 
+        icon = GFX_focus_POL_develop_polish_shipbuilding 
+        x = 15
+        y = 0
+        available = {
+        	has_full_control_of_state = 137
+        	NOT = { has_idea = RUS_the_crimean_mandate }            
+        }
+        bypass = {
+
+        }
+		cost = 5     
+        
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        completion_reward = {
+			add_equipment_to_stockpile = { type = convoy amount = 16 producer = RUS }
+			navy_experience = 15
+            137 = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = dockyard
+                    level = 1
+                    instant_build = yes
+                }
+                add_building_construction = {
+                    type = naval_base
+                    level = 1
+                    province = 9417
+                    instant_build = yes
+                }
+            }        
+        }
+        ai_will_do = {
+            factor = 1    
+    	}        
+	}
+
+	focus = {
+        id = RUS_crimean_merchant_fleet
+        icon = GFX_focus_generic_merchant_fleet#
+        x = -5
+        y = 1
+        relative_position_id = RUS_reopen_sevastopol_shipyard
+        available = {
+            
+        }
+        bypass = {
+
+        }
+        
+		cost = 5
+        prerequisite = { 
+            focus = RUS_reopen_sevastopol_shipyard
+            focus = RUS_revalue_the_ruble
+        }
+        
+        
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        completion_reward = {
+			add_equipment_to_stockpile = { 
+				type = convoy
+				amount = 20 
+				producer = FRA
+			}
+			add_equipment_to_stockpile = { 
+				type = convoy
+				amount = 30 
+				producer = ENG
+			}
+			IF = { limit = { has_dlc = "Arms Against Tyranny" }
+				add_equipment_subsidy = {
+					cic = 500
+					equipment_type = convoy
+					seller_tags = { FRA } 
+				}
+				add_equipment_subsidy = {
+					cic = 500
+					equipment_type = convoy
+					seller_tags = { ENG } 
+				}
+			}
+        }
+        ai_will_do = {
+            factor = 1    
+    	}        
+	}
+
+	focus = {
+        id = RUS_naval_academy
+        icon = GFX_goal_RUS_navy#GFX_focus_POL_colonial_league
+        x = 0
+        y = 1
+        relative_position_id = RUS_reopen_sevastopol_shipyard
+        available = {
+            
+        }
+        bypass = {
+
+        }
+        
+		cost = 5
+        prerequisite = { 
+            focus = RUS_reopen_sevastopol_shipyard
+        }
+        
+        
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        completion_reward = {
+			swap_ideas = {
+				remove_idea = RUS_obsolete_navy
+				add_idea = RUS_obsolete_navy_reform
+			}
+        	navy_experience = 25
+			add_tech_bonus = {
+				name = ships_bonus
+				bonus = 0.5
+				uses = 1
+				category = naval_equipment
+			}
+        }
+        ai_will_do = {
+            factor = 1    
+    	}        
+	}
+
+	focus = {
+        id = RUS_coastal_defence
+        icon = GFX_goal_generic_navy_anti_submarine
+        x = -2
+        y = 2
+        relative_position_id = RUS_reopen_sevastopol_shipyard
+        available = {
+            
+        }
+        bypass = {
+
+        }
+        mutually_exclusive = {
+        	focus = RUS_battleship_focus
+        }       
+		cost = 5
+        prerequisite = { 
+            focus = RUS_naval_academy
+        }
+        
+        
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        completion_reward = {
+			navy_experience = 15
+			if = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				set_technology = { coastal_defense_ships = 1 popup = yes }
+			}
+
+			add_tech_bonus = {
+				name = RUS_coastal_defence
+				ahead_reduction = 1
+				uses = 1
+				category = ss_tech
+			}
+        }
+        ai_will_do = {
+            factor = 1    
+    	}        
+	}
+
+	focus = {
+		id = RUS_mine_warfare
+
+		icon = GFX_focus_generic_mine_warfare
+		prerequisite = { focus = RUS_coastal_defence focus = RUS_battleship_focus }
+		x = 1
+		y = 1
+		relative_position_id = RUS_coastal_defence
+		cost = 10
+
+		available = {
+
+		}
+		
+		#search_filters = {FOCUS_FILTER_RESEARCH}
+
+		completion_reward = {
+			add_ideas = SOV_mine_warfare_ns
+
+			add_tech_bonus = {
+				name = SOV_mine_warfare
+				bonus = 1.0
+				uses = 2
+				category = naval_mines
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_refit_and_repair_yards
+
+		icon = GFX_focus_generic_cruiser2
+		prerequisite = { focus = RUS_coastal_defence focus = RUS_battleship_focus }
+		x = 3
+		y = 1
+		relative_position_id = RUS_coastal_defence
+		cost = 10
+
+		available = {
+
+		}
+		
+		#search_filters = {FOCUS_FILTER_RESEARCH}
+
+		completion_reward = {
+			#add_ideas = warship_refit_shipyards
+			swap_ideas = {
+				remove_idea = RUS_obsolete_navy_reform
+				add_idea = RUS_obsolete_navy_reform2
+			}
+		}
+	}
+
+	focus = {
+        id = RUS_battleship_focus
+        icon = GFX_goal_generic_navy_battleship
+        x = 2
+        y = 2
+        relative_position_id = RUS_reopen_sevastopol_shipyard
+        available = {
+            
+        }
+        bypass = {
+
+        }
+
+        mutually_exclusive = {
+        	focus = RUS_coastal_defence
+        }
+        
+		cost = 5
+        prerequisite = { 
+            focus = RUS_naval_academy
+        }
+        
+        
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = RUS_battleship_focus
+				bonus = 1.0
+				uses = 1
+				category = bb_tech
+			}
+			add_tech_bonus = {
+				name = RUS_battleship_focus
+				bonus = 1.0
+				uses = 1
+				category = ca_tech
+				category = cl_tech
+			}
+        }
+        ai_will_do = {
+            factor = 1    
+    	}        
+	}
+
+	focus = {
+        id = RUS_fate_of_the_predreadnoughts
+        icon = GFX_focus_hol_legacy_of_the_de_zeven_provincien_mutiny
+        x = 2
+        y = 1
+        relative_position_id = RUS_reopen_sevastopol_shipyard
+        available = {
+            
+        }
+        bypass = {
+
+        }    
+		cost = 5
+        prerequisite = { 
+            focus = RUS_reopen_sevastopol_shipyard
+        }
+        
+        
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        completion_reward = {
+        	custom_effect_tooltip = RUS_dreadnoughts_ttp
+        	set_country_flag = has_rostislav
+        	set_country_flag = has_tri
+        	set_country_flag = has_dvenadsat
+        	set_country_flag = has_potemkin
+        	#options: (probably via descisions)
+        	#scrap 2 ships: adds 1 steel to crimea, gain small amount of arty and AA
+        	#sell a ship: sends event to ROM, BUL, TUR, GEO, and UKR to see if they wan to buy. RUS can deny sale.
+        	#musuem the Potemkin to france: gain the same 'sold ship' spirit bonus as the above.
+        	#activate the ship into military service
+        }
+        ai_will_do = {
+            factor = 1    
+    	}        
+	}
+
+	focus = {
+		id = RUS_reinforce_southern_naval_bases
+
+		icon = GFX_focus_SOV_reinforce_southern_naval_bases
+		prerequisite = { focus = RUS_refit_and_repair_yards }
+		x = -3
+		y = 1
+		relative_position_id = RUS_refit_and_repair_yards
+		cost = 5
+
+		available = {
+			OR = {
+				192 = { #ODESSA
+					is_owned_and_controlled_by = ROOT
+				}
+				137 = { #CRIMEA
+					is_owned_and_controlled_by = ROOT
+				}
+				218 = { #ROSTOV
+					is_owned_and_controlled_by = ROOT
+				}
+				234 = { #KRASNODAR
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+		}
+		
+		#search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			if = { #ODESSA - Improved naval base + AA + coastal fort
+				limit = {
+					has_full_control_of_state = 192
+				}
+				192 = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+						province = 11670
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						instant_build = yes
+						province = 11670
+					}
+					set_state_flag = RUS_naval_bases_reinforced_flag
+				}
+			}
+			if = { #SEVASTOPOL (CRIMEA) - Extra AA + coastal fort
+				limit = {
+					has_full_control_of_state = 137
+				}
+				137 = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 3
+						instant_build = yes
+						province = 3686
+					}
+					set_state_flag = RUS_naval_bases_reinforced_flag
+				}
+			}
+			if = { #ROSTOV - Improved naval base + AA + coastal fort
+				limit = {
+					has_full_control_of_state = 218
+				}
+				218 = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+						province = 9417
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						instant_build = yes
+						province = 9417
+					}
+					set_state_flag = RUS_naval_bases_reinforced_flag
+				}
+			}
+			if = { #Novorossyk - Improved naval base + AA + coastal fort
+				limit = {
+					has_full_control_of_state = 926
+				}
+				234 = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+						province = 719
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						instant_build = yes
+						province = 719
+					}
+					set_state_flag = RUS_naval_bases_reinforced_flag
+				}
+			}
+			 custom_effect_tooltip = RUS_reinforce_southern_naval_bases_ttp
+		}
+	}
+
+	focus = {
+		id = RUS_reinforce_western_naval_bases
+
+		icon = GFX_focus_SOV_reinforce_western_naval_bases
+		prerequisite = { focus = RUS_refit_and_repair_yards }
+		x = -1
+		y = 1
+		relative_position_id = RUS_refit_and_repair_yards
+		cost = 5
+
+		available = {
+			195 = { #LENINGRAD
+				is_owned_and_controlled_by = ROOT
+			}
+		}
+		
+		#search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			195 = { #LENINGRAD
+				if = {
+					limit = {
+						free_building_slots = {
+							building = dockyard
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+					province = 3151
+				}
+				if = {
+					limit = {
+						ROOT = { has_tech = radio_detection }
+						radar_station < 1
+					}
+					add_building_construction = {
+						type = radar_station
+						level = 1
+						instant_build = yes
+					}
+				}
+				else = {
+					custom_effect_tooltip = RUS_reinforce_western_naval_bases_radar_tt
+				}
+				set_state_flag = RUS_naval_bases_reinforced_flag
+			}
+			
+			custom_effect_tooltip = RUS_reinforce_western_naval_bases_other_states_tt
+
+			if = { #HELSINKI (UUSIMAA)
+				limit = {
+					has_full_control_of_state = 111
+				}
+				111 = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						instant_build = yes
+						province = 11105
+					}
+					set_state_flag = RUS_naval_bases_reinforced_flag
+				}
+			}
+			if = { #TALLIN (HARNU)
+				limit = {
+					has_full_control_of_state = 812
+				}
+				812 = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						instant_build = yes
+						province = 3152
+					}
+					set_state_flag = RUS_naval_bases_reinforced_flag
+				}
+			}
+			if = { #RIGA
+				limit = {
+					has_full_control_of_state = 808
+				}
+				808 = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						instant_build = yes
+						province = 9340
+					}
+					set_state_flag = RUS_naval_bases_reinforced_flag
+				}
+			}
+			if = { #PALANGA (ŽEMAITIJA)
+				limit = {
+					has_full_control_of_state = 189
+				}
+				189 = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						instant_build = yes
+						province = 6314
+					}
+					set_state_flag = RUS_naval_bases_reinforced_flag
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_reinforce_northern_naval_bases
+
+		icon = GFX_focus_SOV_reinforce_northern_naval_bases
+		prerequisite = { focus = RUS_refit_and_repair_yards }
+		x = 1
+		y = 1
+		relative_position_id = RUS_refit_and_repair_yards
+		cost = 5
+
+		available = {
+			OR = {
+				213 = { #MURMANSK
+					is_owned_and_controlled_by = ROOT
+				}
+				214 = { #ARKHANGELSK
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+		}
+		
+		#search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			if = { #MURMANSK - Improved naval base + AA + coastal fort
+				limit = {
+					has_full_control_of_state = 213
+				}
+				213 = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+						province = 3134
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						instant_build = yes
+						province = 3134
+					}
+					set_state_flag = RUS_naval_bases_reinforced_flag
+				}
+			}
+			if = { #ARKHANGELSK - Improved naval base + Severodvinsk Naval Base + AA + coastal fort
+				limit = {
+					has_full_control_of_state = 214
+				}
+				214 = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 1
+						instant_build = yes
+						province = 3338
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+						province = 312
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						instant_build = yes
+						province = 3338
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						instant_build = yes
+						province = 312
+					}
+					set_state_flag = RUS_naval_bases_reinforced_flag
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_reinforce_eastern_naval_bases
+
+		icon = GFX_focus_SOV_reinforce_eastern_naval_bases
+		prerequisite = { focus = RUS_refit_and_repair_yards }
+		x = 3
+		y = 1
+		relative_position_id = RUS_refit_and_repair_yards
+		cost = 5
+
+		available = {
+			OR = {
+				408 = { #VLADIVOSTOK
+					is_owned_and_controlled_by = ROOT
+				}
+				409 = { #KHABAROVSK
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+		}
+		
+		#search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			if = { #VLADIVOSTOK - Improved naval base + AA + coastal fort
+				limit = {
+					has_full_control_of_state = 408
+				}
+				408 = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+						province = 957
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						instant_build = yes
+						province = 957
+					}
+					set_state_flag = RUS_naval_bases_reinforced_flag
+				}
+			}
+			if = { #VLADIVOSTOK - Improved naval base + AA + coastal fort
+				limit = {
+					has_full_control_of_state = 409
+				}
+				409 = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = air_base
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+						province = 9604
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						instant_build = yes
+						province = 9604
+					}
+					set_state_flag = RUS_naval_bases_reinforced_flag
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_expand_shipbuilding_plants
+
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = RUS_reinforce_western_naval_bases focus = RUS_reinforce_northern_naval_bases focus = RUS_reinforce_southern_naval_bases focus = RUS_reinforce_eastern_naval_bases }
+		x = 1
+		y = 1
+		relative_position_id = RUS_reinforce_northern_naval_bases
+		cost = 10
+
+		available = {
+
+		}
+		
+		#search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			custom_effect_tooltip = SOV_expand_shipbuilding_plants_tt
+			every_owned_state = {
+				limit = {
+					has_state_flag = RUS_naval_bases_reinforced_flag
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				if = {
+					limit = {
+						state = 195 #LENINGRAD - Gets 2 dockyards instead of 1
+						free_building_slots = {
+							building = dockyard
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+				else = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			
+		}
+	}
+
+	focus = {
+		id = RUS_the_mikhail_sablin
+
+		icon = GFX_focus_SWE_Vasa_II
+		prerequisite = { focus = RUS_expand_shipbuilding_plants }
+		x = 1
+		y = 1
+		relative_position_id = RUS_expand_shipbuilding_plants
+		cost = 10
+
+		available = {
+
+		}
+		
+		#search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+		}
+	}
+
+
+### #  # ###  #  #  ## ### ###  #   #     ### ###  ### ###             
+ #  ## # #  # #  # #    #  #  #  # #       #  #  # #   #       {~._.~} 
+ #  # ## #  # #  #  #   #  ###    #        #  ###  ##  ##       ( Y )  
+ #  #  # #  # #  #   #  #  #  #   #        #  #  # #   #       ()~*~() 
+### #  # ###   ##  ##   #  #  #   #        #  #  # ### ###     (_)-(_) 
+
+	focus = {
+		id = RUS_revalue_the_ruble
+		icon = GFX_goal_rus_single_currency#GFX_focus_fra_devalue_the_franc
+		x = 3
+		y = 0
+		cost = 5
+		ai_will_do = {
+			base = 5
+		}
+
+		#search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_political_power = 50
+			remove_ideas = RUS_devalued_ruble
+		}
+	}
+
+
+	focus = {
+		id = RUS_expand_the_crimean_evacuation_stockpiles
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = RUS_revalue_the_ruble }
+		x = -3
+		y = 1
+		relative_position_id = RUS_revalue_the_ruble
+		cost = 10
+		ai_will_do = {
+			base = 1
+		}
+
+		#search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {	
+			set_technology = {
+			    fuel_refining = 1
+			}
+            random_controlled_state = {
+				prioritize = { 137 }
+               	limit = {
+                    free_building_slots = {
+                       	building = fuel_silo
+                        size > 0
+                        include_locked = yes
+                    }
+                }
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = fuel_silo
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }                    
+    }	
+
+	focus = {
+		id = RUS_lignite_liquefaction
+		icon = GFX_focus_generic_offshore_oil_rig
+		prerequisite = { focus = RUS_expand_the_crimean_evacuation_stockpiles }
+		x = -3
+		y = 2
+		relative_position_id = RUS_revalue_the_ruble
+		cost = 10
+		ai_will_do = {
+			base = 1
+		}
+
+		#search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {	
+			set_technology = {
+			    synth_oil_experiments = 1
+			}
+            random_controlled_state = {
+				prioritize = { 137 }
+               	#limit = {
+                #    free_building_slots = {
+                #       	building = synthetic_refinery
+                #        size > 0
+                #        include_locked = yes
+                #    }
+                #}
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = synthetic_refinery
+                    level = 1
+                    instant_build = yes
+                }
+				add_resource = {
+					type = oil
+					amount = 2
+				}
+            }
+        }                    
+    }	
+    
+
+	focus = {
+		id = RUS_support_the_peasantry
+		icon = GFX_focus_generic_concessions
+		prerequisite = { focus = RUS_revalue_the_ruble }
+		#mutually_exclusive = { focus = RUS_force_the_farmers_into_factories }
+		x = 2
+		y = 1
+		relative_position_id = RUS_revalue_the_ruble
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		#search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_stability = 0.05
+			swap_ideas = {
+				remove_idea = RUS_law_on_land
+				add_idea = RUS_law_on_land1
+			}
+		}
+	}
+
+
+	focus = {
+		id = RUS_study_foreign_machine_tools
+		icon = GFX_RUS_gears #GFX_focus_SOV_organize_wreckers 
+		prerequisite = { focus = RUS_crimean_merchant_fleet }
+		#mutually_exclusive = { focus = RUS_support_the_peasantry }
+		x = 6
+		y = 2
+		relative_position_id = RUS_revalue_the_ruble
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+		}
+
+		#search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 2
+				category = cat_production
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+		}
+	}	
+
+	focus = {
+		id = RUS_open_foreign_subsidized_factories
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = RUS_study_foreign_machine_tools } #revalue
+		x = 0
+		y = 2
+		relative_position_id = RUS_study_foreign_machine_tools
+		cost = 10
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+			AND = { 
+				ENG = { exists = no }
+				FRA = { exists = no }
+				GER = { exists = no }
+				USA = { exists = no }
+			}
+		}
+
+		available = {
+			num_of_controlled_states > 3 
+		}
+
+		#search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			custom_effect_tooltip = RUS_open_foreign_subsidized_factories_tt
+			hidden_effect = {
+				if = { 
+					limit = { 
+						country_exists = GER
+						GER = { has_opinion = { target = RUS value > 80 } } 
+					}
+					random_controlled_state = {
+						limit = {
+							free_building_slots = {
+								building = arms_factory
+								size > 0
+								include_locked = yes
+							}
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+					}
+					random_controlled_state = {
+						limit = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 0
+								include_locked = yes
+							}
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+				if = { 
+					limit = { 
+						country_exists = FRA
+						FRA = { has_opinion = { target = RUS value > 80 } } 
+					}
+					random_controlled_state = {
+						limit = {
+							free_building_slots = {
+								building = arms_factory
+								size > 0
+								include_locked = yes
+							}
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+					}
+					random_controlled_state = {
+						limit = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 0
+								include_locked = yes
+							}
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+				if = { 
+					limit = { 
+						country_exists = ENG
+						ENG = { has_opinion = { target = RUS value > 80 } } 
+					}
+					random_controlled_state = {
+						limit = {
+							free_building_slots = {
+								building = arms_factory
+								size > 0
+								include_locked = yes
+							}
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+					}
+					random_controlled_state = {
+						limit = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 0
+								include_locked = yes
+							}
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+				if = { 
+					limit = { 
+						country_exists = USA
+						USA = { has_opinion = { target = RUS value > 80 } } 
+					}
+					random_controlled_state = {
+						limit = {
+							free_building_slots = {
+								building = arms_factory
+								size > 0
+								include_locked = yes
+							}
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+					}
+					random_controlled_state = {
+						limit = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 0
+								include_locked = yes
+							}
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+			}
+		}
+	}		
+
+	focus = {
+		id = RUS_organize_agriculture
+		icon = GFX_goal_OTT_Land_Reform
+		prerequisite = { focus = RUS_support_the_peasantry }
+		x = 1
+		y = 1
+		relative_position_id = RUS_support_the_peasantry
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			OR = { 
+				AND = {
+					245 = {
+						OR = {
+							is_fully_controlled_by = ROOT
+							controller = {
+								is_subject_of = ROOT
+								has_full_control_of_state = PREV
+							}
+						}
+					}
+					238 = {
+						OR = {
+							is_fully_controlled_by = ROOT
+							controller = {
+								is_subject_of = ROOT
+								has_full_control_of_state = PREV
+							}
+						}
+					}
+				}
+				234 = {
+					OR = {
+						is_fully_controlled_by = ROOT
+						controller = {
+							is_subject_of = ROOT
+							has_full_control_of_state = PREV
+						}
+					}
+				}
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		#search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			IF = { limit = { has_idea = RUS_grain_import_reliance }
+				remove_ideas = RUS_grain_import_reliance
+			}
+			add_manpower = 10000
+		}
+	}	
+
+	focus = {
+		id = RUS_nationalize_industryI
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { 
+			focus = RUS_revalue_the_ruble 
+		}
+		x = -1
+		y = 1
+		relative_position_id = RUS_revalue_the_ruble
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			num_of_civilian_factories > 5
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		#search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = -25
+			add_ideas = RUS_nationalize1
+		}
+	}
+
+	focus = {
+		id = RUS_nationalize_industryII
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = RUS_nationalize_industryI }
+		x = 0
+		y = 1
+		relative_position_id = RUS_nationalize_industryI
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			NOT = {
+				has_idea = RUS_weak_industrial_base
+			}
+			num_of_civilian_factories > 10
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		#search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = -25
+			swap_ideas = {
+				remove_idea = RUS_nationalize1
+				add_idea = RUS_nationalize2
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_nationalize_industryIII
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = RUS_nationalize_industryII }
+		x = 0
+		y = 2
+		relative_position_id = RUS_nationalize_industryI
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			num_of_civilian_factories > 30
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		#search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = -25
+			swap_ideas = {
+				remove_idea = RUS_nationalize2
+				add_idea = RUS_nationalize3
+			}
+		}
+	}	
+
+	focus = {
+		id = RUS_till_north_tavaria
+		icon = GFX_focus_SOV_breadbasket_of_the_union
+		prerequisite = { focus = RUS_support_the_peasantry }
+		x = -1
+		y = 1
+		relative_position_id = RUS_support_the_peasantry
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			196 = {
+				OR = {
+					is_fully_controlled_by = ROOT
+					controller = {
+						is_subject_of = ROOT
+						has_full_control_of_state = PREV
+					}
+				}
+			}
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		#search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			IF = { limit = { has_idea = RUS_grain_import_reliance }
+				remove_ideas = RUS_grain_import_reliance
+			}
+			#add_stability = 0.02
+			#add_war_support = 0.01
+			196 = { 
+				add_compliance = 15
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_invite_the_exiles_i
+		icon = GFX_goal_PAL_Russian_Refugees
+		prerequisite = { 
+			focus = RUS_till_north_tavaria 
+			focus = RUS_organize_agriculture 
+			}
+		x = 0
+		y = 2
+		relative_position_id = RUS_support_the_peasantry
+		cost = 10
+		ai_will_do = {
+			base = 1
+		}
+
+		available = { 
+			NOT = { has_idea = RUS_grain_import_reliance }
+		}
+
+		#search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_timed_idea = {
+				idea = RUS_exiles
+				days = 365
+			}
+			add_war_support = 0.05
+			random_controlled_state = {
+		 		prioritize = { 218 } #rostov
+		 		add_manpower = 20000
+			}
+			random_controlled_state = {
+		 		prioritize = { 234 } #Ekaterinodar
+		 		add_manpower = 80000
+			}
+			random_controlled_state = {
+		 		prioritize = { 137 } #crimea
+		 		add_manpower = 70000
+			}
+			hidden_effect = {
+				ETH = {
+					set_nationality = {
+					    target_country = RUS
+					    character = ETH_feodor_konovalov
+					}
+				}
+			}
+			show_unit_leaders_tooltip = MUR_vladimir_marushevsky
+			show_unit_leaders_tooltip = MUR_pyotr_von_glazenap
+			custom_effect_tooltip = RUS_feodor_ttp
+			custom_effect_tooltip = RUS_juan_belaieff_ttp
+			custom_effect_tooltip = RUS_denikin_ttp
+			#descision to re-add denikin: cannot be fascist, costs PP if Wrangel is leader.
+		}
+	}
+
+	focus = {
+		id = RUS_invite_the_exiles_ii
+		icon = GFX_focus_research2
+		prerequisite = { focus = RUS_invite_the_exiles_i }
+		x = 0
+		y = 3
+		relative_position_id = RUS_support_the_peasantry
+		cost = 10
+		ai_will_do = {
+			base = 1
+		}
+
+		#search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_research_slot = 1
+			random_controlled_state = {
+		 		prioritize = { 137 } #crimea
+		 		add_manpower = 10000
+			}
+			random_controlled_state = {
+		 		prioritize = { 234 } #yekaterinodar
+		 		add_manpower = 10000
+			}
+			random_controlled_state = {
+		 		prioritize = { 218 } #rostov
+		 		add_manpower = 10000
+			}
+		}
+	}
+	focus = {
+		id = RUS_black_sea_fishing
+		icon = GFX_RUS_fishboat
+		prerequisite = { focus = RUS_crimean_merchant_fleet }
+		x = 1
+		y = 1
+		relative_position_id = RUS_crimean_merchant_fleet
+		cost = 10
+		ai_will_do = {
+			base = 1
+		}
+        available = {
+			218 = {
+				OR = {
+					is_fully_controlled_by = ROOT
+					controller = {
+						is_subject_of = ROOT
+						has_full_control_of_state = PREV
+					}
+				}
+			}
+			137 = {
+				OR = {
+					is_fully_controlled_by = ROOT
+					controller = {
+						is_subject_of = ROOT
+						has_full_control_of_state = PREV
+					}
+				}
+			}            
+        }
+		#search_filters = { FOCUS_FILTER_INDUSTRY }
+        completion_reward = {
+			add_equipment_to_stockpile = { type = convoy amount = 10 producer = ROOT }
+            218 = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = naval_base
+                    level = 1
+                    province = 9417
+                    instant_build = yes
+                }
+                add_building_construction = {
+                    type = dockyard
+                    level = 1
+                    instant_build = yes
+                }
+            }
+			137 = {   
+                add_building_construction = {
+                    type = naval_base
+                    level = 1
+                    province = 9677
+                    instant_build = yes
+                }     
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }      
+            }
+        	add_stability = 0.02
+		}
+	}	
+
+	focus = {
+		id = RUS_connect_the_villages
+		icon = GFX_focus_focus_fra_liberte_egalite_solidarite
+		prerequisite = { focus = RUS_organize_agriculture }
+		x = 1
+		y = 1
+		relative_position_id = RUS_organize_agriculture
+		available = {
+			#num_of_controlled_states > 1
+		}
+
+		bypass = {
+		}
+		
+		cost = 5
+
+		ai_will_do = {
+			factor = 5
+		}		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			random_controlled_state = {
+		 		prioritize = { 245 238 } 
+				#add_compliance = 10
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+		 		prioritize = { 234 } 
+				add_compliance = 10
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}		
+			add_stability = 0.025
+		}		
+	}
+
+
+
+
+	focus = {
+        id = RUS_rostov_arms_depot
+        icon = GFX_RUS_water_cooled_mg
+        x = 0
+        y = 1
+        relative_position_id = RUS_connect_the_villages
+
+        available = {
+			218 = {
+				OR = {
+					is_fully_controlled_by = ROOT
+					controller = {
+						is_subject_of = ROOT
+						has_full_control_of_state = PREV
+					}
+				}
+			}	
+            
+        }
+        bypass = {
+        }  
+		cost = 5
+        prerequisite = { 
+            focus = RUS_connect_the_villages
+        }
+
+        ai_will_do = {
+            factor = 1    
+    	}         
+        
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        completion_reward = {
+			218 = {
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = arms_factory
+                    level = 2
+                    instant_build = yes
+                }
+            }       
+
+        }       
+	}
+
+	focus = {
+		id = RUS_organize_the_industrial_base
+		icon = GFX_goal_factory_complex
+		prerequisite = { focus = RUS_connect_the_villages }
+		prerequisite = { focus = RUS_study_foreign_machine_tools }
+		x = 0
+		y = 2
+		relative_position_id = RUS_connect_the_villages
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			num_of_controlled_factories > 14
+		}
+
+		bypass = {
+		}
+		ai_will_do = {
+			factor = 1
+		}	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		#search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			random_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			remove_ideas = RUS_weak_industrial_base
+		}
+	}
+
+	focus = {
+		id = RUS_railroad_revitalization
+		icon = GFX_RUS_train #GFX_goal_generic_production
+		prerequisite = { focus = RUS_open_foreign_subsidized_factories }
+		x = 2
+		y = 0
+		relative_position_id = RUS_organize_the_industrial_base
+
+		available = {		
+		}
+		bypass = {
+		}
+		ai_will_do = {
+			base = 1
+		}		
+		cost = 5
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = RUS_railroad_revitalization_idea
+				days = 730
+			}
+			#add_ideas = RUS_railroad_revitalization_idea 
+			#custom_effect_tooltip = RUS_trans_siberian_railroad_ttp
+		}	
+	}
+
+
+	focus = {
+		id = RUS_recorganize_civilian_heavy_industry
+		icon = GFX_focus_SWE_urbanization#GFX_goal_generic_consumer_goods
+		prerequisite = { focus = RUS_organize_the_industrial_base }
+		mutually_exclusive = { focus = RUS_continue_armaments_production }
+		x = -3
+		y = 1
+		relative_position_id = RUS_organize_the_industrial_base
+		cost = 10
+		ai_will_do = {
+			base = 1
+		}
+
+		available = { }
+
+		#search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			random_controlled_state = {
+            	add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+            	add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+            	add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+            	add_extra_state_shared_building_slots = 1
+				prioritize = { 217 }
+				add_resource = {
+					type = steel
+					amount = 8
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+            	add_extra_state_shared_building_slots = 1
+				prioritize = { 218 }
+				add_resource = {
+					type = steel
+					amount = 8
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_stability = 0.05
+			#liek the soviet focus kinda, but takes time - perhaps a penalizing spirit for the duraction of the focus - atleast 70 days btw
+		}
+	}	
+
+
+	focus = {
+		id = RUS_continue_armaments_production
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = RUS_organize_the_industrial_base  }
+		available = { has_war_support > 0.5 }
+		mutually_exclusive = { focus = RUS_recorganize_civilian_heavy_industry }
+		x = 1
+		y = 1
+		relative_position_id = RUS_railroad_revitalization
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		#search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+			random_controlled_state = {
+            	add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+            	add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+            	add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+            	add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+            	add_extra_state_shared_building_slots = 1
+				prioritize = { 234 }
+				add_resource = {
+					type = tungsten
+					amount = 8
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_war_support = 0.05
+			if = {
+				limit = {
+					NOT = { has_idea = partial_economic_mobilisation }
+					NOT = { has_idea = war_economy }
+					NOT = { has_idea = tot_economic_mobilisation }
+				}
+				add_ideas = partial_economic_mobilisation        
+			}
+			else_if = {
+				limit = {
+					NOT = { has_idea = war_economy }
+					NOT = { has_idea = tot_economic_mobilisation }
+				}
+				add_ideas = war_economy        
+			}
+            else = {
+                add_political_power = 150
+            }            
+        }
+    }	
+
+ 	focus = {
+		id = RUS_industrialize_south_russia
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = RUS_organize_the_industrial_base }
+		available = { 
+		}
+		x = 0
+		y = 2
+		relative_position_id = RUS_organize_the_industrial_base
+		cost = 10
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+		}
+
+		completion_reward = { #unlock descisions to improve south russia's building slots, rails, and rods
+		}
+	}		
+
+	focus = {
+		id = RUS_industrialize_ekaterinodar
+		icon = GFX_RUS_industry_mansion
+		prerequisite = { focus = RUS_industrialize_south_russia }
+		x = 0
+		y = 1
+		relative_position_id = RUS_industrialize_south_russia
+		cost = 10
+		ai_will_do = {
+			base = 1
+		}
+
+		#search_filters = { FOCUS_FILTER_INDUSTRY }
+        completion_reward = {
+			build_railway = {
+				level = 1
+				path = { 719 3760 9696 3734 }
+			}
+
+			234 = {
+				add_resource = {
+					type = steel
+					amount = 6
+				}
+            	add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
+                }
+            }       
+			#states in south russia previously built-up via RUS_industrialize_south_russia descisions get like 2 civs
+		}
+	}	
+
+   ####
+  
+	focus = {
+		id = RUS_replenish_the_artillery_regiments
+		icon = GFX_goal_generic_army_artillery2
+		x = -1
+		y = 1
+		relative_position_id = RUS_continue_armaments_production
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_continue_armaments_production
+		}
+	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = RUS_replenish_the_artillery_regiments
+			    bonus = 0.5
+			    uses = 3
+			    category = artillery
+			}
+			add_ideas = RUS_artillery_production_focus
+			#add_timed_idea = {
+			#	idea = RUS_artillery_production_focus
+			#	days = 730
+			#}
+		}
+	}
+
+	focus = {
+		id = RUS_simplify_the_mosin_nagant
+		icon = GFX_RUS_mass_rifles
+		x = 1
+		y = 1
+		relative_position_id = RUS_continue_armaments_production
+		available = {
+			
+		}
+
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_continue_armaments_production
+		}
+	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = RUS_mass_mosin_production
+		}	
+	}
+
+	focus = {
+		id = RUS_mountain_guns
+		icon = GFX_goal_generic_army_artillery
+		x = -1
+		y = 2
+		relative_position_id = RUS_continue_armaments_production
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_replenish_the_artillery_regiments
+			focus = RUS_simplify_the_mosin_nagant
+		}		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			custom_effect_tooltip = ROM_mountain_artillery_tech_tt
+			hidden_effect = { set_technology = { mountain_gun = 1 } }
+			add_tech_bonus = {
+				name = RUS_mountain_guns
+				bonus = 1.0
+				uses = 1
+				category = artillery
+				technology = tech_mountaineers3
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_war_machines
+		icon = GFX_goal_Focus_Military_Mobilisation
+		x = 1
+		y = 2
+		relative_position_id = RUS_continue_armaments_production
+
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_replenish_the_artillery_regiments
+			focus = RUS_simplify_the_mosin_nagant
+		}		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		}
+	}
+   	focus = {
+		id = RUS_steel_casting_industry
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { 
+			focus = RUS_recorganize_civilian_heavy_industry
+		}
+		x = 0
+		y = 1
+		relative_position_id = RUS_recorganize_civilian_heavy_industry
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			#NOT = {
+			#	has_idea = RUS_weak_industrial_base
+			#}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		#search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+		}
+	}
+   ####
+
+###martin here 2
+###################################################################################MILITARY TREE 
+	focus = {
+		id = RUS_war_academy
+		icon = GFX_focus_ETH_ecole_militaire_haile_selassie_1er
+		x = 30
+		y = 0
+		#relative_position_id = RUS_revalue_the_ruble
+		available = {
+        	NOT = { has_idea = RUS_the_crimean_mandate }			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			IF = {
+				limit = { has_dlc = "No Step Back" }
+				army_experience = 5
+				country_event = rus.43
+			}
+			ELSE = { 
+				army_experience = 10
+			}
+			add_ideas = RUS_cadet_academy 
+			#custom_effect_tooltip = RUS_military_school_ttp
+			set_country_flag = RUS_military_school
+			#show_unit_leaders_tooltip = RUS_victor_baydalakov
+
+			#add decisions to merge it with other emigree cadet corps to form The first Russian cadet corps (check pinned in RUS's channel)
+		}
+	}
+	focus = {
+		id = RUS_fortification_effort
+		icon = GFX_RUS_forts
+		x = 7
+		y = 1
+		relative_position_id = RUS_war_academy
+		available = {
+			137 = {
+				OR = {
+					is_fully_controlled_by = ROOT
+					controller = {
+						is_subject_of = ROOT
+						has_full_control_of_state = PREV
+					}
+				}
+			}			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_war_academy
+		}
+	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			137 = {
+				add_building_construction = { #land connection to ukraine
+    				type = bunker
+    				level = 3
+   					province = 3722
+       				instant_build = yes
+				}
+				add_building_construction = { #crossing to ukraine
+    				type = bunker
+    				level = 2
+   					province = 9718
+       				instant_build = yes
+				}
+				add_building_construction = { #airfield
+    				type = bunker
+    				level = 1
+   					province = 6724
+       				instant_build = yes
+				}
+				add_building_construction = { #feodosia
+    				type = bunker
+    				level = 1
+   					province = 9677
+       				instant_build = yes
+				}
+				add_building_construction = { #kerch
+    				type = bunker
+    				level = 2
+   					province = 9680
+       				instant_build = yes
+				}
+				add_building_construction = { #kerch
+    				type = coastal_bunker
+    				level = 2
+   					province = 9680
+       				instant_build = yes
+				}
+				add_building_construction = { #yalta
+    				type = bunker
+    				level = 1
+   					province = 6704
+       				instant_build = yes
+				}
+				add_building_construction = { #yalta
+    				type = coastal_bunker
+    				level = 2
+   					province = 6704
+       				instant_build = yes
+				}
+				add_building_construction = { #nort of sev
+    				type = bunker
+    				level = 1
+   					province = 705
+       				instant_build = yes
+				}
+				add_building_construction = { #sevastopol
+    				type = bunker
+    				level = 2
+   					province = 3686
+       				instant_build = yes
+				}
+				add_building_construction = { #sevastopol
+    				type = coastal_bunker
+    				level = 4
+   					province = 3686
+       				instant_build = yes
+				}
+				add_building_construction = {
+    				type = anti_air_building
+    				level = 2
+    				instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_defensive_plan_ukraine
+		icon = GFX_focus_SOV_free_Rutenia
+		x = 1
+		y = 1
+		relative_position_id = RUS_fortification_effort
+		available = {
+				218 = {
+					OR = {
+						is_fully_controlled_by = ROOT
+						controller = {
+							is_subject_of = ROOT
+							has_full_control_of_state = PREV
+						}
+						controller = {
+							is_in_faction_with = ROOT
+							has_full_control_of_state = PREV
+						}
+					}
+				}
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_fortification_effort
+		}
+	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			218 = {
+				add_building_construction = {
+    				type = anti_air_building
+    				level = 2
+    				instant_build = yes
+				}
+				add_building_construction = {
+    				type = bunker
+    				level = 1
+   					province = 11450
+       				instant_build = yes
+				}
+				add_building_construction = {
+    				type = bunker
+    				level = 1
+   					province = 11434
+       				instant_build = yes
+				}
+				add_building_construction = {
+    				type = bunker
+    				level = 1
+   					province = 9430
+       				instant_build = yes
+				}
+				add_building_construction = { #taganrog
+    				type = bunker
+    				level = 2
+   					province = 6445
+       				instant_build = yes
+				}
+				add_building_construction = { #taganrog
+    				type = coastal_bunker
+    				level = 2
+   					province = 6445
+       				instant_build = yes
+				}
+				add_building_construction = { #Rostov
+    				type = bunker
+    				level = 4
+   					province = 9417
+       				instant_build = yes
+				}
+				add_building_construction = { #sevastopol
+    				type = coastal_bunker
+    				level = 4
+   					province = 3686
+       				instant_build = yes
+				}
+				add_building_construction = { 
+    				type = bunker
+    				level = 1
+   					province = 11418
+       				instant_build = yes
+				}
+				add_building_construction = { 
+    				type = air_base
+    				level = 2
+       				instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = RUS_defensive_plan_moscow
+		icon = GFX_focus_FIN_the_cold_front
+		x = -1
+		y = 1
+		relative_position_id = RUS_fortification_effort
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_fortification_effort
+		}
+	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		}
+	}
+		
+##################################################################
+
+	focus = {
+		id = RUS_reinforce_cossack_units
+		icon = GFX_focus_SOV_restore_cossack_units #GFX_goal_RUS_Yunarmiya #GFX_focus_URG_turmoil_of_paso_morlan
+		x = -1
+		y = 1
+		relative_position_id = RUS_war_academy
+		available = {
+			has_completed_focus = RUS_the_army_of_wrangel
+		}
+		bypass = {
+
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 1.5
+				has_war = yes 
+			}
+		}		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_war_academy
+		}
+
+		mutually_exclusive = { 
+		focus = RUS_army_reorganization 
+		}
+	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_manpower = 5000
+			# custom_effect_tooltip = RUS_reinforce_cossack_units_ttp
+			#hidden_effect = {
+			#	add_units_to_division_template = {
+			#		template_name = "Kazach'ya Kavaleriyskaya Diviziya" 
+			#		support = {
+			#			artillery = 0 
+			#		}
+			#	}
+			#	add_units_to_division_template = {
+			#		template_name = "Kazach'ya Kavaleriyskaya Diviziya" 
+			#		support = {
+			#			engineer = 0 
+			#		}
+			#	}
+			#}
+			add_to_variable = { RUS_russian_army_cavalry_defence_factor = 0.15 }
+			add_to_variable = { RUS_russian_army_cavalry_attack_factor = 0.1 }
+			custom_effect_tooltip = RUS_reinforce_cossack_units_ttp2
+			custom_effect_tooltip = RUS_reinforce_cossack_units_ttp3
+		}		
+	}
+
+	focus = {
+		id = RUS_army_reorganization
+		icon = GFX_RUS_french_soldier#GFX_goal_generic_army_training#GFX_focus_POL_cossack_king
+		x = 1
+		y = 1
+		relative_position_id = RUS_war_academy
+		available = {
+			has_completed_focus = RUS_the_army_of_wrangel
+		}
+
+		mutually_exclusive = { 
+			focus = RUS_reinforce_cossack_units 
+		}
+
+		bypass = {
+
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 1.5
+				has_war = yes 
+			}
+		}	
+		cost = 5
+		prerequisite = { 
+			focus = RUS_war_academy
+		}
+	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			#army_experience = 10
+			#add_command_power = 50
+			#set_division_template_lock = {
+			#	division_template = "Kazach'ya Kavaleriyskaya Diviziya"
+			#	is_locked = no
+			#}
+			#swap_ideas = {
+			#	remove_idea = RUS_russian_army
+			#	add_idea = RUS_russian_army_reorg
+			#}
+			custom_effect_tooltip = RUS_army_reorganization_ttp
+			add_to_variable = { RUS_russian_army_army_org_factor = 0.05 }
+			#add_to_variable = { RUS_russian_army_cavalry_defence_factor = 0.05 }
+			add_to_variable = { RUS_russian_army_planning_speed = 0.1 }
+			#add_to_variable = { land_doctrine_cost_factor = -0.05 }
+			add_to_variable = { experience_gain_army_factor = 0.05 }
+		}
+	}
+
+	focus = {
+		id = RUS_study_the_civil_war
+		icon = GFX_focus_focus_fra_revolution_utmost
+		x = 0
+		y = 2
+		relative_position_id = RUS_war_academy
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		cost = 5
+		prerequisite = { 
+			focus = RUS_reinforce_cossack_units
+			focus = RUS_army_reorganization
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 1.5
+				has_war = yes 
+			}
+		}	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 5
+			add_doctrine_cost_reduction = {
+				name = RUS_study_the_civil_war
+				cost_reduction = 0.25
+				uses = 2
+				category = land_doctrine
+			}
+		}	
+	}
+
+	focus = {
+		id = RUS_repair_workshops
+		icon = GFX_RUS_rifle1
+		x = -3
+		y = -1
+		relative_position_id = RUS_study_the_civil_war
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_war_academy
+		}
+		
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			#add_timed_idea = {
+			#	idea = RUS_small_arms_conversions
+			#	days = 150
+			#}
+			add_ideas = RUS_repair_workshops
+			add_tech_bonus = {
+				name = RUS_small_arms_conversions
+			    bonus = 0.25
+			    uses = 1
+			    category = infantry_weapons
+			}
+			add_tech_bonus = {
+				name = RUS_repair_workshops
+				bonus = 1.0
+				uses = 1
+				category = maintenance_company_tech #unlocalized by hoi4 for some reason
+			}
+			#custom_effect_tooltip = RUS_arms_conversions 
+			random_controlled_state = {
+				prioritize = { 137 }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			activate_decision = RUS_fix_the_caliber_crisis
+		}
+	}
+
+	focus = {
+		id = RUS_armored_vehicles
+		icon = GFX_RUS_garford
+		x = 1
+		y = 3
+		relative_position_id = RUS_war_academy
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_study_the_civil_war
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 1.5
+				has_war = yes 
+			}
+		}	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = RUS_armored_vehicles
+			    bonus = 1.0
+			    uses = 1
+			    category = cat_light_armor
+			}
+			add_tech_bonus = {
+				name = RUS_armored_vehicles
+			    bonus = 1.0
+			    uses = 1
+			    category = cat_armored_cars
+			}
+			add_tech_bonus = {
+				name = RUS_armored_vehicles
+			    bonus = 0.5
+			    uses = 1
+			    category = cat_mechanized_equipment
+			}
+		}	
+	}
+
+	focus = {
+		id = RUS_proper_tanks
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_alternative
+		x = 0
+		y = 1
+		relative_position_id = RUS_armored_vehicles
+		available = {
+			NOT = { has_idea = RUS_weak_industrial_base }
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_armored_vehicles
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 1.5
+				has_war = yes 
+			}
+		}	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = RUS_proper_tanks
+			    bonus = 1.0
+			    uses = 1
+			    category = cat_medium_armor
+			}
+			add_tech_bonus = {
+				name = RUS_proper_tanks
+			    bonus = 1.0
+			    uses = 1
+			    category = cat_heavy_armor
+			}
+		}	
+	}
+
+
+	focus = {
+		id = RUS_military_police_court_of_justice
+		icon = GFX_focus_generic_court
+		x = -1
+		y = 3
+		relative_position_id = RUS_war_academy
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_study_the_civil_war
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 1.5
+				has_war = yes 
+			}
+		}	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			custom_effect_tooltip = RUS_MP_court
+			add_to_variable = { RUS_russian_army_army_morale_factor = 0.1 }
+			add_to_variable = { RUS_russian_army_compliance_growth = 0.05 }
+			add_tech_bonus = {
+				name = RUS_military_police_court_of_justice
+				bonus = 1.0
+				uses = 1
+				category = military_police_tech
+			}
+			add_command_power = -25
+		}	
+	}
+
+	focus = {
+		id = RUS_prevent_disorder
+		##search_filters = { FOCUS_FILTER_MANPOWER }
+		icon = GFX_focus_SOV_penal_battalions
+		x = 0
+		y = 1
+		relative_position_id = RUS_military_police_court_of_justice
+		prerequisite = { focus = RUS_military_police_court_of_justice }
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_stability = 0.02
+			add_war_support = -0.05
+			add_manpower = -200
+			custom_effect_tooltip = RUS_prevent_disorder_ttp 
+			#IF = { 
+			#	limit = { fascism > 0.14 }
+			#	add_stability = -0.05
+			#	add_political_power = -50
+			#}
+			#custom_effect_tooltip = RUS_limited_cooperation_with_mensheviks_ttp
+			#add_to_variable = { RUS_russian_army_army_org_factor = 0.02 }
+			add_to_variable = { RUS_russian_army_army_org_regain = 0.1 }
+			add_to_variable = { RUS_russian_army_compliance_growth = 0.1 }
+			#gives 5% org to army, reduces or gains recovery rate? slightly improves compliance gain?
+		}
+	}
+
+	focus = {
+		id = RUS_reform_the_high_command
+		icon = GFX_RUS_generals #GFX_goal_rus_reconcile_military 
+		x = 0
+		y = 5
+		relative_position_id = RUS_war_academy
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_prevent_disorder
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 1.5
+				has_war = yes 
+			}
+		}	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_to_variable = { RUS_russian_army_planning_speed = 0.2 }
+			add_to_variable = { RUS_russian_army_experience_gain_factor = 0.15 }
+			add_to_variable = { RUS_russian_army_experience_gain_army_factor = 0.15 }
+			add_to_variable = { RUS_russian_army_land_doctrine_cost_factor = -0.25 }
+			custom_effect_tooltip = RUS_reform_the_high_command_ttp
+		}	
+	}
+
+	focus = {
+		id = RUS_restack_the_officer_corps
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { 
+			focus = RUS_war_academy
+		}
+		x = 4        
+		y = 0
+		relative_position_id = RUS_reinforce_cossack_units
+		cost = 5
+
+		available = {
+			has_completed_focus = RUS_the_army_of_wrangel
+		}
+		
+		#search_filters = {}
+
+		completion_reward = {
+			set_country_flag = RUS_officer_corps_flag
+			custom_effect_tooltip = RUS_restack_the_officer_corps_ttp
+			add_to_variable = { RUS_russian_army_promote_cost_factor = -0.15 }
+			add_to_variable = { RUS_russian_army_army_leader_cost_factor = -0.15 }
+			show_unit_leaders_tooltip = RUS_mikhail_levitov
+			show_unit_leaders_tooltip = RUS_anatoly_rogozhin
+			show_unit_leaders_tooltip = RUS_vladimir_kharzhevsky
+			show_unit_leaders_tooltip = RUS_oleg_pantyukhov
+			show_unit_leaders_tooltip = RUS_vasily_bocharov
+			show_unit_leaders_tooltip = KAL_dazan_tundutov
+			show_unit_leaders_tooltip = RUS_evgeny_ivanov 
+		}
+	}
+
+	focus = {
+		id = RUS_build_a_mobilization_plan
+		icon = GFX_focus_generic_little_entente#GFX_focus_SOV_mobilization_plan
+		prerequisite = { 
+			focus = RUS_restack_the_officer_corps
+		}
+		x = 4
+		y = 1
+		relative_position_id = RUS_reinforce_cossack_units
+		cost = 5
+
+		available = {
+		}
+		
+		#search_filters = {}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = RUS_i_am_a_volunteer
+				days = 1095  #3 years, should be enough for re-unification but ends before barb.
+			}
+			#custom_effect_tooltip = RUS_i_am_a_volunteer_ttp
+		}
+	}
+
+
+	focus = {
+		id = RUS_auxilary_military_roles_for_women
+		icon = GFX_focus_generic_women_in_military
+		x = 0
+		y = 1
+		relative_position_id = RUS_build_a_mobilization_plan
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_build_a_mobilization_plan
+			focus = RUS_study_the_civil_war
+		}
+		#prerequisite = { 
+		#	focus = RUS_study_the_civil_war
+		#}
+	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			#set_rule = {
+			#	can_generate_female_aces = yes
+			#}
+			add_ideas = RUS_auxilary_military_roles_for_women_ns
+			add_tech_bonus = {
+				name = RUS_auxilary_military_roles_for_women
+				bonus = 1.0
+				uses = 1
+				category = hospital_tech
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_womens_battalion_of_death
+		icon = GFX_focus_SOV_womens_fascist_movement
+		x = 0
+		y = 2
+		relative_position_id = RUS_build_a_mobilization_plan
+		available = {
+			OR = {
+				has_defensive_war = yes
+				surrender_progress > 0.1
+			}
+			NOT = { 
+				has_country_leader = {
+					character = RUS_anton_denikin
+					ruling_only = yes
+				}
+			}
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_auxilary_military_roles_for_women
+		}
+	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = RUS_auxilary_military_roles_for_women_ns
+				add_idea = RUS_womens_battalions
+			}
+			add_political_power = -75
+			add_stability = -0.05
+			add_war_support = 0.05
+			add_manpower = 10000
+			army_experience = 5
+			#custom_effect_tooltip = ITA_battaglioni_d_assalto_tt
+			#hidden_effect = {
+			#	set_technology = { blackshirt_assault_battalion_tech = 1 popup = no }
+			#}
+		}
+	}
+
+	focus = {
+		id = RUS_weapon_scavenging
+		icon = GFX_focus_ETH_scavenging_tactics
+		x = -1
+		y = 1
+		relative_position_id = RUS_repair_workshops
+		available = {
+			NOT = { has_idea = RUS_mixed_equipment }
+			NOT = { has_idea = RUS_mixed_equipment_and_horse_stock_shortage }
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_repair_workshops
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 1.5
+				has_war = yes 
+			}
+		}
+	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+ 
+		completion_reward = {
+			add_ideas = RUS_weapon_scavenging_idea
+			add_tech_bonus = {
+				name = RUS_weapon_scavenging
+			    bonus = 0.25
+			    uses = 1
+			    category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_organization_of_the_partisans
+		icon = GFX_focus_focus_fra_maquis
+		prerequisite = { focus = RUS_weapon_scavenging }
+		#prerequisite = { focus = RUS_desperate_measures }
+		x = -1
+		y = 1
+		relative_position_id = RUS_weapon_scavenging
+		cost = 10
+
+		available = {
+			any_owned_state = {
+				controller = {
+					has_war_with = ROOT
+				}
+			}
+		}
+		
+		#search_filters = {}
+
+		completion_reward = {
+			IF = {
+				limit = { has_completed_focus = RUS_reinforce_cossack_units }
+				add_timed_idea = {
+					idea = RUS_cossack_partisan_hundreds
+					days = 720
+				}
+			}
+			if = {
+				limit = {
+					has_dlc = "La Resistance"
+				}
+				add_timed_idea = {
+					idea = SOV_central_headquarters_of_the_partisan_movement
+					days = 720
+				}
+			}
+			else = {
+				add_timed_idea = {
+					idea = SOV_central_headquarters_of_the_partisan_movement_no_lar
+					days = 720
+				}
+			}
+			#custom_effect_tooltip = RUS_organization_of_the_partisans_ttp
+		}
+	}
+
+	focus = {
+		id = RUS_support_equipment_advancements
+		icon = GFX_RUS_machine_gun_rus
+		x = -3
+		y = 1
+		relative_position_id = RUS_study_the_civil_war
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_study_the_civil_war
+		}
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 1.5
+				has_war = yes 
+			}
+		}
+	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = RUS_support_equipment_advancements
+				bonus = 1.0
+				uses = 2
+				technology = support_weapons
+				technology = support_weapons2
+				technology = support_weapons3
+			}
+		}
+	}
+
+	focus = { 
+		id = RUS_winter_clothing
+		icon = GFX_focus_generic_winter_warfare#GFX_RUS_mountain_soldier
+		x = -5
+		y = 2
+		relative_position_id = RUS_study_the_civil_war
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_support_equipment_advancements
+		}
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 1.5
+				has_war = yes 
+			}
+		}
+	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = RUS_winter_clothing_idea
+			custom_effect_tooltip = FIN_winter_warfare_battalion_tt
+
+			hidden_effect = {
+				set_technology = {
+					winter_logistics_support_tech = 1
+					popup = no
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_green_like_forests
+		icon = GFX_focus_SWE_beneath_sticks_and_stone
+		#GFX_focus_CHL_expand_the_forestry
+		x = -1
+		y = 1
+		relative_position_id = RUS_winter_clothing
+		available = {
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_winter_clothing
+		}
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 1.5
+				has_war = yes 
+			}
+		}
+	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = RUS_green_like_forests_idea
+			#also a focus called "Green, Like Forests" for similar buffs to forest terriain. both these foci for peasant republics!
+		}
+	}
+
+	focus = {
+		id = RUS_kings_of_the_civil_war
+		icon = GFX_focus_generic_railway_gun
+		prerequisite = { focus = RUS_support_equipment_advancements }
+
+		x = 1
+		y = 2
+		relative_position_id = RUS_support_equipment_advancements
+		cost = 5
+		available = {
+			has_dlc = "No Step Back"
+		}
+
+		#search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				#Required techs for railway guns
+				if = {
+					limit = {
+						NOT = { has_tech = armored_train }
+					}
+					set_technology = { armored_train = 1 }
+				}
+				add_equipment_to_stockpile = { 
+					type = train_equipment_3
+					amount = 20
+					producer = ROOT
+				}
+				if = {
+					limit = {
+						NOT = { has_tech = railway_gun }
+					}
+					set_technology = { railway_gun = 1 }
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_russian_artillery
+		icon = GFX_RUS_tsar_cannon
+		x = -4
+		y = 3
+		relative_position_id = RUS_study_the_civil_war
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_support_equipment_advancements
+		}
+
+		ai_will_do = { 
+			base = 1
+			modifier = {
+				factor = 1.5
+				has_war = yes 
+			}
+		}
+	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = RUS_russian_artillery
+				bonus = 1.0
+				uses = 2
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_develop_submachineguns
+		icon = GFX_RUS_mp18
+		x = 0
+		y = 1
+		relative_position_id = RUS_support_equipment_advancements
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_support_equipment_advancements
+		}
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 1.5
+				has_war = yes 
+			}
+		}
+	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = { 
+			add_tech_bonus = {
+				name = RUS_develop_submachineguns
+				bonus = 0.5
+				uses = 2
+				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_desperate_measures
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { 
+			focus = RUS_war_academy
+		}
+		x = -6
+		y = 0
+		relative_position_id = RUS_reinforce_cossack_units
+		cost = 5
+
+		available = {
+			any_enemy_country = {
+				#SOV_is_major_not_original_sov = yes
+				is_major = yes
+			}
+		}
+		
+		#search_filters = {}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = SOV_desperate_measures_ns
+				days = 365
+			}
+			custom_effect_tooltip = RUS_desperate_measures_decisions_unlocked_tt
+		}
+	}
+
+	focus = {
+		id = RUS_ils_ne_passeront_pas
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = RUS_desperate_measures }
+
+		icon = GFX_RUS_white_resistance
+		x = 0
+		y = 1
+		relative_position_id = RUS_desperate_measures
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			custom_effect_tooltip = SPR_no_pasaran_tt
+			hidden_effect = {
+				every_state = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = bunker
+						province = {
+							all_provinces = yes
+							limit_to_victory_point = yes
+						}
+						level = 1
+						instant_build = yes
+					}
+				}
+				every_state = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = bunker
+						province = {
+							all_provinces = yes
+							limit_to_victory_point > 2
+						}
+						level = 1
+						instant_build = yes
+					}
+				}
+				every_state = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = bunker
+						province = {
+							all_provinces = yes
+							limit_to_victory_point > 9
+						}
+						level = 1
+						instant_build = yes
+					}
+				}
+				every_state = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = bunker
+						province = {
+							all_provinces = yes
+							limit_to_victory_point > 29
+						}
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_brusilov_once_more
+		icon = GFX_RUS_white_resistance
+		x = -2
+		y = 1
+		relative_position_id = RUS_desperate_measures
+		available = {
+			any_enemy_country = {
+				#SOV_is_major_not_original_sov = yes
+				is_major = yes
+			}			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = RUS_desperate_measures
+		}
+	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			custom_effect_tooltip = RUS_brusilov_ttp
+		}
+	}
+
+#################################################################
+
+
+	focus = {
+		id = RUS_continue_entente_aid_programs 
+		icon = GFX_goal_generic_positive_trade_relations_gold
+		#GFX_focus_focus_fra_ratify_stresa #GFX_focus_generic_concessions
+		relative_position_id = RUS_bare_the_torch_of_russian_liberty
+		x = 4
+		y = 1
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 4
+				tag = RUS
+			}
+		}
+
+		available = {
+			NOT = {
+				has_war_with = FRA
+				has_war_with = ENG
+			}
+			FRA = {
+				has_capitulated = no
+			}
+			ENG = {
+				has_capitulated = no
+			}
+		}
+
+		bypass = {	
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		#add various equipments, including planes, from ITA, ENG, FRA. 
+			add_offsite_building = { type = industrial_complex level = 1 }
+			add_equipment_to_stockpile = { type = train_equipment amount = 10 producer = FRA }
+			add_equipment_to_stockpile = { type = convoy amount = 10 producer = ENG }
+			#add_equipment_to_stockpile = { type = motorized_equipment amount = 20 producer = USA }
+		}
+	}
+
+
+
+
+
+focus = {
+	id = RUS_mission_to_germany 
+	icon = GFX_focus_chi_mission_to_germany
+	relative_position_id = RUS_new_volunteerism
+	prerequisite = { focus = RUS_unite_the_fascist_parties }
+	x = -4
+	y = 1
+
+	cost = 5
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 4
+			tag = RUS
+		}
+		modifier = {
+			factor = 10
+			has_country_flag = GER_befriended_by_germany_flag
+		}
+	}
+
+	available = {
+		OR = {
+			has_government = neutrality
+			has_government = fascism
+			#GER = { has_government = ROOT }
+			GER_will_support = yes
+		}
+		NOT = {
+			has_war_with = GER
+		}
+		GER = {
+			has_capitulated = no
+			OR = {
+				has_government = neutrality
+				has_government = fascism
+			}
+		}
+	}
+
+	bypass = {
+		#is_in_faction_with = GER
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 1000 producer = GER }
+		GER = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = CHI_mission_to_germany
+			}
+			#add_ai_strategy = {
+			#	type = alliance
+			#	id = ROOT
+			#	value = 100
+			#}
+			#add_ai_strategy = {
+			#	type = protect
+			#	id = ROOT
+			#	value = 100
+			#}
+			add_ai_strategy = {
+				type = send_volunteers_desire
+				id = ROOT
+				value = 100
+			}
+			add_ai_strategy = {
+				type = support
+				id = ROOT
+				value = 100
+			}
+		}
+		add_stability = -0.05
+		custom_effect_tooltip = foreign_aid_ttp
+	}
+}
+focus = {
+	id = RUS_axis_investments
+	icon = GFX_focus_POL_beck_ribbentrop
+	prerequisite = { focus = RUS_mission_to_germany }
+	x = 0
+	y = 1
+	relative_position_id = RUS_mission_to_germany
+	cost = 5
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 10
+			has_country_flag = GER_befriended_by_germany_flag
+		}
+	}
+
+	available = {
+		OR = {
+			has_government = neutrality
+			has_government = fascism
+			#GER = { has_government = ROOT }
+			GER_will_support = yes
+		}
+		NOT = {
+			has_war_with = GER
+		}
+		GER = {
+			has_capitulated = no
+			OR = {
+				has_government = neutrality
+				has_government = fascism
+			}
+		}
+	}
+
+	bypass = {
+		#is_in_faction_with = GER
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 1000 producer = GER }
+		add_offsite_building = { type = arms_factory level = 2 }
+	}
+}
+
+
+focus = {
+	id = RUS_the_last_faithful_major_ally_of_the_whites
+	icon = GFX_focus_chi_reach_out_to_france
+	prerequisite = { focus = RUS_continue_entente_aid_programs }
+	x = -1
+	y = 1
+	relative_position_id = RUS_continue_entente_aid_programs
+
+	cost = 5
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	available = {
+		#OR = {
+		#	has_government = neutrality
+		#	FRA = { has_government = ROOT }
+		#	FRA_will_support = yes
+		#}
+		NOT = {
+			FRA = { has_completed_focus = FRA_invite_communist_ministers }
+			has_war_with = FRA
+            is_embargoed_by = FRA
+            FRA = { is_enemy_ideology = yes } 
+		}
+		FRA = {
+			has_capitulated = no
+		}
+	}
+
+	bypass = {
+		
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {										#should give more benefits (PP and weapons) if Krivoshein is hired or leader.
+		#add_ideas = RUS_french_support
+		add_offsite_building = { type = arms_factory level = 1 }
+		#add_equipment_to_stockpile = { type = train_equipment amount = 2 producer = FRA }
+		#add_equipment_to_stockpile = { type = motorized_equipment amount = 20 producer = FRA }
+		add_equipment_to_stockpile = { type = support_equipment amount = 50 producer = FRA }
+		add_equipment_to_stockpile = { type = infantry_equipment_0 amount = 500 producer = FRA }
+            #add_equipment_to_stockpile = {
+            #    type = infantry_equipment
+            #    amount = 2000
+            #    producer = FRA
+            #}
+		FRA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = CHI_reach_out_to_france
+			}
+			#add_ai_strategy = {
+			#	type = alliance
+			#	id = ROOT
+			#	value = 100
+			#}
+			#add_ai_strategy = {
+			#	type = protect
+			#	id = ROOT
+			#	value = 100
+			#}
+			add_ai_strategy = {
+				type = send_volunteers_desire
+				id = ROOT
+				value = 100
+			}
+			add_ai_strategy = {
+				type = support
+				id = ROOT
+				value = 100
+			}
+		}
+			custom_effect_tooltip = foreign_aid_ttp
+	}
+}
+
+focus = {
+	id = RUS_small_arms_expertise
+	icon = GFX_focus_secret_rearmament
+	prerequisite = { focus = RUS_the_last_faithful_major_ally_of_the_whites }
+	x = 0
+	y = 1
+	relative_position_id = RUS_the_last_faithful_major_ally_of_the_whites
+
+	cost = 5
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	available = {
+		FRA_will_support = yes
+	}
+
+	bypass = {
+
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+
+	completion_reward = {
+		add_equipment_to_stockpile = { type = support_equipment amount = 100 producer = FRA }
+        add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 3000
+			producer = FRA
+        }
+		add_tech_bonus = {
+			name = RUS_french_armor_expertise
+			bonus = 1.0
+			uses = 1
+			category = infantry_weapons
+		}
+	}
+}
+focus = {
+	id = RUS_heavy_weapons
+	icon = GFX_goal_generic_army_artillery2
+	prerequisite = { 
+		focus = RUS_the_last_faithful_major_ally_of_the_whites 
+	}
+	x = -2
+	y = 1
+	relative_position_id = RUS_the_last_faithful_major_ally_of_the_whites
+	
+	cost = 5
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 4
+			tag = PRC
+		}
+	}
+
+	available = {
+		OR = {
+			FRA_will_support = yes
+		}
+	}
+
+	bypass = {
+
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+
+	completion_reward = {
+          add_equipment_to_stockpile = {
+               type = artillery_equipment
+               amount = 120
+               producer = FRA
+           }
+		add_tech_bonus = {
+			name = RUS_heavy_weapons
+			bonus = 1.0
+			uses = 1
+			category = artillery
+		}
+	}
+}
+focus = {
+	id = RUS_french_armor_expertise
+	icon = GFX_RUS_ft17
+	prerequisite = { focus = RUS_small_arms_expertise }
+	prerequisite = { focus = RUS_heavy_weapons }
+	x = -1
+	y = 2
+	relative_position_id = RUS_the_last_faithful_major_ally_of_the_whites
+
+	cost = 5
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			FRA = {
+				has_war = yes
+			}
+			factor = 0
+		}
+	}
+
+	available = {
+		FRA_will_support = yes
+	}
+
+	bypass = {
+
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		add_equipment_to_stockpile = { type = motorized_equipment amount = 20 producer = FRA }
+		hidden_effect = { load_oob = RUS_french_tanks_nsb }
+			FRA = {
+				create_production_license = {
+					target = RUS
+					equipment = {
+						type = light_tank_chassis_1
+					}
+					cost_factor = 0
+				}
+			}	
+			custom_effect_tooltip = RUS_french_tanks_ttp	
+		}
+	}
+
+#focus = {
+#	id = RUS_french_military_mission
+#	icon = GFX_RUS_ft17
+#	prerequisite = { focus = RUS_french_armor_expertise }
+#	x = -1
+#	y = 3
+#	relative_position_id = RUS_the_last_faithful_major_ally_of_the_whites
+#	cost = 5
+#
+#	ai_will_do = {
+#		factor = 1
+#		modifier = {
+#			FRA = {
+#				has_war = yes
+#			}
+#			factor = 0
+#		}
+#	}
+#
+#	available = {
+#		FRA_will_support = yes
+#	}
+#
+#	bypass = {
+#
+#	}
+#
+#	cancel_if_invalid = yes
+#	continue_if_invalid = no
+#	available_if_capitulated = no
+#
+#	completion_reward = {
+#		swap_ideas = {
+#			remove_idea = RUS_french_support
+#			add_idea = RUS_french_support2
+#		}
+#	}
+#}
+
+focus = {
+	id = RUS_reapproach_the_british
+	icon = GFX_focus_chi_british_cooperation
+	prerequisite = { focus = RUS_continue_entente_aid_programs }
+	x = 2
+	y = 0
+	relative_position_id = RUS_the_last_faithful_major_ally_of_the_whites
+
+	cost = 5
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 4
+			tag = RUS
+		}
+		modifier = {
+			factor = 10
+			has_country_flag = ENG_influenced_by_britain_flag
+		}
+	}
+
+	available = {
+		OR = {
+			has_government = neutrality
+			ENG = { has_government = ROOT }
+			ENG_will_support = yes
+		}
+		not = {
+			has_War_with = ENG
+		}
+		ENG = {
+			has_capitulated = no
+		}
+	}
+
+	bypass = {
+
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		#add_political_power = 75
+		add_offsite_building = { type = arms_factory level = 1 }
+		ENG = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = CHI_british_cooperation
+			}
+			#add_ai_strategy = {
+			#	type = alliance
+			#	id = ROOT
+			#	value = 100
+			#}
+			#add_ai_strategy = {
+			#	type = protect
+			#	id = ROOT
+			#	value = 100
+			#}
+			add_ai_strategy = {
+				type = send_volunteers_desire
+				id = ROOT
+				value = 100
+			}
+			add_ai_strategy = {
+				type = support
+				id = ROOT
+				value = 100
+			}
+		}
+			custom_effect_tooltip = foreign_aid_ttp
+	}
+}
+
+focus = {
+	id = RUS_import_the_six_ton
+	icon = GFX_goal_generic_army_motorized
+	prerequisite = { focus = RUS_reapproach_the_british }
+	x = 2
+	y = 1
+	relative_position_id = RUS_reapproach_the_british
+
+	cost = 5
+
+	ai_will_do = {
+		factor = 1		
+		modifier = {
+			factor = 4
+			tag = RUS
+		}
+	}
+
+	available = {
+		OR = {
+			is_subject = no
+			is_subject_of = ENG
+		}
+		ENG_will_support = yes
+	}
+	bypass = {
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "No Step Back"
+					}
+				}
+				add_equipment_to_stockpile = { type = light_tank_equipment_1 amount = 50 producer = ENG }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 50 producer = ENG variant_name = "Vickers 6 ton B" }
+				}
+			add_tech_bonus = {
+				name = RUS_import_the_six_ton
+				bonus = 1.0
+				uses = 1
+				category = armor
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_british_logistical_experts
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = RUS_reapproach_the_british }
+		x = 0
+		y = 1
+		relative_position_id = RUS_reapproach_the_british
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1		
+			modifier = {
+				factor = 4
+				tag = RUS
+			}
+		}
+
+		available = {
+			OR = {
+				is_subject = no
+				is_subject_of = ENG
+			}
+			ENG_will_support = yes
+		}
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_equipment_to_stockpile = { type = train_equipment amount = 10 producer = ENG }
+			add_equipment_to_stockpile = { type = motorized_equipment amount = 150 producer = ENG }
+			add_equipment_to_stockpile = { type = support_equipment amount = 100 producer = ENG }
+		}
+	}
+
+focus = {
+	id = RUS_experimental_mechanized_force
+	icon = GFX_RUS_ft17
+	prerequisite = { focus = RUS_import_the_six_ton }
+	prerequisite = { focus = RUS_british_logistical_experts } 
+	x = -1
+	y = 1
+	relative_position_id = RUS_import_the_six_ton
+
+	cost = 5
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			ENG = {
+				has_war = yes
+			}
+			factor = 0
+		}
+	}
+
+	available = {
+		ENG_will_support = yes
+	}
+
+	bypass = {
+
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		army_experience = 15
+		custom_effect_tooltip = RUS_english_tanks_ttp
+		hidden_effect = { 
+			load_oob = RUS_english_tanks_nsb
+			ENG = {
+				create_production_license = {
+					target = RUS
+					equipment = {
+						type = medium_tank_chassis_0
+					}
+					cost_factor = 0
+				}
+			}	
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
+					}
+				}
+				if = {
+					limit = {
+						not = {
+							has_tech = early_bomber
+						}
+					}
+					set_technology = { early_bomber = 1 }
+				}
+				if = {
+					limit = {
+						has_completed_focus = RUS_reapproach_the_british
+						not = { has_war_with = ENG }
+					}
+					add_equipment_to_stockpile = { type = tac_bomber_equipment_0 amount = 50 producer = ENG }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						not = {
+							has_tech = iw_medium_airframe
+						}
+					}
+					set_technology = { iw_medium_airframe = 1 }
+				}
+				if = {
+					limit = {
+						has_completed_focus = RUS_reapproach_the_british
+						not = { has_war_with = ENG }
+					}
+					add_equipment_to_stockpile = { type = medium_plane_airframe_0 amount = 50 producer = ENG variant_name = "Handley Page Heyford"}
+				}
+			}
+		}
+	}
+}	
+
+
+
+focus = {
+	id = RUS_fighter_purchases
+	icon = GFX_RUS_french_biplane
+	prerequisite = { 
+		focus = RUS_reapproach_the_british
+		focus = RUS_the_last_faithful_major_ally_of_the_whites 
+	}
+	x = -1
+	y = 2
+	relative_position_id = RUS_reapproach_the_british
+
+	cost = 5
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 4
+			tag = RUS
+		}
+	}
+
+	available = {
+		has_completed_focus = RUS_reapproach_the_british
+		has_completed_focus = RUS_the_last_faithful_major_ally_of_the_whites
+		ENG_will_support = yes
+		FRA_will_support = yes
+	}
+
+	bypass = {
+
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		custom_effect_tooltip = RUS_purchase_fighters_tt
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
+					}
+				}
+				if = {
+					limit = {
+						not = {
+							has_tech = early_fighter
+						}
+					}
+					set_technology = { early_fighter = 1 }
+				}
+				if = {
+					limit = {
+						has_completed_focus = RUS_reapproach_the_british
+						not = { has_war_with = ENG }
+					}
+					add_equipment_to_stockpile = { type = fighter_equipment_0 amount = 50 producer = ENG }
+				}
+				if = {
+					limit = {
+						has_completed_focus = RUS_the_last_faithful_major_ally_of_the_whites
+						not = { has_war_with = FRA }
+					}
+					add_equipment_to_stockpile = { type = fighter_equipment_0 amount = 50 producer = FRA }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						not = {
+							has_tech = iw_small_airframe
+						}
+					}
+					set_technology = { iw_small_airframe = 1 }
+				}
+				if = {
+					limit = {
+						has_completed_focus = RUS_reapproach_the_british
+						not = { has_war_with = ENG }
+					}
+					add_equipment_to_stockpile = { type = small_plane_airframe_0 amount = 50 producer = ENG variant_name = "Gloster Gladiator"}
+				}
+				if = {
+					limit = {
+						has_completed_focus = RUS_the_last_faithful_major_ally_of_the_whites
+						not = { has_war_with = FRA }
+					}
+					add_equipment_to_stockpile = { type = small_plane_airframe_0 amount = 50 producer = FRA variant_name = "NiD 62"}
+				}
+			}
+		}
+	}
+}
+
+focus = {
+	id = RUS_bomber_purchases
+	icon = GFX_goal_generic_build_airforce
+	prerequisite = { focus = RUS_fighter_purchases }
+	x = 0
+	y = 1
+	relative_position_id = RUS_fighter_purchases
+
+	cost = 5
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			tag = RUS
+		}
+	}
+
+	available = {
+		has_completed_focus = RUS_reapproach_the_british
+		has_completed_focus = RUS_the_last_faithful_major_ally_of_the_whites
+		ENG_will_support = yes
+		FRA_will_support = yes
+	}
+
+	bypass = {
+
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		custom_effect_tooltip = RUS_purchase_bombers_tt
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
+					}
+				}
+				if = {
+					limit = {
+						not = {
+							has_tech = early_bomber
+						}
+					}
+					set_technology = { early_bomber = 1 }
+				}
+				if = {
+					limit = {
+						has_completed_focus = RUS_reapproach_the_british
+						not = { has_war_with = ENG }
+					}
+					add_equipment_to_stockpile = { type = tac_bomber_equipment_0 amount = 50 producer = ENG }
+				}
+				if = {
+					limit = {
+						has_completed_focus = RUS_the_last_faithful_major_ally_of_the_whites
+						not = { has_war_with = FRA }
+					}
+					add_equipment_to_stockpile = { type = tac_bomber_equipment_0 amount = 50 producer = FRA }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						not = {
+							has_tech = iw_medium_airframe
+						}
+					}
+					set_technology = { iw_medium_airframe = 1 }
+				}
+				if = {
+					limit = {
+						has_completed_focus = RUS_reapproach_the_british
+						not = { has_war_with = ENG }
+					}
+					add_equipment_to_stockpile = { type = medium_plane_airframe_0 amount = 50 producer = ENG variant_name = "Handley Page Heyford"}
+				}
+				if = {
+					limit = {
+						has_completed_focus = RUS_the_last_faithful_major_ally_of_the_whites
+						not = { has_war_with = FRA }
+					}
+					add_equipment_to_stockpile = { type = medium_plane_airframe_0 amount = 50 producer = FRA variant_name = "Amiot 143"}
+				}
+			}
+		}
+	}
+}
+#
+}
+																																																																																		

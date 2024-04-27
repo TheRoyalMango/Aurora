@@ -1,0 +1,65 @@
+ideas = {
+	country = {
+
+		FER_last_bastion_of_communism_in_the_far_east = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = FER
+			}
+			
+			removal_cost = -1
+
+			picture = idk
+			equipment_bonus = {
+				infantry_equipment = {
+					reliability = 0.15
+					instant = yes
+				}
+			}
+			
+			modifier = {
+				drift_defence_factor = 0.5
+				war_support_factor = 0.4 
+				conscription = 0.02
+				army_core_defence_factor = 0.15
+				equipment_capture_factor = 0.5 
+			}
+
+		}
+
+		FER_no_way_out = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = FER
+			}
+			
+			removal_cost = -1
+
+			picture = idk
+			rule = {
+				can_join_factions = no
+			}
+			modifier = {
+				stability_factor = -0.1
+				industrial_capacity_factory = -0.1
+				production_factory_max_efficiency_factor = -0.25
+				production_factory_efficiency_gain_factor = -0.1
+			}
+
+		}
+
+
+
+
+
+#
+	}
+}

@@ -1,0 +1,59 @@
+characters = {
+
+	TOM_pyotr_derber = {
+		name = TOM_pyotr_derber #Pyotr Yakovlevich Derber
+		portraits = {
+			civilian = {
+				large = GFX_portrait_TOM_pyotr_derber
+			}
+		}
+		country_leader = {
+			ideology = socialism
+			traits = { 
+				#cornered_fox
+				short
+				gifted_orator
+				usurper
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+	}
+
+	TOM_arkady_krakovetsky = { #Arkady Krakovetsky
+		name = TOM_arkady_krakovetsky
+		portraits = {
+			army = {
+				large = GFX_portrait_TOM_arkady_krakovetsky
+				#small = "GFX_idea_TOM_arkady_krakovetsky"
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = TOM_arkady_krakovetsky
+			allowed = {
+				original_tag = TOM
+			}
+			available = {
+
+			}
+			traits = {
+				army_chief_planning_1
+			}
+			cost = 50
+			ai_will_do = {
+				base = 1.000
+			}
+		}
+
+		field_marshal = {
+			traits = { organizer winter_specialist ranger scavenger } #skilled_staffer
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+		}
+	}
+
+}

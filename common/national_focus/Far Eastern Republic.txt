@@ -1,0 +1,607 @@
+﻿
+
+focus_tree = {
+	id = fareastern_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = FER
+			}
+	}
+	
+	default = no
+	
+	continuous_focus_position = { x = 50 y = 1200 }
+
+#
+
+
+
+	focus = {
+		id = FER_expand_krasnopartizansk
+		icon = p
+		x = 11
+		y = 1
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		   random_owned_controlled_state = {
+                prioritize = { 657 }
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
+           }
+		}
+	}
+
+
+	focus = {
+		id = FER_krasnopartizansk_farms
+		icon = GFX_focus_generic_navy_battleship2
+		x = -2
+		y = 1
+		relative_position_id = FER_expand_krasnopartizansk
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = FER_expand_krasnopartizansk }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = { 
+		   random_owned_controlled_state = {
+                prioritize = { 657 }
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
+           }
+		}
+	}
+
+	focus = {
+		id = FER_border_fortifications
+		icon = GFX_focus_generic_navy_battleship2
+		x = 2
+		y = 1
+		relative_position_id = FER_expand_krasnopartizansk
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = FER_expand_krasnopartizansk }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = { 
+		add_ideas = ROM_fortify_the_borders
+			657 = {
+                add_building_construction = {
+                    type = bunker
+                    level = 2
+                    province = 4725
+                    instant_build = yes
+                }
+            }
+			657 = {
+                add_building_construction = {
+                    type = bunker
+                    level = 2
+                    province = 10655
+                    instant_build = yes
+                }
+            }
+			657 = {
+                add_building_construction = {
+                    type = bunker
+                    level = 2
+                    province = 7801
+                    instant_build = yes
+                }
+            }
+			657 = {
+                add_building_construction = {
+                    type = bunker
+                    level = 2
+                    province = 10722
+                    instant_build = yes
+                }
+            }
+			657 = {
+                add_building_construction = {
+                    type = bunker
+                    level = 1
+                    province = 7672
+                    instant_build = yes
+                }
+            }
+			657 = {
+                add_building_construction = {
+                    type = bunker
+                    level = 1
+                    province = 4805
+                    instant_build = yes
+                }
+            }
+			657 = {
+                add_building_construction = {
+                    type = bunker
+                    level = 1
+                    province = 12192
+                    instant_build = yes
+                }
+            }
+           
+
+
+			657 = {
+                add_building_construction = {
+                    type = bunker
+                    level = 2
+                    province = 12654
+                    instant_build = yes
+                }
+            }
+			657 = {
+                add_building_construction = {
+                    type = bunker
+                    level = 1
+                    province = 1739
+                    instant_build = yes
+                }
+            }
+          	
+
+           
+		}
+	}
+	focus = {
+		id = FER_gunsmith_workshops
+		icon = GFX_focus_generic_navy_battleship2
+		x = 4
+		y = 1
+		relative_position_id = FER_expand_krasnopartizansk
+		available = {
+		num_of_civilian_factories > 1
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = FER_expand_krasnopartizansk }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = { 
+		   random_owned_controlled_state = {
+                prioritize = { 657 }
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = arms_factory
+                    level = 1
+                    instant_build = yes
+                }
+           }
+		}
+	}
+
+	focus = {
+		id = FER_access_to_the_sea
+		icon = GFX_focus_generic_navy_battleship2
+		x = 0
+		y = 1
+		relative_position_id = FER_expand_krasnopartizansk
+		available = {
+		controls_state = 409
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = FER_expand_krasnopartizansk }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = { 
+		add_stability = 0.05
+		add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+
+	focus = {
+		id = FER_soviet_aid_arrives
+		icon = GFX_focus_generic_navy_battleship2
+		x = 0
+		y = 2
+		relative_position_id = FER_expand_krasnopartizansk
+		available = {
+		controls_state = 409
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = FER_access_to_the_sea }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = { 
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+		add_stability = 0.05
+		add_offsite_building = { type = industrial_complex level = 2 }
+		add_offsite_building = { type = arms_factory level = 2 }
+		remove_ideas = FER_no_way_out
+		}
+	}
+	focus = {
+		id = FER_soviet_arms_deliveries
+		icon = GFX_focus_generic_navy_battleship2
+		x = 0
+		y = 3
+		relative_position_id = FER_expand_krasnopartizansk
+		available = {
+		controls_state = 409
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = FER_soviet_aid_arrives }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = { 
+
+		}
+	}
+
+############################################################################################
+	focus = {
+		id = FER_rebuild_the_army
+		icon = GFX_focus_generic_manpower
+		x = 4
+		y = 1
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = { #army xp, event for lore on the army, manpower
+         add_equipment_to_stockpile = {
+                type = infantry_equipment_0
+                amount = 1000
+                producer = FER
+          }
+		army_experience = 15
+		add_manpower = 10000
+		add_ideas = extensive_conscription
+		}
+	}
+
+
+	focus = {
+		id = FER_winter_clothing
+		icon = GFX_focus_generic_manpower
+		x = 2
+		y = 1
+		relative_position_id = FER_rebuild_the_army
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = FER_rebuild_the_army }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = RUS_winter_clothing
+		}
+	}
+
+	focus = {
+		id = FER_workshop_rifles
+		icon = GFX_focus_generic_manpower
+		x = 2
+		y = 2
+		relative_position_id = FER_rebuild_the_army
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = FER_winter_clothing }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = RUS_siberian_workshops
+		}
+	}
+
+	focus = {
+		id = FER_organize_the_proletariat
+		icon = GFX_focus_generic_manpower
+		x = -2
+		y = 1
+		relative_position_id = FER_rebuild_the_army
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = FER_rebuild_the_army }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = { 
+		add_ideas = war_economy
+		}
+	}
+
+	focus = {
+		id = FER_march_to_the_sea
+		icon = GFX_focus_generic_manpower
+		x = 0
+		y = 1
+		relative_position_id = FER_rebuild_the_army
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = FER_rebuild_the_army }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		add_political_power = 100
+		army_experience = 5
+			add_tech_bonus = {
+				name = POR_staff_wargames
+			    bonus = 2.0
+			    uses = 2
+			    category = land_doctrine
+			}
+			add_tech_bonus = {
+				bonus = 3
+				uses = 1
+				category = cat_mobile_warfare
+			}
+		}
+	}
+
+	focus = {
+		id = FER_strike_at_green_ukraine
+		icon = GFX_focus_generic_manpower
+		x = 0
+		y = 2
+		relative_position_id = FER_rebuild_the_army
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = FER_march_to_the_sea }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_state_claim = 560
+			create_wargoal = {
+				type = take_state
+				target = GRU
+				expire = 0
+				generator = { 0 }
+			}
+		}
+	}
+
+	focus = {
+		id = FER_stage_an_incident_at_khabarovsk
+		icon = GFX_focus_generic_provoke_border_clashes
+		x = 0
+		y = 3
+		relative_position_id = FER_rebuild_the_army
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = FER_strike_at_green_ukraine }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = FER_finish_priamurye_off
+		icon = GFX_focus_generic_manpower
+		x = 0
+		y = 1
+		relative_position_id = FER_stage_an_incident_at_khabarovsk
+		available = {
+			has_army_manpower = {
+    		size > 75000
+    		}
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = FER_stage_an_incident_at_khabarovsk }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = FER_seek_accomodation_with_japan
+		icon = GFX_focus_generic_manpower
+		x = 1
+		y = 2
+		relative_position_id = FER_stage_an_incident_at_khabarovsk
+		mutually_exclusive = { focus = FER_prepare_against_japanese_incursions }
+		available = {
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = FER_finish_priamurye_off }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = FER_prepare_against_japanese_incursions
+		icon = GFX_focus_generic_manpower
+		x = -1
+		y = 2
+		relative_position_id = FER_stage_an_incident_at_khabarovsk
+		mutually_exclusive = { focus = FER_seek_accomodation_with_japan }
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { focus = FER_finish_priamurye_off }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		}
+	}
+
+
+#
+}
+
+																																																																																	

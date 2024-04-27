@@ -1,0 +1,291 @@
+ideas = {
+	country = {
+		DAG_defense_of_the_nation = { #Defense Council of the North Caucasus and Dagestan
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = ast_naval_auxiliary_patrol
+			modifier = {
+				resistance_growth_on_our_occupied_states = 0.15
+				resistance_decay_on_our_occupied_states = -0.20
+				command_power_gain_mult = 0.25
+				mobilization_speed = 0.25
+				#weekly_manpower = 100 #add via focus
+				stability_factor = -0.1
+				war_support_factor = -0.1
+				conscription_factor = 0.3
+				political_power_factor = -0.20
+				#equipment_capture_factor = 0.60 
+				consumer_goods_factor = 0.05
+				#equipment_capture = 0.05
+				#army_core_defence_factor = 0.05 add via focus
+				surrender_limit = 1
+				max_surrender_limit_offset = 1
+				modifier_army_sub_unit_irregular_infantry_defence_factor = 0.1
+			}
+		}
+
+	#Azerbaijani–Georgian mutual defense pact
+	#Georgia wanted oil, oil products (rubber?idk), and grain. Azerbaijan wanted infantry equipment
+	#Various Georgian-Azerbaijani agreements also covered the areas of trade, finance, transit, railway cooperation, food supply, and so on
+	#Union of Cities of the Republic of Georgia, the Union of Co-operatives of Tbilisi, and the Central Food Council of the Georgian Democratic Republic, signed contracts for the barter of food and grain with administrative units in Azerbaijan and the Ministry of Supply in Georgia for different commodities. Georgia was most interested in oil as well as food products from Azerbaijan. Azerbaijan meanwhile was importing coal and manganese from Georgia
+
+	GEO_azr_geo_agreements = {
+
+		allowed = {
+			always = no
+		}
+
+		allowed_civil_war = {
+		}
+			
+		removal_cost = -1
+
+		picture = generic_agrarian_reform
+
+		targeted_modifier = {
+		    tag = AZR
+			trade_cost_for_target_factor = -0.5
+			#extra_trade_to_target_factor = 0.2
+		}
+		modifier = {
+			stability_factor = 0.05
+			production_speed_rail_way_factor = 0.1
+			consumer_goods_factor = -0.05
+			min_export = 0.15
+			base_fuel_gain = 500
+			supply_consumption_factor = -0.05
+		}
+
+	}
+
+	AZR_azr_geo_agreements = {
+
+		allowed = {
+			always = no
+		}
+
+		allowed_civil_war = {
+		}
+			
+		removal_cost = -1
+
+		picture = generic_agrarian_reform
+
+		equipment_bonus = { 
+			infantry_equipment = {
+				build_cost_ic = -0.1
+				instant = yes
+			}
+		}
+		targeted_modifier = {
+		    tag = GEO
+			trade_cost_for_target_factor = -0.5
+			#extra_trade_to_target_factor = 0.2
+		}
+		modifier = {
+			production_lack_of_resource_penalty_factor = -0.1
+			stability_factor = 0.05
+			production_speed_rail_way_factor = 0.1
+			consumer_goods_factor = -0.05
+			min_export = 0.15
+		}
+
+	}
+
+	AZR_booming_oil_economy = { # fuel exports means plenty of funds for the government/military, but less economic diversity 
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = generic_fuel_reserves
+
+			research_bonus = {
+				#industry = 0.05
+				#artillery = 0.1
+				#air_equipment = 0.1
+				#infantry_equipment = 0.1
+				#armor = 0.05
+			}
+			modifier = {
+				license_purchase_cost = -0.5 
+				license_production_speed = 0.05
+				political_power_factor = 0.2
+				research_speed_factor = 0.1
+				production_speed_industrial_complex_factor = -0.25
+				#production_speed_arms_factory_factor = -0.05
+				#industrial_capacity_factory = -0.1
+				#land_doctrine_cost_factor = -0.05
+				production_speed_buildings_factor = 0.05
+				production_speed_infrastructure_factor = 0.1
+				production_speed_rail_way_factor = 0.15
+				stability_factor = 0.05
+			}
+		}
+
+	GEO_peoples_gard = { #politicized national guard
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = generic_reserve_divisions
+
+			modifier = {
+				modifier_army_sub_unit_militia_defence_factor = 0.1
+				modifier_army_sub_unit_militia_attack_factor = 0.05
+				#modifier_army_sub_unit_irregular_infantry_defence_factor = 0.05
+				modifier_army_sub_unit_irregular_infantry_attack_factor = 0.05
+				conscription = 0.01
+				war_support_factor = 0.05
+				mobilization_speed = 0.05
+				land_doctrine_cost_factor = 0.15
+				army_morale_factor = 0.05
+				political_power_factor = -0.15
+				#max_command_power = -25
+				command_power_gain_mult = -0.35
+				planning_speed = -0.2
+			}
+		}
+
+	GEO_georgian_army = { #army has plently of officers/veterans, but is disorganized
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = chi_army_corruption
+
+			modifier = {
+				war_support_factor = -0.1
+				training_time_factor = 0.15
+				mobilization_speed = -0.35
+				army_org_factor = -0.1
+				army_morale_factor = -0.1
+				max_command_power = 10
+				conscription_factor = -0.15
+				experience_loss_factor = -0.05
+				command_power_gain_mult = 0.10
+				terrain_penalty_reduction = 0.05
+				army_core_defence_factor = 0.05
+				dig_in_speed_factor = -0.15
+				org_loss_when_moving = -0.05
+				#army_defence_factor = 0.05
+				army_leader_cost_factor = -0.1
+				promote_cost_factor = -0.1
+			}
+		}
+
+	ARM_armenian_national_army = {  #lack of experienced officers, most of the army is militia/asymetrical minded.
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = chi_army_corruption
+
+			modifier = {
+				supply_consumption_factor = -0.05
+				army_org_factor = -0.05	
+				#experience_loss_factor = 0.05
+				army_leader_cost_factor = 0.15
+				promote_cost_factor = 0.15
+				land_doctrine_cost_factor = 0.15
+				training_time_factor = 0.1
+				army_morale_factor = 0.1
+				max_command_power = -25
+				command_power_gain_mult = -0.25
+				modifier_army_sub_unit_militia_defence_factor = 0.1
+				modifier_army_sub_unit_militia_attack_factor = 0.05
+				#modifier_army_sub_unit_irregular_infantry_defence_factor = 0.05 #add via focus that recruits irrgeulars
+				#modifier_army_sub_unit_mountaineers_defence_factor = 0.05
+				terrain_penalty_reduction = 0.1
+			}
+		}
+
+	ARM_our_motherland_one_nation_one_homeland = { 
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				army_core_defence_factor = 0.05
+				mobilization_speed = 0.15
+				conscription = 0.03
+				surrender_limit = 0.05
+				max_surrender_limit_offset = 0.05
+			}
+			targeted_modifier = {
+				tag = TUR
+				defense_bonus_against = 0.05
+				attack_bonus_against = 0.05
+			}
+			targeted_modifier = {
+				tag = AZR
+				defense_bonus_against = 0.05
+				#attack bonus added via focus
+			}
+		}
+
+	ARM_alexandropol_artillery_workshop  = { #can be improved via focus - arty research, production cost, maybe even expand to anti-tank/anti-air
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = generic_artillery_regiments
+
+			equipment_bonus = {
+				artillery_equipment = {
+					reliability = 0.1
+					instant = yes
+				}
+			}
+			modifier = {
+				army_artillery_attack_factor = 0.025
+				army_artillery_defence_factor = 0.025
+			}
+		}
+	}
+}

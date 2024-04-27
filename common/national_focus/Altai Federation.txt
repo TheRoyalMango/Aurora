@@ -1,0 +1,1584 @@
+﻿focus_tree = {
+	id = black_army_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = AFS
+		}
+	}
+	
+	default = no
+	
+	continuous_focus_position = { x = 50 y = 1000 }
+
+#	focus = {
+#		id = AFS_
+#		icon = GFX_goal_generic_construction
+
+#		mutually_exclusive = { focus =  }
+#		x = -1
+#		y = 0
+#		relative_position_id = 
+#
+#		cost = 5
+#
+#		ai_will_do = {
+#			factor = 1
+#		}
+#
+#		available = {
+#
+#		}
+#		
+#		bypass = {
+#
+#		}
+#
+#		cancel_if_invalid = yes
+#		continue_if_invalid = no
+#		available_if_capitulated = no
+#
+#		complete_tooltip = {
+#
+#		}
+#
+#		completion_reward = {
+#
+#		}
+#	}
+
+	focus = {
+		id = AFS_1936_congress_of_military_soviets
+		icon = GFX_goal_generic_alliance
+		
+		x = 8
+		y = 0
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		###Starts a series of events that determine the military direction of the country
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = AFS_retrieve_zadov
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { 
+			focus = AFS_1936_congress_of_military_soviets
+		}
+		x = -5
+		y = 1
+		relative_position_id = AFS_1936_congress_of_military_soviets
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			create_intelligence_agency = yes
+		}
+	}
+	
+	#########################
+	#####   AIRFORCE    #####
+    #########################
+
+	focus = {
+		id = AFS_aviation_effort
+		icon = GFX_goal_generic_build_airforce
+		prerequisite = { 
+			focus = AFS_1936_congress_of_military_soviets
+		}
+		x = -7
+		y = 1
+		relative_position_id = AFS_1936_congress_of_military_soviets
+		
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			air_experience = 25			
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 2
+				category = air_doctrine
+			}			
+		}
+	}
+
+	focus = {
+		id = AFS_construct_an_air_base
+		icon = GFX_goal_generic_air_production
+		prerequisite = {
+			focus = AFS_aviation_effort
+		}
+		x = 0
+		y = 1
+		relative_position_id = AFS_aviation_effort
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			capital_scope = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = air_base
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = AFS_fighter_focus
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { 
+			focus = AFS_aviation_effort
+		}
+		mutually_exclusive = { 
+			focus = AFS_bomber_focus 
+		}
+		x = -1
+		y = 2
+		relative_position_id = AFS_aviation_effort
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 2
+				technology = early_fighter
+				technology = fighter1
+				technology = fighter2
+				technology = fighter3
+				technology = heavy_fighter1
+				technology = heavy_fighter2
+				technology = heavy_fighter3
+			}
+		}
+	}	
+	
+	focus = {
+		id = AFS_bomber_focus
+		icon = GFX_goal_generic_air_bomber
+		prerequisite = {
+			focus = AFS_aviation_effort
+		}
+		mutually_exclusive = {
+			focus = AFS_fighter_focus
+		}
+		x = 1
+		y = 2
+		relative_position_id = AFS_aviation_effort
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 1.0
+				uses = 2
+				technology = strategic_bomber1
+				technology = strategic_bomber2
+				technology = strategic_bomber3
+				category = tactical_bomber
+			}
+		}
+	}	
+	
+	focus = {
+		id = AFS_aviation_effort_ii
+		icon = GFX_goal_generic_air_doctrine
+		prerequisite = {
+			focus = AFS_construct_an_air_base
+		}
+		prerequisite = {
+			focus = AFS_fighter_focus
+			focus = AFS_bomber_focus
+		}
+		x = 0
+		y = 2
+		relative_position_id = AFS_construct_an_air_base
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			air_experience = 25			
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 2
+				category = air_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = AFS_rocketry
+		icon = GFX_focus_rocketry
+		prerequisite = {
+			focus = AFS_aviation_effort_ii
+		}
+		x = 0
+		y = 1
+		relative_position_id = AFS_aviation_effort_ii
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = jet_rocket_bonus
+				ahead_reduction = 2
+				uses = 2
+				category = rocketry
+				category = jet_technology
+			}
+		}
+	}
+
+	####################
+	##### MILITARY #####
+	####################
+
+	focus = {
+		id = AFS_bandits_of_siberia
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { 
+			focus = AFS_1936_congress_of_military_soviets
+		}
+		mutually_exclusive = { 
+			focus =  AFS_worker_peasant_army
+		}
+		x = -3
+		y = 1
+		relative_position_id = AFS_1936_congress_of_military_soviets
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			army_experience = 25
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = cat_mobile_warfare
+			}
+		}
+	}
+
+	focus = {
+		id = AFS_literacy_campaign
+		icon = GFX_focus_generic_treaty
+		prerequisite = { 
+			focus = AFS_bandits_of_siberia
+		}
+		x = 0
+		y = 1
+		relative_position_id = AFS_bandits_of_siberia
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			###Removes Illiteracy national spirit
+		}
+	}
+
+	focus = {
+		id = AFS_found_the_popular_academy
+		icon = GFX_focus_generic_socialist_science
+		prerequisite = { 
+			focus = AFS_literacy_campaign
+		}
+		x = 0
+		y = 1
+		relative_position_id = AFS_literacy_campaign
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = AFS_conduct_border_raids
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { 
+			focus = AFS_literacy_campaign
+		}
+		x = -1
+		y = 2
+		relative_position_id = AFS_literacy_campaign
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			###Enables border raid decisions
+		}
+	}
+
+	focus = {
+		id = AFS_innovations_in_engineering
+		icon = GFX_goal_generic_production
+		prerequisite = { 
+			focus = AFS_literacy_campaign
+		}
+		prerequisite = {
+			focus = AFS_the_economy_debate
+		}
+		x = 1
+		y = 2
+		relative_position_id = AFS_literacy_campaign
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			###Production Bonus for mot/mech
+		}
+	}
+
+	focus = {
+		id = AFS_modernize_the_tachanki
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { 
+			focus = AFS_found_the_popular_academy
+		}
+		prerequisite = {
+			focus = AFS_conduct_border_raids
+			focus = AFS_innovations_in_engineering
+		}
+		x = 0
+		y = 3
+		relative_position_id = AFS_literacy_campaign
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			add_tech_bonus = {
+				army_experience = 25
+				bonus = 1
+				uses = 2
+				category = cat_mechanized_equipment
+			}
+		}
+	}
+
+	
+	focus = {
+		id = AFS_worker_peasant_army
+		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
+		prerequisite = { 
+			focus = AFS_1936_congress_of_military_soviets
+		}
+		prerequisite = {
+			focus = AFS_central_siberia_intervention
+		}
+		mutually_exclusive = { 
+			focus =  AFS_bandits_of_siberia
+		}
+		x = 3
+		y = 1
+		relative_position_id = AFS_1936_congress_of_military_soviets
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			army_experience = 25
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = cat_mass_assault
+			}
+		}
+	}
+
+	focus = {
+		id = AFS_schools_for_the_peasantry
+		icon = GFX_focus_generic_military_academy
+		prerequisite = { 
+			focus = AFS_worker_peasant_army
+		}
+		x = 0
+		y = 1
+		relative_position_id = AFS_worker_peasant_army
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			###Enables decisions to lower illiteracy debuffs at home and in neighbouring countries (the latter increases influence)
+		}
+	}
+
+	focus = {
+		id = AFS_industrialization
+		icon = GFX_goal_generic_production2
+		prerequisite = { 
+			focus = AFS_schools_for_the_peasantry
+		}
+		x = 0
+		y = 1
+		relative_position_id = AFS_schools_for_the_peasantry
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+
+		}
+	}
+	
+	focus = {
+		id = AFS_encourage_collectivization
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { 
+			focus = AFS_schools_for_the_peasantry
+		}
+		prerequisite = {
+			focus = AFS_the_economy_debate
+		}
+		x = -1
+		y = 2
+		relative_position_id = AFS_schools_for_the_peasantry
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			###Building slots, consumer goods lowered
+		}
+	}
+
+	focus = {
+		id = AFS_peasant_unions
+		icon = GFX_focus_YUG_pan_slavic_congress
+		prerequisite = { 
+			focus = AFS_schools_for_the_peasantry
+		}
+		x = 1
+		y = 2
+		relative_position_id = AFS_schools_for_the_peasantry
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			###Enables decisions to organise peasantry in neighbouring countries, increasing influence
+		}
+	}
+
+	focus = {
+		id = AFS_mass_production
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { 
+			focus = AFS_industrialization
+		}
+		prerequisite = {
+			focus = AFS_encourage_collectivization
+			focus = AFS_peasant_unions
+		}
+		x = 0
+		y = 3
+		relative_position_id = AFS_schools_for_the_peasantry
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			#Increased production speed for small arms and support equipment
+		}
+	}
+	
+	focus = {
+		id = AFS_obligatory_mobilization
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { 
+			focus = AFS_bandits_of_siberia
+			focus = AFS_worker_peasant_army
+		}
+		x = 0
+		y = 2
+		relative_position_id = AFS_1936_congress_of_military_soviets
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			#increase in recAFStble population
+		}
+	}
+
+	focus = {
+		id = AFS_the_economy_debate
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { 
+			focus = AFS_obligatory_mobilization
+		}
+		x = 0
+		y = 1
+		relative_position_id = AFS_obligatory_mobilization
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			#Changes mobilization law and allows for more changes
+		}
+	}
+
+	focus = {
+		id = AFS_military_factories
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = {
+			focus = AFS_the_economy_debate
+		}
+		prerequisite = { 
+			focus = AFS_innovations_in_engineering
+			focus = AFS_encourage_collectivization
+		}
+		x = 0
+		y = 3
+		relative_position_id = AFS_obligatory_mobilization
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+		####################
+		#####DIPLOMACY #####
+		####################
+		
+	focus = {
+		id = AFS_central_siberia_intervention
+		icon = GFX_goal_generic_military_sphere
+		x = 13
+		y = 0
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			#Allows sending of volunteers
+			send_equipment = {
+				type = infantry_equipment
+				amount = 200
+				target = KHA
+			}	
+			send_equipment = {
+				type = infantry_equipment
+				amount = 200
+				target = MIN
+			}	
+			send_equipment = {
+				type = infantry_equipment
+				amount = 200
+				target = TAS
+			}	
+		}
+	}
+
+	focus = {
+		id = AFS_influence_the_green_states
+		icon = GFX_focus_por_workers_of_iberia
+		prerequisite = { 
+			focus = AFS_central_siberia_intervention
+		}
+		x = 2
+		y = 1
+		relative_position_id = AFS_central_siberia_intervention
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			#Enables influence decisions
+		}
+	}
+
+	focus = {
+		id = AFS_support_the_tuvans
+		icon = GFX_goal_generic_dangerous_deal
+		x = -2
+		y = 0
+		prerequisite = { 
+			focus = AFS_central_siberia_intervention
+		}
+		relative_position_id = AFS_influence_the_green_states
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+		}				
+	}
+
+	focus = {
+		id = AFS_allies_in_kyzyl
+		icon = GFX_focus_prc_agrarian_socialism
+		prerequisite = { 
+			focus = AFS_support_the_tuvans
+		}
+		x = 0
+		y = 1
+		relative_position_id = AFS_support_the_tuvans
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = AFS_fortify_the_irtysh_river_border
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { 
+			focus = AFS_public_rail
+		}
+		x = 1
+		y = 1
+		relative_position_id = AFS_influence_the_green_states
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			577 = {
+				is_fully_controlled_by = ROOT
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			577 = {
+				add_building_construction = {
+    				type = anti_air_building
+    				level = 1
+    				instant_build = yes
+				}
+				set_building_level = {
+    				type = bunker
+    				level = 1
+   					province = 10202
+				}
+				set_building_level = {
+    				type = bunker
+    				level = 1
+   					province = 7708
+				}
+				set_building_level = {
+    				type = bunker
+    				level = 1
+   					province = 4661
+				}
+				set_building_level = {
+    				type = bunker
+    				level = 2
+   					province = 12594
+				}
+				set_building_level = {
+    				type = bunker
+    				level = 1
+   					province = 7890
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = AFS_negotiate_with_the_srs
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		prerequisite = { 
+			focus = AFS_fortify_the_irtysh_river_border
+		}
+		prerequisite = {
+			focus = AFS_influence_the_green_states
+		}
+		x = 0
+		y = 2
+		relative_position_id = AFS_influence_the_green_states
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			#SR gets negotiation event 
+		}
+	}
+
+	focus = {
+		id = AFS_onward_to_baikal
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { 
+			focus = AFS_fortify_the_irtysh_river_border
+		}
+		x = 0
+		y = 2
+		relative_position_id = AFS_fortify_the_irtysh_river_border
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			create_wargoal = {
+				type = take_state
+				target = BYA
+				expire = 0
+				generator = { 1 }
+			}
+		}
+	}
+
+	focus = {
+		id = AFS_tackle_the_false_commune
+		icon = GFX_focus_SOV_the_last_purge
+		prerequisite = { 
+			focus = AFS_negotiate_with_the_srs
+			focus = AFS_onward_to_baikal
+		}
+		x = -1
+		y = 1
+		relative_position_id = AFS_onward_to_baikal
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			create_wargoal = {
+				type = take_state
+				target = SIB
+				expire = 0
+				generator = { 1 }
+			}
+		}
+	}
+
+	focus = {
+		id = AFS_secure_the_south
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		x = 1
+		y = 1
+		relative_position_id = AFS_onward_to_baikal
+
+		cost = 5
+
+		ai_will_do = {
+		
+			factor = 0
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			create_wargoal = {
+				type = take_state
+				target = ALT
+				expire = 0
+				generator = { 1 }
+			}
+		}
+	}
+
+	focus = {
+		id = AFS_unite_siberia
+		icon = GFX_focus_focus_fra_revolution_upmost
+		prerequisite = { 
+			focus = AFS_tackle_the_false_commune
+		}
+		prerequisite = {
+			focus = AFS_secure_the_south
+		}
+		x = 0
+		y = 2
+		relative_position_id = AFS_onward_to_baikal
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			#annex_country = {
+			#	target = NWS
+			#	transfer_troops = yes
+			#}
+		}
+	}
+
+	####################
+	##### ECONOMY  #####
+	####################
+
+	focus = {
+		id = AFS_region_wide_workers_associations
+		icon = GFX_goal_generic_improve_relations
+		x = 20
+		y = 0
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = AFS_public_rail
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { 
+			focus = AFS_region_wide_workers_associations
+		}
+		x = -1
+		y = 1
+		relative_position_id = AFS_region_wide_workers_associations
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = AFS_industrial_expansion
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { 
+			focus = AFS_public_rail
+		}
+		prerequisite = {
+			focus = AFS_natural_resources
+		}
+		x = 0
+		y = 2
+		relative_position_id = AFS_region_wide_workers_associations
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = AFS_further_rail_improvements
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { 
+			focus = AFS_fortify_the_irtysh_river_border
+		}
+		prerequisite = {
+			focus = AFS_industrial_expansion
+		}
+		x = -1
+		y = 3
+		relative_position_id = AFS_region_wide_workers_associations
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = AFS_natural_resources
+		icon = GFX_goal_generic_construction2
+		prerequisite = { 
+			focus = AFS_region_wide_workers_associations
+		}
+		x = 1
+		y = 1
+		relative_position_id = AFS_region_wide_workers_associations
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = AFS_autarky
+		icon = GFX_focus_generic_rubber
+		prerequisite = { 
+			focus = AFS_industrial_expansion
+		}
+		x = 1
+		y = 3
+		relative_position_id = AFS_region_wide_workers_associations
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+
+		}
+	}
+
+}

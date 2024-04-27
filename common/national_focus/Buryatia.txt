@@ -1,0 +1,548 @@
+﻿focus_tree = { 
+	id = Buryatia_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = BYA
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 50 y = 1000 }
+
+	focus = {
+		id = BYA_request_machine_tools_from_japan
+		icon = GFX_RUS_gears
+		x = 4
+		y = 0
+		
+		available = {
+		}
+
+		bypass = {
+		}
+
+		ai_will_do = {
+			factor = 5
+		}
+		
+		cost = 10
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = train_equipment
+				amount = 1
+				producer = JAP
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 1
+				category = cat_production
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = BYA_revitalize_the_chita_CER_connection
+		icon = GFX_goal_OTT_Railroad #GFX_goal_Fix_Shitty_Rails
+		prerequisite = { focus = BYA_request_machine_tools_from_japan }
+		x = 2
+		y = 1
+		relative_position_id = BYA_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+		}
+		available = { NOT = { has_war_with = MAN } }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = train_equipment
+				amount = 5
+				producer = JAP
+			}
+			swap_ideas = { 
+				remove_idea = MON_japanese_railways_assistance
+				add_idea = MON_japanese_railways_assistance_2
+			}
+			build_railway = {
+				path = { 4677 4719 7743 4745 13150 10638 4876 12485 4506 }
+			}
+		}
+	}	
+		
+	focus = {
+		id = BYA_electrify_the_country
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = BYA_request_machine_tools_from_japan }
+		x = 0
+		y = 1
+		relative_position_id = BYA_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			563 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_stability = 0.05
+		}
+	}	
+
+	focus = {
+		id = BYA_domestic_machine_tools
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = BYA_electrify_the_country }
+		x = 0
+		y = 2
+		relative_position_id = BYA_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			random_owned_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				prioritize = { 330 }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+		}
+	}
+	focus = {
+		id = BYA_weapons_manufactury
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = BYA_domestic_machine_tools }
+		x = 0
+		y = 3
+		relative_position_id = BYA_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			random_owned_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				prioritize = { 330 }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}	
+
+	focus = {
+		id = BYA_pursue_rapid_industrialization
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = BYA_weapons_manufactury }
+		mutually_exclusive = { focus = BYA_play_to_our_strengths }
+		x = 0
+		y = 4
+		relative_position_id = BYA_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			# ttp for this focus will be better if we have japanese/manchu support
+		}
+	}	
+
+	focus = {
+		id = BYA_homesteading
+		icon = GFX_goal_agriculture2
+		prerequisite = { focus = BYA_request_machine_tools_from_japan }
+		x = -2
+		y = 1
+		relative_position_id = BYA_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}	
+
+	focus = {
+		id = BYA_animal_husbandry
+		icon = GFX_focus_generic_horse_studs
+		prerequisite = { focus = BYA_homesteading }
+
+		x = -2
+		y = 2
+		relative_position_id = BYA_request_machine_tools_from_japan
+		cost = 5
+		available = {
+		}
+		ai_will_do = {
+			base = 2
+		}
+
+
+		search_filters = {}
+
+		completion_reward = {
+			add_ideas = ETH_national_studs_idea
+			#set_technology = { camelry = 1 }
+		}
+	}
+
+	focus = {
+		id = BYA_play_to_our_strengths
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = BYA_animal_husbandry }
+		mutually_exclusive = { focus = BYA_pursue_rapid_industrialization }
+		x = -2
+		y = 4
+		relative_position_id = BYA_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			#
+		}
+	}	
+
+	focus = {
+		id = BYA_trade_with_manchukou
+		icon = GFX_goal_Fix_Shitty_Rails
+		prerequisite = { focus = BYA_revitalize_the_chita_CER_connection }
+		x = 4
+		y = 2
+		relative_position_id = BYA_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		available = { NOT = { has_war_with = JAP } }
+
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = train_equipment
+				amount = 5
+				producer = JAP
+			}
+			swap_ideas = { 
+				remove_idea = MON_japanese_railways_assistance_2
+				add_idea = MON_japanese_railways_assistance_3
+			}
+		}
+	}
+
+	focus = {
+		id = BYA_japanese_weapons_imports
+		icon = GFX_RUS_rifle2
+		prerequisite = { focus = BYA_trade_with_manchukou }
+		x = 4
+		y = 3
+		relative_position_id = BYA_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+		available = { NOT = { has_war_with = JAP } }
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = BYA_order_heavy_arms
+		icon = GFX_goal_national_artillery
+		prerequisite = { focus = BYA_japanese_weapons_imports }
+		x = 4
+		y = 4
+		relative_position_id = BYA_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+		available = { NOT = { has_war_with = JAP } }
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = BYA_lake_baikal_north_rail
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = BYA_revitalize_the_chita_CER_connection }
+		x = 2
+		y = 2
+		relative_position_id = BYA_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+		available = { has_full_control_of_state = 566 has_full_control_of_state = 564 }
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			build_railway = {
+				path = { 4797 1727 12525 1707 10524 12575 4716 12644 7835 }
+			}
+			564 = {
+				add_building_construction = {
+					type = supply_node
+					province = 12575
+					level = 1
+					instant_build = yes
+				}
+			}
+			566 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			564 = {
+				#limit = { is_fully_controlled_by = ROOT }
+				#prioritize = { 564 }
+				add_extra_state_shared_building_slots = 2
+				#add_building_construction = {
+				#	type = industrial_complex
+				#	level = 1
+				#	instant_build = yes
+				#}
+			}
+		}
+	}
+
+	focus = {
+		id = BYA_invite_japanese_settelers
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = BYA_lake_baikal_north_rail }
+		x = 2
+		y = 3
+		relative_position_id = BYA_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+		available = { NOT = { has_war_with = JAP } }
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			random_owned_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				prioritize = { 330 }
+				add_manpower = 25417
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				prioritize = { 819 }
+				add_manpower = 33846
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = BYA_japanese_technical_school
+		icon = GFX_goal_KTG_Educate_natives
+		prerequisite = { focus = BYA_invite_japanese_settelers }
+		x = 2
+		y = 4
+		relative_position_id = BYA_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+		available = { NOT = { has_war_with = JAP } }
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_research_slot = 1
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 1
+				category = electronics
+			}
+		}
+	}
+
+# Political
+
+	focus = {
+		id = BYA_power_to_the_ataman
+		icon = GFX_focus_SOV_approach_semyonov
+		mutually_exclusive = { focus = BYA_oppose_semyonov }
+		x = 15
+		y = 0
+		
+		available = {
+		}
+
+		bypass = {
+		}
+
+		ai_will_do = {
+			factor = 5
+		}
+		
+		cost = 10
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+
+	focus = {
+		id = BYA_reapprochment_with_sternburg
+		icon = GFX_goal_RUS_white_legacy
+		prerequisite = { focus = BYA_power_to_the_ataman }
+		x = -2
+		y = 1
+		relative_position_id = BYA_power_to_the_ataman
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+		}
+	}
+###Opposition path
+	focus = {
+		id = BYA_oppose_semyonov
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		mutually_exclusive = { focus = BYA_power_to_the_ataman }
+		relative_position_id = BYA_power_to_the_ataman
+		x = 6
+		y = 0
+		
+		available = {
+		}
+
+		bypass = {
+		}
+
+		ai_will_do = {
+			factor = 5
+		}
+		
+		cost = 10
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.15
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+	}
+
+#
+}		

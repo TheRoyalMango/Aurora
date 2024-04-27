@@ -1,0 +1,50 @@
+﻿focus_tree = { 
+	id = joe_focus
+	
+	country = {
+		factor = 0
+	
+		#modifier = {
+		#	add = 10
+		#	tag = ALT
+		#}
+		#modifier = {
+		#	add = 10
+		#	tag = TOM
+		#}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 50 y = 1000 }
+
+	focus = {
+		id = JOE_mamma
+		icon = GFX_focus_generic_league_of_nations
+		x = 8
+		y = 0
+		
+		available = {
+		}
+
+		bypass = {
+		}
+
+		ai_will_do = {
+			factor = 25
+		}
+		
+		cost = 10
+
+		#(no prerequisite or relative position as this is the first focus)
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			#I removed the rewards so you dont get confused by the brackets
+		}
+	}
+
+#(i put this note here to remind myself this is the last bracket)
+}		

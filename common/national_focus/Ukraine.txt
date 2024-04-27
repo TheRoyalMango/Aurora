@@ -1,0 +1,766 @@
+focus_tree = {
+	id = ukrainian_national_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = UKR
+		}
+	}
+	default = no
+	focus = {
+		id = UKR_handle_the_economic_freefall
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		x = 3
+		y = 0
+		available = {
+			
+		}
+		bypass = {
+			
+		}
+		cost = 5
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_STABILITY}
+		completion_reward = {
+			add_stability = 0.05
+			swap_ideas = {
+				remove_idea = UKR_outdated_economic_system_1
+				add_idea = UKR_outdated_economic_system_2
+			}
+		}
+	}
+	focus = {
+		id = UKR_prioritize_the_agriculture
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		mutually_exclusive = {focus = UKR_prioritize_the_industry}
+		prerequisite = {focus = UKR_handle_the_economic_freefall}
+		relative_position_id = UKR_handle_the_economic_freefall
+		x = -2
+		y = 1
+		available = {
+			
+		}
+		bypass = {
+			
+		}
+		cost = 5
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			random_owned_controlled_state = {
+				prioritize = {200}
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = {225}
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			swap_ideas = {
+				remove_idea = UKR_outdated_economic_system_2
+				add_idea = UKR_agrarian_economy_1
+			}
+		}
+	}
+	focus = {
+		id = UKR_investments_into_grain_production
+		icon = GFX_focus_SOV_breadbasket_of_the_union
+		prerequisite = {focus = UKR_prioritize_the_agriculture}
+		relative_position_id = UKR_prioritize_the_agriculture
+		x = -1
+		y = 1
+		available = {
+			
+		}
+		bypass = {
+			
+		}
+		cost = 5
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER}
+		completion_reward = {
+			random_owned_controlled_state = {
+				prioritize = {259}
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = {203}
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {has_idea = UKR_agrarian_economy_2}
+				swap_ideas = {
+					remove_idea = UKR_agrarian_economy_2
+					add_idea = UKR_agrarian_economy_3
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = UKR_agrarian_economy_1
+					add_idea = UKR_agrarian_economy_2
+				}
+			}
+		}
+	}
+	focus = {
+		id = UKR_investments_into_sugar_production
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = {focus = UKR_prioritize_the_agriculture}
+		relative_position_id = UKR_prioritize_the_agriculture
+		x = 1
+		y = 1
+		available = {
+			
+		}
+		bypass = {
+			
+		}
+		cost = 5
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER}
+		completion_reward = {
+			random_owned_controlled_state = {
+				prioritize = {198}
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = {196}
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {has_idea = UKR_agrarian_economy_2}
+				swap_ideas = {
+					remove_idea = UKR_agrarian_economy_2
+					add_idea = UKR_agrarian_economy_3
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = UKR_agrarian_economy_1
+					add_idea = UKR_agrarian_economy_2
+				}
+			}
+		}
+	}
+	focus = {
+		id = UKR_mechanisation_and_fertilisers
+		icon = GFX_goal_generic_construction2
+		prerequisite = {focus = UKR_investments_into_grain_production}
+		prerequisite = {focus = UKR_investments_into_sugar_production}
+		relative_position_id = UKR_investments_into_grain_production
+		x = 1
+		y = 1
+		available = {
+			
+		}
+		bypass = {
+			
+		}
+		cost = 10
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = UKR_agrarian_economy_3
+				add_idea = UKR_agrarian_economy_4
+			}
+		}
+	}
+	focus = {
+		id = UKR_agrarian_economy
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = {focus = UKR_mechanisation_and_fertilisers}
+		relative_position_id = UKR_mechanisation_and_fertilisers
+		x = -1
+		y = 1
+		available = {
+			
+		}
+		bypass = {
+			
+		}
+		cost = 10
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = UKR_agrarian_economy_4
+				add_idea = UKR_agrarian_economy_5
+			}
+			random_owned_controlled_state = {
+				prioritize = {259}
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = {201}
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = UKR_breadbasket_of_europe
+		icon = GFX_focus_prc_agrarian_socialism
+		prerequisite = {focus = UKR_agrarian_economy}
+		relative_position_id = UKR_agrarian_economy
+		x = 0
+		y = 1
+		available = {
+			
+		}
+		bypass = {
+			
+		}
+		cost = 10
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = UKR_agrarian_economy_5
+				add_idea = UKR_agrarian_economy_6
+			}
+			random_owned_controlled_state = {
+				prioritize = {198}
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = {203}
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = {201}
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = {196}
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = UKR_kharkiv_tractor_factory
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = {focus = UKR_mechanisation_and_fertilisers}
+		relative_position_id = UKR_mechanisation_and_fertilisers
+		x = 1
+		y = 1
+		available = {
+			has_full_control_of_state = 221
+		}
+		bypass = {
+			
+		}
+		cost = 10
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			221 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = UKR_donbas_fertiliser_plants
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = {focus = UKR_kharkiv_tractor_factory}
+		relative_position_id = UKR_kharkiv_tractor_factory
+		x = 0
+		y = 1
+		available = {
+			has_full_control_of_state = 227
+			has_full_control_of_state = 228
+		}
+		bypass = {
+			
+		}
+		cost = 10
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			228 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			227 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = UKR_prioritize_the_industry
+		icon = GFX_focus_generic_industry_1
+		mutually_exclusive = {focus = UKR_prioritize_the_agriculture}
+		prerequisite = {focus = UKR_handle_the_economic_freefall}
+		relative_position_id = UKR_handle_the_economic_freefall
+		x = 2
+		y = 1
+		available = {
+			
+		}
+		bypass = {
+			
+		}
+		cost = 5
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = UKR_outdated_economic_system_2
+				add_idea = UKR_industrializing_society_1
+			}
+			random_owned_controlled_state = {
+				prioritize = {202}
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = {221}
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = UKR_textile_industry
+		icon = GFX_goal_generic_trade
+		prerequisite = {focus = UKR_prioritize_the_industry}
+		relative_position_id = UKR_prioritize_the_industry
+		x = -1
+		y = 1
+		available = {
+			
+		}
+		bypass = {
+			
+		}
+		cost = 5
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			random_owned_controlled_state = {
+				prioritize = {202}
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = UKR_urbanization_policies
+		icon = GFX_focus_generic_industry_2
+		prerequisite = {focus = UKR_prioritize_the_industry}
+		relative_position_id = UKR_prioritize_the_industry
+		x = 1
+		y = 1
+		available = {
+			
+		}
+		bypass = {
+			
+		}
+		cost = 5
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = UKR_industrializing_society_1
+				add_idea = UKR_industrializing_society_2
+			}
+		}
+	}
+	focus = {
+		id = UKR_zaporizh_steel
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = {focus = UKR_urbanization_policies}
+		prerequisite = {focus = UKR_textile_industry}
+		relative_position_id = UKR_urbanization_policies
+		x = -1
+		y = 1
+		available = {
+			has_full_control_of_state = 200
+		}
+		bypass = {
+			
+		}
+		cost = 10
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = UKR_industrializing_society_2
+				add_idea = UKR_industrializing_society_3
+			}
+			200 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+					type = steel
+					amount = 6
+				}
+			}
+			
+		}
+	}
+	focus = {
+		id = UKR_found_the_car_industry
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = {focus = UKR_zaporizh_steel}
+		relative_position_id = UKR_zaporizh_steel
+		x = -1
+		y = 1
+		available = {
+			has_full_control_of_state = 202
+		}
+		bypass = {
+			
+		}
+		cost = 10
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = UKR_industrializing_society_3
+				add_idea = UKR_industrializing_society_4
+			}
+			202 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = UKR_industry_in_donetsk
+		icon = GFX_focus_generic_industry_3
+		prerequisite = {focus = UKR_found_the_car_industry}
+		relative_position_id = UKR_found_the_car_industry
+		x = 0
+		y = 1
+		available = {
+			has_full_control_of_state = 227
+			has_full_control_of_state = 228
+		}
+		bypass = {
+			
+		}
+		cost = 10
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = UKR_industrializing_society_4
+				add_idea = UKR_industrializing_society_5
+			}
+			228 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			227 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = UKR_dnipro_hydro_electric_power_station
+		icon = GFX_goal_generic_construction
+		prerequisite = {focus = UKR_zaporizh_steel}
+		relative_position_id = UKR_zaporizh_steel
+		x = 1
+		y = 1
+		available = {
+			has_full_control_of_state = 226
+		}
+		bypass = {
+			
+		}
+		cost = 10
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			226 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = UKR_dnipro_steel_production
+		icon = GFX_focus_generic_steel
+		prerequisite = {focus = UKR_dnipro_hydro_electric_power_station}
+		relative_position_id = UKR_dnipro_hydro_electric_power_station
+		x = 0
+		y = 1
+		available = {
+			has_full_control_of_state = 226
+		}
+		bypass = {
+			
+		}
+		cost = 10
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			226 = {
+				# I found three big companies in the region, hence the three civs for now
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				add_resource = {
+					type = steel
+					amount = 18
+				}
+			}
+		}
+	}
+}

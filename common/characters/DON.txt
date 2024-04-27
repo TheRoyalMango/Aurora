@@ -1,0 +1,142 @@
+characters = {
+	DON_fyodor_podtelkov = {
+		name = DON_fyodor_podtelkov
+
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_DON_fyodor_podtelkov"
+			}
+		}
+		country_leader = {
+			ideology = leninism
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				revolutionary_general
+			}
+		}
+	}
+	DON_evgeny_trifonov = { #Evgeny Andreevich Trifonov
+		name = DON_evgeny_trifonov
+		portraits = {
+			army = {
+				large = "GFX_portrait_DON_evgeny_trifonov"
+				small = "GFX_idea_DON_evgeny_trifonov"
+			}
+		}
+		
+		advisor={
+			slot = army_chief
+			idea_token = DON_evgeny_trifonov
+			ledger = army
+			allowed = {
+				has_government = communism
+			}
+			traits = {
+				army_infantry_1
+			}
+			cost = 50
+			ai_will_do = {
+				factor = 2.000
+			}
+		}
+
+		corps_commander = {
+			traits = { militias_officer career_officer politically_connected }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 3
+		}
+	}
+	DON_pyotr_krasnov = { #advisor, field marshal, and country leader if added to DON
+		name = SOV_pyotr_krasnov
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_pyotr_krasnov"
+				small = "GFX_idea_SOV_pyotr_krasnov"
+			}
+		}
+		country_leader = {
+			ideology=oligarchism
+			traits = { 
+				bloody_ataman_of_the_don
+			}
+			expire="1965.1.1.1"
+		}
+		country_leader = {
+			ideology=fascism_ideology
+			traits = { 
+				bloody_ataman_of_the_don
+				anti_communist
+			}
+			expire="1965.1.1.1"
+		}
+		advisor = { #
+			slot = high_command
+			idea_token = pyotr_krasnov
+			allowed = {
+				OR = {
+					original_tag = KUB
+					original_tag = DON
+					IF = {
+						limit = { original_tag = RUS }		
+						has_country_flag = RUS_invite_exile_generals		
+					}
+				}
+			}
+			available = {
+			}				
+			traits = {
+				army_cavalry_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
+		corps_commander = {
+			traits = {  
+				old_guard #was 67
+				harsh_leader
+				career_officer
+				cavalry_leader
+				politically_connected
+				BALTIC_ex_russian
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 3
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+				IF = {
+					limit = { original_tag = RUS }		
+					has_country_flag = RUS_invite_exile_generals		
+				}
+			}
+		}
+	}
+	DON_provisional_government = {
+		name = SOV_provisional_government
+
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_SOV_white_transitionary_council"
+			}
+		}
+		country_leader = {
+			ideology = despotism
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				emigre_connections desperate_gambit anti_communist
+			}
+		}
+	}
+#
+}

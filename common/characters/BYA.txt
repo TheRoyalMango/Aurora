@@ -1,0 +1,103 @@
+characters={
+	BYA_grigory_semyonov = {
+		name = SOV_grigory_semyonov
+		portraits = {
+			army = {
+				small = "GFX_idea_SOV_grigory_semyonov"
+				large = "GFX_portrait_SOV_grigory_semyonov"
+			}
+		}
+
+		country_leader = {
+			ideology = fascism_ideology
+			traits = {
+				ataman_transbaikal_host
+				anti_semetic
+			}
+			expire = "1948.1.1.1"
+			id = -1
+		}
+
+		country_leader = {
+			ideology = despotism
+			traits = {
+				ataman_transbaikal_host
+				anti_semetic
+			}
+			expire = "1948.1.1.1"
+			id = -1
+		}
+
+		advisor = {
+			slot = army_chief
+			idea_token = grigory_semyonov 
+			allowed = {
+			}
+			available = {
+			}				
+			traits = {
+				army_chief_maneuver_1
+			}
+			cost = 50
+			ai_will_do = {
+				base = 1.000
+			}
+		}
+
+		field_marshal = {
+			traits = { BALTIC_ex_russian politically_connected scavenger cavalry_leader winter_specialist }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 3
+			legacy_id = 0
+			visible = {
+			}
+		}
+
+#		advisor = {
+#			slot = political_advisor
+#			idea_token = SOV_grigory_semyonov
+#			allowed = {
+#				original_tag = BYA
+#			}
+#			available = {
+#			}
+#			visible = {
+#			}
+#			traits = {
+#				ataman_transbaikal_host
+#			}
+#		}		
+	}
+
+
+	BYA_seymon_ignatyev = {
+		name = "Seymon Ignatyev" 
+		portraits = {
+			civilian = {
+				large = GFX_portrait_Seymon_Ignatyev
+			}
+		}
+		country_leader = {
+			ideology = stalinism
+			expire = "1943.1.1.1"
+			id = -1
+		}
+	}
+	BYA_bidia_dandaron = {
+		name = "Chakravartin Bidia Dandarovitch Dandaron" 
+		portraits = {
+			civilian = {
+				large = GFX_portrait_Chakravartin_Bidia_Dandarovitch_Dandaron
+			}
+		}
+		country_leader = {
+			ideology = despotism
+			expire = "1960.1.1.1"
+			id = -1
+		}
+	}
+}
+	

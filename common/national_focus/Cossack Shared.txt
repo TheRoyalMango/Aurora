@@ -1,0 +1,1167 @@
+﻿### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+
+focus_tree = {
+	id = cossack_tree
+	
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			OR = {
+				original_tag = KAL #not cossack but close enough
+				original_tag = DON
+				original_tag = KUB
+				original_tag = TER
+				original_tag = URC
+				original_tag = ORE
+				original_tag = SEM
+				original_tag = KAZ #not cossack but close enough
+			}
+		}
+	}
+
+	default = no
+
+	continuous_focus_position = { x = 20 y = 1250 }  
+	initial_show_position = {
+		x = 12
+		y = 0
+	}
+
+	focus = {
+		id = cossack_develop_capitalstate
+		icon = GFX_focus_generic_industry_1
+		#prerequisite = { focus = }
+
+		x = 3
+		y = 0
+		#relative_position_id = 
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+			capital_scope = {
+				ETH_upgrade_state_category = yes 
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = cossack_the_state_bank_of_name 
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = cossack_develop_capitalstate }
+
+		x = -2
+		y = 1
+		relative_position_id = cossack_develop_capitalstate
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_ideas = HOA_state_bank_idea
+		}
+	}
+	focus = {
+		id = cossack_pave_the_roads
+		icon = GFX_goal_reichsautobahn
+		prerequisite = { focus = cossack_develop_capitalstate }
+
+		x = 1
+		y = 1
+		relative_position_id = cossack_develop_capitalstate
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = cossack_the_steam_locomotive
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = cossack_pave_the_roads }
+
+		x = 0
+		y = 1
+		relative_position_id = cossack_pave_the_roads
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			IF = {
+				limit = {
+					NOT = { has_tech = basic_train }
+				}
+				set_technology = { 
+					basic_train = 1
+					popup = yes
+				}
+			}
+			add_equipment_to_stockpile = { 
+				type = train_equipment_1
+				amount = 10 
+				producer = ROOT
+			}
+		}
+	}
+	focus = {
+		id = cossack_rifle_workshops
+		icon = GFX_RUS_rifle1
+		prerequisite = { focus = cossack_the_state_bank_of_name }
+		dynamic = yes 
+		mutually_exclusive = { focus = cossack_the_adjective_industrial_fund }
+		x = -1
+		y = 1
+		relative_position_id = cossack_the_state_bank_of_name
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_ideas = NFE_rifle_workshops
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = cossack_the_adjective_industrial_fund
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = cossack_the_state_bank_of_name }
+		mutually_exclusive = { focus = cossack_rifle_workshops }
+		x = 1
+		y = 1
+		relative_position_id = cossack_the_state_bank_of_name
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = { 
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = cossack_exploit_national_resources
+		icon = GFX_focus_generic_rubber
+		prerequisite = { focus = cossack_the_steam_locomotive }
+
+		x = 0
+		y = 1
+		relative_position_id = cossack_the_steam_locomotive
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = cossack_promote_local_crafts
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = cossack_rifle_workshops focus = cossack_the_adjective_industrial_fund }
+
+		x = 1
+		y = 1
+		relative_position_id = cossack_rifle_workshops
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = HOA_promote_local_crafts
+				bonus = 0.25
+				uses = 2
+				category = industry 
+			}
+			add_tech_bonus = {
+				name = HOA_promote_local_crafts
+				bonus = 0.5
+				uses = 1
+				category = support_tech
+			}
+		}
+	}
+	focus = {
+		id = cossack_use_the_natural_harbors
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = cossack_promote_local_crafts }
+		mutually_exclusive = { focus = cossack_the_capital_city_airport }
+		x = -1
+		y = 1
+		relative_position_id = cossack_promote_local_crafts
+		cost = 10
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = { is_coastal = yes }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = cossack_the_capital_city_airport  
+		icon = GFX_goal_generic_air_fighter2
+		prerequisite = { focus = cossack_promote_local_crafts }
+		mutually_exclusive = { focus = cossack_use_the_natural_harbors }
+		dynamic = yes 
+		x = 1
+		y = 1
+		relative_position_id = cossack_promote_local_crafts  
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			capital_scope = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_equipment_to_stockpile = { 
+				type = transport_plane_equipment
+				amount = 10 
+				producer = ROOT
+			}
+		}
+	}
+	focus = { 
+		id = cossack_a_steamboat_fleet
+		icon = GFX_focus_generic_destroyer
+		prerequisite = { focus = cossack_use_the_natural_harbors }
+
+		x = -1
+		y = 1
+		relative_position_id = cossack_use_the_natural_harbors
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = HOA_a_steamboat_fleet
+				bonus = 0.5
+				uses = 2
+				category = dd_tech
+			}
+			navy_experience = 25
+		}
+	}
+	focus = {
+		id = cos_improve_the_industrial_base
+		icon = GFX_goal_factory_complex
+		prerequisite = { focus = cossack_use_the_natural_harbors focus = cossack_the_capital_city_airport }
+
+		x = 1
+		y = 1
+		relative_position_id = cossack_use_the_natural_harbors
+		cost = 10
+		available = {
+			num_of_civilian_factories > 9
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			IF = { 
+				limit = { has_idea = RUS_weak_industrial_base }
+				remove_ideas = RUS_weak_industrial_base
+			}
+			add_tech_bonus = {
+				name = cos_improve_the_industrial_base
+				bonus = 1
+				uses = 2
+				category = industry 
+			}		
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}	
+		}
+	}
+	focus = {
+		id = cossack_the_adjective_air_fleet
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = cossack_the_capital_city_airport }
+
+		x = 1
+		y = 1
+		relative_position_id = cossack_the_capital_city_airport
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = HOA_the_adjective_air_fleet
+				bonus = 0.5
+				uses = 1
+				category = light_air
+			}
+			add_tech_bonus = {
+				name = HOA_the_adjective_air_fleet
+				bonus = 0.5
+				uses = 1
+				category = medium_air
+			}
+			add_tech_bonus = {
+				name = HOA_the_adjective_air_fleet
+				bonus = 0.5
+				uses = 1
+				category = heavy_air
+			}
+			air_experience = 20
+		}
+	}
+	focus = {
+		id = cossack_state-funded_projects
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = cossack_a_steamboat_fleet focus = cossack_the_adjective_air_fleet focus = cos_improve_the_industrial_base }
+
+		x = 2
+		y = 1
+		relative_position_id = cossack_a_steamboat_fleet
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_ideas = HOA_state_funded_projects_idea
+		}
+	}
+	focus = {
+		id = cossack_the_grand_university_of_capital 
+		icon = GFX_focus_research
+		prerequisite = { focus = cossack_state-funded_projects }
+
+		x = 0
+		y = 1
+		relative_position_id = cossack_state-funded_projects
+		cost = 10
+		available = {  
+		}
+
+		search_filters = {} 
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	#   # ### #   ### ###  ##  ###  #   # 
+	## ##  #  #    #   #  #  # #  #  # #  
+	# # #  #  #    #   #  #### ###    #   
+	#   #  #  #    #   #  #  # #  #   #   
+	#   # ### ### ###  #  #  # #  #   #   
+
+	focus = {
+		id = cossack_the_adjective_armed_forces
+		icon = GFX_goal_generic_small_arms
+		#prerequisite = { focus = }
+
+		x = 8 
+		y = 0
+		#relative_position_id =
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			army_experience = 25
+			add_manpower = 1000
+		}
+	}
+	focus = {
+		id = cossack_warrior_tradition
+		icon = GFX_focus_generic_horse_studs#GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = cossack_the_adjective_armed_forces }
+
+		x = 0
+		y = 1
+		relative_position_id = cossack_the_adjective_armed_forces
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			division_template = {
+				name = "Kazach'ya Brigada"
+				is_locked = no
+				regiments = {
+					cavalry = { x = 0 y = 0 }
+					cavalry = { x = 0 y = 1 }
+					cavalry = { x = 0 y = 2 }
+					cavalry = { x = 1 y = 0 }
+					cavalry = { x = 1 y = 1 }
+					cavalry = { x = 1 y = 2 }	
+				}
+			}
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Kazach'ya Brigada\" division_template = \"Kazach'ya Brigada\" start_experience_factor = 0.02 start_equipment_factor = 1 start_manpower_factor = 1"
+					owner = ROOT
+					count = 2
+				}
+			}
+		}
+	}
+	focus = {
+		id = cossack_strengthen_the_irregulars
+		icon = GFX_focus_ETH_keep_the_chitet
+		prerequisite = { focus = cossack_warrior_tradition }
+		mutually_exclusive = { focus = cossack_every_man_a_warrior }
+		x = -1
+		y = 1
+		relative_position_id = cossack_warrior_tradition
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			division_template = {
+				name = "Kazach'i Neregulyarnyye Voyska"
+				is_locked = no
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+					irregular_infantry = { x = 1 y = 2 }	
+				}
+			}
+			add_ideas = HOA_improved_irregulars_idea
+		}
+	}
+	focus = {
+		id = cossack_every_man_a_warrior
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = cossack_warrior_tradition }
+		mutually_exclusive = { focus = cossack_strengthen_the_irregulars }
+		x = 1
+		y = 1
+		relative_position_id = cossack_warrior_tradition
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_ideas = HOA_every_man_a_warrior_idea
+		}
+	}
+	focus = {
+		id = cossack_names_finest
+		icon = GFX_focus_ETH_sway_the_warlords
+		prerequisite = { focus = cossack_strengthen_the_irregulars }
+
+		x = -1
+		y = 1
+		relative_position_id = cossack_strengthen_the_irregulars
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_units_to_division_template = {
+				template_name = "Kazach'i Neregulyarnyye Voyska" 
+				regiments = {
+					irregular_infantry = 0 
+					irregular_infantry = 1 
+				}
+			}
+			add_ideas = HOA_our_finest_idea
+		}
+	}
+	focus = {
+		id = cossack_utilize_our_strengths
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = cossack_strengthen_the_irregulars focus = cossack_every_man_a_warrior }
+
+		x = 1
+		y = 1
+		relative_position_id = cossack_strengthen_the_irregulars
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			IF = {
+				limit = {
+					OR = {
+						original_tag = KAL
+						original_tag = KAL
+						original_tag = KAL
+					}
+				}
+				add_ideas = HOA_our_strength_fighting_idea
+			}
+			ELSE_IF = {
+				limit = {
+					OR = {
+						original_tag = KAL
+						original_tag = KAL
+						original_tag = KAL
+					}
+				}
+				add_ideas = HOA_our_strength_production_idea
+			}
+			ELSE_IF = {
+				limit = {
+					OR = {
+						original_tag = KAL
+						original_tag = KAL
+					}
+				}
+				add_ideas = HOA_our_strength_research_idea
+			}
+		}
+	}
+	focus = {
+		id = cossack_reform_the_conscription
+		icon = GFX_focus_generic_military_academy
+		prerequisite = { focus = cossack_every_man_a_warrior }
+
+		x = 1
+		y = 1
+		relative_position_id = cossack_every_man_a_warrior
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_war_support = 0.1
+			IF = {
+				limit = { 
+					NOT = { has_idea = extensive_conscription }
+					NOT = { has_idea = service_by_requirement }
+					NOT = { has_idea = all_adults_serve }
+					NOT = { has_idea = scraping_the_barrel }
+				}
+				add_ideas = extensive_conscription
+			}
+
+		}
+	}
+	focus = {
+		id = cossack_eyes_on_the_imperialists
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = cossack_utilize_our_strengths }
+
+		x = -1
+		y = 1
+		relative_position_id = cossack_utilize_our_strengths
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = HOA_eyes_on_the_imperialists
+				cost_reduction = 0.25
+				uses = 1
+				category = land_doctrine
+			}
+			add_doctrine_cost_reduction = {
+				name = HOA_eyes_on_the_imperialists
+				cost_reduction = 0.25
+				uses = 1
+				category = air_doctrine
+			}
+			add_doctrine_cost_reduction = {
+				name = HOA_eyes_on_the_imperialists
+				cost_reduction = 0.25
+				uses = 1
+				category = naval_doctrine
+			}
+		}
+	}
+	focus = {
+		id = cossack_encourage_local_arms_production
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = cossack_utilize_our_strengths }
+
+		x = 1
+		y = 1
+		relative_position_id = cossack_utilize_our_strengths
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = cossack_metal_beasts
+		icon = GFX_RUS_ft17
+		prerequisite = { focus = cossack_eyes_on_the_imperialists }
+		mutually_exclusive = { focus = cossack_the_roars_of_thunder focus = cossack_develop_indigenous_models }
+		x = -1
+		y = 1
+		relative_position_id = cossack_eyes_on_the_imperialists
+		cost = 10
+		available = {
+			NOT = { has_idea = NFE_no_industrial_or_technical_base }
+			NOT = { has_idea = RUS_weak_industrial_base }
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				#T-18 tank template
+				create_equipment_variant = {
+					name = "T-18" #Russian FT
+					type = light_tank_chassis_0
+					parent_version = 0
+					modules = {
+						main_armament_slot = tank_small_cannon
+						turret_type_slot = tank_light_one_man_tank_turret
+						suspension_type_slot = tank_bogie_suspension
+						armor_type_slot = tank_riveted_armor
+						engine_type_slot = tank_gasoline_engine
+					}
+					upgrades = {
+						tank_nsb_engine_upgrade = 3
+						tank_nsb_armor_upgrade = 2
+					}
+					#obsolete = no
+				}
+			}
+			IF = {
+				limit = {
+					has_dlc = "No Step Back"
+					NOT = { has_tech = gwtank_chassis }
+				}
+				set_technology = { 
+					gwtank_chassis  = 1
+					popup = no
+				}
+
+			}
+			ELSE_IF = {
+				limit = {
+					NOT = { has_dlc = "No Step Back" }
+					NOT = { has_tech = gwtank }
+				}
+				set_technology = { 
+					gwtank = 1
+					popup = no
+				}
+				
+			}
+			add_tech_bonus = {
+				name = HOA_metal_beasts
+				bonus = 0.5
+				uses = 2
+				category = armor 
+			}
+		}
+	}
+	focus = {
+		id = cossack_the_roars_of_thunder
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = cossack_eyes_on_the_imperialists focus = cossack_encourage_local_arms_production }
+		mutually_exclusive = { focus = cossack_metal_beasts focus = cossack_develop_indigenous_models }
+		x = 1
+		y = 1
+		relative_position_id = cossack_eyes_on_the_imperialists
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = HOA_the_roars_of_thunder
+				bonus = 0.5
+				uses = 2
+				category = artillery 
+				category = cat_anti_tank 
+			}
+		}
+	}
+	focus = {
+		id = cossack_develop_indigenous_models
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = cossack_encourage_local_arms_production }
+		mutually_exclusive = { focus = cossack_metal_beasts focus = cossack_the_roars_of_thunder }
+		x = 1
+		y = 1
+		relative_position_id = cossack_encourage_local_arms_production
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = HOA_develop_indigenous_models
+				bonus = 0.25
+				uses = 2
+				category = infantry_weapons 
+			}
+		}
+	}
+	focus = {
+		id = cossack_the_steel_cavalry
+		icon = GFX_focus_generic_army_tanks2
+		prerequisite = { focus = cossack_metal_beasts }
+
+		x = 0
+		y = 1
+		relative_position_id = cossack_metal_beasts
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			division_template = {
+				name = "Steel Cavalry"
+				is_locked = no
+				regiments = {
+					light_armor = { x = 0 y = 0 }
+					cavalry = { x = 1 y = 0 }
+					cavalry = { x = 1 y = 1 }
+					cavalry = { x = 1 y = 2 }
+				}
+			}
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Steel Cavalry Brigade\" division_template = \"Steel Cavalry\" start_experience_factor = 0.05 start_equipment_factor = 1 start_manpower_factor = 1"
+					owner = ROOT
+					count = 1
+				}
+			}
+		}
+	}
+	focus = {
+		id = cossack_warfare_from_afar
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = cossack_the_roars_of_thunder }
+
+		x = 0
+		y = 1
+		relative_position_id = cossack_the_roars_of_thunder
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_units_to_division_template = {
+				template_name = "Cossack Irregulars" 
+				support = {
+					artillery = 0 
+				}
+				regiments = {
+					artillery_brigade = 2 
+				}
+			}
+		}
+	}
+	focus = {
+		id = cossack_modern_infantry
+		icon = GFX_focus_ETH_peacekeeping_forces
+		prerequisite = { focus = cossack_develop_indigenous_models }
+
+		x = 0
+		y = 1
+		relative_position_id = cossack_develop_indigenous_models
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			division_template = {
+				name = "Regular Infantry"
+				is_locked = no
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+				}
+			}
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Regular Infantry Division\" division_template = \"Regular Infantry\" start_experience_factor = 0.1 start_equipment_factor = 1 start_manpower_factor = 1"
+					owner = ROOT
+					count = 2
+				}
+			}
+		}
+	} 
+
+	###   ##  #   ### ### ###  ##   ##  #   
+	#  # #  # #    #   #   #  #  # #  # #   
+	###  #  # #    #   #   #  #    #### #   
+	#    #  # #    #   #   #  #  # #  # #   
+	#     ##  ### ###  #  ###  ##  #  # ### 
+
+
+	focus = {
+		id = cossack_the_first_album
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		#prerequisite = { focus = }
+
+		x = 18
+		y = 0
+		#relative_position_id =
+		cost = 10
+		available = {
+		}
+        ai_will_do = {
+            factor = 100    
+    	} 
+		search_filters = {}
+
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+#
+	focus = {
+		id = cossack_political_stability
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = cossack_the_first_album }
+		mutually_exclusive = { focus = cos_nationalism }
+		mutually_exclusive = { focus = cossack_peasant_councils }
+		x = 0
+		y = 1
+		relative_position_id = cossack_the_first_album
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+        ai_will_do = {
+            factor = 50
+    	} 
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.05
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = anarchism
+				popularity = -0.05
+			}
+		}
+	}
+
+#
+	focus = {
+		id = cossack_peasant_councils
+		icon = GFX_generic_peasant_uprising
+		prerequisite = { focus = cossack_the_first_album }
+		mutually_exclusive = { focus = cossack_political_stability }
+		mutually_exclusive = { focus = cos_nationalism }
+		x = 5
+		y = 1
+		relative_position_id = cossack_the_first_album
+		cost = 10
+		available = {
+		}
+        ai_will_do = {
+            factor = 0  
+    	} 
+		search_filters = {}
+
+		completion_reward = {
+			add_timed_idea = { idea = YUG_idea_peasant_councils days = 730 }
+		}
+	}
+
+
+	focus = {
+		id = cossack_empower_local_soviets
+		icon = GFX_goal_generic_war_with_comintern
+		prerequisite = { focus = cossack_peasant_councils }
+
+		x = 1
+		y = 1
+		relative_position_id = cossack_peasant_councils
+		cost = 10
+		available = {
+			has_government = communism
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = cossack_3_year_plan
+		icon = GFX_focus_HOL_deal_with_left
+		prerequisite = { 
+			focus = cossack_peasant_councils 
+			focus = cossack_political_stability 
+		}
+
+		x = -3
+		y = 1
+		relative_position_id = cossack_peasant_councils
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = cos_3_year_plan
+				days = 1095
+			}
+		}
+	}
+
+#focus_generic_self_management
+	focus = {
+		id = cos_nationalism
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = cossack_the_first_album }
+		mutually_exclusive = { focus = cossack_political_stability }
+		mutually_exclusive = { focus = cossack_peasant_councils }
+
+		x = -4
+		y = 1
+		relative_position_id = cossack_the_first_album 
+		cost = 10
+		available = {
+		}
+        ai_will_do = {
+            factor = 0  
+    	} 
+		search_filters = {}
+
+		completion_reward = {
+			add_war_support = 0.05 
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = cos_paramilitaries
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = cos_nationalism }
+
+		x = -1
+		y = 1
+		relative_position_id = cos_nationalism 
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_war_support = 0.05 
+			add_ideas = cos_paramilitaries
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = cossack_invite_foreign_settlers
+		icon = GFX_RUS_rusflag
+		prerequisite = { 
+			focus = cos_nationalism 
+			focus = cossack_political_stability
+		}
+		x = 2
+		y = 1
+		relative_position_id = cos_nationalism
+		cost = 10
+		available = {
+			NOT = { has_government = communism }
+			NOT = { has_government = anarchism }
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			capital_scope = {
+				ETH_upgrade_state_category = yes 
+				add_manpower = 75000
+			}
+		}
+	}
+	focus = {
+		id = cossack_improving_the_educational_system
+		icon = GFX_focus_hol_the_foundations_of_defense
+		prerequisite = { focus = cossack_invite_foreign_settlers focus = cossack_3_year_plan }
+
+		x = 4
+		y = 3
+		relative_position_id = cos_nationalism
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_stability = 0.05
+			add_ideas = HOA_education_idea
+		}
+	}
+#
+}

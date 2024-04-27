@@ -1,0 +1,500 @@
+ideas = {
+	country = {
+		# Starting National Spirits
+		# numbers are not final
+		UKR_outdated_economic_system_1 = {
+			name = UKR_outdated_economic_system
+			picture = generic_agrarian_society
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				production_speed_buildings_factor = -0.15
+				industrial_capacity_factory = -0.25
+				global_building_slots_factor = -0.20
+				conscription_factor = -0.30
+				min_export = 0.10
+				production_factory_max_efficiency_factor = -0.05
+			}
+		}
+		# having this national spirit and stability below 30% will allow some groups to coup the government
+		UKR_chaotic_politics = {
+			picture = SPR_political_violence
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.20
+				political_power_factor = -0.10
+				custom_modifier_tooltip = UKR_chaotic_politics_tt
+			}
+		}
+		UKR_ministry_for_occupied_western_territories = {
+			picture = SOV_scientist_defect
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				custom_modifier_tooltip = UKR_ministry_for_occupied_western_territories_tt
+				war_support_factor = 0.05
+				justify_war_goal_time = -0.10
+				resistance_damage_to_garrison_on_our_occupied_states = 0.1
+				resistance_growth_on_our_occupied_states = 0.1
+				resistance_target_on_our_occupied_states = 0.1
+				compliance_growth_on_our_occupied_states = -0.1
+			}
+		}
+		# УВО (UVO) (Українська Військова Організація) - Ukrainian Military Organisation, a resistance network of guerilla fighters/terrorists, 
+		# who were (in OTL) fighting against the Polish Republic after Ukraine fell and later merged with youth movements to create the OUN.
+		# in this timeline, they form anyway, because Poland occupies the WUA, but they return to Ukraine later, gaining popularity among the 
+		# exiles and the military. They try to convince the government to re-arm, but they also have their own ambition of overthrowing the 
+		# government of the Ukrainian People's Republic, so there is a potential for an interesting dynamic between the two sides here.
+		UKR_UVO_influence_1 = {
+			picture = bul_zveno # placeholder icon
+			name = UKR_UVO_influence_1
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				fascism_drift = 0.03
+				production_speed_arms_factory_factor = 0.05
+				conscription_factor = 0.05
+				political_power_factor = -0.05
+			}
+		}
+		UKR_UVO_influence_2 = {
+			picture = bul_zveno # placeholder icon
+			name = UKR_UVO_influence_1
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				fascism_drift = 0.05
+				production_speed_arms_factory_factor = 0.05
+				conscription_factor = 0.05
+				mobilization_speed = 0.05
+				political_power_factor = -0.05
+			}
+		}
+		UKR_UVO_influence_3 = {
+			picture = bul_zveno # placeholder icon
+			name = UKR_UVO_influence_1
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				fascism_drift = 0.07
+				production_speed_arms_factory_factor = 0.05
+				conscription_factor = 0.10
+				mobilization_speed = 0.10
+				political_power_factor = -0.05
+			}
+		}
+		UKR_UVO_influence_4 = {
+			picture = bul_zveno # placeholder icon
+			name = UKR_UVO_influence_1
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				fascism_drift = 0.10
+				production_speed_arms_factory_factor = 0.10
+				conscription_factor = 0.15
+				mobilization_speed = 0.20
+				political_power_factor = -0.05
+			}
+		}
+		UKR_UVO_influence_5 = {
+			picture = bul_zveno # placeholder icon
+			name = UKR_UVO_influence_1
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				fascism_drift = 0.15
+				production_speed_arms_factory_factor = 0.15
+				conscription_factor = 0.20
+				mobilization_speed = 0.25
+				political_power_factor = -0.05
+			}
+		}
+		# ECONOMIC BRANCH NATIONAL SPIRITS
+		UKR_outdated_economic_system_2 = {
+			name = UKR_outdated_economic_system
+			picture = generic_agrarian_society
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				production_speed_buildings_factor = -0.15
+				industrial_capacity_factory = -0.25
+				global_building_slots_factor = -0.20
+				conscription_factor = -0.30
+				min_export = 0.10
+			}
+		}
+		UKR_agrarian_economy_1 = {
+			name = UKR_agrarian_society
+			picture = generic_agrarian_society
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				production_speed_buildings_factor = -0.15
+				industrial_capacity_factory = -0.20
+				global_building_slots_factor = -0.15
+				conscription_factor = -0.30
+				#production_speed_industrial_complex_factor = 0.05
+				min_export = 0.10
+			}
+		}
+		UKR_agrarian_economy_2 = {
+			name = UKR_agrarian_society
+			picture = generic_agrarian_society
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				production_speed_buildings_factor = -0.15
+				industrial_capacity_factory = -0.20
+				global_building_slots_factor = -0.10
+				conscription_factor = -0.25
+				production_speed_industrial_complex_factor = 0.05
+				min_export = 0.10
+			}
+		}
+		UKR_agrarian_economy_3 = {
+			name = UKR_agrarian_society
+			picture = generic_agrarian_society
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				production_speed_buildings_factor = -0.15
+				industrial_capacity_factory = -0.20
+				global_building_slots_factor = -0.05
+				conscription_factor = -0.20
+				production_speed_industrial_complex_factor = 0.10
+				min_export = 0.10
+			}
+		}
+		UKR_agrarian_economy_4 = {
+			name = UKR_agrarian_society
+			picture = generic_agrarian_society
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				production_speed_buildings_factor = -0.05
+				industrial_capacity_factory = -0.10
+				conscription_factor = -0.05
+				production_speed_industrial_complex_factor = 0.10
+				min_export = 0.10
+			}
+		}
+		UKR_agrarian_economy_5 = {
+			name = UKR_agrarian_economy
+			picture = generic_agrarian_reform
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.05
+				industrial_capacity_factory = -0.10
+				conscription_factor = -0.05
+				production_speed_industrial_complex_factor = 0.10
+				min_export = 0.10
+			}
+		}
+		UKR_agrarian_economy_6 = {
+			name = UKR_breadbasket_of_europe
+			picture = generic_agrarian_reform
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				trade_opinion_factor = 0.10
+				consumer_goods_factor = -0.08
+				industrial_capacity_factory = -0.10
+				conscription_factor = -0.05
+				production_speed_industrial_complex_factor = 0.15
+				min_export = 0.10
+			}
+		}
+		UKR_industrializing_society_1 = {
+			name = UKR_industrializing_society
+			picture = SOV_second_five_year_plan
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				production_speed_buildings_factor = -0.15
+				industrial_capacity_factory = -0.15
+				global_building_slots_factor = -0.20
+				production_speed_arms_factory_factor = 0.05
+				conscription_factor = -0.15
+				consumer_goods_factor = 0.05
+			}
+		}
+		UKR_industrializing_society_2 = {
+			name = UKR_industrializing_society
+			picture = SOV_second_five_year_plan
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				production_speed_buildings_factor = -0.15
+				industrial_capacity_factory = -0.10
+				global_building_slots_factor = -0.05
+				production_speed_arms_factory_factor = 0.05
+				conscription_factor = -0.05
+				consumer_goods_factor = 0.05
+			}
+		}
+		UKR_industrializing_society_3 = {
+			name = UKR_industrializing_society
+			picture = SOV_second_five_year_plan
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				local_resources_factor = 0.10
+				production_speed_buildings_factor = -0.05
+				industrial_capacity_factory = -0.05
+				global_building_slots_factor = 0.05
+				production_speed_arms_factory_factor = 0.10
+				consumer_goods_factor = 0.05
+			}
+		}
+		UKR_industrializing_society_4 = {
+			name = UKR_industrializing_society
+			picture = SOV_fourth_five_year_plan
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				local_resources_factor = 0.10
+				industrial_capacity_factory = 0.05
+				global_building_slots_factor = 0.10
+				production_speed_arms_factory_factor = 0.15
+				consumer_goods_factor = 0.05
+			}
+		}
+		UKR_industrializing_society_5 = {
+			name = UKR_industrializing_society
+			picture = SOV_fourth_five_year_plan
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				local_resources_factor = 0.10
+				industrial_capacity_factory = 0.15
+				global_building_slots_factor = 0.20
+				production_speed_arms_factory_factor = 0.15
+				consumer_goods_factor = 0.05
+			}
+		}
+		# these national spirits are unused due to changes in the focus tree
+		# I might use some of them later though
+		UKR_devalue_hryvnya = {
+			name = UKR_economic_reforms
+			picture = SPR_seize_the_gold_reserves
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.05
+				stability_factor = -0.05
+			}
+		}
+		UKR_infrastructure_spending = {
+			name = UKR_economic_reforms
+			picture = SPR_seize_the_gold_reserves
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.05
+				stability_factor = -0.05
+				production_speed_infrastructure_factor = 0.10
+				production_speed_rail_way_factor = 0.10
+			}
+		}
+		UKR_balanced_budget = {
+			name = UKR_economic_reforms
+			picture = SPR_seize_the_gold_reserves
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = 0.03
+				political_power_gain = 0.20
+				stability_factor = 0.05
+			}
+		}
+		UKR_planned_investments = {
+			name = UKR_economic_reforms
+			picture = SPR_seize_the_gold_reserves
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = 0.03
+				political_power_gain = 0.20
+				stability_factor = 0.05
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		UKR_attract_foreign_investors = {
+			picture = free_trade
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			modifier = {
+				trade_opinion_factor = 0.10
+				industrial_factory_donations = 2
+			}
+		}
+		UKR_trade_deal_POL_ROM = {
+			name = UKR_trade_deal_POL_ROM
+			picture = can_wartime_prices_and_trade_board
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			targeted_modifier = {
+				tag = POL
+				extra_trade_to_target_factor = 0.2
+				trade_cost_for_target_factor = -0.25
+			}
+			targeted_modifier = {
+				tag = ROM
+				extra_trade_to_target_factor = 0.2
+				trade_cost_for_target_factor = -0.25
+			}
+			modifier = {
+				faction_trade_opinion_factor = 0.20
+				trade_opinion_factor = 0.10
+				consumer_goods_factor = -0.05
+				local_resources_factor = 0.10
+			}
+		}
+		UKR_trade_deal_POL = {
+			name = UKR_trade_deal_POL_ROM
+			picture = can_wartime_prices_and_trade_board
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			targeted_modifier = {
+				tag = POL
+				extra_trade_to_target_factor = 0.2
+				trade_cost_for_target_factor = -0.25
+			}
+			modifier = {
+				faction_trade_opinion_factor = 0.20
+				trade_opinion_factor = 0.10
+				consumer_goods_factor = -0.05
+				local_resources_factor = 0.05
+			}
+		}
+		UKR_trade_deal_ROM = {
+			name = UKR_trade_deal_POL_ROM
+			picture = can_wartime_prices_and_trade_board
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = UKR}
+			removal_cost = -1
+			targeted_modifier = {
+				tag = ROM
+				extra_trade_to_target_factor = 0.2
+				trade_cost_for_target_factor = -0.25
+			}
+			modifier = {
+				faction_trade_opinion_factor = 0.20
+				trade_opinion_factor = 0.10
+				consumer_goods_factor = -0.05
+				local_resources_factor = 0.05
+			}
+		}
+		POL_trade_deal_UKR = {
+			name = UKR_trade_deal_POL_ROM
+			picture = can_wartime_prices_and_trade_board
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = POL}
+			removal_cost = -1
+			targeted_modifier = {
+				tag = UKR
+				extra_trade_to_target_factor = 0.2
+				trade_cost_for_target_factor = -0.25
+			}
+			modifier = {
+				faction_trade_opinion_factor = 0.20
+				trade_opinion_factor = 0.10
+				consumer_goods_factor = -0.05
+				local_resources_factor = 0.05
+			}
+		}
+		POL_trade_deal_UKR_ROM = {
+			name = UKR_trade_deal_POL_ROM
+			picture = can_wartime_prices_and_trade_board
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = POL}
+			removal_cost = -1
+			targeted_modifier = {
+				tag = UKR
+				extra_trade_to_target_factor = 0.2
+				trade_cost_for_target_factor = -0.25
+			}
+			targeted_modifier = {
+				tag = ROM
+				extra_trade_to_target_factor = 0.2
+				trade_cost_for_target_factor = -0.25
+			}
+			modifier = {
+				faction_trade_opinion_factor = 0.20
+				trade_opinion_factor = 0.10
+				consumer_goods_factor = -0.05
+				local_resources_factor = 0.10
+			}
+		}
+		ROM_trade_deal_UKR = {
+			name = UKR_trade_deal_POL_ROM
+			picture = can_wartime_prices_and_trade_board
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = ROM}
+			removal_cost = -1
+			targeted_modifier = {
+				tag = UKR
+				extra_trade_to_target_factor = 0.2
+				trade_cost_for_target_factor = -0.25
+			}
+			modifier = {
+				faction_trade_opinion_factor = 0.20
+				trade_opinion_factor = 0.10
+				consumer_goods_factor = -0.05
+				local_resources_factor = 0.05
+			}
+		}
+		ROM_trade_deal_UKR_POL = {
+			name = UKR_trade_deal_POL_ROM
+			picture = can_wartime_prices_and_trade_board
+			allowed_civil_war = {always = yes}
+			allowed = {original_tag = ROM}
+			removal_cost = -1
+			targeted_modifier = {
+				tag = UKR
+				extra_trade_to_target_factor = 0.2
+				trade_cost_for_target_factor = -0.25
+			}
+			targeted_modifier = {
+				tag = POL
+				extra_trade_to_target_factor = 0.2
+				trade_cost_for_target_factor = -0.25
+			}
+			modifier = {
+				faction_trade_opinion_factor = 0.20
+				trade_opinion_factor = 0.10
+				consumer_goods_factor = -0.05
+				local_resources_factor = 0.10
+			}
+		}
+	}
+}

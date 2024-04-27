@@ -1,0 +1,2738 @@
+### Names generation for aces ###
+# Surnames can be male/female dependent or general. Fe. in Polish some surnames has different endings depending on the gender.
+# Names and Surnames are randomly picked and will sometimes repeat, but will never repeat in combinations for example there will never be generated another "John Smith".
+# Assigning the callsign is random - may be assigned or not. If we use the callsign, it will never be assigned to anyone again. Callsigns are not obligatory to script.
+# Picking up a gender is random, and is influenced by the amount of names scripted.
+### Operations
+# Operations will randomly pick from national pools until exhausted
+# You can specify a strategic region for which an order name will be drawn
+# if any enemy province along the frontline matches this strategic region, this sub-pool will be considered and used in preference to default. 
+# Whether this 'historical' name pool is exhausted is dependent on the define: HISTORICAL_ORDER_NAME_EXHAUSTION
+# Strategic region index '0' is the generic national pool.
+# You can specify the same name in several regions, though I would suggest not doing this too often, for performance reasons.
+# After this, a first and second will be randomly picked from the default pool
+# The prefix must be provided for all pools
+ 
+
+
+RUS = {
+	male = {
+		names = { 
+			Aleksandr Aleksey Andrey Anton Boris Dmitry Fyodor Gennady 
+			Georgy Grigory Igor Ilya Iosif Ivan Kirill Konstantin Lavr Leonid Lev
+			Maksim Mikhail Nikita Nikolay Noy Oleg Pavel Pyotr Roman Semyon Sergey
+			Valery Vasily Viktor Vladimir Vladislav Yegor Yevgeny Yury
+			#New
+			Akim Aksel Anastasy Anatoly Andrian Arkady Arseny Aslan Dzhabir Emil Feodosy Filipp Isay Ivar Izot 
+			Karl Kazimir Kuzma Lavrenty Lazar Makary Manzakir Marat Markian Martemyan Mstislav 
+			Osher Pasha Roman Sidor Slava Stepan Tikhon Timofey Tsyrendashi Vsevolod Vyacheslav Yakov Yefim Zinovy
+			#Georgian
+			Levan Tamaz Zurab
+			#Armenian
+			Amayak Amazasp Arno Artashes Bagrat Derenik Karapet Khoren Tarlan
+		}
+		surnames = { 
+			Akhnazarov Akimenko Alekseyev Antonov Azarov Badanov Budyonny Chibisov  
+			Dragomirov Frolov Golivin Grishin Gurko Ivanov Ivannikov Isayev 
+			Konev Konstantinov Kuropatkin
+			Lazarev Maksimov Menshikov Nakhimov Nebogatov Nikolayevich Nikitin
+			Ostrovsky Pavlov Putyatin Romanov Rozhestvensky Skobelev 
+			Shuvalov Surkov Tukhachevsky Yan Yegorov Yudenich Vorontsov Voroshilov Zavoyko
+			#New
+		 Abugov Abyzov Achkasov Adriashenko Afanasev Agafonov Akimov Alagakov Alekhin Aleksandrovich 
+			Aleksandrov Almazov Anashkin Andreyev Andrianov Apriamov Arushanyan Arutyunovich Asadov
+			Babak Barkov Bondaryov Borisovich Bulgakov Bulgatov Bulanenko Brezhnev Bocharov 
+			Chernishevsky Chernishev Chigvintsev Chistyakov Chuikov Danilovich Dazhin Denishchev Dokutovich Dorzhiyev 
+			Filippov Fyodorov Gabrilov Gagarin Ganyev Gashev Golubev Grachyov Grigorov Grishayev Gusev
+			Ilnitsky Kaminsky Kiselyov Klubkov Koldeyev Kondakov Korenev Koshkin Kovshov Kuzma Kuznetsov 
+			Larionov Lavrentyev Lev Lidov Lisitsyn Loginov Lukichyov Lyubilkin
+			Makeyev Makhlyagin Makoveyev Malyutin Maresyev Markelov Matveyevich Mazhnov Melikhov Milko Moiseyenko Molchanov Murakhovets
+			Nakaryakov Nesterov Nikiforov Nikolayev Nikulin Nomokonov Novozhilov Okunev Onilov Orlov
+			Pakhomkin Panchenko Panteleyev Parfyonov Pavlichenko Pchelintsev Pegeshov Petrov Popov Posazhnikov Prokopev Pustobriko
+			Rabichev Radkin Rakityansky Raskov Romanovich Romashov Rudnev Ryasin 
+			Sagaidak Saikin Sanfirov Selin Selyanin Serebryakov Seryogin Shalayev Shambarov Shatrov
+			Shevelyov Shilov Shlyakhov Shmurak Shvetsov Simonov Sokolov Solomatin Stepanov Svetlov
+			Tanailov Terekhov Tinigin Tolstoy Ulyanenko Utkin Vashchenko Vasilenko Vinogradov Vladimirsky Volkhov Vorontsov
+			Yartsev Yegorov Yekimov Yermakov Yushin Zakharov Zaytsev Zhudin Zhukov
+			#Georgian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Adamiya Aliyev Aslanikashvili Beriya Chiladze Dzhugashvili Gelashvili Giligashvili 
+			Kapanadze Khalvashi Kvachantiradze Kvaratskhelia Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Armenian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Babadzhanyan Gurgen Markosyan
+			#Azerbaijan (some might be shared with other SSRs around) -> Most likely in Russian form
+			Akhundov Aliyarbekov Apresyan
+
+			#took out some due to confusion w/ real generals -m
+		}
+	}
+	female = {
+		names = {
+			Afanasiya Albina Aleksandra Anastasiya Elena Elvira Lydia Lyudmila Margarita Muza Natalya Olga Sofiya Svetlana Valentina Yelena
+			#New
+			Alina Alevtina Aliya Anna Anya Asya Dusya Galya Kaleriya Kalya Katya Klava Klavdiya Irina 
+			Lida Liza Lyuba Lyubov Marina Mariya Maryam Marusya Nadezhda Nadya Natasha Nina Nonna 
+			Polina Raisa Roza Rozaliya Serafima Svetlana Tamara Tanya Taya Tonya Tosya
+			Valya Vera Yekaterina Yepistiniya Yevdokiya Yevgeniya Yuliya Zinaida Zoya
+			#Georgian
+			Ketevan Nana Nino Tamar 
+		}
+		surnames = {
+			#New
+		a Abyzova Akhnazarova Akimenko Akimova Aleksandrova Aleksandrovna Almazova Anashkina Anatolyevna Artamonova
+			Badanova Bakieva Barakina Barkova Bocharova Bondaryova Bratishcheva Bulatova Bulgakova 
+			Chegodayeva Chernisheva Chibisova Chigvintseva Chistyakova Chuikova Fedutenko Filippova Fyodorova 
+			Gabrilova Gagarina Ganyeva Gasheva Golubeva Grachyova Grigorova Grishayeva Grunskaya Gulyakina Guseva Isayeva Ivanova 
+			Kekeshyeva Kiselyova Klubkova Koldeyeva Kondakova Koreneva Korotkevich Kosmodemyanskaya Kovalenko Kovshova Kroshchenko Kuzmina Kuznetsova
+			Larionova Lavrentyeva Lidova Loginova Lukichyova 
+			Makeyeva Makhlyagina Makoveyeva Maksimova Malyutina Maresyeva Markelova Matokh Mazhnova Melikhova Menshikova Milko Moiseyenko Molchanova
+			Moldagulova Mulatova Murakhovets Nakaryakova Nakhimova Nesterova Nikiforova Nikiforovna Nikoloyeva Novozhilova Nurmukhambetovna
+			Okuneva Onilova Orlova
+			Pakhomkina Panchenko Panteleyeva Parfyonova Pavlichenko Pavlova Pchelintseva Pegeshova Peredera Petrova Popova Posazhnikova Prokopeva Pustobrikova
+			Rabicheva Rachkevich Radkina Raskova Reznichenko Rogalskaya Romanova Romashova Rudneva Ryasina 
+			Saikina Sanfirova Selina Selyanina Serebryakova Shalayeva Shambarova Shanina Shatrova
+			Shevelyova Shilova Shlyakhova Shvetsova Simonova Sokolova Stepanova Surkova Svetlova
+			Tanailova Terekhova Tinigina Ulyanenko Vashchenko Vasilenko Vinogradova Visnitskaya Volkhova Vorontsova
+			Yartseva Yegorova Yekimova Yermakova Yushina Zakharova Zhukova
+			#Caucasus
+			Aliyeva
+			#Georgia
+			Aslanikashvili Beriya Dzhugashvili Gelashvili Giligashvili Khalvashi Kvaratskhelia Kapanadze Ingorovka Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Azerbaijan
+			Pashayeva
+		}
+	}
+	callsigns = { "The Colonist" "The Bell" Heine Duma Anvil Hammer Fury Arrow Storm Bear "White Lily" Devil Eagle Falcon Fox Snowflake Greasy Guardian Gunman Hawk Hardball Howl Blizzard Husky Ice Killer Steel Iron Skull Striker Thunder Warrior Wardog Vodka }
+	
+	prefix = o_operatsiya
+	
+	use_geographical_default_operation_names = yes
+	offensive_operation_suffix = o_strat_offensive_ru
+	defensive_operation_suffix = o_strat_defensive_ru
+	naval_operation_suffix = o_strat_naval_ru
+	
+	operation = {
+		0 = {
+			o_mercury
+			o_venus
+			o_neptune
+			o_maly_saturn
+			o_maly_neptun
+			o_kontsert
+		}
+		130 = {
+			o_bagration
+		}
+		131 = {
+			o_bagration
+			o_suvorov
+		}
+		132 = {
+			o_iskra
+			o_lyuban
+			o_sinyavino
+		}
+		133 = {
+			o_mars
+			o_jupiter
+			o_kutuzov
+			o_polar_star
+			o_rumyantsev
+		}
+		24 = {
+			o_belgrade_strategic_offensive
+		}
+		8 = {
+			o_berlin_strategic_offensive
+		}
+		137 = {
+			o_ring
+			o_saturn
+			o_uranus
+		}
+		38 = {
+			o_samland
+		}
+	}
+}
+
+TOB = {
+	male = {
+		names = { 
+			Aleksandr Aleksey Andrey Anton Boris Dmitry Fyodor Gennady 
+			Georgy Grigory Igor Ilya Iosif Ivan Kirill Konstantin Lavr Leonid Lev
+			Maksim Mikhail Nikita Nikolay Noy Oleg Pavel Pyotr Roman Semyon Sergey
+			Valery Vasily Viktor Vladimir Vladislav Yegor Yevgeny Yury
+			#New
+			Akim Aksel Anastasy Anatoly Andrian Arkady Arseny Aslan Dzhabir Emil Feodosy Filipp Isay Ivar Izot 
+			Karl Kazimir Kuzma Lavrenty Lazar Makary Manzakir Marat Markian Martemyan Mstislav 
+			Osher Pasha Roman Sidor Slava Stepan Tikhon Timofey Tsyrendashi Vsevolod Vyacheslav Yakov Yefim Zinovy
+			#Georgian
+			Levan Tamaz Zurab
+			#Armenian
+			Amayak Amazasp Arno Artashes Bagrat Derenik Karapet Khoren Tarlan
+		}
+		surnames = { 
+			Akhnazarov Akimenko Alekseyev Antonov Azarov Badanov Budyonny Chibisov 
+			Dragomirov Frolov Golivin Grishin Gurko Ivanov Ivannikov Isayev 
+			Konev Konstantinov Kuropatkin
+			Lazarev Maksimov Menshikov Nakhimov Nebogatov Nikolayevich Nikitin
+			Ostrovsky Pavlov Putyatin Romanov Rozhestvensky Skobelev 
+			Shuvalov Surkov Tukhachevsky Yan Yegorov Yudenich Vorontsov Voroshilov Zavoyko
+			#New
+		 Abugov Abyzov Achkasov Adriashenko Afanasev Agafonov Akimov Alagakov Alekhin Aleksandrovich 
+			Aleksandrov Almazov Anashkin Andreyev Andrianov Apriamov Arushanyan Arutyunovich Asadov
+			Babak Barkov Bondaryov Borisovich Bulgakov Bulgatov Bulanenko Brezhnev Bocharov 
+			Chernishevsky Chernishev Chigvintsev Chistyakov Chuikov Danilovich Dazhin Denishchev Dokutovich Dorzhiyev 
+			Filippov Fyodorov Gabrilov Gagarin Ganyev Gashev Golubev Grachyov Grigorov Grishayev Gusev
+			Ilnitsky Kaminsky Kiselyov Klubkov Koldeyev Kondakov Korenev Koshkin Kovshov Kuzma Kuznetsov 
+			Larionov Lavrentyev Lev Lidov Lisitsyn Loginov Lukichyov Lyubilkin
+			Makeyev Makhlyagin Makoveyev Malyutin Maresyev Markelov Matveyevich Mazhnov Melikhov Milko Moiseyenko Molchanov Murakhovets
+			Nakaryakov Nesterov Nikiforov Nikolayev Nikulin Nomokonov Novozhilov Okunev Onilov Orlov
+			Pakhomkin Panchenko Panteleyev Parfyonov Pavlichenko Pchelintsev Pegeshov Petrov Popov Posazhnikov Prokopev Pustobriko
+			Rabichev Radkin Rakityansky Raskov Romanovich Romashov Rudnev Ryasin 
+			Sagaidak Saikin Sanfirov Selin Selyanin Serebryakov Seryogin Shalayev Shambarov Shatrov
+			Shevelyov Shilov Shlyakhov Shmurak Shvetsov Simonov Sokolov Solomatin Stepanov Svetlov
+			Tanailov Terekhov Tinigin Tolstoy Ulyanenko Utkin Vashchenko Vasilenko Vinogradov Vladimirsky Volkhov Vorontsov
+			Yartsev Yegorov Yekimov Yermakov Yushin Zakharov Zaytsev Zhudin Zhukov
+			#Georgian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Adamiya Aliyev Aslanikashvili Beriya Chiladze Dzhugashvili Gelashvili Giligashvili 
+			Kapanadze Khalvashi Kvachantiradze Kvaratskhelia Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Armenian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Babadzhanyan Gurgen Markosyan
+			#Azerbaijan (some might be shared with other SSRs around) -> Most likely in Russian form
+			Akhundov Aliyarbekov Apresyan
+		}
+	}
+	female = {
+		names = {
+			Afanasiya Albina Aleksandra Anastasiya Elena Elvira Lydia Lyudmila Margarita Muza Natalya Olga Sofiya Svetlana Valentina Yelena
+			#New
+			Alina Alevtina Aliya Anna Anya Asya Dusya Galya Kaleriya Kalya Katya Klava Klavdiya Irina 
+			Lida Liza Lyuba Lyubov Marina Mariya Maryam Marusya Nadezhda Nadya Natasha Nina Nonna 
+			Polina Raisa Roza Rozaliya Serafima Svetlana Tamara Tanya Taya Tonya Tosya
+			Valya Vera Yekaterina Yepistiniya Yevdokiya Yevgeniya Yuliya Zinaida Zoya
+			#Georgian
+			Ketevan Nana Nino Tamar 
+		}
+		surnames = {
+			#New
+		a Abyzova Akhnazarova Akimenko Akimova Aleksandrova Aleksandrovna Almazova Anashkina Anatolyevna Artamonova
+			Badanova Bakieva Barakina Barkova Bocharova Bondaryova Bratishcheva Bulatova Bulgakova 
+			Chegodayeva Chernisheva Chibisova Chigvintseva Chistyakova Chuikova Fedutenko Filippova Fyodorova 
+			Gabrilova Gagarina Ganyeva Gasheva Golubeva Grachyova Grigorova Grishayeva Grunskaya Gulyakina Guseva Isayeva Ivanova 
+			Kekeshyeva Kiselyova Klubkova Koldeyeva Kondakova Koreneva Korotkevich Kosmodemyanskaya Kovalenko Kovshova Kroshchenko Kuzmina Kuznetsova
+			Larionova Lavrentyeva Lidova Loginova Lukichyova 
+			Makeyeva Makhlyagina Makoveyeva Maksimova Malyutina Maresyeva Markelova Matokh Mazhnova Melikhova Menshikova Milko Moiseyenko Molchanova
+			Moldagulova Mulatova Murakhovets Nakaryakova Nakhimova Nesterova Nikiforova Nikiforovna Nikoloyeva Novozhilova Nurmukhambetovna
+			Okuneva Onilova Orlova
+			Pakhomkina Panchenko Panteleyeva Parfyonova Pavlichenko Pavlova Pchelintseva Pegeshova Peredera Petrova Popova Posazhnikova Prokopeva Pustobrikova
+			Rabicheva Rachkevich Radkina Raskova Reznichenko Rogalskaya Romanova Romashova Rudneva Ryasina 
+			Saikina Sanfirova Selina Selyanina Serebryakova Shalayeva Shambarova Shanina Shatrova
+			Shevelyova Shilova Shlyakhova Shvetsova Simonova Sokolova Stepanova Surkova Svetlova
+			Tanailova Terekhova Tinigina Ulyanenko Vashchenko Vasilenko Vinogradova Visnitskaya Volkhova Vorontsova
+			Yartseva Yegorova Yekimova Yermakova Yushina Zakharova Zhukova
+			#Caucasus
+			Aliyeva
+			#Georgia
+			Aslanikashvili Beriya Dzhugashvili Gelashvili Giligashvili Khalvashi Kvaratskhelia Kapanadze Ingorovka Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Azerbaijan
+			Pashayeva
+		}
+	}
+	callsigns = { "The Colonist" "The Bell" Heine Duma Anvil Hammer Fury Arrow Storm Bear "White Lily" Devil Eagle Falcon Fox Snowflake Greasy Guardian Gunman Hawk Hardball Howl Blizzard Husky Ice Killer Steel Iron Skull Striker Thunder Warrior Wardog Vodka }
+	
+	prefix = o_operatsiya
+	
+	use_geographical_default_operation_names = yes
+	offensive_operation_suffix = o_strat_offensive_ru
+	defensive_operation_suffix = o_strat_defensive_ru
+	naval_operation_suffix = o_strat_naval_ru
+	
+	operation = {
+		0 = {
+			o_mercury
+			o_venus
+			o_neptune
+			o_maly_saturn
+			o_maly_neptun
+			o_kontsert
+		}
+		130 = {
+			o_bagration
+		}
+		131 = {
+			o_bagration
+			o_suvorov
+		}
+		132 = {
+			o_iskra
+			o_lyuban
+			o_sinyavino
+		}
+		133 = {
+			o_mars
+			o_jupiter
+			o_kutuzov
+			o_polar_star
+			o_rumyantsev
+		}
+		24 = {
+			o_belgrade_strategic_offensive
+		}
+		8 = {
+			o_berlin_strategic_offensive
+		}
+		137 = {
+			o_ring
+			o_saturn
+			o_uranus
+		}
+		38 = {
+			o_samland
+		}
+	}
+}
+
+
+
+ORE = {
+	male = {
+		names = { 
+			Aleksandr Aleksey Andrey Anton Boris Dmitry Fyodor Gennady 
+			Georgy Grigory Igor Ilya Iosif Ivan Kirill Konstantin Lavr Leonid Lev
+			Maksim Mikhail Nikita Nikolay Noy Oleg Pavel Pyotr Roman Semyon Sergey
+			Valery Vasily Viktor Vladimir Vladislav Yegor Yevgeny Yury
+			#New
+			Akim Aksel Anastasy Anatoly Andrian Arkady Arseny Aslan Dzhabir Emil Feodosy Filipp Isay Ivar Izot 
+			Karl Kazimir Kuzma Lavrenty Lazar Makary Manzakir Marat Markian Martemyan Mstislav 
+			Osher Pasha Roman Sidor Slava Stepan Tikhon Timofey Tsyrendashi Vsevolod Vyacheslav Yakov Yefim Zinovy
+			#Georgian
+			Levan Tamaz Zurab
+			#Armenian
+			Amayak Amazasp Arno Artashes Bagrat Derenik Karapet Khoren Tarlan
+		}
+		surnames = { 
+			Akhnazarov Akimenko Alekseyev Antonov Azarov Badanov Budyonny Chibisov 
+			Dragomirov Frolov Golivin Grishin Gurko Ivanov Ivannikov Isayev 
+			Konev Konstantinov Kuropatkin
+			Lazarev Maksimov Menshikov Nakhimov Nebogatov Nikolayevich Nikitin
+			Ostrovsky Pavlov Putyatin Romanov Rozhestvensky Skobelev 
+			Shuvalov Surkov Tukhachevsky Yan Yegorov Yudenich Vorontsov Voroshilov Zavoyko
+			#New
+		 Abugov Abyzov Achkasov Adriashenko Afanasev Agafonov Akimov Alagakov Alekhin Aleksandrovich 
+			Aleksandrov Almazov Anashkin Andreyev Andrianov Apriamov Arushanyan Arutyunovich Asadov
+			Babak Barkov Bondaryov Borisovich Bulgakov Bulgatov Bulanenko Brezhnev Bocharov 
+			Chernishevsky Chernishev Chigvintsev Chistyakov Chuikov Danilovich Dazhin Denishchev Dokutovich Dorzhiyev 
+			Filippov Fyodorov Gabrilov Gagarin Ganyev Gashev Golubev Grachyov Grigorov Grishayev Gusev
+			Ilnitsky Kaminsky Kiselyov Klubkov Koldeyev Kondakov Korenev Koshkin Kovshov Kuzma Kuznetsov 
+			Larionov Lavrentyev Lev Lidov Lisitsyn Loginov Lukichyov Lyubilkin
+			Makeyev Makhlyagin Makoveyev Malyutin Maresyev Markelov Matveyevich Mazhnov Melikhov Milko Moiseyenko Molchanov Murakhovets
+			Nakaryakov Nesterov Nikiforov Nikolayev Nikulin Nomokonov Novozhilov Okunev Onilov Orlov
+			Pakhomkin Panchenko Panteleyev Parfyonov Pavlichenko Pchelintsev Pegeshov Petrov Popov Posazhnikov Prokopev Pustobriko
+			Rabichev Radkin Rakityansky Raskov Romanovich Romashov Rudnev Ryasin 
+			Sagaidak Saikin Sanfirov Selin Selyanin Serebryakov Seryogin Shalayev Shambarov Shatrov
+			Shevelyov Shilov Shlyakhov Shmurak Shvetsov Simonov Sokolov Solomatin Stepanov Svetlov
+			Tanailov Terekhov Tinigin Tolstoy Ulyanenko Utkin Vashchenko Vasilenko Vinogradov Vladimirsky Volkhov Vorontsov
+			Yartsev Yegorov Yekimov Yermakov Yushin Zakharov Zaytsev Zhudin Zhukov
+			#Georgian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Adamiya Aliyev Aslanikashvili Beriya Chiladze Dzhugashvili Gelashvili Giligashvili 
+			Kapanadze Khalvashi Kvachantiradze Kvaratskhelia Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Armenian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Babadzhanyan Gurgen Markosyan
+			#Azerbaijan (some might be shared with other SSRs around) -> Most likely in Russian form
+			Akhundov Aliyarbekov Apresyan
+		}
+	}
+	female = {
+		names = {
+			Afanasiya Albina Aleksandra Anastasiya Elena Elvira Lydia Lyudmila Margarita Muza Natalya Olga Sofiya Svetlana Valentina Yelena
+			#New
+			Alina Alevtina Aliya Anna Anya Asya Dusya Galya Kaleriya Kalya Katya Klava Klavdiya Irina 
+			Lida Liza Lyuba Lyubov Marina Mariya Maryam Marusya Nadezhda Nadya Natasha Nina Nonna 
+			Polina Raisa Roza Rozaliya Serafima Svetlana Tamara Tanya Taya Tonya Tosya
+			Valya Vera Yekaterina Yepistiniya Yevdokiya Yevgeniya Yuliya Zinaida Zoya
+			#Georgian
+			Ketevan Nana Nino Tamar 
+		}
+		surnames = {
+			#New
+		a Abyzova Akhnazarova Akimenko Akimova Aleksandrova Aleksandrovna Almazova Anashkina Anatolyevna Artamonova
+			Badanova Bakieva Barakina Barkova Bocharova Bondaryova Bratishcheva Bulatova Bulgakova 
+			Chegodayeva Chernisheva Chibisova Chigvintseva Chistyakova Chuikova Fedutenko Filippova Fyodorova 
+			Gabrilova Gagarina Ganyeva Gasheva Golubeva Grachyova Grigorova Grishayeva Grunskaya Gulyakina Guseva Isayeva Ivanova 
+			Kekeshyeva Kiselyova Klubkova Koldeyeva Kondakova Koreneva Korotkevich Kosmodemyanskaya Kovalenko Kovshova Kroshchenko Kuzmina Kuznetsova
+			Larionova Lavrentyeva Lidova Loginova Lukichyova 
+			Makeyeva Makhlyagina Makoveyeva Maksimova Malyutina Maresyeva Markelova Matokh Mazhnova Melikhova Menshikova Milko Moiseyenko Molchanova
+			Moldagulova Mulatova Murakhovets Nakaryakova Nakhimova Nesterova Nikiforova Nikiforovna Nikoloyeva Novozhilova Nurmukhambetovna
+			Okuneva Onilova Orlova
+			Pakhomkina Panchenko Panteleyeva Parfyonova Pavlichenko Pavlova Pchelintseva Pegeshova Peredera Petrova Popova Posazhnikova Prokopeva Pustobrikova
+			Rabicheva Rachkevich Radkina Raskova Reznichenko Rogalskaya Romanova Romashova Rudneva Ryasina 
+			Saikina Sanfirova Selina Selyanina Serebryakova Shalayeva Shambarova Shanina Shatrova
+			Shevelyova Shilova Shlyakhova Shvetsova Simonova Sokolova Stepanova Surkova Svetlova
+			Tanailova Terekhova Tinigina Ulyanenko Vashchenko Vasilenko Vinogradova Visnitskaya Volkhova Vorontsova
+			Yartseva Yegorova Yekimova Yermakova Yushina Zakharova Zhukova
+			#Caucasus
+			Aliyeva
+			#Georgia
+			Aslanikashvili Beriya Dzhugashvili Gelashvili Giligashvili Khalvashi Kvaratskhelia Kapanadze Ingorovka Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Azerbaijan
+			Pashayeva
+		}
+	}
+	callsigns = { "The Colonist" "The Bell" Heine Duma Anvil Hammer Fury Arrow Storm Bear "White Lily" Devil Eagle Falcon Fox Snowflake Greasy Guardian Gunman Hawk Hardball Howl Blizzard Husky Ice Killer Steel Iron Skull Striker Thunder Warrior Wardog Vodka }
+	
+	prefix = o_operatsiya
+	
+	use_geographical_default_operation_names = yes
+	offensive_operation_suffix = o_strat_offensive_ru
+	defensive_operation_suffix = o_strat_defensive_ru
+	naval_operation_suffix = o_strat_naval_ru
+	
+	operation = {
+		0 = {
+			o_mercury
+			o_venus
+			o_neptune
+			o_maly_saturn
+			o_maly_neptun
+			o_kontsert
+		}
+		130 = {
+			o_bagration
+		}
+		131 = {
+			o_bagration
+			o_suvorov
+		}
+		132 = {
+			o_iskra
+			o_lyuban
+			o_sinyavino
+		}
+		133 = {
+			o_mars
+			o_jupiter
+			o_kutuzov
+			o_polar_star
+			o_rumyantsev
+		}
+		24 = {
+			o_belgrade_strategic_offensive
+		}
+		8 = {
+			o_berlin_strategic_offensive
+		}
+		137 = {
+			o_ring
+			o_saturn
+			o_uranus
+		}
+		38 = {
+			o_samland
+		}
+	}
+}
+
+
+
+TAM = {
+	male = {
+		names = { 
+			Aleksandr Aleksey Andrey Anton Boris Dmitry Fyodor Gennady 
+			Georgy Grigory Igor Ilya Iosif Ivan Kirill Konstantin Lavr Leonid Lev
+			Maksim Mikhail Nikita Nikolay Noy Oleg Pavel Pyotr Roman Semyon Sergey
+			Valery Vasily Viktor Vladimir Vladislav Yegor Yevgeny Yury
+			#New
+			Akim Aksel Anastasy Anatoly Andrian Arkady Arseny Aslan Dzhabir Emil Feodosy Filipp Isay Ivar Izot 
+			Karl Kazimir Kuzma Lavrenty Lazar Makary Manzakir Marat Markian Martemyan Mstislav 
+			Osher Pasha Roman Sidor Slava Stepan Tikhon Timofey Tsyrendashi Vsevolod Vyacheslav Yakov Yefim Zinovy
+			#Georgian
+			Levan Tamaz Zurab
+			#Armenian
+			Amayak Amazasp Arno Artashes Bagrat Derenik Karapet Khoren Tarlan
+		}
+		surnames = { 
+			Akhnazarov Akimenko Alekseyev Antonov Azarov Badanov Budyonny Chibisov 
+			Dragomirov Frolov Golivin Grishin Gurko Ivanov Ivannikov Isayev 
+			Konev Konstantinov Kuropatkin
+			Lazarev Maksimov Menshikov Nakhimov Nebogatov Nikolayevich Nikitin
+			Ostrovsky Pavlov Putyatin Romanov Rozhestvensky Skobelev 
+			Shuvalov Surkov Tukhachevsky Yan Yegorov Yudenich Vorontsov Voroshilov Zavoyko
+			#New
+		 Abugov Abyzov Achkasov Adriashenko Afanasev Agafonov Akimov Alagakov Alekhin Aleksandrovich 
+			Aleksandrov Almazov Anashkin Andreyev Andrianov Apriamov Arushanyan Arutyunovich Asadov
+			Babak Barkov Bondaryov Borisovich Bulgakov Bulgatov Bulanenko Brezhnev Bocharov 
+			Chernishevsky Chernishev Chigvintsev Chistyakov Chuikov Danilovich Dazhin Denishchev Dokutovich Dorzhiyev 
+			Filippov Fyodorov Gabrilov Gagarin Ganyev Gashev Golubev Grachyov Grigorov Grishayev Gusev
+			Ilnitsky Kaminsky Kiselyov Klubkov Koldeyev Kondakov Korenev Koshkin Kovshov Kuzma Kuznetsov 
+			Larionov Lavrentyev Lev Lidov Lisitsyn Loginov Lukichyov Lyubilkin
+			Makeyev Makhlyagin Makoveyev Malyutin Maresyev Markelov Matveyevich Mazhnov Melikhov Milko Moiseyenko Molchanov Murakhovets
+			Nakaryakov Nesterov Nikiforov Nikolayev Nikulin Nomokonov Novozhilov Okunev Onilov Orlov
+			Pakhomkin Panchenko Panteleyev Parfyonov Pavlichenko Pchelintsev Pegeshov Petrov Popov Posazhnikov Prokopev Pustobriko
+			Rabichev Radkin Rakityansky Raskov Romanovich Romashov Rudnev Ryasin 
+			Sagaidak Saikin Sanfirov Selin Selyanin Serebryakov Seryogin Shalayev Shambarov Shatrov
+			Shevelyov Shilov Shlyakhov Shmurak Shvetsov Simonov Sokolov Solomatin Stepanov Svetlov
+			Tanailov Terekhov Tinigin Tolstoy Ulyanenko Utkin Vashchenko Vasilenko Vinogradov Vladimirsky Volkhov Vorontsov
+			Yartsev Yegorov Yekimov Yermakov Yushin Zakharov Zaytsev Zhudin Zhukov
+			#Georgian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Adamiya Aliyev Aslanikashvili Beriya Chiladze Dzhugashvili Gelashvili Giligashvili 
+			Kapanadze Khalvashi Kvachantiradze Kvaratskhelia Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Armenian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Babadzhanyan Gurgen Markosyan
+			#Azerbaijan (some might be shared with other SSRs around) -> Most likely in Russian form
+			Akhundov Aliyarbekov Apresyan
+		}
+	}
+	female = {
+		names = {
+			Afanasiya Albina Aleksandra Anastasiya Elena Elvira Lydia Lyudmila Margarita Muza Natalya Olga Sofiya Svetlana Valentina Yelena
+			#New
+			Alina Alevtina Aliya Anna Anya Asya Dusya Galya Kaleriya Kalya Katya Klava Klavdiya Irina 
+			Lida Liza Lyuba Lyubov Marina Mariya Maryam Marusya Nadezhda Nadya Natasha Nina Nonna 
+			Polina Raisa Roza Rozaliya Serafima Svetlana Tamara Tanya Taya Tonya Tosya
+			Valya Vera Yekaterina Yepistiniya Yevdokiya Yevgeniya Yuliya Zinaida Zoya
+			#Georgian
+			Ketevan Nana Nino Tamar 
+		}
+		surnames = {
+			#New
+		a Abyzova Akhnazarova Akimenko Akimova Aleksandrova Aleksandrovna Almazova Anashkina Anatolyevna Artamonova
+			Badanova Bakieva Barakina Barkova Bocharova Bondaryova Bratishcheva Bulatova Bulgakova 
+			Chegodayeva Chernisheva Chibisova Chigvintseva Chistyakova Chuikova Fedutenko Filippova Fyodorova 
+			Gabrilova Gagarina Ganyeva Gasheva Golubeva Grachyova Grigorova Grishayeva Grunskaya Gulyakina Guseva Isayeva Ivanova 
+			Kekeshyeva Kiselyova Klubkova Koldeyeva Kondakova Koreneva Korotkevich Kosmodemyanskaya Kovalenko Kovshova Kroshchenko Kuzmina Kuznetsova
+			Larionova Lavrentyeva Lidova Loginova Lukichyova 
+			Makeyeva Makhlyagina Makoveyeva Maksimova Malyutina Maresyeva Markelova Matokh Mazhnova Melikhova Menshikova Milko Moiseyenko Molchanova
+			Moldagulova Mulatova Murakhovets Nakaryakova Nakhimova Nesterova Nikiforova Nikiforovna Nikoloyeva Novozhilova Nurmukhambetovna
+			Okuneva Onilova Orlova
+			Pakhomkina Panchenko Panteleyeva Parfyonova Pavlichenko Pavlova Pchelintseva Pegeshova Peredera Petrova Popova Posazhnikova Prokopeva Pustobrikova
+			Rabicheva Rachkevich Radkina Raskova Reznichenko Rogalskaya Romanova Romashova Rudneva Ryasina 
+			Saikina Sanfirova Selina Selyanina Serebryakova Shalayeva Shambarova Shanina Shatrova
+			Shevelyova Shilova Shlyakhova Shvetsova Simonova Sokolova Stepanova Surkova Svetlova
+			Tanailova Terekhova Tinigina Ulyanenko Vashchenko Vasilenko Vinogradova Visnitskaya Volkhova Vorontsova
+			Yartseva Yegorova Yekimova Yermakova Yushina Zakharova Zhukova
+			#Caucasus
+			Aliyeva
+			#Georgia
+			Aslanikashvili Beriya Dzhugashvili Gelashvili Giligashvili Khalvashi Kvaratskhelia Kapanadze Ingorovka Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Azerbaijan
+			Pashayeva
+		}
+	}
+	callsigns = { "The Colonist" "The Bell" Heine Duma Anvil Hammer Fury Arrow Storm Bear "White Lily" Devil Eagle Falcon Fox Snowflake Greasy Guardian Gunman Hawk Hardball Howl Blizzard Husky Ice Killer Steel Iron Skull Striker Thunder Warrior Wardog Vodka }
+	
+	prefix = o_operatsiya
+	
+	use_geographical_default_operation_names = yes
+	offensive_operation_suffix = o_strat_offensive_ru
+	defensive_operation_suffix = o_strat_defensive_ru
+	naval_operation_suffix = o_strat_naval_ru
+	
+	operation = {
+		0 = {
+			o_mercury
+			o_venus
+			o_neptune
+			o_maly_saturn
+			o_maly_neptun
+			o_kontsert
+		}
+		130 = {
+			o_bagration
+		}
+		131 = {
+			o_bagration
+			o_suvorov
+		}
+		132 = {
+			o_iskra
+			o_lyuban
+			o_sinyavino
+		}
+		133 = {
+			o_mars
+			o_jupiter
+			o_kutuzov
+			o_polar_star
+			o_rumyantsev
+		}
+		24 = {
+			o_belgrade_strategic_offensive
+		}
+		8 = {
+			o_berlin_strategic_offensive
+		}
+		137 = {
+			o_ring
+			o_saturn
+			o_uranus
+		}
+		38 = {
+			o_samland
+		}
+	}
+}
+
+
+
+URA = {
+	male = {
+		names = { 
+			Aleksandr Aleksey Andrey Anton Boris Dmitry Fyodor Gennady 
+			Georgy Grigory Igor Ilya Iosif Ivan Kirill Konstantin Lavr Leonid Lev
+			Maksim Mikhail Nikita Nikolay Noy Oleg Pavel Pyotr Roman Semyon Sergey
+			Valery Vasily Viktor Vladimir Vladislav Yegor Yevgeny Yury
+			#New
+			Akim Aksel Anastasy Anatoly Andrian Arkady Arseny Aslan Dzhabir Emil Feodosy Filipp Isay Ivar Izot 
+			Karl Kazimir Kuzma Lavrenty Lazar Makary Manzakir Marat Markian Martemyan Mstislav 
+			Osher Pasha Roman Sidor Slava Stepan Tikhon Timofey Tsyrendashi Vsevolod Vyacheslav Yakov Yefim Zinovy
+			#Georgian
+			Levan Tamaz Zurab
+			#Armenian
+			Amayak Amazasp Arno Artashes Bagrat Derenik Karapet Khoren Tarlan
+		}
+		surnames = { 
+			Akhnazarov Akimenko Alekseyev Antonov Azarov Badanov Budyonny Chibisov 
+			Dragomirov Frolov Golivin Grishin Gurko Ivanov Ivannikov Isayev 
+			Konev Konstantinov Kuropatkin
+			Lazarev Maksimov Menshikov Nakhimov Nebogatov Nikolayevich Nikitin
+			Ostrovsky Pavlov Putyatin Romanov Rozhestvensky Skobelev 
+			Shuvalov Surkov Tukhachevsky Yan Yegorov Yudenich Vorontsov Voroshilov Zavoyko
+			#New
+		 Abugov Abyzov Achkasov Adriashenko Afanasev Agafonov Akimov Alagakov Alekhin Aleksandrovich 
+			Aleksandrov Almazov Anashkin Andreyev Andrianov Apriamov Arushanyan Arutyunovich Asadov
+			Babak Barkov Bondaryov Borisovich Bulgakov Bulgatov Bulanenko Brezhnev Bocharov 
+			Chernishevsky Chernishev Chigvintsev Chistyakov Chuikov Danilovich Dazhin Denishchev Dokutovich Dorzhiyev 
+			Filippov Fyodorov Gabrilov Gagarin Ganyev Gashev Golubev Grachyov Grigorov Grishayev Gusev
+			Ilnitsky Kaminsky Kiselyov Klubkov Koldeyev Kondakov Korenev Koshkin Kovshov Kuzma Kuznetsov 
+			Larionov Lavrentyev Lev Lidov Lisitsyn Loginov Lukichyov Lyubilkin
+			Makeyev Makhlyagin Makoveyev Malyutin Maresyev Markelov Matveyevich Mazhnov Melikhov Milko Moiseyenko Molchanov Murakhovets
+			Nakaryakov Nesterov Nikiforov Nikolayev Nikulin Nomokonov Novozhilov Okunev Onilov Orlov
+			Pakhomkin Panchenko Panteleyev Parfyonov Pavlichenko Pchelintsev Pegeshov Petrov Popov Posazhnikov Prokopev Pustobriko
+			Rabichev Radkin Rakityansky Raskov Romanovich Romashov Rudnev Ryasin 
+			Sagaidak Saikin Sanfirov Selin Selyanin Serebryakov Seryogin Shalayev Shambarov Shatrov
+			Shevelyov Shilov Shlyakhov Shmurak Shvetsov Simonov Sokolov Solomatin Stepanov Svetlov
+			Tanailov Terekhov Tinigin Tolstoy Ulyanenko Utkin Vashchenko Vasilenko Vinogradov Vladimirsky Volkhov Vorontsov
+			Yartsev Yegorov Yekimov Yermakov Yushin Zakharov Zaytsev Zhudin Zhukov
+			#Georgian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Adamiya Aliyev Aslanikashvili Beriya Chiladze Dzhugashvili Gelashvili Giligashvili 
+			Kapanadze Khalvashi Kvachantiradze Kvaratskhelia Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Armenian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Babadzhanyan Gurgen Markosyan
+			#Azerbaijan (some might be shared with other SSRs around) -> Most likely in Russian form
+			Akhundov Aliyarbekov Apresyan
+		}
+	}
+	female = {
+		names = {
+			Afanasiya Albina Aleksandra Anastasiya Elena Elvira Lydia Lyudmila Margarita Muza Natalya Olga Sofiya Svetlana Valentina Yelena
+			#New
+			Alina Alevtina Aliya Anna Anya Asya Dusya Galya Kaleriya Kalya Katya Klava Klavdiya Irina 
+			Lida Liza Lyuba Lyubov Marina Mariya Maryam Marusya Nadezhda Nadya Natasha Nina Nonna 
+			Polina Raisa Roza Rozaliya Serafima Svetlana Tamara Tanya Taya Tonya Tosya
+			Valya Vera Yekaterina Yepistiniya Yevdokiya Yevgeniya Yuliya Zinaida Zoya
+			#Georgian
+			Ketevan Nana Nino Tamar 
+		}
+		surnames = {
+			#New
+		a Abyzova Akhnazarova Akimenko Akimova Aleksandrova Aleksandrovna Almazova Anashkina Anatolyevna Artamonova
+			Badanova Bakieva Barakina Barkova Bocharova Bondaryova Bratishcheva Bulatova Bulgakova 
+			Chegodayeva Chernisheva Chibisova Chigvintseva Chistyakova Chuikova Fedutenko Filippova Fyodorova 
+			Gabrilova Gagarina Ganyeva Gasheva Golubeva Grachyova Grigorova Grishayeva Grunskaya Gulyakina Guseva Isayeva Ivanova 
+			Kekeshyeva Kiselyova Klubkova Koldeyeva Kondakova Koreneva Korotkevich Kosmodemyanskaya Kovalenko Kovshova Kroshchenko Kuzmina Kuznetsova
+			Larionova Lavrentyeva Lidova Loginova Lukichyova 
+			Makeyeva Makhlyagina Makoveyeva Maksimova Malyutina Maresyeva Markelova Matokh Mazhnova Melikhova Menshikova Milko Moiseyenko Molchanova
+			Moldagulova Mulatova Murakhovets Nakaryakova Nakhimova Nesterova Nikiforova Nikiforovna Nikoloyeva Novozhilova Nurmukhambetovna
+			Okuneva Onilova Orlova
+			Pakhomkina Panchenko Panteleyeva Parfyonova Pavlichenko Pavlova Pchelintseva Pegeshova Peredera Petrova Popova Posazhnikova Prokopeva Pustobrikova
+			Rabicheva Rachkevich Radkina Raskova Reznichenko Rogalskaya Romanova Romashova Rudneva Ryasina 
+			Saikina Sanfirova Selina Selyanina Serebryakova Shalayeva Shambarova Shanina Shatrova
+			Shevelyova Shilova Shlyakhova Shvetsova Simonova Sokolova Stepanova Surkova Svetlova
+			Tanailova Terekhova Tinigina Ulyanenko Vashchenko Vasilenko Vinogradova Visnitskaya Volkhova Vorontsova
+			Yartseva Yegorova Yekimova Yermakova Yushina Zakharova Zhukova
+			#Caucasus
+			Aliyeva
+			#Georgia
+			Aslanikashvili Beriya Dzhugashvili Gelashvili Giligashvili Khalvashi Kvaratskhelia Kapanadze Ingorovka Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Azerbaijan
+			Pashayeva
+		}
+	}
+	callsigns = { "The Colonist" "The Bell" Heine Duma Anvil Hammer Fury Arrow Storm Bear "White Lily" Devil Eagle Falcon Fox Snowflake Greasy Guardian Gunman Hawk Hardball Howl Blizzard Husky Ice Killer Steel Iron Skull Striker Thunder Warrior Wardog Vodka }
+	
+	prefix = o_operatsiya
+	
+	use_geographical_default_operation_names = yes
+	offensive_operation_suffix = o_strat_offensive_ru
+	defensive_operation_suffix = o_strat_defensive_ru
+	naval_operation_suffix = o_strat_naval_ru
+	
+	operation = {
+		0 = {
+			o_mercury
+			o_venus
+			o_neptune
+			o_maly_saturn
+			o_maly_neptun
+			o_kontsert
+		}
+		130 = {
+			o_bagration
+		}
+		131 = {
+			o_bagration
+			o_suvorov
+		}
+		132 = {
+			o_iskra
+			o_lyuban
+			o_sinyavino
+		}
+		133 = {
+			o_mars
+			o_jupiter
+			o_kutuzov
+			o_polar_star
+			o_rumyantsev
+		}
+		24 = {
+			o_belgrade_strategic_offensive
+		}
+		8 = {
+			o_berlin_strategic_offensive
+		}
+		137 = {
+			o_ring
+			o_saturn
+			o_uranus
+		}
+		38 = {
+			o_samland
+		}
+	}
+}
+
+
+URC = {
+	male = {
+		names = { 
+			Aleksandr Aleksey Andrey Anton Boris Dmitry Fyodor Gennady 
+			Georgy Grigory Igor Ilya Iosif Ivan Kirill Konstantin Lavr Leonid Lev
+			Maksim Mikhail Nikita Nikolay Noy Oleg Pavel Pyotr Roman Semyon Sergey
+			Valery Vasily Viktor Vladimir Vladislav Yegor Yevgeny Yury
+			#New
+			Akim Aksel Anastasy Anatoly Andrian Arkady Arseny Aslan Dzhabir Emil Feodosy Filipp Isay Ivar Izot 
+			Karl Kazimir Kuzma Lavrenty Lazar Makary Manzakir Marat Markian Martemyan Mstislav 
+			Osher Pasha Roman Sidor Slava Stepan Tikhon Timofey Tsyrendashi Vsevolod Vyacheslav Yakov Yefim Zinovy
+			#Georgian
+			Levan Tamaz Zurab
+			#Armenian
+			Amayak Amazasp Arno Artashes Bagrat Derenik Karapet Khoren Tarlan
+		}
+		surnames = { 
+			Akhnazarov Akimenko Alekseyev Antonov Azarov Badanov Budyonny Chibisov 
+			Dragomirov Frolov Golivin Grishin Gurko Ivanov Ivannikov Isayev 
+			Konev Konstantinov Kuropatkin
+			Lazarev Maksimov Menshikov Nakhimov Nebogatov Nikolayevich Nikitin
+			Ostrovsky Pavlov Putyatin Romanov Rozhestvensky Skobelev 
+			Shuvalov Surkov Tukhachevsky Yan Yegorov Yudenich Vorontsov Voroshilov Zavoyko
+			#New
+		 Abugov Abyzov Achkasov Adriashenko Afanasev Agafonov Akimov Alagakov Alekhin Aleksandrovich 
+			Aleksandrov Almazov Anashkin Andreyev Andrianov Apriamov Arushanyan Arutyunovich Asadov
+			Babak Barkov Bondaryov Borisovich Bulgakov Bulgatov Bulanenko Brezhnev Bocharov 
+			Chernishevsky Chernishev Chigvintsev Chistyakov Chuikov Danilovich Dazhin Denishchev Dokutovich Dorzhiyev 
+			Filippov Fyodorov Gabrilov Gagarin Ganyev Gashev Golubev Grachyov Grigorov Grishayev Gusev
+			Ilnitsky Kaminsky Kiselyov Klubkov Koldeyev Kondakov Korenev Koshkin Kovshov Kuzma Kuznetsov 
+			Larionov Lavrentyev Lev Lidov Lisitsyn Loginov Lukichyov Lyubilkin
+			Makeyev Makhlyagin Makoveyev Malyutin Maresyev Markelov Matveyevich Mazhnov Melikhov Milko Moiseyenko Molchanov Murakhovets
+			Nakaryakov Nesterov Nikiforov Nikolayev Nikulin Nomokonov Novozhilov Okunev Onilov Orlov
+			Pakhomkin Panchenko Panteleyev Parfyonov Pavlichenko Pchelintsev Pegeshov Petrov Popov Posazhnikov Prokopev Pustobriko
+			Rabichev Radkin Rakityansky Raskov Romanovich Romashov Rudnev Ryasin 
+			Sagaidak Saikin Sanfirov Selin Selyanin Serebryakov Seryogin Shalayev Shambarov Shatrov
+			Shevelyov Shilov Shlyakhov Shmurak Shvetsov Simonov Sokolov Solomatin Stepanov Svetlov
+			Tanailov Terekhov Tinigin Tolstoy Ulyanenko Utkin Vashchenko Vasilenko Vinogradov Vladimirsky Volkhov Vorontsov
+			Yartsev Yegorov Yekimov Yermakov Yushin Zakharov Zaytsev Zhudin Zhukov
+			#Georgian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Adamiya Aliyev Aslanikashvili Beriya Chiladze Dzhugashvili Gelashvili Giligashvili 
+			Kapanadze Khalvashi Kvachantiradze Kvaratskhelia Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Armenian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Babadzhanyan Gurgen Markosyan
+			#Azerbaijan (some might be shared with other SSRs around) -> Most likely in Russian form
+			Akhundov Aliyarbekov Apresyan
+		}
+	}
+	female = {
+		names = {
+			Afanasiya Albina Aleksandra Anastasiya Elena Elvira Lydia Lyudmila Margarita Muza Natalya Olga Sofiya Svetlana Valentina Yelena
+			#New
+			Alina Alevtina Aliya Anna Anya Asya Dusya Galya Kaleriya Kalya Katya Klava Klavdiya Irina 
+			Lida Liza Lyuba Lyubov Marina Mariya Maryam Marusya Nadezhda Nadya Natasha Nina Nonna 
+			Polina Raisa Roza Rozaliya Serafima Svetlana Tamara Tanya Taya Tonya Tosya
+			Valya Vera Yekaterina Yepistiniya Yevdokiya Yevgeniya Yuliya Zinaida Zoya
+			#Georgian
+			Ketevan Nana Nino Tamar 
+		}
+		surnames = {
+			#New
+		a Abyzova Akhnazarova Akimenko Akimova Aleksandrova Aleksandrovna Almazova Anashkina Anatolyevna Artamonova
+			Badanova Bakieva Barakina Barkova Bocharova Bondaryova Bratishcheva Bulatova Bulgakova 
+			Chegodayeva Chernisheva Chibisova Chigvintseva Chistyakova Chuikova Fedutenko Filippova Fyodorova 
+			Gabrilova Gagarina Ganyeva Gasheva Golubeva Grachyova Grigorova Grishayeva Grunskaya Gulyakina Guseva Isayeva Ivanova 
+			Kekeshyeva Kiselyova Klubkova Koldeyeva Kondakova Koreneva Korotkevich Kosmodemyanskaya Kovalenko Kovshova Kroshchenko Kuzmina Kuznetsova
+			Larionova Lavrentyeva Lidova Loginova Lukichyova 
+			Makeyeva Makhlyagina Makoveyeva Maksimova Malyutina Maresyeva Markelova Matokh Mazhnova Melikhova Menshikova Milko Moiseyenko Molchanova
+			Moldagulova Mulatova Murakhovets Nakaryakova Nakhimova Nesterova Nikiforova Nikiforovna Nikoloyeva Novozhilova Nurmukhambetovna
+			Okuneva Onilova Orlova
+			Pakhomkina Panchenko Panteleyeva Parfyonova Pavlichenko Pavlova Pchelintseva Pegeshova Peredera Petrova Popova Posazhnikova Prokopeva Pustobrikova
+			Rabicheva Rachkevich Radkina Raskova Reznichenko Rogalskaya Romanova Romashova Rudneva Ryasina 
+			Saikina Sanfirova Selina Selyanina Serebryakova Shalayeva Shambarova Shanina Shatrova
+			Shevelyova Shilova Shlyakhova Shvetsova Simonova Sokolova Stepanova Surkova Svetlova
+			Tanailova Terekhova Tinigina Ulyanenko Vashchenko Vasilenko Vinogradova Visnitskaya Volkhova Vorontsova
+			Yartseva Yegorova Yekimova Yermakova Yushina Zakharova Zhukova
+			#Caucasus
+			Aliyeva
+			#Georgia
+			Aslanikashvili Beriya Dzhugashvili Gelashvili Giligashvili Khalvashi Kvaratskhelia Kapanadze Ingorovka Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Azerbaijan
+			Pashayeva
+		}
+	}
+	callsigns = { "The Colonist" "The Bell" Heine Duma Anvil Hammer Fury Arrow Storm Bear "White Lily" Devil Eagle Falcon Fox Snowflake Greasy Guardian Gunman Hawk Hardball Howl Blizzard Husky Ice Killer Steel Iron Skull Striker Thunder Warrior Wardog Vodka }
+	
+	prefix = o_operatsiya
+	
+	use_geographical_default_operation_names = yes
+	offensive_operation_suffix = o_strat_offensive_ru
+	defensive_operation_suffix = o_strat_defensive_ru
+	naval_operation_suffix = o_strat_naval_ru
+	
+	operation = {
+		0 = {
+			o_mercury
+			o_venus
+			o_neptune
+			o_maly_saturn
+			o_maly_neptun
+			o_kontsert
+		}
+		130 = {
+			o_bagration
+		}
+		131 = {
+			o_bagration
+			o_suvorov
+		}
+		132 = {
+			o_iskra
+			o_lyuban
+			o_sinyavino
+		}
+		133 = {
+			o_mars
+			o_jupiter
+			o_kutuzov
+			o_polar_star
+			o_rumyantsev
+		}
+		24 = {
+			o_belgrade_strategic_offensive
+		}
+		8 = {
+			o_berlin_strategic_offensive
+		}
+		137 = {
+			o_ring
+			o_saturn
+			o_uranus
+		}
+		38 = {
+			o_samland
+		}
+	}
+}
+
+
+
+VLG = {
+	male = {
+		names = { 
+			Aleksandr Aleksey Andrey Anton Boris Dmitry Fyodor Gennady 
+			Georgy Grigory Igor Ilya Iosif Ivan Kirill Konstantin Lavr Leonid Lev
+			Maksim Mikhail Nikita Nikolay Noy Oleg Pavel Pyotr Roman Semyon Sergey
+			Valery Vasily Viktor Vladimir Vladislav Yegor Yevgeny Yury
+			#New
+			Akim Aksel Anastasy Anatoly Andrian Arkady Arseny Aslan Dzhabir Emil Feodosy Filipp Isay Ivar Izot 
+			Karl Kazimir Kuzma Lavrenty Lazar Makary Manzakir Marat Markian Martemyan Mstislav 
+			Osher Pasha Roman Sidor Slava Stepan Tikhon Timofey Tsyrendashi Vsevolod Vyacheslav Yakov Yefim Zinovy
+			#Georgian
+			Levan Tamaz Zurab
+			#Armenian
+			Amayak Amazasp Arno Artashes Bagrat Derenik Karapet Khoren Tarlan
+		}
+		surnames = { 
+			Akhnazarov Akimenko Alekseyev Antonov Azarov Badanov Budyonny Chibisov 
+			Dragomirov Frolov Golivin Grishin Gurko Ivanov Ivannikov Isayev 
+			Konev Konstantinov Kuropatkin
+			Lazarev Maksimov Menshikov Nakhimov Nebogatov Nikolayevich Nikitin
+			Ostrovsky Pavlov Putyatin Romanov Rozhestvensky Skobelev 
+			Shuvalov Surkov Tukhachevsky Yan Yegorov Yudenich Vorontsov Voroshilov Zavoyko
+			#New
+		 Abugov Abyzov Achkasov Adriashenko Afanasev Agafonov Akimov Alagakov Alekhin Aleksandrovich 
+			Aleksandrov Almazov Anashkin Andreyev Andrianov Apriamov Arushanyan Arutyunovich Asadov
+			Babak Barkov Bondaryov Borisovich Bulgakov Bulgatov Bulanenko Brezhnev Bocharov 
+			Chernishevsky Chernishev Chigvintsev Chistyakov Chuikov Danilovich Dazhin Denishchev Dokutovich Dorzhiyev 
+			Filippov Fyodorov Gabrilov Gagarin Ganyev Gashev Golubev Grachyov Grigorov Grishayev Gusev
+			Ilnitsky Kaminsky Kiselyov Klubkov Koldeyev Kondakov Korenev Koshkin Kovshov Kuzma Kuznetsov 
+			Larionov Lavrentyev Lev Lidov Lisitsyn Loginov Lukichyov Lyubilkin
+			Makeyev Makhlyagin Makoveyev Malyutin Maresyev Markelov Matveyevich Mazhnov Melikhov Milko Moiseyenko Molchanov Murakhovets
+			Nakaryakov Nesterov Nikiforov Nikolayev Nikulin Nomokonov Novozhilov Okunev Onilov Orlov
+			Pakhomkin Panchenko Panteleyev Parfyonov Pavlichenko Pchelintsev Pegeshov Petrov Popov Posazhnikov Prokopev Pustobriko
+			Rabichev Radkin Rakityansky Raskov Romanovich Romashov Rudnev Ryasin 
+			Sagaidak Saikin Sanfirov Selin Selyanin Serebryakov Seryogin Shalayev Shambarov Shatrov
+			Shevelyov Shilov Shlyakhov Shmurak Shvetsov Simonov Sokolov Solomatin Stepanov Svetlov
+			Tanailov Terekhov Tinigin Tolstoy Ulyanenko Utkin Vashchenko Vasilenko Vinogradov Vladimirsky Volkhov Vorontsov
+			Yartsev Yegorov Yekimov Yermakov Yushin Zakharov Zaytsev Zhudin Zhukov
+			#Georgian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Adamiya Aliyev Aslanikashvili Beriya Chiladze Dzhugashvili Gelashvili Giligashvili 
+			Kapanadze Khalvashi Kvachantiradze Kvaratskhelia Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Armenian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Babadzhanyan Gurgen Markosyan
+			#Azerbaijan (some might be shared with other SSRs around) -> Most likely in Russian form
+			Akhundov Aliyarbekov Apresyan
+		}
+	}
+	female = {
+		names = {
+			Afanasiya Albina Aleksandra Anastasiya Elena Elvira Lydia Lyudmila Margarita Muza Natalya Olga Sofiya Svetlana Valentina Yelena
+			#New
+			Alina Alevtina Aliya Anna Anya Asya Dusya Galya Kaleriya Kalya Katya Klava Klavdiya Irina 
+			Lida Liza Lyuba Lyubov Marina Mariya Maryam Marusya Nadezhda Nadya Natasha Nina Nonna 
+			Polina Raisa Roza Rozaliya Serafima Svetlana Tamara Tanya Taya Tonya Tosya
+			Valya Vera Yekaterina Yepistiniya Yevdokiya Yevgeniya Yuliya Zinaida Zoya
+			#Georgian
+			Ketevan Nana Nino Tamar 
+		}
+		surnames = {
+			#New
+		a Abyzova Akhnazarova Akimenko Akimova Aleksandrova Aleksandrovna Almazova Anashkina Anatolyevna Artamonova
+			Badanova Bakieva Barakina Barkova Bocharova Bondaryova Bratishcheva Bulatova Bulgakova 
+			Chegodayeva Chernisheva Chibisova Chigvintseva Chistyakova Chuikova Fedutenko Filippova Fyodorova 
+			Gabrilova Gagarina Ganyeva Gasheva Golubeva Grachyova Grigorova Grishayeva Grunskaya Gulyakina Guseva Isayeva Ivanova 
+			Kekeshyeva Kiselyova Klubkova Koldeyeva Kondakova Koreneva Korotkevich Kosmodemyanskaya Kovalenko Kovshova Kroshchenko Kuzmina Kuznetsova
+			Larionova Lavrentyeva Lidova Loginova Lukichyova 
+			Makeyeva Makhlyagina Makoveyeva Maksimova Malyutina Maresyeva Markelova Matokh Mazhnova Melikhova Menshikova Milko Moiseyenko Molchanova
+			Moldagulova Mulatova Murakhovets Nakaryakova Nakhimova Nesterova Nikiforova Nikiforovna Nikoloyeva Novozhilova Nurmukhambetovna
+			Okuneva Onilova Orlova
+			Pakhomkina Panchenko Panteleyeva Parfyonova Pavlichenko Pavlova Pchelintseva Pegeshova Peredera Petrova Popova Posazhnikova Prokopeva Pustobrikova
+			Rabicheva Rachkevich Radkina Raskova Reznichenko Rogalskaya Romanova Romashova Rudneva Ryasina 
+			Saikina Sanfirova Selina Selyanina Serebryakova Shalayeva Shambarova Shanina Shatrova
+			Shevelyova Shilova Shlyakhova Shvetsova Simonova Sokolova Stepanova Surkova Svetlova
+			Tanailova Terekhova Tinigina Ulyanenko Vashchenko Vasilenko Vinogradova Visnitskaya Volkhova Vorontsova
+			Yartseva Yegorova Yekimova Yermakova Yushina Zakharova Zhukova
+			#Caucasus
+			Aliyeva
+			#Georgia
+			Aslanikashvili Beriya Dzhugashvili Gelashvili Giligashvili Khalvashi Kvaratskhelia Kapanadze Ingorovka Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Azerbaijan
+			Pashayeva
+		}
+	}
+	callsigns = { "The Colonist" "The Bell" Heine Duma Anvil Hammer Fury Arrow Storm Bear "White Lily" Devil Eagle Falcon Fox Snowflake Greasy Guardian Gunman Hawk Hardball Howl Blizzard Husky Ice Killer Steel Iron Skull Striker Thunder Warrior Wardog Vodka }
+	
+	prefix = o_operatsiya
+	
+	use_geographical_default_operation_names = yes
+	offensive_operation_suffix = o_strat_offensive_ru
+	defensive_operation_suffix = o_strat_defensive_ru
+	naval_operation_suffix = o_strat_naval_ru
+	
+	operation = {
+		0 = {
+			o_mercury
+			o_venus
+			o_neptune
+			o_maly_saturn
+			o_maly_neptun
+			o_kontsert
+		}
+		130 = {
+			o_bagration
+		}
+		131 = {
+			o_bagration
+			o_suvorov
+		}
+		132 = {
+			o_iskra
+			o_lyuban
+			o_sinyavino
+		}
+		133 = {
+			o_mars
+			o_jupiter
+			o_kutuzov
+			o_polar_star
+			o_rumyantsev
+		}
+		24 = {
+			o_belgrade_strategic_offensive
+		}
+		8 = {
+			o_berlin_strategic_offensive
+		}
+		137 = {
+			o_ring
+			o_saturn
+			o_uranus
+		}
+		38 = {
+			o_samland
+		}
+	}
+}
+
+
+
+ATR = {
+	male = {
+		names = { 
+			Aleksandr Aleksey Andrey Anton Boris Dmitry Fyodor Gennady 
+			Georgy Grigory Igor Ilya Iosif Ivan Kirill Konstantin Lavr Leonid Lev
+			Maksim Mikhail Nikita Nikolay Noy Oleg Pavel Pyotr Roman Semyon Sergey
+			Valery Vasily Viktor Vladimir Vladislav Yegor Yevgeny Yury
+			#New
+			Akim Aksel Anastasy Anatoly Andrian Arkady Arseny Aslan Dzhabir Emil Feodosy Filipp Isay Ivar Izot 
+			Karl Kazimir Kuzma Lavrenty Lazar Makary Manzakir Marat Markian Martemyan Mstislav 
+			Osher Pasha Roman Sidor Slava Stepan Tikhon Timofey Tsyrendashi Vsevolod Vyacheslav Yakov Yefim Zinovy
+			#Georgian
+			Levan Tamaz Zurab
+			#Armenian
+			Amayak Amazasp Arno Artashes Bagrat Derenik Karapet Khoren Tarlan
+		}
+		surnames = { 
+			Akhnazarov Akimenko Alekseyev Antonov Azarov Badanov Budyonny Chibisov 
+			Dragomirov Frolov Golivin Grishin Gurko Ivanov Ivannikov Isayev 
+			Konev Konstantinov Kuropatkin
+			Lazarev Maksimov Menshikov Nakhimov Nebogatov Nikolayevich Nikitin
+			Ostrovsky Pavlov Putyatin Romanov Rozhestvensky Skobelev 
+			Shuvalov Surkov Tukhachevsky Yan Yegorov Yudenich Vorontsov Voroshilov Zavoyko
+			#New
+		 Abugov Abyzov Achkasov Adriashenko Afanasev Agafonov Akimov Alagakov Alekhin Aleksandrovich 
+			Aleksandrov Almazov Anashkin Andreyev Andrianov Apriamov Arushanyan Arutyunovich Asadov
+			Babak Barkov Bondaryov Borisovich Bulgakov Bulgatov Bulanenko Brezhnev Bocharov 
+			Chernishevsky Chernishev Chigvintsev Chistyakov Chuikov Danilovich Dazhin Denishchev Dokutovich Dorzhiyev 
+			Filippov Fyodorov Gabrilov Gagarin Ganyev Gashev Golubev Grachyov Grigorov Grishayev Gusev
+			Ilnitsky Kaminsky Kiselyov Klubkov Koldeyev Kondakov Korenev Koshkin Kovshov Kuzma Kuznetsov 
+			Larionov Lavrentyev Lev Lidov Lisitsyn Loginov Lukichyov Lyubilkin
+			Makeyev Makhlyagin Makoveyev Malyutin Maresyev Markelov Matveyevich Mazhnov Melikhov Milko Moiseyenko Molchanov Murakhovets
+			Nakaryakov Nesterov Nikiforov Nikolayev Nikulin Nomokonov Novozhilov Okunev Onilov Orlov
+			Pakhomkin Panchenko Panteleyev Parfyonov Pavlichenko Pchelintsev Pegeshov Petrov Popov Posazhnikov Prokopev Pustobriko
+			Rabichev Radkin Rakityansky Raskov Romanovich Romashov Rudnev Ryasin 
+			Sagaidak Saikin Sanfirov Selin Selyanin Serebryakov Seryogin Shalayev Shambarov Shatrov
+			Shevelyov Shilov Shlyakhov Shmurak Shvetsov Simonov Sokolov Solomatin Stepanov Svetlov
+			Tanailov Terekhov Tinigin Tolstoy Ulyanenko Utkin Vashchenko Vasilenko Vinogradov Vladimirsky Volkhov Vorontsov
+			Yartsev Yegorov Yekimov Yermakov Yushin Zakharov Zaytsev Zhudin Zhukov
+			#Georgian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Adamiya Aliyev Aslanikashvili Beriya Chiladze Dzhugashvili Gelashvili Giligashvili 
+			Kapanadze Khalvashi Kvachantiradze Kvaratskhelia Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Armenian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Babadzhanyan Gurgen Markosyan
+			#Azerbaijan (some might be shared with other SSRs around) -> Most likely in Russian form
+			Akhundov Aliyarbekov Apresyan
+		}
+	}
+	female = {
+		names = {
+			Afanasiya Albina Aleksandra Anastasiya Elena Elvira Lydia Lyudmila Margarita Muza Natalya Olga Sofiya Svetlana Valentina Yelena
+			#New
+			Alina Alevtina Aliya Anna Anya Asya Dusya Galya Kaleriya Kalya Katya Klava Klavdiya Irina 
+			Lida Liza Lyuba Lyubov Marina Mariya Maryam Marusya Nadezhda Nadya Natasha Nina Nonna 
+			Polina Raisa Roza Rozaliya Serafima Svetlana Tamara Tanya Taya Tonya Tosya
+			Valya Vera Yekaterina Yepistiniya Yevdokiya Yevgeniya Yuliya Zinaida Zoya
+			#Georgian
+			Ketevan Nana Nino Tamar 
+		}
+		surnames = {
+			#New
+		a Abyzova Akhnazarova Akimenko Akimova Aleksandrova Aleksandrovna Almazova Anashkina Anatolyevna Artamonova
+			Badanova Bakieva Barakina Barkova Bocharova Bondaryova Bratishcheva Bulatova Bulgakova 
+			Chegodayeva Chernisheva Chibisova Chigvintseva Chistyakova Chuikova Fedutenko Filippova Fyodorova 
+			Gabrilova Gagarina Ganyeva Gasheva Golubeva Grachyova Grigorova Grishayeva Grunskaya Gulyakina Guseva Isayeva Ivanova 
+			Kekeshyeva Kiselyova Klubkova Koldeyeva Kondakova Koreneva Korotkevich Kosmodemyanskaya Kovalenko Kovshova Kroshchenko Kuzmina Kuznetsova
+			Larionova Lavrentyeva Lidova Loginova Lukichyova 
+			Makeyeva Makhlyagina Makoveyeva Maksimova Malyutina Maresyeva Markelova Matokh Mazhnova Melikhova Menshikova Milko Moiseyenko Molchanova
+			Moldagulova Mulatova Murakhovets Nakaryakova Nakhimova Nesterova Nikiforova Nikiforovna Nikoloyeva Novozhilova Nurmukhambetovna
+			Okuneva Onilova Orlova
+			Pakhomkina Panchenko Panteleyeva Parfyonova Pavlichenko Pavlova Pchelintseva Pegeshova Peredera Petrova Popova Posazhnikova Prokopeva Pustobrikova
+			Rabicheva Rachkevich Radkina Raskova Reznichenko Rogalskaya Romanova Romashova Rudneva Ryasina 
+			Saikina Sanfirova Selina Selyanina Serebryakova Shalayeva Shambarova Shanina Shatrova
+			Shevelyova Shilova Shlyakhova Shvetsova Simonova Sokolova Stepanova Surkova Svetlova
+			Tanailova Terekhova Tinigina Ulyanenko Vashchenko Vasilenko Vinogradova Visnitskaya Volkhova Vorontsova
+			Yartseva Yegorova Yekimova Yermakova Yushina Zakharova Zhukova
+			#Caucasus
+			Aliyeva
+			#Georgia
+			Aslanikashvili Beriya Dzhugashvili Gelashvili Giligashvili Khalvashi Kvaratskhelia Kapanadze Ingorovka Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Azerbaijan
+			Pashayeva
+		}
+	}
+	callsigns = { "The Colonist" "The Bell" Heine Duma Anvil Hammer Fury Arrow Storm Bear "White Lily" Devil Eagle Falcon Fox Snowflake Greasy Guardian Gunman Hawk Hardball Howl Blizzard Husky Ice Killer Steel Iron Skull Striker Thunder Warrior Wardog Vodka }
+	
+	prefix = o_operatsiya
+	
+	use_geographical_default_operation_names = yes
+	offensive_operation_suffix = o_strat_offensive_ru
+	defensive_operation_suffix = o_strat_defensive_ru
+	naval_operation_suffix = o_strat_naval_ru
+	
+	operation = {
+		0 = {
+			o_mercury
+			o_venus
+			o_neptune
+			o_maly_saturn
+			o_maly_neptun
+			o_kontsert
+		}
+		130 = {
+			o_bagration
+		}
+		131 = {
+			o_bagration
+			o_suvorov
+		}
+		132 = {
+			o_iskra
+			o_lyuban
+			o_sinyavino
+		}
+		133 = {
+			o_mars
+			o_jupiter
+			o_kutuzov
+			o_polar_star
+			o_rumyantsev
+		}
+		24 = {
+			o_belgrade_strategic_offensive
+		}
+		8 = {
+			o_berlin_strategic_offensive
+		}
+		137 = {
+			o_ring
+			o_saturn
+			o_uranus
+		}
+		38 = {
+			o_samland
+		}
+	}
+}
+
+
+
+TER = {
+	male = {
+		names = { 
+			Aleksandr Aleksey Andrey Anton Boris Dmitry Fyodor Gennady 
+			Georgy Grigory Igor Ilya Iosif Ivan Kirill Konstantin Lavr Leonid Lev
+			Maksim Mikhail Nikita Nikolay Noy Oleg Pavel Pyotr Roman Semyon Sergey
+			Valery Vasily Viktor Vladimir Vladislav Yegor Yevgeny Yury
+			#New
+			Akim Aksel Anastasy Anatoly Andrian Arkady Arseny Aslan Dzhabir Emil Feodosy Filipp Isay Ivar Izot 
+			Karl Kazimir Kuzma Lavrenty Lazar Makary Manzakir Marat Markian Martemyan Mstislav 
+			Osher Pasha Roman Sidor Slava Stepan Tikhon Timofey Tsyrendashi Vsevolod Vyacheslav Yakov Yefim Zinovy
+			#Georgian
+			Levan Tamaz Zurab
+			#Armenian
+			Amayak Amazasp Arno Artashes Bagrat Derenik Karapet Khoren Tarlan
+		}
+		surnames = { 
+			Akhnazarov Akimenko Alekseyev Antonov Azarov Badanov Budyonny Chibisov 
+			Dragomirov Frolov Golivin Grishin Gurko Ivanov Ivannikov Isayev 
+			Konev Konstantinov Kuropatkin
+			Lazarev Maksimov Menshikov Nakhimov Nebogatov Nikolayevich Nikitin
+			Ostrovsky Pavlov Putyatin Romanov Rozhestvensky Skobelev 
+			Shuvalov Surkov Tukhachevsky Yan Yegorov Yudenich Vorontsov Voroshilov Zavoyko
+			#New
+		 Abugov Abyzov Achkasov Adriashenko Afanasev Agafonov Akimov Alagakov Alekhin Aleksandrovich 
+			Aleksandrov Almazov Anashkin Andreyev Andrianov Apriamov Arushanyan Arutyunovich Asadov
+			Babak Barkov Bondaryov Borisovich Bulgakov Bulgatov Bulanenko Brezhnev Bocharov 
+			Chernishevsky Chernishev Chigvintsev Chistyakov Chuikov Danilovich Dazhin Denishchev Dokutovich Dorzhiyev 
+			Filippov Fyodorov Gabrilov Gagarin Ganyev Gashev Golubev Grachyov Grigorov Grishayev Gusev
+			Ilnitsky Kaminsky Kiselyov Klubkov Koldeyev Kondakov Korenev Koshkin Kovshov Kuzma Kuznetsov 
+			Larionov Lavrentyev Lev Lidov Lisitsyn Loginov Lukichyov Lyubilkin
+			Makeyev Makhlyagin Makoveyev Malyutin Maresyev Markelov Matveyevich Mazhnov Melikhov Milko Moiseyenko Molchanov Murakhovets
+			Nakaryakov Nesterov Nikiforov Nikolayev Nikulin Nomokonov Novozhilov Okunev Onilov Orlov
+			Pakhomkin Panchenko Panteleyev Parfyonov Pavlichenko Pchelintsev Pegeshov Petrov Popov Posazhnikov Prokopev Pustobriko
+			Rabichev Radkin Rakityansky Raskov Romanovich Romashov Rudnev Ryasin 
+			Sagaidak Saikin Sanfirov Selin Selyanin Serebryakov Seryogin Shalayev Shambarov Shatrov
+			Shevelyov Shilov Shlyakhov Shmurak Shvetsov Simonov Sokolov Solomatin Stepanov Svetlov
+			Tanailov Terekhov Tinigin Tolstoy Ulyanenko Utkin Vashchenko Vasilenko Vinogradov Vladimirsky Volkhov Vorontsov
+			Yartsev Yegorov Yekimov Yermakov Yushin Zakharov Zaytsev Zhudin Zhukov
+			#Georgian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Adamiya Aliyev Aslanikashvili Beriya Chiladze Dzhugashvili Gelashvili Giligashvili 
+			Kapanadze Khalvashi Kvachantiradze Kvaratskhelia Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Armenian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Babadzhanyan Gurgen Markosyan
+			#Azerbaijan (some might be shared with other SSRs around) -> Most likely in Russian form
+			Akhundov Aliyarbekov Apresyan
+		}
+	}
+	female = {
+		names = {
+			Afanasiya Albina Aleksandra Anastasiya Elena Elvira Lydia Lyudmila Margarita Muza Natalya Olga Sofiya Svetlana Valentina Yelena
+			#New
+			Alina Alevtina Aliya Anna Anya Asya Dusya Galya Kaleriya Kalya Katya Klava Klavdiya Irina 
+			Lida Liza Lyuba Lyubov Marina Mariya Maryam Marusya Nadezhda Nadya Natasha Nina Nonna 
+			Polina Raisa Roza Rozaliya Serafima Svetlana Tamara Tanya Taya Tonya Tosya
+			Valya Vera Yekaterina Yepistiniya Yevdokiya Yevgeniya Yuliya Zinaida Zoya
+			#Georgian
+			Ketevan Nana Nino Tamar 
+		}
+		surnames = {
+			#New
+		a Abyzova Akhnazarova Akimenko Akimova Aleksandrova Aleksandrovna Almazova Anashkina Anatolyevna Artamonova
+			Badanova Bakieva Barakina Barkova Bocharova Bondaryova Bratishcheva Bulatova Bulgakova 
+			Chegodayeva Chernisheva Chibisova Chigvintseva Chistyakova Chuikova Fedutenko Filippova Fyodorova 
+			Gabrilova Gagarina Ganyeva Gasheva Golubeva Grachyova Grigorova Grishayeva Grunskaya Gulyakina Guseva Isayeva Ivanova 
+			Kekeshyeva Kiselyova Klubkova Koldeyeva Kondakova Koreneva Korotkevich Kosmodemyanskaya Kovalenko Kovshova Kroshchenko Kuzmina Kuznetsova
+			Larionova Lavrentyeva Lidova Loginova Lukichyova 
+			Makeyeva Makhlyagina Makoveyeva Maksimova Malyutina Maresyeva Markelova Matokh Mazhnova Melikhova Menshikova Milko Moiseyenko Molchanova
+			Moldagulova Mulatova Murakhovets Nakaryakova Nakhimova Nesterova Nikiforova Nikiforovna Nikoloyeva Novozhilova Nurmukhambetovna
+			Okuneva Onilova Orlova
+			Pakhomkina Panchenko Panteleyeva Parfyonova Pavlichenko Pavlova Pchelintseva Pegeshova Peredera Petrova Popova Posazhnikova Prokopeva Pustobrikova
+			Rabicheva Rachkevich Radkina Raskova Reznichenko Rogalskaya Romanova Romashova Rudneva Ryasina 
+			Saikina Sanfirova Selina Selyanina Serebryakova Shalayeva Shambarova Shanina Shatrova
+			Shevelyova Shilova Shlyakhova Shvetsova Simonova Sokolova Stepanova Surkova Svetlova
+			Tanailova Terekhova Tinigina Ulyanenko Vashchenko Vasilenko Vinogradova Visnitskaya Volkhova Vorontsova
+			Yartseva Yegorova Yekimova Yermakova Yushina Zakharova Zhukova
+			#Caucasus
+			Aliyeva
+			#Georgia
+			Aslanikashvili Beriya Dzhugashvili Gelashvili Giligashvili Khalvashi Kvaratskhelia Kapanadze Ingorovka Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Azerbaijan
+			Pashayeva
+		}
+	}
+	callsigns = { "The Colonist" "The Bell" Heine Duma Anvil Hammer Fury Arrow Storm Bear "White Lily" Devil Eagle Falcon Fox Snowflake Greasy Guardian Gunman Hawk Hardball Howl Blizzard Husky Ice Killer Steel Iron Skull Striker Thunder Warrior Wardog Vodka }
+	
+	prefix = o_operatsiya
+	
+	use_geographical_default_operation_names = yes
+	offensive_operation_suffix = o_strat_offensive_ru
+	defensive_operation_suffix = o_strat_defensive_ru
+	naval_operation_suffix = o_strat_naval_ru
+	
+	operation = {
+		0 = {
+			o_mercury
+			o_venus
+			o_neptune
+			o_maly_saturn
+			o_maly_neptun
+			o_kontsert
+		}
+		130 = {
+			o_bagration
+		}
+		131 = {
+			o_bagration
+			o_suvorov
+		}
+		132 = {
+			o_iskra
+			o_lyuban
+			o_sinyavino
+		}
+		133 = {
+			o_mars
+			o_jupiter
+			o_kutuzov
+			o_polar_star
+			o_rumyantsev
+		}
+		24 = {
+			o_belgrade_strategic_offensive
+		}
+		8 = {
+			o_berlin_strategic_offensive
+		}
+		137 = {
+			o_ring
+			o_saturn
+			o_uranus
+		}
+		38 = {
+			o_samland
+		}
+	}
+}
+
+
+
+OMK = {
+	male = {
+		names = { 
+			Aleksandr Aleksey Andrey Anton Boris Dmitry Fyodor Gennady 
+			Georgy Grigory Igor Ilya Iosif Ivan Kirill Konstantin Lavr Leonid Lev
+			Maksim Mikhail Nikita Nikolay Noy Oleg Pavel Pyotr Roman Semyon Sergey
+			Valery Vasily Viktor Vladimir Vladislav Yegor Yevgeny Yury
+			#New
+			Akim Aksel Anastasy Anatoly Andrian Arkady Arseny Aslan Dzhabir Emil Feodosy Filipp Isay Ivar Izot 
+			Karl Kazimir Kuzma Lavrenty Lazar Makary Manzakir Marat Markian Martemyan Mstislav 
+			Osher Pasha Roman Sidor Slava Stepan Tikhon Timofey Tsyrendashi Vsevolod Vyacheslav Yakov Yefim Zinovy
+			#Georgian
+			Levan Tamaz Zurab
+			#Armenian
+			Amayak Amazasp Arno Artashes Bagrat Derenik Karapet Khoren Tarlan
+		}
+		surnames = { 
+			Akhnazarov Akimenko Alekseyev Antonov Azarov Badanov Budyonny Chibisov 
+			Dragomirov Frolov Golivin Grishin Gurko Ivanov Ivannikov Isayev 
+			Konev Konstantinov Kuropatkin
+			Lazarev Maksimov Menshikov Nakhimov Nebogatov Nikolayevich Nikitin
+			Ostrovsky Pavlov Putyatin Romanov Rozhestvensky Skobelev 
+			Shuvalov Surkov Tukhachevsky Yan Yegorov Yudenich Vorontsov Voroshilov Zavoyko
+			#New
+		 Abugov Abyzov Achkasov Adriashenko Afanasev Agafonov Akimov Alagakov Alekhin Aleksandrovich 
+			Aleksandrov Almazov Anashkin Andreyev Andrianov Apriamov Arushanyan Arutyunovich Asadov
+			Babak Barkov Bondaryov Borisovich Bulgakov Bulgatov Bulanenko Brezhnev Bocharov 
+			Chernishevsky Chernishev Chigvintsev Chistyakov Chuikov Danilovich Dazhin Denishchev Dokutovich Dorzhiyev 
+			Filippov Fyodorov Gabrilov Gagarin Ganyev Gashev Golubev Grachyov Grigorov Grishayev Gusev
+			Ilnitsky Kaminsky Kiselyov Klubkov Koldeyev Kondakov Korenev Koshkin Kovshov Kuzma Kuznetsov 
+			Larionov Lavrentyev Lev Lidov Lisitsyn Loginov Lukichyov Lyubilkin
+			Makeyev Makhlyagin Makoveyev Malyutin Maresyev Markelov Matveyevich Mazhnov Melikhov Milko Moiseyenko Molchanov Murakhovets
+			Nakaryakov Nesterov Nikiforov Nikolayev Nikulin Nomokonov Novozhilov Okunev Onilov Orlov
+			Pakhomkin Panchenko Panteleyev Parfyonov Pavlichenko Pchelintsev Pegeshov Petrov Popov Posazhnikov Prokopev Pustobriko
+			Rabichev Radkin Rakityansky Raskov Romanovich Romashov Rudnev Ryasin 
+			Sagaidak Saikin Sanfirov Selin Selyanin Serebryakov Seryogin Shalayev Shambarov Shatrov
+			Shevelyov Shilov Shlyakhov Shmurak Shvetsov Simonov Sokolov Solomatin Stepanov Svetlov
+			Tanailov Terekhov Tinigin Tolstoy Ulyanenko Utkin Vashchenko Vasilenko Vinogradov Vladimirsky Volkhov Vorontsov
+			Yartsev Yegorov Yekimov Yermakov Yushin Zakharov Zaytsev Zhudin Zhukov
+			#Georgian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Adamiya Aliyev Aslanikashvili Beriya Chiladze Dzhugashvili Gelashvili Giligashvili 
+			Kapanadze Khalvashi Kvachantiradze Kvaratskhelia Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Armenian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Babadzhanyan Gurgen Markosyan
+			#Azerbaijan (some might be shared with other SSRs around) -> Most likely in Russian form
+			Akhundov Aliyarbekov Apresyan
+		}
+	}
+	female = {
+		names = {
+			Afanasiya Albina Aleksandra Anastasiya Elena Elvira Lydia Lyudmila Margarita Muza Natalya Olga Sofiya Svetlana Valentina Yelena
+			#New
+			Alina Alevtina Aliya Anna Anya Asya Dusya Galya Kaleriya Kalya Katya Klava Klavdiya Irina 
+			Lida Liza Lyuba Lyubov Marina Mariya Maryam Marusya Nadezhda Nadya Natasha Nina Nonna 
+			Polina Raisa Roza Rozaliya Serafima Svetlana Tamara Tanya Taya Tonya Tosya
+			Valya Vera Yekaterina Yepistiniya Yevdokiya Yevgeniya Yuliya Zinaida Zoya
+			#Georgian
+			Ketevan Nana Nino Tamar 
+		}
+		surnames = {
+			#New
+		a Abyzova Akhnazarova Akimenko Akimova Aleksandrova Aleksandrovna Almazova Anashkina Anatolyevna Artamonova
+			Badanova Bakieva Barakina Barkova Bocharova Bondaryova Bratishcheva Bulatova Bulgakova 
+			Chegodayeva Chernisheva Chibisova Chigvintseva Chistyakova Chuikova Fedutenko Filippova Fyodorova 
+			Gabrilova Gagarina Ganyeva Gasheva Golubeva Grachyova Grigorova Grishayeva Grunskaya Gulyakina Guseva Isayeva Ivanova 
+			Kekeshyeva Kiselyova Klubkova Koldeyeva Kondakova Koreneva Korotkevich Kosmodemyanskaya Kovalenko Kovshova Kroshchenko Kuzmina Kuznetsova
+			Larionova Lavrentyeva Lidova Loginova Lukichyova 
+			Makeyeva Makhlyagina Makoveyeva Maksimova Malyutina Maresyeva Markelova Matokh Mazhnova Melikhova Menshikova Milko Moiseyenko Molchanova
+			Moldagulova Mulatova Murakhovets Nakaryakova Nakhimova Nesterova Nikiforova Nikiforovna Nikoloyeva Novozhilova Nurmukhambetovna
+			Okuneva Onilova Orlova
+			Pakhomkina Panchenko Panteleyeva Parfyonova Pavlichenko Pavlova Pchelintseva Pegeshova Peredera Petrova Popova Posazhnikova Prokopeva Pustobrikova
+			Rabicheva Rachkevich Radkina Raskova Reznichenko Rogalskaya Romanova Romashova Rudneva Ryasina 
+			Saikina Sanfirova Selina Selyanina Serebryakova Shalayeva Shambarova Shanina Shatrova
+			Shevelyova Shilova Shlyakhova Shvetsova Simonova Sokolova Stepanova Surkova Svetlova
+			Tanailova Terekhova Tinigina Ulyanenko Vashchenko Vasilenko Vinogradova Visnitskaya Volkhova Vorontsova
+			Yartseva Yegorova Yekimova Yermakova Yushina Zakharova Zhukova
+			#Caucasus
+			Aliyeva
+			#Georgia
+			Aslanikashvili Beriya Dzhugashvili Gelashvili Giligashvili Khalvashi Kvaratskhelia Kapanadze Ingorovka Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Azerbaijan
+			Pashayeva
+		}
+	}
+	callsigns = { "The Colonist" "The Bell" Heine Duma Anvil Hammer Fury Arrow Storm Bear "White Lily" Devil Eagle Falcon Fox Snowflake Greasy Guardian Gunman Hawk Hardball Howl Blizzard Husky Ice Killer Steel Iron Skull Striker Thunder Warrior Wardog Vodka }
+	
+	prefix = o_operatsiya
+	
+	use_geographical_default_operation_names = yes
+	offensive_operation_suffix = o_strat_offensive_ru
+	defensive_operation_suffix = o_strat_defensive_ru
+	naval_operation_suffix = o_strat_naval_ru
+	
+	operation = {
+		0 = {
+			o_mercury
+			o_venus
+			o_neptune
+			o_maly_saturn
+			o_maly_neptun
+			o_kontsert
+		}
+		130 = {
+			o_bagration
+		}
+		131 = {
+			o_bagration
+			o_suvorov
+		}
+		132 = {
+			o_iskra
+			o_lyuban
+			o_sinyavino
+		}
+		133 = {
+			o_mars
+			o_jupiter
+			o_kutuzov
+			o_polar_star
+			o_rumyantsev
+		}
+		24 = {
+			o_belgrade_strategic_offensive
+		}
+		8 = {
+			o_berlin_strategic_offensive
+		}
+		137 = {
+			o_ring
+			o_saturn
+			o_uranus
+		}
+		38 = {
+			o_samland
+		}
+	}
+}
+
+
+
+TCS = {
+	male = {
+		names = { 
+			Aleksandr Aleksey Andrey Anton Boris Dmitry Fyodor Gennady 
+			Georgy Grigory Igor Ilya Iosif Ivan Kirill Konstantin Lavr Leonid Lev
+			Maksim Mikhail Nikita Nikolay Noy Oleg Pavel Pyotr Roman Semyon Sergey
+			Valery Vasily Viktor Vladimir Vladislav Yegor Yevgeny Yury
+			#New
+			Akim Aksel Anastasy Anatoly Andrian Arkady Arseny Aslan Dzhabir Emil Feodosy Filipp Isay Ivar Izot 
+			Karl Kazimir Kuzma Lavrenty Lazar Makary Manzakir Marat Markian Martemyan Mstislav 
+			Osher Pasha Roman Sidor Slava Stepan Tikhon Timofey Tsyrendashi Vsevolod Vyacheslav Yakov Yefim Zinovy
+			#Georgian
+			Levan Tamaz Zurab
+			#Armenian
+			Amayak Amazasp Arno Artashes Bagrat Derenik Karapet Khoren Tarlan
+		}
+		surnames = { 
+			Akhnazarov Akimenko Alekseyev Antonov Azarov Badanov Budyonny Chibisov 
+			Dragomirov Frolov Golivin Grishin Gurko Ivanov Ivannikov Isayev 
+			Konev Konstantinov Kuropatkin
+			Lazarev Maksimov Menshikov Nakhimov Nebogatov Nikolayevich Nikitin
+			Ostrovsky Pavlov Putyatin Romanov Rozhestvensky Skobelev 
+			Shuvalov Surkov Tukhachevsky Yan Yegorov Yudenich Vorontsov Voroshilov Zavoyko
+			#New
+		 Abugov Abyzov Achkasov Adriashenko Afanasev Agafonov Akimov Alagakov Alekhin Aleksandrovich 
+			Aleksandrov Almazov Anashkin Andreyev Andrianov Apriamov Arushanyan Arutyunovich Asadov
+			Babak Barkov Bondaryov Borisovich Bulgakov Bulgatov Bulanenko Brezhnev Bocharov 
+			Chernishevsky Chernishev Chigvintsev Chistyakov Chuikov Danilovich Dazhin Denishchev Dokutovich Dorzhiyev 
+			Filippov Fyodorov Gabrilov Gagarin Ganyev Gashev Golubev Grachyov Grigorov Grishayev Gusev
+			Ilnitsky Kaminsky Kiselyov Klubkov Koldeyev Kondakov Korenev Koshkin Kovshov Kuzma Kuznetsov 
+			Larionov Lavrentyev Lev Lidov Lisitsyn Loginov Lukichyov Lyubilkin
+			Makeyev Makhlyagin Makoveyev Malyutin Maresyev Markelov Matveyevich Mazhnov Melikhov Milko Moiseyenko Molchanov Murakhovets
+			Nakaryakov Nesterov Nikiforov Nikolayev Nikulin Nomokonov Novozhilov Okunev Onilov Orlov
+			Pakhomkin Panchenko Panteleyev Parfyonov Pavlichenko Pchelintsev Pegeshov Petrov Popov Posazhnikov Prokopev Pustobriko
+			Rabichev Radkin Rakityansky Raskov Romanovich Romashov Rudnev Ryasin 
+			Sagaidak Saikin Sanfirov Selin Selyanin Serebryakov Seryogin Shalayev Shambarov Shatrov
+			Shevelyov Shilov Shlyakhov Shmurak Shvetsov Simonov Sokolov Solomatin Stepanov Svetlov
+			Tanailov Terekhov Tinigin Tolstoy Ulyanenko Utkin Vashchenko Vasilenko Vinogradov Vladimirsky Volkhov Vorontsov
+			Yartsev Yegorov Yekimov Yermakov Yushin Zakharov Zaytsev Zhudin Zhukov
+			#Georgian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Adamiya Aliyev Aslanikashvili Beriya Chiladze Dzhugashvili Gelashvili Giligashvili 
+			Kapanadze Khalvashi Kvachantiradze Kvaratskhelia Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Armenian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Babadzhanyan Gurgen Markosyan
+			#Azerbaijan (some might be shared with other SSRs around) -> Most likely in Russian form
+			Akhundov Aliyarbekov Apresyan
+		}
+	}
+	female = {
+		names = {
+			Afanasiya Albina Aleksandra Anastasiya Elena Elvira Lydia Lyudmila Margarita Muza Natalya Olga Sofiya Svetlana Valentina Yelena
+			#New
+			Alina Alevtina Aliya Anna Anya Asya Dusya Galya Kaleriya Kalya Katya Klava Klavdiya Irina 
+			Lida Liza Lyuba Lyubov Marina Mariya Maryam Marusya Nadezhda Nadya Natasha Nina Nonna 
+			Polina Raisa Roza Rozaliya Serafima Svetlana Tamara Tanya Taya Tonya Tosya
+			Valya Vera Yekaterina Yepistiniya Yevdokiya Yevgeniya Yuliya Zinaida Zoya
+			#Georgian
+			Ketevan Nana Nino Tamar 
+		}
+		surnames = {
+			#New
+		a Abyzova Akhnazarova Akimenko Akimova Aleksandrova Aleksandrovna Almazova Anashkina Anatolyevna Artamonova
+			Badanova Bakieva Barakina Barkova Bocharova Bondaryova Bratishcheva Bulatova Bulgakova 
+			Chegodayeva Chernisheva Chibisova Chigvintseva Chistyakova Chuikova Fedutenko Filippova Fyodorova 
+			Gabrilova Gagarina Ganyeva Gasheva Golubeva Grachyova Grigorova Grishayeva Grunskaya Gulyakina Guseva Isayeva Ivanova 
+			Kekeshyeva Kiselyova Klubkova Koldeyeva Kondakova Koreneva Korotkevich Kosmodemyanskaya Kovalenko Kovshova Kroshchenko Kuzmina Kuznetsova
+			Larionova Lavrentyeva Lidova Loginova Lukichyova 
+			Makeyeva Makhlyagina Makoveyeva Maksimova Malyutina Maresyeva Markelova Matokh Mazhnova Melikhova Menshikova Milko Moiseyenko Molchanova
+			Moldagulova Mulatova Murakhovets Nakaryakova Nakhimova Nesterova Nikiforova Nikiforovna Nikoloyeva Novozhilova Nurmukhambetovna
+			Okuneva Onilova Orlova
+			Pakhomkina Panchenko Panteleyeva Parfyonova Pavlichenko Pavlova Pchelintseva Pegeshova Peredera Petrova Popova Posazhnikova Prokopeva Pustobrikova
+			Rabicheva Rachkevich Radkina Raskova Reznichenko Rogalskaya Romanova Romashova Rudneva Ryasina 
+			Saikina Sanfirova Selina Selyanina Serebryakova Shalayeva Shambarova Shanina Shatrova
+			Shevelyova Shilova Shlyakhova Shvetsova Simonova Sokolova Stepanova Surkova Svetlova
+			Tanailova Terekhova Tinigina Ulyanenko Vashchenko Vasilenko Vinogradova Visnitskaya Volkhova Vorontsova
+			Yartseva Yegorova Yekimova Yermakova Yushina Zakharova Zhukova
+			#Caucasus
+			Aliyeva
+			#Georgia
+			Aslanikashvili Beriya Dzhugashvili Gelashvili Giligashvili Khalvashi Kvaratskhelia Kapanadze Ingorovka Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Azerbaijan
+			Pashayeva
+		}
+	}
+	callsigns = { "The Colonist" "The Bell" Heine Duma Anvil Hammer Fury Arrow Storm Bear "White Lily" Devil Eagle Falcon Fox Snowflake Greasy Guardian Gunman Hawk Hardball Howl Blizzard Husky Ice Killer Steel Iron Skull Striker Thunder Warrior Wardog Vodka }
+	
+	prefix = o_operatsiya
+	
+	use_geographical_default_operation_names = yes
+	offensive_operation_suffix = o_strat_offensive_ru
+	defensive_operation_suffix = o_strat_defensive_ru
+	naval_operation_suffix = o_strat_naval_ru
+	
+	operation = {
+		0 = {
+			o_mercury
+			o_venus
+			o_neptune
+			o_maly_saturn
+			o_maly_neptun
+			o_kontsert
+		}
+		130 = {
+			o_bagration
+		}
+		131 = {
+			o_bagration
+			o_suvorov
+		}
+		132 = {
+			o_iskra
+			o_lyuban
+			o_sinyavino
+		}
+		133 = {
+			o_mars
+			o_jupiter
+			o_kutuzov
+			o_polar_star
+			o_rumyantsev
+		}
+		24 = {
+			o_belgrade_strategic_offensive
+		}
+		8 = {
+			o_berlin_strategic_offensive
+		}
+		137 = {
+			o_ring
+			o_saturn
+			o_uranus
+		}
+		38 = {
+			o_samland
+		}
+	}
+}
+KIR = {
+	male = {
+		names = { 
+			Aleksandr Aleksey Andrey Anton Boris Dmitry Fyodor Gennady 
+			Georgy Grigory Igor Ilya Iosif Ivan Kirill Konstantin Lavr Leonid Lev
+			Maksim Mikhail Nikita Nikolay Noy Oleg Pavel Pyotr Roman Semyon Sergey
+			Valery Vasily Viktor Vladimir Vladislav Yegor Yevgeny Yury
+			#New
+			Akim Aksel Anastasy Anatoly Andrian Arkady Arseny Aslan Dzhabir Emil Feodosy Filipp Isay Ivar Izot 
+			Karl Kazimir Kuzma Lavrenty Lazar Makary Manzakir Marat Markian Martemyan Mstislav 
+			Osher Pasha Roman Sidor Slava Stepan Tikhon Timofey Tsyrendashi Vsevolod Vyacheslav Yakov Yefim Zinovy
+			#Georgian
+			Levan Tamaz Zurab
+			#Armenian
+			Amayak Amazasp Arno Artashes Bagrat Derenik Karapet Khoren Tarlan
+		}
+		surnames = { 
+			Akhnazarov Akimenko Alekseyev Antonov Azarov Badanov Budyonny Chibisov 
+			Dragomirov Frolov Golivin Grishin Gurko Ivanov Ivannikov Isayev 
+			Konev Konstantinov Kuropatkin
+			Lazarev Maksimov Menshikov Nakhimov Nebogatov Nikolayevich Nikitin
+			Ostrovsky Pavlov Putyatin Romanov Rozhestvensky Skobelev 
+			Shuvalov Surkov Tukhachevsky Yan Yegorov Yudenich Vorontsov Voroshilov Zavoyko
+			#New
+		 Abugov Abyzov Achkasov Adriashenko Afanasev Agafonov Akimov Alagakov Alekhin Aleksandrovich 
+			Aleksandrov Almazov Anashkin Andreyev Andrianov Apriamov Arushanyan Arutyunovich Asadov
+			Babak Barkov Bondaryov Borisovich Bulgakov Bulgatov Bulanenko Brezhnev Bocharov 
+			Chernishevsky Chernishev Chigvintsev Chistyakov Chuikov Danilovich Dazhin Denishchev Dokutovich Dorzhiyev 
+			Filippov Fyodorov Gabrilov Gagarin Ganyev Gashev Golubev Grachyov Grigorov Grishayev Gusev
+			Ilnitsky Kaminsky Kiselyov Klubkov Koldeyev Kondakov Korenev Koshkin Kovshov Kuzma Kuznetsov 
+			Larionov Lavrentyev Lev Lidov Lisitsyn Loginov Lukichyov Lyubilkin
+			Makeyev Makhlyagin Makoveyev Malyutin Maresyev Markelov Matveyevich Mazhnov Melikhov Milko Moiseyenko Molchanov Murakhovets
+			Nakaryakov Nesterov Nikiforov Nikolayev Nikulin Nomokonov Novozhilov Okunev Onilov Orlov
+			Pakhomkin Panchenko Panteleyev Parfyonov Pavlichenko Pchelintsev Pegeshov Petrov Popov Posazhnikov Prokopev Pustobriko
+			Rabichev Radkin Rakityansky Raskov Romanovich Romashov Rudnev Ryasin 
+			Sagaidak Saikin Sanfirov Selin Selyanin Serebryakov Seryogin Shalayev Shambarov Shatrov
+			Shevelyov Shilov Shlyakhov Shmurak Shvetsov Simonov Sokolov Solomatin Stepanov Svetlov
+			Tanailov Terekhov Tinigin Tolstoy Ulyanenko Utkin Vashchenko Vasilenko Vinogradov Vladimirsky Volkhov Vorontsov
+			Yartsev Yegorov Yekimov Yermakov Yushin Zakharov Zaytsev Zhudin Zhukov
+			#Georgian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Adamiya Aliyev Aslanikashvili Beriya Chiladze Dzhugashvili Gelashvili Giligashvili 
+			Kapanadze Khalvashi Kvachantiradze Kvaratskhelia Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Armenian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Babadzhanyan Gurgen Markosyan
+			#Azerbaijan (some might be shared with other SSRs around) -> Most likely in Russian form
+			Akhundov Aliyarbekov Apresyan
+		}
+	}
+	female = {
+		names = {
+			Afanasiya Albina Aleksandra Anastasiya Elena Elvira Lydia Lyudmila Margarita Muza Natalya Olga Sofiya Svetlana Valentina Yelena
+			#New
+			Alina Alevtina Aliya Anna Anya Asya Dusya Galya Kaleriya Kalya Katya Klava Klavdiya Irina 
+			Lida Liza Lyuba Lyubov Marina Mariya Maryam Marusya Nadezhda Nadya Natasha Nina Nonna 
+			Polina Raisa Roza Rozaliya Serafima Svetlana Tamara Tanya Taya Tonya Tosya
+			Valya Vera Yekaterina Yepistiniya Yevdokiya Yevgeniya Yuliya Zinaida Zoya
+			#Georgian
+			Ketevan Nana Nino Tamar 
+		}
+		surnames = {
+			#New
+		a Abyzova Akhnazarova Akimenko Akimova Aleksandrova Aleksandrovna Almazova Anashkina Anatolyevna Artamonova
+			Badanova Bakieva Barakina Barkova Bocharova Bondaryova Bratishcheva Bulatova Bulgakova 
+			Chegodayeva Chernisheva Chibisova Chigvintseva Chistyakova Chuikova Fedutenko Filippova Fyodorova 
+			Gabrilova Gagarina Ganyeva Gasheva Golubeva Grachyova Grigorova Grishayeva Grunskaya Gulyakina Guseva Isayeva Ivanova 
+			Kekeshyeva Kiselyova Klubkova Koldeyeva Kondakova Koreneva Korotkevich Kosmodemyanskaya Kovalenko Kovshova Kroshchenko Kuzmina Kuznetsova
+			Larionova Lavrentyeva Lidova Loginova Lukichyova 
+			Makeyeva Makhlyagina Makoveyeva Maksimova Malyutina Maresyeva Markelova Matokh Mazhnova Melikhova Menshikova Milko Moiseyenko Molchanova
+			Moldagulova Mulatova Murakhovets Nakaryakova Nakhimova Nesterova Nikiforova Nikiforovna Nikoloyeva Novozhilova Nurmukhambetovna
+			Okuneva Onilova Orlova
+			Pakhomkina Panchenko Panteleyeva Parfyonova Pavlichenko Pavlova Pchelintseva Pegeshova Peredera Petrova Popova Posazhnikova Prokopeva Pustobrikova
+			Rabicheva Rachkevich Radkina Raskova Reznichenko Rogalskaya Romanova Romashova Rudneva Ryasina 
+			Saikina Sanfirova Selina Selyanina Serebryakova Shalayeva Shambarova Shanina Shatrova
+			Shevelyova Shilova Shlyakhova Shvetsova Simonova Sokolova Stepanova Surkova Svetlova
+			Tanailova Terekhova Tinigina Ulyanenko Vashchenko Vasilenko Vinogradova Visnitskaya Volkhova Vorontsova
+			Yartseva Yegorova Yekimova Yermakova Yushina Zakharova Zhukova
+			#Caucasus
+			Aliyeva
+			#Georgia
+			Aslanikashvili Beriya Dzhugashvili Gelashvili Giligashvili Khalvashi Kvaratskhelia Kapanadze Ingorovka Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Azerbaijan
+			Pashayeva
+		}
+	}
+	callsigns = { "The Colonist" "The Bell" Heine Duma Anvil Hammer Fury Arrow Storm Bear "White Lily" Devil Eagle Falcon Fox Snowflake Greasy Guardian Gunman Hawk Hardball Howl Blizzard Husky Ice Killer Steel Iron Skull Striker Thunder Warrior Wardog Vodka }
+	
+	prefix = o_operatsiya
+	
+	use_geographical_default_operation_names = yes
+	offensive_operation_suffix = o_strat_offensive_ru
+	defensive_operation_suffix = o_strat_defensive_ru
+	naval_operation_suffix = o_strat_naval_ru
+	
+	operation = {
+		0 = {
+			o_mercury
+			o_venus
+			o_neptune
+			o_maly_saturn
+			o_maly_neptun
+			o_kontsert
+		}
+		130 = {
+			o_bagration
+		}
+		131 = {
+			o_bagration
+			o_suvorov
+		}
+		132 = {
+			o_iskra
+			o_lyuban
+			o_sinyavino
+		}
+		133 = {
+			o_mars
+			o_jupiter
+			o_kutuzov
+			o_polar_star
+			o_rumyantsev
+		}
+		24 = {
+			o_belgrade_strategic_offensive
+		}
+		8 = {
+			o_berlin_strategic_offensive
+		}
+		137 = {
+			o_ring
+			o_saturn
+			o_uranus
+		}
+		38 = {
+			o_samland
+		}
+	}
+}
+
+SIB = {
+	male = {
+		names = { 
+			Aleksandr Aleksey Andrey Anton Boris Dmitry Fyodor Gennady 
+			Georgy Grigory Igor Ilya Iosif Ivan Kirill Konstantin Lavr Leonid Lev
+			Maksim Mikhail Nikita Nikolay Noy Oleg Pavel Pyotr Roman Semyon Sergey
+			Valery Vasily Viktor Vladimir Vladislav Yegor Yevgeny Yury
+			#New
+			Akim Aksel Anastasy Anatoly Andrian Arkady Arseny Aslan Dzhabir Emil Feodosy Filipp Isay Ivar Izot 
+			Karl Kazimir Kuzma Lavrenty Lazar Makary Manzakir Marat Markian Martemyan Mstislav 
+			Osher Pasha Roman Sidor Slava Stepan Tikhon Timofey Tsyrendashi Vsevolod Vyacheslav Yakov Yefim Zinovy
+			#Georgian
+			Levan Tamaz Zurab
+			#Armenian
+			Amayak Amazasp Arno Artashes Bagrat Derenik Karapet Khoren Tarlan
+		}
+		surnames = { 
+			Akhnazarov Akimenko Alekseyev Antonov Azarov Badanov Budyonny Chibisov 
+			Dragomirov Frolov Golivin Grishin Gurko Ivanov Ivannikov Isayev 
+			Konev Konstantinov Kuropatkin
+			Lazarev Maksimov Menshikov Nakhimov Nebogatov Nikolayevich Nikitin
+			Ostrovsky Pavlov Putyatin Romanov Rozhestvensky Skobelev 
+			Shuvalov Surkov Tukhachevsky Yan Yegorov Yudenich Vorontsov Voroshilov Zavoyko
+			#New
+		 Abugov Abyzov Achkasov Adriashenko Afanasev Agafonov Akimov Alagakov Alekhin Aleksandrovich 
+			Aleksandrov Almazov Anashkin Andreyev Andrianov Apriamov Arushanyan Arutyunovich Asadov
+			Babak Barkov Bondaryov Borisovich Bulgakov Bulgatov Bulanenko Brezhnev Bocharov 
+			Chernishevsky Chernishev Chigvintsev Chistyakov Chuikov Danilovich Dazhin Denishchev Dokutovich Dorzhiyev 
+			Filippov Fyodorov Gabrilov Gagarin Ganyev Gashev Golubev Grachyov Grigorov Grishayev Gusev
+			Ilnitsky Kaminsky Kiselyov Klubkov Koldeyev Kondakov Korenev Koshkin Kovshov Kuzma Kuznetsov 
+			Larionov Lavrentyev Lev Lidov Lisitsyn Loginov Lukichyov Lyubilkin
+			Makeyev Makhlyagin Makoveyev Malyutin Maresyev Markelov Matveyevich Mazhnov Melikhov Milko Moiseyenko Molchanov Murakhovets
+			Nakaryakov Nesterov Nikiforov Nikolayev Nikulin Nomokonov Novozhilov Okunev Onilov Orlov
+			Pakhomkin Panchenko Panteleyev Parfyonov Pavlichenko Pchelintsev Pegeshov Petrov Popov Posazhnikov Prokopev Pustobriko
+			Rabichev Radkin Rakityansky Raskov Romanovich Romashov Rudnev Ryasin 
+			Sagaidak Saikin Sanfirov Selin Selyanin Serebryakov Seryogin Shalayev Shambarov Shatrov
+			Shevelyov Shilov Shlyakhov Shmurak Shvetsov Simonov Sokolov Solomatin Stepanov Svetlov
+			Tanailov Terekhov Tinigin Tolstoy Ulyanenko Utkin Vashchenko Vasilenko Vinogradov Vladimirsky Volkhov Vorontsov
+			Yartsev Yegorov Yekimov Yermakov Yushin Zakharov Zaytsev Zhudin Zhukov
+			#Georgian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Adamiya Aliyev Aslanikashvili Beriya Chiladze Dzhugashvili Gelashvili Giligashvili 
+			Kapanadze Khalvashi Kvachantiradze Kvaratskhelia Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Armenian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Babadzhanyan Gurgen Markosyan
+			#Azerbaijan (some might be shared with other SSRs around) -> Most likely in Russian form
+			Akhundov Aliyarbekov Apresyan
+		}
+	}
+	female = {
+		names = {
+			Afanasiya Albina Aleksandra Anastasiya Elena Elvira Lydia Lyudmila Margarita Muza Natalya Olga Sofiya Svetlana Valentina Yelena
+			#New
+			Alina Alevtina Aliya Anna Anya Asya Dusya Galya Kaleriya Kalya Katya Klava Klavdiya Irina 
+			Lida Liza Lyuba Lyubov Marina Mariya Maryam Marusya Nadezhda Nadya Natasha Nina Nonna 
+			Polina Raisa Roza Rozaliya Serafima Svetlana Tamara Tanya Taya Tonya Tosya
+			Valya Vera Yekaterina Yepistiniya Yevdokiya Yevgeniya Yuliya Zinaida Zoya
+			#Georgian
+			Ketevan Nana Nino Tamar 
+		}
+		surnames = {
+			#New
+		a Abyzova Akhnazarova Akimenko Akimova Aleksandrova Aleksandrovna Almazova Anashkina Anatolyevna Artamonova
+			Badanova Bakieva Barakina Barkova Bocharova Bondaryova Bratishcheva Bulatova Bulgakova 
+			Chegodayeva Chernisheva Chibisova Chigvintseva Chistyakova Chuikova Fedutenko Filippova Fyodorova 
+			Gabrilova Gagarina Ganyeva Gasheva Golubeva Grachyova Grigorova Grishayeva Grunskaya Gulyakina Guseva Isayeva Ivanova 
+			Kekeshyeva Kiselyova Klubkova Koldeyeva Kondakova Koreneva Korotkevich Kosmodemyanskaya Kovalenko Kovshova Kroshchenko Kuzmina Kuznetsova
+			Larionova Lavrentyeva Lidova Loginova Lukichyova 
+			Makeyeva Makhlyagina Makoveyeva Maksimova Malyutina Maresyeva Markelova Matokh Mazhnova Melikhova Menshikova Milko Moiseyenko Molchanova
+			Moldagulova Mulatova Murakhovets Nakaryakova Nakhimova Nesterova Nikiforova Nikiforovna Nikoloyeva Novozhilova Nurmukhambetovna
+			Okuneva Onilova Orlova
+			Pakhomkina Panchenko Panteleyeva Parfyonova Pavlichenko Pavlova Pchelintseva Pegeshova Peredera Petrova Popova Posazhnikova Prokopeva Pustobrikova
+			Rabicheva Rachkevich Radkina Raskova Reznichenko Rogalskaya Romanova Romashova Rudneva Ryasina 
+			Saikina Sanfirova Selina Selyanina Serebryakova Shalayeva Shambarova Shanina Shatrova
+			Shevelyova Shilova Shlyakhova Shvetsova Simonova Sokolova Stepanova Surkova Svetlova
+			Tanailova Terekhova Tinigina Ulyanenko Vashchenko Vasilenko Vinogradova Visnitskaya Volkhova Vorontsova
+			Yartseva Yegorova Yekimova Yermakova Yushina Zakharova Zhukova
+			#Caucasus
+			Aliyeva
+			#Georgia
+			Aslanikashvili Beriya Dzhugashvili Gelashvili Giligashvili Khalvashi Kvaratskhelia Kapanadze Ingorovka Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Azerbaijan
+			Pashayeva
+		}
+	}
+	callsigns = { "The Colonist" "The Bell" Heine Duma Anvil Hammer Fury Arrow Storm Bear "White Lily" Devil Eagle Falcon Fox Snowflake Greasy Guardian Gunman Hawk Hardball Howl Blizzard Husky Ice Killer Steel Iron Skull Striker Thunder Warrior Wardog Vodka }
+	
+	prefix = o_operatsiya
+	
+	use_geographical_default_operation_names = yes
+	offensive_operation_suffix = o_strat_offensive_ru
+	defensive_operation_suffix = o_strat_defensive_ru
+	naval_operation_suffix = o_strat_naval_ru
+	
+	operation = {
+		0 = {
+			o_mercury
+			o_venus
+			o_neptune
+			o_maly_saturn
+			o_maly_neptun
+			o_kontsert
+		}
+		130 = {
+			o_bagration
+		}
+		131 = {
+			o_bagration
+			o_suvorov
+		}
+		132 = {
+			o_iskra
+			o_lyuban
+			o_sinyavino
+		}
+		133 = {
+			o_mars
+			o_jupiter
+			o_kutuzov
+			o_polar_star
+			o_rumyantsev
+		}
+		24 = {
+			o_belgrade_strategic_offensive
+		}
+		8 = {
+			o_berlin_strategic_offensive
+		}
+		137 = {
+			o_ring
+			o_saturn
+			o_uranus
+		}
+		38 = {
+			o_samland
+		}
+	}
+}
+
+
+TAS = {
+	male = {
+		names = { 
+			Aleksandr Aleksey Andrey Anton Boris Dmitry Fyodor Gennady 
+			Georgy Grigory Igor Ilya Iosif Ivan Kirill Konstantin Lavr Leonid Lev
+			Maksim Mikhail Nikita Nikolay Noy Oleg Pavel Pyotr Roman Semyon Sergey
+			Valery Vasily Viktor Vladimir Vladislav Yegor Yevgeny Yury
+			#New
+			Akim Aksel Anastasy Anatoly Andrian Arkady Arseny Aslan Dzhabir Emil Feodosy Filipp Isay Ivar Izot 
+			Karl Kazimir Kuzma Lavrenty Lazar Makary Manzakir Marat Markian Martemyan Mstislav 
+			Osher Pasha Roman Sidor Slava Stepan Tikhon Timofey Tsyrendashi Vsevolod Vyacheslav Yakov Yefim Zinovy
+			#Georgian
+			Levan Tamaz Zurab
+			#Armenian
+			Amayak Amazasp Arno Artashes Bagrat Derenik Karapet Khoren Tarlan
+		}
+		surnames = { 
+			Akhnazarov Akimenko Alekseyev Antonov Azarov Badanov Budyonny Chibisov 
+			Dragomirov Frolov Golivin Grishin Gurko Ivanov Ivannikov Isayev 
+			Konev Konstantinov Kuropatkin
+			Lazarev Maksimov Menshikov Nakhimov Nebogatov Nikolayevich Nikitin
+			Ostrovsky Pavlov Putyatin Romanov Rozhestvensky Skobelev 
+			Shuvalov Surkov Tukhachevsky Yan Yegorov Yudenich Vorontsov Voroshilov Zavoyko
+			#New
+		 Abugov Abyzov Achkasov Adriashenko Afanasev Agafonov Akimov Alagakov Alekhin Aleksandrovich 
+			Aleksandrov Almazov Anashkin Andreyev Andrianov Apriamov Arushanyan Arutyunovich Asadov
+			Babak Barkov Bondaryov Borisovich Bulgakov Bulgatov Bulanenko Brezhnev Bocharov 
+			Chernishevsky Chernishev Chigvintsev Chistyakov Chuikov Danilovich Dazhin Denishchev Dokutovich Dorzhiyev 
+			Filippov Fyodorov Gabrilov Gagarin Ganyev Gashev Golubev Grachyov Grigorov Grishayev Gusev
+			Ilnitsky Kaminsky Kiselyov Klubkov Koldeyev Kondakov Korenev Koshkin Kovshov Kuzma Kuznetsov 
+			Larionov Lavrentyev Lev Lidov Lisitsyn Loginov Lukichyov Lyubilkin
+			Makeyev Makhlyagin Makoveyev Malyutin Maresyev Markelov Matveyevich Mazhnov Melikhov Milko Moiseyenko Molchanov Murakhovets
+			Nakaryakov Nesterov Nikiforov Nikolayev Nikulin Nomokonov Novozhilov Okunev Onilov Orlov
+			Pakhomkin Panchenko Panteleyev Parfyonov Pavlichenko Pchelintsev Pegeshov Petrov Popov Posazhnikov Prokopev Pustobriko
+			Rabichev Radkin Rakityansky Raskov Romanovich Romashov Rudnev Ryasin 
+			Sagaidak Saikin Sanfirov Selin Selyanin Serebryakov Seryogin Shalayev Shambarov Shatrov
+			Shevelyov Shilov Shlyakhov Shmurak Shvetsov Simonov Sokolov Solomatin Stepanov Svetlov
+			Tanailov Terekhov Tinigin Tolstoy Ulyanenko Utkin Vashchenko Vasilenko Vinogradov Vladimirsky Volkhov Vorontsov
+			Yartsev Yegorov Yekimov Yermakov Yushin Zakharov Zaytsev Zhudin Zhukov
+			#Georgian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Adamiya Aliyev Aslanikashvili Beriya Chiladze Dzhugashvili Gelashvili Giligashvili 
+			Kapanadze Khalvashi Kvachantiradze Kvaratskhelia Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Armenian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Babadzhanyan Gurgen Markosyan
+			#Azerbaijan (some might be shared with other SSRs around) -> Most likely in Russian form
+			Akhundov Aliyarbekov Apresyan
+		}
+	}
+	female = {
+		names = {
+			Afanasiya Albina Aleksandra Anastasiya Elena Elvira Lydia Lyudmila Margarita Muza Natalya Olga Sofiya Svetlana Valentina Yelena
+			#New
+			Alina Alevtina Aliya Anna Anya Asya Dusya Galya Kaleriya Kalya Katya Klava Klavdiya Irina 
+			Lida Liza Lyuba Lyubov Marina Mariya Maryam Marusya Nadezhda Nadya Natasha Nina Nonna 
+			Polina Raisa Roza Rozaliya Serafima Svetlana Tamara Tanya Taya Tonya Tosya
+			Valya Vera Yekaterina Yepistiniya Yevdokiya Yevgeniya Yuliya Zinaida Zoya
+			#Georgian
+			Ketevan Nana Nino Tamar 
+		}
+		surnames = {
+			#New
+		a Abyzova Akhnazarova Akimenko Akimova Aleksandrova Aleksandrovna Almazova Anashkina Anatolyevna Artamonova
+			Badanova Bakieva Barakina Barkova Bocharova Bondaryova Bratishcheva Bulatova Bulgakova 
+			Chegodayeva Chernisheva Chibisova Chigvintseva Chistyakova Chuikova Fedutenko Filippova Fyodorova 
+			Gabrilova Gagarina Ganyeva Gasheva Golubeva Grachyova Grigorova Grishayeva Grunskaya Gulyakina Guseva Isayeva Ivanova 
+			Kekeshyeva Kiselyova Klubkova Koldeyeva Kondakova Koreneva Korotkevich Kosmodemyanskaya Kovalenko Kovshova Kroshchenko Kuzmina Kuznetsova
+			Larionova Lavrentyeva Lidova Loginova Lukichyova 
+			Makeyeva Makhlyagina Makoveyeva Maksimova Malyutina Maresyeva Markelova Matokh Mazhnova Melikhova Menshikova Milko Moiseyenko Molchanova
+			Moldagulova Mulatova Murakhovets Nakaryakova Nakhimova Nesterova Nikiforova Nikiforovna Nikoloyeva Novozhilova Nurmukhambetovna
+			Okuneva Onilova Orlova
+			Pakhomkina Panchenko Panteleyeva Parfyonova Pavlichenko Pavlova Pchelintseva Pegeshova Peredera Petrova Popova Posazhnikova Prokopeva Pustobrikova
+			Rabicheva Rachkevich Radkina Raskova Reznichenko Rogalskaya Romanova Romashova Rudneva Ryasina 
+			Saikina Sanfirova Selina Selyanina Serebryakova Shalayeva Shambarova Shanina Shatrova
+			Shevelyova Shilova Shlyakhova Shvetsova Simonova Sokolova Stepanova Surkova Svetlova
+			Tanailova Terekhova Tinigina Ulyanenko Vashchenko Vasilenko Vinogradova Visnitskaya Volkhova Vorontsova
+			Yartseva Yegorova Yekimova Yermakova Yushina Zakharova Zhukova
+			#Caucasus
+			Aliyeva
+			#Georgia
+			Aslanikashvili Beriya Dzhugashvili Gelashvili Giligashvili Khalvashi Kvaratskhelia Kapanadze Ingorovka Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Azerbaijan
+			Pashayeva
+		}
+	}
+	callsigns = { "The Colonist" "The Bell" Heine Duma Anvil Hammer Fury Arrow Storm Bear "White Lily" Devil Eagle Falcon Fox Snowflake Greasy Guardian Gunman Hawk Hardball Howl Blizzard Husky Ice Killer Steel Iron Skull Striker Thunder Warrior Wardog Vodka }
+	
+	prefix = o_operatsiya
+	
+	use_geographical_default_operation_names = yes
+	offensive_operation_suffix = o_strat_offensive_ru
+	defensive_operation_suffix = o_strat_defensive_ru
+	naval_operation_suffix = o_strat_naval_ru
+	
+	operation = {
+		0 = {
+			o_mercury
+			o_venus
+			o_neptune
+			o_maly_saturn
+			o_maly_neptun
+			o_kontsert
+		}
+		130 = {
+			o_bagration
+		}
+		131 = {
+			o_bagration
+			o_suvorov
+		}
+		132 = {
+			o_iskra
+			o_lyuban
+			o_sinyavino
+		}
+		133 = {
+			o_mars
+			o_jupiter
+			o_kutuzov
+			o_polar_star
+			o_rumyantsev
+		}
+		24 = {
+			o_belgrade_strategic_offensive
+		}
+		8 = {
+			o_berlin_strategic_offensive
+		}
+		137 = {
+			o_ring
+			o_saturn
+			o_uranus
+		}
+		38 = {
+			o_samland
+		}
+	}
+}
+
+
+KAN = {
+	male = {
+		names = { 
+			Aleksandr Aleksey Andrey Anton Boris Dmitry Fyodor Gennady 
+			Georgy Grigory Igor Ilya Iosif Ivan Kirill Konstantin Lavr Leonid Lev
+			Maksim Mikhail Nikita Nikolay Noy Oleg Pavel Pyotr Roman Semyon Sergey
+			Valery Vasily Viktor Vladimir Vladislav Yegor Yevgeny Yury
+			#New
+			Akim Aksel Anastasy Anatoly Andrian Arkady Arseny Aslan Dzhabir Emil Feodosy Filipp Isay Ivar Izot 
+			Karl Kazimir Kuzma Lavrenty Lazar Makary Manzakir Marat Markian Martemyan Mstislav 
+			Osher Pasha Roman Sidor Slava Stepan Tikhon Timofey Tsyrendashi Vsevolod Vyacheslav Yakov Yefim Zinovy
+			#Georgian
+			Levan Tamaz Zurab
+			#Armenian
+			Amayak Amazasp Arno Artashes Bagrat Derenik Karapet Khoren Tarlan
+		}
+		surnames = { 
+			Akhnazarov Akimenko Alekseyev Antonov Azarov Badanov Budyonny Chibisov 
+			Dragomirov Frolov Golivin Grishin Gurko Ivanov Ivannikov Isayev 
+			Konev Konstantinov Kuropatkin
+			Lazarev Maksimov Menshikov Nakhimov Nebogatov Nikolayevich Nikitin
+			Ostrovsky Pavlov Putyatin Romanov Rozhestvensky Skobelev 
+			Shuvalov Surkov Tukhachevsky Yan Yegorov Yudenich Vorontsov Voroshilov Zavoyko
+			#New
+		 Abugov Abyzov Achkasov Adriashenko Afanasev Agafonov Akimov Alagakov Alekhin Aleksandrovich 
+			Aleksandrov Almazov Anashkin Andreyev Andrianov Apriamov Arushanyan Arutyunovich Asadov
+			Babak Barkov Bondaryov Borisovich Bulgakov Bulgatov Bulanenko Brezhnev Bocharov 
+			Chernishevsky Chernishev Chigvintsev Chistyakov Chuikov Danilovich Dazhin Denishchev Dokutovich Dorzhiyev 
+			Filippov Fyodorov Gabrilov Gagarin Ganyev Gashev Golubev Grachyov Grigorov Grishayev Gusev
+			Ilnitsky Kaminsky Kiselyov Klubkov Koldeyev Kondakov Korenev Koshkin Kovshov Kuzma Kuznetsov 
+			Larionov Lavrentyev Lev Lidov Lisitsyn Loginov Lukichyov Lyubilkin
+			Makeyev Makhlyagin Makoveyev Malyutin Maresyev Markelov Matveyevich Mazhnov Melikhov Milko Moiseyenko Molchanov Murakhovets
+			Nakaryakov Nesterov Nikiforov Nikolayev Nikulin Nomokonov Novozhilov Okunev Onilov Orlov
+			Pakhomkin Panchenko Panteleyev Parfyonov Pavlichenko Pchelintsev Pegeshov Petrov Popov Posazhnikov Prokopev Pustobriko
+			Rabichev Radkin Rakityansky Raskov Romanovich Romashov Rudnev Ryasin 
+			Sagaidak Saikin Sanfirov Selin Selyanin Serebryakov Seryogin Shalayev Shambarov Shatrov
+			Shevelyov Shilov Shlyakhov Shmurak Shvetsov Simonov Sokolov Solomatin Stepanov Svetlov
+			Tanailov Terekhov Tinigin Tolstoy Ulyanenko Utkin Vashchenko Vasilenko Vinogradov Vladimirsky Volkhov Vorontsov
+			Yartsev Yegorov Yekimov Yermakov Yushin Zakharov Zaytsev Zhudin Zhukov
+			#Georgian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Adamiya Aliyev Aslanikashvili Beriya Chiladze Dzhugashvili Gelashvili Giligashvili 
+			Kapanadze Khalvashi Kvachantiradze Kvaratskhelia Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Armenian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Babadzhanyan Gurgen Markosyan
+			#Azerbaijan (some might be shared with other SSRs around) -> Most likely in Russian form
+			Akhundov Aliyarbekov Apresyan
+		}
+	}
+	female = {
+		names = {
+			Afanasiya Albina Aleksandra Anastasiya Elena Elvira Lydia Lyudmila Margarita Muza Natalya Olga Sofiya Svetlana Valentina Yelena
+			#New
+			Alina Alevtina Aliya Anna Anya Asya Dusya Galya Kaleriya Kalya Katya Klava Klavdiya Irina 
+			Lida Liza Lyuba Lyubov Marina Mariya Maryam Marusya Nadezhda Nadya Natasha Nina Nonna 
+			Polina Raisa Roza Rozaliya Serafima Svetlana Tamara Tanya Taya Tonya Tosya
+			Valya Vera Yekaterina Yepistiniya Yevdokiya Yevgeniya Yuliya Zinaida Zoya
+			#Georgian
+			Ketevan Nana Nino Tamar 
+		}
+		surnames = {
+			#New
+		a Abyzova Akhnazarova Akimenko Akimova Aleksandrova Aleksandrovna Almazova Anashkina Anatolyevna Artamonova
+			Badanova Bakieva Barakina Barkova Bocharova Bondaryova Bratishcheva Bulatova Bulgakova 
+			Chegodayeva Chernisheva Chibisova Chigvintseva Chistyakova Chuikova Fedutenko Filippova Fyodorova 
+			Gabrilova Gagarina Ganyeva Gasheva Golubeva Grachyova Grigorova Grishayeva Grunskaya Gulyakina Guseva Isayeva Ivanova 
+			Kekeshyeva Kiselyova Klubkova Koldeyeva Kondakova Koreneva Korotkevich Kosmodemyanskaya Kovalenko Kovshova Kroshchenko Kuzmina Kuznetsova
+			Larionova Lavrentyeva Lidova Loginova Lukichyova 
+			Makeyeva Makhlyagina Makoveyeva Maksimova Malyutina Maresyeva Markelova Matokh Mazhnova Melikhova Menshikova Milko Moiseyenko Molchanova
+			Moldagulova Mulatova Murakhovets Nakaryakova Nakhimova Nesterova Nikiforova Nikiforovna Nikoloyeva Novozhilova Nurmukhambetovna
+			Okuneva Onilova Orlova
+			Pakhomkina Panchenko Panteleyeva Parfyonova Pavlichenko Pavlova Pchelintseva Pegeshova Peredera Petrova Popova Posazhnikova Prokopeva Pustobrikova
+			Rabicheva Rachkevich Radkina Raskova Reznichenko Rogalskaya Romanova Romashova Rudneva Ryasina 
+			Saikina Sanfirova Selina Selyanina Serebryakova Shalayeva Shambarova Shanina Shatrova
+			Shevelyova Shilova Shlyakhova Shvetsova Simonova Sokolova Stepanova Surkova Svetlova
+			Tanailova Terekhova Tinigina Ulyanenko Vashchenko Vasilenko Vinogradova Visnitskaya Volkhova Vorontsova
+			Yartseva Yegorova Yekimova Yermakova Yushina Zakharova Zhukova
+			#Caucasus
+			Aliyeva
+			#Georgia
+			Aslanikashvili Beriya Dzhugashvili Gelashvili Giligashvili Khalvashi Kvaratskhelia Kapanadze Ingorovka Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Azerbaijan
+			Pashayeva
+		}
+	}
+	callsigns = { "The Colonist" "The Bell" Heine Duma Anvil Hammer Fury Arrow Storm Bear "White Lily" Devil Eagle Falcon Fox Snowflake Greasy Guardian Gunman Hawk Hardball Howl Blizzard Husky Ice Killer Steel Iron Skull Striker Thunder Warrior Wardog Vodka }
+	
+	prefix = o_operatsiya
+	
+	use_geographical_default_operation_names = yes
+	offensive_operation_suffix = o_strat_offensive_ru
+	defensive_operation_suffix = o_strat_defensive_ru
+	naval_operation_suffix = o_strat_naval_ru
+	
+	operation = {
+		0 = {
+			o_mercury
+			o_venus
+			o_neptune
+			o_maly_saturn
+			o_maly_neptun
+			o_kontsert
+		}
+		130 = {
+			o_bagration
+		}
+		131 = {
+			o_bagration
+			o_suvorov
+		}
+		132 = {
+			o_iskra
+			o_lyuban
+			o_sinyavino
+		}
+		133 = {
+			o_mars
+			o_jupiter
+			o_kutuzov
+			o_polar_star
+			o_rumyantsev
+		}
+		24 = {
+			o_belgrade_strategic_offensive
+		}
+		8 = {
+			o_berlin_strategic_offensive
+		}
+		137 = {
+			o_ring
+			o_saturn
+			o_uranus
+		}
+		38 = {
+			o_samland
+		}
+	}
+}
+
+
+TOM = {
+	male = {
+		names = { 
+			Aleksandr Aleksey Andrey Anton Boris Dmitry Fyodor Gennady 
+			Georgy Grigory Igor Ilya Iosif Ivan Kirill Konstantin Lavr Leonid Lev
+			Maksim Mikhail Nikita Nikolay Noy Oleg Pavel Pyotr Roman Semyon Sergey
+			Valery Vasily Viktor Vladimir Vladislav Yegor Yevgeny Yury
+			#New
+			Akim Aksel Anastasy Anatoly Andrian Arkady Arseny Aslan Dzhabir Emil Feodosy Filipp Isay Ivar Izot 
+			Karl Kazimir Kuzma Lavrenty Lazar Makary Manzakir Marat Markian Martemyan Mstislav 
+			Osher Pasha Roman Sidor Slava Stepan Tikhon Timofey Tsyrendashi Vsevolod Vyacheslav Yakov Yefim Zinovy
+			#Georgian
+			Levan Tamaz Zurab
+			#Armenian
+			Amayak Amazasp Arno Artashes Bagrat Derenik Karapet Khoren Tarlan
+		}
+		surnames = { 
+			Akhnazarov Akimenko Alekseyev Antonov Azarov Badanov Budyonny Chibisov 
+			Dragomirov Frolov Golivin Grishin Gurko Ivanov Ivannikov Isayev 
+			Konev Konstantinov Kuropatkin
+			Lazarev Maksimov Menshikov Nakhimov Nebogatov Nikolayevich Nikitin
+			Ostrovsky Pavlov Putyatin Romanov Rozhestvensky Skobelev 
+			Shuvalov Surkov Tukhachevsky Yan Yegorov Yudenich Vorontsov Voroshilov Zavoyko
+			#New
+		 Abugov Abyzov Achkasov Adriashenko Afanasev Agafonov Akimov Alagakov Alekhin Aleksandrovich 
+			Aleksandrov Almazov Anashkin Andreyev Andrianov Apriamov Arushanyan Arutyunovich Asadov
+			Babak Barkov Bondaryov Borisovich Bulgakov Bulgatov Bulanenko Brezhnev Bocharov 
+			Chernishevsky Chernishev Chigvintsev Chistyakov Chuikov Danilovich Dazhin Denishchev Dokutovich Dorzhiyev 
+			Filippov Fyodorov Gabrilov Gagarin Ganyev Gashev Golubev Grachyov Grigorov Grishayev Gusev
+			Ilnitsky Kaminsky Kiselyov Klubkov Koldeyev Kondakov Korenev Koshkin Kovshov Kuzma Kuznetsov 
+			Larionov Lavrentyev Lev Lidov Lisitsyn Loginov Lukichyov Lyubilkin
+			Makeyev Makhlyagin Makoveyev Malyutin Maresyev Markelov Matveyevich Mazhnov Melikhov Milko Moiseyenko Molchanov Murakhovets
+			Nakaryakov Nesterov Nikiforov Nikolayev Nikulin Nomokonov Novozhilov Okunev Onilov Orlov
+			Pakhomkin Panchenko Panteleyev Parfyonov Pavlichenko Pchelintsev Pegeshov Petrov Popov Posazhnikov Prokopev Pustobriko
+			Rabichev Radkin Rakityansky Raskov Romanovich Romashov Rudnev Ryasin 
+			Sagaidak Saikin Sanfirov Selin Selyanin Serebryakov Seryogin Shalayev Shambarov Shatrov
+			Shevelyov Shilov Shlyakhov Shmurak Shvetsov Simonov Sokolov Solomatin Stepanov Svetlov
+			Tanailov Terekhov Tinigin Tolstoy Ulyanenko Utkin Vashchenko Vasilenko Vinogradov Vladimirsky Volkhov Vorontsov
+			Yartsev Yegorov Yekimov Yermakov Yushin Zakharov Zaytsev Zhudin Zhukov
+			#Georgian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Adamiya Aliyev Aslanikashvili Beriya Chiladze Dzhugashvili Gelashvili Giligashvili 
+			Kapanadze Khalvashi Kvachantiradze Kvaratskhelia Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Armenian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Babadzhanyan Gurgen Markosyan
+			#Azerbaijan (some might be shared with other SSRs around) -> Most likely in Russian form
+			Akhundov Aliyarbekov Apresyan
+		}
+	}
+	female = {
+		names = {
+			Afanasiya Albina Aleksandra Anastasiya Elena Elvira Lydia Lyudmila Margarita Muza Natalya Olga Sofiya Svetlana Valentina Yelena
+			#New
+			Alina Alevtina Aliya Anna Anya Asya Dusya Galya Kaleriya Kalya Katya Klava Klavdiya Irina 
+			Lida Liza Lyuba Lyubov Marina Mariya Maryam Marusya Nadezhda Nadya Natasha Nina Nonna 
+			Polina Raisa Roza Rozaliya Serafima Svetlana Tamara Tanya Taya Tonya Tosya
+			Valya Vera Yekaterina Yepistiniya Yevdokiya Yevgeniya Yuliya Zinaida Zoya
+			#Georgian
+			Ketevan Nana Nino Tamar 
+		}
+		surnames = {
+			#New
+		a Abyzova Akhnazarova Akimenko Akimova Aleksandrova Aleksandrovna Almazova Anashkina Anatolyevna Artamonova
+			Badanova Bakieva Barakina Barkova Bocharova Bondaryova Bratishcheva Bulatova Bulgakova 
+			Chegodayeva Chernisheva Chibisova Chigvintseva Chistyakova Chuikova Fedutenko Filippova Fyodorova 
+			Gabrilova Gagarina Ganyeva Gasheva Golubeva Grachyova Grigorova Grishayeva Grunskaya Gulyakina Guseva Isayeva Ivanova 
+			Kekeshyeva Kiselyova Klubkova Koldeyeva Kondakova Koreneva Korotkevich Kosmodemyanskaya Kovalenko Kovshova Kroshchenko Kuzmina Kuznetsova
+			Larionova Lavrentyeva Lidova Loginova Lukichyova 
+			Makeyeva Makhlyagina Makoveyeva Maksimova Malyutina Maresyeva Markelova Matokh Mazhnova Melikhova Menshikova Milko Moiseyenko Molchanova
+			Moldagulova Mulatova Murakhovets Nakaryakova Nakhimova Nesterova Nikiforova Nikiforovna Nikoloyeva Novozhilova Nurmukhambetovna
+			Okuneva Onilova Orlova
+			Pakhomkina Panchenko Panteleyeva Parfyonova Pavlichenko Pavlova Pchelintseva Pegeshova Peredera Petrova Popova Posazhnikova Prokopeva Pustobrikova
+			Rabicheva Rachkevich Radkina Raskova Reznichenko Rogalskaya Romanova Romashova Rudneva Ryasina 
+			Saikina Sanfirova Selina Selyanina Serebryakova Shalayeva Shambarova Shanina Shatrova
+			Shevelyova Shilova Shlyakhova Shvetsova Simonova Sokolova Stepanova Surkova Svetlova
+			Tanailova Terekhova Tinigina Ulyanenko Vashchenko Vasilenko Vinogradova Visnitskaya Volkhova Vorontsova
+			Yartseva Yegorova Yekimova Yermakova Yushina Zakharova Zhukova
+			#Caucasus
+			Aliyeva
+			#Georgia
+			Aslanikashvili Beriya Dzhugashvili Gelashvili Giligashvili Khalvashi Kvaratskhelia Kapanadze Ingorovka Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Azerbaijan
+			Pashayeva
+		}
+	}
+	callsigns = { "The Colonist" "The Bell" Heine Duma Anvil Hammer Fury Arrow Storm Bear "White Lily" Devil Eagle Falcon Fox Snowflake Greasy Guardian Gunman Hawk Hardball Howl Blizzard Husky Ice Killer Steel Iron Skull Striker Thunder Warrior Wardog Vodka }
+	
+	prefix = o_operatsiya
+	
+	use_geographical_default_operation_names = yes
+	offensive_operation_suffix = o_strat_offensive_ru
+	defensive_operation_suffix = o_strat_defensive_ru
+	naval_operation_suffix = o_strat_naval_ru
+	
+	operation = {
+		0 = {
+			o_mercury
+			o_venus
+			o_neptune
+			o_maly_saturn
+			o_maly_neptun
+			o_kontsert
+		}
+		130 = {
+			o_bagration
+		}
+		131 = {
+			o_bagration
+			o_suvorov
+		}
+		132 = {
+			o_iskra
+			o_lyuban
+			o_sinyavino
+		}
+		133 = {
+			o_mars
+			o_jupiter
+			o_kutuzov
+			o_polar_star
+			o_rumyantsev
+		}
+		24 = {
+			o_belgrade_strategic_offensive
+		}
+		8 = {
+			o_berlin_strategic_offensive
+		}
+		137 = {
+			o_ring
+			o_saturn
+			o_uranus
+		}
+		38 = {
+			o_samland
+		}
+	}
+}
+
+AFS = {
+	male = {
+		names = { 
+			Aleksandr Aleksey Andrey Anton Boris Dmitry Fyodor Gennady 
+			Georgy Grigory Igor Ilya Iosif Ivan Kirill Konstantin Lavr Leonid Lev
+			Maksim Mikhail Nikita Nikolay Noy Oleg Pavel Pyotr Roman Semyon Sergey
+			Valery Vasily Viktor Vladimir Vladislav Yegor Yevgeny Yury
+			#New
+			Akim Aksel Anastasy Anatoly Andrian Arkady Arseny Aslan Dzhabir Emil Feodosy Filipp Isay Ivar Izot 
+			Karl Kazimir Kuzma Lavrenty Lazar Makary Manzakir Marat Markian Martemyan Mstislav 
+			Osher Pasha Roman Sidor Slava Stepan Tikhon Timofey Tsyrendashi Vsevolod Vyacheslav Yakov Yefim Zinovy
+			#Georgian
+			Levan Tamaz Zurab
+			#Armenian
+			Amayak Amazasp Arno Artashes Bagrat Derenik Karapet Khoren Tarlan
+		}
+		surnames = { 
+			Akhnazarov Akimenko Alekseyev Antonov Azarov Badanov Budyonny Chibisov 
+			Dragomirov Frolov Golivin Grishin Gurko Ivanov Ivannikov Isayev 
+			Konev Konstantinov Kuropatkin
+			Lazarev Maksimov Menshikov Nakhimov Nebogatov Nikolayevich Nikitin
+			Ostrovsky Pavlov Putyatin Romanov Rozhestvensky Skobelev 
+			Shuvalov Surkov Tukhachevsky Yan Yegorov Yudenich Vorontsov Voroshilov Zavoyko
+			#New
+		 Abugov Abyzov Achkasov Adriashenko Afanasev Agafonov Akimov Alagakov Alekhin Aleksandrovich 
+			Aleksandrov Almazov Anashkin Andreyev Andrianov Apriamov Arushanyan Arutyunovich Asadov
+			Babak Barkov Bondaryov Borisovich Bulgakov Bulgatov Bulanenko Brezhnev Bocharov 
+			Chernishevsky Chernishev Chigvintsev Chistyakov Chuikov Danilovich Dazhin Denishchev Dokutovich Dorzhiyev 
+			Filippov Fyodorov Gabrilov Gagarin Ganyev Gashev Golubev Grachyov Grigorov Grishayev Gusev
+			Ilnitsky Kaminsky Kiselyov Klubkov Koldeyev Kondakov Korenev Koshkin Kovshov Kuzma Kuznetsov 
+			Larionov Lavrentyev Lev Lidov Lisitsyn Loginov Lukichyov Lyubilkin
+			Makeyev Makhlyagin Makoveyev Malyutin Maresyev Markelov Matveyevich Mazhnov Melikhov Milko Moiseyenko Molchanov Murakhovets
+			Nakaryakov Nesterov Nikiforov Nikolayev Nikulin Nomokonov Novozhilov Okunev Onilov Orlov
+			Pakhomkin Panchenko Panteleyev Parfyonov Pavlichenko Pchelintsev Pegeshov Petrov Popov Posazhnikov Prokopev Pustobriko
+			Rabichev Radkin Rakityansky Raskov Romanovich Romashov Rudnev Ryasin 
+			Sagaidak Saikin Sanfirov Selin Selyanin Serebryakov Seryogin Shalayev Shambarov Shatrov
+			Shevelyov Shilov Shlyakhov Shmurak Shvetsov Simonov Sokolov Solomatin Stepanov Svetlov
+			Tanailov Terekhov Tinigin Tolstoy Ulyanenko Utkin Vashchenko Vasilenko Vinogradov Vladimirsky Volkhov Vorontsov
+			Yartsev Yegorov Yekimov Yermakov Yushin Zakharov Zaytsev Zhudin Zhukov
+			#Georgian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Adamiya Aliyev Aslanikashvili Beriya Chiladze Dzhugashvili Gelashvili Giligashvili 
+			Kapanadze Khalvashi Kvachantiradze Kvaratskhelia Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Armenian (some might be shared with other SSRs around) -> Most likely in Russian form
+			Babadzhanyan Gurgen Markosyan
+			#Azerbaijan (some might be shared with other SSRs around) -> Most likely in Russian form
+			Akhundov Aliyarbekov Apresyan
+		}
+	}
+	female = {
+		names = {
+			Afanasiya Albina Aleksandra Anastasiya Elena Elvira Lydia Lyudmila Margarita Muza Natalya Olga Sofiya Svetlana Valentina Yelena
+			#New
+			Alina Alevtina Aliya Anna Anya Asya Dusya Galya Kaleriya Kalya Katya Klava Klavdiya Irina 
+			Lida Liza Lyuba Lyubov Marina Mariya Maryam Marusya Nadezhda Nadya Natasha Nina Nonna 
+			Polina Raisa Roza Rozaliya Serafima Svetlana Tamara Tanya Taya Tonya Tosya
+			Valya Vera Yekaterina Yepistiniya Yevdokiya Yevgeniya Yuliya Zinaida Zoya
+			#Georgian
+			Ketevan Nana Nino Tamar 
+		}
+		surnames = {
+			#New
+		a Abyzova Akhnazarova Akimenko Akimova Aleksandrova Aleksandrovna Almazova Anashkina Anatolyevna Artamonova
+			Badanova Bakieva Barakina Barkova Bocharova Bondaryova Bratishcheva Bulatova Bulgakova 
+			Chegodayeva Chernisheva Chibisova Chigvintseva Chistyakova Chuikova Fedutenko Filippova Fyodorova 
+			Gabrilova Gagarina Ganyeva Gasheva Golubeva Grachyova Grigorova Grishayeva Grunskaya Gulyakina Guseva Isayeva Ivanova 
+			Kekeshyeva Kiselyova Klubkova Koldeyeva Kondakova Koreneva Korotkevich Kosmodemyanskaya Kovalenko Kovshova Kroshchenko Kuzmina Kuznetsova
+			Larionova Lavrentyeva Lidova Loginova Lukichyova 
+			Makeyeva Makhlyagina Makoveyeva Maksimova Malyutina Maresyeva Markelova Matokh Mazhnova Melikhova Menshikova Milko Moiseyenko Molchanova
+			Moldagulova Mulatova Murakhovets Nakaryakova Nakhimova Nesterova Nikiforova Nikiforovna Nikoloyeva Novozhilova Nurmukhambetovna
+			Okuneva Onilova Orlova
+			Pakhomkina Panchenko Panteleyeva Parfyonova Pavlichenko Pavlova Pchelintseva Pegeshova Peredera Petrova Popova Posazhnikova Prokopeva Pustobrikova
+			Rabicheva Rachkevich Radkina Raskova Reznichenko Rogalskaya Romanova Romashova Rudneva Ryasina 
+			Saikina Sanfirova Selina Selyanina Serebryakova Shalayeva Shambarova Shanina Shatrova
+			Shevelyova Shilova Shlyakhova Shvetsova Simonova Sokolova Stepanova Surkova Svetlova
+			Tanailova Terekhova Tinigina Ulyanenko Vashchenko Vasilenko Vinogradova Visnitskaya Volkhova Vorontsova
+			Yartseva Yegorova Yekimova Yermakova Yushina Zakharova Zhukova
+			#Caucasus
+			Aliyeva
+			#Georgia
+			Aslanikashvili Beriya Dzhugashvili Gelashvili Giligashvili Khalvashi Kvaratskhelia Kapanadze Ingorovka Lomidze Makharashvili Tatuashvili Tavadze Tsereteli
+			#Azerbaijan
+			Pashayeva
+		}
+	}
+	callsigns = { "The Colonist" "The Bell" Heine Duma Anvil Hammer Fury Arrow Storm Bear "White Lily" Devil Eagle Falcon Fox Snowflake Greasy Guardian Gunman Hawk Hardball Howl Blizzard Husky Ice Killer Steel Iron Skull Striker Thunder Warrior Wardog Vodka }
+	
+	prefix = o_operatsiya
+	
+	use_geographical_default_operation_names = yes
+	offensive_operation_suffix = o_strat_offensive_ru
+	defensive_operation_suffix = o_strat_defensive_ru
+	naval_operation_suffix = o_strat_naval_ru
+	
+	operation = {
+		0 = {
+			o_mercury
+			o_venus
+			o_neptune
+			o_maly_saturn
+			o_maly_neptun
+			o_kontsert
+		}
+		130 = {
+			o_bagration
+		}
+		131 = {
+			o_bagration
+			o_suvorov
+		}
+		132 = {
+			o_iskra
+			o_lyuban
+			o_sinyavino
+		}
+		133 = {
+			o_mars
+			o_jupiter
+			o_kutuzov
+			o_polar_star
+			o_rumyantsev
+		}
+		24 = {
+			o_belgrade_strategic_offensive
+		}
+		8 = {
+			o_berlin_strategic_offensive
+		}
+		137 = {
+			o_ring
+			o_saturn
+			o_uranus
+		}
+		38 = {
+			o_samland
+		}
+	}
+}
+
+
+#Ukraine
+GRU = {
+	male = {
+		names = { 
+			Andrij Anton Artem Borys Denys Dmytro Fedir Havrylo Henadij Heorhij Hryhorij Ivan Josyp Kazymyr Kostyantyn Kuzma Leontij Maksym Musa Mykola Mykyta Oleh Oleksandr Omelyan Pavlo Pylyp Sava Serhij Stanislav Svyatoslav Trokhym Volodymyr Yaroslav Vitalij Yehor Yukhym Aleksander Alexei Andrei Anton Boris Dmitry Fyodor Gennady Giorgi Grigoriy Igor Ilya Ivan Kirill Konstantin Lavr Leonid Lev Maxim Mikhail Nikita Nikolai Oleg Pavel Pyotr Roman Semyon Sergei Valery Vasily Viktor Vladimir Vladislav Yegor Yevgeny Yuri
+		}
+	}
+	female = {
+		names = { 
+			Anastasiya Ayshe Halyna Hanna Ivanna Lina Lyudmyla Nina Olha Olena Oleksandra Kseniya Rayisa Ruslana Tetyana Vladyslava Yevheniya Yuliya Zoya   
+		}
+	}
+	surnames = {
+		Antonenko Bilyk Blyznyuk Bondarchuk Borysenko Demchuk Dmytruk Dorosh Hajduk Havrylenko Havrylyuk Hlushko Holub Horbenko Hrytsaj Ivanov Ishchuk Kolisnyk Kostyuchenko Lyashenko Makarenko Mykytyuk Nahornyj Novak Osadchuk Ostapchuk Pavlov Petruk Protsenko Prykhodko Prysyazhnyuk Pylypenko Ruban Semenyuk Sereda Shevchuk Stadnyk Taranenko Tkachuk Tsymbalyuk Vasylyev Velychko Yakovenko Zaporozhets Zayets Alexseyev Antonov Azarov Badanov Budyonny Chibisov Dragomirov Frolov Golivin Grishin Gurko Ivanov Ivannikov Konev Konstantinov         Kuropatkin Lazarev Menshikov Nakhimov Nebogatov Nikolaevich Nikitin Ostrovsky Pavlov Putyatin Romanov Rozhestvensky Skobelev Shuvalov Surkov Tukhachevsky Yegorov Yudenich Vorontsov Voroshilov Zavoyko
+
+	}
+	callsigns = { Anvil Hammer Fury Arrow Storm Bear "White Lily" Devil Eagle Falcon Fox Snowflake Greasy Guardian Gunman Hawk Hardball Howl Blizzard Husky Ice Killer Steel Iron Skull Striker Thunder Warrior Wardog Vodka }
+}
+
+#Ukraine
+WUA = {
+	male = {
+		names = { 
+			Andrij Anton Artem Borys Denys Dmytro Fedir Havrylo Henadij Heorhij Hryhorij Ivan Josyp Kazymyr Kostyantyn Kuzma Leontij Maksym Musa Mykola Mykyta Oleh Oleksandr Omelyan Pavlo Pylyp Sava Serhij Stanislav Svyatoslav Trokhym Volodymyr Yaroslav Vitalij Yehor Yukhym Aleksander Alexei Andrei Anton Boris Dmitry Fyodor Gennady Giorgi Grigoriy Igor Ilya Ivan Kirill Konstantin Lavr Leonid Lev Maxim Mikhail Nikita Nikolai Oleg Pavel Pyotr Roman Semyon Sergei Valery Vasily Viktor Vladimir Vladislav Yegor Yevgeny Yuri
+		}
+	}
+	female = {
+		names = { 
+			Anastasiya Ayshe Halyna Hanna Ivanna Lina Lyudmyla Nina Olha Olena Oleksandra Kseniya Rayisa Ruslana Tetyana Vladyslava Yevheniya Yuliya Zoya   
+		}
+	}
+	surnames = {
+		Antonenko Bilyk Blyznyuk Bondarchuk Borysenko Demchuk Dmytruk Dorosh Hajduk Havrylenko Havrylyuk Hlushko Holub Horbenko Hrytsaj Ivanov Ishchuk Kolisnyk Kostyuchenko Lyashenko Makarenko Mykytyuk Nahornyj Novak Osadchuk Ostapchuk Pavlov Petruk Protsenko Prykhodko Prysyazhnyuk Pylypenko Ruban Semenyuk Sereda Shevchuk Stadnyk Taranenko Tkachuk Tsymbalyuk Vasylyev Velychko Yakovenko Zaporozhets Zayets Alexseyev Antonov Azarov Badanov Budyonny Chibisov Dragomirov Frolov Golivin Grishin Gurko Ivanov Ivannikov Konev Konstantinov         Kuropatkin Lazarev Menshikov Nakhimov Nebogatov Nikolaevich Nikitin Ostrovsky Pavlov Putyatin Romanov Rozhestvensky Skobelev Shuvalov Surkov Tukhachevsky Yegorov Yudenich Vorontsov Voroshilov Zavoyko
+
+	}
+	callsigns = { Anvil Hammer Fury Arrow Storm Bear "White Lily" Devil Eagle Falcon Fox Snowflake Greasy Guardian Gunman Hawk Hardball Howl Blizzard Husky Ice Killer Steel Iron Skull Striker Thunder Warrior Wardog Vodka }
+}
+
+BLR = { #copied from KR's WHR names.
+	male = {
+		names = {
+			Adam
+			Alfon
+			Anastaś
+			Anatol
+			Andrej
+			Anton
+			Arsień
+			Branisłaŭ
+			Budzimir
+			Chadot
+			Davyd
+			Francišak
+			Franuk
+			Illa
+			Illaš
+			Jakub
+			Jan
+			Jaŭchim
+			Jullan
+			Juruś
+			Kazimir
+			Ludvik
+			Maksim
+			Michał
+			Mikoła
+			Pavał
+			Paŭluś
+			Pratas
+			Radzisłaŭ
+			Raman
+			Stafan
+			Stanisłaŭ
+			Symon
+			Tadevuš
+			Urban
+			Uładzimir
+			Vasil
+			Viačasłaŭ
+			Vojtak
+			Ładzimir
+			Łaŭrel
+			Śpirydon
+			Žyhimont
+		}
+	}
+	female = {
+		names = {
+			Alena
+			Alesia
+			Barbara
+			Franciška
+			Hanula
+			Ivonka
+			Jula
+			Kalina
+			Kazimira
+			Ludmiła
+			Mirasłava
+			Nadzieja
+			Pałuta
+			Valera
+			Viktusia
+			Łaŭra
+			Źvienisłava
+		}
+	}
+	surnames = {
+		Abramowicz
+		Adamovich
+		Barazna
+		Barysevich
+		Douhal
+		Dovhal
+		Drozd
+		Harkusha
+		Herasimenia
+		Hilevich
+		Ivashka
+		Karshakevich
+		Kavalchuk
+		Kavalski
+		Kruk
+		Lukashevich
+		Malinoŭski
+		Mazurkievič
+		Mitnick
+		Novik
+		Pankevich
+		Paszkiewicz
+		Rybak
+		Sakałoŭski
+		Sakovič
+		Sasnovich
+		Sobal
+		Stankievič
+		Valadzko
+		Vishnevsky
+		Vusovich
+		Vyarheychyk
+		Yurevich
+		Yushkevich
+		Ščerba
+	}
+	callsigns = {}
+}
+
+
+
+KRA = { #copied from taymyria
+	male = {
+		names = {  
+			Ervko Igney Iriko Khasavako Koka Myusena Natena Neleyko Noley Nolyako Osi Petrako Serakone Sevtya Vavlya Vesako Keykumuo Kidipte Neriptie Nyage Numatsku Tasi Tubyaku Pitnyl Sagol Tyko Konstantin Yuri Yurii Ruslan Sergey Yuvan Ambal 
+		}
+	}
+	female = {
+		names = { 
+			Khoni Evane Savane Yedeyne Dyamaku Munku Tsambu Kyta Anna 
+ }
+	}
+	surnames = { 
+		Vylka Pankov Lapsui Vella Aivseda Nerkagi Vakhrushev Shestalov Sobyanin Dentedie Provodnikov Taz Yenisei Ob 
+	}
+	callsigns = {  }
+}
+
+MIN = { #copied from KHA
+   	male = {
+   		names = {  
+			Abdira Abranca Adirin Anpanis Apçakh Arkas Artïk Ayas Aydas Aymakh Çayan Chayan Ekter Emen Iken Ileksen "In'nes" "Kizil-ool" Ködes Köley Köptírges Krile Mikha Mitke Oraman Soyan Tadar Turgun Tyulgyu }
+   	}
+   female = {
+       	names = { 
+       		Üklin Yzyrga Ügü Tabakh Pürçük Örtek Mayra Köölbek Çaçakh Abakhay
+        }
+   }
+   surnames = {
+      Rinchen Tsybikov Zhamtsarano Erdene Inkijinoff Panaeva Vampilov Briner Lhasaranov Byambasyren Dorzhiev Elbegdorj Yekhanurov Buryatsky Dandaron Itgilov Adushnayeva Alekseev Badenov Baglayev Balzhinimaev Barannikov Bazarguruev Bogomoev Budayev Ologanova Dagbaaeva Dambaev Dashidorzhiev Erdyniyev Khalmakshinov Vankeev Yesheyev Satoshi
+   }
+   callsigns = {  }
+}
+CAU = { #copied from #Chechen-Ingush Republic, also added names from DAG (both make up 2/3rds of CAU)
+	male = {
+		names = {  Abdula Abdulkhamid Ahmadkhan Akhmed Alaudin Amirkhan Amurkhan Apti Arbi Bekkhan Beslan Djamaldin Dzhamaldin Israpil Isrofil “Khadzhi-murat” Khamzat Khasbulat “Khas-magomed” Khavaz Khazhbikar Khizir Khuseyn “Lom-Ali” Lors Maksharip Movsar Nazyr Rakhim Said Sulambek Tamerlan Tarkhan Umalat Zelimxan Anzor Aslan Dukvakha Ibragim Mokhmad Ruslan Salambek Timur Shamil Vakha Zaur Zelimkhan Ramzan Khasan Mairbek Abdula Abdulatip Abdulbek Abdulsalam Abusupyan Ahmadkhan Akhmed Aliaskhab Alibek Anvar Apanni Bazigit Butta Dzhabar Dzhalal Elkhan Elmurza Gabib Gadzhi Gadzhimagomed “Gamzat-bek” Gaydar Gaydardarbek Gumyush Hamzat Imanshapi Islamnur Israil Kamalutdin Kerim Khabib Khadzhimurad Khadzimurat Khasbulat Khazhi Kuramagomed Kurban Labazan Lavkha Lifri Magomedali Mahammadali Mahammat Makhach Maksud Mavlet Mehmed Mekhti Muhu Nakchir Nariman Nazhumudin Rabadan Razanbek Razhab Rivzan Sagid Said Serder Seyfula Shapi Shirvani Tagir Taimas Tarlan Taymaz Taimaz Tamirlan Taymas Timirlan Vagab Yakhiya Vezirkhan Zagir Zhovdar
+		}
+	}
+	female = {
+		names = { Aminat Ayshet Aza Makka Rabiat Xava Zalina Zarema Zaydat Aishat Khava Abidat Afiyat Aminat Asiyat Ayzanat Balakyz Bariyat Bartsalay Basirat Benevsha Boranbiyke Destekhanum Dzhavgarat Dzhuvayriyat Fazu Ganifat Genzhe Guldzhanat Gyogurchun Gyuzgyush Hadijat Icher Ichinkelem Khadizhat Khalimat Kveri Kyubre Zumrud Zarema Zalbika
+ }
+	}
+	surnames = { 
+		Abadiyev Akhriev Aushev Baysarova Kostoyev Malsagov Arsamakov Chakhkiev Timurziev Evolev Bakayev Shishkhanov Ela Gheza Mansur Tamieyev Gendargeno Benoa Chechenskiy Shali Tsentara Idrisov Israilov Sheripov “Muhamed-Mirazev” Makhshadov Sadulayev Aladdin Ramzi Shekhvet “ash-Shishani” Chechen Jammoh Labazanov Ismailkov “ad-Daghestani” Amirilayev Abdulayev Dzhalilova Yagudaev Gavrilov Atnilov Puterbrot Aliev Afandi Shamil Tsvaygenbaum Bakhshiev Dadashev Gamzatov Novruzova “al-Chirkawi” Meylanov Semenduev Gaydarbekov Isaev Khaybulaev Idrisov Mustafaev Salinkov Kopylov Han Imadaev Ramazanov Suleymanov Udunyan Mukhammad Abakarova Aliyev Sahin Uguev
+	}
+	callsigns = {  }
+}
+
+
+OKH = {
+	male = {
+		names = { 
+			Aritomo
+			Goro Gentaro Gonnohyoe
+			Heihachiro Hiroshi Hikonojo Hyoe Hayao
+			Iwao
+			Jiro Jinzaburo
+			Kiyotaka Kuranosuke Kozo Kantaro Koichiro Kagenori Kageaki Kotohito Keisuke Kazushige Kenkichi
+			Maresuke Masujiro Michisura Masatake Mitsuomi Mitsue Mineo
+			Nariaki Nobuyoshi
+			Rokuro
+			Sukeyuki Sukenori Shoin Sumiyoshi Samata Soroku Shichiro Shigeto Sotokichi Shigeru Sadao Shinsaku
+			Takayoshi Takamori Toshimichi Tsugumichi Tadakuni Tomonosuke Taro Toshiyoshi Tetsutaro Taruhito Takeaki Tamemoto Tomasaburo
+			Yoshika Yoshinobu Yoshimichi Yoshida Yasukata Yahachi Yusaku Yoshifuru Yoshinori Yasuyoshi
+		}
+	}
+	female = {
+		names = { Aimi Asami Asuka Ai Aki Fujiko Kaori Kimiko Haruno Hanako Kotoe Masae Junko Itsumi Chie Chitose Chiyo Mai Maki Nodoka Ruri Sae Sachie Yae Nami Ritsuko }
+	}
+	surnames = { 
+		Arisugawa Arichi Akiyama Araki
+		Dewa
+		Enomoto
+		Hasegawa Honjo
+		Ito Inoue Ichinohe Itagaki
+		Kido Kuroda Katsura Kodama Kabayama Kawamura Kuroki Kawakami Kamimura Kataoka Kamio Kato Kanin Katsu
+		Makino Muto Minami Masaki Matsudaira
+		Nakamuta Nogi Nire Nozu
+		Okubo Oyama Omura Oku Okada Osumi
+		Saigo Suzuki Sato Sakura Shibayama Shimamura Shirakawa
+		Togo Takashima Tsuboi Tachibana Terauchi Tamon Takasugi Tokugawa
+		Uehara Uryu Ugaki Ueda
+		Yamagata Yamamoto Yamakawa Yashiro Yui Yamashita Yamaya
+	}
+	callsigns = { Viper Lightning Devil Dragon Fury Bat Beer Sake Demon Dirty Lance Panther Shogun Vampire "War Lord" }
+	prefix = o_operation
+		first = { 
+			o_ichi
+			o_ni
+			o_san
+			o_yon
+			o_ko
+			o_roku
+			o_nana
+			o_hachi
+			o_kyu
+			o_ju
+			o_ju_ichi
+			o_ju_ni
+			o_ju_san
+			o_ju_yon
+			o_ju_ko
+			o_ju_roku
+			o_ju_hachi
+			o_ju_kyu
+			o_ni_ju
+			o_ni_ju_ichi
+			o_ni_ju_ni
+			o_ni_ju_san
+			o_ni_ju_yon
+			o_ni_ju_ko
+			o_ni_ju_roku
+			o_ni_ju_hachi
+			o_ni_ju_kyu
+			o_san_ju
+			o_san_ju_ichi
+			o_san_ju_ni
+			o_san_ju_san
+			o_san_ju_yon
+			o_san_ju_ko
+			o_san_ju_roku
+			o_san_ju_hachi
+			o_san_ju_kyu
+			o_yon_ju
+			o_yon_ju_ichi
+			o_yon_ju_ni
+			o_yon_ju_san
+			o_yon_ju_yon
+			o_yon_ju_ko
+			o_yon_ju_roku
+			o_yon_ju_hachi
+			o_yon_ju_kyu
+			o_roku_ju
+			o_roku_ju_ichi
+			o_roku_ju_ni
+			o_roku_ju_san
+			o_roku_ju_yon
+			o_roku_ju_ko
+			o_roku_ju_roku
+			o_roku_ju_hachi
+			o_roku_ju_kyu
+		}
+		second = {
+			o_go
+		}
+	operation = {
+		142 = {
+			o_fu
+		}
+		105 = {
+			o_ai
+		}
+		159 = {
+			o_e
+			o_b
+		}
+		187 = {
+			o_de
+			o_l
+			o_t
+		}
+		158 = {
+			o_de
+		}
+		167 = {
+			o_de
+			o_sr
+		}
+		289 = {
+			o_t
+		}
+		188 = {
+			o_t
+		}
+		160 = {
+			o_m
+		}
+		33 = {
+			o_al
+		}
+		189 = {
+			o_b
+		}
+		101 = {
+			o_d
+		}
+		93 = {
+			o_j
+		}
+		178 = {
+			o_fs
+		}
+		167 = {
+			o_mo
+		}
+		97 = {
+			o_ry
+		}
+		95 = {
+			o_mi
+		}
+	}
+
+}
+

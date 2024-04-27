@@ -1,0 +1,19 @@
+characters = {
+	UKR_volodymyr_vynnychenko = {
+		name = UKR_volodymyr_vynnychenko
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/UKR/Portrait_UKR_Volodymyr_Vynnychenko.png"
+			}
+		}
+		country_leader = {
+			ideology = socialism
+			traits = {
+				UKR_pacifist_intellectual
+				UKR_architect_of_the_republic
+			}
+			expire="1965.1.1.1"
+			id = -1
+		}
+	}
+}

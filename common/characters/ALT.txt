@@ -1,0 +1,49 @@
+characters={
+	ALT_grigory_gurkin = {
+		name = "Grigory Gurkin" 
+		#traits = { }
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ALT/ALT_grigory_gurkin.png"
+			}
+		}
+		country_leader = {
+			ideology = conservatism #moderatism
+			expire = "1940.1.1.1"
+			id = -1
+			traits = { famous_painter }
+		}
+	}
+	ALT_samuil_yufit = {
+		name = "Samuil Yufit" 
+		portraits = {
+			civilian = {
+				large = GFX_portrait_Samuil_Yufit
+			}
+		}
+		country_leader = {
+			ideology = stalinism
+			expire = "1944.1.1.1"
+			id = -1
+		}
+	}
+	ALT_alexander_kaigorodov = { # Alexander Petrovich Kaigorodov
+		name = "Alexander Kaigorodov"
+		portraits = {
+			army = {
+				large = GFX_portrait_ALT_alexander_kaigorodov
+			}
+		}
+		corps_commander = {
+			traits = { guerilla_fighter trickster scavenger ranger ambusher cavalry_leader }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 4
+			visible = {
+			}
+		}
+	}
+}
+	

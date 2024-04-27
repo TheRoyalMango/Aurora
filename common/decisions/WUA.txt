@@ -1,0 +1,76 @@
+political_actions = {
+
+    WUA_rename_cities_to_ukrainian = { #in the future, add slovakia and bocovina as well under seperate descisions
+
+        allowed = {
+            OR = {
+                original_tag = WUA
+                original_tag = UKR
+            }
+        }
+
+        available = {
+            owns_state = 91
+            has_full_control_of_state = 91
+            owns_state = 89
+            has_full_control_of_state = 89
+        }
+
+        ai_will_do = {
+            factor = 200
+        }
+
+        visible = {
+            has_full_control_of_state = 91
+            has_full_control_of_state = 89
+        }
+        fire_only_once = yes
+        complete_effect = {
+            set_global_flag = WUA_west_ukraine_renamed
+            add_stability = 0.05
+            set_province_name = { id = 6431 name = "Drohobych" }
+            set_province_name = { id = 9468 name = "Przemysl" }
+            set_province_name = { id = 11479 name = "Lviv" }
+            set_province_name = { id = 11411 name = "Stanislaviv" } #perhaps a further descision to honor Ivan Franko for stability/pp will rename it again to modern Ivano-Frankivsk
+            set_province_name = { id = 466 name = "Komancha" }
+            hidden_effect = { 
+                91 = { set_state_name = "Lviv" }
+            }
+            hidden_effect = { 
+                89 = { set_state_name = "Stanislaviv" }
+            }
+        }
+    }
+    WUA_rename_cities_to_ukrainian_2 = { #in the future, add slovakia and bocovina as well under seperate descisions
+
+        allowed = {
+            OR = {
+                original_tag = WUA
+                original_tag = UKR
+            }
+        }
+
+        available = {
+            has_global_flag = WUA_west_ukraine_renamed
+            owns_state = 89
+            has_full_control_of_state = 89
+        }
+
+        ai_will_do = {
+            factor = 200
+        }
+
+        visible = {
+            has_full_control_of_state = 89
+        }
+        fire_only_once = yes
+        complete_effect = {
+            add_stability = 0.01
+            set_province_name = { id = 11411 name = "Ivano-Frankivsk" }
+            hidden_effect = { 
+                89 = { set_state_name = "Ivano-Frankivsk" }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,741 @@
+ideas = {
+
+	country = {
+
+		BLR_belarus_national_army_ns = {
+				
+			allowed = {
+				original_tag = BLR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = SWE_ga_pa_tactics
+				
+			removal_cost = -1
+				
+			modifier = {
+				conscription = 0.01
+				army_core_defence_factor = 0.1
+				army_morale_factor = 0.1
+				land_reinforce_rate = 0.05
+				recon_factor_while_entrenched = 0.2
+				terrain_penalty_reduction = 0.05
+				#supply_consumption_factor = -0.05 #BLR already has lots of other spirits for this
+			}
+		}
+
+
+		BLR_collectivized_farms = {
+				
+			allowed = {
+				original_tag = BLR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = gre_agricultural_communes #generic_agrarian_society
+				
+			removal_cost = -1
+				
+			modifier = {
+				global_building_slots_factor = 0.1
+				industrial_capacity_factory = 0.025
+				consumer_goods_factor = -0.1
+				stability_factor = -0.1
+				#political_power_factor = 0.05
+				conscription_factor = -0.1
+				production_speed_buildings_factor = 0.05
+			}
+		}
+
+		BLR_agrarian_society = {
+				
+			allowed = {
+				original_tag = BLR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = generic_agrarian_society
+				
+			removal_cost = -1
+				
+			modifier = {
+				industrial_capacity_factory = -0.15
+				#consumer_goods_factor = -0.05	
+				stability_factor = 0.05
+				political_power_factor = 0.05
+				conscription_factor = -0.1
+				production_speed_buildings_factor = -0.05
+			}
+		}
+
+		BLR_agrarian_society2 = {
+				
+			allowed = {
+				original_tag = BLR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = generic_agrarian_society
+				
+			removal_cost = -1
+				
+			modifier = {
+				industrial_capacity_factory = -0.05
+				consumer_goods_factor = -0.05	
+				stability_factor = 0.1
+				political_power_factor = 0.05
+				conscription_factor = -0.05
+				#production_speed_buildings_factor = -0.05
+				out_of_supply_factor = -0.05
+				supply_factor = 0.05
+			}
+		}
+
+		BLR_agrarian_society3 = {
+				
+			allowed = {
+				original_tag = BLR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = generic_agrarian_society
+				
+			removal_cost = -1
+				
+			modifier = {
+				industrial_capacity_factory = -0.05
+				consumer_goods_factor = -0.05	
+				stability_factor = 0.1
+				political_power_factor = 0.05
+				conscription_factor = -0.05
+				#production_speed_buildings_factor = -0.05
+				out_of_supply_factor = -0.1
+				supply_factor = 0.15
+				attrition = -0.05
+				supply_combat_penalties_on_core_factor = -0.10
+			}
+		}
+
+		BLR_industrializing_urban_centers = {
+				
+			allowed = {
+				original_tag = BLR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = man_five_year_plan_industry
+				
+			removal_cost = -1
+				
+			modifier = {
+				industrial_capacity_factory = 0.05
+				conscription_factor = -0.05
+				production_speed_industrial_complex_factor = 0.05
+				production_speed_arms_factory_factor = 0.05
+				consumer_goods_factor = 0.05
+				production_factory_max_efficiency_factor = 0.1
+				production_factory_efficiency_gain_factor = -0.1
+			}
+		}
+
+		BLR_industrializing_society = {
+				
+			allowed = {
+				original_tag = BLR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = man_five_year_plan_industry
+				
+			removal_cost = -1
+				
+			modifier = {
+				industrial_capacity_factory = 0.1
+				conscription_factor = -0.03
+				production_speed_industrial_complex_factor = 0.1
+				production_speed_arms_factory_factor = 0.1
+				production_speed_buildings_factor = 0.05
+				consumer_goods_factor = 0.02
+				production_factory_max_efficiency_factor = 0.15
+				production_factory_start_efficiency_factor = 0.05
+			}
+		}
+
+
+		BLR_women_in_the_army = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = generic_women_in_the_army
+			modifier = {
+				conscription = 0.03
+				stability_factor = -0.05
+			}
+		}	
+
+		BLR_polish_gen_staff = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = POL_april_constitution
+
+			targeted_modifier = {
+				tag = POL
+				defense_bonus_against = -0.1
+				attack_bonus_against = -0.05
+			}
+
+			modifier = {
+				war_support_factor = -0.1
+				political_power_factor = -0.15
+				mobilization_speed = 0.20
+				max_command_power_mult = 0.20
+				experience_gain_army_factor = 0.10
+				max_planning_factor = 0.1
+			}
+		}	
+
+		BLR_polish_belarussian_army_ns = {
+				
+			allowed = {
+				original_tag = BLR
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = SWE_varnplikt
+				
+			removal_cost = -1
+				
+			targeted_modifier = {
+				tag = POL
+				defense_bonus_against = -0.1
+				attack_bonus_against = -0.1
+			}
+
+			modifier = {
+				conscription = 0.01
+				political_power_factor = -0.1
+				army_core_attack_factor = 0.05
+				max_dig_in_factor = 0.1
+				army_defence_factor = 0.05
+				army_org_factor = 0.1
+				#army_morale_factor = 0.05
+				land_reinforce_rate = 0.05
+				army_morale_factor = -0.02
+				#supply_consumption_factor = -0.05 #BLR already has lots of other spirits for this
+			}
+		}
+
+		BLR_self_defense_of_wilno = { #spirit for Central Lithuania
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+			modifier = {
+				#war_stability_factor = 0.20
+				stability_factor = -0.1
+				#political_power_factor = -0.25
+				#industrial_capacity_factory = 0.15
+				conscription = 0.05
+				mobilization_speed = 0.30
+				army_core_defence_factor = 0.15
+				equipment_capture_factor = 0.60 
+				equipment_capture = 0.1
+				#weekly_manpower = 100
+			}
+		}
+
+		BLR_national_mobilization = { #spirit for Lithuania
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = eng_imperial_conscription#citizen_militia_2
+			modifier = {
+				war_stability_factor = 0.20
+				#stability_factor = -0.05
+				#political_power_factor = -0.25
+				industrial_capacity_factory = 0.1
+				production_factory_efficiency_gain_factor = 0.1
+				army_strength_factor = 0.10
+				conscription = 0.03
+				mobilization_speed = 0.30
+				army_core_defence_factor = 0.25
+				army_core_attack_factor = 0.15
+				#equipment_capture_factor = 0.60 
+				#equipment_capture = 0.05
+				#training_time_factor = -0.1
+			}
+		}
+
+		BLR_grain_exports_to_belarus = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = generic_agrarian_reform
+			modifier = {
+				consumer_goods_factor = -0.1
+				political_power_factor = 0.1
+			}
+		}
+
+		BLR_lithuanian_grain = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = generic_supply_depot
+			modifier = {
+				political_power_factor = -0.1
+				consumer_goods_factor = 0.1
+				conscription_factor = 0.15
+				industrial_capacity_factory = 0.1
+				army_morale_factor = 0.05
+				supply_consumption_factor = -0.05
+				stability_factor = 0.05
+				out_of_supply_factor = -0.1
+				supply_factor = 0.15
+				attrition = -0.05
+			}
+		}
+
+		BLR_belarussian_civil_war = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = SPR_subvert_soviet_control#tur_coordinated_balkan_armed_forces
+
+			modifier = {
+				equipment_capture_factor = 0.60 
+				equipment_capture = 0.05
+				#weekly_manpower = 100
+				conscription = 0.01
+				minimum_training_level = -0.15
+				surrender_limit = 1
+				max_surrender_limit_offset = 0.15
+				industrial_capacity_factory = 0.15
+				production_factory_efficiency_gain_factor = 0.1
+				stability_factor = -0.15
+
+				#to help slow down the war
+				breakthrough_factor = -0.1
+				#army_attack_factor = -0.20 #can be difficult against volunteers, so instead defence boost
+				army_defence_factor = 0.15 
+				org_loss_when_moving = 0.1
+				dig_in_speed_factor = 0.25
+				#max_dig_in = 1
+				army_speed_factor = -0.1
+				org_loss_at_low_org_factor = -0.05
+				pocket_penalty = -0.1
+				army_strength_factor = 0.1
+				#coordination_bonus = -0.1
+			}
+
+		}
+
+		BLR_violence_in_vilna = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = SPR_political_violence
+
+			modifier = {	
+				political_power_factor = -0.1
+				stability_factor = -0.05
+				resistance_decay = -0.15
+				resistance_activity = 0.15
+			}
+
+		}
+
+		BLR_impending_civil_war = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = FRA_scw_intervention_republicans_focus
+			rule = {
+				can_join_factions = no
+			}
+			modifier = {	
+				max_surrender_limit_offset = -0.15
+				political_power_factor = -0.3
+                stability_weekly_factor = -0.01
+				mobilization_speed = -0.6
+				war_support_factor = -0.3
+				democratic_drift = 0.03
+				custom_modifier_tooltip = RUS_no_units
+			}
+
+		}
+		BLR_lit_border_war = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = FRA_scw_intervention_republicans_focus
+			targeted_modifier = {
+				tag = LIT
+				attack_bonus_against = -0.1
+				defense_bonus_against = -0.1
+			}
+
+		} 
+	}
+
+	political_advisor = {
+	
+		BLR_democratic_guy = {
+			
+			picture = generic_political_advisor_europe_1
+			
+			allowed = {
+				original_tag = BLR
+			}
+			
+			traits = { democratic_reformer }
+
+			do_effect = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+
+		BLR_communist_guy = {
+			
+			picture = generic_political_advisor_europe_3
+			
+			allowed = {
+				original_tag = BLR
+			}
+			
+			traits = { communist_revolutionary }
+
+			do_effect = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+
+		BLR_fascist_guy = {
+			
+			picture = generic_political_advisor_europe_2
+			
+			allowed = {
+				original_tag = BLR
+			}
+			
+			traits = { fascist_demagogue }
+
+			do_effect = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+
+		BLR_boris_berman = {
+
+			picture = generic_political_advisor_europe_1
+
+			allowed = {
+				original_tag = BLR
+			}
+			
+			traits = { prince_of_terror }
+		}
+
+		BLR_jozeph_ryzhykov = {
+
+			picture = generic_political_advisor_europe_2
+				
+			allowed = {
+				original_tag = BLR
+			}
+			
+			traits = { captain_of_industry }
+		}
+	}
+
+	army_chief = {
+
+		BLR_vasily_sokolovsky = {
+
+			picture = generic_army_europe_1
+			
+			allowed = {
+				original_tag = BLR
+			}		
+			
+			traits = { army_chief_offensive_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		BLR_ivan_yakubovsky = {
+
+			picture = generic_army_europe_4
+			
+			allowed = {
+				original_tag = BLR
+			}
+			
+			traits = { army_chief_defensive_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	air_chief = {
+
+		BLR_ivan_pstygo = {
+
+			picture = generic_air_europe_3
+			
+			allowed = {
+				original_tag = BLR
+			}
+			
+			traits = { air_chief_reform_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		BLR_fedor_dobysh = {
+
+			picture = generic_air_europe_1
+			
+			allowed = {
+				original_tag = BLR
+			}
+			
+			traits = { air_chief_ground_support_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+	}
+
+	navy_chief = {
+
+		BLR_valentin_drozd = {
+
+			picture = generic_navy_europe_2
+			
+			allowed = {
+				original_tag = BLR
+			}
+					
+			traits = { navy_chief_commerce_raiding_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		BLR_georgy_holostyakov = {
+
+			picture = generic_navy_europe_3
+			
+			allowed = {
+				original_tag = BLR
+			}
+					
+			traits = { navy_chief_maneuver_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	high_command = {
+
+		BLR_piotr_kozlov = {
+			ledger = army
+			
+			picture = generic_army_europe_5
+			
+			allowed = {
+				original_tag = BLR
+			}
+			
+			traits = { army_regrouping_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		BLR_alexander_akulich = {
+			ledger = army
+
+			picture = generic_army_europe_2
+			
+			allowed = {
+				original_tag = BLR
+			}
+			
+			traits = { army_infantry_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		BLR_maksim_antonyuk = {
+			ledger = army
+
+			picture = generic_army_europe_3
+			
+			allowed = {
+				original_tag = BLR
+			}
+			
+			traits = { army_armored_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}	
+
+	theorist = {
+		BLR_aleksei_antonov = {
+			ledger = army
+			
+			picture = generic_army_europe_2
+
+			allowed = {
+				original_tag = BLR
+			}
+			
+			traits = { military_theorist }
+		}	
+
+		BLR_stepan_krasovsky = {
+			ledger = air
+
+			picture = generic_air_europe_1
+			
+			allowed = {
+				original_tag = BLR
+			}
+			
+			traits = { air_warfare_theorist }
+		}
+
+	}
+}

@@ -1,0 +1,593 @@
+ideas = {
+	country = { #VLA_japanese_marines
+
+# Patriarch Tikhon
+
+
+		VLA_communist_wreckers = {  # also for RUS when they take over SOV
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = VLA
+			}
+			
+			removal_cost = -1
+
+			picture = SOV_organize_wreckers
+
+			equipment_bonus = {
+				infantry_equipment = {
+					reliability = -0.05
+					instant = yes
+				}
+				artillery_equipment = {
+					reliability = -0.05
+					instant = yes
+				}
+				armor = {
+					reliability = -0.05
+					instant = yes
+				}
+			}			
+
+			modifier = { #
+				#license_production_speed = -0.05
+				line_change_production_efficiency_factor = -0.1
+				local_resources_factor = -0.1
+				industrial_capacity_factory = -0.05
+				industrial_capacity_dockyard = -0.05
+				production_speed_buildings_factor = -0.05
+				repair_speed_rail_way_factor = -0.05
+			}
+		}
+
+		VLA_siberian_mil_flot_idea = {  # 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = VLA
+			}
+			
+			removal_cost = -1
+
+			picture = VLA_japanese_marines
+			
+			modifier = { #
+				naval_invasion_capacity = 5
+				amphibious_invasion = 0.15
+				convoy_retreat_speed = 0.15
+				mines_planting_by_fleets_factor = 0.05
+				navy_weather_penalty = -0.1
+			}
+		}
+
+		VLA_siberian_mil_flot_idea_2 = {  # 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = VLA
+			}
+			
+			removal_cost = -1
+
+			picture = VLA_japanese_marines
+			
+			modifier = { #
+				naval_invasion_capacity = 5
+				amphibious_invasion = 0.15
+				convoy_retreat_speed = 0.15
+				mines_planting_by_fleets_factor = 0.05
+				navy_weather_penalty = -0.1
+				naval_accidents_chance = -0.1
+				naval_morale_factor = 0.1
+				repair_speed_factor = 0.15
+				refit_speed = 0.05
+			}
+		}
+
+		VLA_siberian_mil_flot_idea_3 = {  # 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = VLA
+			}
+			
+			removal_cost = -1
+
+			picture = VLA_japanese_marines
+			
+			modifier = { #
+				naval_invasion_capacity = 5
+				amphibious_invasion = 0.15
+				convoy_retreat_speed = 0.15
+				mines_planting_by_fleets_factor = 0.05
+				navy_weather_penalty = -0.1
+				naval_accidents_chance = -0.1
+				naval_morale_factor = 0.1
+				repair_speed_factor = 0.15
+				refit_speed = 0.25
+			}
+		}
+
+		VLA_siberian_mil_flot_idea_4 = {  # 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = VLA
+			}
+			
+			removal_cost = -1
+
+			picture = VLA_japanese_marines
+			equipment_bonus = {
+				carrier = {
+					instant = yes
+					build_cost_ic = -0.2
+					armor_value = -0.1
+					carrier_size = -1
+				}
+			}			
+			modifier = { #
+				naval_invasion_capacity = 5
+				amphibious_invasion = 0.15
+				convoy_retreat_speed = 0.15
+				mines_planting_by_fleets_factor = 0.05
+				navy_weather_penalty = -0.1
+				naval_accidents_chance = -0.1
+				naval_morale_factor = 0.1
+				repair_speed_factor = 0.15
+				refit_speed = 0.25
+				#sortie_efficiency = 0.05
+				#navy_carrier_air_attack_factor = 0.05
+			}
+		}
+
+		VLA_brigades_of_the_holy_cross_ns = {  # women could also join as a Sister of Mercy (same as South Russia)
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = VLA
+			}
+			
+			removal_cost = -1
+
+			picture = VLA_japanese_marines
+			
+			modifier = { #
+				war_support_factor = 0.05
+				conscription_factor = 0.10
+				conscription = 0.01
+				modifier_army_sub_unit_militia_attack_factor = 0.05
+				modifier_army_sub_unit_militia_defence_factor = 0.05
+			}
+		}
+
+		VLA_auxilary_military_roles_for_women_ns = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = generic_women_in_the_army
+			
+			modifier = {
+				conscription = 0.005
+				army_morale_factor = 0.1
+				experience_loss_factor = -0.1
+			}
+		}
+
+		VLA_womens_battalions = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = SOV_fascist_womens_movement
+			
+			modifier = {
+				army_core_defence_factor = 0.02
+				conscription = 0.01
+				#conscription_factor = 0.25
+				female_random_army_leader_chance = 0.2
+				army_morale_factor = 0.1
+				experience_loss_factor = -0.1
+				# forces_attack_factor = 0.5
+				#special_forces_defence_factor = 0.5
+				special_forces_cap = 0.15
+				#modifier_army_sub_unit_blackshirt_assault_battalion_defence_factor = 0.05
+			}
+		} 
+
+		VLA_kappelevtsy_semyonovtsky_strife = {  #Kappelevtsy - Semyonovtsy
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = VLA
+			}
+			
+			removal_cost = -1
+
+			picture = VLA_japanese_marines
+			
+			modifier = { #
+				democratic_drift = 0.04
+				fascism_drift = 0.02
+				stability_factor = -0.05
+				political_power_factor = -0.05
+			}
+		}
+
+		VLA_siberian_military_flotilla = {  #Siberian military flotilla
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = VLA
+			}
+			
+			removal_cost = -1
+
+			picture = VLA_japanese_marines
+			
+			modifier = { #did lots of naval invasions, also evacuated men at the end. so add bonuses to invasion and convoy bonus.
+
+			}
+		}
+
+
+		VLA_japanese_marines = {  #could be a spirit on japanese-trained marines, or japanese marines occupying Vlad
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = VLA
+			}
+			
+			removal_cost = -1
+
+			picture = VLA_japanese_marines
+			
+			modifier = {
+
+			}
+		}
+
+
+		VLA_officer_surplus = { 
+			#maybe name "Overstacked Officer Corps"
+			#should maybe include negative modifiers, due to a large Old Guard since most of these plentiful officers are old. 
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = VLA
+			}
+			
+			removal_cost = -1
+
+			picture = generic_reserve_divisions
+			
+			modifier = {
+  				land_doctrine_cost_factor = 0.15
+  				max_planning = 0.10
+    			planning_speed = 0.10
+  				mobilization_speed = 0.05
+  				training_time_factor = -0.05
+  				army_org_factor = 0.10
+  				army_leader_cost_factor = -0.15
+				promote_cost_factor = -0.15
+				command_power_gain_mult = 0.25
+				experience_gain_army_factor = -0.20
+			}
+		}
+
+		VLA_the_white_siberian_army1 = { #starting spirirt
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = VLA
+			}
+			
+			removal_cost = -1
+
+			picture = tur_sub_zero_survival_training
+			#tur_kemalist_army_officers_minimal_power_disloyal
+			#prc_the_long_march2
+			#chi_army_corruption
+			
+			modifier = { #should be expanded
+				#Siberian Army was able to mobilize a surprising number of recruits in short order. 
+  				conscription = 0.005
+    			mobilization_speed = 0.05
+  				training_time_factor = -0.05
+
+  				#experienced officers
+  				max_planning = 0.10
+    			planning_speed = 0.10
+    			command_power_gain_mult = 0.25
+
+  				#needed for siberia, plus they've learned a thing or two after all this time
+  				acclimatization_cold_climate_gain_factor = 0.10
+  				supply_consumption_factor = -0.05
+  				out_of_supply_factor = -0.1
+
+  				#low morale
+  				army_org_factor = -0.10
+  				army_morale_factor = -0.15
+			}
+		}
+
+		VLA_the_white_siberian_army2 = { #intermidate
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = VLA
+			}
+			
+			removal_cost = -1
+
+			picture = tur_sub_zero_survival_training
+			
+			modifier = {
+  				conscription = 0.005
+  				acclimatization_cold_climate_gain_factor = 0.15
+  				supply_consumption_factor = -0.1
+  				mobilization_speed = 0.1
+  				training_time_factor = -0.05
+  				out_of_supply_factor = -0.1
+  				army_org_factor = -0.05
+				army_leader_start_logistics_level = 1
+				winter_attrition_factor = -0.1
+  				army_morale_factor = -0.1
+  				max_planning = 0.10
+    			planning_speed = 0.10
+    			command_power_gain_mult = 0.25
+			}
+		}
+
+		VLA_the_white_siberian_army3 = { #reformed
+			name = VLA_the_white_siberian_army2
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = VLA
+			}
+			
+			removal_cost = -1
+
+			picture = tur_sub_zero_survival_training
+			
+			modifier = {
+  				conscription = 0.01
+  				acclimatization_cold_climate_gain_factor = 0.15
+  				supply_consumption_factor = -0.1
+  				out_of_supply_factor = -0.1
+  				mobilization_speed = 0.15
+				army_leader_start_logistics_level = 2
+				winter_attrition_factor = -0.15
+  				max_planning = 0.10
+    			planning_speed = 0.10
+    			command_power_gain_mult = 0.25
+			}
+		}
+
+		VLA_the_white_siberian_army4 = { #special forces
+			name = VLA_the_white_siberian_army2
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = VLA
+			}
+			
+			removal_cost = -1
+
+			picture = tur_sub_zero_survival_training
+			
+			modifier = {
+  				out_of_supply_factor = -0.1
+  				conscription = 0.01
+  				acclimatization_cold_climate_gain_factor = 0.15
+  				supply_consumption_factor = -0.1
+  				mobilization_speed = 0.15
+				army_leader_start_logistics_level = 2
+				winter_attrition_factor = -0.15
+				special_forces_cap = 0.20
+				special_forces_training_time_factor = -0.05
+  				max_planning = 0.10
+    			planning_speed = 0.10
+    			command_power_gain_mult = 0.25
+			}
+		}
+
+		VLA_far_eastern_republic_partisans = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = VLA
+			}
+			
+			removal_cost = -1
+
+			picture = generic_communist_army #idea_mex_revolutionary_army
+			
+			modifier = {
+				war_support_factor = -0.05
+				recruitable_population_factor = -0.15
+				stability_factor = -0.05
+				political_power_factor = -0.1
+				#weekly_manpower = -10
+				communism_drift = 0.02
+				resistance_decay = -0.15
+				resistance_activity = 0.15
+			}
+		}
+
+		VLA_ukrainian_separatists = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = VLA
+			}
+			
+			removal_cost = -1
+
+			picture = cossack_spirit
+			
+			modifier = {
+				war_support_factor = -0.05
+				recruitable_population_factor = -0.15
+				stability_factor = -0.05
+				political_power_factor = -0.1
+				compliance_growth = -0.15
+
+			}
+		}
+
+		VLA_siberian_workshops = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				original_tag = VLA
+			}
+			
+			removal_cost = -1
+
+			picture = generic_central_management
+			
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1
+					reliability = -0.1
+					instant = yes
+				}
+			}
+		}
+
+		VLA_trappers_rifle = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				original_tag = VLA
+			}
+			
+			removal_cost = -1
+
+			picture = generic_central_management
+			
+			equipment_bonus = {
+				infantry_equipment = {
+					reliability = 0.15
+					build_cost_ic = 0.1
+					instant = yes
+				}
+			}
+		}
+		
+		VLA_priamurye_alaska_trade = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				original_tag = VLA
+			}
+			
+			removal_cost = -1
+
+			picture = idea_generic_sea_focused_navy
+			modifier = {
+				consumer_goods_factor = -0.05
+				stability_factor = 0.05
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
+
+			}
+		}
+
+		VLA_at_the_mercy_of_the_japanese = {
+
+			allowed = { always = no }
+
+			picture =  imperial_glory_idea
+
+			removal_cost = -1
+
+			#Targeted modifier to send stuff to JAP
+			targeted_modifier = {
+				tag = JAP
+				#cic_to_target_factor = 0.15
+				#mic_to_target_factor = 0.25
+				extra_trade_to_target_factor = 0.5
+				#trade_cost_for_target_factor = -0.5
+			}
+			modifier = {
+				political_advisor_cost_factor = 0.25
+				trade_laws_cost_factor = 0.25
+				mobilization_laws_cost_factor = 0.25
+				economy_cost_factor = 0.25
+				stability_factor = 0.05
+				war_support_factor = -0.05
+				#industrial_capacity_factory = 0.05
+				#industrial_capacity_dockyard = 0.05
+				political_power_factor = -0.15
+				fascism_drift = 0.04
+			}
+		}
+	}
+}

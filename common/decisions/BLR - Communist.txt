@@ -1,0 +1,433 @@
+BLRC_belarus_descisions = {
+    BLRC_dev_template_unlock = {
+        icon = generic_decision
+
+        cost = 0
+
+        fire_only_once = yes
+
+        days_remove = 1
+        visible = { always = yes }
+
+        modifier = {
+
+        }
+
+        complete_effect = {
+            country_lock_all_division_template = no 
+        }
+
+        remove_effect = {
+        }
+    }
+#####################                                   ###########SOVIET AID
+    BLR_soviet_monthly_shipments_heavy1 = {
+        icon = generic_decision
+
+        cost = 25
+        ai_will_do = {
+            factor = 500
+        }
+        fire_only_once = yes
+
+        days_remove = 30
+
+        visible = { 
+        has_completed_focus = BLR_soviet_aid
+            NOT = { 
+                has_country_flag = rifle_shipments_in_progress_heavy1
+                has_country_flag = rifle_shipments_in_progress_heavy2   
+                has_country_flag = rifle_shipments_in_progress_heavy3
+                has_country_flag = rifle_shipments_in_progress_heavy4
+                has_country_flag = rifle_shipments_in_progress_heavy5             
+            }
+        }
+
+        modifier = {
+            political_power_gain = -0.1
+            command_power_gain_mult = -0.15
+        }
+
+        complete_effect = {
+            custom_effect_tooltip = pol_foc9_tt
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        set_country_flag = rifle_shipments_in_progress_heavy1
+            add_equipment_to_stockpile = {
+                type = artillery_equipment
+                amount = 36
+                producer = SOV
+            }
+            if = {
+                limit = {
+                    NOT = {
+                        has_dlc = "No Step Back"
+                    }
+                }
+                add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 20 producer = SOV }
+            }
+            else = {
+                add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 20 producer = SOV variant_name = "T-26TU mod. 1933" }
+                }
+            hidden_effect = {
+                activate_decision = BLR_soviet_monthly_shipments_heavy1.1
+            }
+        }
+    }
+    BLR_soviet_monthly_shipments_heavy1.1 = {
+        icon = generic_decision
+
+        cost = 25
+
+        fire_only_once = yes
+
+        days_remove = 30
+        visible = { has_country_flag = rifle_shipments_in_progress_heavy1 }
+
+        modifier = {
+            political_power_gain = -0.1
+            command_power_gain_mult = -0.15
+        }
+
+        complete_effect = {
+            custom_effect_tooltip = pol_foc9_tt
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = rifle_shipments_in_progress_heavy1
+        set_country_flag = rifle_shipments_in_progress_heavy2
+            add_equipment_to_stockpile = {
+                type = artillery_equipment
+                amount = 24
+                producer = SOV
+            }
+            if = {
+                limit = {
+                    NOT = {
+                        has_dlc = "No Step Back"
+                    }
+                }
+                add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 20 producer = SOV }
+            }
+            else = {
+                add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 20 producer = SOV variant_name = "T-26TU mod. 1933" }
+                }
+            hidden_effect = {
+                activate_decision = BLR_soviet_monthly_shipments_heavy1.2
+            }
+        }
+    }
+    BLR_soviet_monthly_shipments_heavy1.2 = {
+        icon = generic_decision
+
+        cost = 25
+
+        fire_only_once = yes
+
+        days_remove = 30
+        visible = { has_country_flag = rifle_shipments_in_progress_heavy2 }
+
+        modifier = {
+            political_power_gain = -0.1
+            command_power_gain_mult = -0.15 #command_power_gain_mult = -0.20
+        }
+
+        complete_effect = {
+            custom_effect_tooltip = pol_foc9_tt
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = rifle_shipments_in_progress_heavy2
+        set_country_flag = rifle_shipments_in_progress_heavy3
+            add_equipment_to_stockpile = {
+                type = artillery_equipment
+                amount = 24
+                producer = SOV
+            }
+            if = {
+                limit = {
+                    NOT = {
+                        has_dlc = "No Step Back"
+                    }
+                }
+                add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 20 producer = SOV }
+            }
+            else = {
+                add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 20 producer = SOV variant_name = "T-26TU mod. 1933" }
+                }
+            hidden_effect = {
+                #activate_decision = BLR_soviet_monthly_shipments_heavy1.3
+            }
+        }
+    }
+    ######################################
+    BLR_soviet_monthly_shipments1 = {
+        icon = generic_decision
+
+        cost = 25
+        ai_will_do = {
+            factor = 500
+        }
+        fire_only_once = yes
+
+        days_remove = 30
+
+        visible = { 
+        has_completed_focus = BLR_soviet_aid
+            NOT = { 
+                has_country_flag = rifle_shipments_in_progress1
+                has_country_flag = rifle_shipments_in_progress2   
+                has_country_flag = rifle_shipments_in_progress3
+                has_country_flag = rifle_shipments_in_progress4
+                has_country_flag = rifle_shipments_in_progress5             
+            }
+        }
+
+        modifier = {
+            political_power_gain = -0.1
+            command_power_gain_mult = -0.15
+        }
+
+        complete_effect = {
+            custom_effect_tooltip = pol_foc9_tt
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        set_country_flag = rifle_shipments_in_progress1
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 1000
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 25
+                producer = SOV
+            }
+            hidden_effect = {
+                activate_decision = BLR_soviet_monthly_shipments1.1
+            }
+        }
+    }
+
+    BLR_soviet_monthly_shipments1.1 = {
+        icon = generic_decision
+
+        cost = 25
+
+        fire_only_once = yes
+
+        days_remove = 30
+        visible = { has_country_flag = rifle_shipments_in_progress1 }
+
+        modifier = {
+            political_power_gain = -0.1
+            command_power_gain_mult = -0.15
+        }
+
+        complete_effect = {
+            custom_effect_tooltip = pol_foc9_tt
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = rifle_shipments_in_progress1
+        set_country_flag = rifle_shipments_in_progress2
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 1000
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 25
+                producer = SOV
+            }
+            hidden_effect = {
+                activate_decision = BLR_soviet_monthly_shipments1.2
+            }
+        }
+    }
+
+    BLR_soviet_monthly_shipments1.2 = {
+        icon = generic_decision
+
+        cost = 25
+
+        fire_only_once = yes
+
+        days_remove = 30
+        visible = { has_country_flag = rifle_shipments_in_progress2 }
+
+        modifier = {
+            political_power_gain = -0.1
+            command_power_gain_mult = -0.15 #command_power_gain_mult = -0.20
+        }
+
+        complete_effect = {
+            custom_effect_tooltip = pol_foc9_tt
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = rifle_shipments_in_progress2
+        set_country_flag = rifle_shipments_in_progress3
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 1000
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 25
+                producer = SOV
+            }
+            hidden_effect = {
+                activate_decision = BLR_soviet_monthly_shipments1.3
+            }
+        }
+    }
+
+    BLR_soviet_monthly_shipments1.3 = {
+        icon = generic_decision
+
+        cost = 25
+
+        fire_only_once = yes
+
+        days_remove = 30
+        visible = { has_country_flag = rifle_shipments_in_progress3 }
+
+        modifier = {
+            political_power_gain = -0.1
+            command_power_gain_mult = -0.15
+        }
+
+        complete_effect = {
+            custom_effect_tooltip = pol_foc9_tt
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = rifle_shipments_in_progress3
+        set_country_flag = rifle_shipments_in_progress4
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 1000
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 25
+                producer = SOV
+            }
+            hidden_effect = {
+                activate_decision = BLR_soviet_monthly_shipments1.4
+            }
+        }
+    }
+
+    BLR_soviet_monthly_shipments1.4 = {
+        icon = generic_decision
+
+        cost = 25
+
+        fire_only_once = yes
+
+        days_remove = 30
+        visible = { has_country_flag = rifle_shipments_in_progress4 }
+
+        modifier = {
+            political_power_gain = -0.1
+            command_power_gain_mult = -0.15
+        }
+
+        complete_effect = {
+            custom_effect_tooltip = pol_foc9_tt
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = rifle_shipments_in_progress4
+        set_country_flag = rifle_shipments_in_progress5
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 1000
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 25
+                producer = SOV
+            }
+            hidden_effect = {
+                activate_decision = BLR_soviet_monthly_shipments1.5
+            }
+        }
+    }
+
+    BLR_soviet_monthly_shipments1.5 = {
+        icon = generic_decision
+
+        cost = 25
+
+        fire_only_once = yes
+
+        days_remove = 30
+        visible = { has_country_flag = rifle_shipments_in_progress5 }
+
+        modifier = {
+            political_power_gain = -0.1
+            command_power_gain_mult = -0.15
+        }
+
+        complete_effect = {
+            custom_effect_tooltip = pol_foc9_tt
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = rifle_shipments_in_progress5
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 1000
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 50
+                producer = SOV
+            }
+            hidden_effect = {
+                #activate_decision = BLR_soviet_monthly_shipments1.6
+            }
+        }
+    }
+
+
+
+#######
+}

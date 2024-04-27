@@ -1,0 +1,280 @@
+characters = { #KUB_alexander_filimonov
+
+	RUS_vasily_ivanis = {  #Vasily Nikolaevich Ivanis - Could also go to hetmanate ukraine later
+		name = RUS_vasily_ivanis
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_KUB_ivanis_vasily_nikolaevich"
+			}
+			army = {
+				large = "GFX_portrait_KUB_ivanis_vasily_nikolaevich"
+			}
+		}
+		advisor = { #
+			slot = high_command
+			idea_token = ivanis_vasily_nikolaevich
+			allowed = {
+				OR = {
+					original_tag = RUS
+					original_tag = KUB
+				}
+			}
+			available = {
+			}				
+			traits = {
+				army_artillery_1
+			}
+			cost = 50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
+		country_leader = {
+			ideology = oligarchism
+			traits = { 
+				technocrat 
+				cossack_ataman
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = idea_KUB_ivanis_vasily_nikolaevich
+			allowed = {
+				OR = {
+					AND = {
+						original_tag = RUS 
+						has_country_flag = RUS_kuban_reconcile
+					}
+					original_tag = KUB 
+				}
+			}
+			traits = {
+				financial_expert 
+			}
+		}	
+		corps_commander  = { #field_marshal if  adding to DON
+			traits = {  
+				politically_connected
+				old_guard
+				engineer
+				cavalry_leader
+				BALTIC_ex_russian
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+			visible = {
+				OR = {
+					AND = {
+						original_tag = RUS 
+						has_country_flag = RUS_kuban_reconcile
+					}
+					original_tag = KUB 
+				}
+			}
+		}
+	}
+
+	KUB_alexander_filimonov = { #would be 70 in 1936 - but he lived until 1948!
+		name = KUB_alexander_filimonov
+		portraits = {
+			army = {
+				large = "gfx/leaders/KUB/portrait_KUB_alexander_filimonov.png"
+			}
+		}
+		advisor = { #
+			slot = high_command
+			idea_token = KUB_alexander_filimonov
+			allowed = {
+				OR = {
+					original_tag = RUS
+					original_tag = KUB
+				}
+			}
+			available = {
+			}				
+			traits = {
+				army_cavalry_1
+			}
+			cost = 50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
+		country_leader = {
+			ideology = oligarchism
+			traits = { 
+				#hardened_officer 
+				cossack_ataman
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+
+		field_marshal = { 
+			traits = {  
+				politically_connected
+				old_guard
+				career_officer
+				cavalry_leader
+				BALTIC_ex_russian
+			}
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+			visible = {
+				OR = {
+					AND = {
+						original_tag = RUS 
+						has_country_flag = RUS_kuban_reconcile
+					}
+					original_tag = KUB 
+				}
+			}
+		}
+	}
+
+	KUB_andrey_shkuro = { #added back after Kuban generals reconciled with RUS
+		name = SOV_andrey_shkuro
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_andrey_shkuro"
+				small = "GFX_idea_SOV_andrey_shkuro"
+			}
+		}
+		country_leader = {
+			ideology = fascism_ideology
+			traits = { 
+				cossack_ataman 
+			}
+			expire = "1947.3.1.1"
+			id = -1
+		}
+		corps_commander = {
+			traits = { BALTIC_ex_russian trait_reckless cavalry_leader harsh_leader }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 2
+			visible = {
+				OR = {
+					AND = {
+						original_tag = RUS 
+						has_country_flag = RUS_kuban_reconcile
+					}
+					original_tag = KUB 
+				}
+			}
+		}
+	}
+
+	KUB_nikolai_bukretov = {  
+		#Nikolai Adrianovich Bukretov, left South Russia after Novorossiyk disatser / conflict with Wrangel.Could be invited back after Kuban is liberated, or perhaps just is a general for Kuban?
+		name = KUB_nikolai_bukretov
+		portraits = {
+			army = {
+				large = "gfx/leaders/KUB/Portrait_KUB_nikolai_bukretov.png"
+			}
+		}
+		country_leader = {
+			ideology = despotism
+			traits = { 
+				hardened_officer 
+			}
+			expire = "1947.3.1.1"
+			id = -1
+		}
+		advisor = { 
+			slot = political_advisor
+			idea_token = KUB_nikolai_bukretov
+			allowed = {
+				original_tag = RUS	
+			}
+			available = {
+				#shortage of KUB characters so i'll allow him to have both 1 political and 1 military role at the same time.
+			}
+			traits = {
+				quartermaster_general 
+			}
+
+			ai_will_do = {
+				base = 1
+			}
+		}
+		advisor = { #
+			slot = army_chief
+			idea_token = KUB_nikolai_bukretov_ac
+			allowed = {
+				OR = {
+					original_tag = RUS
+					original_tag = KUB
+				}
+			}
+			available = {
+				NOT = { has_idea = KUB_nikolai_bukretov_hc }
+			}				
+			traits = {
+				army_chief_morale_2
+			}
+			cost = 50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		advisor = { #
+			slot = high_command
+			idea_token = KUB_nikolai_bukretov_hc
+			allowed = {
+				OR = {
+					original_tag = RUS
+					original_tag = KUB
+				}
+			}
+			available = {
+				NOT = { has_idea = KUB_nikolai_bukretov_ac }
+			}				
+			traits = {
+				army_logistics_1
+			}
+			cost = 50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
+		corps_commander  = {
+			traits = {  
+				career_officer
+				aggressive_assaulter
+				infantry_officer
+				trait_mountaineer
+				BALTIC_ex_russian
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+			visible = {
+				OR = {
+					AND = {
+						original_tag = RUS 
+						has_country_flag = RUS_kuban_reconcile
+					}
+					original_tag = KUB 
+				}
+			}
+		}
+	}
+#
+}

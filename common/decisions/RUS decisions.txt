@@ -1,0 +1,935 @@
+RUS_internal_factions = {
+########    ###     ######  ######## ####  #######  ##    ##
+##         ## ##   ##    ##    ##     ##  ##     ## ###   ##
+##        ##   ##  ##          ##     ##  ##     ## ####  ##
+######   ##     ## ##          ##     ##  ##     ## ## ## ##  
+##       ######### ##          ##     ##  ##     ## ##  ####      
+##       ##     ## ##    ##    ##     ##  ##     ## ##   ###               
+##       ##     ##  ######     ##    ####  #######  ##    ##       
+
+    RUS_leader_visit  = { #Supreme Leader visits a random location in South Russia
+
+        priority = 50
+
+        icon = eng_ally_imperialist_coup
+
+        ai_will_do = {
+            base = 0
+            modifier = {
+                add = 1
+                has_stability < 0.5
+            }
+            modifier = {
+                factor = 10
+                has_stability < 0.3
+            }
+            modifier = {
+                factor = 10
+                has_stability < 0.2
+            }
+        }
+
+        allowed = { 
+            original_tag = RUS
+        }
+
+        available = {
+            #NOT = { has_country_flag = RUS_internal_affairs_ongoing_flag }
+            #has_completed_focus = RUS_supreme_leadership
+        }
+
+        days_remove = 7
+
+        days_re_enable = 120
+
+        visible = {
+            always = yes
+            #NOT = { has_completed_focus = BUL_oppose_the_royal_dictatorship }
+            #has_country_flag = BUL_factions_unlocked_flag
+            #NOT = { has_country_flag = BUL_tsar_boris_is_dead_flag }
+#            OR = {
+#                has_country_leader = {
+#                    character = RUS_pyotr_wrangel
+#                    ruling_only = yes
+#                }
+#                has_country_leader = {
+#                    character = BUL_lavr_kornilov
+#                    ruling_only = yes
+#                }
+#            }
+        }
+
+        cost = BUL_faction_interaction_cost_standard
+
+        complete_effect = {
+            set_country_flag = RUS_internal_affairs_ongoing_flag
+        }
+
+        modifier = {
+            political_power_gain = -0.5
+        }
+
+        remove_effect = {
+            hidden_effect = {
+                random_list =  {
+                    70 = {
+                    }
+                    20 = {
+                        set_country_flag = RUS_a_royal_visit_extra_success_flag
+                    }
+                    10 = {
+                        set_country_flag = RUS_a_royal_visit_failure_flag
+                    }
+                }
+            }
+            country_event = { id = bftb_bulgaria_tsar_boris.1 }
+            clr_country_flag = RUS_internal_affairs_ongoing_flag
+        }
+    }      
+}
+
+RUS_south_russian_affairs = {
+    RUS_fix_the_caliber_crisis = {
+        available = {
+            original_tag = RUS
+            has_completed_focus = RUS_repair_workshops
+            OR = { 
+                has_idea = RUS_mixed_equipment_and_horse_stock_shortage
+                has_idea = RUS_mixed_equipment
+            }
+        }
+        highlight_states = {
+        }
+        fire_only_once = yes
+        days_remove = 60
+        cost = 15
+
+        visible = {
+            original_tag = RUS
+            #has_completed_focus = RUS_repair_workshops
+            OR = { 
+                has_idea = RUS_mixed_equipment_and_horse_stock_shortage
+                has_idea = RUS_mixed_equipment
+            }
+        }
+
+        icon = ger_military_buildup
+
+        ai_will_do = {
+            base = 100
+        }
+
+        complete_effect = {
+            add_ideas = RUS_small_arms_conversions
+        }
+
+        remove_effect = {
+            remove_ideas = RUS_small_arms_conversions
+            IF = { 
+                limit = { has_idea = RUS_mixed_equipment }
+                remove_ideas = RUS_mixed_equipment
+            }
+            IF = { 
+                limit = { has_idea = RUS_mixed_equipment_and_horse_stock_shortage }
+                swap_ideas = {
+                    remove_idea = RUS_mixed_equipment_and_horse_stock_shortage
+                    add_idea = RUS_horse_stock_shortage
+                }
+            }
+        }
+    }
+
+    RUS_acquire_horses = {
+        available = {
+            original_tag = RUS
+            OR = {
+                234 = {
+                    OR = {
+                        is_fully_controlled_by = ROOT
+                        controller = {
+                            is_subject_of = ROOT
+                            has_full_control_of_state = PREV
+                        }
+                        controller = {
+                            is_in_faction_with = ROOT
+                            has_full_control_of_state = PREV
+                        }
+                    }
+                }
+                AND = { 
+                    245 = {
+                        OR = {
+                            is_fully_controlled_by = ROOT
+                            controller = {
+                                is_subject_of = ROOT
+                                has_full_control_of_state = PREV
+                            }
+                            controller = {
+                                is_in_faction_with = ROOT
+                                has_full_control_of_state = PREV
+                            }
+                        }
+                    }
+                    238 = {
+                        OR = {
+                            is_fully_controlled_by = ROOT
+                            controller = {
+                                is_subject_of = ROOT
+                                has_full_control_of_state = PREV
+                            }
+                            controller = {
+                                is_in_faction_with = ROOT
+                                has_full_control_of_state = PREV
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        highlight_states = {
+        }
+        fire_only_once = yes
+        days_remove = 3
+        cost = 25
+
+        visible = {
+            original_tag = RUS
+            OR = { 
+                has_idea = RUS_mixed_equipment_and_horse_stock_shortage
+                has_idea = RUS_horse_stock_shortage
+            }
+        }
+
+        icon = generic_cavalry
+
+        ai_will_do = {
+            base = 1000
+        }
+
+        complete_effect = {
+        }
+
+        remove_effect = {
+            IF = { 
+                limit = { has_idea = RUS_horse_stock_shortage }
+                remove_ideas = RUS_horse_stock_shortage
+            }
+            IF = { 
+                limit = { has_idea = RUS_mixed_equipment_and_horse_stock_shortage }
+                swap_ideas = {
+                    remove_idea = RUS_mixed_equipment_and_horse_stock_shortage
+                    add_idea = RUS_mixed_equipment
+                }
+            }
+        }
+    }
+
+    RUS_establish_the_kuban_cossack_army = {
+        available = {
+            has_completed_focus = RUS_restore_the_law_on_zemstvos_and_rural_communities 
+            original_tag = RUS
+            core_compliance = {
+                occupied_country_tag = KUB
+                value > 10
+            }
+            core_resistance = {
+                occupied_country_tag = KUB
+                value < 10
+            }
+            #has_full_control_of_state = 233
+            #233 = { resistance < 10 }
+            #233 = { compliance > 14 }
+            #has_full_control_of_state = 926
+            #926 = { resistance < 10 }
+            #926 = { compliance > 14 }
+            #has_full_control_of_state = 234
+            #234 = { resistance < 10 }
+            #234 = { compliance > 14 }
+        }
+        highlight_states = {
+            highlight_states_trigger = { state = 233 }
+            #highlight_states_trigger = { state = 926 }
+            highlight_states_trigger = { state = 234 }
+        }
+        fire_only_once = yes
+        days_remove = 30
+        cost = 50
+
+        visible = {
+            original_tag = RUS
+            always = yes
+        }
+
+        icon = eng_trade_unions_support#generic_cavalry
+
+        ai_will_do = {
+            base = 5
+            modifier = {
+                add = 5
+                always = yes
+            }
+        }
+
+        complete_effect = {
+        }
+        highlight_states = {
+            highlight_states_trigger = { state = 234 }
+        }
+        remove_effect = {
+            add_stability = -0.05
+            add_state_core = 233
+            add_state_core = 234
+            #add_state_core = 926
+            custom_effect_tooltip = RUS_establish_the_kuban_cossack_army_ttp
+            IF = {
+                limit = { has_completed_focus = RUS_reinforce_cossack_units }
+                random_owned_controlled_state = {
+                    limit = { ROOT = { has_full_control_of_state = PREV } }
+                    prioritize = { 46 }
+                    create_unit = {
+                        division = "name = \"1-ya Kubanskaya Kazach'ya Kavaleriyskaya Diviziya\" division_template = \"Kazach'ya Kavaleriyskaya Diviziya\" start_experience_factor = 1.0" 
+                        owner = RUS
+                    }
+                    create_unit = {
+                        division = "name = \"2-ya Kubanskaya Kazach'ya Kavaleriyskaya Diviziya\" division_template = \"Kazach'ya Kavaleriyskaya Diviziya\" start_experience_factor = 1.0" 
+                        owner = RUS
+                    }
+                }
+            }
+        }
+    }
+
+
+    RUS_integrate_tsaritsyn = {
+        available = {
+            original_tag = RUS
+            has_full_control_of_state = 217
+            217 = { resistance < 10 }
+            217 = { compliance > 14 }
+            has_completed_focus = RUS_prikaze_no_1 
+        }
+        highlight_states = {
+            highlight_states_trigger = { state = 217 }
+        }
+        fire_only_once = yes
+        days_remove = 30
+        cost = 30
+
+        visible = {
+            original_tag = RUS
+        }
+
+        icon = eng_trade_unions_support#generic_cavalry
+
+        ai_will_do = {
+            base = 1000
+        }
+
+        complete_effect = {
+        }
+
+        remove_effect = {
+            set_province_name = { id = 3529 name = "Tsaritsyn" }
+            hidden_effect = { 
+                217  = { set_state_name = "Tsaritsyn" }
+            }
+            add_stability = -0.01
+            add_state_core = 217
+        }  
+    }
+
+    RUS_move_capital_to_ekaterinodar = {
+        available = {
+            original_tag = RUS
+            has_full_control_of_state = 234
+            234 = { is_core_of = ROOT }
+            has_completed_focus = RUS_prikaze_no_1 
+        }
+
+        fire_only_once = yes
+        days_remove = 15
+        cost = 5
+
+        visible = {
+            original_tag = RUS
+            NOT = { has_completed_focus = RUS_resurrection }
+        }
+
+        icon = generic_colonial_administration
+
+        ai_will_do = {
+            base = 100
+        }
+        highlight_states = {
+            highlight_states_trigger = { state = 234 }
+        }
+        remove_effect = {
+            set_capital = {
+                state = 234
+                remember_old_capital = no
+            }
+        }
+    }
+
+    RUS_move_capital_to_tsaritsyn = { 
+        available = {
+            original_tag = RUS
+            has_full_control_of_state = 217
+            217 = { is_core_of = ROOT }
+            has_completed_focus = RUS_prikaze_no_1 
+        }
+
+        fire_only_once = yes
+        days_remove = 15
+        cost = 5
+
+        visible = {
+            original_tag = RUS
+            NOT = { has_completed_focus = RUS_resurrection }
+        }
+
+        icon = generic_colonial_administration
+        highlight_states = {
+            highlight_states_trigger = { state = 217 }
+        }
+        ai_will_do = {
+            base = 5
+            modifier = {
+                add = 5
+                always = yes
+            }
+        }
+
+        remove_effect = {
+            #also rename city in another descision
+            set_capital = {
+                state = 217
+                remember_old_capital = no
+            }
+        }
+    }
+
+    RUS_move_capital_to_rostov = { 
+        available = {
+            original_tag = RUS
+            has_full_control_of_state = 218
+            218 = { is_core_of = ROOT }
+            has_completed_focus = RUS_prikaze_no_1 
+        }
+
+        fire_only_once = yes
+        days_remove = 15
+        cost = 5
+
+        visible = {
+            original_tag = RUS
+            NOT = { has_completed_focus = RUS_resurrection }
+        }
+
+        icon = generic_colonial_administration
+
+        highlight_states = {
+            highlight_states_trigger = { state = 218 }
+        }
+
+        ai_will_do = {
+            base = 5
+            modifier = {
+                add = 5
+                always = yes
+            }
+        }
+
+        remove_effect = {
+            set_capital = {
+                state = 218
+                remember_old_capital = no
+            }
+        }
+    }
+
+#
+    RUS_markv_tanks_for_agriculture = {
+        available = {
+            original_tag = RUS
+            has_country_flag = RUS_markv_stock
+        }
+
+        fire_only_once = yes
+        days_remove = 35
+        cost = 5
+
+        visible = {
+            original_tag = RUS
+        }
+
+        icon = generic_industry
+
+        ai_will_do = {
+            base = 5
+            modifier = {
+                add = 5
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            clr_country_flag = RUS_markv_stock
+                #add_equipment_to_stockpile = { #Mark V 
+                #    type = medium_tank_chassis_0
+                #    amount = -20
+                #    producer = RUS
+                #    variant_name = "Mark V (R)"
+                #}
+                add_equipment_to_stockpile = { #guns stripped off the tanks
+                    type = infantry_equipment_0
+                    amount = 20
+                    producer = RUS
+                }
+                add_equipment_to_stockpile = { #guns stripped off the tanks
+                    type = artillery_equipment_1
+                    amount = 10
+                    producer = RUS
+                }
+            random_owned_controlled_state = {
+                add_extra_state_shared_building_slots = 1
+            }
+        }
+    }
+
+    RUS_establish_the_terek_cossack_army = {
+
+        available = {
+            original_tag = RUS
+            OR = {
+                has_full_control_of_state = 235
+                has_full_control_of_state = 925
+            }
+        }
+
+        fire_only_once = yes
+        days_remove = 1
+        cost = 5
+
+        visible = {
+            original_tag = RUS
+            always = no #under dev, shelved for now
+        }
+
+        icon = eng_trade_unions_support#generic_cavalry
+
+        ai_will_do = {
+            base = 75
+            modifier = {
+                add = 75
+                always = yes
+            }
+        }
+
+        complete_effect = {         #should add fascism, iirc terek had the most fascsits / pogrom do-ers.
+            TER = { 
+                IF = {
+                    limit = { 
+                        RUS = { has_full_control_of_state = 925 }
+                    }
+                    TER = { transfer_state = 925 }
+                }
+                IF = {
+                    limit = { 
+                        RUS = { has_full_control_of_state = 235 }
+                    }
+                    TER = { transfer_state = 235 }
+                }
+            }
+            hidden_effect = { 
+                puppet = TER 
+            }
+            set_autonomy = { target = TER autonomy_state = autonomy_integrated_puppet }
+            TER = {
+                set_cosmetic_tag = TER_RUS_puppet
+                delete_unit_template_and_units = {
+                    division_template = "NKVD Pogranichnaya Diviziya"
+                    disband = no
+                }
+            }
+        }
+    }
+
+    RUS_merge_the_terek_host_with_kuban = {
+
+        available = {
+            original_tag = RUS
+            234 = { is_core_of = ROOT }
+           # OR = {
+                AND = { 
+                    has_full_control_of_state = 235
+                    235 = { resistance < 10 }
+                    235 = { compliance > 14 }
+                }
+                AND = { 
+                    has_full_control_of_state = 925
+                    925 = { resistance < 10 }
+                    925 = { compliance > 14 }
+                }
+            #}
+        }
+
+        fire_only_once = yes
+        days_remove = 1
+        cost = 5
+
+        visible = {
+            original_tag = RUS
+            always = no #current in dev
+        }
+
+        icon = eng_trade_unions_support#generic_cavalry
+
+        ai_will_do = {
+            base = 75
+            modifier = {
+                add = 75
+                always = yes
+            }
+        }
+        complete_effect = {
+        }
+        remove_effect = {
+            add_stability = -0.02
+            add_state_core = 235
+            add_state_core = 925
+            #KUB = { add_state_core = 925 }
+            custom_effect_tooltip = RUS_merge_the_terek_host_with_kuban_ttp
+            IF = {
+                limit = { has_completed_focus = RUS_reinforce_cossack_units }
+                random_owned_controlled_state = {
+                    limit = { ROOT = { has_full_control_of_state = PREV } }
+                    prioritize = { 46 }
+                    create_unit = {
+                        division = "name = \"3-ya Kubanskaya Kazach'ya Kavaleriyskaya Diviziya\" division_template = \"Kazach'ya Kavaleriyskaya Diviziya\" start_experience_factor = 1.0" 
+                        owner = RUS
+                    }
+                }
+            }
+        }
+    }
+
+    RUS_transfer_astrakhan_to_the_kalmyk_astrakhan_army = {
+
+        available = {
+            original_tag = RUS
+            KAL = { is_subject_of = RUS }
+            has_full_control_of_state = 236
+        }
+
+        fire_only_once = yes
+        days_remove = 1
+        cost = 50
+
+        visible = {
+            original_tag = RUS
+            KAL = {
+                NOT = { 236 = { is_owned_by = KAL } }
+            }
+        }
+
+        icon = eng_trade_unions_support#generic_cavalry
+
+        ai_will_do = {
+            base = 75
+            modifier = {
+                add = 75
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            KAL = { 
+                country_event = rus.44 
+            }
+            effect_tooltip = {
+                KAL = { 
+                    add_political_power = 100
+                    add_war_support = 0.05
+                    set_state_controller = 236
+                    KAL = { transfer_state = 236 }
+                    add_autonomy_score = {
+                        value = -250
+                        localization = rus.35.t
+                    }
+                }
+            }
+        }
+    }
+
+    RUS_open_stockpiles = {
+
+        icon = ger_military_buildup
+
+        available = {
+            original_tag = RUS
+            has_completed_focus = RUS_prikaze_no_1 
+            #has_equipment = {
+            #    artillery_equipment_1 > 1
+            #}
+        }
+
+        fire_only_once = yes
+        days_remove = 1
+        highlight_states = {
+            highlight_states_trigger = { state = 137 }
+        }
+
+        custom_cost_trigger = {
+            command_power > 14.9
+        }
+
+        custom_cost_text = TUR_decision_cost_kurd_rebels
+
+        visible = {
+            original_tag = RUS
+        }
+
+        ai_will_do = {
+            base = 100
+            #Pretty damn important
+            modifier = {
+                add = 100
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            add_command_power = -15
+            #add_equipment_to_stockpile = {
+            #    type = artillery_equipment_1
+            #    amount = -2
+            #}
+            add_equipment_to_stockpile = {
+                type = artillery_equipment_1
+                amount = 24
+                producer = RUS
+            }
+            add_equipment_to_stockpile = {
+                type = infantry_equipment_0
+                amount = 3000
+                producer = RUS
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment_1
+                amount = 200
+                producer = RUS
+            }
+            add_equipment_to_stockpile = {
+                type = motorized_equipment_1
+                amount = 20
+                producer = RUS
+            }
+            IF = {
+                limit = {
+                    NOT = { has_dlc = "No Step Back" } #no dlc damn
+                }
+                add_equipment_to_stockpile = {
+                    type = gw_tank_equipment
+                    amount = 20
+                    producer = FRA
+                }
+                #add_equipment_to_stockpile = {
+                #    type = gw_tank_equipment
+                #    amount = 5
+                #    producer = ENG
+                #}
+            }
+            else = {
+                add_equipment_to_stockpile = {
+                    type = light_tank_chassis_0
+                    amount = 20
+                    producer = RUS
+                    variant_name = "Garford-Putilov"
+                }
+                #add_equipment_to_stockpile = { #Mark V 
+                #    type = medium_tank_chassis_0
+                #    amount = 20
+                #    producer = RUS
+                #    variant_name = "Mark V (R)"
+                #}
+            }
+            IF = {
+                limit = {
+                    has_dlc = "La Resistance"
+                }
+                add_equipment_to_stockpile = {
+                    type = gw_armored_car_equipment
+                    amount = 32
+                    producer = RUS
+                }
+            }
+            custom_effect_tooltip = RUS_markv_stock_ttp 
+            set_country_flag = RUS_markv_stock
+        }
+    }
+
+    RUS_invite_deniken = {
+
+        icon = eng_trade_unions_support
+
+        available = {
+            original_tag = RUS
+            has_completed_focus = RUS_invite_the_exiles_i
+        }
+
+        cost = 50
+
+        fire_only_once = yes
+        days_remove = 1
+        highlight_states = {
+        }
+
+        custom_cost_text = TUR_decision_cost_kurd_rebels
+
+        visible = {
+            original_tag = RUS
+        }
+
+        ai_will_do = {
+            base = 100
+            #Pretty damn important
+            modifier = {
+                add = 100
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            custom_effect_tooltip = RUS_deniken_invited_ttp
+            IF = {
+                limit = {
+                    has_country_leader = {
+                        character = RUS_pyotr_wrangel
+                        ruling_only = yes
+                    }
+                }
+                add_political_power = -75
+            }
+            add_war_support = -0.05
+            add_popularity = {
+                ideology = neutrality
+                popularity = 0.02
+            }
+            set_country_flag = RUS_deniken_invited
+        }
+    }
+}
+
+RUS_fate_of_the_predreadnoughts = {
+            #options: 
+            #scrap 2 ships: adds 1 steel to crimea, gain small amount of arty and AA
+            #sell a ship: sends event to ROM, BUL, TUR, GEO, and UKR to see if they wan to buy. RUS can deny sale.
+            #musuem the Potemkin to france: gain the same 'sold ship' spirit bonus as the above.
+            #activate the ship into military service
+            #perhaps meuseum a ship in crimea for 2% war support?
+
+            #the ships are Panteleimon(Potemkin), Rostislav, Tri Sviatitelia, Dvenadsat Apostolov
+
+    RUS_scrap_a_predreadnought = {
+        available = {
+            original_tag = RUS
+            OR = {
+                has_country_flag = has_rostislav
+                has_country_flag = has_tri
+                has_country_flag = has_dvenadsat
+            }
+        }
+
+        fire_only_once = no
+        days_remove = 360
+        cost = 25
+
+        visible = {
+            original_tag = RUS
+        }
+
+        icon = generic_industry
+
+        ai_will_do = {
+            base = 1
+        }
+
+        complete_effect = {
+            random_owned_controlled_state = {
+                prioritize = { 137 }
+                add_resource = {
+                    type = steel
+                    amount = 1
+                }
+            }
+        }
+    }
+
+    RUS_sell_the_potemkin_to_a_french_mueseum = {
+        available = {
+            original_tag = RUS
+            has_country_flag = has_potemkin
+        }
+
+        fire_only_once = no
+        #days_remove = 360
+        cost = 20
+
+        visible = {
+            original_tag = RUS
+        }
+
+        icon = generic_industry
+
+        ai_will_do = {
+            base = 1
+        }
+
+        complete_effect = {
+            #asks france if they want to make the Potemkin a muesuem (AI always says yes, unless fascist or non-aligned.)
+            #if yes, gain the same amount of CG% as selling a ship normally below
+            #france still have to pay since its a public meuseum buying it. 
+        }
+    }
+
+    RUS_sell_a_predreadnought = {
+        available = {
+            original_tag = RUS
+            OR = {
+                has_country_flag = has_rostislav
+                has_country_flag = has_tri
+                has_country_flag = has_dvenadsat
+            }
+        }
+
+        fire_only_once = no
+        #days_remove = 360
+        cost = 20
+
+        visible = {
+            original_tag = RUS
+            OR = {
+                has_country_flag = has_rostislav
+                has_country_flag = has_tri
+                has_country_flag = has_dvenadsat
+            }
+        }
+
+        icon = generic_industry
+
+        ai_will_do = {
+            base = 1
+        }
+
+        complete_effect = {
+
+        #RUS will get an event per ship (that is not alr gone) to see who will be offered the sale of it. (ROM BUL TUR GEO UKR)
+            RUS = {
+                country_event = rus.46
+            }
+        }
+    }
+#
+}
+    

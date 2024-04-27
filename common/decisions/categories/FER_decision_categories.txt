@@ -1,0 +1,23 @@
+RUS_weapons_imports_decisions = { 
+ icon = Decision_category_border_conflicts
+
+    visible = {
+        has_completed_focus = FER_soviet_arms_deliveries
+    }
+
+    allowed = {
+        original_tag = FER
+    }
+}
+
+FER_civil_war_stockpiles = { 
+ icon = Decision_category_border_conflicts
+
+	visible = {
+            original_tag = FER
+        }
+
+    allowed = {
+        original_tag = FER
+    }
+}

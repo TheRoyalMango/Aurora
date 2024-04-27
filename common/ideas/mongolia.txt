@@ -1,0 +1,214 @@
+ideas = {
+	country = {
+		MON_bogd_khan = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			picture = generic_prisoner#asia_generic_warlord2
+
+			removal_cost = -1
+			modifier = {
+			}
+			traits = { popular_figurehead2 } #5% stability.
+		}
+		MON_bogd_khan2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			picture = asia_generic_warlord2
+
+			removal_cost = -1
+			modifier = {
+				
+			}
+			traits = { popular_figurehead } #15% stability.
+		}
+		MON_japanese_railways_assistance = {
+
+			name = MON_japanese_railways_assistance
+
+			allowed = {
+				always = no
+				NOT = { has_war_with = JAP }
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_build_infrastructure
+
+			research_bonus = {
+				industry = 0.05
+			}
+			modifier = {
+				production_speed_rail_way_factor = 0.05
+			}
+		}
+		MON_japanese_railways_assistance_2 = {
+
+			name = MON_japanese_railways_assistance
+
+			allowed = {
+				always = no
+				NOT = { has_war_with = JAP }
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_build_infrastructure
+
+			research_bonus = {
+				industry = 0.1
+			}  
+
+			modifier = {
+				production_speed_rail_way_factor = 0.1
+			}
+		}
+		MON_japanese_railways_assistance_3 = {
+
+			name = MON_japanese_railways_assistance
+
+			allowed = {
+				always = no
+				NOT = { has_war_with = JAP }
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_build_infrastructure
+
+			research_bonus = {
+				industry = 0.1
+			}
+
+			modifier = {
+				production_speed_rail_way_factor = 0.1
+				consumer_goods_factor = -0.05
+			}
+		}
+
+		MON_japanese_railways_assistance_4 = {
+
+			name = MON_japanese_railways_assistance
+
+			allowed = {
+				always = no
+				NOT = { has_war_with = JAP }
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_build_infrastructure
+
+			research_bonus = {
+				industry = 0.15
+			}
+
+			modifier = {
+				production_speed_rail_way_factor = 0.1
+				production_speed_industrial_complex_factor = 0.05
+				production_speed_buildings_factor = 0.05
+				consumer_goods_factor = -0.05
+			}
+		}
+
+		MON_asiatic_division = {			
+
+		#officers in the division tried to kill Roman and killed some of his officers, Romans mongolian units also defected. can be represented via the oppose Roman focuses to get the division to murder Roman	
+
+			picture = asiatic_cavalry_division_spirit
+
+			modifier = {
+				supply_consumption_factor = -0.05
+				cavalry_attack_factor = 0.1
+				conscription = 0.01
+				conscription_factor = 0.1
+				non_core_manpower = 0.15
+				stability_factor = -0.05
+				equipment_capture_factor = 0.60 
+				equipment_capture = 0.05
+				#army_morale_factor = -0.15
+				#army_org_factor = -0.1
+			}
+		}
+
+		MON_asiatic_division_2 = {
+			picture = MON_asiatic_cavalry_division_spirit
+
+			modifier = {
+				supply_consumption_factor = -0.05
+				cavalry_attack_factor = 0.1
+				conscription = 0.01
+				conscription_factor = 0.1
+				non_core_manpower = 0.15
+				stability_factor = -0.05
+				equipment_capture_factor = 0.60 
+				equipment_capture = 0.05
+			}
+		}
+
+		MON_nomadic = {
+			picture = ETH_national_studs #generic_motorized_equipment_manufacturer_
+			
+			allowed_civil_war = {
+				always = yes
+			}
+
+			#research_bonus = {
+			#	motorized = -0.05
+			#	mechanized = -0.15
+			#}
+
+			modifier = {
+				supply_combat_penalties_on_core_factor = -0.1
+				unit_cavalry_design_cost_factor = -0.2
+				cavalry_attack_factor = 0.1
+				cavalry_defence_factor = 0.05
+			}
+		}
+		MON_nomadic_2 = {
+		name = MON_nomadic
+			picture = ETH_national_studs 
+
+			allowed_civil_war = {
+				always = yes
+			}
+			#research_bonus = {
+			#	motorized = -0.05
+			#	mechanized = -0.15
+			#}
+			modifier = {
+				supply_combat_penalties_on_core_factor = -0.20
+				unit_cavalry_design_cost_factor = -1.0
+				cavalry_attack_factor = 0.20
+				cavalry_defence_factor = 0.10
+			}
+		}
+#
+}

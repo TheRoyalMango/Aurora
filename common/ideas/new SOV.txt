@@ -1,0 +1,193 @@
+ideas = {
+
+	country = {
+
+		SOV_soviet_anarchist_civil_war = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = SPR_subvert_soviet_control#tur_coordinated_balkan_armed_forces
+
+			modifier = {
+				equipment_capture_factor = 0.60 
+				equipment_capture = 0.05
+				conscription = 0.01
+				industrial_capacity_factory = 0.10
+				production_factory_efficiency_gain_factor = 0.1
+				stability_factor = -0.15
+				minimum_training_level = -0.1
+				#to help avoid stalemate
+				#org_loss_when_moving = -0.05
+				army_speed_factor = 0.05
+
+				#i think the surrender balance is fine as it, except for the anarchists
+				#surrender_limit = 1
+				#max_surrender_limit_offset = 0.15
+			}
+
+		}
+
+
+
+		SOV_victors_of_the_civil_war = { #
+
+			removal_cost = -1
+
+			picture = home_of_revolution
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			modifier = {
+				political_power_factor = 0.05
+				stability_factor = 0.025
+				war_support_factor = 0.025
+				drift_defence_factor = 0.25
+				#army_core_defence_factor = 0.025
+				mobilization_speed = 0.05
+				#resistance_growth_on_our_occupied_states = 0.05
+			}
+			rule = {
+				can_create_factions = yes
+			}
+		}
+
+		SOV_factionalism_in_the_rkpb = { #
+
+			removal_cost = -1
+
+			picture = SOV_factionalism_modifier
+
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				has_government = communism
+			}
+			modifier = {
+				political_power_factor = -0.15
+				drift_defence_factor = -0.1
+				political_advisor_cost_factor = -0.15
+				surrender_limit = -0.05
+			}
+		}
+
+		SOV_legacy_of_war_communism = { # can be removed somehwat early on
+			name = SOV_legacy_of_war_communism
+
+			removal_cost = -1
+
+			picture = SOV_factionalism_modifier
+
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				has_government = communism
+			}
+			modifier = {
+				political_power_factor = -0.05
+				stability_factor = -0.05
+				war_support_factor = -0.1
+				party_popularity_stability_factor = -0.1
+				drift_defence_factor = -0.1
+				consumer_goods_factor = 0.05
+			}
+		}
+
+		SOV_legacy_of_war_communism2 = { # improvement before total removal
+			name = SOV_legacy_of_war_communism
+
+			removal_cost = -1
+
+			picture = SOV_factionalism_modifier
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			modifier = {
+				political_power_factor = -0.05
+				war_support_factor = -0.05
+				party_popularity_stability_factor = -0.05
+				drift_defence_factor = -0.05
+				consumer_goods_factor = 0.02
+			}
+		}
+
+		SOV_anarchist_militias = { #negative
+			name = SOV_anarchist_militias
+
+			removal_cost = -1
+
+			picture = SPR_anarchist_society
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = anarchism
+			}
+
+			modifier = {
+				stability_factor = -0.05
+				war_support_factor = -0.05
+				conscription_factor = -0.15
+				stability_weekly = -0.005
+				#production_speed_buildings_factor = -0.1
+				#communism_drift = -0.02
+				anarchism_drift = 0.04
+				resistance_decay = -0.2
+				resistance_damage_to_garrison = 0.05
+			}
+		}
+		SOV_anarchist_militias_2 = { #positive 
+
+			removal_cost = -1
+
+			picture = SPR_anarchist_society
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = anarchism
+			}
+
+			modifier = {
+				war_support_factor = 0.05
+				conscription_factor = 0.15
+				anarchism_drift = 0.04
+				resistance_growth_on_our_occupied_states = 0.15
+				#resistance_decay_on_our_occupied_states = -0.15
+				#compliance_growth_on_our_occupied_states = -0.1
+				army_core_defence_factor = 0.05
+				modifier_army_sub_unit_militia_defence_factor = 0.05
+				modifier_army_sub_unit_militia_attack_factor = 0.025
+				command_power_gain_mult = -0.25
+				max_planning = -0.15
+				drift_defence_factor = 0.15
+				surrender_limit = 1
+				max_surrender_limit_offset = 0.15
+			}
+		}
+	}
+}

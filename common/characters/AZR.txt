@@ -1,0 +1,196 @@
+characters = {
+	AZR_aligaha_shiklinksi = { #Aliagha Shikhlinski
+		name = AZR_aligaha_shiklinksi
+		portraits = {
+			army = {
+				large = "gfx/leaders/AZR/portrait_AZR_aligaha_shiklinksi.png"
+			}
+		}
+		field_marshal = { #general of artillery
+			desc = AZR_aligaha_shiklinksi_desc
+			traits = { BALTIC_ex_russian old_guard defensive_doctrine trait_mountaineer camouflage_expert war_hero unyielding_defender bearer_of_artillery } #career officer
+			skill = 3
+			attack_skill = 2
+			defense_skill = 4
+			planning_skill = 3
+			logistics_skill = 4
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = AZR_aligaha_shiklinksi
+			allowed = {
+				original_tag = AZR
+			}
+			traits  = {
+				army_concealment_2
+			}
+		}
+	}
+	AZR_samad_bey_mehmandarov = { #Samad bey Mehmandarov
+		name = AZR_samad_bey_mehmandarov
+		portraits = {
+			army = {
+				large = "gfx/leaders/AZR/portrait_AZR_samad_bey_mehmandarov.png"
+			}
+		}
+		field_marshal = { #general of artillery
+			desc = AZR_samad_bey_mehmandarov_desc
+			traits = { BALTIC_ex_russian old_guard defensive_doctrine aggressive_assaulter war_hero unyielding_defender bearer_of_artillery } #career officer
+			skill = 4
+			attack_skill = 4
+			defense_skill = 4
+			planning_skill = 3
+			logistics_skill = 4
+		}
+		advisor={
+			slot = army_chief
+			idea_token = AZR_aligaha_shiklinksi_ac
+			ledger = army
+			allowed = {
+				original_tag = AZR
+			}
+			available = {
+				NOT = { has_idea = AZR_aligaha_shiklinksi_hc }
+			}	
+			traits = {
+				army_chief_entrenchment_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 2.000
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = AZR_aligaha_shiklinksi_hc
+			ledger = army
+			allowed = {
+				original_tag = AZR
+			}
+			available = {
+				NOT = { has_idea = AZR_aligaha_shiklinksi_ac }
+			}	
+			traits = {
+				army_artillery_3
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 2.000
+			}
+		}
+	}
+	AZR_khosrov_bey_sultanov = { #Khosrov bey Sultanov
+		name = AZR_khosrov_bey_sultanov
+		portraits = {
+			army = {
+				large = GFX_portrait_AZR_khosrov_bey_sultanov
+			}
+		}
+		corps_commander = { #
+			desc = AZR_khosrov_bey_sultanov_desc
+			traits = { inspirational_leader career_officer politically_connected harsh_leader } #career officer
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	AZR_sultan_bey_sultanov = { #Sultan Bey Sultanov
+		name = AZR_sultan_bey_sultanov
+		portraits = {
+			army = {
+				large = GFX_portrait_AZR_sultan_bey_sultanov
+			}
+		}
+		corps_commander = { #
+			desc = AZR_sultan_bey_sultanov_desc
+			traits = { trait_mountaineer politically_connected harsh_leader irregulars_officer } #cavalry_officer militias_officer
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+	AZR_habib_bey_salimov = { #Habib Bey Salimov
+		name = AZR_habib_bey_salimov
+		portraits = {
+			army = {
+				large = GFX_portrait_AZR_habib_bey_salimov
+			}
+		}
+		corps_commander = { #
+			desc = AZR_habib_bey_salimov_desc
+			traits = { BALTIC_ex_russian career_officer infantry_officer cavalry_leader trickster }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	AZR_javad_bey_shikhlinksi = { #Javad bey Shikhlinski
+		name = AZR_javad_bey_shikhlinksi
+		portraits = {
+			army = {
+				large = GFX_portrait_AZR_habib_bey_salimov
+			}
+		}
+		corps_commander = { #
+			desc = AZR_habib_bey_salimov_desc
+			traits = { BALTIC_ex_russian infantry_officer ambusher bearer_of_artillery }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+		}
+	}
+	AZR_teymur_bey_novruzov = { #Teymur bey Novruzov 
+		name = AZR_teymur_bey_novruzov
+		portraits = {
+			army = {
+				large = GFX_portrait_AZR_teymur_bey_novruzov
+			}
+		}
+		corps_commander = { #
+			desc = AZR_teymur_bey_novruzov_desc
+			traits = { BALTIC_ex_russian cavalry_leader career_officer trait_engineer trickster }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	AZR_abdulhamid_bey_gaytabashi = { #Abdulhamid bey Gaytabashi
+		name = AZR_abdulhamid_bey_gaytabashi
+		portraits = {
+			army = {
+				large = "gfx/leaders/AZR/portrait_AZR_abdulhamid_bey_gaytabashi.png"
+			}
+		}
+		advisor = {
+			slot = army_chief
+			ledger = army
+			idea_token = AZR_abdulhamid_bey_gaytabashi
+			allowed = {
+				original_tag = AZR
+			}
+			traits  = {
+				army_chief_reform_3
+			}
+		}
+		field_marshal = { #
+			desc = AZR_abdulhamid_bey_gaytabashi_desc
+			traits = { BALTIC_ex_russian infantry_officer irregulars_officer scavenger }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 3
+		}
+	}
+}

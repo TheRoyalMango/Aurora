@@ -1,0 +1,74 @@
+characters = {
+	KAL_dazan_tundutov = { #Danzan Tundutov 
+		name = KAL_dazan_tundutov
+
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/RUS/portrait_dazan_tundutov.png"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = KAL_dazan_tundutov
+			ledger = army
+			allowed = {
+				original_tag = KAL
+			}
+			traits = {
+				army_chief_drill_1
+			}
+			cost = 50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
+		corps_commander = {
+			traits = { BALTIC_ex_russian politically_connected cavalry_leader scavenger }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 4
+			visible = {
+				IF = { 
+					limit = { original_tag = RUS }
+					has_country_flag = RUS_officer_corps_flag
+				}
+			}
+		}
+
+		country_leader = {
+			ideology = despotism
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				cossack_ataman
+				anti_communist
+			}
+		}
+		country_leader = {
+			ideology = conservatism
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				cossack_ataman
+				anti_communist
+			}
+		}
+	}
+	KAL_im_badmayev = {
+		name = "I.M Badmayev" 
+		portraits = {
+			civilian = {
+				large = GFX_portrait_IM_Badmayev
+			}
+		}
+		country_leader = {
+			ideology = leninism
+			expire = "1940.1.1.1"
+			id = -1
+		}
+	}
+#
+}

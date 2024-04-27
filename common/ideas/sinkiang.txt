@@ -1,0 +1,27 @@
+ideas = {
+	country = {
+		SIK_east_turkestan_seperatism = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = SIK_east_turkestan#tur_kemalist_army_officers_powerful_disloyal
+
+			modifier = {
+			  	surrender_limit = -0.05
+				political_power_cost = 0.25
+				stability_factor = -0.2
+				war_support_factor = -0.2
+				consumer_goods_factor = 0.05
+				production_speed_buildings_factor = -0.15
+			}
+		}
+	}
+
+}

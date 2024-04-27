@@ -1,0 +1,282 @@
+characters = {
+
+	VLA_vasily_boldyrev = {
+		name = VLA_vasily_boldyrev
+		portraits = {
+			army = {
+				large = "gfx/leaders/VLA/portrait_VLA_Vasily_Boldyrev.png"
+				small = "gfx/interface/advisors/RUS/idea_RUS_Vasily_Boldyrev.png"
+			}
+		}
+
+		advisor = {
+			slot = army_chief
+			idea_token = VLA_vasily_boldyrev 
+			allowed = {
+			}
+			available = {
+			}				
+			traits = {
+				army_chief_reform_2
+			}
+			ai_will_do = {
+				base = 1.000
+			}
+		}
+		corps_commander = {
+			traits = { infantry_leader organizer trickster old_guard career_officer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 4
+			planning_skill = 5
+			logistics_skill = 3
+			visible = {
+			}
+		}
+	}
+
+	VLA_mikhail_diterikhs = { #VLA_mikhail_diterikhs
+		name = VLA_mikhail_diterikhs
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/VLA/portrait_VLA_mikhail_diterikhs.tga"
+			}
+			army = {
+				large = "gfx/leaders/VLA/portrait_VLA_mikhail_diterikhs.tga"
+				small=GFX_idea_OMK_alexander_kolchak
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = mikhail_diterikhs 
+			allowed = {
+			}
+			available = {
+			}				
+			traits = {
+				army_chief_drill_2
+			}
+			cost = 50
+			ai_will_do = {
+				base = 1.000
+			}
+		}
+		country_leader = {
+			ideology = despotism
+			traits = { 			
+				voyevoda
+				political_unifier
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+		
+		field_marshal = {
+			traits = {  
+				#inspirational_leader 
+				winter_specialist
+				organizer
+				militias_officer #VLA_brigades_of_the_holy_cross
+				old_guard
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 4
+			visible = {
+				#ROOT = { has_completed_focus = OMK_commander_kolchak }
+			}
+		}
+	}
+	VLA_vladimir_kosmin = {
+		name = SOV_vladimir_kosmin
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_vladimir_kosmin"
+				small = "GFX_idea_SOV_vladimir_kosmin"
+			}
+		}
+		country_leader = {
+			ideology = fascism_ideology
+			traits = { 		
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+
+		corps_commander = {
+			traits = { winter_specialist trait_reckless career_officer scavenger }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+			visible = {
+			}
+		}
+	}
+
+
+	OMK_konstantin_nechayev = {
+		name = SOV_konstantin_nechayev
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_konstantin_nechayev"
+				small = "GFX_idea_SOV_konstantin_nechayev"
+			}
+		}
+		corps_commander = {
+			traits = { war_hero cavalry_leader winter_specialist scavenger }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+			visible = {
+			}
+		}
+	}
+
+	VLA_evgeny_vishnevsky = { #Evgeny Vishnevsky
+		name = VLA_evgeny_vishnevsky
+		portraits = {
+			army = {
+				large = GFX_Portrait_RUS_Anatoly_Pepelyaev
+			}
+		}
+		corps_commander = {
+			traits = { career_officer infantry_leader old_guard winter_specialist commando }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 4
+			visible = {
+			}
+		}
+	}
+
+	VLA_anatoly_pepelyayev = { #nicknamed Siberian Suvorov
+		name = VLA_anatoly_pepelyayev
+		portraits = {
+			army = {
+				large = "gfx/leaders/VLA/Portrait_RUS_Anatoly_Pepelyaev.png"
+				small = "gfx/interface/advisors/RUS/RUS_anatoly_pepelyaev.png"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = VLA_anatoly_pepelyayev
+			ledger = army
+			allowed = {
+				original_tag = VLA
+			}
+			traits = {
+				army_commando_2
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 2.000
+			}
+		}
+		corps_commander = {
+			traits = { career_officer infantry_leader aggressive_assaulter winter_specialist jaeger commando naval_invader }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 4
+			visible = {
+			}
+		}
+	}
+
+	VLA_dimitry_horvat = { #Dmitry Horvat
+		name = VLA_dimitry_horvat
+		portraits = {
+			army = {
+				large = "gfx/leaders/VLA/portrait_RUS_dmitry_horvat.png"
+			}
+		}
+
+		advisor={
+			slot = high_command
+			idea_token = VLA_dimitry_horvat
+			ledger = army
+			allowed = {
+				original_tag = VLA
+			}
+			traits = {
+				army_logistics_2
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 2.000
+			}
+		}
+		field_marshal = {
+			traits = { 
+				war_hero 
+				trait_engineer 
+				winter_specialist 
+				inspirational_leader
+				old_guard
+				organizer
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 4
+			planning_skill = 4
+			logistics_skill = 4
+			visible = {
+			}
+		}
+	}
+
+	#jaeger commando naval_invader
+
+	OMK_vladimir_kappel = {
+		name = OMK_vladimir_kappel
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/Portrait_Soviet_Vladimir_Kappel.tga"
+				small = "gfx/interface/advisors/RUS/RUS_vladimir_kappel.png"
+			}
+		}
+
+		advisor={
+			slot = high_command
+			idea_token = RUS_vladimir_kappel
+			ledger = army
+			allowed = {
+				original_tag = VLA
+			}
+			traits = {
+				army_infantry_3
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 2.000
+			}
+		}
+		field_marshal = {
+			traits = { 
+				war_hero 
+				cavalry_leader 
+				winter_specialist 
+				inspirational_leader
+				aggressive_assaulter
+				trickster
+				scavenger
+			}
+			skill = 4
+			attack_skill = 5
+			defense_skill = 4
+			planning_skill = 5
+			logistics_skill = 4
+			visible = {
+			}
+		}
+	}
+}

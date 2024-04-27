@@ -1,0 +1,64 @@
+RUS_internal_factions = {
+    priority = 10
+
+    icon = power_struggle
+
+    picture = GFX_decision_cat_picture_soviet_comecon
+
+    scripted_gui = rus_internal_factions_decision_ui
+
+    visible = {
+          original_tag = RUS    #has_country_flag = BUL_factions_unlocked_flag
+    }
+
+    allowed = {
+        original_tag = RUS
+    }
+}
+
+RUS_south_russian_affairs = { 
+
+    icon = decision_category_border_conflicts
+
+  #  picture = GFX_decision_cat_picture_chi_infiltration
+
+	visible = {
+        original_tag = RUS
+        }
+
+    allowed = {
+        original_tag = RUS
+    }
+}
+
+RUS_fate_of_the_predreadnoughts = {
+	 icon = decision_category_border_conflicts
+
+	visible = {
+		original_tag = RUS
+		has_completed_focus = RUS_fate_of_the_predreadnoughts
+	}
+
+    allowed = {
+        original_tag = RUS
+    }
+}
+
+RUS_propaganda_campaigns = {
+    priority = 100
+
+    icon = SOV_propaganda
+
+    scripted_gui = sov_propaganda_campaigns_ui
+
+    allowed = {
+        original_tag = RUS
+    }
+
+    visible = {
+        OR = {
+            has_completed_focus = RUS_prikaze_no_1
+            has_country_flag = SOV_debug_show_propaganda_system_flag #Debug
+        }
+    }
+}

@@ -1,0 +1,173 @@
+characters = {
+
+	GEO_nikolay_chkheidze = { #Nikolay Chkheidze
+
+		name = GEO_nikolay_chkheidze
+
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/GEO/portrait_GEO_nikolay_chkheidze.png"
+			}
+		}
+		country_leader = {
+			ideology = socialism
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				SWI_diplomat
+				#compassionate_gentleman
+			}
+		}
+	}
+
+	GEO_akaki_chkhenkeli = { #Akaki Chkhenkeli
+
+		name = GEO_akaki_chkhenkeli
+
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/GEO/portrait_GEO_akaki_chkhenkeli.png"
+			}
+		}
+		country_leader = {
+			ideology = socialism
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				#SWI_diplomat
+				compassionate_gentleman
+			}
+		}
+	}
+
+	GEO_giorgi_kvinitadze = { #Giorgi Kvinitadze
+		name = GEO_giorgi_kvinitadze
+		portraits = {
+			army = {
+				large = "gfx/leaders/GEO/portrait_GEO_giorgi_kvinitadze.png"
+			}
+		}
+		field_marshal = { #
+			desc = GEO_giorgi_kvinitadze_desc
+			traits = { BALTIC_ex_russian trait_mountaineer war_hero unyielding_defender inspirational_leader infantry_leader }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 4
+			planning_skill = 3
+			logistics_skill = 4
+		}
+		advisor = {
+			slot = army_chief
+			ledger = army
+			idea_token = GEO_giorgi_kvinitadze
+			allowed = {
+				original_tag = GEO
+			}
+			traits  = {
+				army_chief_morale_2
+			}
+		}
+	}
+	GEO_valerian_jugheli = { #Valerian “Valiko” Jugheli
+		name = GEO_valerian_jugheli
+		portraits = {
+			army = {
+				large = GFX_portrait_GEO_valerian_jugheli
+			}
+		}
+		corps_commander = { #
+			desc = GEO_valerian_jugheli_desc
+			traits = { trait_mountaineer war_hero inspirational_leader infantry_leader militias_officer }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 4
+			planning_skill = 3
+			logistics_skill = 4
+		}
+	}
+	GEO_varden_tsulukidze = { #Varden Tsulukidze
+		name = GEO_varden_tsulukidze
+		portraits = {
+			army = {
+				large = GFX_portrait_GEO_varden_tsulukidze
+			}
+		}
+		corps_commander = { #
+			desc = GEO_varden_tsulukidze_desc
+			traits = { BALTIC_ex_russian politically_connected infantry_officer  }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	GEO_giorgi_mazniashvili = { #Giorgi Mazniashvili
+		name = GEO_giorgi_mazniashvili
+		portraits = {
+			army = {
+				large = "gfx/leaders/GEO/portrait_GEO_giorgi_mazniashvili.png"
+			}
+		}
+		corps_commander = { #
+			desc = GEO_giorgi_mazniashvili_desc
+			traits = { BALTIC_ex_russian infantry_leader armor_officer hill_fighter }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 4
+			logistics_skill = 3
+		}
+	}
+	GEO_giorgi_khimshiashvili = { #Giorgi Khimshiashvili
+		name = GEO_giorgi_khimshiashvili
+		portraits = {
+			army = {
+				large = GFX_portrait_GEO_giorgi_khimshiashvili
+			}
+		}
+		corps_commander = { #
+			desc = GEO_giorgi_khimshiashvili_desc
+			traits = { BALTIC_ex_russian militias_officer career_officer cavalry_officer politically_connected hill_fighter trait_mountaineer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 3
+		}
+	}
+#	GEO_simon_khukhunaishvili = { #Simon Khukhunaishvili #died to suicide, unrelated to foreign pressure it seems.
+#		name = GEO_simon_khukhunaishvili
+#		portraits = {
+#			army = {
+#				large = "gfx/leaders/GEO/portrait_GEO_simon_khukhunaishvili.png"
+#			}
+#		}
+#		corps_commander = { #
+#			desc = GEO_simon_khukhunaishvili_desc
+#			traits = { militias_officer hill_fighter trait_mountaineer }
+#			skill = 2
+#			attack_skill = 2
+#			defense_skill = 3
+#			planning_skill = 2
+#			logistics_skill = 3
+#		}
+#	}
+#	GEO_ilia_odishelidze = { #Ilia Odishelidze #he died in 1924 at the age of like 71. so not going to add him. 
+#		name = GEO_ilia_odishelidze
+#		portraits = {
+#			army = {
+#				large = "gfx/leaders/GEO/portrait_GEO_ilia_odishelidze.png"
+#			}
+#		}
+#		field_marshal = { #
+#			desc = GEO_ilia_odishelidze_desc
+#			traits = { old_guard infantry_leader }
+#			skill = 3
+#			attack_skill = 3
+#			defense_skill = 3
+#			planning_skill = 4
+#			logistics_skill = 3
+#		}
+#	}
+}

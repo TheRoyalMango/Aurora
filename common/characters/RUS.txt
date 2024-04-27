@@ -1,0 +1,2683 @@
+characters = {
+
+#BALTIC_ex_russian
+
+	RUS_solomon_crimea = { #Solomon Samoylovich Crimea
+		name = RUS_solomon_crimea
+
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/RUS/portrait_RUS_solomon_crimea.png"
+				small = "gfx/interface/advisors/RUS/idea_CRI_Solomon_Krym.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_solomon_crimea
+			available = {
+				has_completed_focus = RUS_equal_representation
+			}
+			traits = {
+				#economic_reformer #both need to be nerfed for advisor role
+				education_reformer
+				financial_expert
+			}
+			ai_will_do = {
+				base = 1.000
+			}
+			cost = 200 #OP traits
+			#can_be_fired = no
+		}
+		country_leader = {
+			ideology = liberalism
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				#economic_reformer
+				financial_expert
+				education_reformer
+				#leftist_freemason
+			}
+		}
+	}
+
+	RUS_provisional_government = {
+		name = SOV_provisional_government
+
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_SOV_white_transitionary_council"
+			}
+		}
+		#country_leader = {
+		#	ideology = conservatism
+		#	expire = "1953.3.1.1"
+		#	id = -1
+		#	traits = {
+		#		emigre_connections dysfunctional_assembly #desperate_gambit
+		#	}
+		#}
+		country_leader = {
+			ideology = despotism
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				emigre_connections dysfunctional_assembly anti_communist#desperate_gambit
+			}
+		}
+	}
+
+	RUS_alexander_krivosein = { #Alexander Krivoshein
+		name = RUS_alexander_krivosein
+
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/RUS/portrait_RUS_alexander_krivosein.png"
+				small = "gfx/interface/advisors/RUS/idea_RUS_Alexander_Krivoshein.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_alexander_krivosein
+			available = {
+				NOT = {
+					OR = {
+						has_government = anarchism 
+						has_government = communism
+						has_completed_focus = RUS_the_great_white_purge
+					}
+				}
+				NOT = {
+					has_country_leader = {
+						character = RUS_alexander_krivosein
+						ruling_only = yes
+					}
+				}
+			}
+			traits = {
+				agrarian_reformist
+				#SWI_diplomat
+				#silent_workhorse
+			}
+			ai_will_do = {
+				base = 1.000
+			}
+			cost = 200 #really OP traits
+			#can_be_fired = no
+		}
+		country_leader = {
+			ideology = conservatism #he sorta goes back and forth, but im going to stick with conservativm to balance against the high number of liberal options
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				#moderate_reformist
+				#defender_of_the_peasantry
+				agrarian_reformist
+				#figurehead_president #wrangel's running the show
+				#SWI_diplomat
+			}
+		}
+	}
+
+	RUS_pyotr_struve = { #Pyotr Struve
+		name = RUS_pyotr_struve
+
+		portraits = {
+			civilian = {
+				large=GFX_portrait_RUS_pyotr_struve
+				small = "gfx/interface/advisors/RUS/idea_RUS_pyotr_struve.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_pyotr_struve
+			available = {
+				NOT = {
+					OR = {
+						has_government = anarchism 
+						has_government = communism
+						has_completed_focus = RUS_the_great_white_purge
+					}
+				}
+				NOT = {
+					has_country_leader = {
+						character = RUS_pyotr_struve
+						ruling_only = yes
+					}
+				}
+			}
+			traits = {
+				left_politics_right_hands
+				#minister_of_foreign_affairs
+				#professor_of_education_and_economics
+			}
+			ai_will_do = {
+				base = 1.000
+			}
+			cost = 150 
+		}
+		country_leader = {
+			ideology = conservatism
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				left_politics_right_hands
+				minister_of_foreign_affairs
+				professor_of_education_and_economics
+			}
+		}
+	}
+	RUS_sofia_panina = { #Sofia Panina
+		name = RUS_sofia_panina
+
+		portraits = {
+			civilian = {
+				large=GFX_portrait_RUS_sofia_panina
+				small=GFX_idea_RUS_sofia_panina
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_sofia_panina
+			available = {
+				NOT = {
+					OR = {
+						has_government = anarchism 
+						has_government = communism
+						has_completed_focus = RUS_the_great_white_purge
+					}
+				}
+				NOT = {
+					has_country_leader = {
+						character = RUS_sofia_panina
+						ruling_only = yes
+					}
+				}
+			}
+			traits = {
+				minister_of_welfare_and_education
+				#education_reformer ^
+			}
+			ai_will_do = {
+				base = 1.000
+			}
+			cost = 150 
+		}
+		country_leader = {
+			ideology = liberalism
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				minister_of_welfare_and_education
+			}
+		}
+	}
+	RUS_vasily_maklakov = { #Vasily Maklakov
+		name = RUS_vasily_maklakov
+
+		portraits = {
+			civilian = {
+				large=GFX_portrait_RUS_vasily_maklakov
+				small=GFX_idea_RUS_vasily_maklakov
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_vasily_maklakov
+			available = {
+				NOT = {
+					OR = {
+						has_government = anarchism 
+						has_government = communism
+						has_completed_focus = RUS_the_great_white_purge
+					}
+				}
+				NOT = {
+					has_country_leader = {
+						character = RUS_vasily_maklakov
+						ruling_only = yes
+					}
+				}
+			}
+			traits = {
+				legal_reformer
+				kadet_leader
+			}
+			ai_will_do = {
+				base = 1.000
+			}
+			cost = 150 
+		}
+		country_leader = {
+			ideology = liberalism
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				legal_reformer
+				kadet_leader
+			}
+		}
+	}
+	RUS_pavel_milyukov = { #Pavel Milyukov
+		name = RUS_pavel_milyukov
+
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/RUS/RUS_pavel_milyukov.png"
+				small = "gfx/interface/advisors/RUS/idea_RUS_pavel_milyukov.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_pavel_milyukov
+			available = {
+				NOT = {
+					OR = {
+						has_government = anarchism 
+						has_government = communism
+						has_completed_focus = RUS_the_great_white_purge
+					}
+				}
+				NOT = {
+					has_country_leader = {
+						character = RUS_pavel_milyukov
+						ruling_only = yes
+					}
+				}
+			}
+			traits = {
+				liberal_imperialist
+				kadet_leader
+			}
+			ai_will_do = {
+				base = 1.000
+			}
+			cost = 150 
+		}
+		country_leader = {
+			ideology = liberalism
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				liberal_imperialist
+				minister_of_foreign_affairs
+				kadet_leader
+			}
+		}
+	}
+	RUS_pyotr_wrangel = {
+		name = RUS_pyotr_wrangel
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/RUS/portrait_RUS_pyotr_wrangel.tga"
+			}
+			army = {
+				large = "gfx/leaders/RUS/portrait_RUS_pyotr_wrangel.tga"
+				small = "gfx/interface/advisors/RUS/idea_pyotr_wrangel.dds"
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = RUS_pyotr_wrangel_ac
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				NOT = { has_idea = RUS_pyotr_wrangel_hc }
+			}				
+			traits = {
+				army_chief_offensive_3
+			}
+			cost = 100
+			ai_will_do = {
+				base = 1.000
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = RUS_pyotr_wrangel_hc
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				NOT = { has_idea = RUS_pyotr_wrangel_ac }
+			}				
+			traits = {
+				army_cavalry_3
+			}
+			cost = 100
+			ai_will_do = {
+				base = 2.000
+			}
+		}
+
+
+		country_leader = { #champion_of_national_cooperation can be added end-game
+			ideology = despotism
+			desc = pyotr_wrangel_desc
+			traits = { 
+				#SWE_respectful_occupier
+				always_with_honor
+				the_black_baron
+				apathetic_to_politics
+				anti_communist
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+
+		#country_leader = {
+		#	ideology = conservatism
+		#	desc = pyotr_wrangel_desc
+		#	traits = { 
+		#		#SWE_respectful_occupier
+		#		always_with_honor
+		#		the_black_baron
+		#		apathetic_to_politics
+		#		anti_communist
+		#	}
+		#	expire = "1960.3.1.1"
+		#	id = -1
+		#}
+		
+		field_marshal = {
+			traits = {  
+				#brilliant_strategist 
+				#cavalry_officer 
+				war_hero 
+				cavalry_leader 
+				cavalry_expert
+				inspirational_leader 
+				aggressive_assaulter
+				offensive_doctrine
+				expert_improviser
+				#trickster	
+			}
+			skill = 5 #+1 to attack and planning because i removed brilliant strat for clutter
+			attack_skill = 4
+			defense_skill = 4
+			planning_skill = 5
+			logistics_skill = 5
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }	
+			}
+		}
+	}
+
+	RUS_lavr_kornilov = {
+		name = RUS_lavr_kornilov
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/portrait_RUS_lavr_kornilov.png"
+				small = "gfx/interface/advisors/RUS/idea_RUS_lavr_kornilov.png"
+			}
+		}
+
+		advisor={
+			slot = high_command
+			idea_token = lavr_kornilov_inf
+			ledger = army
+			allowed = {
+				original_tag = RUS
+			}
+			traits = {
+				army_infantry_3
+			}
+			#cost = 150
+			ai_will_do = {
+				factor = 2.000
+			}
+		}
+
+		country_leader = { 
+			ideology = despotism
+			traits = { 
+				nationalist_symbol
+				#national_champion
+				commander_of_the_shock_troops
+				#indomitable_perseverance
+				apathetic_to_politics #disliked politics, never took charge politically
+				anti_communist
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+		
+		field_marshal = {
+			traits = { 
+				old_guard
+				#offensive_doctrine 
+				#brilliant_strategist 
+				skilled_staffer
+				#infantry_expert
+				infantry_leader
+				aggressive_assaulter
+				war_hero
+				inspirational_leader
+			
+				#organizer
+				#fortress_buster
+				#trickster
+			}
+			skill = 6 #+1 to attack and planning because i removed brilliant strat for clutter
+			attack_skill = 4
+			defense_skill = 4
+			planning_skill = 5
+			logistics_skill = 4
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	RUS_boris_savinkov = {
+		name = RUS_boris_savinkov
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/RUS/Portrait_RUS_Boris_Savinkov.png"
+				small = "gfx/interface/advisors/RUS/RUS_boris_savinkov.png"
+			}
+		}
+		country_leader = { 
+			desc = RUS_boris_savinkov_leader_desc
+			ideology = socialism
+			traits = { a_rider_named_death partisans_organizer } 
+			#militant_socialist. can add each of his books as a long trait name for extra cool flair
+		}
+		advisor = { 								#need to add that has cant be hired if monarchism is adopted as official policy
+			slot = political_advisor
+			idea_token = RUS_boris_savinkov_sic
+			traits = {
+				a_rider_named_death
+				#partisans_organizer
+			}
+			ai_will_do = {
+				base = 2.000
+			}
+			#cost = 150
+			#can_be_fired = no
+		}
+		field_marshal = {
+			traits = { war_hero militias_officer inspirational_leader politically_connected guerilla_fighter scavenger } #peasant_sympathiser
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 3
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	RUS_alexei_putilov = { #Alexei Ivanovich Putilov
+		name = RUS_alexei_putilov
+		portraits = {
+			civilian = {
+				small = GFX_RUS_alexei_putilov
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_alexei_putilov
+			traits = {
+				white_industrialist_and_financier
+				#agrarian_reformist
+			}
+			ai_will_do = {
+				base = 1.000
+			}
+			cost = 150
+			#can_be_fired = no
+		}
+	}
+
+
+	RUS_alexander_guchkov = { #Alexander Ivanovich Guchkov
+		name = RUS_alexander_guchkov
+		portraits = {
+			civilian = {
+				large=GFX_portrait_RUS_alexander_guchkov
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_alexander_guchkov
+			traits = {
+				the_last_octobrist
+			}
+			ai_will_do = {
+				base = 1.000
+			}
+			#cost = 150
+			#can_be_fired = no
+		}
+	}
+
+
+	RUS_aleksandr_rodzyanko = {
+		name = SOV_aleksandr_rodzyanko
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_aleksandr_rodzyanko"
+				small = "GFX_idea_SOV_aleksandr_rodzyanko"
+			}
+		}
+		corps_commander = {
+			traits = { cavalry_leader offensive_doctrine politically_connected }
+			skill = 2
+			attack_skill = 2 #+1 from traits
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+	
+	RUS_patriarch_sergy = {
+		name = SOV_patriarch_sergy
+		portraits = {
+			army = {
+				small = "GFX_idea_SOV_patriarch_sergy"
+			}
+		}
+		allowed_civil_war = {
+			NOT = {
+				OR = {
+					has_government = anarchism 
+					has_government = communism
+				}
+			}
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_patriarch_sergy
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+			}
+			traits = {
+				patriarch_of_moscow_and_all_russia 
+			}
+		}
+	}
+	
+	RUS_metropolitan_anastasy = {
+		name = SOV_metropolitan_anastasy
+		portraits = {
+			army = {
+				small = "GFX_idea_SOV_metropolitan_anastasy"
+			}
+		}
+		allowed_civil_war = {
+			NOT = {
+				OR = {
+					has_government = anarchism 
+					has_government = communism
+					has_government = fascism #paradox, he was actually anti-fascist. not pro.
+				}
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_metropolitan_anastasy
+			allowed = {
+				original_tag = RUS
+			}
+			visible = {
+			}
+			available = {
+				has_global_flag = RUS_metropolitan_anthony_dead
+			}
+			traits = {
+				orthodox_rabblerouser
+			}
+		}		
+	}
+
+	RUS_metropolitan_anthony = {
+		name = RUS_metropolitan_anthony
+		portraits = {
+			army = {
+				small = "GFX_idea_SOV_metropolitan_anastasy"
+			}
+		}
+		allowed_civil_war = {
+			NOT = {
+				OR = {
+					has_government = anarchism 
+					has_government = communism
+				}
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_metropolitan_anthony
+			allowed = {
+				original_tag = RUS
+			}
+			visible = {
+			}
+			available = {
+			}
+			traits = {
+				orthodox_monarchist
+			}
+			can_be_fired = no
+		}		
+	}
+
+	RUS_metropolitan_nikolay = {
+		name = SOV_metropolitan_nikolay
+		portraits = {
+			army = {
+				small = "GFX_idea_SOV_metropolitan_nikolay"
+			}
+		}
+		allowed_civil_war = {
+			NOT = {
+				OR = {
+					has_government = anarchism 
+					has_government = communism
+				}
+			}
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_metropolitan_nikolay
+			allowed = {
+				original_tag = RUS
+			}
+			visible = {
+			}
+			available = {
+			}
+			traits = {
+				theocratic_diplomat
+			}
+		}
+	}
+
+	RUS_metropolitan_aleksy = {
+		name = SOV_metropolitan_aleksy
+		portraits = {
+			army = {
+				small = "GFX_idea_SOV_metropolitan_aleksy"
+			}
+		}
+		allowed_civil_war = {
+			NOT = {
+				OR = {
+					has_government = anarchism 
+					has_government = communism
+				}
+			}
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_metropolitan_aleksy
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+			}
+			visible = {
+			}
+			traits = {
+				driver_of_the_faithful
+			}
+		}		
+	}
+
+	RUS_anastasy_vonsyatsky = {
+		name = SOV_anastasy_vonsyatsky
+		portraits = {
+			army = {
+				small = "GFX_idea_SOV_anastasy_vonsyatsky"
+			}
+		}
+		allowed_civil_war = {
+			OR = {
+				has_government = neutrality 
+				has_government = fascism
+			}
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_anastasy_vonsyatsky
+			allowed = {
+				original_tag = RUS
+			}
+			visible = {
+			}
+			available = {
+				has_completed_focus = RUS_russian_fascism
+			}
+			traits = {
+				the_foreign_connection
+			}
+		}		
+	}
+
+	RUS_aleksandr_kazembek = {
+		name = SOV_aleksandr_kazembek
+		portraits = {
+			army = {
+				small = "GFX_idea_SOV_aleksandr_kazembek"
+			}
+		}
+		allowed_civil_war = {
+			OR = {
+				has_government = neutrality 
+				has_government = fascism
+			}
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_aleksandr_kazembek
+			allowed = {
+				original_tag = RUS
+			}
+			visible = {
+			}
+			available = {
+				has_completed_focus = RUS_russian_fascism
+			}
+			traits = {
+				mladorossi_theorist
+			}
+		}
+	}
+
+	RUS_vladimir_vitkovsky = {
+		name = RUS_vladimir_vitkovsky
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/Portrait_RUS_Vladimir_Vitkovsky.png"
+				#small = "gfx/interface/advisors/RUS/RUS_Vladimir_Vitkovsky.png"
+			}
+		}
+		corps_commander = {
+			desc = RUS_vladimir_vitkovsky_desc
+			traits = {
+				organizer
+				infantry_officer
+				naval_invader
+			
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 3
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	RUS_alexander_lukomsky = { #Alexander Sergeevich Lukomsky
+		name = RUS_alexander_lukomsky
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/Portrait_RUS_alexander_lukomsky.png"
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = RUS_alexander_lukomsky
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+			}				
+			traits = {
+				army_chief_drill_3
+			}
+			cost = 50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		corps_commander = {
+			desc = RUS_alexander_lukomsky_desc
+			traits = {
+				organizer
+				infantry_leader
+				war_hero
+				old_guard
+				trait_engineer
+				logistics_wizard
+				#also was an airplane proponent
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 4
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	RUS_juan_belaieff = { #, Ivan Timofeyevich Belyaev
+		name = RUS_juan_belaieff
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/Portrait_RUS_juan_belaieff.png"
+				small = "gfx/interface/advisors/RUS/idea_ivan_belyaev.dds"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = RUS_juan_belaieff_hc
+			ledger = army
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				NOT = { has_government = communism }
+				NOT = { has_idea = RUS_juan_belaieff_ac }
+				IF = { 
+					limit = { original_tag = RUS }
+					has_completed_focus = RUS_invite_the_exiles_i
+				}
+			}	
+			traits = {
+				surveyor
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = RUS_juan_belaieff_ac
+			ledger = army
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				NOT = { has_government = communism }
+				NOT = { has_idea = RUS_juan_belaieff_hc }
+				IF = { 
+					limit = { original_tag = RUS }
+					has_completed_focus = RUS_invite_the_exiles_i
+				}
+			}	
+			traits = {
+				army_chief_entrenchment_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		corps_commander = {
+			desc = RUS_juan_belaieff_desc
+			traits = {
+				bearer_of_artillery
+				trait_engineer
+				defensive_doctrine
+				old_guard
+			
+				#maybe scavenger too since Wrangel ordered him to produce weapons in kharkov
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 4
+			planning_skill = 4
+			logistics_skill = 4
+			visible = {
+				NOT = { has_government = communism }
+				IF = { 
+					limit = { original_tag = RUS }
+					has_completed_focus = RUS_invite_the_exiles_i
+				}
+			}	
+		}
+	}
+
+	RUS_nikolai_bredov = { #Nikolai Emilievich Bredov
+		name = RUS_nikolai_bredov
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/Portrait_RUS_nikolai_bredov.png"
+				#small = "gfx/interface/advisors/RUS/RUS_nikolai_bredov.png"
+			}
+		}
+		corps_commander = {
+			desc = RUS_nikolai_bredov_desc
+			traits = {
+				war_hero
+				infantry_leader
+				organizer
+				expert_improviser
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 4
+			planning_skill = 4
+			logistics_skill = 4
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	RUS_mikail_promtov = { #Mikhail Nikolaevich Promtov 
+		name = RUS_mikail_promtov
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/Portrait_RUS_mikail_promtov.png"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = RUS_mikail_promtov
+			ledger = army
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+			traits = {
+				army_artillery_2
+			}
+			#cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		corps_commander = {
+			desc = RUS_mikail_promtov_desc
+			traits = {
+				infantry_leader
+				bearer_of_artillery
+				trait_engineer
+				old_guard
+				fortress_buster
+				expert_improviser
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 4
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	RUS_pavel_shatilov = {
+		name = RUS_pavel_shatilov
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/Portrait_RUS_Pavel_Shatilov.png"
+				small = "gfx/interface/advisors/RUS/RUS_pavel_shatilov.png"
+			}
+		}
+		#advisor = { #damn too many of these
+		#	slot = political_advisor
+		#	idea_token = RUS_pavel_shatilov_pa
+		#	allowed = {
+		#		original_tag = RUS	
+		#	}
+		#	available = {
+		#		NOT = { has_idea = RUS_pavel_shatilov_hc }
+		#		NOT = { has_idea = RUS_pavel_shatilov_ac }
+		#	}
+		#	traits = {
+		#		quartermaster_general 
+		#	}
+		#
+		#	ai_will_do = {
+		#		base = 0
+		#	}
+		#}
+		advisor = { #was a quatermaster general
+			slot = high_command
+			idea_token = RUS_pavel_shatilov_hc
+			allowed = {
+				original_tag = RUS	
+			}
+			available = {
+				NOT = { has_idea = RUS_pavel_shatilov_ac }
+				#NOT = { has_idea = RUS_pavel_shatilov_pa }
+			}
+			traits = {
+				army_logistics_1
+			}
+			cost = 50
+			ai_will_do = {
+				base = 1.000
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = RUS_pavel_shatilov_ac
+			allowed = {
+				original_tag = RUS	
+			}
+			available = {
+				NOT = { has_idea = RUS_pavel_shatilov_hc }
+				#NOT = { has_idea = RUS_pavel_shatilov_pa }
+			}
+			traits = {
+				army_chief_planning_2
+				#army_chief_reform_1
+				#army_chief_organizational_1
+			}
+			cost = 100
+			ai_will_do = {
+				base = 1.000
+			}
+		}
+		field_marshal = { #was chief of staff of wrangel's army, he promoted Shatilov to gen of cav (essentially FM) during the evacuation.
+			desc = RUS_pavel_shatilov_commander_desc
+			traits = {
+				organizer
+				politically_connected
+				#cavalry_officer #alr has leader
+				cavalry_leader
+				trickster
+			
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 4
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}
+		}
+	}
+
+	RUS_evgeny_messner={ #Evgeny Eduardovich Messner
+		name=RUS_evgeny_messner
+		portraits={
+			army={
+				small="GFX_idea_RUS_evgeny_messner"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = RUS_evgeny_messner
+			ledger = army
+			allowed = {
+				original_tag = RUS
+			}
+			
+			traits = {
+				military_theorist
+			}
+		}
+	}
+
+	RUS_fyodor_abramov = { #Fyodor  Fedorovich Abramov
+		name = RUS_fyodor_abramov
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/Portrait_RUS_Fyodor_Abramov.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_fyodor_abramov
+			allowed = {
+				original_tag = RUS	
+			}
+			available = {
+			}
+			traits = {
+				quartermaster_general 
+			}
+
+			ai_will_do = {
+				base = 0
+			}
+		}
+		corps_commander={
+			traits = { career_officer cavalry_leader war_hero trait_engineer old_guard }
+			skill = 4
+			attack_skill = 4
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 5
+			legacy_id = 0
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	RUS_mikhail_drozdovsky = {
+		name = RUS_mikhail_drozdovsky
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/portrait_RUS_mikhail_drozdovsky.png"
+				small = "gfx/interface/advisors/RUS/RUS_mikhail_drozdovsky.png"
+			}
+		}
+		advisor = { #
+			slot = high_command
+			idea_token = RUS_mikhail_drozdovsky
+			allowed = {
+					original_tag = RUS
+			}
+			available = {
+			}				
+			traits = {
+				army_infantry_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		corps_commander={
+			traits = { trickster career_officer infantry_leader war_hero }
+			skill = 4
+			attack_skill = 4
+			defense_skill = 4
+			planning_skill = 3
+			logistics_skill = 5
+			legacy_id = 0
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	RUS_mikhail_fostikov = { #Mikhail Fostikov
+		name = RUS_mikhail_fostikov
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/portrait_RUS_mikhail_fostikov.png"
+			}
+		}
+		advisor = { #
+			slot = high_command
+			idea_token = RUS_mikhail_fostikov
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+			}				
+			traits = {
+				army_regrouping_2
+			}
+			#cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		corps_commander={
+			traits = { career_officer war_hero swamp_fox cavalry_leader commando scavenger trait_mountaineer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 5
+			legacy_id = 0
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	RUS_aleksander_kutepov = {
+		name = RUS_aleksander_kutepov
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/Portrait_RUS_Aleksander_Kutepov.png"
+				#small = "gfx/interface/advisors/RUS/RUS_aleksander_kutepov.png"
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = RUS_aleksander_kutepov
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+			}				
+			traits = {
+				army_chief_offensive_2
+			}
+			cost = 100
+			ai_will_do = {
+				base = 1.000
+			}
+		}
+		corps_commander = {
+			traits = {
+				#old_guard
+				harsh_leader
+				career_officer
+				trait_cautious
+				infantry_leader
+			
+			}
+			skill = 4
+			attack_skill = 4
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	RUS_ivan_barbovich = {
+		name = RUS_ivan_barbovich
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/portrait_RUS_ivan_barbovich.png"
+				small=GFX_idea_RUS_ivan_barbovich
+			}
+		}
+		corps_commander={
+			traits = { scavenger cavalry_officer old_guard }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+			legacy_id = 0
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}		
+	}
+
+	RUS_gerasim_vdovenko = { #Gerasim Andreevich Vdovenko, Terek.
+		name = RUS_gerasim_vdovenko
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/portrait_TER_gerasim_vdovenko.png"
+			}
+		}
+		country_leader = {
+			ideology = despotism
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				cossack_ataman
+				anti_communist
+			}
+		}
+		country_leader = {
+			ideology = conservatism
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				cossack_ataman
+				anti_communist
+			}
+		}
+		corps_commander={
+			traits = { scavenger cavalry_leader old_guard career_officer }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+			legacy_id = 0
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}		
+	}
+
+	RUS_afrikan_bogaevskyi = { #advisor, field marshal, and country leader if added to DON
+		name = RUS_afrikan_bogaevskyi
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/RUS/portrait_RUS_afrikan_bogaevskyi.png"
+			}
+			army = {
+				large = "gfx/leaders/RUS/portrait_RUS_afrikan_bogaevskyi.png"
+				small=GFX_idea_RUS_afrikan_bogaevskyi
+			}
+		}
+		
+		corps_commander  = { #field_marshal if  adding to DON
+			traits = {  
+				war_hero 
+				politically_connected
+				career_officer
+				#cavalry_officer
+				cavalry_leader
+				trickster
+			
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 3
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	RUS_Vladimir_Sidorin = {  
+
+	#Vladimir Ilyich Sidorin, DON corps General, fired by Wrangel for supposid DON seperatism and the Novorossyk disaster, but could have been scapegoat? - could be invited back via the invite exiles focus, or is a general for DON?
+
+		name = RUS_Vladimir_Sidorin
+		portraits = {
+			army = {
+				large = "GFX_portrait_DON_Vladimir_Sidorin"
+				small = "GFX_idea_DON_vladimir_sidorin"
+			}
+		}
+		corps_commander  = { #field_marshal if  adding to DON
+			traits = {  
+				politically_connected
+				trait_engineer
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+				IF = {
+					limit = { original_tag = DON }		
+					has_global_flag = RUS_send_sidorin_to_don		
+				}
+				IF = {
+					limit = { original_tag = RUS }		
+					has_country_flag = RUS_invite_exile_generals		
+				}
+			}		
+		}
+	}
+
+
+	RUS_vladimir_may_mayevsky = { #Vladimir May-Mayevsky
+		name = RUS_vladimir_may_mayevsky
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/portrait_RUS_vladimir_may_mayevsky.png"
+				small = "gfx/interface/advisors/RUS/idea_RUS_Vladimir_May_Mayevsky.png"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = RUS_vladimir_may_mayevsky
+			allowed = {
+				original_tag = RUS	
+			}
+			available = {
+
+			}
+			traits = {
+				army_CombinedArms_1 #for smart use of trains to quickly move men from battle to battle in a single day
+			}
+			cost = 50
+			ai_will_do = {
+				base = 1.000
+			}
+		}
+
+		corps_commander = {
+			traits = { old_guard trickster expert_improviser harsh_leader urban_assault_specialist }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 2
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	RUS_sergei_ulagay = { #Sergei Georgievich Ulagay
+		name = RUS_sergei_ulagay
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/portrait_RUS_sergei_ulagay.png"
+				small = "GFX_idea_RUS_sergei_ulagay"
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = RUS_sergei_ulagay
+			allowed = {
+			}
+			traits = {
+				army_chief_morale_2
+			}
+			cost = 100
+			ai_will_do = {
+				base = 1.000
+			}
+		}
+
+		corps_commander = {
+			traits = { trait_cautious naval_invader cavalry_officer inspirational_leader career_officer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 1
+			logistics_skill = 3
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	RUS_pyotr_pisarev = { #Pyotr Konstantinovich Pisarev
+		name = RUS_pyotr_pisarev
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/portrait_pyotr_pisarev.png"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = RUS_pyotr_pisarev
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+			}				
+			traits = {
+				army_cavalry_2
+			}
+			#cost = 100
+			ai_will_do = {
+				base = 2.000
+			}
+		}
+		corps_commander = {
+			traits = { cavalry_officer war_hero career_officer old_guard }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	RUS_vasily_shulgin = {
+		name = RUS_vasily_shulgin
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/RUS/RUS_Vasily_Shulgin.png"
+				small = "gfx/interface/advisors/RUS/idea_RUS_vasily_shulgin.png"
+			}
+		}
+		country_leader = {
+			ideology = fascism_ideology
+			traits = { 
+				editor
+			}
+			expire = "1947.3.1.1"
+			id = -1
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_vasily_shulgin
+			available = {
+				NOT = {
+					has_country_leader = {
+						character = RUS_vasily_shulgin
+						ruling_only = yes
+					}
+				}
+			}
+			traits = {
+				editor 
+			}
+			ai_will_do = {
+				base = 1.000
+			}
+			#cost = 150
+			#can_be_fired = no
+		}
+	}
+
+	RUS_anton_turkul = { #Anton Turkul
+		name = RUS_anton_turkul
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/portrait_RUS_anton_turkul.png"
+				small = "gfx/interface/advisors/RUS/RUS_anton_turkul.png"
+			}
+		}
+		country_leader = {
+			ideology = fascism_ideology
+			traits = { 
+				anti_communist
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+		corps_commander = {
+			traits = { naval_invader infantry_leader aggressive_assaulter }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+
+	RUS_victor_baydalakov = { #Victor Mikhailovich Baidalakov
+		name = RUS_victor_baydalakov
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/portrait_RUS_victor_baydalakov.png"
+				small = "GFX_idea_RUS_victor_baydalakov"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = idea_Soviet_Victor_Baydalakov
+			available = {
+				NOT = {
+					has_country_leader = {
+						character = RUS_victor_baydalakov
+						ruling_only = yes
+					}
+				}
+				if = {
+					limit = {
+						has_dlc = "Man the Guns"
+					}
+					NOT = {
+						has_autonomy_state = autonomy_supervised_state
+					}
+				}
+			}
+			traits = {
+				fascist_demagogue
+				silent_workhorse 
+			}
+		}
+		country_leader = {
+			ideology = fascism_ideology
+			traits = { 
+				fascist_demagogue
+				silent_workhorse 
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+		corps_commander = {
+			traits = { cavalry_officer }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			visible = {
+				#has_country_flag = RUS_military_school
+				always = no
+			}	
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	RUS_anatoly_rogozhin = { #Anatoly Ivanovich Rogozhin, terek 
+		name = RUS_anatoly_rogozhin
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/portrait_RUS_anatoly_rogozhin.png"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = RUS_anatoly_rogozhin
+			ledger = army
+			allowed = {
+				original_tag = TER
+			}
+			traits = {
+				army_chief_offensive_1
+			}
+			cost = 50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		corps_commander = {
+			traits = {
+				cavalry_leader
+				scavenger
+			}
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+			visible = {
+				IF = { 
+					limit = { original_tag = RUS }
+					has_country_flag = RUS_officer_corps_flag
+				}
+			}
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}		
+		}
+	}
+
+	RUS_vasily_bocharov = { #Vasily Mikhailovich Bocharov
+		name = RUS_vasily_bocharov
+		portraits = {
+			army = {
+				large=portrait_RUS_vasily_bocharov
+			} 
+		}
+		advisor = {
+			slot = high_command
+			idea_token = RUS_vasily_bocharov
+			allowed = {
+				original_tag = RUS	
+			}
+			available = {
+				IF = { 
+					limit = { original_tag = RUS }
+					has_country_flag = RUS_officer_corps_flag
+				}
+			}
+			traits = {
+				army_armored_1 
+			}
+			cost = 50
+			ai_will_do = {
+				base = 1.000
+			}
+		}
+
+		corps_commander = {
+			traits = { career_officer infantry_leader panzer_leader unyielding_defender war_hero }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 3
+			visible = {
+				IF = { 
+					limit = { original_tag = RUS }
+					has_country_flag = RUS_officer_corps_flag
+				}
+			}
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}
+		}
+	}
+
+	RUS_mikhail_levitov = { #Mikhail Nikolaevich Levitov
+		name = RUS_mikhail_levitov
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/portrait_RUS_mikhail_levitov.png"
+			}
+		}
+
+		corps_commander = {
+			traits = { career_officer infantry_officer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+			visible = {
+				has_country_flag = RUS_officer_corps_flag
+			}	
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	} 
+
+	RUS_evgeny_ivanov = { #Evgeny Vasilyevich Ivanov
+		name = RUS_evgeny_ivanov
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/portrait_RUS_evgeny_ivanov.png"
+			}
+		}
+
+		corps_commander = {
+			traits = { career_officer cavalry_leader aggresive_assaulter trait_reckless inspirational_leader }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 3
+			visible = {
+				has_country_flag = RUS_officer_corps_flag
+			}	
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	} 
+
+	RUS_vladimir_kharzhevsky = { #Vladimir Grigorievich Kharzhevsky
+		name = RUS_vladimir_kharzhevsky
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/portrait_RUS_vladimir_kharzhevsky.png"
+			}
+		}
+		corps_commander = { 
+			traits = { infantry_officer aggresive_assaulter trait_reckless }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+			visible = {
+				has_country_flag = RUS_officer_corps_flag
+			}	
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	RUS_vyacheslav_naumenko = { #Vyacheslav Grigoryevich Naumenko #Kuban cossack
+		name = RUS_vyacheslav_naumenko
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/portrait_vyacheslav_naumenko.png"
+			}
+		}
+		corps_commander = { #was a lt general and leader of all kuban forces, but idk if that translates to FM
+			traits = { cavalry_leader trait_reckless organizer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	RUS_vyacheslav_tkachyov = {
+		name = SOV_vyacheslav_tkachyov
+
+		portraits = {
+			army = {
+				small = "GFX_idea_SOV_vyacheslav_tkachyov"
+			}
+		}
+		allowed_civil_war = {
+			OR = {
+				has_government = neutrality 
+				has_government = fascism
+				has_government = democratic
+			}
+		}
+
+		advisor = {
+			cost = 100
+			slot = air_chief
+			idea_token = SOV_vyacheslav_tkachyov
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+			}
+			traits = { air_chief_reform_2 }
+		}
+	}
+
+	RUS_oleg_pantyukhov = { #Oleg Pantyukhov
+		name = RUS_oleg_pantyukhov
+		portraits = {
+			army = {
+				large = GFX_Portrait_RUS_oleg_pantyukhov
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = RUS_oleg_pantyukhov_hc
+			allowed = {
+				original_tag = RUS	
+			}
+			available = {
+				NOT = { has_idea = RUS_oleg_pantyukhov_pa }
+			}
+			visible = {
+				has_country_flag = RUS_officer_corps_flag
+			}
+			traits = {
+				army_commando_2
+			}
+			cost = 50
+			ai_will_do = {
+				base = 0
+			}
+		}
+		corps_commander = {
+			traits = {
+				trickster
+				old_guard
+				ranger
+				commando
+				trait_mountaineer
+			
+			}
+			skill = 1
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+			visible = {
+				has_country_flag = RUS_officer_corps_flag
+			}
+		}
+
+		allowed_civil_war = {
+			OR = {
+				has_government = neutrality 
+				has_government = fascism
+				has_government = democratic
+			}
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_oleg_pantyukhov_pa
+			allowed = {
+				original_tag = RUS
+			}
+			visible = {
+			}
+			available = {
+				NOT = { has_idea = RUS_oleg_pantyukhov_hc }
+			}
+			traits = {
+				founder_of_russian_scouting 
+			}
+		}
+	}
+
+
+	RUS_vladimir_zworkyin = { #Vladimir Kosma Zworykin
+
+		portraits = {
+			army = {
+				small = "GFX_idea_RUS_vladimir_zworkyin"
+			}
+		}
+
+		allowed_civil_war = {
+			OR = {
+				has_government = neutrality 
+				has_government = fascism
+				has_government = democratic
+			}
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_vladimir_zworkyin
+			allowed = {
+				original_tag = RUS
+			}
+			visible = {
+			}
+			available = {
+			}
+			research_bonus = {
+				electronics = 0.15
+			}
+			traits = {
+				electronics_inventor
+			}
+		}
+	}
+
+	RUS_yevgeny_miller = { #Yevgeny Miller
+		name = RUS_yevgeny_miller
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/portrait_RUS_miller.png"
+				small = "gfx/interface/advisors/RUS/idea_RUS_yevgeny_miller.png"
+			}
+		}
+		corps_commander = {
+			traits = { old_guard career_officer winter_specialist }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 4
+		}
+
+	}
+
+	RUS_abram_dragomirov = { #Dragomirov Abram Mikhailovich
+		name = RUS_abram_dragomirov
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/portrait_RUS_abram_dragomirov.png"
+			}
+		}
+		field_marshal = { #general of the cav, lead whole armies in ww1
+			traits = { cavarly_leader old_guard career_officer trickster }
+			skill = 4
+			attack_skill = 2
+			defense_skill = 4
+			planning_skill = 4
+			logistics_skill = 4
+		}
+
+	}
+
+	RUS_vasily_flug = { #Vasily Egorovich Flug
+		name = RUS_vasily_flug
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/portrait_RUS_vasily_flug.png"
+			}
+		}
+		field_marshal = { #general of the infantry, lead whole armies in ww1
+			traits = { trickster scavenger infantry_leader old_guard career_officer }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 4
+		}
+
+		#advisor = { #went undercover to organize anti-bolshvik resistance in siberia
+		#	cost = 150
+		#	slot = political_advisor
+		#	idea_token = RUS_vasily_flug
+		#	#ledger = navy
+		#	available  = {
+		#		NOT = {
+		#			OR = {
+		#				has_government = anarchism 
+		#				has_government = communism
+		#			}
+		#		}
+		#	}
+		#	allowed  = {
+		#		original_tag = RUS
+		#	}
+		#	traits = { partisans_organizer } #
+		#}
+	}
+
+	RUS_hugo_khoeler = { #Hugo W. Koehler
+		name = RUS_hugo_khoeler
+		portraits = {
+			army = {
+				small = "GFX_idea_RUS_hugo_khoeler"
+			}
+		}
+		allowed_civil_war = {
+			OR = {
+				has_government = neutrality 
+				has_government = democratic
+			}
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			idea_token = RUS_hugo_khoeler
+			#ledger = navy
+			available  = {
+				NOT = { has_idea = RUS_vasily_flug }
+				has_intelligence_agency = yes 
+				NOT = {
+					OR = {
+						has_government = anarchism 
+						has_government = communism
+						has_completed_focus = RUS_the_great_white_purge
+					}
+				}
+			}
+			allowed  = {
+				original_tag = RUS
+				has_dlc = "La Resistance"
+			}
+			traits = { head_of_intelligence } #charismatic_trailblazer as a possible trait? very hard to do this legend justice. 
+		}
+	}
+
+	RUS_newton_mccully = { #Newton A. McCully
+		name = RUS_newton_mccully
+		portraits = {
+			army = {
+				small = "GFX_idea_RUS_newton_mccully"
+			}
+		}
+		allowed_civil_war = {
+			OR = {
+				has_government = neutrality 
+				has_government = democratic
+			}
+		}
+		advisor = {
+			cost = 75
+			slot = theorist
+			idea_token = RUS_newton_mccully
+			ledger = navy
+			allowed = {
+				original_tag = RUS
+				NOT = {
+					OR = {
+						has_government = anarchism 
+						has_government = communism
+						has_completed_focus = RUS_the_great_white_purge
+					}
+				}
+			}
+			available = {
+			}
+			traits = { grand_fleet_proponent }
+		}
+	}
+
+
+	RUS_aleksandr_prokofyev_seversky = {
+		name = SOV_aleksandr_prokofyev_seversky
+		portraits = {
+			army = {
+				small = "GFX_idea_SOV_aleksandr_prokofyev_seversky"
+			}
+		}
+		allowed_civil_war = {
+			OR = {
+				has_government = neutrality 
+				has_government = fascism
+				has_government = democratic
+			}
+		}
+		advisor = {
+			cost = 100
+			slot = theorist
+			idea_token = SOV_aleksandr_prokofyev_seversky
+			ledger = air
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+			}
+			traits = { victory_through_airpower }
+		}
+	}
+
+	RUS_vasily_yanchenko = {
+		name = SOV_vasily_yanchenko
+
+		portraits = {
+			army = {
+				small = "GFX_idea_SOV_vasily_yanchenko"
+			}
+		}
+		allowed_civil_war = {
+			OR = {
+				has_government = neutrality 
+				has_government = fascism
+				has_government = democratic
+			}
+		}
+		
+		advisor = {
+			cost = 100
+			slot = high_command
+			idea_token = SOV_vasily_yanchenko
+			ledger = air
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+			}
+			traits = { air_air_superiority_2 }
+		}
+	}
+
+	RUS_alexey_arkhangelsky = { #Alexey Petrovich Arkhangelsky 
+		name = RUS_alexey_arkhangelsky
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/portrait_RUS_alexey_arkhangelsky.png"
+			}
+		}
+		corps_commander = {
+			traits = { organizer infantry_officer old_guard }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 3
+			visible = {
+				NOT = { has_government = communism }
+				NOT = { has_government = anarchism }
+			}	
+		}
+	}
+
+	RUS_andrey_shkuro = { #fired by wrangel
+		name = SOV_andrey_shkuro
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_andrey_shkuro"
+				small = "GFX_idea_SOV_andrey_shkuro"
+			}
+		}
+		corps_commander = {
+			traits = { trait_reckless harsh_leader cavalry_officer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 1
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+				IF = {
+					limit = { original_tag = RUS }		
+					has_country_flag = RUS_invite_exile_generals		
+				}
+			}	
+		}
+	}
+
+	RUS_Viktor_Pokrovsky = { #fired by wrangel
+		name = RUS_Viktor_Pokrovsky
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/RUS_Viktor_Pokrovsky.png"
+				small = "gfx/interface/advisors/RUS/idea_KUB_Viktor_Pokrovsky.png"
+			}
+		}
+
+		advisor={
+			slot = high_command
+			idea_token = RUS_Viktor_Pokrovsky
+			ledger = army
+			allowed = {
+				OR = {
+					original_tag = KUB
+					IF = {
+						limit = { original_tag = RUS }		
+						has_country_flag = RUS_invite_exile_generals		
+					}
+				}
+			}
+			traits = {
+				army_logistics_2
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 2.000
+			}
+		}
+
+		corps_commander = {
+			traits = { trait_reckless cavalry_leader career_officer harsh_leader }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 4
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+				IF = {
+					limit = { original_tag = RUS }		
+					has_country_flag = RUS_invite_exile_generals		
+				}
+			}	
+		}
+	}
+
+	RUS_nikolai_schilling = { #fired by wrangel - Nikolai Nikolaevich Schilling
+		name = RUS_nikolai_schilling
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/RUS_nikolai_schilling.png"
+			}
+		}
+
+		corps_commander = {
+			traits = { career_officer infantry_leader }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 2
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+				IF = {
+					limit = { original_tag = RUS }		
+					has_country_flag = RUS_invite_exile_generals		
+				}
+			}	
+		}
+	}
+
+	RUS_alexey_von_lampe = { #Alexey Aleksandrovich von Lampe 
+		name = RUS_alexey_von_lampe
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/Portrait_RUS_alexey_von_lampe.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_alexey_von_lampe
+			allowed = {
+				original_tag = RUS	
+			}
+			available = {
+			}
+			traits = {
+				quartermaster_general 
+			}
+
+			ai_will_do = {
+				base = 0
+			}
+		}
+		corps_commander = { #
+			traits = { infantry_leader organizer old_guard trait_engineer career_officer }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 4
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	MUR_vladimir_marushevsky = { #Vladimir Vladimirovich Marushevsky
+		name = MUR_vladimir_marushevsky
+		portraits = {
+			army = {
+				large = "gfx/leaders/MUR/Portrait_MUR_vladimir_marushevsky.png"
+				small = GFX_MUR_vladimir_marushevsky
+			}
+		}
+		field_marshal = { #last chief of general staff of the imperial army
+			traits = { infantry_leader organizer fortress_buster old_guard winter_specialist }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+			visible = {
+				IF = { 
+					limit = { original_tag = RUS }
+					has_completed_focus = RUS_invite_the_exiles_i
+				}
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	RUS_alexander_bubnov = { #Alexander Dmitrievich Bubnov
+		name = RUS_alexander_bubnov
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/Portrait_RUS_alexander_bubnov.png"
+			}
+		}
+
+		advisor = {
+			slot = navy_chief
+			idea_token = RUS_alexander_bubnov
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+			}				
+			traits = {
+				navy_chief_reform_3
+			}
+			#cost = 50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
+		navy_leader = { #
+			traits = { old_guard_navy navy_career_officer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 2
+			coordination_skill = 2
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	RUS_mikhail_berens = { #Mikhail Berens
+		name = RUS_mikhail_berens
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/Portrait_Russia_Mikhail_Berens.tga"
+			}
+		}
+
+		advisor = {
+			slot = navy_chief
+			idea_token = RUS_mikhail_berens
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+			}				
+			traits = {
+				navy_chief_maneuver_2
+			}
+			#cost = 50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
+		navy_leader = { #
+			traits = { old_guard_navy battleship_adherent ironside destroyer_leader }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 3
+			coordination_skill = 4
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	RUS_mikhail_kederov = { #Mikhail Kederov
+		name = RUS_mikhail_kederov
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/Portrait_Russia_Mikhail_Kedrov.tga"
+			}
+		}
+
+		advisor = {
+			slot = high_command
+			idea_token = RUS_mikhail_kederov
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+			}				
+			traits = {
+				navy_capital_ship_2
+			}
+			#cost = 50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
+		navy_leader = { #
+			traits = { old_guard_navy battleship_adherent ironside gunnery_expert blockade_runner }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 4
+			maneuvering_skill = 4
+			coordination_skill = 5
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	RUS_yakov_podgorny = { #Yakov Ivanovich Podgorny
+		name = RUS_yakov_podgorny
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/Portrait_RUS_yakov_podgorny.png"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = RUS_yakov_podgorny
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+			}				
+			traits = {
+				navy_submarine_2
+			}
+			#cost = 50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		
+		navy_leader = { #
+			traits = { seawolf torpedo_expert mine_craft }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			maneuvering_skill = 2
+			coordination_skill = 3
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+
+	RUS_alexey_zaev = { #Alexey Nikolaevich Zaev
+		name = RUS_alexey_zaev
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/Portrait_RUS_alexey_zaev.png"
+			}
+		}
+		
+		navy_leader = { #
+			traits = { cruiser_captain ground_pounder ironside }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			maneuvering_skill = 3
+			coordination_skill = 3
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+			}	
+		}
+	}
+
+	MUR_pyotr_von_glazenap = { #Pyotr Vladimirovich von Glazenap
+		name = MUR_pyotr_von_glazenap
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/portrait_RUS_peter_von_glazenap.png"
+				small=GFX_RUS_peter_von_glazenap
+			}
+		}
+		corps_commander = {
+			traits = { career_officer scavenger cavalry_leader trickster }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 4
+			visible = {
+				NOT = { has_government = communism }
+				NOT = { has_government = anarchism }
+				IF = { 
+					limit = { original_tag = RUS }
+					has_completed_focus = RUS_invite_the_exiles_i
+				}
+			}	
+		}
+	}
+
+	RUS_anton_denikin = { #resigned for wrangel
+		name = SOV_anton_denikin
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_anton_denikin"
+				small = "GFX_idea_SOV_anton_denikin"
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = anton_denikin
+			allowed = {
+				original_tag = RUS
+			}
+			available = {
+				has_country_flag = RUS_deniken_invited
+			}				
+			traits = {
+				army_chief_drill_1
+			}
+			cost = 50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		
+		field_marshal = {
+			traits = { old_guard skilled_staffer trait_reckless infantry_leader }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 2
+			visible = {
+				has_country_flag = RUS_deniken_invited
+				NOT = { has_government = communism }
+				NOT = { has_government = fascism }
+			}	
+		}
+	}
+	RUS_aleksandr_kerensky = {
+		name = SOV_aleksandr_kerensky
+
+		portraits = {
+			civilian = {
+				large = GFX_portrait_SOV_aleksandr_kerensky
+			}
+			army = {
+				small = "GFX_idea_alexander_kerensky"
+			}
+		}
+		country_leader = {
+			ideology = socialism
+			expire = "1953.3.1.1"
+			id = -1
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_aleksandr_kerensky
+			allowed = {
+					original_tag = RUS
+			}
+			visible = {
+			}
+			available = {
+				if = {
+					limit = {
+						has_dlc = "Man the Guns"
+					}
+					NOT = {
+						has_autonomy_state = autonomy_supervised_state
+					}
+				}
+			}
+			traits = {
+				democratic_reformer 
+				gifted_orator
+				#add something to represent his war position
+			}
+			do_effect = {
+				NOT = {
+					has_government = democratic 
+				}
+			}
+			ai_will_do = {
+				factor = 0.000
+			}
+		}
+	}
+
+}

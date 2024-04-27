@@ -1,0 +1,65 @@
+characters = {
+
+	RCL_lucjan_zeligowski = { #Lucjan Żeligowski
+		name = RCL_lucjan_zeligowski
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/RCL/portrait_RCL_lucjan_zeligowski.tga"
+			}
+			army = {
+				large = "gfx/leaders/RCL/portrait_RCL_lucjan_zeligowski.tga"
+				small=GFX_idea_RCL_lucjan_zeligowski
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = lucjan_zeligowski
+			allowed = {
+				original_tag = RCL
+			}
+			available = {
+			}				
+			traits = {
+				army_infantry_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
+		country_leader = {
+			ideology = despotism
+			traits = { 
+				hardened_officer 
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+
+		country_leader = {
+			ideology = conservatism
+			traits = { 
+				hardened_officer 
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+		
+		corps_commander = {
+			traits = {  
+				aggressive_assaulter
+				scavenger
+				infantry_officer
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+			visible = {
+				#ROOT = { has_completed_focus = RUS_return_of_the_black_baron }
+			}
+		}
+	}
+}

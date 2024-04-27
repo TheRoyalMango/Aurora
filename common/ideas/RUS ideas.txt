@@ -1,0 +1,1753 @@
+ideas = {
+	country = {
+####################################politics (omg they put politics in new far east!!!!)
+
+		RUS_communist_wreckers = {  # also for RUS when they take over SOV
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = RUS
+			}
+			
+			removal_cost = -1
+
+			picture = SOV_organize_wreckers
+
+			equipment_bonus = {
+				infantry_equipment = {
+					reliability = -0.05
+					instant = yes
+				}
+				artillery_equipment = {
+					reliability = -0.05
+					instant = yes
+				}
+				armor = {
+					reliability = -0.05
+					instant = yes
+				}
+			}			
+
+			modifier = { #
+				#license_production_speed = -0.05
+				line_change_production_efficiency_factor = -0.1
+				local_resources_factor = -0.1
+				industrial_capacity_factory = -0.05
+				industrial_capacity_dockyard = -0.05
+				production_speed_buildings_factor = -0.05
+				repair_speed_rail_way_factor = -0.05
+				supply_factor = -0.10
+				consumer_goods_factor = 0.1
+			}
+		}
+
+		RUS_victors_of_the_civil_war = { #
+
+			removal_cost = -1
+
+			picture = RUS_resurrection_idea
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = { has_government = communism }
+				NOT = { has_government = anarchism }
+			}
+
+			modifier = {
+				political_power_factor = 0.05
+				stability_factor = 0.1
+				war_support_factor = 0.025
+				drift_defence_factor = 0.25
+				#army_core_defence_factor = 0.025
+				mobilization_speed = 0.05
+				#resistance_growth_on_our_occupied_states = 0.05
+			}
+			rule = {
+				can_create_factions = yes
+			}
+		}
+
+
+
+		RUS_nts_spirit = {
+			picture = idea_htc_spirit
+
+			removal_cost = -1 #			
+			
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				conscription_factor = 0.05
+				experience_gain_army_factor = 0.05
+				#experience_gain_factor = 0.05
+				land_doctrine_cost_factor = -0.05	
+				war_support_factor = 0.05
+				operation_outcome = 0.15
+				decryption_factor = 0.15
+				#army_core_attack_factor = 0.05			
+			}
+		}
+
+		RUS_green_like_forests_idea = {
+			picture = ETH_peacekeeping_forces
+
+			removal_cost = -1 #			
+			
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				cas_damage_reduction = 0.1
+				dig_in_speed_factor = 0.1
+				max_dig_in_factor = 0.05
+				#terrain_penalty_reduction = 0.025
+			}
+			equipment_bonus = {
+				support_equipment = {
+					build_cost_ic = 0.01
+					instant = yes
+				}
+			}
+		}
+
+		RUS_cossack_partisan_hundreds = {
+			picture = MEX_politicised_army
+
+			removal_cost = -1 #			
+			
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				resistance_damage_to_garrison_on_our_occupied_states = 0.1
+				recon_factor = 0.1
+			}
+		}
+
+		RUS_soviet_infiltrations = {
+			picture = nkvd_2
+
+			removal_cost = -1 #			
+			
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				political_power_factor = -0.1
+				stability_factor = -0.05
+				industrial_capacity_factory = -0.1
+				production_speed_buildings_factor = -0.1								
+				drift_defence_factor = -0.1
+				communism_drift = 0.01
+				conscription_factor = -0.05
+			}
+		}
+
+		#need to add a system where a general gets kidnapped/killed while this spirit is active
+		#unlike NSB, i dont want it where everyone can end up dying. maximum 3 people from a set list (nobody super important, except for the first one)
+
+		RUS_soviet_infiltrations2 = { #they've begun public agitation
+			picture = nkvd_2
+
+			removal_cost = -1 #			
+			
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				political_power_factor = -0.5
+				stability_factor = -0.1
+				industrial_capacity_factory = -0.1
+				production_speed_buildings_factor = -0.1								
+				drift_defence_factor = -0.15
+				communism_drift = 0.03
+				conscription_factor = -0.15
+				mobilization_speed = -0.25 #encouraing draft dodging/not joining military
+			}
+		}
+
+		RUS_factionalism = {
+			picture = rus_advisors
+
+			removal_cost = -1 #			
+			
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				political_advisor_cost_factor = -0.15
+				party_popularity_stability_factor = -0.05
+				political_power_factor = -0.1
+				#stability_factor = -0.05
+				drift_defence_factor = -0.15
+				surrender_limit = -0.05
+			}
+		}
+
+		RUS_exiles = {
+			picture = tur_coordinated_balkan_armed_forces
+
+			removal_cost = -1 #			
+			
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				political_power_factor = -0.15
+				consumer_goods_factor = 0.05
+				weekly_manpower = 2000
+				compliance_growth = 0.1
+				monthly_population = 0.15
+			}
+		}
+
+		RUS_liberal_opposition = {
+			picture = EST_democratic_opposition
+
+			removal_cost = -1 #			
+			
+			allowed = {
+			}
+
+			allowed_civil_war = {always = yes}
+
+			modifier = {
+				political_power_cost = 0.15
+				stability_factor = -0.1
+				war_support_factor = -0.05
+				democratic_drift = 0.04
+			}
+		}
+
+		RUS_puppet_civilian_government_ns = {
+			picture = EST_democratic_opposition
+
+			removal_cost = -1 #			
+			
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				political_power_cost = 0.05
+				stability_factor = -0.05
+				war_support_factor = -0.05
+			}
+		}
+
+		RUS_disgruntled_military = {
+			picture = generic_army_problems
+
+			removal_cost = -1 #			
+			
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				political_power_cost = 0.10
+				stability_factor = -0.05
+				training_time_factor = 0.1
+				war_support_factor = -0.1
+				#experience_gain_army_factor = -0.05
+				neutrality_drift = 0.02
+				fascism_drift = 0.04
+			}
+		}
+
+		RUS_the_crimean_mandate = {
+
+			picture = gre_schachtplan2
+
+			removal_cost = -1
+			
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+
+			rule = {
+				can_not_declare_war = yes
+				can_access_market = no
+			}
+
+			modifier = {
+				political_power_cost = 0.5
+				stability_factor = 0.15
+				war_support_factor = -0.3
+				improve_relations_maintain_cost_factor = -0.15
+				enemy_justify_war_goal_time = 0.25
+				economy_cost_factor = 1
+				#high_command_cost_factor = 1 #alr in the mandate army spirit
+				join_faction_tension = 0.50
+			}
+		}
+
+	RUS_law_on_land = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			picture = POL_looming_peasants_strike
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				compliance_growth = 0.10
+				global_building_slots_factor = 0.1
+				stability_factor = 0.10
+				supply_combat_penalties_on_core_factor = -0.1
+			}
+		}
+	RUS_law_on_land1 = {
+		name = RUS_law_on_land
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			picture = POL_looming_peasants_strike
+
+			modifier = {
+				political_power_gain = 0.15
+				consumer_goods_factor = -0.05
+				supply_combat_penalties_on_core_factor = -0.1
+				compliance_growth = 0.1
+				global_building_slots_factor = 0.1
+				stability_factor = 0.1
+				war_support_factor = 0.05
+			}
+		}
+	RUS_law_on_land2 = {
+		name = RUS_law_on_land
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			picture = POL_looming_peasants_strike
+
+			modifier = {
+				political_power_gain = 0.15
+				consumer_goods_factor = -0.05
+				supply_combat_penalties_on_core_factor = -0.1
+				compliance_growth = 0.15
+				global_building_slots_factor = 0.15
+				stability_factor = 0.1
+				party_popularity_stability_factor = 0.05
+				war_support_factor = 0.05
+			}
+		}
+	RUS_law_on_volost_zemstvos = { #_and_rural_communities
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			picture = ETH_dire_dawa_industries #generic_agrarian_reform
+
+			modifier = { #admin reform focused on regional autonomy for cossacks and labor legislation
+				#conversion_cost_civ_to_mil_factor = -0.1
+				industrial_capacity_factory = 0.05
+				stability_factor = 0.05
+				political_power_factor = -0.05
+				#democratic_drift = 0.02
+				#neutrality_drift = 0.02
+				conscription_factor = 0.05
+				#production_speed_buildings_factor = 0.025
+				compliance_growth = 0.025
+				#non_core_manpower = 0.05 
+				#cavalry_attack_factor = 0.05
+				#modifier_army_sub_unit_cavalry_morale_factor = 0.05
+				unit_cavalry_design_cost_factor = -0.4
+			}
+		}
+
+		RUS_devalued_ruble = {
+				
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = generic_foreign_capital
+				
+			removal_cost = -1
+				
+			modifier = {
+				consumer_goods_factor = -0.1
+				industrial_capacity_factory = -0.05
+				production_speed_buildings_factor = -0.15
+				stability_factor = -0.1
+				trade_opinion_factor = 0.50
+			}
+		}
+
+		RUS_grain_import_reliance = {
+				
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = gre_schachtplan
+				
+			removal_cost = -1
+				
+			modifier = {
+				#ai_focus_aggressive_factor = 0.1
+				#economy_cost_factor = 0.10
+				#trade_laws_cost_factor = 0.10
+				war_support_factor = -0.15
+				stability_factor = -0.05
+				min_export = 0.1
+				consumer_goods_factor = 0.10
+				out_of_supply_factor = 0.05
+			}
+		}
+
+################################################army
+	RUS_forced_conscription = { 
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = chi_forced_conscription
+
+			modifier = {
+				war_support_factor = -0.15
+				resistance_target = 0.05
+				conscription = 0.03
+				army_morale_factor = -0.1
+				non_core_manpower = 0.15
+				mobilization_speed = 0.1
+				compliance_growth = -0.05 
+			}
+		}
+
+#modifier_army_sub_unit_blackshirt_assault_battalion_attack_factor = 0.15 
+#maybe use this to make assault battalions not ass? wish a breakthrough one existed. might have to mod my own "shock battalion"
+
+	RUS_mandate_army = { #this will be for the bookmark. need to update modifiers.
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = hol_expand_the_colonial_army
+
+			modifier = {
+					#positive modifiers
+				#army_core_attack_factor = 0.05 #soldiers less enthusiastic about attacks due to mandate status
+				army_org_factor = 0.05
+				army_attack_factor = 0.1
+				army_defence_factor = 0.05
+				experience_loss_factor = -0.1
+				command_power_gain_mult = 0.25 
+				cavalry_attack_factor = 0.05
+				army_leader_cost_factor = -0.15
+				promote_cost_factor = -0.15
+				max_planning = 0.15
+				planning_speed = -0.2
+				org_loss_when_moving = -0.05
+					#negative modifiers
+				mobilization_speed = -0.5 #mandate
+				high_command_cost_factor = 0.5
+				mobilization_laws_cost_factor = 1#government
+				#
+				experience_gain_army_factor = -0.10
+				experience_gain_factor = -0.15
+				land_doctrine_cost_factor = 0.15
+				#compliance_growth = -0.15 #kept in check by mandate
+
+				custom_modifier_tooltip = RUS_no_units
+			}
+		}
+
+
+#
+#				#ATTENTION: all of the following Russian Army spirits are now defunct and moved to be dynamic. Thank you for your attention
+#
+	RUS_russian_army = { 
+
+		#fake for display purposes
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = russia_dominate #SOV_the_true_tsars
+
+			modifier = {
+					#positive modifiers	
+				army_core_attack_factor = 0.05
+				army_attack_factor = 0.1
+				army_defence_factor = 0.05
+				army_org_factor = 0.05 
+				experience_loss_factor = -0.1
+				cavalry_attack_factor = 0.05
+				army_leader_cost_factor = -0.15
+				promote_cost_factor = -0.15
+				max_planning = 0.15
+				planning_speed = -0.2
+				command_power_gain_mult = 0.25
+				org_loss_when_moving = -0.05
+
+				#negative modifiers
+  				compliance_growth = -0.15
+				experience_gain_army_factor = -0.10
+				experience_gain_factor = -0.15
+				land_doctrine_cost_factor = 0.15
+				army_morale_factor = -0.1 #represents harsh military policies
+
+			}
+		}
+
+		RUS_recruitment_funding = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+		
+			available = {
+			}
+			
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				conscription = 0.03
+				training_time_factor = -0.1
+				non_core_manpower = 0.10
+				mobilization_speed = 0.50
+				consumer_goods_factor = 0.05
+				political_power_factor = -0.1
+			}
+		}
+
+	RUS_i_am_a_volunteer = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+			}
+		
+			available = {
+				#OR = {
+				#	has_idea = disarmed_nation 
+				#	has_idea = volunteer_only 
+				#	has_idea = limited_conscription 
+				#}
+			}
+			
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				conscription = 0.01
+				#army_morale_factor = 0.1
+				training_time_factor = -0.2
+				non_core_manpower = 0.15
+				#experience_loss_factor = -0.1
+				mobilization_speed = 0.25
+			}
+		}
+
+	RUS_mixed_equipment_and_horse_stock_shortage = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = generic_mountain_warfare
+				#citizen_militia_2
+				#ETH_national_studs
+
+			equipment_bonus = {
+				infantry_equipment = {
+					reliability = -0.05
+					instant = yes
+				}
+				artillery_equipment = {
+					reliability = -0.05
+					instant = yes
+				}
+				armor = { 
+					instant = yes
+					reliability = -0.05
+				}
+			}
+			modifier = {
+				out_of_supply_factor = 0.05
+				#supply_consumption_factor = 0.05
+				supply_factor = -0.15
+				army_artillery_attack_factor = -0.05
+				army_attack_factor = -0.1
+				army_defence_factor = -0.1
+				cavalry_attack_factor = -0.1
+				#cavalry_defence_factor = -0.05
+				modifier_army_sub_unit_cavalry_speed_factor = -0.15
+				supply_node_range = -0.1
+				command_power_gain_mult = -0.15
+				disable_strategic_redeployment = 1
+			}
+		}
+
+	RUS_horse_stock_shortage = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = generic_mountain_warfare
+				#citizen_militia_2
+				#ETH_national_studs
+
+			modifier = {
+				out_of_supply_factor = 0.05
+				supply_factor = -0.1
+				cavalry_attack_factor = -0.1
+				#cavalry_defence_factor = -0.05
+				modifier_army_sub_unit_cavalry_speed_factor = -0.15
+				supply_node_range = -0.1
+				disable_strategic_redeployment = 1
+			}
+		}
+
+	RUS_mixed_equipment = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = SWE_hodgepodge_of_equipment #idea_SWE_severe_lack_of_ammunition
+				#citizen_militia_2
+				#ETH_national_studs
+
+			equipment_bonus = {
+				infantry_equipment = {
+					reliability = -0.05
+					instant = yes
+				}
+				artillery_equipment = {
+					reliability = -0.05
+					instant = yes
+				}
+				armor = { 
+					instant = yes
+					reliability = -0.05
+				}
+			}
+			modifier = {
+				#supply_consumption_factor = 0.05
+				army_artillery_attack_factor = -0.05
+				command_power_gain_mult = -0.15
+				army_attack_factor = -0.1
+				army_defence_factor = -0.1
+				supply_factor = -0.05
+				#army_speed_factor = -0.05
+			}
+		}
+
+	RUS_weapon_scavenging_idea = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = ETH_scavenging_tactics
+
+			modifier = {
+				equipment_capture_factor = 0.50 
+				equipment_capture = 0.05
+				command_power_gain_mult = -0.1
+				supply_factor = -0.01
+			}
+		}
+
+#######################################################equipment
+
+		RUS_small_arms_conversions = {
+				
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = SOV_third_five_year_plan_military
+				
+			removal_cost = -1
+			modifier = {
+				production_factory_max_efficiency_factor = -0.15
+				equipment_conversion_speed = 0.25
+			}
+		}
+
+		RUS_repair_workshops = {
+				
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = SOV_third_five_year_plan_military
+				
+			removal_cost = -1
+			equipment_bonus = {
+				infantry_equipment = {
+					#build_cost_ic = -0.05
+					reliability = 0.1
+					instant = yes
+				}
+				armor = {
+					#build_cost_ic = -0.05
+					reliability = 0.05
+					instant = yes
+				}
+				motorized_equipment = {
+					#build_cost_ic = -0.05
+					reliability = 0.1
+					instant = yes
+				}
+			}
+			modifier = {
+				#production_factory_efficiency_gain_factor = 0.05
+				#production_factory_max_efficiency_factor = -0.05
+				#production_lack_of_resource_penalty_factor = -0.05
+				#equipment_capture = 0.05
+				equipment_conversion_speed = 0.25
+				#reliability_factor = 0.05
+			}
+		}
+
+		RUS_winter_clothing_idea = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = tur_sub_zero_survival_training
+			
+			modifier = {
+				acclimatization_cold_climate_gain_factor = 0.2
+				winter_attrition_factor = -0.1
+			}
+
+			equipment_bonus = {
+				support_equipment = {
+					build_cost_ic = 0.01
+					instant = yes
+				}
+			}
+		}
+
+		RUS_mass_mosin_production = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = generic_central_management
+			
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1
+					#reliability = -0.05
+					instant = yes
+				}
+			}
+		}
+
+		RUS_purchased_a_predreadnought1 = { 
+
+			allowed = {
+				always = no
+				#NOT = { has_war_with = RUS }
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = generic_coastal_navy
+
+			modifier = {
+				consumer_goods_factor = 0.05
+			}
+		}
+
+		RUS_sold_a_predreadnought1 = { #need 4 incase 4 are sold at once.
+		name = RUS_sold_a_predreadnought1
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = generic_coastal_navy
+
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+		}
+
+		RUS_sold_a_predreadnought2 = { #need 4 incase 4 are sold at once.
+		name = RUS_sold_a_predreadnought1
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = generic_coastal_navy
+
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+		}
+
+		RUS_sold_a_predreadnought3 = { #need 4 incase 4 are sold at once.
+		name = RUS_sold_a_predreadnought1
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = generic_coastal_navy
+
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+		}
+	
+		RUS_sold_a_predreadnought4 = { #need 4 incase 4 are sold at once.
+		name = RUS_sold_a_predreadnought1
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = generic_coastal_navy
+
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+		}
+
+
+		RUS_artillery_production_focus = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = generic_artillery_manufacturer_1
+
+			modifier = {
+			#consumer_goods_factor = 0.05
+			#industrial_capacity_factory = -0.03
+			}
+			
+			equipment_bonus = {
+				artillery_equipment = {
+					build_cost_ic = -0.05
+					instant = yes
+				}
+				anti_tank_equipment = {
+					build_cost_ic = -0.05
+					instant = yes
+				}
+				anti_air_equipment = {
+					build_cost_ic = -0.05
+					instant = yes
+				}
+				rocket_artillery_equipment = {
+					build_cost_ic = -0.05
+					instant = yes
+				}
+			}
+		}
+
+		RUS_south_russian_maneuvures = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = tur_coordinated_balkan_armed_forces
+			
+			modifier = {
+				mobilization_speed = 0.25
+				supply_consumption_factor = -0.05
+				planning_speed = 0.50
+				army_attack_factor = 0.05
+				army_speed_factor = 0.10
+				naval_invasion_prep_speed = 1
+				naval_invasion_penalty = -0.1
+				terrain_penalty_reduction = 0.05
+			}
+		}
+
+		RUS_concentrate_on_wrangel = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = Soldier_Carrying_Flag_Russia
+			
+			modifier = {
+				army_attack_factor = 0.15
+				army_speed_factor = 0.15
+				cavalry_attack_factor = 0.15
+				war_support_factor = 0.15
+				breakthrough_factor = 0.15
+				army_morale_factor = 0.15
+			}
+		}
+
+		RUS_auxilary_military_roles_for_women_ns = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = generic_women_in_the_army
+			
+			modifier = {
+				conscription = 0.005
+				army_morale_factor = 0.1
+				experience_loss_factor = -0.1
+			}
+		}
+
+		RUS_womens_battalions = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = SOV_fascist_womens_movement
+			
+			modifier = {
+				army_core_defence_factor = 0.02
+				conscription = 0.01
+				#conscription_factor = 0.25
+				female_random_army_leader_chance = 0.2
+				army_morale_factor = 0.1
+				experience_loss_factor = -0.1
+				# forces_attack_factor = 0.5
+				#special_forces_defence_factor = 0.5
+				special_forces_cap = 0.15
+				#modifier_army_sub_unit_blackshirt_assault_battalion_defence_factor = 0.05
+			}
+		}
+
+		####
+		RUS_obsolete_navy = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = generic_coastal_navy
+			research_bonus = {
+				naval_equipment = -0.15
+			}			
+			modifier = {
+				naval_accidents_chance = 0.2
+				navy_anti_air_attack_factor = -0.15
+				naval_speed_factor = -0.15
+				naval_night_attack = -0.15
+				navy_org_factor = -0.1
+				navy_max_range_factor = -0.1
+				naval_has_potf_in_combat_attack = 0.05
+
+				shore_bombardment_bonus = 0.10
+				naval_invasion_penalty = -0.1
+				naval_invasion_capacity = 5
+				#amphibious_invasion = 0.15
+				convoy_retreat_speed = 0.15
+			}
+		}
+
+		RUS_obsolete_navy_reform = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = generic_coastal_navy		
+			modifier = {
+				naval_accidents_chance = 0.1
+				navy_anti_air_attack_factor = -0.1
+				naval_speed_factor = -0.15
+				naval_night_attack = -0.05
+				navy_org_factor = -0.05
+				navy_max_range_factor = -0.1
+				naval_has_potf_in_combat_attack = 0.05
+
+				shore_bombardment_bonus = 0.10
+				naval_invasion_penalty = -0.1
+				naval_invasion_capacity = 5
+				#amphibious_invasion = 0.15
+				convoy_retreat_speed = 0.15
+			}
+		}
+
+		RUS_obsolete_navy_reform2 = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = generic_coastal_navy		
+			modifier = {
+				naval_accidents_chance = 0.05
+				navy_anti_air_attack_factor = -0.05
+				naval_speed_factor = -0.05
+				naval_night_attack = -0.05
+				navy_max_range_factor = -0.05
+				naval_has_potf_in_combat_attack = 0.05
+				shore_bombardment_bonus = 0.10
+				naval_invasion_penalty = -0.1
+				naval_invasion_capacity = 5
+				#amphibious_invasion = 0.15
+				convoy_retreat_speed = 0.15
+				refit_speed = 0.2
+				repair_speed_factor = 0.15
+			}
+		}
+
+		warship_refit_shipyards = { 
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			}
+			
+			removal_cost = -1
+
+			picture = generic_coastal_navy
+			research_bonus = {
+				naval_equipment = 0.05
+			}				
+			modifier = {
+				refit_speed = 0.15	
+				repair_speed_factor = 0.10
+				production_speed_dockyard_factor = 0.1
+			}
+		}
+
+#############################################################MILITARY
+		RUS_cadet_academy = {
+
+			picture = RUS_officer_hat #tur_kemalist_officers
+
+			removal_cost = -1
+			
+			allowed = {
+			}
+
+			allowed_civil_war = {always = yes}
+
+			research_bonus = {				
+				artillery = 0.05
+			}			
+			modifier = {
+				conscription_factor = 0.01
+				experience_loss_factor = -0.025
+				#army_leader_cost_factor = -0.15
+				army_leader_start_planning_level = 1
+				army_leader_start_logistics_level = 1
+				army_leader_start_attack_level = 1
+				army_leader_start_defense_level = 1
+				army_org_factor = 0.025
+				army_leader_cost_factor = -0.1
+				#promote_cost_factor = -0.15
+				command_power_gain_mult = 0.05
+				experience_gain_army_factor = 0.05
+				army_leader_start_level = 1
+				training_time_factor = -0.025
+				land_doctrine_cost_factor = -0.05
+				#drift_defence_factor = 0.05
+				neutrality_drift = 0.01 #military as a whole was very monarchist. cadets trained under them wil reflect this. the drift is small though and will be counteracted anyway via the democratic leader traits
+			}
+		}
+
+		RUS_military_dictatorship_ns = {
+
+			picture = tur_kemalist_army_officers_minimal_power_disloyal #generic_army_problems
+
+			removal_cost = -1
+			
+			allowed = {
+				always = no # Added via focus
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				surrender_limit = 0.05
+				stability_factor = -0.15
+				party_popularity_stability_factor = -0.05
+				war_support_factor = 0.05
+				political_power_factor = 0.25
+	
+				#command_power_gain_mult = 0.1
+				#resistance_damage_to_garrison = -0.1
+
+				mobilization_speed = 0.1
+				#max_command_power = 10
+
+				#resistance_target = -0.05
+				foreign_subversive_activites = -0.1
+				root_out_resistance_effectiveness_factor = 0.1
+				compliance_growth = -0.1
+				#resistance_damage_to_garrison = -0.1
+				drift_defence_factor = 0.15
+				neutrality_drift = 0.04
+				#modifier_army_sub_unit_military_police_defence_factor = 0.05
+				#modifier_army_sub_unit_military_police_max_org_factor = 0.05
+			}
+		}
+		RUS_military_dictatorship_ns2 = {
+
+			picture = tur_kemalist_army_officers_minimal_power_disloyal #generic_army_problems
+			name = RUS_military_dictatorship_ns
+
+			removal_cost = -1
+			
+			allowed = {
+				always = no # Added via focus
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				surrender_limit = 0.05
+				stability_factor = -0.1
+				party_popularity_stability_factor = -0.05
+				war_support_factor = 0.1
+				political_power_factor = 0.15
+
+				#command_power_gain_mult = 0.15
+				#compliance_growth = -0.01
+				#resistance_damage_to_garrison = -0.15
+
+				#conscription = 0.01
+				mobilization_speed = 0.15
+				#max_command_power = 20
+
+				#resistance_target = -0.1
+				foreign_subversive_activites = -0.1
+				compliance_growth = -0.02
+				#resistance_damage_to_garrison = -0.1
+				root_out_resistance_effectiveness_factor = 0.1
+				neutrality_drift = 0.04
+				drift_defence_factor = 0.1
+				#modifier_army_sub_unit_military_police_defence_factor = 0.1
+				modifier_army_sub_unit_military_police_max_org_factor = 0.05
+			}
+		}
+
+
+		RUS_military_dictatorship_ns3 = {
+
+			picture = tur_kemalist_army_officers_minimal_power_disloyal #generic_army_problems
+			name = RUS_military_dictatorship_ns
+
+			removal_cost = -1
+			
+			allowed = {
+				always = no # Added via focus
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				surrender_limit = 0.05
+				stability_factor = -0.15
+				party_popularity_stability_factor = -0.1
+				war_support_factor = 0.1
+				political_power_factor = 0.25
+
+				#command_power_gain_mult = 0.15
+				compliance_growth = -0.1
+				#resistance_damage_to_garrison = -0.1
+
+				#conscription = 0.01
+				mobilization_speed = 0.15
+				#max_command_power = 20
+
+				#resistance_target = -0.1
+				foreign_subversive_activites = -0.2
+				root_out_resistance_effectiveness_factor = 0.15
+				neutrality_drift = 0.01
+				drift_defence_factor = 0.30
+				fascism_drift = 0.04
+				#democratic_drift = -0.01
+				#modifier_army_sub_unit_military_police_defence_factor = 0.1
+				modifier_army_sub_unit_military_police_max_org_factor = 0.05
+			}
+		}
+##################################################################################### ECONOMY
+		RUS_nationalize1 = {
+				
+			allowed = {
+				#NOT = {
+				#	has_idea = civilian_economy
+				#}
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = idea_generic_central_management
+				
+			removal_cost = -1
+				
+			modifier = {
+				political_power_factor = -0.05
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
+				line_change_production_efficiency_factor = 0.05
+				production_speed_buildings_factor = 0.05 
+				#production_speed_industrial_complex_factor = 0.05	
+			}
+		}
+		RUS_nationalize2 = {
+				
+			allowed = {
+				#NOT = {
+				#	has_idea = civilian_economy
+				#}
+				#NOT = {
+				#	has_idea = low_economic_mobilisation
+				#}
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = idea_generic_central_management
+				
+			removal_cost = -1
+				
+			modifier = {
+				political_power_factor = -0.1
+				industrial_capacity_factory = 0.1
+				industrial_capacity_dockyard = 0.1
+				line_change_production_efficiency_factor = 0.1
+				production_speed_buildings_factor = 0.1 
+				#production_speed_industrial_complex_factor = 0.1	
+			}
+		}
+		RUS_nationalize3 = {
+				
+			allowed = {
+				#NOT = {
+				#	has_idea = civilian_economy
+				#}
+				#NOT = {
+				#	has_idea = low_economic_mobilisation
+				#}
+				#NOT = {
+				#	has_idea = partial_economic_mobilisation
+				#}
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = idea_generic_central_management
+				
+			removal_cost = -1
+				
+			modifier = {
+				political_power_factor = -0.15
+				industrial_capacity_factory = 0.15
+				industrial_capacity_dockyard = 0.15
+				line_change_production_efficiency_factor = 0.15
+				production_speed_buildings_factor = 0.15 
+				#production_speed_industrial_complex_factor = 0.15		
+			}
+		}
+
+		RUS_weak_industrial_base = { 
+			#could be a dynamic modifier, but then equipment bonuses would need to be hidden and done via tooltips, which is annoying!
+			#maybe re-name to "Industrial Base" or "Military Industry" like italy. 
+			removal_cost = -1 
+			picture = POL_disjointed_industry
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			research_bonus = {
+				industry = -0.15
+				artillery = -0.15
+				air_equipment = -0.15
+				naval_equipment = -0.15 
+				armor = -0.15
+			}
+			removal_cost = -1
+			
+			equipment_bonus = { 
+				#small_plane_cas_airframe = { 
+				##could even be moved to Caliber Crisis? - which can be renamed to Lack of Spare Parts, Ammuniton, and Horses
+				#	reliability = -0.05
+				#	instant = yes
+				#}
+				artillery_equipment = { #less anti-tank ammo
+					#reliability = -0.05
+					hard_attack = -0.1
+					#breakthrough = -0.15
+					ap_attack = -0.1
+					build_cost_ic = 0.05
+					instant = yes
+				}
+				train_equipment = {
+					build_cost_ic = 0.1
+					instant = yes
+				}
+				#infantry_equipment = { #less anti-tank weapons
+				#	hard_attack = -0.05
+				#	#breakthrough = -0.05 #less explosives?
+				#	ap_attack = -0.05
+				#	instant = yes
+				#}
+				armor = { 
+				#could even be moved to Caliber Crisis? - which can be renamed to Lack of Standardization, Spare Parts, Ammuniton, and Horses
+					instant = yes
+					reliability = -0.05
+					build_cost_ic = 0.1
+				}
+				#air_frame = {
+				#	instant = yes
+				#	reliability = -0.1
+				#	build_cost_ic = 0.05
+				#}
+			}
+
+			modifier = {
+				#line_change_production_efficiency_factor = -0.10
+				production_factory_efficiency_gain_factor = 0.05
+				production_factory_max_efficiency_factor = -0.15
+				production_speed_buildings_factor = -0.1
+				production_speed_arms_factory_factor = -0.05
+				production_speed_industrial_complex_factor = -0.05				
+				production_speed_rail_way_factor = -0.05
+				#industrial_capacity_factory = -0.2
+				industrial_capacity_dockyard = -0.15
+				#consumer_goods_factor = 0.05
+			}
+		}
+
+	RUS_railroad_revitalization_idea = {
+			removal_cost = -1 
+			picture = generic_train_tracks
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			research_bonus = {
+				train_tech = 0.1 
+			}
+			removal_cost = -1
+			
+			equipment_bonus = { 
+				train_equipment = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+			}
+
+			modifier = {
+				production_speed_infrastructure_factor = 0.15			
+				production_speed_rail_way_factor = 0.2
+			}
+		}
+	}
+
+	industrial_concern = {
+
+		russian_asiatic_bank = { #Russian-Asiatic Bank
+
+			allowed = {
+				original_tag = RUS
+			}
+
+			visible = {
+
+			}
+
+			cost = 200
+
+			research_bonus = { #can be upgraded
+				industry = 0.05
+				#artillery = 0.05 #only produced, not designed i think
+				#naval_equipment = 0.05
+				synth_resources = 0.05
+				excavation_tech = 0.05
+				electronics = 0.05
+			}
+
+			traits = { industrial_concern }
+
+			modifier = {
+				political_power_cost = 0.15
+				consumer_goods_factor = -0.05
+				production_speed_rail_way_factor = 0.05
+				industrial_capacity_dockyard = 0.05
+			}
+		}
+	}
+#
+########  ########  ######  ####  ######   ##    ## ######## ########   ######
+##     ## ##       ##    ##  ##  ##    ##  ###   ## ##       ##     ## ##    ##
+##     ## ##       ##        ##  ##        ####  ## ##       ##     ## ##
+##     ## ######    ######   ##  ##   #### ## ## ## ######   ########   ######
+##     ## ##             ##  ##  ##    ##  ##  #### ##       ##   ##         ##
+##     ## ##       ##    ##  ##  ##    ##  ##   ### ##       ##    ##  ##    ##
+########  ########  ######  ####  ######   ##    ## ######## ##     ##  ######
+	aircraft_manufacturer = {
+
+		designer = yes
+
+		RUS_sikorsky_aircraft_corp = { # Sikorsky Aircraft Corporation
+
+			picture = sikorsky_aircraft
+
+			allowed = {
+				original_tag = RUS
+			}
+
+			visible = {
+				hidden_trigger = {
+				}
+			}
+
+			research_bonus = {
+				air_equipment = 0.15
+			}
+
+			traits = { medium_aircraft_manufacturer CAS_manufacturer }
+
+			modifier = {
+			}
+
+			equipment_bonus = {
+				#small_plane_cas_airframe = {
+				#	build_cost_ic = -0.05
+				#}
+			}
+		}
+	}
+
+	naval_manufacturer = {
+
+		designer = yes
+
+ ######                                        #####                        #####
+ #     #  #         ##     ####   #    #      #     #  ######    ##        #     #  #    #  #  #####   #   #    ##    #####   #####
+ #     #  #        #  #   #    #  #   #       #        #        #  #       #        #    #  #  #    #   # #    #  #   #    #  #    #
+ ######   #       #    #  #       ####         #####   #####   #    #       #####   ######  #  #    #    #    #    #  #    #  #    #
+ #     #  #       ######  #       #  #              #  #       ######            #  #    #  #  #####     #    ######  #####   #    #
+ #     #  #       #    #  #    #  #   #       #     #  #       #    #      #     #  #    #  #  #         #    #    #  #   #   #    #
+ ######   ######  #    #   ####   #    #       #####   ######  #    #       #####   #    #  #  #         #    #    #  #    #  #####
+
+ 		RUS_yourkevitch_ship_design_corp = { #Vladimir Yourkevitch
+
+			picture = generic_naval_manufacturer_1
+
+			allowed = {
+				original_tag = RUS
+			}
+
+			visible = {
+			}
+
+			research_bonus = {
+				naval_equipment = 0.15
+			}
+
+			traits = { }
+
+			modifier = {
+			}
+
+			equipment_bonus = {
+				convoy = {
+					build_cost_ic = -0.1
+				}
+			}
+		}
+
+		RUS_black_sea_shipyard = { #_final_3
+			name = SOV_black_sea_shipyard
+
+			picture = SOV_black_sea_shipyard
+
+			allowed = {
+				original_tag = RUS
+			}
+
+			visible = {
+			}
+
+			research_bonus = {
+				naval_equipment = 0.15
+				naval_mines = 0.15
+			}
+
+			traits = { black_sea_naval_manufacturer }
+
+			modifier = {
+				repair_speed_factor = 0.05
+			}
+
+			equipment_bonus = {
+				ship_hull_cruiser_coastal_defense_ship = {
+					build_cost_ic = -0.1
+				}
+				submarine = {
+					build_cost_ic = -0.1
+				}
+			}
+		}
+  #####
+ #     #  ######  #    #    ##     ####   #####   ####   #####    ####   #
+ #        #       #    #   #  #   #         #    #    #  #    #  #    #  #
+  #####   #####   #    #  #    #   ####     #    #    #  #    #  #    #  #
+       #  #       #    #  ######       #    #    #    #  #####   #    #  #
+ #     #  #        #  #   #    #  #    #    #    #    #  #       #    #  #
+  #####   ######    ##    #    #   ####     #     ####   #        ####   ######
+		RUS_sevastopol_marine_plant = {
+			name = SOV_sevastopol_marine_plant
+
+			picture = SOV_sevastopol_marine_plant
+
+			allowed = {
+				original_tag = RUS
+			}
+
+			visible = {
+				hidden_trigger = {
+				}
+			}
+
+			research_bonus = {
+				naval_equipment = 0.1
+			}
+
+			traits = { repair_and_refurbishment_plant }
+
+			modifier = {
+				naval_accidents_chance = -0.15
+				repair_speed_factor = 0.1
+				refit_ic_cost = -0.1
+				refit_speed = 0.1
+			}
+		}
+	}
+}

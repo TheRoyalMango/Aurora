@@ -1,0 +1,456 @@
+﻿### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+
+focus_tree = {
+	id = siberia_tree
+	
+	country = {
+		factor = 0
+		modifier = {
+			add = 10 
+			OR = {
+				original_tag = KRA
+				original_tag = KAH
+				original_tag = TAS
+				original_tag = KIR
+				original_tag = YAK
+				original_tag = TOM
+				original_tag = SIB
+				original_tag = ALT
+			}
+		}
+	}
+
+	default = no
+
+	continuous_focus_position = { x = 20 y = 1250 }  
+	initial_show_position = {
+		x = 12
+		y = 0
+	}
+
+	focus = {
+		id = SIB_develop_capitalstate
+		icon = GFX_focus_generic_industry_1
+		#prerequisite = { focus = }
+
+		x = 3
+		y = 0
+		#relative_position_id = 
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+			capital_scope = {
+				ETH_upgrade_state_category = yes 
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SIB_tame_siberia 
+		icon = GFX_focus_CHL_expand_the_forestry#GFX_focus_SWE_beneath_sticks_and_stone
+		prerequisite = { focus = SIB_develop_capitalstate }
+
+		x = -2
+		y = 1
+		relative_position_id = SIB_develop_capitalstate
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_political_power = 50
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	focus = {
+		id = SIB_pave_the_roads
+		icon = GFX_focus_generic_road_investment
+		prerequisite = { focus = SIB_develop_capitalstate }
+
+		x = 1
+		y = 1
+		relative_position_id = SIB_develop_capitalstate
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SIB_the_steam_locomotive
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = SIB_pave_the_roads }
+
+		x = 0
+		y = 1
+		relative_position_id = SIB_pave_the_roads
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			IF = {
+				limit = {
+					NOT = { has_tech = basic_train }
+				}
+				set_technology = { 
+					basic_train = 1
+					popup = yes
+				}
+			}
+			add_equipment_to_stockpile = { 
+				type = train_equipment_1
+				amount = 10 
+				producer = ROOT
+			}
+		}
+	}
+	focus = {
+		id = SIB_rifle_workshops
+		icon = GFX_RUS_rifle1
+		prerequisite = { focus = SIB_tame_siberia }
+		dynamic = yes 
+		x = -1
+		y = 1
+		relative_position_id = SIB_tame_siberia
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_ideas = NFE_rifle_workshops
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SIB_utilize_trans_siberian_railroad
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = SIB_tame_siberia }
+		x = 1
+		y = 1
+		relative_position_id = SIB_tame_siberia
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = { 
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	#   # ### #   ### ###  ##  ###  #   # 
+	## ##  #  #    #   #  #  # #  #  # #  
+	# # #  #  #    #   #  #### ###    #   
+	#   #  #  #    #   #  #  # #  #   #   
+	#   # ### ### ###  #  #  # #  #   #   
+
+	focus = {
+		id = SIB_the_adjective_armed_forces
+		icon = GFX_goal_generic_small_arms
+		#prerequisite = { focus = }
+
+		x = 8 
+		y = 0
+		#relative_position_id =
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			army_experience = 25
+			add_manpower = 1000
+		}
+	}
+	focus = {
+		id = SIB_improve_our_traditional_warfare
+		icon = GFX_focus_ITA_comandante_diavolo
+		prerequisite = { focus = SIB_the_adjective_armed_forces }
+		mutually_exclusive = { focus = SIB_towards_a_professional_military }
+		x = -1
+		y = 1
+		relative_position_id = SIB_the_adjective_armed_forces
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = cossack_obsolete_army
+				add_idea = cossack_obsolete_army2
+			}
+		}
+	}
+	focus = {
+		id = SIB_improve_irregular_tactics
+		icon = GFX_focus_ITA_comandante_diavolo
+		prerequisite = { focus = SIB_improve_our_traditional_warfare }
+		x = 0
+		y = 1
+		relative_position_id = SIB_improve_our_traditional_warfare
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = cossack_obsolete_army2
+				add_idea = cossack_obsolete_army3
+			}
+		}
+	}
+
+	focus = {
+		id = SIB_command_structure_reform
+		icon = GFX_focus_ITA_comandante_diavolo
+		prerequisite = { focus = SIB_improve_irregular_tactics }
+		x = 0
+		y = 2
+		relative_position_id = SIB_improve_our_traditional_warfare
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = cossack_obsolete_army3
+				add_idea = cossack_obsolete_army4
+			}
+		}
+	}
+	focus = {
+		id = SIB_towards_a_professional_military
+		icon = GFX_focus_SWE_varnplikt
+		prerequisite = { focus = SIB_the_adjective_armed_forces }
+		mutually_exclusive = { focus = SIB_improve_our_traditional_warfare }
+		x = 1
+		y = 1
+		relative_position_id = SIB_the_adjective_armed_forces
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			remove_ideas = cossack_obsolete_army
+		}
+	}
+
+	###   ##  #   ### ### ###  ##   ##  #   
+	#  # #  # #    #   #   #  #  # #  # #   
+	###  #  # #    #   #   #  #    #### #   
+	#    #  # #    #   #   #  #  # #  # #   
+	#     ##  ### ###  #  ###  ##  #  # ### 
+
+
+	focus = {
+		id = SIB_the_first_album
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		#prerequisite = { focus = }
+
+		x = 18
+		y = 0
+		#relative_position_id =
+		cost = 5
+		available = {
+		}
+        ai_will_do = {
+            factor = 100    
+    	} 
+		search_filters = {}
+
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+#
+	focus = {
+		id = SIB_distrust_the_left
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = SIB_the_first_album }
+		mutually_exclusive = { focus = SIB_anarchist_movement }
+		mutually_exclusive = { focus = SIB_local_soviets }
+		x = -5
+		y = 1
+		relative_position_id = SIB_the_first_album
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+        ai_will_do = {
+            factor = 50
+    	} 
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.05
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = anarchism
+				popularity = -0.05
+			}
+		}
+	}
+
+	focus = {
+		id = SIB_anarchist_movement
+		icon = GFX_focus_ARG_no_gods_no_masters
+		prerequisite = { focus = SIB_the_first_album }
+		mutually_exclusive = { focus = SIB_distrust_the_left }
+		mutually_exclusive = { focus = SIB_local_soviets }
+		x = 0
+		y = 1
+		relative_position_id = SIB_the_first_album
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+        ai_will_do = {
+            factor = 50
+    	} 
+		completion_reward = {
+			add_stability = -0.05
+			add_popularity = {
+				ideology = anarchism
+				popularity = 0.1
+			}
+		}
+	}
+
+#
+	focus = {
+		id = SIB_local_soviets
+		icon = GFX_generic_peasant_uprising
+		prerequisite = { focus = SIB_the_first_album }
+		mutually_exclusive = { focus = SIB_distrust_the_left }
+		mutually_exclusive = { focus = SIB_anarchist_movement }
+		x = 5
+		y = 1
+		relative_position_id = SIB_the_first_album
+		cost = 5
+		available = {
+		}
+        ai_will_do = {
+            factor = 0  
+    	} 
+		search_filters = {}
+
+		completion_reward = {
+			add_timed_idea = { idea = YUG_idea_peasant_councils days = 730 }
+		}
+	}
+
+
+	focus = {
+		id = SIB_towards_communism
+		icon = GFX_goal_generic_war_with_comintern
+		prerequisite = { focus = SIB_local_soviets }
+
+		x = 1
+		y = 1
+		relative_position_id = SIB_local_soviets
+		cost = 5
+		available = {
+			has_government = communism
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = SIB_invite_russian_settlers
+		icon = GFX_RUS_rusflag
+		prerequisite = { 
+			focus = SIB_distrust_the_left
+		}
+		x = -6
+		y = 1
+		relative_position_id = SIB_anarchist_movement
+		cost = 5
+		available = {
+			NOT = { has_government = communism }
+			NOT = { has_government = anarchism }
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_stability = -0.05
+			capital_scope = {
+				ETH_upgrade_state_category = yes 
+				add_manpower = 75000
+			}
+			add_manpower = 20000
+		}
+	}
+#
+}

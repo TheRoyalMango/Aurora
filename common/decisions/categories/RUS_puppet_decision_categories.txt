@@ -1,0 +1,13 @@
+
+
+RUS_puppet_descisions = {   
+ 	icon = decision_category_border_conflicts
+
+	visible = {
+        is_subject_of = RUS
+        }
+
+    allowed = {
+        is_subject_of = RUS
+    }
+}

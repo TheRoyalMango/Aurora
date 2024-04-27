@@ -1,0 +1,116 @@
+characters={ #Mikhail Korobeinikov
+
+	YAK_mikhail_korobeinikov = {
+		name = "Mikhail Korobeinikov" 
+		portraits = {
+			civilian = {
+				large = GFX_portrait_mikhail_korobeinikov
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = mikhail_korobeinikov 
+			allowed = {
+			}
+			available = {
+			}				
+			traits = {
+				army_chief_maneuver_1
+			}
+			cost = 50
+			ai_will_do = {
+				base = 1.000
+			}
+		}
+		corps_commander = {
+			traits = { winter_specialist commando ranger guerilla_fighter scavenger }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 4
+			visible = {
+			}
+		}
+	}
+
+	YAK_mikhail_artemyev = { #Mikhail Artemyev
+		name = "Mikhail Artemyev"
+		portraits = {
+			army = {
+				large = GFX_portrait_YAK_mikhail_artemyev
+			}
+		}
+
+		corps_commander = {
+			traits = { winter_specialist commando ranger guerilla_fighter scavenger }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+			visible = {
+			}
+		}
+	}
+
+	YAK_pyotr_kulikovsky = {
+		name = "Pyotr Kulikovsky" 
+		portraits = {
+			civilian = {
+				large = GFX_portrait_Pyotr_Kulikovsky
+			}
+		}
+		country_leader = {
+			ideology = socialism
+			traits = { 
+				education_reformer
+				gov_of_yakut_region
+			}
+			expire = "1950.1.1.1"
+			id = -1
+		}
+	}
+	YAK_pavel_ksenofontov = {
+		name = "Pavel Ksenofontov" 
+		portraits = {
+			civilian = {
+				large = GFX_portrait_YAK_pavel_ksenofontov
+			}
+		}
+		country_leader = {
+			ideology = leninism
+			traits = { 
+			}
+			expire = "1950.1.1.1"
+			id = -1
+		}
+	} 
+	YAK_pavel_pevznyak = {
+		name = "Pavel Pevznyak" 
+		portraits = {
+			civilian = {
+				large = GFX_portrait_Pavel_Pevznyak
+			}
+		}
+		country_leader = {
+			ideology = stalinism
+			expire = "1943.1.1.1"
+			id = -1
+		}
+	}
+	YAK_anatoly_pepelyayev = { #from vanilla hoi4. I un-recruited him in the history file.
+		name = "Anatoly Pepelyayev" 
+		portraits = {
+			civilian = {
+				large = GFX_portrait_Anatoly_Pepelyayev
+			}
+		}
+		country_leader = {
+			ideology = oligarchism
+			expire = "1960.1.1.1"
+			id = -1
+		}
+	}
+}
+	
