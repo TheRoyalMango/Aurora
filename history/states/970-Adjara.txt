@@ -1,0 +1,32 @@
+state = {
+	id = 970
+	name = "STATE_970"
+
+	history = {
+		owner = TUR
+		set_demilitarized_zone = yes
+		victory_points = {
+			3653 3 
+		}
+		buildings = {
+			infrastructure = 3
+			synthetic_refinery = 1
+			3653 = {
+				naval_base = 5
+				coastal_bunker = 2
+				bunker = 1
+			}
+
+		}
+		add_core_of = GEO
+	}
+
+	provinces = {
+		3653 
+	}
+	manpower = 157844
+	buildings_max_level_factor = 1.000
+	state_category = rural
+
+	local_supplies = 5.0 
+}

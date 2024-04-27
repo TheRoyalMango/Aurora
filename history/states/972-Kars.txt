@@ -1,0 +1,30 @@
+
+state={
+	id=972
+	name="STATE_972"
+	manpower = 100134
+	state_category = rural
+
+	history={
+		owner = TUR
+		set_demilitarized_zone = yes		
+		victory_points = {
+			10472 5
+		}
+		buildings = {
+			infrastructure = 2
+			10472 = {
+				bunker = 3 
+				#"Kars had been fortified to withstand a lengthy siege"
+			}
+		}
+		#add_core_of = TUR #in 1897, turks were only 3.7% of the pop lol. even poles were more numerous(!)
+		add_core_of = ARM
+	}
+
+	provinces={
+		10403 10472
+	}
+
+	local_supplies=0.0 
+}

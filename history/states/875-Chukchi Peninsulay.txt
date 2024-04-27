@@ -1,0 +1,29 @@
+state={
+	id=875
+	name="STATE_875" # Chany
+	manpower = 100000
+
+	state_category = pastoral
+
+	history={
+		owner = AFS
+		victory_points = {
+			12679 1
+		}
+		buildings = {
+			infrastructure = 1
+		}
+		add_core_of = AFS
+		1939.1.1 = {
+			buildings = {
+				industrial_complex = 3
+			}
+		}
+	}
+
+	provinces={
+		1733 1860 4366 4840 7687 7722 10555 12606 12679 
+	}
+
+	local_supplies=0.0 
+}

@@ -1,0 +1,25 @@
+
+state={
+	id=973 #Severshchyna / Starodub
+	name="STATE_973"
+	manpower = 604833
+	state_category = rural
+
+	history={
+		owner = UKR		
+		victory_points = {
+			315 2 #Starodub
+		}
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1 #in 1897, had 4 hemp factories and in 1900 a railway
+		}
+		add_core_of = UKR
+	}
+
+	provinces={ #all taken from vanilla Bryansk state (224)
+		315 343 371 398 11229 11298 11325
+	}
+
+	local_supplies=0.0 
+}

@@ -1,0 +1,27 @@
+
+state={
+	id=971
+	name="STATE_971" #South Ossetia
+	manpower = 98118
+	
+	state_category = rural
+
+	history={
+		owner = GEO
+		victory_points = {
+			1530 1 #Tshkinvali
+		}
+		buildings = {
+			infrastructure = 1 #add more via focus for more compliance?
+		}
+		add_core_of = CAU
+		add_core_of = NOA
+		#add_core_of = GEO
+	}
+
+	provinces={
+		1530
+	}
+
+	local_supplies=7.0 
+}
