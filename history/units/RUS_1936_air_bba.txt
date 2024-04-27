@@ -1,0 +1,57 @@
+﻿
+##### AIR WINGS #####
+air_wings = { 
+	137 = { 
+		small_plane_airframe_0 =  {
+			owner = "RUS" 
+			creator = "RUS"
+			amount = 12
+			version_name = "Nieuport 28"
+		}
+		ace={ # Order is important. Ace will be assigned to the wing above 
+			modifier="fighter_unique"
+			name="Sergei"
+			surname="Shebalin"
+			callsign="Besstrashnyy" #Fearless, noted for so.
+			portrait=1
+		}
+		small_plane_airframe_0 =  {
+			owner = "RUS" 
+			creator = "FRA"
+			amount = 12
+			version_name = "NiD 62"
+		}
+		small_plane_cas_airframe_0 =  { 
+			owner = "RUS" 
+			creator = "RUS"
+			amount = 10
+			version_name = "Airco DH.9" 
+		}
+		ace={ # Order is important. Ace will be assigned to the wing above 
+			modifier="support_unique"
+			name="Ivan"
+			surname="Susalin"
+			callsign="Khrabryy" #The Brave - was noted for bravery
+			portrait=2
+		}
+		medium_plane_airframe_0 = { 
+			owner = "RUS" 
+			creator = "RUS"
+			amount = 5
+			version_name = "Skirosky Ilya Muromets V"
+		}
+		ace={ # Order is important. Ace will be assigned to the wing above 
+			modifier="support_unique"
+			name="Leonid"
+			surname="Baidak"
+			callsign="Obmorozheniye" #flew a mission where he got it
+			portrait=3
+		}
+		#small_plane_naval_bomber_airframe_0 = {
+		#	owner = "RUS" 
+		#	creator = "FRA"
+		#	amount = 24
+		#	version_name = "Latécoère 296"
+		#}
+	}  
+} 

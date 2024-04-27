@@ -1,0 +1,40 @@
+﻿
+division_template = {
+	name = "Panzer-Division"
+	priority = 2
+	division_names_group = RUS_ARM_01
+						regiments = {
+						light_armor = { x = 0 y = 0 }
+						light_armor = { x = 0 y = 1 }
+									
+						light_armor = { x = 1 y = 0 }
+						light_armor = { x = 1 y = 1 }
+									
+						motorized = { x = 2 y = 0 }
+						motorized = { x = 2 y = 1 }
+
+						#motorized = { x = 3 y = 0 }
+						#motorized = { x = 3 y = 1 }
+						}
+					support = {
+						engineer = { x = 0 y = 0 }
+						artillery = { x = 0 y = 1 }
+						mot_recon = { x = 0 y = 2 }
+					}
+}
+
+units = {
+	##### Army #####
+	division= {	# "1st Infantry Regiment"
+		name = "German-Trained Armored Division"
+		location = 3686 #sevastopol
+		division_template = "Panzer-Division"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1
+		force_equipment_variants = { light_tank_chassis_1 = { owner = "GER" version_name = "Panzer I Ausf. A" } } 
+		force_equipment_variants = { infantry_equipment_1 = { owner = "GER" } } 
+		force_equipment_variants = { support_equipment_1 = { owner = "GER" } } 
+		force_equipment_variants = { artillery_equipment_1 = { owner = "GER" } } 
+		force_equipment_variants = { motorized_equipment_1 = { owner = "GER" } } 
+	}
+}

@@ -1,0 +1,316 @@
+﻿
+division_template = { #based off of cav divisions of the volunteer army. 
+	name = "Cavalry Division"  
+	division_names_group = RUS_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 2 y = 0 }
+		cavalry = { x = 2 y = 1 }
+		cavalry = { x = 3 y = 0 }
+		cavalry = { x = 3 y = 1 }
+	}
+	support = {
+	}
+}
+
+division_template = {   #based off of cossack brigades of the volunteer army.
+	name = "Cavalry Brigade"  
+	division_names_group = RUS_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+	support = {
+	}
+}
+
+division_template = { #based off of independant infantry regiments and shock regiments (ex: kornilov regiments)
+	name = "Infantry Regiment"
+	division_names_group = RUS_GAR_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+}
+
+division_template = { 
+	name = "Irregular Division" 
+	division_names_group = RUS_MNT_01
+
+	regiments = { 
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 } 
+		light_infantry = { x = 0 y = 2 } 
+		light_infantry = { x = 1 y = 0 } 
+		light_infantry = { x = 1 y = 1 } 
+		light_infantry = { x = 1 y = 2 }
+		cavalry = { x = 2 y = 0 }
+		cavalry = { x = 2 y = 1 }
+	} 
+	support = { 
+		recon = { x = 0 y = 0 } 
+	} 
+} 
+
+
+
+division_template = {  #based off of the main divisions of the volunteer army
+	name = "Infantry Division"
+	division_names_group = RUS_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		cavalry = { x = 3 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 } 
+	}
+}
+ 
+
+
+units = {
+	##### Army #####
+
+###regiments (including shock ones)
+
+	division= {	# "3rd Infantry Regiment" ####
+		name = "1st Penza Defense Regiment"
+		location = 9258 #penza
+		division_template = "Infantry Regiment"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.6
+
+	
+	}
+
+	division= {	# "3rd Infantry Regiment" ####
+		name = "2nd Penza Defense Regiment"
+		location = 6291 #penza
+		division_template = "Infantry Regiment"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.6
+
+	
+	}
+
+	division= {	# "3rd Infantry Regiment" ####
+		name = "5th Penza Defense Regiment"
+		location = 6329 #penza
+		division_template = "Infantry Regiment"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.6
+
+	
+	}
+
+	division= {	# "3rd Infantry Regiment" ####
+		name = "3rd Penza Defense Regiment"
+		location = 11262 #penza
+		division_template = "Infantry Regiment"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.6
+
+	
+	}
+
+	division= {	# "3rd Infantry Regiment" ####
+		name = "4th Penza Defense Regiment"
+		location = 3371 #penza
+		division_template = "Infantry Regiment"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.6
+
+	
+	}
+	##tambov
+	division= {	# "3rd Infantry Regiment" ####
+		name = "Antonov Division"
+		location = 11351 #capital
+		division_template = "Infantry Division"
+		start_experience_factor = 0.4
+		start_equipment_factor = 1.0
+
+	
+	}
+	division= {	# "3rd Infantry Regiment" ####
+		name = "Ishin Regiment"
+		location = 11351 #capital
+		division_template = "Infantry Regiment"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+
+	
+	}
+	division= {	# "3rd Infantry Regiment" ####
+		name = "1st Tambov Regiment"
+		location = 9312 #capital
+		division_template = "Infantry Regiment"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+
+	
+	}
+	division= {	# "3rd Infantry Regiment" ####
+		name = "2nd Tambov Regiment"
+		location = 9245 #capital
+		division_template = "Infantry Regiment"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+
+	
+	}
+
+	division= {	# "3rd Infantry Regiment" ####
+		name = "3rd Tambov Regiment"
+		location = 11323 #capital
+		division_template = "Infantry Regiment"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+
+	
+	}
+	########voronezh
+	division= {	# "3rd Infantry Regiment" ####
+		name = "1st Voronezh Regiment"
+		location = 9448 #voronezh
+		division_template = "Infantry Regiment"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+
+	
+	}
+	division= {	# "3rd Infantry Regiment" ####
+		name = "2nd Voronezh Regiment"
+		location = 413 #voronezh
+		division_template = "Infantry Regiment"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+
+	
+	}
+	division= {	# "3rd Infantry Regiment" ####
+		name = "3rd Voronezh Regiment"
+		location = 9552 #voronezh
+		division_template = "Infantry Regiment"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+
+	
+	}
+	division= {	# "3rd Infantry Regiment" ####
+		name = "4th Voronezh Regiment"
+		location = 11475 #voronezh
+		division_template = "Infantry Regiment"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+
+	
+	}
+
+	division= {	# "3rd Infantry Regiment" ####
+		name = "5th Voronezh Regiment"
+		location = 11412 #voronezh
+		division_template = "Infantry Regiment"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+
+	
+	}
+####sara
+	division= {	# "3rd Infantry Regiment" ####
+		name = "1st Saratov Regiment"
+		location = 3578 #Sara
+		division_template = "Infantry Regiment"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+
+	
+	}
+	division= {	# "3rd Infantry Regiment" ####
+		name = "2nd Saratov Regiment"
+		location = 239 #Mikhaylokva border
+		division_template = "Infantry Regiment"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+
+	
+	}
+
+	division= {	# "3rd Infantry Regiment" ####
+		name = "3rd Saratov Regiment"
+		location = 3566 #Mikhaylokva border
+		division_template = "Infantry Regiment"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+
+	
+	}
+############################
+	division= {	# "2nd cav Division"
+		name = "1st Cavalry Brigade"
+		location = 9529 # mika
+		division_template = "Cavalry Brigade" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.85
+
+
+	}
+#########################
+	division= {	#1st mountain div
+		name = "1st Irregulars"
+		location = 257 #eastern SOV border
+		division_template = "Irregular Division" 	
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.75
+	
+	}
+
+	division= {	# "2nd Mountain Division"
+		name = "2nd Irregulars"
+		location = 11227 #captial
+		division_template = "Irregular Division" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.8
+
+	}
+}
+
+##### AIR WINGS #####
+
+
+
+#########################
+## STARTING PRODUCTION ##
+#########################
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "TAM"
+		}
+		requested_factories = 1
+		progress = 0.54
+		efficiency = 100
+		}
+}

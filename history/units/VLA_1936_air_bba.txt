@@ -1,0 +1,12 @@
+﻿
+##### AIR WINGS #####
+air_wings = { 
+	408 = { 
+		small_plane_cas_airframe_0 =  {
+			owner = "VLA" 
+			creator = "JAP"
+			amount = 12
+			version_name = "Ki-2"
+		}
+	}  
+} 

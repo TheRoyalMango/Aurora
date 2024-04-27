@@ -1,0 +1,32 @@
+﻿
+
+### Air Wings
+air_wings = {
+	206 = { 
+		small_plane_airframe_0 = {
+			owner = "BLR" 
+			creator = "SOV"
+			amount = 50
+			version_name = "I-15"
+		}
+		small_plane_airframe_0 = {
+			owner = "BLR" 
+			creator = "BLR"
+			amount = 50
+			version_name = "I-15"
+		}
+		medium_plane_airframe_0 =  {
+			owner = "BLR" 
+			creator = "SOV"
+			amount = 40
+			version_name = "DB-3"
+		}
+	}
+}
+		
+	#########################
+	## STARTING PRODUCTION ##
+	#########################
+instant_effect = {
+}
+	#####################

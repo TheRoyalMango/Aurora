@@ -1,0 +1,16 @@
+﻿
+##### AIR WINGS #####
+air_wings = { 
+	231 = { 
+		fighter_equipment_0 = { 
+			amount = 24
+			owner = "GEO" 
+			creator = "FRA"
+		} 
+		CAS_equipment_1 =  { 
+			owner = "GEO" 
+			creator = "FRA"
+			amount = 12
+		}
+	}  
+} 

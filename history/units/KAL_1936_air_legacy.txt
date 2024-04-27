@@ -1,0 +1,10 @@
+﻿
+air_wings = { 
+	237 = { 
+		fighter_equipment_0 = { 
+			amount = 5 
+			owner = "KAL" 
+			creator = "RUS"
+		} 
+	}  
+} 

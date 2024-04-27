@@ -1,0 +1,31 @@
+﻿units = {
+	fleet = {
+		name = "Georgian Navy"			
+		naval_base = 3686 # 
+		task_force = {				
+			name = "Georgian Navy"
+			location = 11617 # 
+									
+#destroyers
+			ship = { name = "Sukhumi" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = GEO version_name = "Kerch class" } } }
+
+			ship = { name = "Oni" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = GEO version_name = "Auxilary Ship" } } }
+
+			ship = { name = "Gori" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = GEO version_name = "Auxilary Ship" } } }
+			
+			ship = { name = "Sagarejo" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = GEO version_name = "Auxilary Ship" } } }
+		}	
+		task_force = {				
+			name = "Submarine Fleet"
+			location = 11617 # 
+			ship = { name = "Tevzi" definition = submarine start_experience_factor = 0 equipment = { ship_hull_submarine_1 = { amount = 1 owner = GEO version_name = "AG class" } } }
+
+			ship = { name = "Delpini" definition = submarine start_experience_factor = 0 equipment = { ship_hull_submarine_1 = { amount = 1 owner = GEO version_name = "AG class" } } }
+			
+		} 			
+	}
+}
+#
+
+instant_effect = {
+}

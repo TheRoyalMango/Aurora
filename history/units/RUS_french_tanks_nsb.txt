@@ -1,0 +1,39 @@
+﻿
+division_template = {
+	name = "Division Mécanique Légère"
+	priority = 2
+	division_names_group = RUS_ARM_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+									
+		medium_armor = { x = 1 y = 0 }
+		light_armor = { x = 1 y = 1 }
+									
+		motorized = { x = 2 y = 0 }
+		motorized = { x = 2 y = 1 }
+		motorized = { x = 2 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+		light_tank_recon = { x = 0 y = 2 }
+		maintenance_company = { x = 0 y = 3 }
+	}
+}
+
+units = {
+	division= {	
+		name = "1ère Division Mécanique Légère Russe"
+		location = 3686 #sevastopol
+		division_template = "Division Mécanique Légère"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1
+		force_equipment_variants = { light_tank_chassis_1 = { owner = "FRA" version_name = "H-35" } } 
+		force_equipment_variants = { medium_tank_chassis_0 = { owner = "FRA" version_name = "SOUMUA S35" } } 
+		force_equipment_variants = { infantry_equipment_1 = { owner = "FRA" } } 
+		force_equipment_variants = { support_equipment_1 = { owner = "FRA" } } 
+		force_equipment_variants = { artillery_equipment_1 = { owner = "FRA" } } 
+		force_equipment_variants = { motorized_equipment_1 = { owner = "FRA" } } 
+	}
+}

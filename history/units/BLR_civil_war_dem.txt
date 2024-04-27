@@ -1,0 +1,128 @@
+﻿division_template = {  
+	name = "Liohkaj Piachotnaj Bryhady"  #light inf regiment
+	division_names_group = BLR_MTN_01
+
+	regiments = { 
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 } 
+		light_infantry = { x = 1 y = 0 } 
+		light_infantry = { x = 1 y = 1 } 
+		cavalry = { x = 2 y = 0 }
+	} 
+	support = { 
+		recon = { x = 0 y = 0 } 
+		maintenance_company = { x = 0 y = 1 } 
+	} 
+	priority = 2
+} 
+
+division_template = {
+	name = "Bryhada Pamieznaj Achovy" 	 #Border guards		
+	division_names_group = BLR_GAR_01
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }	
+		cavalry = { x = 1 y = 0 }		
+		cavalry = { x = 1 y = 1 }
+		light_armor = { x = 2 y = 0 }		
+	}
+	support = {
+		recon = { x = 0 y = 0 } 
+		maintenance_company = { x = 0 y = 1 } 
+		engineer = { x = 0 y = 2 } 
+	}
+	priority = 2
+}
+
+division_template = { 
+	name = "Milicyja" #militia
+	division_names_group = BLR_GAR_01
+	is_locked = yes
+
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 0 y = 2 }
+		militia = { x = 0 y = 3 }
+	}
+	support = {
+		#maintenance_company = { x = 0 y = 0 }
+	}
+	priority = 0
+}
+
+units = { ### UNITS
+	division= {	# 
+		name = "1st Bryhada Pamieznaj Achovy"
+		location = 6413 #OUTSIDE VILNIUS
+		division_template = "Bryhada Pamieznaj Achovy" 
+		start_experience_factor = 0.4
+		start_equipment_factor = 1.0
+	}
+
+	division= {	#
+		name = "1st Liohkaj Piachotnaj Bryhady"
+		location = 9359 #
+		division_template = "Liohkaj Piachotnaj Bryhady" 	
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.8
+	}
+	division= {	# 
+		name = "2nd Liohkaj Piachotnaj Bryhady"
+		location = 9304 #
+		division_template = "Liohkaj Piachotnaj Bryhady" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.8
+	}
+	division= {	# 
+		name = "3rd Liohkaj Piachotnaj Bryhady"
+		location = 3393 #Grodno
+		division_template = "Liohkaj Piachotnaj Bryhady" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.8
+
+	}
+	division= {	#
+		name = "Milicyja"
+		location = 560 #Pinsk
+		division_template = "Milicyja" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+	division= {	# 
+		name = "Milicyja"
+		location = 11285 #2 provinces east of pinsk
+		division_template = "Milicyja" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+	division= {	#
+		name = "Milicyja"
+		location = 11341 #under baranavichy
+		division_template = "Milicyja" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.8
+	}
+	division= {	# 
+		name = "Milicyja"
+		location = 9288 #homiel
+		division_template = "Milicyja" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.8
+	}
+	division= {	# 
+		name = "Milicyja"
+		location = 9249 #left of homiel
+		division_template = "Milicyja" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.8
+	}
+	division= {	# 
+		name = "Milicyja"
+		location = 3203 #lefter of homiel
+		division_template = "Milicyja" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.8
+	}
+
+}

@@ -1,0 +1,93 @@
+﻿units = {
+	fleet = {
+		name = "Black Sea Fleet"			
+		naval_base = 11683 # Odesa
+		task_force = {				
+			name = "First Brigade"
+			location = 11683 # 
+#BB
+			ship = { name = "Soborna Ukraina" pride_of_the_fleet = yes definition = battleship equipment = { battleship_1 = { amount = 1 owner = UKR } } }	
+
+			ship = { name = "Imperatritsa Mariya" definition = battleship equipment = { battleship_1 = { amount = 1 owner = UKR } } }		
+#Cruiser
+			ship = { name = "Hetman Ivan Mazepa" definition = heavy_cruiser  equipment = { heavy_cruiser_1 = { amount = 1 owner = UKR } } }	
+#cruiser light
+			ship = { name = "Hetman Bogdan Khmelnitsky" definition = light_cruiser equipment = { light_cruiser_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Hetman Petro Doroshenko" definition = light_cruiser equipment = { light_cruiser_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Hetman Petro Konashevich-Sagaidachny" definition = light_cruiser equipment = { light_cruiser_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Taras Shevchenko" definition = light_cruiser equipment = { light_cruiser_1 = { amount = 1 owner = UKR } } }
+#DD
+			ship = { name = "Kyiv" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Chigyrin" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Baturin" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Lviv" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Ivan Vyhovskyi" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Ivan Sirko" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Pylip Orlyk" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Kost Hordienko" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Martyn Nebaba" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Ivan Pidkova" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Bystry" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Fierce" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = UKR } } }
+
+		}	
+		task_force = {				
+			name = "Submarine Fleet"
+			location = 3755# 
+
+			ship = { name = "AG 21" definition = submarine equipment = { submarine_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "AG 23" definition = submarine equipment = { submarine_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "AG 24" definition = submarine equipment = { submarine_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "AG 25" definition = submarine equipment = { submarine_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "AG 26" definition = submarine equipment = { submarine_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Swan" definition = submarine equipment = { submarine_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Pelikan" definition = submarine equipment = { submarine_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Nerpa" definition = submarine equipment = { submarine_1 = { amount = 1 owner = UKR } } }
+			
+		} 			
+	}
+	fleet = { 
+	name = "Reserve Fleet"
+	naval_base = 11670 # 
+			task_force = {				
+			name = "Second Brigade"
+			location = 11670 #
+			### Pantlelion ###			
+						
+			ship = { name = "Evstafi " definition = battleship equipment = { heavy_cruiser = { amount = 1 owner = UKR } } }
+
+			ship = { name = "Ioann Zlatoust" definition = battleship equipment = { heavy_cruiser = { amount = 1 owner = UKR } } }		
+#
+			}
+		task_force = {				
+			name = "Auxilary Fleet"
+			location = 11670 # 
+			ship = { name = "Alexei" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Georgiy" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Danube" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Konstantyn" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Ksenia" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Mina" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Nikolai" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Ayu-Dag" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = UKR } } }
+			ship = { name = "Brusylov" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = UKR } } }
+			
+		} 
+	}	
+}
+instant_effect = {
+
+	# Ship Production
+	# DD: Sitka class
+#	add_equipment_production = {
+#		equipment = {
+#			type = ship_hull_light_2
+#			creator = "RUS" 
+#			version_name = "Rostov class"
+#		}
+#		name = "Zhivoi II" 
+#		requested_factories = 1
+#		progress = 0.35
+#		amount = 1
+#	}
+}

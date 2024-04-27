@@ -1,0 +1,34 @@
+﻿
+##### AIR WINGS #####
+air_wings = { 
+	202 = { 
+		small_plane_airframe_0 =  {
+			amount = 50 
+			owner = "UKR" 
+			creator = "POL"
+			version_name = "PZL P.11"
+		}
+		medium_plane_airframe_0 =  {
+			amount = 15 
+			owner = "UKR" 
+			#creator = "POL"
+			version_name = "Skirosky Ilya Muromets V"
+		}
+	}
+	226 = {
+		small_plane_airframe_0 =  {
+			amount = 24
+			owner = "UKR" 
+			#creator = "POL"
+			version_name = "Ukr. Fokker D.VII"
+		}
+	}
+	192 = {
+		small_plane_naval_bomber_airframe_0 = {
+			owner = "UKR" 
+			creator = "FRA"
+			amount = 12
+			version_name = "Latécoère 296"
+		}
+	}  
+} 

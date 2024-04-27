@@ -1,0 +1,393 @@
+﻿division_template = {  
+	name = "Kavalieryjskaja Bryhada"   #Kavalieryjskaja brigade
+	division_names_group = BLR_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+}
+
+division_template = {  
+	name = "Piachotnaj Dyvizii" #inf division #piachotnaj dyvizii
+	division_names_group = BLR_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 } 
+		recon = { x = 0 y = 2 }
+	}
+}
+
+division_template = { 
+	name = "Piachotnaja Bryhada" #inf brigade
+	division_names_group = BLR_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		cavalry = { x = 2 y = 0 }
+		cavalry = { x = 2 y = 1 }
+
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 } 
+	}
+	#priority = 0
+}
+
+division_template = {
+	name = "Tankavaja Bryhada"  #tankavy polk				
+	division_names_group = BLR_ARM_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }	
+		motorized = { x = 0 y = 2 }	
+		medium_armor = { x = 1 y = 0 }		
+		light_armor = { x = 1 y = 1 }
+		light_armor = { x = 1 y = 2 }				
+	}
+	support = {
+		light_tank_recon = { x = 0 y = 0 } 
+		maintenance_company = { x = 0 y = 1 } 
+		engineer = { x = 0 y = 2 } 
+		artillery = { x = 0 y = 3 } 
+	}
+	priority = 2
+}
+
+division_template = {  
+	name = "Liohkaj Piachotnaj Bryhady"  #light inf regiment
+	#division_names_group = BLR_MNT_01
+
+	regiments = { 
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 } 
+		light_infantry = { x = 1 y = 0 } 
+		light_infantry = { x = 1 y = 1 } 
+		cavalry = { x = 2 y = 0 }
+	} 
+	support = { 
+		recon = { x = 0 y = 0 } 
+		maintenance_company = { x = 0 y = 1 } 
+	} 
+	priority = 0
+} 
+
+division_template = {
+	name = "Bryhada Pamieznaj Achovy" 	 #Border guards		
+	division_names_group = BLR_GAR_01
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }	
+		cavalry = { x = 1 y = 0 }		
+		cavalry = { x = 1 y = 1 }
+		light_armor = { x = 2 y = 0 }		
+	}
+	support = {
+		recon = { x = 0 y = 0 } 
+		maintenance_company = { x = 0 y = 1 } 
+		engineer = { x = 0 y = 2 } 
+	}
+	priority = 0
+}
+
+division_template = {
+	name = "NKVD Pogranichnaya Diviziya"			# NKVD Border Guard Division - Garrison units (older experience, older equipment)
+	division_names_group = SOV_GAR_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }	
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+	support = 	{
+		military_police = { x = 0 y = 0 }
+	}
+	priority = 0
+	is_locked = yes 
+}
+
+units = {
+#NKVD
+	division= {	# 
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 11370 #Minsk
+		division_template = "NKVD Pogranichnaya Diviziya" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+		force_equipment_variants = { infantry_equipment_0 = { owner = "SOV" } }
+	}
+	division= {	# 
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 3320 #Vilnia
+		division_template = "NKVD Pogranichnaya Diviziya" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.8
+		force_equipment_variants = { infantry_equipment_0 = { owner = "SOV" } }
+	}
+	division= {	# 
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 9288 #Homiel
+		division_template = "NKVD Pogranichnaya Diviziya" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.8
+		force_equipment_variants = { infantry_equipment_0 = { owner = "SOV" } }
+	}
+#################################################											Divisions
+	division= {	# 
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 11370 #Minsk
+		division_template = "Piachotnaj Dyvizii" 
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+		force_equipment_variants = { infantry_equipment_0 = { owner = "SOV" } }
+		force_equipment_variants = { artillery_equipment_1 = { owner = "SOV" } }
+}
+	division= {	# 
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 11313 #salihorsk
+		division_template = "Piachotnaj Dyvizii" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+		force_equipment_variants = { infantry_equipment_0 = { owner = "SOV" } }
+		force_equipment_variants = { artillery_equipment_1 = { owner = "SOV" } }
+}
+
+	division= {	# 
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 9304 # bara
+		division_template = "Piachotnaj Dyvizii" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+		force_equipment_variants = { infantry_equipment_0 = { owner = "SOV" } }
+		force_equipment_variants = { artillery_equipment_1 = { owner = "SOV" } }
+}
+###########################																	Brigades
+	division= {	# 
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 6306 #outside bara
+		division_template = "Piachotnaja Bryhada"  #Piachotnaja Bryhada
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+}
+	division= {	# 
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 9249 #ukr border, chernigov
+		division_template = "Piachotnaja Bryhada" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+}
+
+	division= {	# 
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 3320 #vilnus 
+		division_template = "Piachotnaja Bryhada" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+}
+	division= {	# 
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 6359 #outside grodno
+		division_template = "Piachotnaja Bryhada" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+}
+
+#################################################### 										Cavarly
+	division= {	# 
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 3350 # bob
+		division_template = "Kavalieryjskaja Bryhada" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 1.0
+
+	}
+	division= {	# 
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 11241 # vitebsk
+		division_template = "Kavalieryjskaja Bryhada" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 1.0
+
+	}
+	division= {	# 
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 9554 # ukr/pol border
+		division_template = "Kavalieryjskaja Bryhada" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 1.0
+
+	}
+
+	division= {	# 
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 6232 # ukr/pol border
+		division_template = "Kavalieryjskaja Bryhada" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 1.0
+
+	}
+
+###########																					Light Inf Tank
+	division= {	# 
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 11370 #Misnk
+		division_template = "Tankavaja Bryhada" 
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+		force_equipment_variants = { infantry_equipment_1 = { owner = "SOV" } }
+		force_equipment_variants = { motorized_equipment_1 = { owner = "SOV" } }
+}
+#############################################												Light Inf
+	division= {	# 
+		name = "1 Bryhada Pamieznaj Achovy"
+		location = 3320 #vilnius
+		division_template = "Bryhada Pamieznaj Achovy" 
+		start_experience_factor = 0.5
+		start_equipment_factor = 1.0
+		force_equipment_variants = { gw_tank_equipment = { owner = "FRA" } }
+		#french tanks sent to the white army and captured by the soviets. handed over to belarus. 
+	}
+
+	division= {	#
+		name = "1 Liohkaj Piachotnaj Bryhady"
+		location = 9295 #vilnus border
+		division_template = "Liohkaj Piachotnaj Bryhady" 	
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.75
+	
+	}
+
+	division= {	# 
+		name = "2 Liohkaj Piachotnaj Bryhady"
+		location = 6413 #vilnus border
+		division_template = "Liohkaj Piachotnaj Bryhady" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.8
+
+	}
+	division= {	# 
+		name = "3 Liohkaj Piachotnaj Bryhady"
+		location = 3393 #Grodno
+		division_template = "Liohkaj Piachotnaj Bryhady" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.8
+
+	}
+	division= {	# 
+		name = "4 Liohkaj Piachotnaj Bryhady"
+		location = 560 #
+		division_template = "Liohkaj Piachotnaj Bryhady" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.8
+
+	}
+
+}
+##### AIR WINGS #####
+#air_wings = { 
+#	95 = { 
+#		fighter_equipment_0 = { 
+#			amount = 30 
+#			owner = "BLR" 
+#			creator = "SOV"
+#		} 
+#		tac_bomber_equipment_0 = { 
+#			amount = 30 
+#			owner = "BLR" 
+#			creator = "SOV"
+#		} 
+#	}
+#	206 = { 
+#		fighter_equipment_0 = { 
+#			amount = 30 
+#			owner = "BLR" 
+#			creator = "SOV"
+#		} 
+#	}
+#} 
+
+
+#########################
+## STARTING PRODUCTION ##
+#########################
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "BLR"
+		}
+		requested_factories = 2
+		progress = 0.54
+		efficiency = 100
+		}
+}

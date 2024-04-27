@@ -1,0 +1,167 @@
+﻿
+division_template = {   
+	name = "Cossack Brigade"  
+	division_names_group = RUS_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+	}
+	support = {
+		recon = { x = 0 y = 0 } 
+	}
+}
+
+division_template = {   
+	name = "Cossack Division"  
+	division_names_group = RUS_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 2 y = 0 }
+		cavalry = { x = 2 y = 1 }
+		cavalry = { x = 3 y = 0 }
+		cavalry = { x = 3 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 } 
+	}
+}
+
+division_template = { 
+	name = "Platsun Brigade"
+	division_names_group = RUS_GAR_01
+
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+	}
+	support = {
+		#recon = { x = 0 y = 0 }
+		#artillery = { x = 0 y = 0 } 
+	}
+	priority = 0
+}
+
+division_template = { 
+	name = "Rifle Brigade"
+	division_names_group = RUS_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	support = {
+		#recon = { x = 0 y = 0 }
+		artillery = { x = 0 y = 0 } 
+	}
+	#priority = 0
+}
+
+#division_template = {  
+#	name = "Irregular Division" 
+#	division_names_group = RUS_MNT_01
+#
+#	regiments = { 
+#		light_infantry = { x = 0 y = 0 } 
+#		light_infantry = { x = 0 y = 1 }
+#		cavalry = { x = 1 y = 0 }
+#		#cavalry = { x = 1 y = 1 }
+#	} 
+#	support = { 
+#		recon = { x = 0 y = 0 } 
+#	} 
+#} 
+
+units = {
+	division = { #inf
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 11724
+		division_template = "Rifle Brigade"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
+		force_equipment_variants = { infantry_equipment_0 = { owner = "GER" } }
+	}
+	division = { #Inf
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 11724
+		division_template = "Rifle Brigade"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
+		force_equipment_variants = { infantry_equipment_0 = { owner = "DON" } }
+	}
+	division = { #platsun
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 11724
+		division_template = "Platsun Brigade" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 1
+		force_equipment_variants = { infantry_equipment_0 = { owner = "DON" } }
+	}
+	division = { #cav 
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 11724
+		division_template = "Cossack Brigade"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
+	}
+	division = { #cav
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 11724
+		division_template = "Cossack Brigade" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
+	}
+}
+
+##### AIR WINGS ##### 
+#removed to lessen BBA hassle. well re-add as well as other cossack planes. remember to make focus for RUS to get all of their puppet's smaller airfoces (warlord integration type shit)
+#air_wings = { 
+#	237 = { 
+#		fighter_equipment_0 = { 
+#			amount = 5 
+#			owner = "KAL" 
+#			creator = "KAL"
+#		} 
+#	}  
+#} 
+
+
+#########################
+## STARTING PRODUCTION ##
+#########################
+
+#instant_effect = {
+#	add_equipment_production = {
+#		equipment = {
+#			type = infantry_equipment_0
+#			creator = "KAL"
+#		}
+#		requested_factories = 1
+#		progress = 0.54
+#		efficiency = 100
+#		}
+#}

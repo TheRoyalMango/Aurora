@@ -1,0 +1,284 @@
+﻿
+division_template = {   #
+	name = "Kavaleriyskaya Polk"   #Kavaleriyskaya Polk
+	division_names_group = RUS_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+	support = {
+	}
+}
+division_template = {   #
+	name = "Kazach'ya Kavaleriyskaya Brigada"   #
+	division_names_group = RUS_CAV_02
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 2 y = 0 }
+		cavalry = { x = 2 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+	is_locked = yes
+}
+division_template = { 
+	name = "Pekhotnaya Diviziya" #pekhotnaya diviziya
+	division_names_group = RUS_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		cavalry = { x = 2 y = 0 } 
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 } 
+		#maintenance_company = { x = 0 y = 2 } 
+	}
+}
+ 
+division_template = { #
+	name = "Pekhotnyy Polk" #pekhotnyy polk
+	division_names_group = RUS_GAR_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		#maintenance_company = { x = 0 y = 1 } 
+	}
+}
+
+division_template = { 
+	name = "Kavkazskiy Gornostrelkovyy Polk"  #Kavkazskiy gornostrelkovyy polk
+	division_names_group = RUS_MNT_01
+
+	regiments = { 
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 } 
+		mountaineers = { x = 0 y = 2 } 
+		light_infantry = { x = 1 y = 0 } 
+	} 
+	support = { 
+		recon = { x = 0 y = 0 } 
+		maintenance_company = { x = 0 y = 1 } 
+		artillery = { x = 0 y = 2 } 
+	} 
+	priority = 2
+} 
+
+division_template = { 
+	name = "Neregulyarnyye" #Neregulyarnyye
+	division_names_group = RUS_MNT_01
+
+	regiments = { 
+		irregular_infantry = { x = 0 y = 0 }
+		irregular_infantry = { x = 0 y = 1 } 
+		irregular_infantry = { x = 1 y = 0 } 
+		irregular_infantry = { x = 1 y = 1 } 
+	} 
+	support = { 
+		recon = { x = 0 y = 0 } 
+		#maintenance_company = { x = 0 y = 1 } 
+	} 
+	priority = 0
+	is_locked = yes
+} 
+
+units = {
+	##### Army Divisions #####
+	division= {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 3668 #Shura
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1.0
+	}
+	division= {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 3672 #Grozny
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1.0
+	}
+###regiments 
+
+	division= {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 9647 # left of Grozny
+		division_template = "Pekhotnyy Polk"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.8
+	}
+
+	division= {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 6689 # right of Grozny
+		division_template = "Pekhotnyy Polk"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.8
+	}
+
+	division= {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 7624 # Derbent
+		division_template = "Pekhotnyy Polk"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.8
+	}
+
+
+#########cav
+	division= {	#
+		name = "1-y Dagestanskiy Dikar' Polk"
+		location = 3668 # shura
+		division_template = "Kavaleriyskaya Polk" 
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
+	division= {	#
+		name = "1-y Ingushskiy Dikiy Polk"
+		location = 3672 # shura
+		division_template = "Kavaleriyskaya Polk" 
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
+	division= {	#cossacks
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 3668 # shura
+		division_template = "Kazach'ya Kavaleriyskaya Brigada" 
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.5
+	}
+#########Neregulyarnyye
+	division= {	#1st mountain div
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 11614 #Nalchik
+		division_template = "Neregulyarnyye" 	
+		start_experience_factor = 0.3
+		start_equipment_factor = 1
+	
+	}
+	division= {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 670 #Nazran
+		division_template = "Neregulyarnyye" 
+		start_experience_factor = 0.3
+		start_equipment_factor = 1
+
+	}
+	division= {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 9628 #Ordzhonikidze
+		division_template = "Neregulyarnyye" 
+		start_experience_factor = 0.3
+		start_equipment_factor = 1
+	}
+
+	division= {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 685 #outside pyat
+		division_template = "Neregulyarnyye" 
+		start_experience_factor = 0.3
+		start_equipment_factor = 1
+	}
+
+#########light infantry
+	division= {	#1st mountain div
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 11614 #Nalchik
+		division_template = "Kavkazskiy Gornostrelkovyy Polk" 
+		start_experience_factor = 0.4
+		start_equipment_factor = 1
+	
+	}
+	division= {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+		location = 9628 #Ordzhonikidze
+		division_template = "Kavkazskiy Gornostrelkovyy Polk" 
+		start_experience_factor = 0.4
+		start_equipment_factor = 1
+
+	}
+	division= {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+		location = 685 #left of nalchik
+		division_template = "Kavkazskiy Gornostrelkovyy Polk" 
+		start_experience_factor = 0.4
+		start_equipment_factor = 1
+	}
+}
+
+##### AIR WINGS #####
+
+
+#########################
+## STARTING PRODUCTION ##
+#########################
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "CAU"
+		}
+		requested_factories = 1
+		progress = 0.54
+		efficiency = 100
+		}
+}

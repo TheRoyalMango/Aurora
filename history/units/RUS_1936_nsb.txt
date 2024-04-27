@@ -1,0 +1,387 @@
+﻿
+#ARMY OF WRANGEL
+
+division_template = {   #based off of cossack brigades of the volunteer army.
+	name = "Kavaleriyskaya Brigada"  
+	division_names_group = RUS_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+	support = {
+		#artillery = { x = 0 y = 0 }  #for balance and production, removed. 
+	}
+}
+
+division_template = { #based off of cav divisions of the volunteer army. 
+	name = "Kavaleriyskaya Diviziya"  
+	division_names_group = RUS_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+		cavalry = { x = 2 y = 0 }
+		cavalry = { x = 2 y = 1 }
+		cavalry = { x = 2 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 } 
+	}
+}
+
+#division_template = { #based off of cossack divisions of the volunteer army. 
+#	name = "Kazach'ya Kavaleriyskaya Diviziya"  #cossack Kavaleriyskaya Diviziya
+#	division_names_group = RUS_CAV_02
+#	is_locked = yes
+#
+#	regiments = {
+#		cavalry = { x = 0 y = 0 }
+#		cavalry = { x = 0 y = 1 }
+#		cavalry = { x = 1 y = 0 }
+#		cavalry = { x = 1 y = 1 }
+#		cavalry = { x = 2 y = 0 }
+#		cavalry = { x = 2 y = 1 }
+#		cavalry = { x = 3 y = 0 }
+#		cavalry = { x = 3 y = 1 }
+#	}
+#	support = {
+#		recon = { x = 0 y = 0 } 
+#	}
+#}
+
+division_template = {  #based off of the main divisions of the volunteer army or army of wrangel.
+	name = "Pekhotnaya Diviziya"
+	division_names_group = RUS_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		cavalry = { x = 3 y = 0 } 
+		#cavalry = { x = 3 y = 1 } 
+		#often had cavalry "divisions" attached but i dont think they wre larger than a battalion
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 } 
+		recon = { x = 0 y = 2 } 
+	}
+}
+
+division_template = { 
+	name = "Pekhotnyy Polk"
+	division_names_group = RUS_GAR_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 } 
+		recon = { x = 0 y = 2 } 
+	}
+	priority = 0
+}
+
+division_template = {  #ahistorical. represents light infantry and such.
+	name = "Legkaya Pekhota / Gornostrelkovyy Polk" 
+	division_names_group = RUS_MNT_01
+
+	regiments = { 
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 } 
+		#light_infantry = { x = 0 y = 2 } 
+		mountaineers = { x = 1 y = 0 } 
+		mountaineers = { x = 1 y = 1 } 
+		#light_infantry = { x = 1 y = 2 }
+		light_infantry = { x = 2 y = 0 }
+		light_infantry = { x = 2 y = 1 }
+	} 
+	support = { 
+		recon = { x = 0 y = 0 } 
+	} 
+} 
+
+#division_template = {
+#	name = "Irregulars"		
+#	division_names_group = RUS_GAR_01
+#	is_locked = yes
+#	template_counter = 66
+#	regiments = {
+#		irregular_infantry = { x = 0 y = 0 }
+#		irregular_infantry = { x = 0 y = 1 }
+#		irregular_infantry = { x = 1 y = 0 }
+#		irregular_infantry = { x = 1 y = 1 }
+#		#cavalry = { x = 2 y = 0 }
+#		#cavalry = { x = 2 y = 1 }
+#	}
+#	support = { 
+#		recon = { x = 0 y = 0 } 
+#	} 
+#	priority = 0 
+#}
+
+
+division_template = {  #1st division
+	name = "Svodnyy Otdel'nyy Korpus"
+	division_names_group = RUS_ARM_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		artillery_brigade = { x = 1 y = 0 }	
+		light_armor = { x = 2 y = 0 }
+		#medium_armor = { x = 2 y = 1 }
+	}
+	support = {
+		mot_recon = { x = 0 y = 0 } 
+		#armored_car_recon ^removed cuz DLC
+		engineer = { x = 0 y = 1 } 
+		maintenance_company = { x = 0 y = 2 } 
+	}
+	priority = 0
+}
+
+#division_template = {  #a-hist. 
+#	name = "Motorized Regiment"
+#	division_names_group = RUS_MOT_01
+#
+#	regiments = {
+#		motorized = { x = 0 y = 0 }
+#		motorized = { x = 0 y = 1 }
+#		motorized = { x = 1 y = 0 }
+#		motorized = { x = 1 y = 1 }
+#	}
+#	support = {
+#		artillery = { x = 0 y = 0 } 
+#		mot_recon = { x = 0 y = 1 } 
+#		maintenance_company = { x = 0 y = 2 } 
+#	}
+#}	 
+
+units = {	
+				  #### 3rd Russian Army ###
+				#(should go to Belarus later)#
+
+#	division= {	# 
+#		name = "1-ya Pekhotnaya Diviziya (3-RA)"
+#		location = 3722 
+#		division_template = "Pekhotnaya Diviziya" 
+#		start_experience_factor = 0.6
+#		start_equipment_factor = 0.6
+#		force_equipment_variants = { infantry_equipment_0 = { owner = "POL" } }
+#	}
+#	division= {	# 
+#		name = "2-ya Pekhotnaya Diviziya (3-RA)"
+#		location = 9718 
+#		division_template = "Pekhotnaya Diviziya" 
+#		start_experience_factor = 0.6
+#		start_equipment_factor = 0.6
+#		force_equipment_variants = { infantry_equipment_0 = { owner = "POL" } }
+#	}
+#	division= {	# 
+#		name = "Smeshannaya Kazach'ya Kavaleriyskaya Diviziya (3-RA)"
+#		location = 3722
+#		division_template = "Kavaleriyskaya Brigada" 
+#		start_experience_factor = 0.4
+#		start_equipment_factor = 0.6
+#		force_equipment_variants = { infantry_equipment_0 = { owner = "POL" } }
+#	}
+
+	##### Army Of Wrangel #####
+
+	###the sources for this are really bad, litterally every source presents different units. I did my best with what I had. 
+
+	###ended up going for a source on the composition in october 1920, a month before the evacuation of crimea. thus this should be most accurate to the last composition of the army in Crimea, after the losses in Taurdia but before evac
+
+	###1st Army ###
+
+    #### 1st Army Corps (Kutepov) #### Kornilov, Markov, Drozdov, Alek divisions. 
+    #not included: 1st Separate Heavy Arty Battallion, sep. Heavy Tractor Battery(positional artillery battalion, formed from Alek arty brigade), 1st Sep. Engineering Company, 2nd Sep. Telegraph Company
+
+	division= {	# 
+		name = "Strelkovaya Diviziya Generala Drozdovskogo"
+		location = 3722 
+		division_template = "Pekhotnaya Diviziya" 
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.7
+		force_equipment_variants = { infantry_equipment_0 = { owner = "ENG" } }
+		force_equipment_variants = { artillery_equipment_1 = { owner = "ENG" amount = 6 } }
+	}
+	division= {	# 
+		name = "Strelkovaya Diviziya Generala Markova"
+		location = 3722 
+		division_template = "Pekhotnaya Diviziya" 
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.7
+		force_equipment_variants = { infantry_equipment_0 = { owner = "FRA" } }
+		force_equipment_variants = { artillery_equipment_1 = { owner = "FRA" amount = 6 } }
+	}
+	division= {	# 
+		name = "Kornilovskaya Udarnaya Diviziya"
+		location = 3686 
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.8
+		start_equipment_factor = 1.0
+		force_equipment_variants = { infantry_equipment_1 = { owner = "FRA" } }
+		force_equipment_variants = { artillery_equipment_1 = { owner = "RUS" amount = 6 } }
+	}
+	division= {	# not included in the primary source, but its a well known unit and its fate is very unclear. i can always say it was reformed after the timeline divergence.
+		name = "Alekseyevskaya Diviziya" 
+		location = 9718
+		division_template = "Pekhotnaya Diviziya" 
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.7
+		force_equipment_variants = { artillery_equipment_1 = { owner = "RUS" amount = 6 } }
+	}
+
+	### Horse Corps ###
+
+	division= {	# 
+		name = "1-ya Kavaleriyskaya Diviziya"
+		location = 3722
+		division_template = "Kavaleriyskaya Diviziya" 
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.6
+		force_equipment_variants = { artillery_equipment_1 = { owner = "RUS" amount = 4 } }
+	}
+	division= {	# 
+		name = "2-ya Kavaleriyskaya Diviziya"
+		location = 9718
+		division_template = "Kavaleriyskaya Diviziya" 
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.6
+		force_equipment_variants = { artillery_equipment_1 = { owner = "RUS" amount = 4 } }
+	}
+	division= {	# 
+		name = "1-ya Kubanskaya Kazach'ya Diviziya"
+		location = 9680
+		division_template = "Kavaleriyskaya Diviziya" 
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.5
+		force_equipment_variants = { artillery_equipment_1 = { owner = "RUS" amount = 4 } }
+	}
+
+	### Don Corps ###
+	#not included: 3rd Don Cav Battalion, 1st Don Light Arty Battalion
+
+	division= {	# 
+		name = "1-ya Donskaya Kavaleriyskaya Diviziya"
+		location = 3722
+		division_template = "Kavaleriyskaya Diviziya" 
+		start_experience_factor = 0.5 #2 guards brigades
+		start_equipment_factor = 0.5
+		force_equipment_variants = { artillery_equipment_1 = { owner = "RUS" amount = 4 } }
+	}
+	division= {	# 
+		name = "2-ya Donskaya Kavaleriyskaya Diviziya"
+		location = 3722
+		division_template = "Kavaleriyskaya Diviziya" 
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.5
+		force_equipment_variants = { artillery_equipment_1 = { owner = "RUS" amount = 4 } }
+	}
+	division= {	# 
+		name = "3-ya Donskaya Diviziya"
+		location = 9680
+		division_template = "Pekhotnaya Diviziya" 
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.5
+		force_equipment_variants = { artillery_equipment_1 = { owner = "RUS" amount = 4 } }
+	}
+	
+
+	#### 2nd Army Corps (Vladimir Vitkovsky) ####
+
+	#not included in divisions: 2nd sep. Heavy Art Battery, 2nd telegraph, 2nd sep. engineer, 5th sep engineer, consolidated guards inf regiment, 4th positional battery
+
+	division= {	# 
+		name = "13-ya Pekhotnaya Diviziya"
+		location = 9718 
+		division_template = "Pekhotnaya Diviziya" 
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+		force_equipment_variants = { infantry_equipment_0 = { owner = "FRA" } }
+		force_equipment_variants = { artillery_equipment_1 = { owner = "FRA" amount = 6 } }
+	}
+	division= {	# 
+		name = "34-ya Pekhotnaya Diviziya"
+		location = 9680
+		division_template = "Pekhotnaya Diviziya" 
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+		force_equipment_variants = { artillery_equipment_1 = { owner = "FRA" amount = 6 } }
+	}
+	division= {	# 
+		name = "Svodnyy Gvardeyskiy Pekhotnyy Polk"
+		location = 3686
+		division_template = "Pekhotnyy Polk" 
+		start_experience_factor = 0.7
+		start_equipment_factor = 0.6
+		force_equipment_variants = { artillery_equipment_1 = { owner = "FRA" amount = 4 } }
+	}
+
+	#### Other Units ####
+
+	division= {	# 
+		name = "Tersko-Astrakhanskaya Brigada"
+		location = 6704
+		division_template = "Kavaleriyskaya Brigada"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.6
+		force_equipment_variants = { artillery_equipment_1 = { owner = "RUS" amount = 4 } }
+	}
+
+	division= {	#
+		name = "80-y Zyungarskiy Polk"
+		location = 3686
+		division_template = "Kavaleriyskaya Brigada"
+		start_experience_factor = 1.0
+		start_equipment_factor = 0.5
+		force_equipment_variants = { infantry_equipment_0 = { owner = "ENG" } }
+		force_equipment_variants = { artillery_equipment_1 = { owner = "RUS" amount = 0 } }
+	}
+
+	division= {	# 
+		name = "Svodnyy Otdel'nyy Korpus"
+		location = 6724 
+		division_template = "Svodnyy Otdel'nyy Korpus" 
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+		force_equipment_variants = { light_tank_chassis_0 = { owner = "FRA" version_name = "FT mod. 31" } }
+		force_equipment_variants = { artillery_equipment_1 = { owner = "RUS" amount = 24 } }
+	}
+#
+}
+
+#########################
+## STARTING PRODUCTION ##
+#########################
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "RUS"
+		}
+		requested_factories = 1
+		progress = 0.54
+		efficiency = 100
+	}
+}

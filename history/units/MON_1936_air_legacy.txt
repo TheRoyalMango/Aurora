@@ -1,0 +1,15 @@
+﻿
+air_wings = { 
+	330 = { 
+		fighter_equipment_0 = { 
+			amount = 30
+			owner = "MON" 
+			creator = "JAP"
+		} 
+		tac_bomber_equipment_0 = { 
+			amount = 20
+			owner = "MON" 
+			creator = "JAP"
+		}
+	}  
+} 

@@ -1,0 +1,51 @@
+﻿
+air_wings = { 
+	137 = { 
+		fighter_equipment_0 = { 
+			amount = 12 
+			owner = "RUS" 
+			creator = "RUS"
+		} 
+		ace={ # Order is important. Ace will be assigned to the wing above 
+			modifier="fighter_unique"
+			name="Sergei"
+			surname="Shebalin "
+			callsign="Besstrashnyy" #Fearless, noted for so.
+			portrait=1
+		}
+		fighter_equipment_0 = { 
+			amount = 12
+			owner = "RUS" 
+			creator = "FRA"
+		} 
+		tac_bomber_equipment_0 = { 
+			amount = 5
+			owner = "RUS" 
+			creator = "RUS"
+		}
+		ace={ # Order is important. Ace will be assigned to the wing above 
+			modifier="support_unique"
+			name="Leonid"
+			surname="Baidak"
+			callsign="Obmorozheniye" #flew a mission where he got it
+			portrait=2
+		}
+		CAS_equipment_1 =  { 
+			amount = 10
+			owner = "RUS" 
+			creator = "ENG"
+		}
+		ace={ # Order is important. Ace will be assigned to the wing above 
+			modifier="support_unique"
+			name="Ivan"
+			surname="Susalin"
+			callsign="Khrabryy" #The Brave - was noted for bravery
+			portrait=3
+		}
+		#nav_bomber_equipment_1 = {
+		#	owner = "RUS" 
+		#	creator = "FRA"
+		#	amount = 24
+		#}
+	}  
+} 

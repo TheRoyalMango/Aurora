@@ -1,0 +1,30 @@
+﻿
+
+### Air Wings
+air_wings = {
+	206 = { 
+		fighter_equipment_0 = {
+			owner = "BLR" 
+			creator = "SOV"
+			amount = 50
+		}
+		fighter_equipment_0 = {
+			owner = "BLR" 
+			creator = "BLR"
+			amount = 50
+		}
+		tac_bomber_equipment_0 =  {
+			owner = "BLR" 
+			creator = "SOV"
+			amount = 40
+		}
+	}
+}
+
+		
+	#########################
+	## STARTING PRODUCTION ##
+	#########################
+instant_effect = {
+}
+	#####################

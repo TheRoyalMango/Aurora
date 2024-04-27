@@ -1,0 +1,20 @@
+﻿
+air_wings = { 
+	229 = { 
+		fighter_equipment_0 = { 
+			amount = 24
+			owner = "AZR" 
+			creator = "ENG"
+		} 
+		fighter_equipment_0 = { 
+			amount = 24
+			owner = "AZR" 
+			creator = "ITA"
+		} 
+		cas_equipment_1 = {
+			owner = "AZR" 
+			creator = "ENG"
+			amount = 24
+		}
+	}  
+} 

@@ -1,0 +1,232 @@
+﻿division_template = { #
+	name = "Kazachiy Kavaleriyskiy Polk"  #cossack cav regiment
+	division_names_group = AFS_CAV_02
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 0 y = 3 }
+	}
+	support = { 
+		recon = { x = 0 y = 0 } 
+	}
+}
+division_template = {  #
+	name = "Krest'yanskaya Militsiya"  #peasant militia
+	division_names_group = AFS_GAR_01
+	is_locked = yes
+	regiments = { 
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 } 
+		militia = { x = 1 y = 0 } 
+		militia = { x = 1 y = 1 } 
+		light_infantry = { x = 2 y = 0 } 
+	} 
+	support = { 
+		recon = { x = 0 y = 0 } 
+	} 
+} 
+
+division_template = { 
+	name = "Pekhotnaya Diviziya" #Infantry Division
+	division_names_group = AFS_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 2 y = 3 }
+	}
+	support = {
+		recon = { x = 0 y = 0 } 
+	}
+}
+
+division_template = { 
+	name = "Pekhotnyy Polk" #Infantry Regiment
+	division_names_group = AFS_GAR_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 } 
+	}
+}
+
+division_template = {
+	name = "Otryad Povstantsev" #(rebel detachment)
+	division_names_group = AFS_GAR_02
+	is_locked = yes
+#	template_counter = 66
+	regiments = {
+		irregular_infantry = { x = 0 y = 0 }
+		irregular_infantry = { x = 0 y = 1 }
+		irregular_infantry = { x = 1 y = 0 }
+		irregular_infantry = { x = 1 y = 1 }
+		#add 2 - 4 more via focuses and whatnot
+	}
+	support = { 
+		recon = { x = 0 y = 0 } 
+	} 
+}
+
+
+units = {
+#1-y Aleyskiy polk
+#2-y Slavgorodskiy polk
+#3-y Butyrskiy polk
+#4-y Semipalatinskiy polk
+#5-y Stepnoy polk
+#6-y Kulundinskiy polk
+#7-y polk «Krasnyye orly»
+#8-y Burlinskiy polk
+#4-y Krest'yanskiy korpus M.V. Kozyr'. (peasant corps) - corps level so can be a division.
+#Tomskaya partizanskaya diviziya
+
+#divisions
+	division = {
+		#division_name = {
+		#	is_name_ordered = yes
+		#	name_order = 1
+		#}
+		name = "4-y Krest'yanskiy Korpus M.V. Kozyr'"
+		location = 7274
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 7274
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 7274
+		division_template = "Pekhotnaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+#irregulars/partisans
+	division = {
+		name = "Tomskaya Partizanskaya Diviziya"
+		location = 1718
+		division_template = "Otryad Povstantsev"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+#militia/infantry regiments
+	division = {
+		name = "1-y Aleyskiy Polk"
+		location = 7708
+		division_template = "Krest'yanskaya Militsiya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.4
+	}
+	division = {
+		name = "2-y Slavgorodskiy Polk"
+		location = 1797
+		division_template = "Krest'yanskaya Militsiya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.4
+	}
+	division = {
+		name = "3-y Butyrskiy"
+		location = 7822
+		division_template = "Krest'yanskaya Militsiya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.4
+	}
+	division = {
+		name = "4-y Semipalatinskiy Polk"
+		location = 12594
+		division_template = "Krest'yanskaya Militsiya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.4
+	}
+	division = {
+		name = "5-y Stepnoy Polk"
+		location = 4803
+		division_template = "Krest'yanskaya Militsiya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.4
+	}
+	division = {
+		name = "6-y Kulundinskiy Polk"
+		location = 12613
+		division_template = "Krest'yanskaya Militsiya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.4
+	}
+	division = {
+		name = "7-y Polk «Krasnyye Orly»"
+		location = 7757
+		division_template = "Krest'yanskaya Militsiya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.4
+	}
+	division = {
+		name = "8-y Burlinskiy Polk"
+		location = 1794
+		division_template = "Krest'yanskaya Militsiya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.4
+	}
+#extra units for more beef
+	division = {
+		name = "Otryad T. Tashkinova"
+		location = 4734
+		division_template = "Otryad Povstantsev"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		name = "Otryad S. Tadysheva"
+		location = 12631
+		division_template = "Otryad Povstantsev"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		name = "Otryad Yesaula V. Kusurgasheva."
+		location = 7757
+		division_template = "Otryad Povstantsev"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		name = "11-y Svodnyy Kavaleriyskiy Otryad Osobogo Naznacheniya"
+		location = 7822
+		division_template = "Kazachiy Kavaleriyskiy Polk"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		name = "26-y Kavaleriyskiy Polk Krasnoy Armii (Povstancheskiy)"
+		location = 1794
+		division_template = "Kazachiy Kavaleriyskiy Polk"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+}

@@ -1,0 +1,132 @@
+﻿#templates
+division_template = {
+	name = "Gornostrelkovaya Diviziya"		# Mountain Division
+	division_names_group = SOV_MNT_01
+
+	regiments = {
+		mountaineers = { x = 0 y = 0 }	
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }	
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+		mountaineers = { x = 2 y = 0 }	
+		mountaineers = { x = 2 y = 1 }	
+		mountaineers = { x = 2 y = 2 }	
+		mountaineers = { x = 3 y = 0 }	
+		mountaineers = { x = 3 y = 1 }	
+		mountaineers = { x = 3 y = 2 }	
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 		# Engineer bn
+		artillery = { x = 0 y = 1 } 	# Heavy Arty Regiment had 2x 122mm bn
+	}
+}
+##### OOB #####
+units = {		
+	division= {		
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 11696
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.85
+	}	
+	division= {		
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 6702
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.85
+	}
+	division= {		
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 11633
+		division_template = "Gornostrelkovaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.85
+	}	
+	division= {		
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 683
+		division_template = "Gornostrelkovaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.85
+	}	
+	division= {		
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 6733
+		division_template = "Gornostrelkovaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.85
+	}	
+	division= {		
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 6701
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.85
+	}	
+	division= {		
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 11632
+		division_template = "NKVD Pogranichnaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.85
+	}
+	division= {		
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 3682
+		division_template = "NKVD Pogranichnaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.85
+	}
+	division= {		
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 6701
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.85
+	}	
+	division= {		
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 11678
+		division_template = "Kavaleriyskaya Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.85
+	}
+}						
+		
+	#########################
+	## STARTING PRODUCTION ##
+	#########################
+	#####################
