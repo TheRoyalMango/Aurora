@@ -1,0 +1,47 @@
+﻿capital = 575
+
+oob = "KIR_1936"
+
+set_research_slots = 1
+set_stability = 0.4
+set_war_support = 0.3
+add_manpower = 10000
+
+add_ideas = {
+	KIR_kirensk
+	#NFE_peasant_republic_faction_member
+	cossack_obsolete_army
+	NFE_peasant_army
+	NFE_peasant_militia_1
+	neutrality_idea
+	closed_economy
+	RUS_weak_industrial_base
+}
+
+
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+	tech_support = 1		
+	tech_recon = 1
+	tech_mountaineers = 1
+	gw_artillery = 1
+	tech_maintenance_company = 1
+}
+
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+set_popularities = {
+	democratic = 18
+	anarchism = 20
+	neutrality = 60
+	communism = 0
+	fascism = 2
+}
+
+ 

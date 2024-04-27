@@ -1,0 +1,149 @@
+﻿capital = 234
+
+set_research_slots = 2
+
+set_oob = "KUB_cossack_host"
+
+recruit_character = RUS_vasily_ivanis
+recruit_character = KUB_andrey_shkuro
+recruit_character = KUB_nikolai_bukretov
+recruit_character = KUB_alexander_filimonov
+recruit_character = DON_pyotr_krasnov #Don cossack, exiled to the Kuban
+recruit_character = RUS_Vladimir_Sidorin #Don cossack, exiled to the Kuban
+
+
+create_faction = caucasus_alliance
+add_to_faction = GEO
+add_to_faction = CAU
+add_to_faction = AZR
+#not Armenia since they're not as threatened, and Baku would probably protest anyway. 
+
+diplomatic_relation = {
+	country = UKR
+	relation = non_aggression_pact
+	active = yes
+}
+#diplomatic_relation = {
+#	country = GEO
+#	relation = non_aggression_pact
+#	active = yes
+#}
+#diplomatic_relation = {
+#	country = CAU
+#	relation = non_aggression_pact
+#	active = yes
+#}
+give_military_access = UKR
+#give_military_access = CAU
+#give_military_access = GEO
+
+
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+		#set_air_oob = "POL_1936_air_bba"
+		set_technology = {
+			aa_lmg = 1
+			#aa_cannon_1 = 1
+			iw_small_airframe = 1
+			#basic_small_airframe = 1
+			engines_1 = 1
+			early_bombs = 1
+		}
+	else = {
+		#set_air_oob = "POL_1936_air_legacy"
+		set_technology = {
+			early_fighter = 1
+			early_bomber = 1
+			CAS1 = 1
+		}
+	}
+}
+set_stability = 0.5
+set_war_support = 0.5
+set_convoys = 12
+add_ideas = {
+	KUB_ukrainian_kuban_treaty
+	cossack_obsolete_army
+	#KUB_caucus_kuban_treaty
+	KUB_stable_argicultural_economy
+	RUS_weak_industrial_base
+	MON_nomadic
+	KUB_cossack_seperatist_exiles
+}
+add_ideas = {
+	limited_conscription
+	#low_economic_mobilisation
+}
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+	tech_support = 1		
+	tech_engineers = 1
+	tech_recon = 1
+	tech_mountaineers = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	#early_fighter = 1
+	fuel_silos = 1
+	tech_maintenance_company = 1
+	mobile_warfare = 1
+}
+
+#if = {
+#	limit = {
+#		NOT = {
+#			has_dlc = "No Step Back"
+#		}
+#	}
+#	set_technology = {
+#		gwtank = 1
+#	}
+#}
+#if = {
+#	limit = {
+#		
+#		has_dlc = "No Step Back"
+#		
+#	}
+#	set_technology = {
+#		gwtank_chassis = 1
+#	}
+#}
+if = {
+	limit = {
+		not = { has_dlc = "Man the Guns" }
+	}
+	set_technology = {
+		early_destroyer = 1
+		early_submarine = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = {
+		early_ship_hull_submarine = 1
+		early_ship_hull_light = 1
+		basic_battery = 1
+		basic_torpedo = 1
+	}
+}
+
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+set_popularities = {
+	democratic = 20
+	neutrality = 60
+	communism = 15
+	fascism = 5
+}
+
+#TODO, James make Ivan Kononov country leader for the fascists
+add_opinion_modifier = { target = SOV modifier = hostile_status }
+SOV = { add_opinion_modifier = { target = KUB modifier = hostile_status } }

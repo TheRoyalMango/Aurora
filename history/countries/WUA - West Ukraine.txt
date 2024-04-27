@@ -1,0 +1,181 @@
+﻿capital = 91 #Lviv
+
+#oob = "WUA_1936"
+
+set_research_slots = 3
+set_convoys = 10
+set_stability = 0.45
+set_war_support = 0.20
+
+#remember to add spirit for +1000% attack and defence factor on Poland and SOV
+
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+		#set_air_oob = "UKR_1936_air_bba"
+		set_technology = {
+			aa_lmg = 1
+			#aa_cannon_1 = 1
+			iw_small_airframe = 1
+			iw_medium_airframe = 1
+			iw_large_airframe = 1
+			engines_1 = 1
+			early_bombs = 1
+			aircraft_construction = 1
+		}
+	else = {
+		#set_air_oob = "UKR_1936_air_legacy"
+		set_technology = {
+			early_fighter = 1
+			early_bomber = 1
+			CAS1 = 1
+		}
+	}
+}
+
+#if = {
+#	limit = { has_dlc = "Man the Guns" }
+#		set_naval_oob = "UKR_1936_naval_mtg"
+#	else = {
+#		set_naval_oob = "UKR_1936_naval_legacy"
+#	}
+#}
+
+
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_recon = 1
+	tech_support = 1		
+	tech_engineers = 1
+	tech_military_police = 1
+	tech_mountaineers = 1
+	motorised_infantry = 1
+	#paratroopers = 1
+	gw_artillery = 1
+	#early_fighter = 1
+	#fighter1 = 1
+	#early_bomber = 1
+	#strategic_bomber1 = 1
+	#naval_bomber1 = 1
+	mass_assault = 1
+	fleet_in_being = 1
+	basic_train = 1
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+		basic_light_tank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+	}
+}
+if = {
+	limit = {
+		not = { has_dlc = "Man the Guns" }
+	}
+	set_technology = {
+		early_submarine = 1
+		early_destroyer = 1
+		early_light_cruiser = 1
+		early_heavy_cruiser = 1
+		early_battleship = 1
+		early_battlecruiser = 1
+		transport = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = {
+		basic_naval_mines = 1
+		submarine_mine_laying = 1
+		early_ship_hull_light = 1
+		early_ship_hull_submarine = 1
+		early_ship_hull_cruiser = 1
+		early_ship_hull_heavy = 1
+		basic_battery = 1
+		basic_torpedo = 1
+		basic_depth_charges = 1
+		mtg_transport = 1
+		coastal_defense_ships = 1
+		pre_dreadnoughts = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	create_equipment_variant = {
+		name = "Auxilary Ship" 		
+		type = ship_hull_light_1
+		name_group = UKR_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = empty
+			mid_1_custom_slot = ship_mine_sweeper_1
+			rear_1_custom_slot = ship_mine_layer_1
+		}
+		obsolete = no
+	}
+}	
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	create_equipment_variant = {
+		name = "Ukr. Fokker D.VII"
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = non_strategic_materials_small
+		}
+		obsolete = yes
+		#icon = "GFX_FRA_light_plane_2_medium"
+	}
+}
+
+
+set_popularities = {
+	democratic = 57
+	neutrality = 23
+	fascism = 5
+	communism = 15
+}
+set_politics = {
+	ruling_party = democratic
+	elections_allowed = yes
+	last_election = "1933.4.1"
+	election_frequency = 48
+}
+add_ideas = {
+}
+
+#create_country_leader = {
+#	name = ""
+#	desc = ""
+#	picture = ""
+#	expire = "1953.3.1"
+#	ideology = oligarchism
+#	traits = {
+#		
+#	}
+#}

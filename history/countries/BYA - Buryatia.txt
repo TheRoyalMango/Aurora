@@ -1,0 +1,130 @@
+﻿capital = 563 #Chita
+
+#564 #Ulan Ude in Buryatia
+
+#oob = "BYA_1936"
+
+set_research_slots = 2
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+		#set_air_oob = "POL_1936_air_bba"
+		set_technology = {
+			aa_lmg = 1
+			#aa_cannon_1 = 1
+			iw_small_airframe = 1
+			#basic_small_airframe = 1
+			engines_1 = 1
+			early_bombs = 1
+		}
+	else = {
+		#set_air_oob = "POL_1936_air_legacy"
+		set_technology = {
+			early_fighter = 1
+			early_bomber = 1
+			CAS1 = 1
+		}
+	}
+}
+#566 = {
+#	start_resistance = yes
+#	set_compliance = 5
+#	set_resistance = 45
+#	set_garrison_strength = 1.0
+#}
+set_cosmetic_tag = BYA_fascism
+set_fuel_ratio = 0.1
+starting_train_buffer = 1
+set_stability = 0.3
+set_war_support = 0.4
+add_manpower = 50000
+set_convoys = 8
+
+add_ideas = {
+	limited_conscription
+}
+add_ideas = {
+	MON_japanese_railways_assistance
+	BYA_japanese_advisors
+	MON_nomadic
+	RUS_weak_industrial_base
+	cossack_obsolete_army
+	#add a spirit for Semyonov's white terror. remember that the civil war was 15 years ago, so the spirit is mostly the aftermath.
+}
+give_military_access = JAP
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+	tech_support = 1		
+	tech_engineers = 1
+	tech_recon = 1
+	tech_mountaineers = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	fuel_silos = 1
+	tech_maintenance_company = 1
+	mobile_warfare = 1
+}
+
+#if = {
+#	limit = {
+#		NOT = {
+#			has_dlc = "No Step Back"
+#		}
+#	}
+#	set_technology = {
+#		gwtank = 1
+#	}
+#}
+#if = {
+#	limit = {
+#		
+#		has_dlc = "No Step Back"
+#		
+#	}
+#	set_technology = {
+#		gwtank_chassis = 1
+#	}
+#}
+if = {
+	limit = {
+		not = { has_dlc = "Man the Guns" }
+	}
+	set_technology = {
+		early_destroyer = 1
+		early_submarine = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = {
+		early_ship_hull_submarine = 1
+		early_ship_hull_light = 1
+		basic_battery = 1
+		basic_torpedo = 1
+	}
+}
+set_politics = {
+	ruling_party = fascism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+set_popularities = {
+	democratic = 13
+	fascism = 60
+	communism = 2
+	neutrality = 25
+}
+recruit_character = BYA_grigory_semyonov
+recruit_character = BYA_seymon_ignatyev
+recruit_character = BYA_bidia_dandaron
+
+add_opinion_modifier = { target = SOV modifier = hostile_status }
+SOV = { add_opinion_modifier = { target = BYA modifier = hostile_status } }
+
+
+
+

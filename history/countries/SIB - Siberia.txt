@@ -1,0 +1,40 @@
+﻿capital = 566
+oob = "SIB_1936"
+set_research_slots = 1
+set_stability = 0.6
+set_war_support = 0.3
+add_manpower = 25000
+add_ideas = {
+	NFE_peasant_army
+	NFE_peasant_militia_1
+	cossack_obsolete_army
+	closed_economy
+	neutrality_idea
+	RUS_weak_industrial_base
+}
+
+# Starting tech
+set_technology = {
+	#basic_train = 1
+	infantry_weapons = 1
+	tech_support = 1		
+	tech_recon = 1
+	tech_mountaineers = 1
+	gw_artillery = 1
+	tech_maintenance_company = 1
+}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+set_popularities = {
+	democratic = 50
+	anarchism = 30
+	neutrality = 0
+	communism = 20
+	fascism = 0
+}
+

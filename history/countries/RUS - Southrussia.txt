@@ -1,0 +1,506 @@
+﻿capital = 137
+
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+		set_air_oob = "RUS_1936_air_bba"
+		set_technology = {
+			aa_lmg = 1
+			#aa_cannon_1 = 1
+			iw_small_airframe = 1
+			iw_medium_airframe = 1
+			engines_1 = 1
+			early_bombs = 1
+			aircraft_construction = 1
+		}
+	else = {
+		set_air_oob = "RUS_1936_air_legacy"
+		set_technology = {
+			early_fighter = 1
+			early_bomber = 1
+		}
+	}
+}
+if = {
+	limit = {
+		NOT = {
+			has_dlc = "No Step Back"
+		}
+	}
+	set_oob = "RUS_1936"
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_oob = "RUS_1936_nsb"
+}
+
+if = {
+	limit = { has_dlc = "Man the Guns" }
+		set_naval_oob = "RUS_1936_mtg"
+	else = {
+		set_naval_oob = "RUS_1936_naval_legacy"
+	}
+}
+
+set_fuel_ratio = 0.5
+set_convoys = 40
+starting_train_buffer = 1
+set_stability = 0.45
+set_war_support = 0.50
+add_manpower = 120000
+add_ideas = {
+	RUS_mandate_army
+	RUS_law_on_land
+		#RUS_law_on_volost_zemstvos #moved to descisions
+	RUS_the_crimean_mandate #also entente debt? idk
+	RUS_devalued_ruble
+	RUS_obsolete_navy
+	RUS_weak_industrial_base
+	RUS_grain_import_reliance
+	RUS_mixed_equipment_and_horse_stock_shortage
+
+}
+
+add_ideas = {
+	disarmed_nation
+	free_trade
+}
+
+ENG = {
+	give_guarantee = RUS
+	diplomatic_relation = {
+		country = RUS
+		relation = non_aggression_pact
+		active = yes
+	}
+}
+FRA = {
+	give_guarantee = RUS
+	diplomatic_relation = {
+		country = RUS
+		relation = non_aggression_pact
+		active = yes
+	}
+}
+give_military_access = ENG
+give_military_access = FRA
+
+recruit_character = RUS_solomon_crimea
+recruit_character = RUS_provisional_government
+recruit_character = RUS_vasily_shulgin
+recruit_character = RUS_pavel_shatilov
+recruit_character = RUS_aleksander_kutepov
+recruit_character = RUS_ivan_barbovich
+recruit_character = RUS_pyotr_wrangel
+recruit_character = RUS_mikhail_drozdovsky
+recruit_character = RUS_lavr_kornilov
+recruit_character = RUS_afrikan_bogaevskyi
+recruit_character = RUS_vladimir_may_mayevsky
+recruit_character = RUS_sergei_ulagay
+recruit_character = RUS_alexander_krivosein
+recruit_character = RUS_aleksandr_kerensky #just an advisor for now
+#recruit_character = RUS_Vladimir_Sidorin
+recruit_character = RUS_aleksandr_prokofyev_seversky
+recruit_character = RUS_vyacheslav_tkachyov #cant find any info if he exists IRL but hes in vanilla.
+#not adding SOV_yan_nagursky since he was litterally red army. wtf paradox
+recruit_character = RUS_vasily_yanchenko
+recruit_character = RUS_vladimir_zworkyin 
+recruit_character = RUS_oleg_pantyukhov
+recruit_character = RUS_victor_baydalakov #goes above turkul for fascism leader
+recruit_character = RUS_anton_turkul 
+#recruit_character = ETH_feodor_konovalov
+recruit_character = KAL_dazan_tundutov #goes to kalmyk later as leader
+recruit_character = RUS_vladimir_vitkovsky
+recruit_character = RUS_boris_savinkov #
+recruit_character = RUS_anatoly_rogozhin #goes to terek as leader later
+recruit_character = RUS_anastasy_vonsyatsky
+recruit_character = RUS_aleksandr_kazembek
+recruit_character = RUS_anton_denikin 
+#need to rework all 4 of these priests, some would probably still be in SOV unless Crimea takes moscow or does some religious support focuses
+#recruit_character = RUS_metropolitan_aleksy 
+#recruit_character = RUS_metropolitan_nikolay
+recruit_character = RUS_metropolitan_anastasy
+recruit_character = RUS_metropolitan_anthony
+#recruit_character = RUS_patriarch_sergy
+recruit_character = RUS_newton_mccully #pro-wrangel US admiral, even adopted 7 russian orphans. retired in the 30s, can say he went to crimea to retire and works part time as a theorist. 
+recruit_character = RUS_hugo_khoeler #US spy helping wrangel's army. he kinda fell inlove with the era so i can sa he stayed to help wrangel
+recruit_character = RUS_aleksandr_rodzyanko #actually was from the NW front but we have a good portrait for him so oh well.
+recruit_character = RUS_alexander_guchkov
+recruit_character = RUS_mikhail_levitov
+recruit_character = RUS_vyacheslav_naumenko
+recruit_character = RUS_vladimir_kharzhevsky
+recruit_character = RUS_vasily_flug
+recruit_character = RUS_abram_dragomirov
+recruit_character = RUS_fyodor_abramov
+recruit_character = RUS_pyotr_pisarev
+recruit_character = RUS_nikolai_bredov
+recruit_character = RUS_alexei_putilov
+recruit_character = RUS_mikhail_fostikov
+recruit_character = RUS_juan_belaieff
+recruit_character = MUR_vladimir_marushevsky
+recruit_character = MUR_pyotr_von_glazenap
+recruit_character = RUS_yevgeny_miller
+recruit_character = RUS_alexey_arkhangelsky
+recruit_character = RUS_Viktor_Pokrovsky #Kuban cossack, fired by Wrangel and left to Bulgaria
+recruit_character = RUS_nikolai_schilling #fired by wrangel, left to czech
+recruit_character = RUS_pyotr_struve
+recruit_character = RUS_sofia_panina
+recruit_character = RUS_vasily_maklakov
+recruit_character = RUS_pavel_milyukov
+recruit_character = RUS_mikail_promtov
+recruit_character = RUS_gerasim_vdovenko
+recruit_character = RUS_vasily_bocharov
+recruit_character = RUS_alexey_von_lampe
+recruit_character = RUS_mikhail_kederov
+recruit_character = RUS_mikhail_berens
+recruit_character = RUS_yakov_podgorny
+recruit_character = RUS_alexey_zaev
+recruit_character = RUS_alexander_lukomsky
+recruit_character = RUS_evgeny_messner
+recruit_character = RUS_evgeny_ivanov
+recruit_character = RUS_alexander_bubnov
+
+#has to be after recruit_character
+add_ideas = {
+	#advisor
+	RUS_metropolitan_anthony
+	RUS_alexander_guchkov
+	#RUS_alexander_krivosein
+}
+
+#RUSSIAN ARMY SPIRIT
+#initial
+#set_variable = { RUS_russian_army_communism_drift = -0.02 }
+set_variable = { RUS_russian_army_experience_loss_factor = -0.1 }
+set_variable = { RUS_russian_army_cavalry_attack_factor = 0.05 }
+set_variable = { RUS_russian_army_army_org_factor = 0.05 }
+set_variable = { RUS_russian_army_max_planning = 0.15 }
+set_variable = { RUS_russian_army_planning_speed = -0.20 }
+set_variable = { RUS_russian_army_command_power_gain_mult = 0.25 }
+set_variable = { RUS_russian_army_compliance_growth = -0.15 }
+set_variable = { RUS_russian_army_experience_gain_army_factor = -0.10 }
+set_variable = { RUS_russian_army_land_doctrine_cost_factor = 0.2 }
+set_variable = { RUS_russian_army_army_morale_factor = -0.1 }
+set_variable = { RUS_russian_army_experience_gain_factor = -0.15 }
+set_variable = { RUS_russian_army_org_loss_when_moving = -0.05 }
+
+set_variable = { RUS_russian_army_army_core_attack_factor = 0.05 }
+set_variable = { RUS_russian_army_army_attack_factor = 0.1 }
+set_variable = { RUS_russian_army_army_defence_factor = 0.05 }
+#future
+set_variable = { RUS_russian_army_army_leader_cost_factor = 0 }
+set_variable = { RUS_russian_army_promote_cost_factor = 0 }
+set_variable = { RUS_russian_army_cavalry_defence_factor = 0 }
+set_variable = { RUS_russian_army_breakthrough_factor = 0 }
+
+#add_dynamic_modifier = { modifier = RUS_russian_army_dynamic_modifier } #added via focus
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	create_equipment_variant = {
+		name = "Nieuport 28" #
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = non_strategic_materials_small
+		}
+		#obsolete = yes
+		icon = "GFX_FRA_early_fighter_medium"
+	}
+	create_equipment_variant = {
+		name = "Airco DH.9"
+		type = small_plane_cas_airframe_0
+		modules = {
+			fixed_main_weapon_slot = bomb_locks
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = lmg_defense_turret
+			special_type_slot_2 = non_strategic_materials_small
+		}
+		icon = "GFX_FRA_CAS1_medium"
+	}
+	create_equipment_variant = {
+		name = "Skirosky Ilya Muromets V" #
+		type = medium_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = empty#recon_camera
+			engine_type_slot = engine_1_4x
+			special_type_slot_1 = lmg_defense_turret_2x
+			special_type_slot_2 = non_strategic_materials_medium
+			special_type_slot_3 = empty
+		}
+		icon = "GFX_FRA_strategic_bomber1_medium"
+	}
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+	}
+}
+# Starting tech
+set_technology = {
+	basic_train = 1
+	#armored_train = 1 #add via focus
+	infantry_weapons = 1
+	tech_support = 1		
+	tech_engineers = 1
+	tech_recon = 1
+	tech_mountaineers = 1 #also light inf
+	tech_trucks = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	fuel_silos = 1
+	tech_maintenance_company = 1 #Mandate army restrictions means maintaining existing arms
+}
+if = {
+	limit = {
+		not = { has_dlc = "Man the Guns" }
+	}
+	set_technology = {
+		early_submarine = 1
+		early_destroyer = 1
+		early_light_cruiser = 1
+		early_heavy_cruiser = 1
+		early_battleship = 1
+		early_battlecruiser = 1
+		transport = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = {
+		basic_naval_mines = 1
+		submarine_mine_laying = 1
+		early_ship_hull_light = 1
+		early_ship_hull_submarine = 1
+		early_ship_hull_cruiser = 1
+		early_ship_hull_heavy = 1
+		basic_battery = 1
+		basic_torpedo = 1
+		basic_depth_charges = 1
+		mtg_transport = 1
+		coastal_defense_ships = 1
+		pre_dreadnoughts = 1
+	}
+}
+
+if = {
+	limit = {
+		has_dlc = "La Resistance"
+	}
+	set_technology = {
+		armored_car1 = 1
+		#scout_plane1 = 1 #removed for BBA cuz i cant figure out how to implement it
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	create_equipment_variant = {
+		name = "Imperatritsa Mariya-class"				
+		type = ship_hull_heavy_1
+		name_group = RUS_ADMIRALS_NAVY
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_bb_1
+			front_1_custom_slot = empty
+			mid_2_custom_slot = ship_secondaries_1
+			rear_1_custom_slot = ship_heavy_battery_1
+		}
+		obsolete = no
+	}	
+
+	create_equipment_variant = {
+		name = "Ekaterina II-class"				
+		type = ship_hull_heavy_1
+		name_group = RUS_ADMIRALS_NAVY
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_1
+			fixed_ship_anti_air_slot = empty #ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_bb_1
+			front_1_custom_slot = empty
+			mid_2_custom_slot = ship_secondaries_1
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}	
+
+	create_equipment_variant = {
+	name = "Potemkin-Evstafi class"				
+	type = ship_hull_pre_dreadnought
+	name_group = RUS_ADMIRALS_NAVY
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_heavy_battery_1
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = heavy_ship_engine_1
+		fixed_ship_secondaries_slot = ship_secondaries_1
+		fixed_ship_armor_slot = ship_armor_bb_1
+		front_1_custom_slot = empty #ship_torpedo_1
+		mid_1_custom_slot = ship_secondaries_1
+		rear_1_custom_slot = empty ###ship_medium_battery_1
+		}
+		obsolete = yes
+	}
+
+	create_equipment_variant = {
+		name = "Almaz class"
+		type = ship_hull_cruiser_1
+		name_group = RUS_CITIES_NAVY
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = empty
+			fixed_ship_secondaries_slot = empty
+			mid_1_custom_slot = ship_torpedo_1
+			mid_2_custom_slot = ship_airplane_launcher_1
+			rear_1_custom_slot = ship_light_battery_1
+		}
+		obsolete = no
+	}
+	create_equipment_variant = {
+		name = "Bogatyr class"
+		type = ship_hull_cruiser_1
+		name_group = RUS_CITIES_NAVY
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = ship_armor_cruiser_2
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			mid_1_custom_slot = ship_torpedo_1
+			mid_2_custom_slot = ship_secondaries_1
+			rear_1_custom_slot = empty #ship_medium_battery_1
+		}
+		obsolete = no
+	}
+
+	create_equipment_variant = {
+		name = "Kerch class" 		
+		type = ship_hull_light_1
+		name_group = RUS_ADJECTIVES_NAVY
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = empty
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+		obsolete = no
+	}
+
+	create_equipment_variant = {
+		name = "Auxilary Ship" 		
+		type = ship_hull_light_1
+		name_group = RUS_ADJECTIVES_NAVY
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = empty
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = empty
+			mid_1_custom_slot = ship_mine_sweeper_1
+			rear_1_custom_slot = ship_mine_layer_1
+		}
+		obsolete = no
+	}
+
+	create_equipment_variant = {
+		name = "AG class"
+		type = ship_hull_submarine_1
+		name_group = RUS_ANIMALS_NAVY
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_1
+			rear_1_custom_slot = empty
+		}
+		obsolete = no
+	}	
+}	
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "Garford-Putilov"
+		type = light_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_close_support_gun
+			turret_type_slot = tank_light_two_man_tank_turret
+			suspension_type_slot = tank_wheeled_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = wet_ammo_storage
+			special_type_slot_2 = empty #easy_maintenance
+			special_type_slot_3 = additional_machine_guns
+			special_type_slot_4 = additional_machine_guns
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 1
+			tank_nsb_armor_upgrade = 1
+		}
+		icon = "gfx/interface/technologies/can_armored_car_equipment_2.dds"
+	}
+}
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+set_popularities = {
+	democratic = 46
+	fascism = 18
+	communism = 1
+	neutrality = 35
+}

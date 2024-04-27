@@ -1,0 +1,94 @@
+﻿capital = 592
+
+#oob = "GUN_1936"
+
+set_stability = 0.6
+set_war_support = 0.4
+# Starting tech
+if = { #had built his own airplane factory (with foreign help i believe)
+	limit = { has_dlc = "By Blood Alone" }
+		#set_air_oob = "GUN_1936_air_bba"
+		set_technology = {
+			aa_lmg = 1
+			iw_small_airframe = 1
+			engines_1 = 1
+			early_bombs = 1
+		}
+	else = {
+		#set_air_oob = "GUN_1936_air_legacy"
+		set_technology = {
+			early_fighter = 1
+		}
+	}
+}
+if = { #by the late 30s, had imported many foreign ships, including a full minelayer, and also converted a large liner to a troop transport
+	limit = {
+		not = { has_dlc = "Man the Guns" }
+	}
+	set_technology = {
+		early_destroyer = 1
+		transport = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = {
+		basic_naval_mines = 1
+		early_ship_hull_light = 1
+		basic_battery = 1
+		mtg_transport = 1
+	}
+}
+set_technology = { #had his own arty factory
+	infantry_weapons = 1
+	gw_artillery = 1
+	tech_support = 1
+	mass_assault = 1
+}
+
+recruit_character = GUN_chen_jitang
+recruit_character = GUN_liu_peng
+recruit_character = GUN_zhang_lu
+recruit_character = GUN_li_ting
+recruit_character = GUN_bai_yeung
+recruit_character = GUN_heng_lo
+recruit_character = GUN_yu_hanmou
+recruit_character = GUN_zha_zemin
+recruit_character = GUN_huo_duyi
+recruit_character = GUN_niu_keung
+recruit_character = GUN_bai_chongxi
+recruit_character = GUN_teng_qingshan
+recruit_character = GUN_do_liang
+recruit_character = GUN_huang_shaohong
+recruit_character = GUN_yang_hulin
+recruit_character = GUN_wang_shuming
+recruit_character = GUN_li_jishen
+recruit_character = GUN_lei_zhong
+
+
+if = {
+	limit = {
+		has_dlc = "Waking the Tiger"
+	}
+	add_ideas = {
+		PRC_government_corruption
+		CHI_ineffective_bureaucracy_warlord
+	}
+}
+
+1939.1.1 = {
+}
+
+set_convoys = 5
+
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	neutrality = 100
+}

@@ -1,0 +1,103 @@
+﻿capital = 569
+
+oob = "KHA_1936"
+
+set_research_slots = 1
+
+add_manpower = 10000
+
+TAS = {
+	give_military_access = KHA
+	give_guarantee = KHA
+	diplomatic_relation = {
+		country = KHA
+		relation = non_aggression_pact
+		active = yes
+	}
+}
+TAS = {
+	give_military_access = KRA
+	give_guarantee = KRA
+	diplomatic_relation = {
+		country = KRA
+		relation = non_aggression_pact
+		active = yes
+	}
+}
+KRA = {
+	give_military_access = KHA
+	give_guarantee = KHA
+	diplomatic_relation = {
+		country = KHA
+		relation = non_aggression_pact
+		active = yes
+	}
+}
+KRA = {
+	give_military_access = TAS
+	give_guarantee = TAS
+	diplomatic_relation = {
+		country = TAS
+		relation = non_aggression_pact
+		active = yes
+	}
+}
+#MIN = {
+#	give_military_access = TAS
+#	give_guarantee = TAS
+#	diplomatic_relation = {
+#		country = TAS
+#		relation = non_aggression_pact
+#		active = yes
+#	}
+#}
+#MIN = {
+#	give_military_access = KHA
+#	give_guarantee = KHA
+#	diplomatic_relation = {
+#		country = KHA
+#		relation = non_aggression_pact
+#		active = yes
+#	}
+#}
+give_military_access = TAS
+give_guarantee = TAS
+give_military_access = KRA
+give_guarantee = KRA
+#give_military_access = MIN
+#give_guarantee = MIN
+add_ideas = {
+	NFE_peasant_army
+	NFE_peasant_militia_1
+	cossack_obsolete_army
+	neutrality_idea
+	closed_economy
+	RUS_weak_industrial_base
+	NFE_peasant_republic_faction_member
+}
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+	tech_support = 1		
+	tech_engineers = 1
+	tech_recon = 1
+	tech_mountaineers = 1
+	gw_artillery = 1
+	tech_maintenance_company = 1
+}
+
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+set_popularities = {
+	democratic = 50
+	anarchism = 30
+	neutrality = 0
+	communism = 20
+	fascism = 0
+}

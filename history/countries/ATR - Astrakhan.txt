@@ -1,0 +1,195 @@
+﻿capital = 236
+
+set_research_slots = 2
+add_manpower = 10000
+set_fuel_ratio = 0.6
+set_convoys = 4
+starting_train_buffer = 1
+set_stability = 0.6
+set_war_support = 0.6
+
+set_oob = "ATR_1936"
+
+add_ideas = {
+	cossack_obsolete_army
+	cossack_isolated_from_moscow
+	MON_nomadic
+	RUS_weak_industrial_base
+	cos_fruits_of_volga
+}
+
+add_ideas = {
+	extensive_conscription
+	low_economic_mobilisation
+}
+
+#create_faction = SKVO
+#add_to_faction = ATR
+#add_to_faction = DON
+#add_to_faction = TER
+#add_to_faction = KAL
+#add_to_faction = VLG
+
+#DON = {
+#	give_military_access = ATR
+#	give_guarantee = ATR
+#	diplomatic_relation = {
+#		country = ATR
+#		relation = non_aggression_pact
+#		active = yes
+#	}
+#}
+#DON = {
+#	give_military_access = KAL
+#	give_guarantee = KAL
+#	diplomatic_relation = {
+#		country = KAL
+#		relation = non_aggression_pact
+#		active = yes
+#	}
+#}
+#
+#DON = {
+#	give_military_access = TER
+#	give_guarantee = TER
+#	diplomatic_relation = {
+#		country = TER
+#		relation = non_aggression_pact
+#		active = yes
+#	}
+#}
+
+#VLG = {
+#	give_military_access = TER
+#	give_guarantee = TER
+#	diplomatic_relation = {
+#		country = TER
+#		relation = non_aggression_pact
+#		active = yes
+#	}
+#}
+#
+#VLG = {
+#	give_military_access = ATR
+#	give_guarantee = ATR
+#	diplomatic_relation = {
+#		country = ATR
+#		relation = non_aggression_pact
+#		active = yes
+#	}
+#}
+#VLG = {
+#	give_military_access = KAL
+#	give_guarantee = KAL
+#	diplomatic_relation = {
+#		country = KAL
+#		relation = non_aggression_pact
+#		active = yes
+#	}
+#}
+#
+#VLG = {
+#	give_military_access = DON
+#	give_guarantee = DON
+#	diplomatic_relation = {
+#		country = DON
+#		relation = non_aggression_pact
+#		active = yes
+#	}
+#}
+#
+#TER = {
+#	give_military_access = VLG
+#	give_guarantee = VLG
+#	diplomatic_relation = {
+#		country = VLG
+#		relation = non_aggression_pact
+#		active = yes
+#	}
+#}
+#
+#TER = {
+#	give_military_access = ATR
+#	give_guarantee = ATR
+#	diplomatic_relation = {
+#		country = ATR
+#		relation = non_aggression_pact
+#		active = yes
+#	}
+#}
+#TER = {
+#	give_military_access = KAL
+#	give_guarantee = KAL
+#	diplomatic_relation = {
+#		country = KAL
+#		relation = non_aggression_pact
+#		active = yes
+#	}
+#}
+#
+#TER = {
+#	give_military_access = DON
+#	give_guarantee = DON
+#	diplomatic_relation = {
+#		country = DON
+#		relation = non_aggression_pact
+#		active = yes
+#	}
+#}
+#
+#give_military_access = DON
+#give_guarantee = DON
+#give_military_access = VLG
+#give_guarantee = VLG
+#give_military_access = TER
+#give_guarantee = TER
+
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+		#set_air_oob = "POL_1936_air_bba"
+		set_technology = {
+			aa_lmg = 1
+			iw_small_airframe = 1
+			engines_1 = 1
+			early_bombs = 1
+		}
+	else = {
+		#set_air_oob = "POL_1936_air_legacy"
+		set_technology = {
+			early_fighter = 1
+			early_bomber = 1
+			CAS1 = 1
+		}
+	}
+}
+# Starting tech
+set_technology = {
+	basic_train = 1
+	infantry_weapons = 1
+	gw_artillery = 1
+	tech_support = 1		
+	tech_engineers = 1
+	tech_recon = 1
+	tech_mountaineers = 1
+	gw_artillery = 1
+	mass_assault = 1
+}
+
+set_politics = {
+	ruling_party = communism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+set_popularities = {
+	democratic = 15
+	neutrality = 20
+	communism = 65
+	fascism = 0
+}
+
+set_autonomy = {
+	target = KAL
+	autonomous_state = autonomy_puppet
+}

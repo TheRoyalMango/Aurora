@@ -1,0 +1,58 @@
+﻿capital = 217
+
+set_research_slots = 2
+add_manpower = 10000
+
+set_oob = "VLG_1936"
+
+add_ideas = {
+    cossack_isolated_from_moscow
+}
+
+add_ideas = {
+    extensive_conscription
+    low_economic_mobilisation
+}
+# Starting tech
+set_technology = {
+    infantry_weapons = 1
+    tech_support = 1
+    tech_engineers = 1
+    tech_recon = 1
+    tech_mountaineers = 1
+    gw_artillery = 1
+    tech_military_police = 1
+}
+
+if = {
+    limit = { has_dlc = "By Blood Alone" }
+        #set_air_oob = "POL_1936_air_bba"
+        set_technology = {
+            aa_lmg = 1
+            iw_small_airframe = 1
+            engines_1 = 1
+            early_bombs = 1
+        }
+    else = {
+        #set_air_oob = "POL_1936_air_legacy"
+        set_technology = {
+            early_fighter = 1
+            early_bomber = 1
+            CAS1 = 1
+        }
+    }
+}
+
+set_politics = {
+    ruling_party = communism
+    last_election = "1936.1.1"
+    election_frequency = 48
+    elections_allowed = yes
+}
+
+set_popularities = {
+    democratic = 15
+    neutrality = 20
+    communism = 65
+    fascism = 0
+}
