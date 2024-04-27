@@ -1,0 +1,52 @@
+﻿l_english:
+
+ #spirits
+ MON_japanese_railways_assistance:0 "Japanese Railway Construction Assistance"
+ MON_nomadic:0 "Horse-Riding Culture"
+ MON_nomadic_desc:0 "Our culture has forged strong bonds with the equestrian world, with our people riding horses like Americans drive cars. This has translated well into the armed forces, where our cavalry are widely-known for their excellent command of their steeds."
+ MON_the_mad_baron:0 "The Mad Baron"
+ MON_bogd_khan:0 "Puppet Bodg Khan"
+ MON_bogd_khan_desc:0 "The 9th Jebtsundamba Khutughtu is the new reincarnation of the Bodg Khan, who passed away in 1933. However, he is just a small child and thus only serves as a figurehead and puppet for the current regime."
+
+ #people
+ MON_roman_von_ungernsternberg:0 "Roman von Ungern-Sternberg"
+ MON_boris_rezukhin:0 "Boris Rezukhin"
+ MON_andrey_bakich:0 "Andrey Bakich"
+ MON_mikhail_tornovsky:0 "Mikhail Tornovsky"
+ #focuses
+ MON_request_machine_tools_from_japan:0 "Request Machine Tools From Japan"
+ MON_upgrade_the_ulaanbaatar_hsinking_rail:0 "Upgrade the Ulaanbaatar-Hsking Rail"
+ MON_electrify_the_country:0 "Electrify the Countryside"
+ MON_domestic_machine_tools:0 "Domestic Machine Tools"
+ MON_weapons_manufactury:0 "Armaments Manufactury"
+ MON_pursue_rapid_industrialization:0 "Pursue Rapid Industrialization"
+ MON_homesteading:0 "Support the Rural Population"
+ MON_animal_husbandry:0 "Mongolian Horse Experience"
+ MON_play_to_our_strengths:0 "Invest in Traditional Economy"
+ MON_tap_into_the_CER:0 "Tap into the CER"
+ MON_japanese_weapons_imports:0 "Japanese Weapon Imports"
+ MON_order_heavy_arms:0 "Order Heavy Arms"
+ MON_invite_japanese_settelers:0 "Invite Japanese Settelers"
+ MON_japanese_technical_school:0 "Open Japanese Schools"
+
+ #political
+ MON_power_to_the_baron:0 "All Power to the Baron"
+ MON_reapprochment_with_semyonov:0 "Reapproachment with Semyonov"
+ MON_prepare_for_war_with_the_peasant_republics:0 "Preparations Against the Peasant Republics"
+ MON_push_past_the_sayan_mountains:0 "Pushing Past the Sayan Mountains"
+ MON_support_karakorum:0 "Support Karakorum"
+ foreign_aid_ttp:0 "\n This country will be more likely to send us lend lease and volunteers in times of war."
+###
+ MON_neutrality_party:0 "Bogd Khan Loyalists"
+ MON_neutrality_party_long:0 "Bogd Khan Loyalists"
+ MON_democratic_party_liberal:0 "Trudoviks"
+ MON_democratic_party_liberal_long:0 "Trudoviks"
+ MON_democratic_party:0 "Progressive Party"
+ MON_democratic_party:0 "The Progressive Party"
+ MON_fascism_party:0 "URP"
+ MON_fascism_party_long:0 "Union of the Russian People"
+ MON_fascism_party_puppet_empire:0 "RMU"
+ MON_fascism_party_puppet_empire_long:0 "The Russian Monarchist Union"
+ MON_communism_party:0 "Mensheviks"
+ MON_communism_party_long:0 "Mensheviks"
+##tech

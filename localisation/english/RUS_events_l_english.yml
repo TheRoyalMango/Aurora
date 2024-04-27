@@ -1,0 +1,316 @@
+﻿l_english:
+# rus.1.t:0 "Disaster At Sea!"
+# rus.1.d:0 "A convoy of our merchant marine encountered a storm off the coast of Novo-Arkhangelsk. Transporting a food shipment from america, the convoy encountered abnormal currents and wind conditions. Just a few miles from port, a rogue wave hit the convoy head on. Any ships that did not capsize were pushed towards land, where they shattered on the rocks. Only a few survivors were picked up by local fishermen, who thankfully took it upon themselves to recover as much of the lost cargo as possible."
+# rus.1.b:0 "Offer our condolences to the families"
+# rus.2.t:0 "Crown an heir"
+# rus.2.d:0 "Both Alexei and Kirill wish to take the throne, it is up for us to decide. Alexei is both popular amongst the people and is intrested leading the military.However, Alexei's hemophilia presents the risk he may die on the throne. Kirill is the more legitimate option, and has the support of the nobles. This makes Kirill a safe option, but he has dangerous dies to the Mladorossi organization and other communists and fascists."
+# rus.2.b:0 "Crown Kirill Vladimiorvich Emperor"
+# rus.2.c:0 "Crown Alexei Nikolaevich Romanov Emperor"
+# rus.3.t:0 "An Empress for our people"
+# rus.3.d:0 "Russia has not had an Empress in a very long time, but supporters for an Empress point to Cathrine The Great's many achivements. Maria, son of Nicholas II and brother of Alexei, has proven very popular amongst Alaskan youth and is a supporter of democracy within an Empire. She is however political unexperienced, and nobles look down upon her marriage to a common soldier many years ago. Princess Irina Alexandrovna, the only blood niece of Nicholass II and son of Grand Duke Alexander Mikhailovich, is the other option. She enjoys populairty amongst Emigrees both at home and abroad thanks to her charity work. It should also be noted her husband, Prince Felix Felixovich Yusupov, Count Sumarokov-Elston, is one of the wealthiest White Russian men alive and assisted in the murder of Rasputin, making him very popular amongst nobles."
+# rus.3.b:0 "Crown Maria Nikolaevna Romanova Empress"
+# rus.3.c:0 "Crown Irina Alexandrovna Empress"
+
+ aurora_news.1.t:0 "Metropolitan Anthony Passes Away"
+ aurora_news.1.desc:0 "Metropolitan Anthony (secular name Aleksey Pavlovich Khrapovitsky) was a bishop of the Russian Orthodox Church in the Russian Empire, the Metropolitan of Kiev and Galicia, who after the defeat of Gen Pyotr Wrangel's White Army in South Russia in November 1920 emigrated and in 1921 settled down in Crimea. He, along with several other Russian bishops in exile, established an independent Russian church administration that sought to embrace all Russian Orthodox diaspora, known as the Russian Orthodox Church Outside Russia (ROCOR). He passed away last night at 73, and is expected to be succeeded by Metropolitan Anastasy"
+ aurora_news.1.a:0 "Rest in Peace"
+ aurora_news.2.t:0 "Alexander Guchkov Passes Away"
+ aurora_news.2.desc:0 "Alexander Guchkov, born in 1862 into a noble Russian family, dedicated his life to public service and reform. He played a pivotal role in Russian politics as a member of the State Duma, where he fervently advocated for political and social change, particularly focusing on modernizing and strengthening Russia. \n Alexander Guchkov has passed away at the age of 75 this week. His passing is mourned by many who recognize his contributions to the advancement of democracy and the betterment of society, leaving behind a lasting impact that will be remembered for years to come."
+ aurora_news.2.a:0 "His absence will be felt in Russian politics"
+ aurora_news.3.t:0 "Ressurection of the White Movement"
+ aurora_news.3.desc:0 ""
+ aurora_news.3.a:0 "It's 1920 all over again"
+ aurora_news.4.t:0 "General Dimitry Horvat Passes Away"
+ aurora_news.4.desc:0 "Dmitry Leonidovich Horvat has passed away this week at the age of 78. He was born july 25, 1858, Kremenchug, Poltava Governorate, Russian Empire and was a Russian lieutenant general, a railway engineer by training, over the years led various sections of the railways of the Russian Empire, and one of the leaders of the White movement. \n During the civil war, General Horvat did not long agree on general persuasion to take upon himself the heavy burden of exercising the authority of the supreme power, but finally, he decided and on July 10, 1918, declared himself the Temporary Ruler until the Russian national sovereignty was restored. In this high rank and in this responsible post he remained until September 13, 1918, when, after long and difficult negotiations, he recognized the Provisional Siberian Government, to which he transferred his sovereign powers, resigning as the Temporary Ruler and remaining High Commissioner for the Far East. When the Japanese protectorate was established in Priamurye, he remained in this position until his death."
+ aurora_news.4.a:0 "The Far East will miss him"
+ rus.1.t:0 "Infighting in the White Movement"
+ rus.1.d:0 "Regrettably, we have observed a concerning level of factionalism and infighting within the movement. This internal discord threatens to undermine the effectiveness and unity of the anti-Bolshevik forces. \n Multiple factions within the White Movement have emerged, each advocating for different strategies, priorities, and leadership. The lack of a cohesive and unified front hampers the movement's ability to coordinate military operations, consolidate resources, and present a formidable challenge to the Bolshevik forces. \n Prominent factions contributing to the internal discord include the National Union of War Participants(RNSUV), the Russian All-Military Union (ROVS), and republican factions such as the Kadets. However, there are still other minor factions and even factions within these factions.\n The resulting fragmentation poses significant challenges to our shared objective of restoring stability and order in Russia."
+ rus.1.a:0 "New days, old problems."
+
+ rus.2.t:0 "Kornilov Arrives in Sebastopol"
+ rus.2.d:0 "After South Russia was transformed into the Crimean Mandate in the 1920s, General Kornilov was still recovering in a Paris hospital from grevious wounds suffered in the siege of Yekaterinodar in 1918. As part of the agreement with the Soviets to allow the Crimean Mandate to exist, certain prominent nationalist figures not already in Crimea were to be barred entry, including Kornilov. \n Despite this, last night Kornilov and a few compatriots snuck onto a food shipment to Crimea and only revealed themselves at the port in Sevastopol. When arrested by the authorities Kornilov, now 66, meekly claimed he wished to retire in Yalta amongst his own beloved people. Amidst large pressure from the Russian populace, the Mandate authorities released Kornilov with no charges and no intent of deportation. Moscow released a strongly-worded objection to these events, but the weak political situation in the Soviet government likely contributed to the descision to allow Kornilov to stay. \n His release from jail was met with a welcome party of thousands and a 21-gun salute by the Bogatyr-Class Cruiser which bares his name - The General Kornilov. Despite the Mandate Council's best efforts to downplay his return, many newspapers are already lauding the general's return as a sign that the White Movement is not yet lost."
+ rus.2.a:0 "Welcome home, general. Please don't try a coup."
+
+ rus.4.t:0 "Second Kornilov Affair"
+ rus.4.d:0 "General Lavr Kornilov, a renowned hero of the Civil War and a symbol of Volunteerism, has successfully executed a Coup d'Etat!\n \nAccompanied by the Kornilov Shock Division, he marched into the Sevastopol Mandate Building and emerged two hours later with a declaration on the dissolution of the Crimean Mandate and the transfer of governing power to a committee consisting of ex-Russian Army officers. In a speech to an elated crowd, General Kornilov announced the revival of the South Russian Government and the White Movement as a whole. The committee of ex-Russian Army officers will convene immediately to determine the composition of a new government. \n \nNot long after, invited prominent politicans and generals of suprisingly diverse views were seen arriving at the Mandate Building, including Boris Savinkov, Alexander Krivoshein, Alexander Guchkov, Pyotr Wrangel, and even Metropolitan Anthony. \n \n Noticably, no members of extreme far-right parties were invited. If rumors are to be believed, Boris Savinkov, a previous associate of Kornilov and fierce anti-totalitarian, met with him personally and convinced him to not invite any extreme right-wing movements. Alternate rumors propose it was Wrangel; swayed by his anti-fascist associate Alexander Guchkov, used his influence as former Pravitel to convince Kornilov that extreme right-wing movements only pose a danger to popular support for any new government."
+ rus.4.a:0 "Lets vote!"
+
+ rus.53.t:0 "Choosing Our Leadership"
+ rus.53.d:0 "\n\n Pytor Wrangel, chairman of the Russian All-Military Union (ROVS), was the first to receive an invitation to join the committee. The ROVS positions itself as the successor of the Imperial Army and the White armies, upholding their traditions. While declaring to be apolitical, the Union's membership tends to lean center-right with monarchist views. However, the ROVS has pledged to leave the political fate of Russia to a constituent assembly formed after unification, and would rule as a military dictatorship meanwhile. It should be noted that during the civil war, the ROVS's predecessor (Wrangel's army & government) were enacting some fairly liberal reforms. \n \n Guchkov and Krivoshein have put forward a democratic coalition government under the Constitutional Democratic Party (Kadet). The Kadets were a liberal party in Russia that advocated for constitutional reform, civil liberties, and a parliamentary system. They played a significant role during the early stages of the Revolution and the Provisional Government period. Krivoshein himself was a popular statesman of the Russian Empire, involved in the Stolypin reforms and was an exceptional statesman in Wrangel's 1920 government. Additionally, Guchkov was a supporter of Kornilov during his 1917 coup. Thus many liberal papers reporting on the election urge Wrangel and Kornilov to back the democratic coalition. Savinkov has even expressed interest in joining the Kadets. \n \n Lastly, Anton Turkul, of the Russian National Union of War Participants (RNSUV) and former commander of the Kornilov Shock Division, has called for his military union to be elected, despite not even being invited inside. The RNSUV is an is an extreme-right military-political organization, who broke off from the ROVS after being expelled for having strong political opinions. They are amongst few White Russians to be openly pro-German and have declared bluntly "Our ideal is a fascist monarchy." There is a fear that RNSUV officers in the Kornilov Shock Division, which is guarding the committee, may force their own outcome after being denied a voice. Turkul or other right-wing figures are the potential leaders." #Boris Savinkov has joined the Kadet coalition, but advocates for a temporary military Pravitel (leader) in lieu of a civilian president Krivoshein.
+ rus.53.a:0 "ROVS Non-Predetermination prevail"
+ rus.53.b:0 "Wrangel & Kornilov support the Kadets" #do another event for Savinkov taking power here
+ rus.53.c:0 "The RNSUV hijack the coup!"
+
+ rus.5.t:0 "Crimean Mandate Dissolved" #FRENCH
+ rus.5.d:0 ""
+ rus.5.a:0 "Support the coup"
+ rus.5.b:0 "Condemn it"
+
+ rus.6.t:0 "Crimean Mandate Dissolved" #BRITISH
+ rus.6.d:0 ""
+ rus.6.a:0 "Support the coup"
+ rus.6.b:0 "Condemn it"
+
+ rus.7.t:0 "British Dissapproval"
+ rus.7.d:0 ""
+ rus.7.a:0 "Unfortunate."
+
+ rus.8.t:0 "British Approval"
+ rus.8.d:0 ""
+ rus.8.a:0 "Neat"
+
+ rus.9.t:0 "French Dissapproval"
+ rus.9.d:0 ""
+ rus.9.a:0 "Dissapointing"
+
+ rus.3.t:0 "French Approval"
+ rus.3.d:0 ""
+ rus.3.a:0 "A toast to our old supporter"
+
+
+ rus.10.t:0 "Preparing the Coup in Kalmykia"
+ rus.10.d:0 "During the civil war Kalmyks fought alongside our troops under the command of Dazan Tundutov. Due to the occupation of Kalmykia, a thousand Kalmyk exiles still reside within our armed forces hoping to one day return home. General Tundutov has proposed a bold plan where he will travel undercover to Communist Kalmykia and set up resistance cells poised for an uprising against the authorities. If he succeeds, Kalmykia will rise up against their occupiers as our puppet."
+ rus.10.a:0 "Good luck to General Tundutov"
+
+ rus.11.t:0 "Kalmykia Rejects Liberation"
+ rus.11.d:0 "After General Tundutov traveled to Kalmykia, he was shocked to find that the local Kalmyks were not enthusiastic about joining our cause. Soviet authorities were tipped off by informers, and Tundutov was forced to flee. It would appear we will be unable to rely on any support from occupied Kalmykia."
+ rus.11.a:0 "Then how will the Kalmyks accept us?"
+
+ rus.12.t:0 "Tundutov finds Success"
+ rus.12.d:0 "After General Tundutov traveled to Kalmykia, he quickly was able to establish contact with local community leaders and small militias.. After some brief negitations, they agreed to our terms and informed us the whole of Kalmykia will revolt and rally behind us."
+ rus.12.a:0 "Perfect"
+
+ rus.13.t:0 "South Russia Offers Assistance for a Revolt"
+ rus.13.d:0 "The Kalmyk-born General Tundutov has come to Kalmykia, claiming to represent the government of South Russia. He has informed us the Whites in Crimea are willing to assist in a revolt against the communist government, as long as we accept General Tundutov as our leader and become a White Russian puppet."
+ rus.13.a:0 "Tundutov will liberate us!"
+ rus.13.b:0 "Reject the imperialists!"
+
+###
+ rus.14.t:0 "South Russia Offers Unification!"
+ rus.14.a:0 "Let us join the central government"
+ rus.14.b:0 "Ask for autonomy instead"
+ rus.14.c:0 "Go to hell"
+
+ rus.15.t:0 "They Accept!"
+ rus.15.a:0 "Your country thanks you, Cossacks"
+
+ rus.16.t:0 "Cossacks make demands"
+ rus.16.a:0 "A partnership is acceptable"
+ #rus.16.b:0 "A partnership is acceptable"
+
+ rus.17.t:0 "Cossacks deny our demands"
+ rus.17.a:0 "Horses aren't immune to our bullets"
+
+# rusnews.1.t:0 "America Ends Forced Alaska Neutrality"
+# rusnews.1.d:0 "The Russian colony of Russkaya Amerika, commonly known as Alaska, has long been under the influence of America even before the civil war. As the Russian Civil War came to an anti-climatic stalemate, the United States seeked to influence Alaska to stop fighting. Seeing an independant, neutral Alaskan republic as a more profitable neighbor, the United States 'encouraged' the White Russians there to cease fighting and instead promote an Alaska Idendity. American efforts to turn the colony full of exiles into an American dependant were successful, but they have been unable to make the people of Alaska forget their destiny to reclaim Russia. With the Great Depression in full swing, and lack of support from the American people, the government of the United States of America have announced they will no longer be enforcing Alaska neutrality, and instead of focusing on issues at home. Foreign observers predict Alaska will soon unify with Kolchak's army in Okhotsk, something America has long opposed, and begin a reclaimation of Siberia."
+
+# rusnews.1.a:0 "Alaska is free to pursue her destiny"
+# rusnews.1.b:0 "We Shall Return Home!"
+
+ rus.18.t:0 "Question of Leadership"
+ rus.18.d:0 "remember to add tooltip about how Wrangel has cast aside Volunteerism, and thus selecting him as country leader will lock that path in the focus tree"
+
+ rus.18.a:0 "The Black Baron Returns"
+ rus.18.b:0 "Lavr Kornilov is our champion"
+
+ rus.19.t:0 "Our Plans For The Mountainous Republic" #Mountainous Republic of the Northern Caucasus
+ rus.19.d:0 "The Mountainous Republic of the Northern Caucasus has existed on our southern border since the civil war. Beyond fighting for their independance during that time, they have caused us little trouble. Despite being a small country, they have respectable oil and chromium deposits, as well as some minor industry, all of which would be a good help to our cause. Thus if we are to proceed with uniting South Russia, The Republic must recognize our authority. We can either demand they become our protectorate(under which we will gain resource rights to Dagestan), or have the Terek Cossacks launch a sudden coup. If we choose the former we run the risk of them denying our demands and being forced to invade. If we choose the latter, the Tereks might fail in their coup if we haven't supported them in the past, forcing us to invade."
+ rus.19.a:0 "Launch The Terek Coup!"
+ rus.19.b:0 "Send a Letter of Demands"
+
+ rus.20.t:0 "Terek Cossacks Revolt!"
+ rus.20.d:0 "Terek Cossacks, armed with South Russian weapons, have launched a successful Coup d'etat! A large group of them attacked the capitol and other government buidlings around the country, killing or arresting several. Flags of the Terek Cossacks and the White Movement have been seen flying above major buildings. Shortly after the violence, our president has announced all powers to be transfered to a Terek council, which have promptly invited South Russia to take over."
+ rus.20.a:0 "Bruh"
+
+ rus.21.t:0 "Terek Cossacks Revolt!"
+ rus.21.d:0 "Terek Cossacks, largely under-equipped, have launched a failed Coup d'etat! A large group of them attacked the capitol and other government buidlings around the country, but failed in almost every location to defeat local armed guards and take buildings. Our government hours later issued a statement reading all 'terrorists' were captured or killed, thanks to the bravery of local police who were able to come to the aid of the government even at the cost of their lives. Despite our victory, the president has announced he suspects foreign powers encouraged the cossack's actions, and has called for preparation against any possible future threats."
+ rus.21.a:0 "Huzzah!"
+
+ rus.22.t:0 "South Russian Demands!"
+ rus.22.d:0 "South Russia, despite being indifferent to us for nearly 15 years, have suddenly sent us a letter of demands. The terms would essentially make us a puppet of South Russia, and a close one at that. They have made it clear if we do not comply, their military will 'enforce' the terms for us."
+ rus.22.a:0 "No point in resistance. We accept."
+ rus.22.b:0 "Deny the demands."
+
+ rus.23.t:0 "Terek Cossack Coup Successful!"
+ rus.23.d:0 "The Terek Cossacks have successfully taken several important government facilities and forced the president to cede power to a Cossack council. The coup was successfuly largely in part to our smuggling of weapons to their men. The new Cossack council has quickly invited to annex the country."
+ rus.23.a:0 "Bring Out Our Finest Wine!"
+
+ rus.24.t:0 "Terek Cossack Coup Failed!"
+ rus.24.d:0 "Our Terek Cossacks' Coup d'etat has failed! A large group of them attacked the capitol and other government buidlings, but failed in almost every location to defeat local armed guards and take buildings. It would appear they were not sufficently armed to be successful. The Mountainous Republic of the Northern Caucasus has announced they have captured or killed all 'terrorists' and the president has appealed to the nation to mobilize against more threats. It would appear we only have one option left."
+ rus.24.a:0 "Destroy Them."
+
+ rus.25.t:0 "The Mountainous Republic Accepts Our Demands!"
+ rus.25.d:0 "The Mountainous Republic of the Northern Caucasus has informed our diplomats they have agreed to all terms of our letter of demands. Their republic has now become our puppet and we have resource rights in Dagestan. Additionally, Terek Cossacks were very pleased with these events and have formed several units for our military."
+ rus.25.a:0 "They Have Been Brought Into The Fold."
+
+ rus.26.t:0 "The Mountainous Republic Rejects Our Demands!"
+ rus.26.d:0 "The Mountainous Republic of the Northern Caucasus has informed our diplomats they have denied to all terms of our letter of demands. Shortly thereafter, their president made the demands public and rallied his nation against us. It would appear they are determined to go down fighting."
+ rus.26.a:0 "Then They Die Braver Than Most..."
+
+ ###################################################################WESTERN STEPP
+ rus.27.t:0 "The Fate of [URC.GetNameDefCap]"
+ rus.27.d:0 "The Yaik (Ural) Cossacks during the Civil War fought alongside us in great numbers, but were virtually destroyed in combat with the Reds towards the end of hostilities. With the collapse of Soviet power in the region, the remnants of the Yaik Cossacks have risen once again. In dealing with them, we have 2 options: \n 1. We can demand their complete annexation into our government. We are unsure how likely they are to accept this, since the Yaik Host has likely grown content with their autonomy. \n 2. We can ask them to join the White Movement as a puppet of us. They are much more likely to accept this option/ "
+ rus.27.a:0 "Demand annexation"
+ rus.27.b:0 "Offer them status as a subordinate army"
+
+ rus.28.t:0 "The Government of South Russia Demands Submission!"
+ rus.28.d:0 "South Russia has sent us a letter of demands that if accepted would turn us into their puppet state. We strongly suspect they are motivated to take control of our government in order to connect Tsaritsyn with Transcaspia. If we agree to be their puppet state, we will likely be forced to integrate into Russia should the White Movement unify the country. In the meantime, however, we gain the protection and resources of the Whites. On the other hand, we can resist the Whites. The Bolsheviks might send us aid if we do so. Should we hold our land long enough, we might be able to force a peace treaty on the Whites."
+ rus.28.a:0 "We Will Fight For our Independance"
+ rus.28.b:0 "We have no choice. Accept"
+
+ rus.29.t:0 "The Yaik Cossacks Deny our Demands!"
+ rus.29.d:0 ""
+ rus.29.a:0 "We Will Fight To Trancaspia Then."
+
+ rus.30.t:0 "The Yaik Cossacks Submit!"
+ rus.30.d:0 ""
+ rus.30.a:0 "Bring them into the fold."
+
+ rus.31.t:0 "South Russia Demands The Our Caspian Coast!"
+ rus.31.d:0 ""
+ rus.31.a:0 "We will defend our borders. Come for it."
+ rus.31.b:0 "Better this than war. Give it to them."
+
+ rus.32.t:0 "The Yaik Cossacks Give us Their Caspian Coast"
+ rus.32.d:0 ""
+ rus.32.a:0 "The path to our allies is here."
+
+ rus.33.t:0 "South Russia Reaches Our Border!"
+
+ #Cossack demands
+ rus.34.t:0 "[FROM.GetNameDefCap] Requests Arms"
+ rus.34.d:0 "§Y[FROM.GetNameWithdef]§! has requested light artillery & shells, rifles & ammunition, uniforms, and other support equipments to replenish their forces. Sending the requested shipment will strengthen their forces at the cost of our own, but will increase their political ties to us."
+ rus.34.a:0 "Send a shipment of arms"
+ rus.34.b:0 "Arms are more needed elsewhere"
+
+ rus.35.t:0 "[FROM.GetNameDefCap] Sends a Shipment of Arms!"
+ rus.35.d:0 "[FROM.GetNameDefCap] has agreed to send us a modest shipment of light artillery, shells, rifles, ammunition, uniforms, and other support equipments."
+ rus.35.a:0 "We express graditude and loyalty."
+
+ rus.36.t:0 "[FROM.GetNameDefCap] Denies Arms Request"
+ rus.36.d:0 "[FROM.GetNameDefCap] has denied our request for arms, explaining that they are needed elsewhere."
+ rus.36.a:0 "They frustrate us."
+
+ rus.37.t:0 "[FROM.GetNameDefCap] Offers Liberation!"
+ rus.37.d:0 "[FROM.GetNameDefCap] has offered to smuggle arms and men into Terek to instigate an anti-communist uprising. If we accept, we will become a puppet of [FROM.GetNameDefCap] and Terek Cossack General Anatoly Rogozhin will travel from Crimea to become our leader. A civil war will trigger in [TER.GetNameDefCap] and we'll also be dragged into [FROM.GetNameDefCap]'s war for all of Russia."
+ rus.37.a:0 "Accept total annexation"
+ rus.37.b:0 "Agree to their terms"
+ rus.37.c:0 "Deny their offer"
+
+ rus.38.t:0 "[FROM.GetNameDefCap] Accepts Annexation"
+ rus.38.d:0 "Against our expectations, the Terek Cossacks have simply agreed to be annexed by our forces instead of becoming an autonomous army."
+ rus.38.a:0 "Neat!"
+
+ rus.39.t:0 "[FROM.GetNameDefCap] Agrees to Our Offer!"
+ rus.39.d:0 "[FROM.GetNameDefCap] has agreed to our offer to liberate them. The Terek Cossacks will launch an uprising against the communist authorities and become our puppet."
+ rus.39.a:0 "Excellent."
+
+ rus.40.t:0 "[FROM.GetNameDefCap] Denies Our Offer!"
+ rus.40.d:0 "[FROM.GetNameDefCap] has denied our offer of liberation. It appears they prefer the communist yolk to a white Russian one."
+ rus.40.a:0 "They frustrate us."
+
+ #DON leader
+ rus.41.t:0 "Bogaewsky returns to the Don as Ataman"
+ rus.41.d:0 "Afrikan Bogaewsky intends to return to the Don as the new Ataman, replacing the provisional government that has taken place there. Due to Bogaewsky's cooperation with Wrangel during the civil war, we can trust he does not harbor Cossack seperatism and will keep the Don loyal to us. \n Vladimir Sidorin, previously exiled to the Kuban by Wrangel as a scapegoat for the Novorossyk disaster, will come out of exile and join the Don as a general."
+ rus.41.a:0 "Good Luck, Bogaewsky"
+
+ rus.42.t:0 "Evgeny Trifonov Rallies the People"
+ rus.42.d:0 "Evgeny Trifonov, one of the few loyal communist leaders in the Don, has pledged he will fight to the last to protect socialism in the Don. "
+ rus.42.a:0 "Huzzah!"
+
+ rus.43.t:0 "Cadets of the Crimean Corps"
+ rus.43.d:0 "After re-opening the Konstantinovsky, Aleksandrovskoye, Kornilovskoye, Kuban Alekseevskoye military and Sergievsk artillery schools, we have merged them with the Crimean Cadet Corps to form a new General Staff Academy consolidated with cadet schools. We have begun to staff these schools from the plentiful amount of officers from the Great War, and begun fill the student desks with the sons of the Volunteer Army. This next generation will fill our military with well-trained men and new ideas. \n Now the question remains as to the spirit of this new academy."
+ rus.43.a:0 "Prioritize Loyalty to the White Movement"
+ rus.43.b:0 "Entrench Cavalry Primacy"
+ rus.43.c:0 "Recognize Heroism"
+
+ rus.44.t:0 "[RUS.GetNameDefCap] Transfers Astrakhan to Us!"
+ rus.44.d:0 "[ROOT.GetLeader], recognizing our claim to Astrakhan, has transfered control of the entire state to [KAL.GetNameDefCap]. This has more than tripled the population of our recognized homeland and greatly strengthened our ties with [RUS.GetNameDefCap]."
+ rus.44.a:0 "Excellent!"
+
+ rus.45.t:0 "Choosing Our Great Leader"
+ rus.45.d:0 ""
+ rus.45.a:0 "Victor Baydalakov"
+ rus.45.b:0 "Vasily Shulgin"
+ rus.45.c:0 "Anton Turkul"
+
+ rus.46.t:0 "Fate of the Pre-Dreadnoughts"
+ rus.46.d:0 "The government has chosen to sell the three obsolete pre-dreadnought battleships from our naval fleet. The potential buyers being considered for the sale are Romania, Turkey, Ukraine, Georgia, and Bulgaria. \n Which ship do we sell first?"
+ rus.46.a:0 "The Rostislav"
+ rus.46.b:0 "The Tri Sviatitelia"
+ rus.46.c:0 "The Dvenadsat Apostolov"
+
+ rus.47.t:0 "Selecting a Buyer"
+ rus.47.d:0 "The government has chosen to sell the three obsolete pre-dreadnought battleships from our naval fleet. The potential buyers being considered for the sale are Romania, Turkey, Ukraine, and Georgia. Bulgaria is also an option if they have gotten rid of their Army Restrictions. \n Nations that have already bought a ship are unlikely to buy more. \n Which nation do we offer the ship to first? \nNations can only purchase one ship at a time. They will not be available as options if they have the Dreadnought Purchased national spirit"
+ rus.47.a:0 "Ukraine"
+ rus.47.b:0 "Georgia"
+ rus.47.c:0 "Bulgaria"
+ rus.47.e:0 "Someone else"
+
+ rus.48.t:0 "More Buyers"
+ rus.48.d:0 "The government has chosen to sell the three obsolete pre-dreadnought battleships from our naval fleet. The potential buyers being considered for the sale are Romania, Turkey, Ukraine, and Georgia. Bulgaria is also an option if they have gotten rid of their Army Restrictions. \n Nations that have already bought a ship are unlikely to buy more. \n Which nation do we offer the ship to first? \nNations can only purchase one ship at a time. They will not be available as options if they have the Dreadnought Purchased national spirit"
+ rus.48.a:0 "Turkey"
+ rus.48.b:0 "Romania"
+ rus.48.c:0 "Return to the other options"
+
+ rus.49.t:0 "Potential Purchase of Obsolete Battleship from [RUS.GetNameDefCap]"
+ rus.49.d:0 "The country of [RUS.GetNameDefCap] has offered to sell our nation an obsolete battleship. This opportunity presents a potential acquisition for our naval fleet. \n The ship will have to spend some time in our dockyards to be combat-ready."
+ rus.49.a:0 "We'll buy it!"
+ rus.49.b:0 "Not this time"
+ rus.49.c:0 "We will not be buying any ships"
+
+ rus.50.t:0 "[FROM.GetNameDefCap] Buys a Ship!"
+ rus.50.d:0 "[FROM.GetNameDefCap] has agreed to purchase one of our obsolete battleships. This agreement presents a valuable opportunity to optimize our military resources and generate revenue from the sale."
+ rus.50.a:0 "Good to hear!"
+
+ rus.51.t:0 "[FROM.GetNameDefCap] Does Not Buy a Ship!"
+ rus.51.d:0 "Regrettably, we have received a report indicating that [FROM.GetNameDefCap] has decided not to proceed with a purchase at this time. While this outcome is disappointing, it presents an opportunity for us to explore alternative avenues for the disposal of the battleship."
+ rus.51.a:0 "Shame"
+
+ rus.52.t:0 "[FROM.GetNameDefCap] Rules out Ship Purchasing"
+ rus.52.d:0 "We have received a report confirming that the country of [FROM.GetNameDefCap] has made the decision not to proceed with the purchase of our obsolete battleship. Furthermore, they have communicated that they do not intend to pursue any future acquisitions of ships from our nation. While this outcome is disappointing, it is essential that we adapt our strategy and explore alternative avenues for the disposal of the battleship."
+ rus.52.a:0 "We'll have to consider others"
+
+ rus.58.t:0 "[FROM.GetNameDefCap] Reports Low Manpower"
+ rus.58.d:0 "[FROM.GetNameDefCap] has reported that their recruitment efforts have proven unable to keep up with the manpower demands of their armed forces. Thus, their leadership has formally requested that [RUS.GetNameDefCap] assist in making sure their recruitment offices can meet their quotas."
+ rus.58.a:0 "Help improve their recruitment efforts"
+ rus.58.b:0 "Send some of our own recruits"
+ rus.58.c:0 "We can't help right now"
+
+ rus.59.t:0 "[FROM.GetNameDefCap] Sends Us Spare Recruits"
+ rus.59.d:0 "[FROM.GetNameDefCap], facing a surplus of manpower, has decided to just send us a large number of their own spare recruits for us to employ in our military. While we had expected aid in the form of recruitment advisors, this is still a welcome response."
+ rus.59.a:0 "Who doesn't love men? ..."
+
+ rus.61.t:0 "[FROM.GetNameDefCap] Sends Recruitment Specialists"
+ rus.61.d:0 "[FROM.GetNameDefCap] has provided us with advisors who will teach us how to overhaul our recruitment efforts. They will offer special benefits to volunteers, make sure mobilization notices can reach even the most rural areas, and ensure any exemptions are not fraudulent or unneccessary. Additionally, they have also sent us experts who will make sure mobilizations and division training is as streamlined as possible."
+ rus.61.a:0 "Let's Recruit!"
+
+ rus.60.t:0 "[FROM.GetNameDefCap] Doesn't Help"
+ rus.60.d:0 "[FROM.GetNameDefCap] has responded that they are unable to help us reach our manpower goals at this time. Perhaps next time we ask they will be in a stronger position to help."
+ rus.60.a:0 "What now?"
+
+ rus.62.t:0 "Elections in [FROM.GetNameDefCap]"
+ rus.62.d:0 "hello\n\n\n\n\n\n\n helo"
+ rus.62.a:0 "Pyotr Struve"
+ rus.62.b:0 "Sofia Panina"
+ rus.62.c:0 "Pavel Milyukov"
+ rus.62.e:0 "More options"
+
+ rus.63.t:0 "Removing Soviet City Names"
+ rus.63.d:0 ""
+ rus.63.a:0 "Adopt more democratic names"
+ rus.63.b:0 "Restore the Tsar's cities as they were before"
+
+ rus.64.t:0 "Elections in [FROM.GetNameDefCap]"
+ rus.64.d:0 "hello\n\n\n\n\n\n\n helo"
+ rus.64.a:0 "Vasily Maklakov"
+ rus.64.b:0 "Alexander Krivoshein"
+ rus.64.c:0 "Boris Savinkov"
+ rus.64.e:0 "Back to the first options"
+
+ rus.65.t:0 "Publishing of Drozdovtsy on Fire"
+ rus.65.d:0 "Drozdovtsy on Fire - the memoirs of Anton Turkul, the commander of Drozdovtsy units. In the book, he writes an artistic recreation of the history of the Civil War. The publication chronologically outlines the events from the Drozdovites' Campaign Yassy-Don (March 1918) to the creation of the Crimean Mandate (Late 1920), i.e., almost the entire course of the Civil War in Russia in the south. There are flashbacks to the events of the Great War when describing individuals. The author himself described his work not as memoirs or historical work, but as “the combat truth about what Russian white soldiers were like in the fire, what they should be and will inevitably be.”\n The book is sure to become an instant best seller in Crimea, and will be perfect alongside Wrangel's memoirs "Always with Honor" published a few years earlier for those researching the Civil War."
+ rus.65.a:0 "Interesting"
+
+
+

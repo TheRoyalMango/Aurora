@@ -1,0 +1,104 @@
+﻿l_english:
+ blr.1.t:0 "Belrussian Civil War!"
+ blr.1.d:0 "Write about how Poland and Ukraine have been supporting independance and anti-communism in belarus. tehy are expected to heavily support our cuase but this may bind us to them. Mention that we failed to capture the belarussian airforce's soviet made bombers, and that the communist forces posses the vast majority of belarussian army and all 3 of the infantry divisions. Artillery and even anti-tank weaponry will be essential."
+ blr.1.a:0 "Liberation Is in Our Grasp"
+
+ blr.2.t:0 "Belarus Republicans Want Reassurances"
+ blr.2.d:0 ""
+ blr.2.a:0 "We Will Support"
+ blr.2.b:0 "We Have Our Own Problems"
+
+ blr.3.t:0 "Poland Will Not Support"
+ blr.3.d:0 ""
+ blr.3.a:0 "This Is Unsettling"
+
+ blr.4.t:0 "Poland Will Support"
+ blr.4.d:0 ""
+ blr.4.a:0 "Belarus Is Not Yet Lost"
+
+ blr.5.t:0 "Belarus Wants Reassurances"
+ blr.5.d:0 ""
+ blr.5.a:0 "We Will Support"
+ blr.5.b:0 "We Have Our Own Problems"
+
+ blr.6.t:0 "Ukraine Will Not Support"
+ blr.6.d:0 ""
+ blr.6.a:0 "This Is Unsettling"
+
+ blr.7.t:0 "Ukraine Will Support"
+ blr.7.d:0 ""
+ blr.7.a:0 "Slava Ukraini"
+
+ blr.8.t:0 ""
+ blr.8.d:0 ""
+ blr.8.a:0 ""
+
+ blr.13.t:0 "Poles Rise up in Vilnius!"
+ blr.13.d:0 ""
+ blr.13.a:0 "March to Liberate Our Capital"
+ blr.13.b:0 "It Is Not Worth the Risk"
+
+ blr.16.t:0 "Diplomatic Mission From [BLR.GetNameDefCap]!"
+ blr.16.d:0 "The anti-communist faction of the Belarussian Civil War has sent us a diplomatic mission! They request for Lithuania to recognize their government as legitimate and lay the groundwork for a future alliance. If we agree, the Belarussians offer to rescind their claim on Vilnius. A small number of Lithuanians may volunteer for [BLR.GetNameDefCap]'s militias anyway if we refuse their diplomatic mission."
+ blr.16.a:0 "Democracy in Belarus is Essential to us"
+ blr.16.b:0 "We'd Rather Not Tie Ourselves to You."
+
+ blr.17.t:0 "Lithuania Recognizes Our Government!"
+ blr.17.d:0 ""
+ blr.17.a:0 "The Future Is Ours!"
+
+ blr.18.t:0 "Lithuania Rejects Our Delegation"
+ blr.18.d:0 "Some noble Lithuanians who disagree with their government's descision have joined our militias anyways."
+ blr.18.a:0 "Disapointing."
+
+ blr.19.t:0 "[BLR.GetNameDefCap] Invites a Polish General Staff!"
+ blr.19.d:0 ""
+ blr.19.a:0 "Belarus Is a Suitable Future Asset"
+ blr.19.a:0 "We'd Rather Not Tie Ourselves to You."
+
+ blr.20.t:0 "Poland Accepts Our Request!"
+ blr.20.d:0 ""
+ blr.20.a:0 "I Hope It's Worth It"
+
+ blr.21.t:0 "Poland Denies Our Request!"
+ blr.21.d:0 ""
+ blr.21.a:0 "Damn Them!"
+
+ blr.22.t:0 "[BLR.GetNameDefCap] Proposes the Savinkov-Bałachowicz Pact"
+ blr.22.d:0 "[BLR.GetNameDefCap] has formally requested that Boris Savinkov be allowed to travel to Belarus to join the fight against the Soviet-backed government. According to their request, they wish for Savinkov to re-create the 3rd Russian Army in Belarus. In exchange, they pledge to support us in our fight against Moscow after their victory. \n\n Savinkov, for his part, is quite enthusiastic about the idea. He created the Russian Political Comittee in Poland and the 3rd Russian Army during the civil war, which was composed of Ukrainians, Belarussians, Russians, Poles, and Green Partisans. They fought alongside the Belarussians in the later stages of the civil war and were evacuated to Poland following their defeat, where they were dissolved. \n\n Re-creating the 3rd Russian Army will significantly assist the anti-communist Belarussians. In the case of an anti-communist victory, the troops may return home or we may choose to keep them there to guard Belarus. If the civil war is lost, the soldiers will trickle back to Crimea."
+ blr.22.a:0 "Send Savinkov"
+ blr.22.b:0 "Refuse"
+
+ blr.23.t:0 "[RUS.GetNameDefCap] Agrees to Send Savinkov"
+ blr.23.d:0 "[RUS.GetNameDefCap] has agreed affirm recognition of [BLR.GetNameDefCap] and to send Boris Savinkov to organize a military mission and organization of a new 3rd Russian Army. This deal has left open the road for the re-formation of the 3rd Russian Army in Belarus, but [RUS.GetNameDefCap] has made it clear such a large measure of support will require an offensive alliance against Moscow in the future."
+ blr.23.a:0 "It's worth the price."
+
+ blr.24.t:0 "[RUS.GetNameDefCap] Will Not Send Savinkov"
+ blr.24.d:0 "[RUS.GetNameDefCap] has rejected our request for Savinkov to form a military mission, and didn't even bother rejecting our request for talks on a re-formation of the 3rd Russian Army."
+ blr.24.a:0 "Fools!"
+
+ blr.25.t:0 "[BLR.GetNameDefCap] Proposes Aviation Deal"
+ blr.25.d:0 "[BLR.GetNameDefCap] has requested that [EST.GetNameDefCap] assist their anti-communist cause by using our nation as a go-between for buying foreign airplanes. We'll buy the planes, likely form England, and then re-sell them to [BLR.GetNameDefCap] at a higher price. \n Just like when we sold captured WW1-era destroyers to Peru in the 1930s, this sale will provide funds we can use to improve our military. "
+ blr.25.a:0 "This will be mutually beneficial"
+ blr.25.b:0 "Seems like a bad investment"
+
+ blr.26.t:0 "[EST.GetNameDefCap] Accepts Aviation Deal!"
+ blr.26.d:0 "[EST.GetNameDefCap] has accepted our aviation deal, purchasing multiple fighters and bombers from [ENG.GetNameDefCap]. The fighters and bombers were then quickly re-sold to our military dealers at a higher price, but not an unfair one considering our desperate situation. We have also noticed their poor military budget has benfited from the deal, so perhaps we have just helped an anti-communist ally in their own situation."
+ blr.26.a:0 "Let's paint some roundels!"
+
+ blr.27.t:0 "[EST.GetNameDefCap] Rules Out Aviation Deal"
+ blr.27.d:0 "[EST.GetNameDefCap] has rejected our aviation deal, citing fears that such a move would provoke relations with Moscow. We will have to make do without the airplanes. "
+ blr.27.a:0 "The skies are Bolshevik now..."
+
+ blr.28.t:0 "[BLR.GetNameDefCap] Requests Our Mothballed Tanks"
+ blr.28.d:0 "While some of the tanks have MGs, the majority have small cannons and a small number even have high-velocity cannons."
+ blr.28.a:0 "This will be mutually beneficial"
+ blr.28.b:0 "We'd rather keep them for ourselves"
+
+ blr.29.t:0 "[LAT.GetNameDefCap] Accepts Tank Request!"
+ blr.29.d:0 "While some of the tanks have MGs, the majority have small cannons and a small number even have high-velocity cannons and close-support guns."
+ blr.29.a:0 "Tank you!"
+
+ blr.30.t:0 "[LAT.GetNameDefCap] Denies Tank Request!"
+ blr.30.d:0 ""
+ blr.30.a:0 "Disappointing"
