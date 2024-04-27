@@ -2903,7 +2903,7 @@ country_event = { #Drozdovites on fire book released
 	    days = 25
 	}
 	fire_only_once = yes
-	is_triggered_only = yes
+	is_triggered_only = no
 
 	option = {  # interesting
 		name = rus.65.a
