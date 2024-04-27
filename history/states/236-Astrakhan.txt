@@ -1,0 +1,41 @@
+
+state={
+	id=236
+	name="STATE_236"
+	manpower = 647208
+	
+	state_category = rural
+
+	history={
+		owner = SOV
+		victory_points = {
+			9753 3  #astra
+		}
+		victory_points = {
+			6486 2 #Akhtubinsk
+		}
+		victory_points = {
+			11429 1 #Kharabali
+		}
+		victory_points = {
+			757 1 #Kamyzyak
+		}
+		buildings = {
+			infrastructure = 2
+			air_base = 1
+			#industrial_complex = 1
+			#arms_factory = 1
+		}
+
+		add_core_of = ATR
+		add_core_of = URC
+		add_core_of = SOV
+		add_core_of = KAL
+	}
+
+	provinces={
+		618 757 3435 6620 9592 9753 11429 11579 11736 9455 6486 6516 9440 3461 3487
+	}
+
+	local_supplies=0.0 
+}

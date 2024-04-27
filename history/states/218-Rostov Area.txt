@@ -1,0 +1,48 @@
+
+state={
+	id=218
+	name="STATE_218"
+	manpower = 1501076
+	
+	state_category = city
+
+	resources = { #both increased to 2 due to infra
+		steel = 1
+		oil = 1
+	}
+
+	history={
+		owner = SOV
+		victory_points = {
+			9417 15 #Rostov
+		}
+		victory_points = {
+			6445 5 #Taganrog
+		}
+		victory_points = {
+			11418 3 #Novocherkassk could be increased and Rostov's decreased to make it capital of DON
+		}
+		buildings = {
+			infrastructure = 3 #was: 5
+			arms_factory = 2
+			industrial_complex = 1
+			air_base = 3
+			9417 ={
+				naval_base = 5
+				coastal_bunker = 2	
+			}
+			6445 ={
+				naval_base = 2
+				coastal_bunker = 2
+			}
+		}
+		add_core_of = SOV
+		add_core_of = DON
+	}
+
+	provinces={ #added 3421 6493 from state 227
+		585 3421 6493 6445 9417 9430 9446 11418 11434 11450 11559  
+	}
+
+	local_supplies=3.0 
+}

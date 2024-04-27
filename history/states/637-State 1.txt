@@ -1,0 +1,33 @@
+
+state = {
+	id = 637
+	name = "STATE_637" #Kamchatka
+
+	history = {
+		owner = VLA
+		victory_points = {
+			7878 2
+		}
+		buildings = {
+			infrastructure = 1
+			#first dockyard built in 1936 as first heavy industry. should be a focus.
+			12207 = {
+				naval_base = 1
+			}
+			7878 = {
+				naval_base = 2
+				coastal_bunker = 3
+			}
+		}
+		add_core_of = VLA
+	}
+
+	provinces = {
+		1839 1863 4728 7878 12207
+	}
+	manpower = 58831 #added 10k
+	buildings_max_level_factor = 1
+	state_category = "pastoral"
+
+	local_supplies = 0.0 
+}

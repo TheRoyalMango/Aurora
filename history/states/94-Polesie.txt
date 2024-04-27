@@ -1,0 +1,30 @@
+state={
+	id=94
+	name="STATE_94"
+
+	history={
+		owner = POL
+		buildings = {
+			infrastructure = 3
+			#industrial_complex = 1
+			arms_factory = 1
+			3392 = { 
+				bunker = 3
+			}
+		}
+		victory_points = {
+			3392 10
+		}
+		add_core_of = POL
+		add_claim_by = BLR
+	}
+
+	provinces={ #535 560 3309 3496 3556 6280 6306 6415 6579 9520 11285 11503 sent to new 939 state.
+		3256 3392 6546 11528
+	}
+	manpower=738200 #3/5s of the ole Polesie province.
+	buildings_max_level_factor=1.000
+	state_category=town
+
+	local_supplies=0.0 
+}

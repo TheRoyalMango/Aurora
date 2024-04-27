@@ -1,0 +1,50 @@
+state = {
+	id = 231
+	name = "STATE_231"
+
+	history = {
+		owner = GEO
+		victory_points = {
+			1599 15 #was 5
+		}
+		victory_points = {
+			772 2 #Zugdidi
+		}
+		victory_points = {
+			3658 3 #Kutaisi
+		}
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 3
+			arms_factory = 2
+			air_base = 3
+			1599 = {
+				bunker = 2
+			}
+			3656 = {
+				bunker = 2
+			}
+			772 = {
+				bunker = 2
+			}
+		}
+		add_core_of = GEO
+		1939.1.1 = {
+			buildings = {
+				industrial_complex = 2
+
+			}
+
+		}
+
+	}
+
+	provinces = {
+		654 772 1599 3656 3658 4534 4605 6436 6669 6671 9626 9702 12309 #3653, Batumi #1530, South Ossetia
+	}
+	manpower = 2457844
+	buildings_max_level_factor = 1.000
+	state_category = city
+
+	local_supplies = 0.0 
+}

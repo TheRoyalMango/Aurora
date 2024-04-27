@@ -1,0 +1,44 @@
+state = {
+	id = 584
+	name = "STATE_584"
+	resources = {
+		oil=8
+	}
+	history = {
+	
+		owner = TCS
+		
+		victory_points = {
+			12333 3
+		}
+
+		victory_points = {
+			10357 1 #Merv
+		}
+
+		victory_points = {
+			7477 1 #Krasnovodsk 
+		}
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			arms_factory = 1
+			air_base = 1
+		}
+		
+		add_core_of = TCS
+		add_core_of = TMS
+
+	}
+
+	provinces = {
+		756 1593 1632 4482 4549 4563 4599 4958 5003 7477 7491 7560 7563 7635 7924 8099 9605 10357 10359 10406 10414 10510 10742 12333 12359 12491 
+	}
+	manpower = 939458 #added 6000 for ural cossack refugees
+	buildings_max_level_factor = 1.000
+	state_category = town
+
+	local_supplies = 4.0 
+	
+}

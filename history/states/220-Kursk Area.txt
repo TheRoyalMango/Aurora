@@ -1,0 +1,25 @@
+
+state={
+	id=220
+	name="STATE_220"
+	manpower = 1650086
+	state_category = city
+
+	history={
+		owner = SOV
+		victory_points = {
+			3580 5
+		}
+		buildings = {
+			infrastructure = 3 #was: 5
+			air_base = 1
+		}
+		add_core_of = SOV
+	}
+
+	provinces={ #sent 9542 11526 6543 to state 225. added 534 6577 from state 240
+		457 534 558 580 3554 3580 6254 6304 6577 6603 9260 9579 11244 
+	}
+
+	local_supplies=0.0 
+}

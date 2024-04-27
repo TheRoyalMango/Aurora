@@ -1,0 +1,78 @@
+
+state={
+	id=137
+	name="STATE_137"
+	manpower = 1599607
+	
+	state_category = city
+
+	history={
+		owner = RUS
+		victory_points = {
+			3686 20
+		}
+		victory_points = {
+			9680 5
+		}
+		victory_points = {
+			6704 1
+		}
+		#victory_points = { #perekop isnt a town actually. 
+		#	3722 1
+		#}
+		victory_points = {
+			705 3
+		}
+		victory_points = {
+			9677 3
+		}
+		buildings = {
+			#synthetic_refinery = 1 #via focus
+			infrastructure = 3
+			dockyard = 1 #was 2
+			arms_factory = 1
+			industrial_complex = 2 #was 3
+			fuel_silo = 1
+			air_base = 4
+			anti_air_building = 1
+			3686 ={
+				naval_base = 8
+				coastal_bunker = 3
+				bunker = 1
+			}
+			9680 ={
+				naval_base = 3
+				coastal_bunker = 1
+				bunker = 1
+			}
+			9677 ={
+				naval_base = 2
+				coastal_bunker = 1
+				bunker = 1
+			}
+			3722 = {
+				bunker = 3
+			}
+			9718 = {
+				bunker = 2
+			}
+			6704 = {
+				naval_base = 1
+			}
+		}
+		add_core_of = CRI
+		add_core_of = RUS
+		add_claim_by = UKR
+		1939.1.1 = {
+			buildings = {
+				dockyard = 2
+			}
+		}
+	}
+
+	provinces={
+		705 3686 3722 6704 6724 9677 9680 9718 11649 
+	}
+
+	local_supplies=10.0 
+}

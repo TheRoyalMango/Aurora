@@ -1,0 +1,35 @@
+state={
+	id=587
+	name="STATE_587"
+	resources = {
+		chromium = 1
+		oil=2
+	}
+	history={
+		owner = KHI#TCS
+		add_core_of = TCS
+		add_core_of = KAZ
+		add_core_of = KHI
+		buildings = {
+			infrastructure = 1
+			11701 = {
+				bunker = 2
+			}
+		}
+		victory_points = {
+			1517 2
+		}
+		victory_points = {
+			11701 1 
+		}
+	}
+
+	provinces={
+		475 642 1517 3593 4523 4620 7641 10262 11701 12163 12383 13008 
+	}
+	manpower=250133 #added 5000 for ural cossack refugees
+	buildings_max_level_factor=1.000
+	state_category=rural
+
+	local_supplies=0.0 
+}

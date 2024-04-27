@@ -1,0 +1,30 @@
+
+state = {
+	id = 562
+	name = "STATE_562" # Okhotsk
+	manpower = 73480 #added 10k.
+	state_category = pastoral
+
+	history = {
+		owner = VLA
+		buildings = {
+			infrastructure = 1
+			10598 ={
+				naval_base = 1
+			}
+		}
+		add_core_of = VLA
+		victory_points = {
+			12518 3 #Okhotsk
+		}
+		victory_points = {
+			10598 2 #Ayan
+		}
+	}
+
+	provinces = {
+		10598 12518 12551 12683
+	}
+
+	local_supplies = 0.0 
+}
