@@ -1,0 +1,640 @@
+spriteTypes = {	
+#TCS
+	SpriteType = {
+		name = "GFX_TCS_advanced_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_3.png"
+	}
+	SpriteType = {
+		name = "GFX_TCS_improved_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_2.png"
+	}
+	SpriteType = {
+		name = "GFX_TCS_infantry_weapons1_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_TCS_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_0.png"
+	}
+
+	SpriteType = {
+		name = "GFX_TCS_gw_artillery_medium"
+		texturefile = "gfx/interface/technologies/chi_artillery_1.dds"
+	}
+	SpriteType = {
+		name = "GFX_TCS_motorised_infantry_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_TCS_motorized_equipment_1_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+#BUK
+	SpriteType = {
+		name = "GFX_BUK_advanced_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_3.png"
+	}
+	SpriteType = {
+		name = "GFX_BUK_improved_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_2.png"
+	}
+	SpriteType = {
+		name = "GFX_BUK_infantry_weapons1_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_BUK_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_0.png"
+	}
+
+	SpriteType = {
+		name = "GFX_BUK_gw_artillery_medium"
+		texturefile = "gfx/interface/technologies/chi_artillery_1.dds"
+	}
+	SpriteType = {
+		name = "GFX_BUK_motorised_infantry_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_BUK_motorized_equipment_1_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+#KAZ
+	SpriteType = {
+		name = "GFX_KAZ_advanced_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_3.png"
+	}
+	SpriteType = {
+		name = "GFX_KAZ_improved_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_2.png"
+	}
+	SpriteType = {
+		name = "GFX_KAZ_infantry_weapons1_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_KAZ_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_0.png"
+	}
+
+	SpriteType = {
+		name = "GFX_KAZ_gw_artillery_medium"
+		texturefile = "gfx/interface/technologies/chi_artillery_1.dds"
+	}
+	SpriteType = {
+		name = "GFX_KAZ_motorised_infantry_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_KAZ_motorized_equipment_1_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+
+#KHI
+	SpriteType = {
+		name = "GFX_KHI_advanced_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_3.png"
+	}
+	SpriteType = {
+		name = "GFX_KHI_improved_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_2.png"
+	}
+	SpriteType = {
+		name = "GFX_KHI_infantry_weapons1_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_KHI_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_0.png"
+	}
+
+	SpriteType = {
+		name = "GFX_KHI_gw_artillery_medium"
+		texturefile = "gfx/interface/technologies/chi_artillery_1.dds"
+	}
+	SpriteType = {
+		name = "GFX_KHI_motorised_infantry_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_KHI_motorized_equipment_1_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+#TOM
+	SpriteType = {
+		name = "GFX_TOM_advanced_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_3.png"
+	}
+	SpriteType = {
+		name = "GFX_TOM_improved_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_2.png"
+	}
+	SpriteType = {
+		name = "GFX_TOM_infantry_weapons1_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_TOM_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_0.png"
+	}
+
+	SpriteType = {
+		name = "GFX_TOM_gw_artillery_medium"
+		texturefile = "gfx/interface/technologies/chi_artillery_1.dds"
+	}
+	SpriteType = {
+		name = "GFX_TOM_motorised_infantry_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_TOM_motorized_equipment_1_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+#KHA
+	SpriteType = {
+		name = "GFX_KHA_advanced_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_3.png"
+	}
+	SpriteType = {
+		name = "GFX_KHA_improved_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_2.png"
+	}
+	SpriteType = {
+		name = "GFX_KHA_infantry_weapons1_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_KHA_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_0.png"
+	}
+
+	SpriteType = {
+		name = "GFX_KHA_gw_artillery_medium"
+		texturefile = "gfx/interface/technologies/chi_artillery_1.dds"
+	}
+	SpriteType = {
+		name = "GFX_KHA_motorised_infantry_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_KHA_motorized_equipment_1_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+#KIR
+	SpriteType = {
+		name = "GFX_KIR_advanced_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_3.png"
+	}
+	SpriteType = {
+		name = "GFX_KIR_improved_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_2.png"
+	}
+	SpriteType = {
+		name = "GFX_KIR_infantry_weapons1_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_KIR_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_0.png"
+	}
+
+	SpriteType = {
+		name = "GFX_KIR_gw_artillery_medium"
+		texturefile = "gfx/interface/technologies/chi_artillery_1.dds"
+	}
+	SpriteType = {
+		name = "GFX_KIR_motorised_infantry_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_KIR_motorized_equipment_1_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+#YAK
+	SpriteType = {
+		name = "GFX_YAK_advanced_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_3.png"
+	}
+	SpriteType = {
+		name = "GFX_YAK_improved_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_2.png"
+	}
+	SpriteType = {
+		name = "GFX_YAK_infantry_weapons1_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_YAK_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_0.png"
+	}
+
+	SpriteType = {
+		name = "GFX_YAK_gw_artillery_medium"
+		texturefile = "gfx/interface/technologies/chi_artillery_1.dds"
+	}
+	SpriteType = {
+		name = "GFX_YAK_motorised_infantry_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_YAK_motorized_equipment_1_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+#ALT
+	SpriteType = {
+		name = "GFX_ALT_advanced_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_3.png"
+	}
+	SpriteType = {
+		name = "GFX_ALT_improved_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_2.png"
+	}
+	SpriteType = {
+		name = "GFX_ALT_infantry_weapons1_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_ALT_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_0.png"
+	}
+
+	SpriteType = {
+		name = "GFX_ALT_gw_artillery_medium"
+		texturefile = "gfx/interface/technologies/chi_artillery_1.dds"
+	}
+	SpriteType = {
+		name = "GFX_ALT_motorised_infantry_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_ALT_motorized_equipment_1_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+#BYA
+	SpriteType = {
+		name = "GFX_BYA_advanced_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_3.png"
+	}
+	SpriteType = {
+		name = "GFX_BYA_improved_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_2.png"
+	}
+	SpriteType = {
+		name = "GFX_BYA_infantry_weapons1_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_BYA_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_0.png"
+	}
+
+	SpriteType = {
+		name = "GFX_BYA_gw_artillery_medium"
+		texturefile = "gfx/interface/technologies/chi_artillery_1.dds"
+	}
+	SpriteType = {
+		name = "GFX_BYA_motorised_infantry_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_BYA_motorized_equipment_1_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+#BLR
+	### Arms
+	SpriteType = {
+		name = "GFX_BLR_advanced_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_3.png"
+	}
+	SpriteType = {
+		name = "GFX_BLR_improved_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_2.png"
+	}
+	SpriteType = {
+		name = "GFX_BLR_infantry_weapons1_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_BLR_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_0.png"
+	}
+
+	SpriteType = {
+		name = "GFX_BLR_gw_artillery_medium"
+		texturefile = "gfx/interface/technologies/chi_artillery_1.dds"
+	}
+	SpriteType = {
+		name = "GFX_BLR_motorised_infantry_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_BLR_motorized_equipment_1_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+#kub
+	### Arms
+	SpriteType = {
+		name = "GFX_KUB_advanced_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_3.png"
+	}
+	SpriteType = {
+		name = "GFX_KUB_improved_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_2.png"
+	}
+	SpriteType = {
+		name = "GFX_KUB_infantry_weapons1_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_KUB_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_0.png"
+	}
+
+	SpriteType = {
+		name = "GFX_KUB_gw_artillery_medium"
+		texturefile = "gfx/interface/technologies/chi_artillery_1.dds"
+	}
+	SpriteType = {
+		name = "GFX_KUB_motorised_infantry_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_KUB_motorized_equipment_1_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+	#SpriteType = {
+	#	name = "GFX_KUB_motorised_infantry_medium"
+	#	texturefile = "gfx/interface/technologies/chi_motorised_infantry.dds"
+	#}
+
+#cau
+	SpriteType = {
+		name = "GFX_CAU_advanced_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_3.png"
+	}
+	SpriteType = {
+		name = "GFX_CAU_improved_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_2.png"
+	}
+	SpriteType = {
+		name = "GFX_CAU_infantry_weapons1_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_CAU_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_0.png"
+	}
+
+	SpriteType = {
+		name = "GFX_CAU_gw_artillery_medium"
+		texturefile = "gfx/interface/technologies/chi_artillery_1.dds"
+	}
+	SpriteType = {
+		name = "GFX_CAU_motorised_infantry_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_CAU_motorized_equipment_1_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+#don
+	SpriteType = {
+		name = "GFX_DON_advanced_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_3.png"
+	}
+	SpriteType = {
+		name = "GFX_DON_improved_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_2.png"
+	}
+	SpriteType = {
+		name = "GFX_DON_infantry_weapons1_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_DON_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_0.png"
+	}
+
+	SpriteType = {
+		name = "GFX_DON_gw_artillery_medium"
+		texturefile = "gfx/interface/technologies/chi_artillery_1.dds"
+	}
+	SpriteType = {
+		name = "GFX_DON_motorised_infantry_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_DON_motorized_equipment_1_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+#kal
+	SpriteType = {
+		name = "GFX_KAL_advanced_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_3.png"
+	}
+	SpriteType = {
+		name = "GFX_KAL_improved_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_2.png"
+	}
+	SpriteType = {
+		name = "GFX_KAL_infantry_weapons1_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_KAL_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_0.png"
+	}
+
+	SpriteType = {
+		name = "GFX_KAL_gw_artillery_medium"
+		texturefile = "gfx/interface/technologies/chi_artillery_1.dds"
+	}
+	SpriteType = {
+		name = "GFX_KAL_motorised_infantry_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+	SpriteType = {
+		name = "GFX_KAL_motorized_equipment_1_medium"
+		texturefile = "gfx/interface/technologies/Russia/RUS_motorized_equipment_1.png"
+	}
+#Azerbaijan
+
+	# Airplanes
+	SpriteType = {
+		name = "GFX_AZR_strategic_bomber3_medium"
+		texturefile = "gfx/interface/technologies/tur_strategic_bomber3.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_strategic_bomber2_medium"
+		texturefile = "gfx/interface/technologies/tur_strategic_bomber2.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_strategic_bomber1_medium"
+		texturefile = "gfx/interface/technologies/tur_strategic_bomber1.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_tactical_bomber3_medium"
+		texturefile = "gfx/interface/technologies/tur_tactical_bomber3.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_tactical_bomber2_medium"
+		texturefile = "gfx/interface/technologies/tur_tactical_bomber2.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_tactical_bomber1_medium"
+		texturefile = "gfx/interface/technologies/tur_tactical_bomber1.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_heavy_fighter3_medium"
+		texturefile = "gfx/interface/technologies/tur_heavy_fighter3.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_heavy_fighter2_medium"
+		texturefile = "gfx/interface/technologies/tur_heavy_fighter2.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_heavy_fighter1_medium"
+		texturefile = "gfx/interface/technologies/tur_heavy_fighter1.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_early_bomber_medium"
+		texturefile = "gfx/interface/technologies/tur_early_bomber.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_naval_bomber3_medium"
+		texturefile = "gfx/interface/technologies/tur_naval_bomber3.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_naval_bomber2_medium"
+		texturefile = "gfx/interface/technologies/tur_naval_bomber2.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_naval_bomber1_medium"
+		texturefile = "gfx/interface/technologies/tur_naval_bomber1.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_CAS3_medium"
+		texturefile = "gfx/interface/technologies/tur_cas3.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_CAS2_medium"
+		texturefile = "gfx/interface/technologies/tur_cas2.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_CAS1_medium"
+		texturefile = "gfx/interface/technologies/tur_cas1.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_fighter3_medium"
+		texturefile = "gfx/interface/technologies/tur_fighter3.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_fighter2_medium"
+		texturefile = "gfx/interface/technologies/tur_fighter2.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_fighter1_medium"
+		texturefile = "gfx/interface/technologies/tur_fighter1.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_early_fighter_medium"
+		texturefile = "gfx/interface/technologies/tur_early_fighter.dds"
+	}
+
+	# Tanks
+	SpriteType = {
+		name = "GFX_AZR_gwtank_medium"
+		texturefile = "gfx/interface/technologies/tur_gwtank.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_basic_light_tank_medium"
+		texturefile = "gfx/interface/technologies/tur_basic_light_tank.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_improved_light_tank_medium"
+		texturefile = "gfx/interface/technologies/tur_imp_light_tank.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_advanced_light_tank_medium"
+		texturefile = "gfx/interface/technologies/tur_adv_light_tank.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_basic_heavy_tank_medium"
+		texturefile = "gfx/interface/technologies/tur_basic_heavy_tank.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_improved_heavy_tank_medium"
+		texturefile = "gfx/interface/technologies/tur_imp_heavy_tank.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_advanced_heavy_tank_medium"
+		texturefile = "gfx/interface/technologies/tur_adv_heavy_tank.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_basic_medium_tank_medium"
+		texturefile = "gfx/interface/technologies/tur_basic_medium_tank.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_improved_medium_tank_medium"
+		texturefile = "gfx/interface/technologies/tur_imp_medium_tank.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_advanced_medium_tank_medium"
+		texturefile = "gfx/interface/technologies/tur_adv_medium_tank.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_super_heavy_tank_medium"
+		texturefile = "gfx/interface/technologies/tur_superheavy_tank.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_main_battle_tank_medium"
+		texturefile = "gfx/interface/technologies/tur_main_battle_tank.dds"
+	}
+
+		# Infantry & mechs
+	SpriteType = {
+		name = "GFX_AZR_mechanised_infantry_medium"
+		texturefile = "gfx/interface/technologies/tur_mechanised_infantry.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_mechanised_infantry2_medium"
+		texturefile = "gfx/interface/technologies/tur_mechanised_infantry2.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_mechanised_infantry3_medium"
+		texturefile = "gfx/interface/technologies/tur_mechanised_infantry3.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/tur_basic_equipment.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_infantry_weapons1_medium"
+		texturefile = "gfx/interface/technologies/tur_infantry_equipment_1.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_improved_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/tur_infantry_equipment_2.dds"
+	}
+	SpriteType = {
+		name = "GFX_AZR_advanced_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/tur_infantry_equipment_3.dds"
+	}
+
+	#Armenia
+
+	SpriteType = {
+		name = "GFX_ARM_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Armenia/ARM_infantry_equipment_0.dds"
+	}
+	SpriteType = {
+		name = "GFX_ARM_infantry_weapons1_medium"
+		texturefile = "gfx/interface/technologies/Armenia/ARM_infantry_equipment_1.dds"
+	}
+	SpriteType = {
+		name = "GFX_ARM_improved_infantry_weapons_medium"
+		texturefile = "gfx/interface/technologies/Kuban/KUB_infantry_equipment_2.png"
+	}
+
+
+}
