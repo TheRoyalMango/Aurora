@@ -1,0 +1,24 @@
+
+state={
+	id=976
+	name="STATE_976"
+	manpower = 210183
+	state_category = rural
+	
+	history={
+		owner = TAS
+		victory_points = {
+			10549 1 #Tayshet
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = TAS
+	}
+
+	provinces={
+		1813 4750 7713 7841 10549 10562 10661 10664 
+	}
+
+	local_supplies=0.0 
+}
