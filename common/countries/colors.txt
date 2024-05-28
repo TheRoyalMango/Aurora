@@ -882,7 +882,7 @@ TOM = {
 	color = rgb { 28 100 57 }
 	color_ui = rgb { 28 100 57 }
 }
-KRA = {
+MIN = {
 	color = rgb { 92 175 76 }
 	color_ui = rgb { 92 174 76 }
 }
@@ -901,6 +901,10 @@ WUA = {
 TAS = {
 	color = rgb { 104 152 83 }
 	color_ui = rgb { 135 198 108 }
+}
+BRT = {
+	color = rgb { 87 144 72 }
+	color_ui = rgb { 105 189 100 }
 }
 KHA = {
 	color = rgb { 127 116 34 }
