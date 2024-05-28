@@ -1,4 +1,4 @@
-﻿capital = 976
+﻿capital = 567
 
 oob = "TAS_1936"
 

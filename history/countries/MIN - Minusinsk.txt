@@ -1,36 +1,21 @@
-﻿capital = 976
+﻿capital = 977
 
-oob = "TAS_1936"
+oob = "MIN_1936"
 
-set_research_slots = 1
-
-add_manpower = 10000
+set_research_slots = 2
+set_stability = 0.6
+set_war_support = 0.3
 
 add_ideas = {
 	NFE_peasant_army
+	NFE_peasant_militia_1
 	cossack_obsolete_army
 	neutrality_idea
 	closed_economy
-	NFE_peasant_militia_1
 	RUS_weak_industrial_base
 	NFE_peasant_republic_faction_member
 }
 
-# Starting tech
-if = {
-	limit = { has_dlc = "By Blood Alone" }
-		set_technology = {
-			aa_lmg = 1
-			iw_small_airframe = 1
-			engines_1 = 1
-			#early_bombs = 1
-		}
-	else = {
-		set_technology = {
-			early_fighter = 1
-		}
-	}
-}
 # Starting tech
 set_technology = {
 	#basic_train = 1
@@ -39,7 +24,6 @@ set_technology = {
 	tech_recon = 1
 	tech_mountaineers = 1
 	gw_artillery = 1
-	early_fighter = 1
 	tech_maintenance_company = 1
 }
 
@@ -52,9 +36,9 @@ set_politics = {
 
 set_popularities = {
 	democratic = 50
+	anarchism = 25
 	neutrality = 5
 	communism = 20
-	anarchism = 25
 	fascism = 0
 }
 
