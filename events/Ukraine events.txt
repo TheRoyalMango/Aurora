@@ -1,0 +1,256 @@
+add_namespace = ukr
+country_event = { # Ukraine asks for economic aid
+	id = ukr.1
+	title = ukr.1.t
+	desc = ukr.1.d
+	picture = GFX_report_event_tur_industry
+	is_triggered_only = yes
+	option = {
+		name = ukr.1.a
+		add_political_power = -25
+		FROM = {
+			country_event = {id = ukr.2 days = 1}
+			effect_tooltip = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+		ai_chance = {
+			modifier = {
+				has_opinion = {target = FROM value > 30}
+				factor = 1.5
+			}
+			modifier = {
+				FROM = {has_government = democratic}
+				has_government = democratic
+				factor = 1.5
+			}
+			modifier = {
+				has_political_power > 0
+				factor = 1.5
+			}
+			modifier = {
+				has_political_power > 25
+				factor = 1.5
+			}
+		}
+	}
+	option = {
+		name = ukr.1.b
+		FROM = {
+			country_event = {id = ukr.3 days = 1}
+			effect_tooltip = {
+				add_stability = -0.025
+			}
+		}
+		ai_chance = {base = 1.5}
+	}
+}
+country_event = { # Britain/France gave us money
+	id = ukr.2
+	title = ukr.2.t
+	desc = ukr.2.d
+	picture = GFX_report_event_tur_industry
+	is_triggered_only = yes
+	option = {
+		name = ukr.2.a
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+country_event = { # Britain/France refused to give us money
+	id = ukr.3
+	title = ukr.3.t
+	desc = ukr.3.d
+	picture = GFX_report_event_tur_industry
+	is_triggered_only = yes
+	option = {
+		name = ukr.3.a
+		add_stability = -0.025
+	}
+}
+country_event = {
+	# Sign a trade deal with Ukraine?
+	id = ukr.4
+	title = ukr.4.t
+	desc = ukr.4.d
+	picture = GFX_report_event_SOV_litvinov_beck
+	is_triggered_only = yes
+	option = {
+		ai_chance = {base = 2}
+		name = ukr.4.a
+		UKR = {country_event = {id = ukr.5}}
+		if = {
+			limit = {tag = POL}
+			add_ideas = {POL_trade_deal_UKR}
+			if = {
+				limit = {
+					ROM = {has_idea = ROM_trade_deal_UKR}
+				}
+				ROM = {
+					swap_ideas = {
+						remove_idea = ROM_trade_deal_UKR
+						add_idea = ROM_trade_deal_UKR_POL
+					}
+				}
+			}
+			effect_tooltip = {
+				if = {
+					limit = {
+						UKR = {has_idea = ROM_trade_deal_ROM}
+					}
+					UKR = {
+						swap_ideas = {
+							remove_idea = UKR_trade_deal_ROM
+							add_idea = UKR_trade_deal_POL_ROM
+						}
+					}
+				}
+				else = {
+					UKR = {add_ideas = {UKR_trade_deal_POL}}
+				}
+			}
+		}
+		else = {
+			add_ideas = {ROM_trade_deal_UKR}
+			if = {
+				limit = {
+					POL = {has_idea = POL_trade_deal_UKR}
+				}
+				POL = {
+					swap_ideas = {
+						remove_idea = POL_trade_deal_UKR
+						add_idea = POL_trade_deal_UKR_ROM
+					}
+				}
+			}
+			effect_tooltip = {
+				if = {
+					limit = {
+						UKR = {has_idea = ROM_trade_deal_ROM}
+					}
+					UKR = {
+						swap_ideas = {
+							remove_idea = UKR_trade_deal_POL
+							add_idea = UKR_trade_deal_POL_ROM
+						}
+					}
+				}
+				else = {
+					UKR = {add_ideas = {UKR_trade_deal_ROM}}
+				}
+			}
+		}
+	}
+	option = {
+		name = ukr.4.b
+		UKR = {country_event = {id = ukr.6}}
+	}
+}
+country_event = { # Trade deal signed
+	id = ukr.5
+	title = ukr.5.t
+	desc = ukr.5.d
+	picture = GFX_report_event_SOV_litvinov_beck
+	is_triggered_only = yes
+	option = {
+		name = ukr.5.a
+		if = {
+			limit = {
+				FROM = {tag = POL}
+			}
+			if = {
+				limit = {
+				has_idea = UKR_trade_deal_ROM
+				}
+				swap_ideas = {
+					remove_idea = UKR_trade_deal_ROM
+					add_idea = UKR_trade_deal_POL_ROM
+				}
+			}
+			else = {
+				add_ideas = {UKR_trade_deal_POL}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+				has_idea = UKR_trade_deal_POL
+				}
+				swap_ideas = {
+					remove_idea = UKR_trade_deal_POL
+					add_idea = UKR_trade_deal_POL_ROM
+				}
+			}
+			else = {
+				add_ideas = {UKR_trade_deal_ROM}
+			}
+		}
+	}
+}
+country_event = { # No deals signed today
+	id = ukr.6
+	title = ukr.6.t
+	desc = ukr.6.d
+	picture = GFX_report_event_romania_parliament
+	is_triggered_only = yes
+	option = {
+		name = ukr.6.a
+		add_political_power = -10
+	}
+}
+country_event = { # POLAND: Ukrainian investment into Ukrainian-Polish industry
+	id = ukr.7
+	title = ukr.7.t
+	desc = ukr.7.d
+	picture = GFX_report_event_tur_industry
+	is_triggered_only = yes
+	option = {
+		name = ukr.7.a
+		add_political_power = -25
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+}

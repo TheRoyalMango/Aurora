@@ -1,0 +1,2575 @@
+add_namespace = blr
+country_event = {
+	id = blr.1
+	title = blr.1.t
+	desc = blr.1.d
+	picture = GFX_report_event_spr_republican_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			tag = BLR
+			tag = BYL
+		}
+	}
+	
+	#civil war starts - we are republicans
+	option = {
+		name = blr.1.a
+		#add_command_power = 50
+		hidden_effect = {
+			SOV = { 
+				end_puppet = BLR 
+				puppet = {
+				    target = BYL
+				    end_wars = no
+				}
+			}
+			country_lock_all_division_template = no	
+			delete_unit_template_and_units = {
+    			division_template = "NKVD Pogranichnaya Diviziya"
+    			disband = no 
+			}
+			delete_unit_template_and_units = {
+    			division_template = "Piachotnaj Dyvizii"
+    			disband = no 
+			}
+			delete_unit_template_and_units = {
+    			division_template = "Liohkaj Piachotnaj Bryhady"
+    			disband = no 
+			}
+			delete_unit_template_and_units = {
+    			division_template = "Bryhada Pamieznaj Achovy"
+    			disband = no 
+			}
+			delete_unit_template_and_units = {
+    			division_template = "Tankavaja Bryhada"
+    			disband = no 
+			}
+			set_capital = {
+			  state = 95
+			  remember_old_capital = yes
+			}
+			#start_civil_war = {
+			#	ruling_party = democratic
+			#	ideology = ROOT
+			#	size = 0.5
+			#	air_ratio = 1
+			#	capital = 206
+			#	states = { 204 241 96 207 206 }
+			#}
+		}
+		add_ideas = BLR_Belarusian_civil_war
+		add_timed_idea = {
+			idea = BLR_unorganized_frontlines
+			days = 14 
+		}
+		set_cosmetic_tag = BLR_civil_war_dem
+		set_politics = { ruling_party = democratic }
+		hidden_effect = { leave_faction = yes }
+		#BLR_stanislaw_bulk = { 
+		#	promote_character = liberalism 
+		#}
+		#add_popularity = {
+		#	ideology = democratic
+		#	popularity = 0.10
+		#}
+		#add_popularity = {
+		#	ideology = communism
+		#	popularity = -0.10
+		#}
+		hidden_effect = { #an remove cores after unififcation for post-war resistance
+			204 = { transfer_state_to = BYL }
+			241 = { transfer_state_to = BYL }
+			96 = { transfer_state_to = BYL }
+			207 = { transfer_state_to = BYL }
+			206 = { transfer_state_to = BYL }
+			every_state = { 
+				limit = {
+				is_core_of = BLR
+				}
+				add_core_of = BYL
+			}
+			SOV = { add_to_faction = BYL }
+			remove_ideas = { BLR_impending_civil_war }
+			remove_ideas = { BLR_violence_in_vilna }
+			set_stability = 0.77
+			set_war_support = 0.80 #-20 from offensive war, = 60
+			transfer_units_fraction= {
+				target = BYL
+				size = 0.5
+				air_ratio = 1
+			}
+			random_other_country = {
+				limit = {
+					original_tag = BYL
+					#has_government = communism
+				}
+				set_stability = 0.75
+				set_war_support = 0.35 #+20 from offensive war, = 55
+            	add_equipment_to_stockpile = { #from their "focus"
+            	    type = infantry_equipment_0
+            	    amount = 1500
+            	    producer = SOV
+            	}
+				add_timed_idea = {
+					idea = BLR_unorganized_frontlines
+					days = 14 
+				}
+            	unlock_national_focus = BLR_crush_the_revolt
+            	unlock_national_focus = BLR_reinforced_nkvd_units
+            	unlock_national_focus = BLR_comintern_support
+            	unlock_national_focus = BLR_secure_the_airfields
+            	unlock_national_focus = BLR_secure_the_tank_depots
+            	unlock_national_focus = BLR_secure_and_reinforce_loyal_units
+            	unlock_national_focus = BLR_purge_the_republicans_from_belarus
+				BLR = {
+					set_nationality = {
+					    target_country = BYL
+					    character = BLR_Panteleimon_Ponomarenko
+					}
+				}
+				BYL = { BLR_Panteleimon_Ponomarenko = { promote_character = leninism  } }
+				BLR = {
+					set_nationality = {
+					    target_country = BYL
+					    character = BLR_pyotr_masherov
+					}
+				}
+				BLR = {
+					set_nationality = {
+					    target_country = BYL
+					    character = BLR_vasily_korzh
+					}
+				}
+				BLR = {
+					set_nationality = {
+					    target_country = BYL
+					    character = BLR_anarchist_commune
+					}
+				}
+				#if = {
+				#	limit = { has_dlc = "By Blood Alone" }
+				#		set_air_oob = "BLR_1936_air_bba"
+				#	else = {
+				#		set_air_oob = "BLR_1936_air_legacy"
+				#	}
+				#}
+				#set_cosmetic_tag = BLR_civil_war_com
+				if = {
+					limit = {
+						NOT = {
+							has_dlc = "No Step Back"
+						}
+					}
+					load_oob = "BLR_civil_war_com"
+				}	
+				if = {
+					limit = {
+						has_dlc = "No Step Back"
+					}
+					load_oob = "BLR_civil_war_com_nsb"
+				}
+				add_ideas = BLR_Belarusian_civil_war
+				add_command_power = 50
+				#set_cosmetic_tag = BLR_civil_war_com
+			}
+		}
+		set_country_flag = BLR_generals_return
+		add_timed_idea = {
+			idea = BLR_return_of_exiles
+			days = 365 
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "No Step Back"
+					}
+				}
+				load_oob = "BLR_civil_war_dem"
+			}
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				load_oob = "BLR_civil_war_dem_nsb"
+			}
+		}
+		set_province_controller = 9288
+		IF = {
+			limit = { has_country_flag = BPK_power }
+			complete_national_focus = BLR_belarusian_political_commitee
+		}
+		IF = {
+			limit = { has_country_flag = BLR_bnr_rada }
+			complete_national_focus = BLR_bnr_rada
+		}
+		IF = { #in case of weirdness, default to BNR
+			limit = {
+				NOT = {
+					has_country_flag = BLR_bnr_rada
+					has_country_flag = BPK_power
+				}
+			}
+			complete_national_focus = BLR_bnr_rada
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = -0.15
+		}
+		IF = {
+			limit = { has_global_flag = BLR_fascist_coop_limited }
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.10
+			}
+		}
+		IF = {
+			limit = { has_global_flag = BLR_fascist_coop }
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.25
+			}
+		}
+		add_command_power = 50
+		declare_war_on = {
+		    target = BYL
+		    type = civil_war
+		}
+		hidden_effect = { add_civil_war_target = BYL }
+		IF = {
+			limit = { has_country_flag = polish_support }
+        	add_equipment_to_stockpile = {
+        	    type = infantry_equipment_0
+        	    amount = 500
+        	    producer = POL
+        	}
+        }
+		IF = {
+			limit = { has_country_flag = ukrainian_support }
+        	add_equipment_to_stockpile = {
+        	    type = infantry_equipment_0
+        	    amount = 500
+        	    producer = UKR
+        	}
+        }
+		IF = {
+			limit = { has_completed_focus = BLR_council_of_sluchchyna }
+			95 = {
+				create_unit = {
+					division = "name = \"1-y Slucki Polk\" division_template = \"Milicyja\" start_experience_factor = 0.2 start_manpower_factor = 1" 
+					allow_spawning_on_enemy_provs = yes
+					prioritize_location = 3759
+					count = 1
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"2-hi Hrozaŭski Polk\" division_template = \"Milicyja\" start_experience_factor = 0.2 start_manpower_factor = 1" 
+					allow_spawning_on_enemy_provs = yes
+					prioritize_location = 11313
+					count = 1
+					owner = ROOT
+				}
+			}
+       	}
+		IF = {
+			limit = { has_country_flag = LIT_BLR_regiment_yes }
+			division_template = {
+				name = "1-asis Baltarusių Pulkas"
+				division_names_group = BLR_INF_01
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					cavalry = { x = 1 y = 0 }
+				}
+				support = {
+					recon = { x = 0 y = 0 }
+				}
+			}
+			random_owned_controlled_state = {
+				#limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 95 }
+				create_unit = {
+					division = "name = \"1-asis Baltarusių Pulkas\" division_template = \"1-asis Baltarusių Pulkas\" start_experience_factor = 0.75 force_equipment_variants = { infantry_equipment_1 = { creator = LIT } } force_equipment_variants = { support_equipment_1 = { creator = LIT } } start_manpower_factor = 1" 
+					owner = ROOT
+				}
+			}
+        }
+		IF = {
+			limit = { has_country_flag = LIT_BLR_regiment_no }
+			division_template = {
+				name = "1-asis Baltarusių Pulkas"
+				division_names_group = BLR_INF_01
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					cavalry = { x = 1 y = 0 }
+				}
+				support = {
+					recon = { x = 0 y = 0 }
+				}
+			}
+			random_owned_controlled_state = {
+				#limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 95 }
+				create_unit = {
+					division = "name = \"1-asis Baltarusių Pulkas\" division_template = \"1-asis Baltarusių Pulkas\" start_experience_factor = 0.75 start_equipment_factor = 0.01 start_manpower_factor = 1" 
+					owner = ROOT
+				}
+			}
+        }
+		LIT = { country_event = { hours = 6 id = blr.13 } }
+	}
+}
+
+###########	INTERMARIUM SUPPORT
+country_event = { #Event for Poland. Belarus Republicans wish to confirm support. will allow for the polish and ukrainian aid tree at the bottom.
+	id = blr.2
+	title = blr.2.t
+	desc = blr.2.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #yes
+		name = blr.2.a
+		BLR = { country_event = { hours = 6 id = blr.4 } }
+        add_equipment_to_stockpile = {
+            type = infantry_equipment_0
+            amount = -500
+            producer = POL
+        }
+		ai_chance = {
+            modifier = {
+                factor = 100
+            }
+        }
+	}
+	option = { #no
+		name = blr.2.b
+		BLR = { country_event = { hours = 6 id = blr.3 } }
+		ai_chance = {
+            modifier = {
+                factor = 0
+            }
+        }
+	}
+}
+
+country_event = { #POL says no.
+	id = blr.3
+	title = blr.3.t
+	desc = blr.3.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #shame
+		name = blr.3.a
+		ai_chance = {
+            modifier = {
+                factor = 100
+            }
+        }
+	}
+}
+
+country_event = { #POL says yes.
+	id = blr.4
+	title = blr.4.t
+	desc = blr.4.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #nice
+		name = blr.4.a
+		set_country_flag = polish_support
+		hidden_effect = { 
+			add_ai_strategy = {
+			   type = alliance
+			   id = POL
+			   value = 5000
+			}
+			POL = {
+				add_ai_strategy = {
+				   type = alliance
+				   id = BLR
+				   value = 500
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Event for Ukraine. Belarus Republicans wish to confirm support. will allow for the polish and ukrainian aid tree at the bottom.
+	id = blr.5
+	title = blr.5.t
+	desc = blr.5.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #yes
+		name = blr.5.a
+		BLR = { country_event = { hours = 6 id = blr.7 } }
+        add_equipment_to_stockpile = {
+            type = infantry_equipment_0
+            amount = -500
+            producer = UKR
+        }
+		ai_chance = {
+            modifier = {
+                factor = 100
+            }
+        }
+	}
+	option = { #no
+		name = blr.5.b
+		BLR = { country_event = { hours = 6 id = blr.6 } }
+		ai_chance = {
+            modifier = {
+                factor = 0
+            }
+        }
+	}
+}
+
+country_event = { #UKR says no.
+	id = blr.6
+	title = blr.6.t
+	desc = blr.6.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #shame
+		name = blr.6.a
+		ai_chance = {
+            modifier = {
+                factor = 100
+            }
+        }
+	}
+}
+
+country_event = { #UKR says yes.
+	id = blr.7
+	title = blr.7.t
+	desc = blr.7.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #nice
+		name = blr.7.a
+		set_country_flag = ukrainian_support
+			hidden_effect = { 
+				add_ai_strategy = {
+				   type = alliance
+				   id = UKR
+				   value = 5000
+				}
+				UKR = {
+					add_ai_strategy = {
+					   type = alliance
+					   id = BLR
+					   value = 500
+					}
+				}
+			}
+	}
+}
+country_event = { #Lithuania strikes on Vilnus
+	id = blr.8
+	title = blr.8.t
+	desc = blr.8.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #hold the city!
+		name = blr.8.a
+		ai_chance = {
+            modifier = {
+                factor = 50
+            }
+        }
+        LIT = { country_event = { hours = 6 id = blr.15 } }
+		add_war_support = 0.1
+		add_political_power = 50
+		custom_effect_tooltip = ttp_lit_blr_war
+ 		declare_war_on = {
+    		target = LIT
+    		type = annex_everything
+		}
+	}
+	option = { #let them take it.
+		name = blr.8.a
+			ai_chance = {
+            modifier = {
+                factor = 0#50
+            }
+        }
+        LIT = { country_event = { hours = 6 id = blr.14 } }
+			effect_tooltip = {
+			LIT = { transfer_state = 784 }
+		}
+		add_stability = -0.05
+		add_war_support = -0.1
+		add_political_power = -50
+	}
+}
+
+country_event = { #event for LIT - take vilnius?
+	id = blr.13
+	title = blr.13.t
+	desc = blr.13.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #we march on the city. this may mean war!
+		name = blr.13.a
+		ai_chance = {
+            modifier = {
+                factor = 100
+            }
+        }
+		#add_war_support = 0.15
+		add_political_power = 50
+		add_command_power = -30
+			add_timed_idea = {
+				idea = BLR_national_mobilization
+				days = 180
+			}
+            declare_war_on = {
+                target = RCL
+                type = annex_everything
+            }
+            activate_decision = LIT_operation_taras_blinda
+            set_country_flag = war_with_RCL
+			#random_other_country = {
+			#	limit = {
+			#		original_tag = BLR
+			#		has_government = communism
+			#	}
+			#	country_event = blr.8
+			#}
+		custom_effect_tooltip = ttp_lit_blr_war
+	}
+	option = { #it's not worth war with the soviets or poland
+		name = blr.13.b
+		ai_chance = {
+            modifier = {
+                factor = 0
+            }
+        }
+		add_stability = -0.02
+		add_war_support = -0.05
+		add_political_power = -50
+	}
+}
+
+country_event = { #event for LIT - Vilnius returned to us!
+	id = blr.14
+	title = blr.14.t
+	desc = blr.14.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #Neat. Very Neat.
+		name = blr.14.a
+		ai_chance = {
+            modifier = {
+                factor = 100
+            }
+        }
+		add_political_power = 50
+		add_stability = 0.05
+		transfer_state = 784
+	}
+}
+
+country_event = { #event for LIT - BLR war!
+	id = blr.15
+	title = blr.15.t
+	desc = blr.15.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #we will win!
+		name = blr.15.a
+		ai_chance = {
+            modifier = {
+                factor = 100
+            }
+        }
+		upgrade_economy_law = yes
+		custom_effect_tooltip = ttp_lit_blr_war
+			add_timed_idea = {
+				idea = BLR_national_mobilization
+				days = 365
+			}
+	}
+}
+
+country_event = { #event for LIT - BNR requests assistance
+	id = blr.16
+	title = blr.16.t
+	desc = blr.16.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #we will support
+		name = blr.16.a
+		ai_chance = {
+            modifier = {
+                factor = 100
+            }
+        }
+		LIT = {
+     		95 = { remove_claim_by = LIT }  
+    		96 = { remove_claim_by = LIT }
+			#add_opinion_modifier = {
+			#	target = ROOT
+			#	modifier = blr_diplomacy_focus
+			#}
+			add_ai_strategy = {
+				type = alliance
+				id = BLR
+				value = 100
+			}
+			add_ai_strategy = {
+				type = protect
+				id = BLR
+				value = 100
+			}
+			add_ai_strategy = {
+				type = send_volunteers_desire
+				id = BLR
+				value = 1000
+			}
+			add_ai_strategy = {
+				type = support
+				id = BLR
+				value = 1000
+			}
+		}
+     BLR = { country_event = { hours = 6 id = blr.17 } }
+     #LIT = { set_state_owner = 784 }
+     784 = { remove_claim_by = BLR }  
+     set_global_flag = lit_support_blr
+			give_guarantee = BLR
+			diplomatic_relation = {
+				country = BLR
+				relation = non_aggression_pact
+				active = yes
+		}
+     	BLR = {
+			give_guarantee = LIT
+			diplomatic_relation = {
+				country = LIT
+				relation = non_aggression_pact
+				active = yes
+			}
+		}
+	}
+	option = { #we'd rather not tie ourselves to you
+		name = blr.16.b
+		ai_chance = {
+            modifier = {
+                factor = 0
+            }
+        }
+        BLR = { country_event = { hours = 6 id = blr.18 } }
+    	add_political_power = -50
+    	add_stability -0.05
+    	add_manpower = 100
+	}
+}
+
+country_event = { #event for BLR - LIT agrees to an alliance
+	id = blr.17
+	title = blr.17.t
+	desc = blr.17.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #Neat!
+		name = blr.17.a
+		ai_chance = {
+            modifier = {
+                factor = 100
+            }
+        }
+     	95 = { remove_claim_by = LIT }  
+    	96 = { remove_claim_by = LIT }
+    	add_political_power = 50
+    	add_war_support = 0.03
+    	add_stability 0.3
+	}
+}
+
+country_event = { #event for BLR - LIT declines alliance. some lithuanins join us anyway
+	id = blr.18
+	title = blr.18.t
+	desc = blr.18.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = blr.18.a
+		ai_chance = {
+            modifier = {
+                factor = 100
+            }
+        }
+        add_manpower = 100
+    	add_political_power = -50
+    	add_war_support = -0.03
+    	add_stability -0.3
+	}
+}
+
+country_event = { #event for POL - BNR requests assistance
+	id = blr.19
+	title = blr.19.t
+	desc = blr.19.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #we will support
+		name = blr.19.a
+		ai_chance = {
+            modifier = {
+                factor = 100
+            }
+        }
+        BLR = {            
+        	country_event = { hours = 6 id = blr.20 }
+        }
+        effect_tooltip = { 
+        	BLR = {
+				#set_politics = { ruling_party = neutrality }
+				#BLR_stanislaw_bulk = { 
+				#	promote_character = moderatism 
+				#}
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.10
+				}
+				army_experience = 25
+				add_ideas = BLR_polish_gen_staff
+     			94 = { remove_claim_by = BLR }  
+    			97 = { remove_claim_by = BLR }
+				diplomatic_relation = {
+					country = POL
+					relation = non_aggression_pact
+					active = yes
+        		}
+				diplomatic_relation = {
+					country = POL
+					relation = military_access
+					active = yes
+        		}
+				add_doctrine_cost_reduction = {
+					name = BLR_polish_general_staff
+					cost_reduction = 0.25
+					uses = 2
+					category = land_doctrine
+				}
+				POL = {
+					#add_opinion_modifier = {
+					#	target = ROOT
+					#	modifier = blr_diplomacy_focus
+					#}
+					add_ai_strategy = {
+						type = alliance
+						id = ROOT
+						value = 100
+					}
+					add_ai_strategy = {
+						type = protect
+						id = ROOT
+						value = 100
+					}
+					add_ai_strategy = {
+						type = send_volunteers_desire
+						id = ROOT
+						value = 1000
+					}
+					add_ai_strategy = {
+						type = support
+						id = ROOT
+						value = 1000
+					}
+					give_guarantee = BLR
+					diplomatic_relation = {
+						country = BLR
+						relation = military_access
+						active = yes
+            		}
+				}
+			}
+		}           
+	}
+#
+	option = { #we'd rather not tie ourselves to you
+		name = blr.19.a
+		ai_chance = {
+            modifier = {
+                factor = 0
+            }
+        }
+        BLR = { country_event = { hours = 6 id = blr.21 } }
+    	add_political_power = -50
+    	add_war_support = -0.05
+	}
+}
+
+country_event = { #event for BNR - POL helps us!
+	id = blr.20
+	title = blr.20.t
+	desc = blr.20.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #we will support
+		name = blr.20.a
+		ai_chance = {
+            modifier = {
+                factor = 100
+            }
+        }
+     	#country_event = { hours = 6 id = blr.20 }
+		army_experience = 10
+		add_doctrine_cost_reduction = {
+			name = BLR_polish_general_staff
+			cost_reduction = 0.25
+			uses = 2
+			category = land_doctrine
+		}
+		#set_politics = { ruling_party = neutrality }
+		#BLR_stanislaw_bulk = { 
+		#	promote_character = moderatism 
+		#}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.10
+		}
+		add_ideas = BLR_polish_gen_staff
+     	94 = { remove_claim_by = BLR }  
+    	97 = { remove_claim_by = BLR }
+		diplomatic_relation = {
+			country = POL
+			relation = non_aggression_pact
+			active = yes
+        }
+		diplomatic_relation = {
+			country = POL
+			relation = military_access
+			active = yes
+        }
+		POL = {
+			#add_opinion_modifier = {
+			#	target = ROOT
+			#	modifier = blr_diplomacy_focus
+			#}
+			add_ai_strategy = {
+				type = alliance
+				id = ROOT
+				value = 100
+			}
+			add_ai_strategy = {
+				type = protect
+				id = ROOT
+				value = 100
+			}
+			add_ai_strategy = {
+				type = send_volunteers_desire
+				id = ROOT
+				value = 1000
+			}
+			add_ai_strategy = {
+				type = support
+				id = ROOT
+				value = 1000
+			}
+			give_guarantee = BLR
+			diplomatic_relation = {
+				country = BLR
+				relation = military_access
+				active = yes
+            }
+		}           
+	}		            
+}
+
+country_event = { #event for BNR - POL does not help us!
+	id = blr.21
+	title = blr.21.t
+	desc = blr.21.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #we will support
+		name = blr.21.a
+		ai_chance = {
+            modifier = {
+                factor = 100
+            }
+        }
+    	add_political_power = -50
+    	add_stability -0.05	
+    	unlock_national_focus = BLR_non_submission_to_poland          
+	}		            
+}
+
+country_event = { #event for RUS - help BLR in exchange for help later?
+	id = blr.22
+	title = blr.22.t
+	desc = blr.22.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = no
+	
+	option = { #we will support
+		name = blr.22.a
+        BLR = { 
+        	country_event = { hours = 2 id = blr.23 } 
+			add_ai_strategy = {
+				type = alliance
+				id = RUS
+				value = 500
+			}
+			add_ai_strategy = {
+				type = protect
+				id = RUS
+				value = 100
+			}
+			add_ai_strategy = {
+				type = send_volunteers_desire
+				id = RUS
+				value = 1000
+			}
+			add_ai_strategy = {
+				type = support
+				id = RUS
+				value = 1000
+			}
+        }
+		RUS = {
+			add_to_faction = BLR
+			#add_opinion_modifier = {
+			#	target = ROOT
+			#	modifier = blr_diplomacy_focus
+			#}
+			add_ai_strategy = {
+				type = alliance
+				id = BLR
+				value = 100
+			}
+			add_ai_strategy = {
+				type = protect
+				id = BLR
+				value = 100
+			}
+			add_ai_strategy = {
+				type = send_volunteers_desire
+				id = BLR
+				value = 1000
+			}
+			add_ai_strategy = {
+				type = support
+				id = BLR
+				value = 1000
+			}
+		}
+		BLR = { 
+			add_political_power = -50
+			add_war_support = 0.05
+			add_manpower = 10000
+			army_experience = 15
+			RUS = {
+				RUS_boris_savinkov = { add_unit_leader_trait = trait_SOV_foreign_military_advisor }
+				MUR_pyotr_von_glazenap = { add_unit_leader_trait = trait_SOV_foreign_military_advisor }
+				set_nationality = {
+				    target_country = BLR
+				    character = RUS_boris_savinkov
+				}
+				set_nationality = {
+				    target_country = BLR
+				    character = MUR_pyotr_von_glazenap
+				}
+			}
+        	add_equipment_to_stockpile = {
+        	    type = infantry_equipment_0
+        	    amount = 250
+        	    producer = RUS
+        	}
+			set_country_flag = BLR_rus_supports 
+			give_military_access = RUS
+			diplomatic_relation = {
+				country = RUS
+				relation = non_aggression_pact
+				active = yes
+			}
+		}
+		add_manpower = -10000
+		add_political_power = -25
+		add_command_power = -25
+		army_experience = 5
+		add_war_support = 0.05
+		diplomatic_relation = {
+			country = BLR
+			relation = non_aggression_pact
+			active = yes
+		}
+		custom_effect_tooltip = BLR_bind_belarus
+		ai_chance = {
+            modifier = {
+                factor = 100
+            }
+        }      
+	}	
+	option = { #no
+		name = blr.22.b
+		trigger = {
+			NOT = { BLR = { is_subject_of = RUS } }
+		}
+        BLR = { country_event = { hours = 2 id = blr.24 } }
+		add_war_support = -0.03
+		ai_chance = {
+            modifier = {
+                factor = 0
+            }
+        }      
+	}	            
+}
+
+
+country_event = { #event for BLR - rus said yes
+	id = blr.23
+	title = blr.23.t
+	desc = blr.23.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #we will support
+		name = blr.23.a
+		effect_tooltip = {
+			BLR = { 
+				add_political_power = -50
+				add_war_support = 0.05
+				add_manpower = 10000
+				army_experience = 15
+				RUS = {
+					set_nationality = {
+					    target_country = BLR
+					    character = RUS_boris_savinkov
+					}
+				}
+        		add_equipment_to_stockpile = {
+        		    type = infantry_equipment_0
+        		    amount = 250
+        		    producer = RUS
+        		}
+				set_country_flag = BLR_rus_supports 
+				give_military_access = RUS
+				diplomatic_relation = {
+					country = RUS
+					relation = non_aggression_pact
+					active = yes
+				}
+			}
+			RUS = {
+				add_manpower = -10000
+				add_political_power = -25
+				add_command_power = -25
+				army_experience = 5
+				add_war_support = 0.05
+				diplomatic_relation = {
+					country = BLR
+					relation = non_aggression_pact
+					active = yes
+				}
+			}
+		}
+		ai_chance = {
+            modifier = {
+                factor = 100
+            }
+        }      
+	}	            
+}
+
+
+country_event = { #event for BLR - RUS said no
+	id = blr.24
+	title = blr.24.t
+	desc = blr.24.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #darn.
+		name = blr.24.a
+		add_war_support = -0.03
+		add_political_power = -15
+		ai_chance = {
+            modifier = {
+                factor = 100
+            }
+        }      
+	}	            
+}
+
+country_event = { #event for est - BLR wants planes
+	id = blr.25
+	title = blr.25.t
+	desc = blr.25.d
+	picture = GFX_report_event_fighters
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #yes
+		name = blr.25.a
+		BLR = {
+			country_event = blr.26
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
+					}
+				}
+				if = {
+					limit = {
+						not = {
+							has_tech = early_fighter
+						}
+					}
+					set_technology = { early_fighter = 1 }
+				}
+				if = {
+					limit = {
+						not = {
+							has_tech = early_bomber
+						}
+					}
+					set_technology = { CAS1 = 1 }
+				}
+				add_equipment_to_stockpile = { type = fighter_equipment_0 amount = 40 producer = ENG }
+				add_equipment_to_stockpile = { type = tac_bomber_equipment_0 amount = 12 producer = ENG }
+			}
+			else = {
+				if = {
+					limit = {
+						not = {
+							has_tech = iw_small_airframe
+						}
+					}
+					set_technology = { iw_small_airframe = 1 }
+				}
+				add_equipment_to_stockpile = { type = small_plane_airframe_0 amount = 40 producer = ENG variant_name = "Hawker Fury"}
+				add_equipment_to_stockpile = { type = medium_plane_airframe_1 amount = 12 producer = ENG variant_name = "Bristol Blenheim"}
+			}
+		}
+			EST = {
+                add_opinion_modifier = {
+                    target = ROOT
+                    modifier = BUL_bought_guns
+                }
+            }
+            FROM = {
+            	add_opinion_modifier = {
+            	    target = EST
+            	    modifier = BUL_sold_guns
+            	}
+            	add_opinion_modifier = {
+            	    target = EST
+            	    modifier = BUL_arms_trade
+            	}
+            }
+				EST = { 
+					#swap_ideas = { 
+						remove_ideas = EST_lack_of_funds_for_the_military
+						add_ideas = EST_lack_of_funds_for_the_military2
+					#}
+				}
+		ai_chance = {
+			base = 100
+            modifier = {
+            	EST = { has_completed_focus = BALTIC_seek_support_of_soviets }
+                factor = 0
+            }
+        }      
+	}
+	option = { #no
+		name = blr.25.b
+			FROM = {
+				country_event = blr.27
+			}
+		ai_chance = {
+			base = 1
+            modifier = {
+            	EST = { has_completed_focus = BALTIC_seek_support_of_soviets }
+                factor = 100
+            }
+        }     
+	}	            
+}
+
+country_event = { #event for BLR - est said yes
+	id = blr.26
+	title = blr.26.t
+	desc = blr.26.d
+	picture = GFX_report_event_fighters
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #yay!
+		name = blr.26.a
+			EST = {
+                add_opinion_modifier = {
+                    target = ROOT
+                    modifier = BUL_bought_guns
+                }
+            }
+            add_opinion_modifier = {
+                target = EST
+                modifier = BUL_sold_guns
+            }
+            add_opinion_modifier = {
+                target = EST
+                modifier = BUL_arms_trade
+            }
+		ai_chance = {
+			base = 1
+        } 
+	effect_tooltip = {
+		BLR = {
+			country_event = blr.26
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
+					}
+				}
+				if = {
+					limit = {
+						not = {
+							has_tech = early_fighter
+						}
+					}
+					set_technology = { early_fighter = 1 }
+				}
+				if = {
+					limit = {
+						not = {
+							has_tech = early_bomber
+						}
+					}
+					set_technology = { CAS1 = 1 }
+				}
+				add_equipment_to_stockpile = { type = fighter_equipment_0 amount = 40 producer = ENG }
+				add_equipment_to_stockpile = { type = tac_bomber_equipment_0 amount = 12 producer = ENG }
+			}
+			else = {
+				if = {
+					limit = {
+						not = {
+							has_tech = iw_small_airframe
+						}
+					}
+					set_technology = { iw_small_airframe = 1 }
+				}
+				add_equipment_to_stockpile = { type = small_plane_airframe_0 amount = 40 producer = ENG variant_name = "Hawker Fury"}
+				add_equipment_to_stockpile = { type = medium_plane_airframe_1 amount = 12 producer = ENG variant_name = "Bristol Blenheim"}
+			}
+		}
+		}
+	}
+}
+
+country_event = { #event for BLR - est said no :(
+	id = blr.27
+	title = blr.27.t
+	desc = blr.27.d
+	picture = GFX_report_event_gre_cabinet_meeting
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = blr.27.a
+		add_political_power = 15
+	}
+}
+
+
+country_event = { #event for LAT - BLR wants tanks
+	id = blr.28
+	title = blr.28.t
+	desc = blr.28.d
+	picture = GFX_report_event_polish_tanks_02
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #yes
+		name = blr.28.a
+		BLR = {
+			country_event = blr.29
+			effect_tooltip = {   
+            	if = {
+            	    limit = {
+            	            has_dlc = "La Resistance"
+            	    }
+            	    add_equipment_to_stockpile = { type = gw_armored_car_equipment amount = 10 producer = RUS }
+            	}
+				if = {
+					limit = {
+						NOT = {
+							has_dlc = "No Step Back"
+						}
+					}
+					add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 72 producer = ENG }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 40 producer = ENG variant_name = "Vickers 6 ton B" }
+					add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 10 producer = RUS variant_name = "Garford-Putilov" }
+					add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 2 producer = ITA variant_name = "Fiat 3000B" }
+					add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 4 producer = ITA variant_name = "Fiat 3000" }
+					add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 6 producer = LAT variant_name = "Vickers 4-ton B" }
+					add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 12 producer = LAT variant_name = "Vickers 4-ton A" }
+				}
+				add_political_power = -50
+     		}
+		}
+			LAT = {
+                add_opinion_modifier = {
+                    target = ROOT
+                    modifier = BUL_bought_guns
+                }
+            }
+            FROM = {
+            	add_opinion_modifier = {
+            	    target = LAT
+            	    modifier = BUL_sold_guns
+            	}
+            	add_opinion_modifier = {
+            	    target = LAT
+            	    modifier = BUL_arms_trade
+            	}
+            }
+            LAT = { 
+            	add_political_power = 50
+            }
+		ai_chance = {
+			base = 100
+            modifier = {
+            	LAT = { has_completed_focus = BALTIC_seek_support_of_soviets }
+                factor = 0
+            }
+        }      
+	}
+	option = { #no
+		name = blr.28.b
+		FROM = {
+			country_event = blr.30
+		}
+        if = {
+            limit = {
+                    has_dlc = "La Resistance"
+            }
+            add_equipment_to_stockpile = { type = gw_armored_car_equipment amount = 10 producer = RUS }
+        }
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "No Step Back"
+				}
+			}
+			add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 72 producer = ENG }
+		}
+		else = {
+			add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 40 producer = ENG variant_name = "Vickers 6 ton B" }
+			add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 10 producer = RUS variant_name = "Garford-Putilov" }
+			add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 2 producer = ITA variant_name = "Fiat 3000B" }
+			add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 4 producer = ITA variant_name = "Fiat 3000" }
+			add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 6 producer = LAT variant_name = "Vickers 4-ton B" }
+			add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 12 producer = LAT variant_name = "Vickers 4-ton A" }
+		}
+		ai_chance = {
+			base = 1
+            modifier = {
+            	LAT = { has_completed_focus = BALTIC_seek_support_of_soviets }
+                factor = 100
+            }
+        }     
+	}	            
+}
+
+country_event = { #event for BLR - LAT said yes
+	id = blr.29
+	title = blr.29.t
+	desc = blr.29.d
+	picture = GFX_report_event_polish_tanks_02
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #yay!
+		name = blr.29.a
+        if = {
+            limit = {
+                    has_dlc = "La Resistance"
+            }
+            add_equipment_to_stockpile = { type = gw_armored_car_equipment amount = 10 producer = RUS }
+        }
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "No Step Back"
+				}
+			}
+			add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 72 producer = ENG }
+		}
+		else = {
+			add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 40 producer = ENG variant_name = "Vickers 6 ton B" }
+			add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 10 producer = RUS variant_name = "Garford-Putilov" }
+			add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 2 producer = ITA variant_name = "Fiat 3000B" }
+			add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 4 producer = ITA variant_name = "Fiat 3000" }
+			add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 6 producer = LAT variant_name = "Vickers 4-ton B" }
+			add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 12 producer = LAT variant_name = "Vickers 4-ton A" }
+		}
+		add_political_power = -120
+	}
+}
+
+
+country_event = { #event for BLR - LAT said no :(
+	id = blr.30
+	title = blr.30.t
+	desc = blr.30.d
+	picture = GFX_report_event_gre_cabinet_meeting
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #
+		name = blr.30.a
+		add_political_power = 15
+	}
+}
+#country_event = { #event for BLR - win
+#	id = blr.11
+#	title = blr.11.t
+#	desc = blr.11.d
+#	picture = GFX_report_event_spain_civil_war_soldiers
+#
+#	is_triggered_only = yes
+#fire_only_once = yes
+#	
+#	option = { #HURRAH!
+#		name = blr.11.a
+#	}
+#}
+
+#country_event = { #event for BLR - lose
+#	id = blr.12
+#	title = blr.12.t
+#	desc = blr.12.d
+#	picture = GFX_report_event_spain_civil_war_soldiers
+#
+#	is_triggered_only = yes
+#fire_only_once = yes
+#	
+#	option = { #it was worth a shot
+#		name = blr.12.a
+#	}
+#}
+
+
+country_event = { #War in Vilna comes to an end in victory for LIT
+	id = blr.31
+	title = blr.31.t
+	desc = blr.31.d
+
+	picture = GFX_report_event_german_advisors_remain
+    #trigger = {
+	#	#LIT = { controls_province = 3320 }
+	#	LIT = {
+	#		controls_state = 784
+	#	}
+	#	RCL = { exists = no }
+    #	original_tag = LIT
+    #}
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {  # so its over
+		name = blr.31.a
+		IF = {
+			limit = { LIT = { controls_province = 3320 } }
+			add_stability = 0.05
+			add_war_support = 0.05
+			add_political_power = 100
+			army_experience = 25
+			add_doctrine_cost_reduction = {
+				name = LIT_vinius_war
+				cost_reduction = 0.25
+				uses = 2
+				category = land_doctrine
+			}
+		}
+		POL = { country_event = BLR.46 }
+		#784 = {
+		#	remove_core_of = RCL
+		#}
+		#every_state = {
+		#	limit = {
+		#		is_claimed_by = RCL
+		#	}
+		#	remove_claim_by = RCL
+		#}
+		#RCL = {
+        #	set_nationality = {
+        #	    target_country = POL
+        #	    character = POL_lucjan_zeligowski
+        #	}
+        #}
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+country_event = { #War in Vilna comes to an end in victory for RCL
+	id = blr.32
+	title = blr.32.t
+	desc = blr.32.d
+
+	picture = GFX_report_event_german_advisors_remain
+    #trigger = {
+    #	LIT = {
+    #		has_war_with = RCL
+    #	}
+    #	tag = LIT
+    #	RCL = { 
+    #		exists = yes 
+    #		controls_province = 3320
+    #	}
+    #}
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {  # so its over
+		name = blr.32.a
+		add_stability = -0.05
+		add_war_support = -0.1
+		add_political_power = -50
+		army_experience = 10
+		add_doctrine_cost_reduction = {
+			name = LIT_vinius_war
+			cost_reduction = 0.25
+			uses = 1
+			category = land_doctrine
+		}
+		white_peace = RCL
+		set_province_name = {
+			id = 3320
+			name = BLR_wilno
+		}
+		#hidden_effect = { 784 = { set_state_name = BLR_wilno } }
+		POL = {
+			country_event = BLR.33
+			annex_country = {
+    			target = RCL
+    			transfer_troops = yes
+			}
+		}
+		784 = {
+			remove_core_of = RCL
+		}
+		every_state = {
+			limit = {
+				is_claimed_by = RCL
+			}
+			remove_claim_by = RCL
+		}
+		RCL = {
+        	set_nationality = {
+        	    target_country = POL
+        	    character = POL_lucjan_zeligowski
+        	}
+        }
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+country_event = { #War in Vilna comes to an end in victory for RCL
+	id = blr.33
+	title = blr.33.t
+	desc = blr.33.d
+
+	picture = GFX_report_event_german_advisors_remain
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {  # so its over
+		name = blr.33.a
+		add_political_power = 50
+		add_stability = 0.02
+		add_war_support = 0.05
+		army_experience = 10
+		effect_tooltip = {
+			annex_country = {
+    			target = RCL
+    			transfer_troops = yes
+			}
+			784 = {
+				remove_core_of = RCL
+			}
+			every_state = {
+				limit = {
+					is_claimed_by = RCL
+				}
+				remove_claim_by = RCL
+			}
+        	set_nationality = {
+        	    target_country = POL
+        	    character = POL_lucjan_zeligowski
+        	}
+		}
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+country_event = { #Event for Lit, BLR asks for the 1st belarusian regiment
+	id = blr.34
+	title = blr.34.t
+	desc = blr.34.d
+
+	picture = GFX_report_event_german_advisors_remain
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {  # accept
+		name = blr.34.a
+		BLR = { country_event = BLR.35 }
+		custom_effect_tooltip = blr34_accept_ttp
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = {  # deny
+		name = blr.34.b
+		BLR = { country_event = BLR.36 }
+		custom_effect_tooltip = blr34_deny_ttp
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+country_event = { #Event for BLR, LIT says yes
+	id = blr.35
+	title = blr.35.t
+	desc = blr.35.d
+
+	picture = GFX_report_event_german_advisors_remain
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {  # neat!
+		name = blr.35.a
+		set_country_flag = LIT_BLR_regiment_yes
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+country_event = { #Event for BLR, LIT says no
+	id = blr.36
+	title = blr.36.t
+	desc = blr.36.d
+
+	picture = GFX_report_event_german_advisors_remain
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {  # bruh
+		name = blr.36.a
+		set_country_flag = LIT_BLR_regiment_no
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+country_event = { #choose political leadership of civil war - congress
+	id = blr.37
+	title = blr.37.t
+	desc = blr.37.d
+
+	picture = GFX_report_event_german_advisors_remain
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {  # reconcile success
+		name = blr.37.a
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.10
+		}
+		#BLR_Vasil_Zacharka = { 
+		#	promote_character = socialism 
+		#}
+		set_country_flag = BNR_power
+		country_event = blr.38
+		ai_chance = {
+			base = 50
+		}
+	}
+	option = {  # Balachowicz gains power
+		name = blr.37.b
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+		#BLR_stanislaw_bulk = { 
+		#	promote_character = moderatism 
+		#}
+		set_country_flag = BPK_power
+		country_event = blr.38
+		ai_chance = {
+			base = 50
+		}
+	}
+}
+
+country_event = { #question of fascists
+	id = blr.38
+	title = blr.38.t
+	desc = blr.38.d
+
+	picture = GFX_report_event_german_advisors_remain
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {  # no cooperation with fascists
+		name = blr.38.a
+		custom_effect_tooltip = blr38_ttp
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = {  # limited cooperation with fascists
+		name = blr.38.b
+		set_global_flag = BLR_fascist_coop_limited
+		custom_effect_tooltip = blr38_ttp2
+		ai_chance = {
+			base = 25
+		}
+	}
+	option = {  # extensive support to fascists
+		name = blr.38.c
+		set_global_flag = BLR_fascist_coop
+		custom_effect_tooltip = blr38_ttp3
+		ai_chance = {
+			base = 25
+		}
+	}
+}
+
+
+country_event = { #for POl, BLR requests direct intervention
+	id = blr.39
+	title = blr.39.t
+	desc = blr.39.d
+
+	picture = GFX_report_event_german_advisors_remain
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {  # agree to directly intervene
+		name = blr.39.a
+		declare_war_on = {
+		    target = BYL
+		    type = topple_government
+		}
+		add_war_support = 0.1
+		BLR = {
+			add_war_support = 0.10
+			diplomatic_relation = {
+				country = POL
+				relation = military_access
+				active = yes
+        	}
+        	country_event = blr.40
+        }
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = {  # no intervention, increase aid shipments in pennance
+		name = blr.39.b
+		POL = {
+			add_political_power = -50
+            add_equipment_to_stockpile = {
+                type = infantry_equipment_0
+                amount = -5000
+                producer = POL
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment_1
+                amount = -50
+                producer = POL
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment_1
+                amount = -50
+                producer = POL
+            }
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
+					}
+				}
+				add_equipment_to_stockpile = { type = fighter_equipment_0 amount = -50 producer = POL }
+				add_equipment_to_stockpile = { type = CAS_equipment_1 amount = -24 producer = POL }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = small_plane_airframe_0 amount = -50 producer = POL variant_name = "PZL P.11"}
+				add_equipment_to_stockpile = { type = small_plane_cas_airframe_1 amount = -24 producer = POL variant_name = "PZL P.23"}
+			}
+        }
+        BLR = {
+        	country_event = blr.41
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
+					}
+				}
+				add_equipment_to_stockpile = { type = fighter_equipment_0 amount = -50 producer = POL }
+				add_equipment_to_stockpile = { type = CAS_equipment_1 amount = -24 producer = POL }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = small_plane_airframe_0 amount = -50 producer = POL variant_name = "PZL P.11"}
+				add_equipment_to_stockpile = { type = small_plane_cas_airframe_1 amount = -24 producer = POL variant_name = "PZL P.23"}
+			}
+            add_equipment_to_stockpile = {
+                type = infantry_equipment_0
+                amount = 5000
+                producer = POL
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment_1
+                amount = 50
+                producer = POL
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment_1
+                amount = 50
+                producer = POL
+            }
+        }
+		ai_chance = {
+			base = 15
+		}
+	}
+	option = {  # no intervention
+		name = blr.39.c
+		country_event = blr.42
+		BLR = { 
+			add_war_support = -0.05
+		}
+		add_political_power = -100
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+
+country_event = { #for BLR, POL accepts direct intervention
+	id = blr.40
+	title = blr.40.t
+	desc = blr.40.d
+
+	picture = GFX_report_event_polish_tanks_02
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {  # yippee
+		name = blr.40.a
+		effect_tooltip = {
+			POL = { 
+				declare_war_on = {
+				    target = BYL
+				    type = topple_government
+				}
+				add_war_support = 0.1
+			}
+			add_war_support = 0.10
+			diplomatic_relation = {
+				country = POL
+				relation = military_access
+				active = yes
+        	}
+        }
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+country_event = { #for BLR, POL only sends equipment instead
+	id = blr.41
+	title = blr.41.t
+	desc = blr.41.d
+
+	picture = GFX_report_event_DEN_denmark_surrenders
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {  # :/
+		name = blr.41.a
+		effect_tooltip = {
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
+					}
+				}
+				add_equipment_to_stockpile = { type = fighter_equipment_0 amount = -50 producer = POL }
+				add_equipment_to_stockpile = { type = CAS_equipment_1 amount = -24 producer = POL }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = small_plane_airframe_0 amount = -50 producer = POL variant_name = "PZL P.11"}
+				add_equipment_to_stockpile = { type = small_plane_cas_airframe_1 amount = -24 producer = POL variant_name = "PZL P.23"}
+			}
+            add_equipment_to_stockpile = {
+                type = infantry_equipment_0
+                amount = 5000
+                producer = POL
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment_1
+                amount = 50
+                producer = POL
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment_1
+                amount = 50
+                producer = POL
+            }
+        }
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+country_event = { #for BLR, POL doesnt do crap
+	id = blr.42
+	title = blr.42.t
+	desc = blr.42.d
+
+	picture = GFX_report_event_polish_tanks_02
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {  # :/
+		name = blr.42.a
+		add_war_support = -0.05
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+country_event = { #RUS recalls savinkov
+	id = blr.43
+	title = blr.43.t
+	desc = blr.43.d
+
+	picture = GFX_report_event_ARG_coup_detat
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {  # 
+		name = blr.43.a
+		effect_tooltip = {
+            BLR = {
+                RUS_boris_savinkov = { remove_unit_leader_trait  = trait_SOV_foreign_military_advisor }
+                MUR_pyotr_von_glazenap = { remove_unit_leader_trait  = trait_SOV_foreign_military_advisor }
+                set_nationality = {
+                    target_country = RUS
+                    character = RUS_boris_savinkov
+                }
+                set_nationality = {
+                    target_country = RUS
+                    character = MUR_pyotr_von_glazenap
+                }
+            }
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+country_event = { #event for POL, RCL is formed
+	id = blr.44
+	title = blr.44.t
+	desc = blr.44.d
+
+	picture = GFX_report_event_ARG_coup_detat
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {  # we must support them!
+		name = blr.44.a
+		army_experience = 5
+		add_political_power = -25
+		add_equipment_to_stockpile = {
+            type = infantry_equipment_0
+            amount = -1000
+            producer = POL
+        }
+        RCL = {
+        	add_equipment_to_stockpile = {
+        	    type = infantry_equipment_0
+        	    amount = 1000
+        	    producer = POL
+        	}
+        }
+		784 = {
+			add_core_of = RCL
+		}
+		every_state = {
+			limit = {
+				is_core_of = LIT
+			}
+			add_claim_by = RCL
+		}
+		POL = {
+        	set_nationality = {
+        	    target_country = RCL
+        	    character = POL_lucjan_zeligowski
+        	}
+        }
+        RCL = {
+        	add_country_leader_role = {
+    			character = POL_lucjan_zeligowski
+    			promote_leader = yes
+    			country_leader = {
+    			    ideology = despotism
+    			    expire = "1965.1.1.1"
+    			    traits = { }
+    			}
+			}
+			POL_lucjan_zeligowski = {
+				add_advisor_role = {
+    				advisor = {
+    				    slot = army_chief
+    				    cost = 50
+    				    idea_token = POL_lucjan_zeligowski_chief
+    				    traits = {
+    				        army_chief_planning_1
+    				    }
+    				}
+				}
+				add_advisor_role = {
+    				advisor = {
+    				    slot = high_command
+    				    cost = 50
+    				    idea_token = POL_lucjan_zeligowski_chief
+    				    traits = {
+    				        army_infantry_1
+    				    }
+    				}
+				}
+			}
+		}
+		custom_effect_tooltip = ttp_lit_pol_war
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = {  # best not to involve ourselves
+		name = blr.44.b
+		add_political_power = 35
+		784 = {
+			add_core_of = RCL
+		}
+		every_state = {
+			limit = {
+				is_core_of = LIT
+			}
+			add_claim_by = RCL
+		}
+		POL = {
+        	set_nationality = {
+        	    target_country = RCL
+        	    character = POL_lucjan_zeligowski
+        	}
+        }
+        RCL = {
+        	add_country_leader_role = {
+    			character = POL_lucjan_zeligowski
+    			promote_leader = yes
+    			country_leader = {
+    			    ideology = despotism
+    			    expire = "1965.1.1.1"
+    			    traits = { }
+    			}
+			}
+			POL_lucjan_zeligowski = {
+				add_advisor_role = {
+    				advisor = {
+    				    slot = army_chief
+    				    cost = 50
+    				    idea_token = POL_lucjan_zeligowski_chief
+    				    traits = {
+    				        army_chief_planning_1
+    				    }
+    				}
+				}
+				add_advisor_role = {
+    				advisor = {
+    				    slot = high_command
+    				    cost = 50
+    				    idea_token = POL_lucjan_zeligowski_chief
+    				    traits = {
+    				        army_infantry_1
+    				    }
+    				}
+				}
+			}
+		}
+		custom_effect_tooltip = ttp_lit_pol_war
+		ai_chance = {
+			base = 5
+		}
+	}
+}
+
+country_event = { #event for POL, RCL is defeated
+	id = blr.46
+	title = blr.46.t
+	desc = blr.46.d
+
+	picture = GFX_report_event_ARG_coup_detat
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {  
+		name = blr.46.a
+		add_stability = -0.02
+		add_political_power = -25
+		#effect_tooltip = {
+			784 = {
+				remove_core_of = RCL
+			}
+			every_state = {
+				limit = {
+					is_claimed_by = RCL
+				}
+				remove_claim_by = RCL
+			}
+			RCL = {
+        		set_nationality = {
+        		    target_country = POL
+        		    character = POL_lucjan_zeligowski
+        		}
+        	}
+       #}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+country_event = { ####################CIVIL WAR - COMMUNIST 
+	id = blr.99
+	title = blr.99.t
+	desc = blr.99.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			tag = BLR
+			tag = BYL
+		}
+	}
+	#civil war starts
+	option = {
+		name = blr.99.a
+		hidden_effect = {
+			SOV = { 
+				end_puppet = BLR 
+				puppet = {
+				    target = BYL
+				    end_wars = no
+				}
+			}
+			every_state = { 
+				limit = {
+					is_core_of = BLR
+				}
+				add_core_of = BYL
+			}
+			country_lock_all_division_template = no	
+			delete_unit_template_and_units = {
+    			division_template = "NKVD Pogranichnaya Diviziya"
+    			disband = no 
+			}
+			delete_unit_template_and_units = {
+    			division_template = "Piachotnaj Dyvizii"
+    			disband = no 
+			}
+			delete_unit_template_and_units = {
+    			division_template = "Liohkaj Piachotnaj Bryhady"
+    			disband = no 
+			}
+			delete_unit_template_and_units = {
+    			division_template = "Bryhada Pamieznaj Achovy"
+    			disband = no 
+			}
+			delete_unit_template_and_units = {
+    			division_template = "Tankavaja Bryhada"
+    			disband = no 
+			}
+			#delete_unit_template_and_units = {
+    		#	division_template = "Mataryzavany Polk"
+    		#	disband = no 
+			#}
+			204 = { transfer_state_to = BYL }
+			241 = { transfer_state_to = BYL }
+			96 = { transfer_state_to = BYL }
+			207 = { transfer_state_to = BYL }
+			206 = { transfer_state_to = BYL }
+			SOV = { add_to_faction = BYL }
+			BLR = { 
+				transfer_units_fraction= {
+					target = BYL
+					size = 0.5
+					air_ratio = 1
+				}
+			}
+			BLR = {
+				set_nationality = {
+				    target_country = BYL
+				    character = BLR_Panteleimon_Ponomarenko
+				}
+			}
+			BYL = { BLR_Panteleimon_Ponomarenko = { promote_character = leninism  } }
+			BLR = {
+				set_nationality = {
+				    target_country = BYL
+				    character = BLR_pyotr_masherov
+				}
+			}
+			BLR = {
+				set_nationality = {
+				    target_country = BYL
+				    character = BLR_vasily_korzh
+				}
+			}
+			BLR = {
+				set_nationality = {
+				    target_country = BYL
+				    character = BLR_anarchist_commune
+				}
+			}
+			BYL = {
+				if = {
+					limit = {
+						NOT = {
+							has_dlc = "No Step Back"
+						}
+					}
+					load_oob = "BLR_civil_war_com"
+				}
+				if = {
+					limit = {
+						has_dlc = "No Step Back"
+					}
+					load_oob = "BLR_civil_war_com_nsb"
+				}
+				#set_popularities = {
+				#	democratic = 5
+				#	neutrality = 0
+				#	fascism = 0
+				#	communism = 85
+				#	anarchism = 10
+				#}
+				set_stability = 0.6
+				set_war_support = 0.5
+            	unlock_national_focus = BLR_crush_the_revolt
+            	unlock_national_focus = BLR_reinforced_nkvd_units
+            	unlock_national_focus = BLR_comintern_support
+            	unlock_national_focus = BLR_secure_the_airfields
+            	unlock_national_focus = BLR_secure_the_tank_depots
+            	unlock_national_focus = BLR_secure_and_reinforce_loyal_units
+            	unlock_national_focus = BLR_purge_the_republicans_from_belarus
+			}
+
+		}
+		BYL = {
+			IF = {
+				limit = { has_completed_focus = BLR_comintern_support }
+        		add_equipment_to_stockpile = { #from their "focus"
+        		    type = infantry_equipment_0
+        		    amount = 1500
+        		    producer = SOV
+        		}
+        	}
+			add_timed_idea = {
+				idea = BLR_unorganized_frontlines
+				days = 14 
+			}
+			add_command_power = 50
+			add_ideas = BLR_Belarusian_civil_war
+        }
+
+		BLR = { #REPUBLICANS
+			set_province_controller = 9288
+			IF = {
+				limit = { has_country_flag = BPK_power }
+				complete_national_focus = BLR_belarusian_political_commitee
+			}
+			IF = {
+				limit = { has_country_flag = BLR_bnr_rada }
+				complete_national_focus = BLR_bnr_rada
+			}
+			IF = { #in case of weirdness, default to BNR
+				limit = {
+					NOT = {
+						has_country_flag = BLR_bnr_rada
+						has_country_flag = BPK_power
+					}
+				}
+				complete_national_focus = BLR_bnr_rada
+			}
+			hidden_effect = {
+				set_popularities = {
+					democratic = 41
+					neutrality = 40
+					fascism = 5
+					communism = 2
+					anarchism = 2
+				}
+				IF = {
+					limit = { has_global_flag = BLR_fascist_coop_limited }
+					add_popularity = {
+						ideology = fascism
+						popularity = 0.10
+					}
+				}
+				IF = {
+					limit = { has_global_flag = BLR_fascist_coop }
+					add_popularity = {
+						ideology = fascism
+						popularity = 0.25
+					}
+				}
+				set_capital = {
+				  state = 95
+				  remember_old_capital = yes
+				}
+				set_country_flag = BLR_generals_return
+				#BLR_stanislaw_bulk = { 
+				#	promote_character = liberalism 
+				#}
+				add_timed_idea = {
+					idea = BLR_return_of_exiles
+					days = 365 
+				}
+				add_timed_idea = {
+					idea = BLR_unorganized_frontlines
+					days = 14 
+				}
+				set_cosmetic_tag = BLR_civil_war_dem
+				set_politics = { ruling_party = democratic }
+				leave_faction = yes
+				set_stability = 0.6
+				set_war_support = 0.8
+				if = {
+					limit = {
+						NOT = {
+							has_dlc = "No Step Back"
+						}
+					}
+					load_oob = "BLR_civil_war_dem"
+				}
+				if = {
+					limit = {
+						has_dlc = "No Step Back"
+					}
+					load_oob = "BLR_civil_war_dem_nsb"
+				}
+			}
+			add_ideas = BLR_Belarusian_civil_war
+			remove_ideas = { BLR_impending_civil_war }
+			remove_ideas = { BLR_violence_in_vilna }
+			add_command_power = 50
+			IF = {
+				limit = { has_country_flag = polish_support }
+        		add_equipment_to_stockpile = {
+        		    type = infantry_equipment_0
+        		    amount = 500
+        		    producer = POL
+        		}
+        	}
+			IF = {
+				limit = { has_country_flag = ukrainian_support }
+        		add_equipment_to_stockpile = {
+        		    type = infantry_equipment_0
+        		    amount = 500
+        		    producer = UKR
+        		}
+        	}
+			IF = {
+				limit = { has_country_flag = LIT_BLR_regiment_no }
+				division_template = {
+					name = "1-asis Baltarusių Pulkas"
+					division_names_group = BLR_INF_01
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						cavalry = { x = 1 y = 0 }
+					}
+					support = {
+						recon = { x = 0 y = 0 }
+					}
+				}
+				random_owned_controlled_state = {
+					#limit = { ROOT = { has_full_control_of_state = PREV } }
+					prioritize = { 95 }
+					create_unit = {
+						division = "name = \"1-asis Baltarusių Pulkas\" division_template = \"1-asis Baltarusių Pulkas\" start_experience_factor = 0.75 start_equipment_factor = 0.01 start_manpower_factor = 1" 
+						owner = ROOT
+					}
+				}
+       		}
+			IF = {
+				limit = { has_completed_focus = BLR_council_of_sluchchyna }
+				95 = {
+					create_unit = {
+						division = "name = \"1-y Slucki Polk\" division_template = \"Milicyja\" start_experience_factor = 0.2 start_manpower_factor = 1" 
+						allow_spawning_on_enemy_provs = yes
+						prioritize_location = 3759
+						count = 1
+						owner = ROOT
+					}
+					create_unit = {
+						division = "name = \"2-hi Hrozaŭski Polk\" division_template = \"Milicyja\" start_experience_factor = 0.2 start_manpower_factor = 1" 
+						allow_spawning_on_enemy_provs = yes
+						prioritize_location = 11313
+						count = 1
+						owner = ROOT
+					}
+				}
+       		}
+			IF = {
+				limit = { has_country_flag = LIT_BLR_regiment_yes }
+				division_template = {
+					name = "1-asis Baltarusių Pulkas"
+					division_names_group = BLR_INF_01
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						cavalry = { x = 1 y = 0 }
+					}
+					support = {
+						recon = { x = 0 y = 0 }
+					}
+				}
+				random_owned_controlled_state = {
+					#limit = { ROOT = { has_full_control_of_state = PREV } }
+					prioritize = { 95 }
+					create_unit = {
+						division = "name = \"1-asis Baltarusių Pulkas\" division_template = \"1-asis Baltarusių Pulkas\" start_experience_factor = 0.75 force_equipment_variants = { infantry_equipment_1 = { creator = LIT } } force_equipment_variants = { support_equipment_1 = { creator = LIT } } start_manpower_factor = 1" 
+						owner = ROOT
+					}
+				}
+        	}
+        	hidden_effect = {
+            	unlock_national_focus = BLR_liberation
+            	unlock_national_focus = BLR_smuggle_weapons_to_peasants
+            	unlock_national_focus = BLR_intermarium_support
+            	unlock_national_focus = BLR_mobilize_student_circles
+            	unlock_national_focus = BLR_secure_the_border_guard_corp
+            	unlock_national_focus = BLR_sabotage_communist_factories
+            	unlock_national_focus = BLR_out_of_the_shadows_and_into_the_light
+				uncomplete_national_focus = {
+				  focus = BLR_crush_the_revolt
+				  uncomplete_children = yes
+				  refund_political_power = no
+				}
+			}
+			declare_war_on = {
+			    target = BYL
+			    type = civil_war
+			}
+			add_civil_war_target = BYL
+		}
+		BYL = { change_tag_from = ROOT }
+		LIT = { country_event = blr.13 }
+	}
+}

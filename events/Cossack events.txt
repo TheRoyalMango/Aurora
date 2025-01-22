@@ -1,0 +1,633 @@
+add_namespace = kal
+
+###COUNTRY EVENTS###
+country_event = { #KAL is no longer communist, exiles return home
+	id = kal.1
+	title = kal.1.t
+	desc = kal.1.d
+	picture = GFX_report_event_SOV_mongolia_cavalry
+	is_triggered_only = no
+	fire_only_once = yes    
+
+	trigger = { 
+		ROOT = { owns_state = 237 } 
+		237 = {
+			owner = {
+				NOT = { has_government = communism }
+			}
+		}
+	}
+
+	option = {
+		name = kal.1.a
+		IF = {
+			limit = {
+				tag = KAL
+			}
+			add_manpower = 10000
+			add_stability = 0.05
+		}
+		237 = {
+			add_manpower = 25000
+		}
+	}
+}
+
+add_namespace = urc
+
+###COUNTRY EVENTS###
+country_event = { #URC is no longer communist, exiles return home
+	id = urc.1
+	title = urc.1.t
+	desc = urc.1.d
+	picture = GFX_report_event_SOV_mongolia_cavalry
+	is_triggered_only = no
+	fire_only_once = yes    
+
+	trigger = { 
+		ROOT = { owns_state = 407 } 
+		407 = {
+			owner = {
+				NOT = { has_government = communism }
+			}
+		}
+	}
+
+	option = {
+		name = urc.1.a
+		IF = {
+			limit = {
+				tag = URC
+			}
+			add_manpower = 10000
+			add_stability = 0.05
+		}
+		407 = {
+			add_manpower = 15000
+		}
+		584 = {
+			add_manpower = -5000
+		}
+	}
+}
+
+add_namespace = kub
+
+###COUNTRY EVENTS###
+
+country_event = { #event for SOV - Kuban uprising
+	id = kub.1
+	title = kub.1.t
+	desc = kub.1.d
+	picture = GFX_report_event_SOV_mongolia_cavalry
+	is_triggered_only = yes
+	fire_only_once = yes    
+
+	option = { #Withdrawl and allow them to take over
+		name = kub.1.a
+		add_stability = -0.01
+		add_political_power = 20
+
+		233 = { transfer_state_to = KUB }
+		234 = { transfer_state_to = KUB }
+		KUB = { load_oob = "KUB_cossack_host" }
+
+		ai_chance = {
+			base = 10
+        }
+	}
+	option = { #Resist them!
+		name = kub.1.b
+		add_political_power = -15
+
+		233 = { transfer_state_to = KUB }
+    	declare_war_on = {
+    	    target = KUB
+    	    type = annex_everything
+    	}
+		UKR = { country_event = kub.2 }
+		KUB = {
+			add_ideas = cossack_cossack_uprising
+			division_template = { 
+				name = "Kavaleriyskaya Brigada"  
+				division_names_group = RUS_CAV_02
+			
+				regiments = {
+					cavalry = { x = 0 y = 0 }
+					cavalry = { x = 0 y = 1 }
+					cavalry = { x = 1 y = 0 }
+					cavalry = { x = 1 y = 1 }
+				}
+				support = {
+					#artillery = { x = 0 y = 0 }
+				}
+			}
+			division_template = { 
+				name = "Legkaya Pekhota / Gornostrelkovyy Polk" 
+				division_names_group = RUS_MNT_01
+			
+				regiments = { 
+					mountaineers = { x = 0 y = 0 }
+					mountaineers = { x = 0 y = 1 } 
+					mountaineers = { x = 0 y = 2 } 
+					light_infantry = { x = 1 y = 0 } 
+					light_infantry = { x = 1 y = 1 }
+					light_infantry = { x = 1 y = 2 }
+				} 
+				support = { 
+					recon = { x = 0 y = 0 } 
+				} 
+			} 
+		}
+		233 = {
+			create_unit = {
+				division = "name = \"Kavaleriyskaya Brigada\" division_template = \"Kavaleriyskaya Brigada\" start_experience_factor = 0.7 start_manpower_factor = 1 start_equipment_factor = 0.4" 
+				allow_spawning_on_enemy_provs = yes
+				prioritize_location = 9663
+				count = 2
+				owner = KUB
+			}
+			create_unit = {
+				division = "name = \"Kavaleriyskaya Brigada\" division_template = \"Kavaleriyskaya Brigada\" start_experience_factor = 0.7 start_manpower_factor = 1 start_equipment_factor = 0.4" 
+				allow_spawning_on_enemy_provs = yes
+				prioritize_location = 6692
+				count = 1
+				owner = KUB
+			}
+			create_unit = {
+				division = "name = \"Legkaya Pekhota\" division_template = \"Legkaya Pekhota / Gornostrelkovyy Polk\" start_experience_factor = 0.7 start_manpower_factor = 1 start_equipment_factor = 0.4" 
+				allow_spawning_on_enemy_provs = yes
+				prioritize_location = 6721
+				count = 1
+				owner = KUB
+			}
+			create_unit = {
+				division = "name = \"Legkaya Pekhota\" division_template = \"Legkaya Pekhota / Gornostrelkovyy Polk\" start_experience_factor = 0.7 start_manpower_factor = 1 start_equipment_factor = 0.4" 
+				allow_spawning_on_enemy_provs = yes
+				prioritize_location = 9674
+				count = 1
+				owner = KUB
+			}
+		}
+		235 = {
+			create_unit = {
+				division = "name = \"NKVD Pogranichnaya Diviziya\" division_template = \"NKVD Pogranichnaya Diviziya\" start_experience_factor = 0.2 start_manpower_factor = 1 start_equipment_factor = 0.7" 
+				allow_spawning_on_enemy_provs = yes
+				prioritize_location = 11696
+				count = 1
+				owner = SOV
+			}
+			create_unit = {
+				division = "name = \"NKVD Pogranichnaya Diviziya\" division_template = \"NKVD Pogranichnaya Diviziya\" start_experience_factor = 0.2 start_manpower_factor = 1 start_equipment_factor = 0.7" 
+				allow_spawning_on_enemy_provs = yes
+				prioritize_location = 11633
+				count = 1
+				owner = SOV
+			}
+		}
+		218 = {
+			create_unit = {
+				division = "name = \"NKVD Pogranichnaya Diviziya\" division_template = \"NKVD Pogranichnaya Diviziya\" start_experience_factor = 0 start_manpower_factor = 1 start_equipment_factor = 0.5" 
+				allow_spawning_on_enemy_provs = yes
+				prioritize_location = 9417
+				count = 1
+				owner = SOV
+			}
+		}
+		234 = {
+			create_unit = {
+				division = "name = \"NKVD Pogranichnaya Diviziya\" division_template = \"NKVD Pogranichnaya Diviziya\" start_experience_factor = 0 start_manpower_factor = 1 start_equipment_factor = 0.5" 
+				allow_spawning_on_enemy_provs = yes
+				prioritize_location = 3734
+				count = 1
+				owner = SOV
+			}
+			create_unit = {
+				division = "name = \"NKVD Pogranichnaya Diviziya\" division_template = \"NKVD Pogranichnaya Diviziya\" start_experience_factor = 0 start_manpower_factor = 1 start_equipment_factor = 0.35" 
+				allow_spawning_on_enemy_provs = yes
+				prioritize_location = 719
+				count = 1
+				owner = SOV
+			}
+			create_unit = {
+				division = "name = \"Kavaleriyskaya Brigada\" division_template = \"Kavaleriyskaya Brigada\" start_experience_factor = 0.7 start_manpower_factor = 1 start_equipment_factor = 0.4" 
+				allow_spawning_on_enemy_provs = yes
+				prioritize_location = 3752
+				count = 1
+				owner = KUB
+			}
+			create_unit = {
+				division = "name = \"Kavaleriyskaya Brigada\" division_template = \"Kavaleriyskaya Brigada\" start_experience_factor = 0.7 start_manpower_factor = 1 start_equipment_factor = 0.4" 
+				allow_spawning_on_enemy_provs = yes
+				prioritize_location = 3720
+				count = 2
+				owner = KUB
+			}
+			create_unit = {
+				division = "name = \"Gornostrelkovyy Polk\" division_template = \"Legkaya Pekhota / Gornostrelkovyy Polk\" start_experience_factor = 0.7 start_manpower_factor = 1 start_equipment_factor = 0.4" 
+				allow_spawning_on_enemy_provs = yes
+				prioritize_location = 6768
+				count = 1
+				owner = KUB
+			}
+			create_unit = {
+				division = "name = \"Gornostrelkovyy Polk\" division_template = \"Legkaya Pekhota / Gornostrelkovyy Polk\" start_experience_factor = 0.7 start_manpower_factor = 1 start_equipment_factor = 0.4" 
+				allow_spawning_on_enemy_provs = yes
+				prioritize_location = 11729
+				count = 1
+				owner = KUB
+			}
+		}
+		ai_chance = {
+			base = 100
+        }
+	}
+}
+
+country_event = { #event for UKR - Kuban uprising, send arms?
+	id = kub.2
+	title = kub.2.t
+	desc = kub.2.d
+	picture = GFX_report_event_SOV_mongolia_cavalry
+	is_triggered_only = no
+	fire_only_once = yes    
+
+	option = { #send support
+		name = kub.2.a
+		add_political_power = -25
+        add_equipment_to_stockpile  = {
+    		type = infantry_equipment
+    		amount = -2000
+    		producer = UKR
+		}
+        add_equipment_to_stockpile  = {
+    		type = support_equipment_1
+    		amount = -50
+    		producer = KUB
+		}
+		army_experience = 10
+		KUB = {
+        	add_equipment_to_stockpile  = {
+    			type = support_equipment_1
+    			amount = 50
+    			producer = KUB
+			}
+        	add_equipment_to_stockpile  = {
+    			type = infantry_equipment
+    			amount = 2000
+    			producer = UKR
+			}
+			army_experience = 10
+			add_war_support = 0.05
+		}
+		ai_chance = {
+			base = 0
+            modifier = {
+            	UKR = { NOT = { has_government = communism } }
+                add = 50
+            }
+        }
+	}
+	option = { #do not send support
+		name = kub.2.b
+		add_stability = -0.01
+		add_political_power = 20
+		ai_chance = {
+			base = 0
+            modifier = {
+            	UKR = { has_government = communism }
+                add = 50
+            }
+        }
+	}
+}
+
+country_event = { #event for UKR - Kuban requests treaty
+	id = kub.3
+	title = kub.3.t
+	desc = kub.3.d
+	picture = GFX_report_event_SOV_mongolia_cavalry
+	is_triggered_only = no
+	fire_only_once = yes    
+
+	option = { #yes
+		name = kub.3.a
+		add_political_power = 50
+        add_equipment_to_stockpile  = {
+    		type = support_equipment_1
+    		amount = -50
+    		producer = KUB
+		}
+		KUB = {
+			country_event = kub.4
+        	add_equipment_to_stockpile  = {
+    			type = support_equipment_1
+    			amount = 50
+    			producer = KUB
+			}
+			add_ideas = KUB_ukrainian_kuban_treaty
+			diplomatic_relation = {
+				country = UKR
+				relation = non_aggression_pact
+				active = yes
+			}
+			give_military_access = UKR
+		}
+		ai_chance = {
+			base = 0
+            modifier = {
+            	UKR = { NOT = { has_government = communism } }
+                add = 50
+            }
+        }
+	}
+	option = { #no
+		name = kub.3.b
+		add_political_power = -10
+		KUB = { 
+			country_event = kub.5 
+			add_political_power = -5
+			add_stability = -0.01
+		}
+		ai_chance = {
+			base = 0
+            modifier = {
+            	UKR = { has_government = communism }
+                add = 50
+            }
+        }
+	}
+}
+
+country_event = { #event for KUB - UKR accepts treaty
+	id = kub.4
+	title = kub.4.t
+	desc = kub.4.d
+	picture = GFX_report_event_SOV_mongolia_cavalry
+	is_triggered_only = no
+	fire_only_once = yes    
+
+	option = { #sweet
+		name = kub.4.a
+		effect_tooltip = {
+        	add_equipment_to_stockpile  = {
+    			type = support_equipment_1
+    			amount = 50
+    			producer = KUB
+			}
+			add_ideas = KUB_ukrainian_kuban_treaty
+			diplomatic_relation = {
+				country = UKR
+				relation = non_aggression_pact
+				active = yes
+			}
+			give_military_access = UKR
+			UKR = {
+				add_political_power = 50
+        		add_equipment_to_stockpile  = {
+    				type = support_equipment_1
+    				amount = -50
+    				producer = KUB
+				}
+			}
+		}
+		ai_chance = {
+			base = 25
+        }
+	}
+}
+
+country_event = { #event for KUB - UKR rejects treaty
+	id = kub.5
+	title = kub.5.t
+	desc = kub.5.d
+	picture = GFX_report_event_SOV_mongolia_cavalry
+	is_triggered_only = no
+	fire_only_once = yes    
+
+	option = { #damn
+		name = kub.5.a
+		effect_tooltip = {
+			add_political_power = -5
+			add_stability = -0.01
+		}
+		ai_chance = {
+			base = 25
+        }
+	}
+}
+
+country_event = { #event for SOV - KUB offers peace
+	id = kub.6
+	title = kub.6.t
+	desc = kub.6.d
+	picture = GFX_report_event_SOV_mongolia_cavalry
+	is_triggered_only = yes
+	fire_only_once = yes    
+
+	option = { #accept
+		name = kub.6.a
+		233 = { transfer_state_to = KUB }
+		234 = { transfer_state_to = KUB }
+		IF = {
+			limit = {
+				235 = { controller = { tag = KUB } }
+				235 = { owner = { original_tag = SOV } }
+			}
+			235 = { transfer_state_to = KUB }
+		}
+		white_peace = KUB
+		KUB = { country_event = kub.7 }
+		ai_chance = {
+			base = 25
+        }
+	}
+	option = { #reject
+		name = kub.6.b
+		add_political_power = -50
+		add_war_support = -0.02
+		KUB = { country_event = kub.8 }
+		ai_chance = {
+			base = 0
+        }
+	}
+}
+
+country_event = { #event for CAU and GEO - KUB calls for aid
+	id = kub.7
+	title = kub.7.t
+	desc = kub.7.d
+	picture = GFX_report_event_SOV_mongolia_cavalry
+	is_triggered_only = yes
+	fire_only_once = no    
+
+	option = { #accept
+		name = kub.7.a
+		add_political_power = -50
+		add_war_support = 0.05
+        add_equipment_to_stockpile = {
+            type = infantry_equipment_0
+            amount = -1000
+            producer = ROOT
+        }
+		KUB = { 
+			country_event = kub.8 
+			add_war_support = 0.05
+			division_template = { 
+				name = "Volunteers" 
+				division_names_group = RUS_MNT_01
+				regiments = { 
+					light_infantry = { x = 0 y = 0 }
+					light_infantry = { x = 0 y = 1 } 
+					light_infantry = { x = 0 y = 2 } 
+				} 
+				support = { 
+					#recon = { x = 0 y = 0 } 
+				} 
+			}
+			233 = {
+				create_unit = {
+					division = "name = \"Volunteers\" division_template = \"Volunteers\" start_experience_factor = 0.2 start_manpower_factor = 1 start_equipment_factor = 1" 
+					allow_spawning_on_enemy_provs = yes
+					prioritize_location = 9663
+					count = 1
+					owner = KUB
+				}
+			}
+            add_equipment_to_stockpile = {
+                type = infantry_equipment_0
+                amount = 1000
+                producer = ROOT
+            }
+		}
+		ai_chance = {
+			base = 10
+			modifier = { has_government = communism add = -100 }
+		}
+	}
+	option = { #reject
+		name = kub.7.b
+		add_political_power = 50
+		KUB = { 
+			country_event = kub.9 
+			add_war_support = 0.05
+		}
+		ai_chance = {
+			base = 0
+			modifier = { has_government = communism add = 100 }
+		}
+	}
+}
+
+country_event = { #event for KUB, GEO or CAU send help
+	id = kub.8
+	title = kub.8.t
+	desc = kub.8.d
+	picture = GFX_report_event_SOV_mongolia_cavalry
+	is_triggered_only = yes
+	fire_only_once = no    
+
+	option = { #neat
+		name = kub.8.a
+		effect_tooltip = {
+			add_war_support = 0.05
+			division_template = { 
+				name = "Volunteers" 
+				division_names_group = RUS_MNT_01
+				regiments = { 
+					light_infantry = { x = 0 y = 0 }
+					light_infantry = { x = 0 y = 1 } 
+					light_infantry = { x = 0 y = 2 } 
+				} 
+				support = { 
+					#recon = { x = 0 y = 0 } 
+				} 
+			}
+			create_unit = {
+				division = "name = \"Volunteers\" division_template = \"Volunteers\" start_experience_factor = 0.2 start_manpower_factor = 1 start_equipment_factor = 1" 
+				allow_spawning_on_enemy_provs = yes
+				prioritize_location = 9663
+				count = 1
+				owner = KUB
+			}
+            add_equipment_to_stockpile = {
+                type = infantry_equipment_0
+                amount = 1000
+                producer = ROOT
+            }
+		}
+		ai_chance = {
+			base = 25
+        }
+	}
+}
+
+country_event = { #event for KUB, GEO or CAU do not send help
+	id = kub.9
+	title = kub.9.t
+	desc = kub.9.d
+	picture = GFX_report_event_SOV_mongolia_cavalry
+	is_triggered_only = yes
+	fire_only_once = no    
+
+	option = { #darn
+		name = kub.9.a
+		ai_chance = {
+			base = 25
+        }
+	}
+}
+
+
+add_namespace = cos
+
+###COUNTRY EVENTS###
+country_event = { #Jugheli affair - checked north caucasus channel for more info
+	id = cos.1
+	title = cos.1.t
+	desc = cos.1.d
+	picture = GFX_report_event_SOV_mongolia_cavalry
+	is_triggered_only = no
+	fire_only_once = yes    
+
+    trigger = {
+    	#original_tag = GEO
+      	#date > 1936.03.03
+      	always = no
+    }
+
+	option = {
+		name = cos.1.a
+		add_political_power = -35
+		#reduce compliance and resistance in south ossetia
+		#AZR and CAU get a report on it
+		AZR = { country_event = cos.2 }
+		CAU = { country_event = cos.2 }
+		KUB = { country_event = cos.2 } #they just hear about it
+	}
+}
+
+country_event = { #Jugheli affair, KUB CAU AZR hear of it
+	id = cos.2
+	title = cos.2.t
+	desc = cos.2.d
+	picture = GFX_report_event_SOV_mongolia_cavalry
+	is_triggered_only = yes
+	fire_only_once = yes    
+
+    trigger = {
+    }
+
+	option = {
+		name = cos.2.a #demand Jugheli's resignation
+		trigger = {
+			NOT = { tag = KUB }
+		}
+	}
+	option = {
+		name = cos.2.b #keep an eye on the situation
+		trigger = {
+			tag = KUB
+		}
+	}
+}

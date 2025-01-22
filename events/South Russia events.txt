@@ -1,0 +1,5510 @@
+add_namespace = rus
+
+###COUNTRY EVENTS###
+country_event = { #factionalism spirit given after kornilov affair
+	id = rus.1
+	title = rus.1.t
+	desc = rus.1.d
+
+	picture = GFX_report_event_chinese_army_training #change
+    trigger = {
+        has_completed_focus = RUS_second_kornilov_affair
+        always = no #in development
+        tag = RUS
+    }
+	mean_time_to_happen = {
+	    days = 25
+	}
+	fire_only_once = yes
+	is_triggered_only = no
+
+	option = {  # White Russian infighting, again?
+		name = rus.1.a
+		add_ideas = RUS_factionalism
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+country_event = { #Kornilov's Exile Lifted by the Entente Powers
+	id = rus.2
+	title = rus.2.t
+	desc = rus.2.d
+	picture = GFX_report_event_merchant_ship_01
+	is_triggered_only = yes
+	
+
+	option = { #Intresting
+		name = rus.2.a
+		ai_chance = {
+            modifier = {
+            factor = 100
+            }
+        }
+        add_political_power = -50
+		add_war_support = 0.01
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.01
+		}
+		set_country_flag = kornilov_home
+		set_country_flag = krasnov_allowed
+		show_unit_leaders_tooltip = RUS_lavr_kornilov
+		show_unit_leaders_tooltip = DON_pyotr_krasnov
+	}
+}
+
+#rus.3 is below (french approval)
+
+country_event = { #KORNILOV HAS LAUNCHED A COUP!
+	id = rus.4
+	title = rus.4.t
+	desc = rus.4.d
+	picture = GFX_report_event_bul_boris_death
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #Let's Vote!
+		name = rus.4.a
+		set_politics = { ruling_party = neutrality }
+		add_popularity = {
+			ideology = democratic
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+		add_stability = -0.05
+		RUS = { country_event = rus.53 }
+	}
+}
+
+country_event = { #KORNILOV HAS LAUNCHED A COUP!
+	id = rus.53
+	title = rus.53.t
+	desc = rus.53.d
+	picture = GFX_report_event_bul_boris_death
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #Kornilov's coup was successful. White Russia returns
+		name = rus.53.a
+		add_opinion_modifier = { target = SOV modifier = hostile_status }
+		SOV = { add_opinion_modifier = { target = RUS modifier = hostile_status } }
+		ai_chance = {
+            modifier = {
+            factor = 80
+            }
+        }
+		if = {
+			limit = {
+				RUS = { is_guaranteed_by = FRA }
+			}
+			FRA = {
+				diplomatic_relation = {
+   					country = RUS
+   					relation = guarantee
+   					active = no
+  				}
+			}
+		}
+		if = {
+			limit = {
+				RUS = { is_guaranteed_by = ENG }
+			}
+			ENG = {
+				diplomatic_relation = {
+   					country = RUS
+   					relation = guarantee
+   					active = no
+  				}
+			}
+		}
+        RUS = { country_lock_all_division_template = no }
+        drop_cosmetic_tag = yes
+    	set_country_flag = RUS_supreme_leadership_chosen
+		set_cosmetic_tag = RUS_coup
+		remove_ideas = { RUS_the_crimean_mandate }
+		#RUS_ivan_ilyn = { 
+		#	promote_character = moderatism
+		#}
+		hidden_effect = {
+			remove_country_leader_role = {
+    			character = RUS_solomon_crimea
+    			ideology = liberalism
+			}
+		}
+	}
+
+	option = { #Kornilov coup strengthens civilian gov
+		name = rus.53.b
+		add_opinion_modifier = { target = SOV modifier = hostile_status }
+		SOV = { add_opinion_modifier = { target = RUS modifier = hostile_status } }
+		trigger = { always = no }
+		ai_chance = {
+            modifier = {
+            factor = 40
+            }
+        }
+		if = {
+			limit = {
+				RUS = { is_guaranteed_by = FRA }
+			}
+			FRA = {
+				diplomatic_relation = {
+   					country = RUS
+   					relation = guarantee
+   					active = no
+  				}
+			}
+		}
+		if = {
+			limit = {
+				RUS = { is_guaranteed_by = ENG }
+			}
+			ENG = {
+				diplomatic_relation = {
+   					country = RUS
+   					relation = guarantee
+   					active = no
+  				}
+			}
+		}
+        RUS = { country_lock_all_division_template = no }
+        drop_cosmetic_tag = yes
+    	set_country_flag = RUS_civilian_gov_chosen
+		set_cosmetic_tag = RUS_coup
+		#add_ideas = RUS_disgruntled_military
+		remove_ideas = { RUS_the_crimean_mandate }
+		hidden_effect = {
+			remove_country_leader_role = {
+    			character = RUS_solomon_crimea
+    			ideology = liberalism
+			}
+		}
+	}
+
+	option = { #National Union hijacks the coup
+		name = rus.53.c
+		add_opinion_modifier = { target = SOV modifier = hostile_status }
+		SOV = { add_opinion_modifier = { target = RUS modifier = hostile_status } }
+		ai_chance = {
+            modifier = {
+            factor = 20
+            }
+        }
+		if = {
+			limit = {
+				RUS = { is_guaranteed_by = FRA }
+			}
+			FRA = {
+				diplomatic_relation = {
+   					country = RUS
+   					relation = guarantee
+   					active = no
+  				}
+			}
+		}
+		if = {
+			limit = {
+				RUS = { is_guaranteed_by = ENG }
+			}
+			ENG = {
+				diplomatic_relation = {
+   					country = RUS
+   					relation = guarantee
+   					active = no
+  				}
+			}
+		}
+        RUS = { country_lock_all_division_template = no }
+        drop_cosmetic_tag = yes
+    	set_country_flag = RUS_national_union_takeover
+		set_cosmetic_tag = RUS_coup
+		remove_ideas = { RUS_the_crimean_mandate }
+		set_politics = { ruling_party = fascism }
+		#add_ideas = RUS_liberal_opposition
+		RUS_anton_turkul = { 
+			promote_character = fascism_ideology
+		}
+		hidden_effect = {
+			remove_country_leader_role = {
+    			character = RUS_solomon_crimea
+    			ideology = liberalism
+			}
+		}
+	}
+
+}
+country_event = { #Event for France - Crimean Coup
+	id = rus.5
+	title = rus.5.t
+	desc = rus.5.d
+	picture = GFX_report_event_bul_boris_death
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+
+	option = { #Approve
+		name = rus.5.a
+		ai_chance = {
+            modifier = {
+            factor = 100
+            }
+        }
+        diplomatic_relation = {
+    		country = RUS
+    		relation = guarantee
+    		active = no
+		}
+		RUS = { country_event = rus.3 }
+	}
+	option = { #Condemn
+		name = rus.5.b
+		ai_chance = {
+            modifier = {
+            factor = 0
+            }
+        }
+        diplomatic_relation = {
+    		country = RUS
+    		relation = guarantee
+    		active = no
+		}
+		RUS = { country_event = rus.9 }
+	}
+}
+
+country_event = { #Event for Britain - Crimean Coup
+	id = rus.6
+	title = rus.6.t
+	desc = rus.6.d
+	picture = GFX_report_event_bul_boris_death
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+
+	option = { #Approve
+		name = rus.6.a
+		ai_chance = {
+            modifier = {
+            factor = 0
+            }
+        }
+        diplomatic_relation = {
+    		country = RUS
+    		relation = guarantee
+    		active = no
+		}
+		RUS = { country_event = rus.8 }
+	}
+	option = { #Condemn
+		name = rus.6.b
+		ai_chance = {
+            modifier = {
+            factor = 50
+            }
+        }
+        diplomatic_relation = {
+    		country = RUS
+    		relation = guarantee
+    		active = no
+		}
+		RUS = { country_event = rus.7 }
+	}
+}
+
+country_event = { #British Dissapproval
+	id = rus.7
+	title = rus.7.t
+	desc = rus.7.d
+	picture = GFX_report_event_poland_rejects
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+
+	option = { #rip
+		name = rus.7.a
+		ai_chance = {
+            modifier = {
+            factor = 100
+            }
+        }
+	  	add_political_power = -15
+	}
+}
+
+country_event = { #British Approval
+	id = rus.8
+	title = rus.8.t
+	desc = rus.8.d
+	picture = GFX_report_event_SOV_cossack_cavalry
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+
+	option = { #neat
+		name = rus.8.a
+		ai_chance = {
+            modifier = {
+            factor = 100
+            }
+        }
+		add_political_power = 75
+	}
+}
+
+country_event = { #French dissapproval
+	id = rus.9
+	title = rus.9.t
+	desc = rus.9.d
+	picture = GFX_report_event_poland_rejects
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #surprising
+		name = rus.9.a
+		ai_chance = {
+            modifier = {
+            factor = 100
+            }
+        }
+		add_political_power = -25
+	}
+}
+
+country_event = { #French Support
+	id = rus.3
+	title = rus.3.t
+	desc = rus.3.d
+	picture = GFX_report_event_SOV_cossack_cavalry
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #nice
+		name = rus.3.a
+		ai_chance = {
+            modifier = {
+            factor = 100
+            }
+        }
+		#add_ideas = RUS_french_support
+		add_political_power = 75
+	}
+}
+
+
+#####cossack INTEGRATION
+country_event = { #RUS's event for Kalmykia
+	id = rus.10
+	title = rus.10.t
+	desc = rus.10.d
+
+	picture = GFX_report_event_SOV_mongolia_cavalry
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #Offer Tundutov assistance for a revolt in Kalmykia
+		name = rus.10.a
+		KAL = { country_event = rus.13 }
+		trigger = { has_completed_focus = RUS_united_front }
+		ai_chance = {
+			base = 0
+            modifier = {
+            	RUS = { has_completed_focus = RUS_united_front }
+                add = 100
+            }
+        }
+	}
+
+	option = { #reject bc of indivisibility
+		name = rus.10.b
+		add_political_power = 15
+		custom_effect_tooltip = rus10ttp
+		add_manpower = 5000
+		trigger = { has_completed_focus = RUS_russia_one_and_indivisible }
+		ai_chance = {
+			base = 1
+            #modifier = {
+            #	RUS = { has_completed_focus = RUS_russia_one_and_indivisible }
+            #    add = 100
+            #}
+        }
+	}
+}
+
+country_event = { #RUS's event - Tundutov denies the offer
+	id = rus.11
+	title = rus.11.t
+	desc = rus.11.d
+
+	picture = GFX_report_event_SOV_mongolia_cavalry
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = rus.11.a
+		create_wargoal = {
+			type = annex_everything
+			target = KAL
+			expire = 0
+			generator = { 0 }
+		}
+		create_wargoal = {
+			type = annex_everything
+			target = ATR
+			expire = 0
+			generator = { 0 }
+		}
+	}
+}
+
+country_event = { #RUS's event - Tundutov accepts the offer
+	id = rus.12
+	title = rus.12.t
+	desc = rus.12.d
+
+	picture = GFX_report_event_SOV_mongolia_cavalry
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #neat!
+		name = rus.12.a
+		#237 = { transfer_state_to = KAL }
+		237 = { set_state_owner_to = KAL }
+		KAL = { set_province_controller = 11724 }
+        send_equipment = {
+    		equipment = infantry_equipment
+    		amount = 1000
+    		target = KAL
+		}
+		set_autonomy = {
+    		target = KAL
+    		autonomous_state = cossack_host
+    		end_wars = no
+    		end_civil_wars = no
+		}
+		#KAL = { 
+		#	#country_event = rus.13
+		#	declare_war_on = {
+		#    	target = ATR
+		#    	type = independence_wargoal
+		#	}
+		#}
+		#country_event = rus.13
+		KAL = {
+			set_cosmetic_tag = KAL_RUS_puppet
+			add_ideas = RUS_law_on_land
+        	add_ideas = RUS_law_on_volost_zemstvos
+        	load_oob = "KAL_cossack_host"
+		}
+		set_nationality = {
+		    target_country = KAL
+		    character = KAL_dazan_tundutov
+		}
+		KAL = {
+			KAL_dazan_tundutov = { 
+				promote_character = despotism 
+			}
+			#KAL_dazan_tundutov = { 
+			#	promote_character = conservatism 
+			#}
+		}
+	}
+}
+
+country_event = { #KAL's event - RUS offers assistance for a anti-communist revolt
+	id = rus.13
+	title = rus.13.t
+	desc = rus.13.d
+
+	picture = GFX_report_event_SOV_mongolia_cavalry
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #sure!
+		name = rus.13.a
+		ai_chance = {
+			base = 0
+            modifier = {
+            	RUS = { has_completed_focus = RUS_united_front }
+                add = 100
+            }
+        }
+		RUS = { country_event = rus.12 }
+		effect_tooltip = {
+			RUS = {
+			   	send_equipment = {
+    				equipment = infantry_equipment
+    				amount = 500
+    				target = KAL
+				}
+				declare_war_on = {
+				    target = ATR
+				    type = annex_everything
+				}
+				#ATR = { 
+				#	#country_event = rus.13
+				#	declare_war_on = {
+				#    	target = KAL
+				#    	type = annex_everything
+				#	}
+				#}
+				#country_event = rus.13
+				set_autonomy = {
+    				target = KAL
+    				autonomous_state = cossack_host
+    				end_wars = no
+    				end_civil_wars = no
+				}
+				KAL = {
+		    		add_ideas = RUS_law_on_land
+        			add_ideas = RUS_law_on_volost_zemstvos
+					set_cosmetic_tag = KAL_RUS_puppet
+        		    delete_unit_template_and_units = {
+        		        division_template = "NKVD Pogranichnaya Diviziya"
+        		        disband = no
+        		    }
+				}
+				set_nationality = {
+				    target_country = KAL
+				    character = KAL_dazan_tundutov
+				}
+				KAL_dazan_tundutov = { 
+					promote_character = despotism 
+				}
+				#KAL_dazan_tundutov = { 
+				#	promote_character = conservatism 
+				#}
+			}
+		}
+	}
+	option = { #NO!!! NEVER!!! SHUT UP GET OUT OF MY HEAD!
+		name = rus.13.b
+		trigger = { KAL = { exists = yes } }
+		ai_chance = {
+			base = 0
+            modifier = {
+            	RUS = { has_completed_focus = RUS_russia_one_and_indivisible }
+                add = 100
+            }
+        }
+		RUS = { country_event = rus.11 }
+	}
+}
+
+###################DON INTEGRATION
+
+country_event = { #Don's event
+	id = rus.14
+	title = rus.14.t
+	desc = rus.14.d
+
+	picture = GFX_report_event_SOV_demands
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #accept annexation
+		name = rus.14.a
+		#remove_ideas = DON_soviet_occupation_comission
+		IF = {
+			limit = { DON = { exists = yes } }
+			RUS = { country_event = rus.15 }
+			start_civil_war = {
+				ruling_party = neutrality
+				ideology = communism
+				size = 0.3
+				capital = 218
+				states = { 218 238 }
+			}
+			hidden_effect = {
+				random_other_country = { 
+					limit = {
+						original_tag = DON
+						has_government = communism
+					}
+					load_oob = DON_nkvd
+					country_event = rus.42
+				}
+			}
+		}
+		ELSE = {
+			IF = { 
+				limit = { 
+					any_country_with_original_tag = {
+					    original_tag_to_check = SOV
+					    controls_state = 245
+					}
+				}
+				RUS = { country_event = rus.15 }
+				RUS = { transfer_state = 245 }
+				RUS = {
+					every_other_country = { 
+						limit = {
+							original_tag = SOV
+							has_government = anarchism
+						}
+						RUS = {
+							declare_war_on = {
+							    target = PREV
+							    type = civil_war
+							}
+						}
+					}
+					every_other_country = { 
+						limit = {
+							original_tag = SOV
+							has_government = communism
+						}
+						RUS = {
+							declare_war_on = {
+							    target = PREV
+							    type = civil_war
+							}
+						}
+					}
+        			custom_effect_tooltip = RUS_moscow_directive_ttp
+					division_template = { 
+						name = "Donskaya Kazach'ya Brigada" #Cavalry Regiment
+						division_names_group = RUS_CAV_02
+						regiments = {
+							cavalry = { x = 0 y = 0 }
+							cavalry = { x = 0 y = 1 }
+							cavalry = { x = 1 y = 0 }
+							cavalry = { x = 1 y = 1 }
+						}
+						support = {
+							recon = { x = 0 y = 0 }
+						}
+					}
+					random_owned_controlled_state = {
+						#limit = { ROOT = { has_full_control_of_state = PREV } }
+						prioritize = { 245 }
+						create_unit = {
+							division = "name = \"Donskaya Kazach'ya Brigada\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 0.2" 
+							owner = RUS
+						}
+					}
+					random_owned_controlled_state = {
+						#limit = { ROOT = { has_full_control_of_state = PREV } }
+						prioritize = { 245 }
+						create_unit = {
+							division = "name = \"Donskaya Kazach'ya Brigada\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 0.2" 
+							owner = RUS
+						}
+					}
+					random_owned_controlled_state = {
+						#limit = { ROOT = { has_full_control_of_state = PREV } }
+						prioritize = { 245 }
+						create_unit = {
+							division = "name = \"Donskaya Kazach'ya Brigada\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 0.2" 
+							owner = RUS
+						}
+					}
+					random_owned_controlled_state = {
+						#limit = { ROOT = { has_full_control_of_state = PREV } }
+						prioritize = { 245 }
+						create_unit = {
+							division = "name = \"Donskaya Kazach'ya Brigada\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 0.2" 
+							owner = RUS
+						}
+					}
+					random_owned_controlled_state = {
+						#limit = { ROOT = { has_full_control_of_state = PREV } }
+						prioritize = { 245 }
+						create_unit = {
+							division = "name = \"Donskaya Kazach'ya Brigada\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 0.2" 
+							owner = RUS
+						}
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+            modifier = {
+            	RUS = { has_completed_focus = RUS_united_front }
+                add = 10
+            }
+            modifier = {
+            	RUS = { has_completed_focus = RUS_russia_one_and_indivisible }
+                add = 15
+            }
+        }
+	}
+
+	option = { #ask for being a puppet instead
+		name = rus.14.b
+		set_cosmetic_tag = DON_RUS_puppet
+		#remove_ideas = DON_soviet_occupation_comission
+		remove_ideas = cossack_isolated_from_moscow
+		IF = { limit = { DON = { exists = yes } }
+			RUS = { 
+				country_event = rus.16 
+				set_autonomy = {
+    				target = DON
+    				autonomous_state = cossack_host
+    				end_wars = no
+    				end_civil_wars = no
+				}
+			}
+			start_civil_war = {
+				ruling_party = neutrality
+				ideology = communism
+				size = 0.3
+				capital = 218
+				states = { 218 238 }
+			}
+			hidden_effect = {
+				random_other_country = { 
+					limit = {
+						original_tag = DON
+						has_government = communism
+					}
+					#add_ideas = DON_soviet_occupation_comission
+					add_ideas = cossack_isolated_from_moscow
+					load_oob = DON_nkvd
+					country_event = rus.42
+				}
+			}
+		}
+		ELSE = {
+			IF = { 
+				limit = { 
+					#245 = { is_is_owned_and_controlled_by = SOV }
+					any_country_with_original_tag = {
+					    original_tag_to_check = SOV
+					    controls_state = 245
+					}
+				}
+				DON = { transfer_state = 245}
+				RUS = { 
+					country_event = rus.16 
+					set_autonomy = {
+    					target = DON
+    					autonomous_state = cossack_host
+    					end_wars = no
+    					end_civil_wars = no
+					}
+					every_other_country = { 
+						limit = {
+							original_tag = SOV
+							has_government = anarchism
+						}
+						RUS = {
+							declare_war_on = {
+							    target = PREV
+							    type = civil_war
+							}
+						}
+					}
+					every_other_country = { 
+						limit = {
+							original_tag = SOV
+							has_government = communism
+						}
+						RUS = {
+							declare_war_on = {
+							    target = PREV
+							    type = civil_war
+							}
+						}
+					}
+        			custom_effect_tooltip = RUS_moscow_directive_ttp
+				}
+				DON = {
+					division_template = { 
+						name = "Donskaya Kazach'ya Brigada" #Cavalry Regiment
+						division_names_group = RUS_CAV_02
+						regiments = {
+							cavalry = { x = 0 y = 0 }
+							cavalry = { x = 0 y = 1 }
+							cavalry = { x = 1 y = 0 }
+							cavalry = { x = 1 y = 1 }
+						}
+						support = {
+							recon = { x = 0 y = 0 }
+						}
+					}
+					IF = {
+						limit = {
+							RUS = {
+								has_war_with = SOV
+							}
+						}
+						every_other_country = { 
+							limit = {
+								original_tag = SOV
+								has_government = anarchism
+							}
+							DON = {
+								declare_war_on = {
+								    target = PREV
+								    type = independence_wargoal
+								}
+							}
+						}
+						every_other_country = { 
+							limit = {
+								original_tag = SOV
+								has_government = communism
+							}
+							DON = {
+								declare_war_on = {
+								    target = PREV
+								    type = independence_wargoal
+								}
+							}
+						}
+					}
+					random_owned_controlled_state = {
+						#limit = { ROOT = { has_full_control_of_state = PREV } }
+						prioritize = { 245 }
+						create_unit = {
+							division = "name = \"Donskaya Kazach'ya Brigada\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 0.2" 
+							owner = DON
+						}
+					}
+					random_owned_controlled_state = {
+						#limit = { ROOT = { has_full_control_of_state = PREV } }
+						prioritize = { 245 }
+						create_unit = {
+							division = "name = \"Donskaya Kazach'ya Brigada\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 0.2" 
+							owner = DON
+						}
+					}
+					random_owned_controlled_state = {
+						#limit = { ROOT = { has_full_control_of_state = PREV } }
+						prioritize = { 245 }
+						create_unit = {
+							division = "name = \"Donskaya Kazach'ya Brigada\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 0.2" 
+							owner = DON
+						}
+					}
+					random_owned_controlled_state = {
+						#limit = { ROOT = { has_full_control_of_state = PREV } }
+						prioritize = { 245 }
+						create_unit = {
+							division = "name = \"Donskaya Kazach'ya Brigada\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 0.2" 
+							owner = DON
+						}
+					}
+					random_owned_controlled_state = {
+						#limit = { ROOT = { has_full_control_of_state = PREV } }
+						prioritize = { 245 }
+						create_unit = {
+							division = "name = \"Donskaya Kazach'ya Brigada\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 0.2" 
+							owner = DON
+						}
+					}
+				}
+				#238 = { set_state_owner_to = DON } #causes insta capitulation 
+				#218 = { set_state_owner_to = DON }
+				#265 = { set_state_owner_to = DON }
+			}
+		}
+		ai_chance = {
+			base = 100
+            modifier = {
+            	RUS = { has_completed_focus = RUS_united_front }
+                add = 100
+            }
+            modifier = {
+            	RUS = { has_completed_focus = RUS_russia_one_and_indivisible }
+                add = 0
+            }
+        }
+	}
+
+	option = { #deny
+		name = rus.14.c
+		RUS = { country_event = rus.17 }
+		trigger = { DON = { exists = yes } }
+		add_stability = -0.2
+		add_war_support = -0.2
+		add_timed_idea = {
+			idea = DON_disloyal_cossacks
+			days = 730
+		}
+		ai_chance = {
+			base = 0
+            modifier = {
+            	RUS = { has_completed_focus = RUS_united_front }
+                add = 0
+            }
+            modifier = {
+            	RUS = { has_completed_focus = RUS_russia_one_and_indivisible }
+                add = 0
+            }
+        }
+	}
+}
+
+country_event = { #DON Accepts
+	id = rus.15
+	title = rus.15.t
+	desc = rus.15.d
+
+	picture = GFX_report_event_por_salazar_military
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = rus.15.a
+		ai_chance = {
+            modifier = {
+            factor = 100
+            }
+        }
+        IF = { limit = { DON = { exists = yes }}
+			random_country = {
+				limit = {
+					original_tag = DON
+					has_government = communism
+				}
+				declare_war_on = {
+    				target = RUS
+    				type = annex_everything
+				}
+			}
+			DON = {
+				DON_ivan_kononov = {
+					set_nationality = RUS
+				}
+			}
+			RUS = { 
+				annex_country = {
+    				target = DON
+    				transfer_troops = yes
+				}
+			}
+		}
+		ELSE = {
+		hidden_effect = {
+			IF = { 
+				limit = { 
+					#245 = { is_is_owned_and_controlled_by = SOV }
+					any_country_with_original_tag = {
+					    original_tag_to_check = SOV
+					    controls_state = 245
+					}
+				}
+				RUS = { country_event = rus.15 }
+				RUS = { transfer_state = 245 }
+				RUS = {
+					#complete_national_focus = RUS_moscow_directive #grants wargoal + spirit
+					every_other_country = { 
+						limit = {
+							original_tag = SOV
+							has_government = anarchism
+						}
+						RUS = {
+							declare_war_on = {
+							    target = PREV
+							    type = civil_war
+							}
+						}
+					}
+					every_other_country = { 
+						limit = {
+							original_tag = SOV
+							has_government = communism
+						}
+						RUS = {
+							declare_war_on = {
+							    target = PREV
+							    type = civil_war
+							}
+						}
+					}
+        			custom_effect_tooltip = RUS_moscow_directive_ttp
+					#declare_war_on = {
+					#    target = SOV
+					#    type = civil_war
+					#}
+					division_template = { 
+						name = "Donskaya Kazach'ya Brigada" #Cavalry Regiment
+						division_names_group = RUS_CAV_02
+						regiments = {
+							cavalry = { x = 0 y = 0 }
+							cavalry = { x = 0 y = 1 }
+							cavalry = { x = 1 y = 0 }
+							cavalry = { x = 1 y = 1 }
+						}
+						support = {
+							recon = { x = 0 y = 0 }
+						}
+					}
+					random_owned_controlled_state = {
+						#limit = { ROOT = { has_full_control_of_state = PREV } }
+						prioritize = { 245 }
+						create_unit = {
+							division = "name = \"Donskaya Kazach'ya Brigada\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 0.2" 
+							owner = RUS
+						}
+					}
+					random_owned_controlled_state = {
+						#limit = { ROOT = { has_full_control_of_state = PREV } }
+						prioritize = { 245 }
+						create_unit = {
+							division = "name = \"Donskaya Kazach'ya Brigada\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 0.2" 
+							owner = RUS
+						}
+					}
+					random_owned_controlled_state = {
+						#limit = { ROOT = { has_full_control_of_state = PREV } }
+						prioritize = { 245 }
+						create_unit = {
+							division = "name = \"Donskaya Kazach'ya Brigada\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 0.2" 
+							owner = RUS
+						}
+					}
+					random_owned_controlled_state = {
+						#limit = { ROOT = { has_full_control_of_state = PREV } }
+						prioritize = { 245 }
+						create_unit = {
+							division = "name = \"Donskaya Kazach'ya Brigada\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 0.2" 
+							owner = RUS
+						}
+					}
+					random_owned_controlled_state = {
+						#limit = { ROOT = { has_full_control_of_state = PREV } }
+						prioritize = { 245 }
+						create_unit = {
+							division = "name = \"Donskaya Kazach'ya Brigada\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 0.2" 
+							owner = RUS
+						}
+					}
+				}
+			}	
+		}}
+	}
+}
+
+country_event = { #DON Offers Submission
+	id = rus.16
+	title = rus.16.t
+	desc = rus.16.d
+
+	picture = GFX_report_event_SOV_demands
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #accept puppeting
+		name = rus.16.a
+		ai_chance = {
+            modifier = {
+            factor = 100
+            }
+        }
+        IF = { limit = { DON = { exists = yes } } 
+        	effect_tooltip = {
+				set_autonomy = {
+    				target = DON
+    				autonomous_state = cossack_host
+    				end_wars = no
+    				end_civil_wars = no
+				}
+				#DON = {
+				#	delete_unit_template_and_units = {
+				#		division_template = "NKVD Pogranichnaya Diviziya"
+				#		disband = no
+        	    #	}
+        	    #}
+			}
+			random_country = {
+				limit = {
+					original_tag = DON
+					has_government = communism
+				}
+				declare_war_on = {
+    				target = RUS
+    				type = annex_everything
+				}
+			}
+		}
+		ELSE = {
+			IF = { 
+				limit = { 
+					#245 = { is_is_owned_and_controlled_by = SOV }
+					any_country_with_original_tag = {
+					    original_tag_to_check = SOV
+					    controls_state = 245
+					}
+				}
+				DON = { transfer_state = 245 }
+				RUS = { 
+					country_event = rus.16 
+					set_autonomy = {
+    					target = DON
+    					autonomous_state = cossack_host
+    					end_wars = no
+    					end_civil_wars = no
+					}
+					every_other_country = { 
+						limit = {
+							original_tag = SOV
+							has_government = anarchism
+						}
+						RUS = {
+							declare_war_on = {
+							    target = PREV
+							    type = civil_war
+							}
+						}
+					}
+					every_other_country = { 
+						limit = {
+							original_tag = SOV
+							has_government = communism
+						}
+						RUS = {
+							declare_war_on = {
+							    target = PREV
+							    type = civil_war
+							}
+						}
+					}
+        			custom_effect_tooltip = RUS_moscow_directive_ttp
+				}
+				DON = {
+					division_template = { 
+						name = "Donskaya Kazach'ya Brigada" #Cavalry Regiment
+						division_names_group = RUS_CAV_02
+						regiments = {
+							cavalry = { x = 0 y = 0 }
+							cavalry = { x = 0 y = 1 }
+							cavalry = { x = 1 y = 0 }
+							cavalry = { x = 1 y = 1 }
+						}
+						support = {
+							recon = { x = 0 y = 0 }
+						}
+					}
+					random_owned_controlled_state = {
+						#limit = { ROOT = { has_full_control_of_state = PREV } }
+						prioritize = { 245 }
+						create_unit = {
+							division = "name = \"Donskaya Kazach'ya Brigada\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 0.2" 
+							owner = DON
+						}
+					}
+					random_owned_controlled_state = {
+						#limit = { ROOT = { has_full_control_of_state = PREV } }
+						prioritize = { 245 }
+						create_unit = {
+							division = "name = \"Donskaya Kazach'ya Brigada\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 0.2" 
+							owner = DON
+						}
+					}
+					random_owned_controlled_state = {
+						#limit = { ROOT = { has_full_control_of_state = PREV } }
+						prioritize = { 245 }
+						create_unit = {
+							division = "name = \"Donskaya Kazach'ya Brigada\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 0.2" 
+							owner = DON
+						}
+					}
+					random_owned_controlled_state = {
+						#limit = { ROOT = { has_full_control_of_state = PREV } }
+						prioritize = { 245 }
+						create_unit = {
+							division = "name = \"Donskaya Kazach'ya Brigada\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 0.2" 
+							owner = DON
+						}
+					}
+					random_owned_controlled_state = {
+						#limit = { ROOT = { has_full_control_of_state = PREV } }
+						prioritize = { 245 }
+						create_unit = {
+							division = "name = \"Donskaya Kazach'ya Brigada\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 0.2" 
+							owner = DON
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #DON Denies
+	id = rus.17
+	title = rus.17.t
+	desc = rus.17.d
+
+	picture = GFX_report_event_SOV_mongolia_cavalry
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #fuck you, time to kill
+		name = rus.17.a
+		ai_chance = {
+            modifier = {
+            factor = 100
+            }
+        }
+        IF = {
+        	limit = {
+        		DON = { exists = yes }
+        	}
+			create_wargoal = {
+				type = annex_everything
+				target = DON
+				expire = 0
+				generator = { 0 }
+			}
+        }
+        ELSE = {
+			#complete_national_focus = RUS_moscow_directive
+			every_other_country = { 
+				limit = {
+					original_tag = SOV
+					has_government = anarchism
+				}
+				RUS = {
+					declare_war_on = {
+					    target = PREV
+					    type = civil_war
+					}
+				}
+			}
+			every_other_country = { 
+				limit = {
+					original_tag = SOV
+					has_government = communism
+				}
+				RUS = {
+					declare_war_on = {
+					    target = PREV
+					    type = civil_war
+					}
+				}
+			}
+        	custom_effect_tooltip = RUS_moscow_directive_ttp
+        }
+	}
+}
+
+
+country_event = { #######################	CHOOSE A SUPREME DRIP 
+	id = rus.18
+	title = rus.18.t
+	desc = rus.18.d
+
+	picture = GFX_report_event_tur_ataturk_inonu_parliament
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #Wrangel
+		name = rus.18.a
+		RUS_pyotr_wrangel = { promote_character = despotism }
+		RUS_provisional_government = { retire = yes }
+
+	}
+	option = { #Kornilov 
+		name = rus.18.b
+		RUS_lavr_kornilov = { promote_character = despotism }
+		RUS_provisional_government = { retire = yes }
+	}
+	option = { #Ilyn 
+		name = rus.18.c
+		RUS_ivan_ilyn = { 
+			promote_character = moderatism
+		}
+		RUS_provisional_government = { retire = yes }
+	}
+	option = { #Denikin
+		name = rus.18.e
+		set_country_flag = RUS_deniken_invited
+		RUS_anton_denikin = { 
+			promote_character = despotism
+		}
+		add_political_power = -50
+		RUS_provisional_government = { retire = yes }
+	}
+}
+
+####################Ural Cossacks and Transcaspia
+country_event = { #RUS's event. decide fate of URC
+	id = rus.27
+	title = rus.27.t
+	desc = rus.27.d
+
+	picture = GFX_report_event_bul_italian_equipment
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #demand annexation
+		name = rus.27.a
+		trigger = {
+			has_completed_focus = RUS_russia_one_and_indivisible
+		}
+		ai_chance = {
+            modifier = {
+            factor = 50
+            }
+        }
+        TCS = { country_event = rus.29 }
+	}
+	option = { #offer (puppet+alliance)
+		name = rus.27.b
+		trigger = {
+			has_completed_focus = RUS_united_front 
+		}
+		ai_chance = {
+            modifier = {
+            factor = 50
+            }
+        }
+        TCS = { country_event = rus.28 }
+	}
+}
+
+country_event = { #TCS's event - Russia offers autonomy
+	id = rus.28
+	title = rus.28.t
+	desc = rus.28.d
+
+	picture = GFX_report_event_bul_italian_equipment
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #accept
+		name = rus.28.a
+		ai_chance = {
+            modifier = {
+            factor = 50
+            }
+        }
+        RUS = {
+        	country_event = rus.32	
+			puppet = {
+			    target = TCS
+			    end_wars = no
+			}
+		}
+		TCS = {
+			set_cosmetic_tag = TCS_RUS_puppet
+			delete_units = {
+    			division_template = "Ural'skaya Kazach'ya Diviziya"
+    			disband = yes
+			}
+			remove_ideas = TCS_URC_from_the_red_paws_to_an_unknown_distance
+			add_ideas = RUS_law_on_land
+        	add_ideas = RUS_law_on_volost_zemstvos
+			set_nationality = {
+			    target_country = URC
+			    character = URC_vladimir_tolstov
+			}
+			URC_vladimir_tolstov = { 
+				promote_character = despotism 
+			}
+			URC_vladimir_tolstov = { 
+				promote_character = conservatism 
+			}
+		}
+		URC = { 
+			set_cosmetic_tag = URC_RUS_puppet
+			406 = { set_state_owner_to = URC }
+			407 = { set_state_owner_to = URC }
+			IF = {
+				limit = { RUS = { has_war_with = SOV } }
+				declare_war_on = { target = SOV type = independence_wargoal }
+			}
+			add_manpower = 20000
+			division_template = {
+			    name = "Ural'skaya Kazach'ya Diviziya"
+			    division_names_group = RUS_CAV_01
+			    #priority = 0
+			    regiments = {
+			        cavalry = { x = 0 y = 0 }
+			        cavalry = { x = 0 y = 1 }
+			        cavalry = { x = 1 y = 0 }
+			        cavalry = { x = 1 y = 1 }
+			        cavalry = { x = 2 y = 0 }
+			        cavalry = { x = 2 y = 1 }
+			    }
+			    support = {
+					recon = { x = 0 y = 0 } 
+			    }
+			}
+			add_ideas = RUS_law_on_land
+        	add_ideas = RUS_law_on_volost_zemstvos
+        }
+        RUS = {
+        	puppet = {
+			    target = URC
+			    end_wars = no
+			}
+		}
+		137 = {
+			create_unit = {
+				division = "name = \"1-y Ural'skiy Kazachiy Korpus\" division_template = \"Ural'skaya Kazach'ya Diviziya\" start_experience_factor = 0.6 start_equipment_factor = 1"
+				count = 1
+    			owner = URC
+			}
+			create_unit = {
+				division = "name = \"2-y Iletskiy Kazachiy Korpus\" division_template = \"Ural'skaya Kazach'ya Diviziya\" start_experience_factor = 0.6 start_equipment_factor = 1"
+				count = 1
+    			owner = URC
+			}
+		}
+	}
+	option = { #deny
+		name = rus.28.b
+		RUS = { country_event = rus.31 }
+		ai_chance = {
+            modifier = {
+            factor = 0
+            }
+        }
+	}
+}
+
+country_event = { #URC's event - Russia demands total submission
+	id = rus.29
+	title = rus.29.t
+	desc = rus.29.d
+
+	picture = GFX_report_event_bul_italian_equipment
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #agree
+		name = rus.29.a
+		ai_chance = {
+            modifier = {
+            factor = 20
+            }
+        }
+        RUS = { country_event = rus.30 }
+        effect_tooltip = {
+        	RUS = {
+				annex_country = {
+    				target = TCS
+    				transfer_troops = yes
+				}
+				TCS = {
+					every_character = {
+						limit = {
+							OR = {
+								is_character = TCS_konstantin_osipov
+								is_character = TCS_boris_kazanovich
+								is_character = TCS_ippolit_savitsky
+								is_character = TCS_pavel_nazarov
+								is_character = URC_vladimir_tolstov
+							}
+						}
+						set_nationality = RUS
+					}
+				}
+				584 = { add_core_of = RUS }
+				406 = { add_core_of = RUS }
+				407 = { add_core_of = RUS }
+        	}
+        }
+	}
+	option = { #deny
+		name = rus.29.b
+		ai_chance = {
+            modifier = {
+            factor = 100
+            }
+        }
+        add_war_support = 0.05
+        RUS = { country_event = rus.31 }
+	}
+}
+
+country_event = { #URC/TCS accepts demand of total annexation
+	id = rus.30 
+	title = rus.30.t
+	desc = rus.30.d
+
+	picture = GFX_report_event_bul_italian_equipment
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #neat.
+		name = rus.30.a
+		TCS = {
+			every_character = {
+				limit = {
+					OR = {
+						is_character = TCS_konstantin_osipov
+						is_character = TCS_boris_kazanovich
+						is_character = TCS_ippolit_savitsky
+						is_character = TCS_pavel_nazarov
+						is_character = URC_vladimir_tolstov
+					}
+				}
+				set_nationality = RUS
+			}
+		}
+		hidden_effect = {
+			TCS = {
+				remove_ideas = TCS_URC_from_the_red_paws_to_an_unknown_distance
+			}
+		}
+		annex_country = {
+    		target = TCS
+    		transfer_troops = yes
+		}
+		584 = { add_core_of = RUS }
+		406 = { add_core_of = RUS }
+		407 = { add_core_of = RUS }
+	}
+}
+
+country_event = { #URC/TCS denies demand
+	id = rus.31
+	title = rus.31.t
+	desc = rus.31.d
+
+	picture = GFX_report_event_bul_italian_equipment
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #we'll deal with them later
+		name = rus.31.a
+		add_political_power = -15
+	}
+	option = { #invade them now!
+		name = rus.31.b
+		add_political_power = -15
+		create_wargoal = {
+			type = annex_everything
+			target = TCS
+			expire = 0
+			generator = { 0 }
+		}
+	}
+}
+
+country_event = {
+	id = rus.32
+	title = rus.32.t
+	desc = rus.32.d
+
+	picture = GFX_report_event_bul_italian_equipment
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #neat.
+		name = rus.32.a
+		effect_tooltip = {
+			TCS = {
+				set_cosmetic_tag = TCS_RUS_puppet
+				delete_units = {
+    				division_template = "Ural'skaya Kazach'ya Diviziya"
+    				disband = yes
+				}
+				remove_ideas = TCS_URC_from_the_red_paws_to_an_unknown_distance
+				add_ideas = RUS_law_on_land
+        		add_ideas = RUS_law_on_volost_zemstvos
+			}
+			URC = { 
+				set_cosmetic_tag = URC_RUS_puppet
+				406 = { set_state_owner_to = URC }
+				407 = { set_state_owner_to = URC }
+				IF = {
+					limit = {
+						RUS = {
+							has_war_with = SOV
+						}
+					}
+					every_other_country = { 
+						limit = {
+							original_tag = SOV
+							has_government = anarchism
+						}
+						URC = {
+							declare_war_on = {
+							    target = PREV
+							    type = independence_wargoal
+							}
+						}
+					}
+					every_other_country = { 
+						limit = {
+							original_tag = SOV
+							has_government = communism
+						}
+						URC = {
+							declare_war_on = {
+							    target = PREV
+							    type = independence_wargoal
+							}
+						}
+					}
+				}
+				add_manpower = 20000
+				division_template = {
+				    name = "Ural'skaya Kazach'ya Diviziya"
+				    division_names_group = RUS_CAV_01
+				    #priority = 0
+				    regiments = {
+				        cavalry = { x = 0 y = 0 }
+				        cavalry = { x = 0 y = 1 }
+				        cavalry = { x = 1 y = 0 }
+				        cavalry = { x = 1 y = 1 }
+				        cavalry = { x = 2 y = 0 }
+				        cavalry = { x = 2 y = 1 }
+				    }
+				    support = {
+						recon = { x = 0 y = 0 } 
+				    }
+				}
+				add_ideas = RUS_law_on_land
+        		add_ideas = RUS_law_on_volost_zemstvos
+        	}
+			puppet = {
+			    target = TCS
+			    end_wars = no
+			}
+			set_autonomy = {
+    			target = URC
+    			autonomous_state = cossack_host
+    			end_wars = no
+    			end_civil_wars = no
+			}
+			584 = {
+				create_unit = {
+					division = "name = \"1-y Ural'skiy Kazachiy Korpus\" division_template = \"Ural'skaya Kazach'ya Diviziya\" start_experience_factor = 0.6 start_equipment_factor = 1"
+					count = 1
+    				owner = URC
+				}
+				create_unit = {
+					division = "name = \"2-y Iletskiy Kazachiy Korpus\" division_template = \"Ural'skaya Kazach'ya Diviziya\" start_experience_factor = 0.6 start_equipment_factor = 1"
+					count = 1
+    				owner = URC
+				}
+			}
+		}
+	}
+}
+
+country_event = { #
+	id = rus.33
+	title = rus.33.t
+	desc = rus.33.d
+
+	picture = GFX_report_event_bul_italian_equipment
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #
+		name = rus.33.a
+		ai_chance = {
+            modifier = {
+            factor = 50
+            }
+        }
+	}
+}
+
+
+###############################################################COSSACK DEMANDS
+country_event = { # Event for RUS - Kalmyk-Astrakhan Cossacks request arms
+	id = rus.34
+	title = rus.34.t
+	desc = rus.34.d
+
+	picture = GFX_report_event_DEN_denmark_surrenders
+
+	fire_only_once = no
+	is_triggered_only = yes
+
+	option = { # yes
+		name = rus.34.a
+            FROM = {
+                country_event = rus.35
+   				add_autonomy_score = {
+    				value = -100
+    				localization = rus.35.t
+				}
+            	add_equipment_to_stockpile  = {
+    				type = infantry_equipment
+    				amount = 1000
+    				producer = RUS
+				}
+            	add_equipment_to_stockpile  = {
+    				type = support_equipment_1
+    				amount = 80
+    				producer = RUS
+				}
+            	add_equipment_to_stockpile  = {
+    				type = artillery_equipment_1
+    				amount = 18
+    				producer = RUS
+				}
+			}
+            add_equipment_to_stockpile  = {
+    			type = infantry_equipment
+    			amount = -1000
+			}
+            add_equipment_to_stockpile  = {
+    			type = support_equipment_1
+    			amount = -80
+			}
+            add_equipment_to_stockpile  = {
+    			type = artillery_equipment_1
+    			amount = -18
+			}
+		ai_chance = {
+            modifier = {
+            factor = 50
+            }
+        }
+	}
+	option = { # no
+		name = rus.34.b
+        FROM = {
+        	country_event = rus.36
+        }
+        effect_tooltip = {
+        	FROM = {
+        		add_political_power = 50
+   				add_autonomy_score = {
+    				value = 25
+    				localization = rus.36.t
+				}
+			}
+		}
+		ai_chance = {
+            modifier = {
+            factor = 0
+            }
+        }
+	}
+}
+
+country_event = { # Response Event for KAL - RUS says yes
+	id = rus.35
+	title = rus.35.t
+	desc = rus.35.d
+
+	picture = GFX_report_event_DEN_denmark_surrenders
+	is_triggered_only = yes
+
+	option = { # neat!
+		name = rus.35.a
+			effect_tooltip = {
+   				add_autonomy_score = {
+    				value = -100
+    				localization = rus.35.t
+				}
+				RUS = {
+            		send_equipment = {
+    					equipment = infantry_equipment
+    					amount = 1000
+    					target = ROOT
+					}
+            		send_equipment = {
+    					equipment = support_equipment_1
+    					amount = 80
+    					target = ROOT
+					}
+            		send_equipment = {
+    					equipment = artillery_equipment_1
+    					amount = 18
+    					target = ROOT
+					}
+				}
+			}
+		ai_chance = {
+            modifier = {
+            	factor = 50
+            }
+        }
+	}
+}
+
+country_event = { # Response Event for KAL - RUS says no
+	id = rus.36
+	title = rus.36.t
+	desc = rus.36.d
+
+	picture = GFX_report_event_DEN_denmark_surrenders
+
+	fire_only_once = no
+	is_triggered_only = yes
+
+	option = { # darn!
+		name = rus.36.a
+		add_political_power = 50
+   		add_autonomy_score = {
+    		value = 25
+    		localization = rus.36.t
+		}
+		ai_chance = {
+            modifier = {
+            factor = 50
+            }
+        }
+	}
+}
+
+#####cossack INTEGRATION
+country_event = { #TER's event - Russia demands submission terek demand
+	id = rus.37
+	title = rus.37.t
+	desc = rus.37.d
+
+	picture = GFX_report_event_SOV_demands
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #accept puppeting
+		name = rus.37.a
+		RUS = { country_event = rus.39 }
+		ai_chance = {
+			base = 1
+            modifier = {
+            	RUS = { has_completed_focus = RUS_russia_one_and_indivisible }
+                add = -1
+            }
+        }
+	}
+
+	option = { #deny
+		name = rus.37.c
+		RUS = { country_event = rus.40 }
+		#trigger = { TER = { exists = yes } }
+		ai_chance = {
+			base = 1
+            modifier = {
+            	RUS = { has_completed_focus = RUS_united_front }
+                add = -1
+            }
+        }
+	}
+}
+
+country_event = { #RUS's event - launch TER uprising?
+	id = rus.38
+	title = rus.38.t
+	desc = rus.38.d
+
+	picture = GFX_report_event_por_salazar_military
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = rus.38.a
+		TER = { country_event = rus.37 }
+		ai_chance = {
+			base = 5
+        }
+	}
+}
+
+country_event = { #TER Offers Submission
+	id = rus.39
+	title = rus.39.t
+	desc = rus.39.d
+
+	picture = GFX_report_event_SOV_demands
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #neat!
+		name = rus.39.a
+		ai_chance = {
+			base = 5
+        }
+        send_equipment = {
+    		equipment = infantry_equipment
+    		amount = 1000
+    		target = TER
+		}
+		235 = { transfer_state_to = TER }
+		set_autonomy = {
+    		target = TER
+    		autonomous_state = cossack_host
+    		end_wars = no
+    		end_civil_wars = no
+		}
+		TER = { 
+			IF = {
+				limit = { 
+					ATR = { 
+						AND = {
+							exists = yes 
+							has_government = communism
+						}
+					}
+				}
+			}
+			declare_war_on = {
+		    	target = ATR
+		    	type = independence_wargoal
+			}
+		}
+			set_nationality = {
+			    target_country = TER
+			    character = RUS_anatoly_rogozhin
+			}
+			set_nationality = {
+			    target_country = TER
+			    character = RUS_gerasim_vdovenko
+			}
+			set_nationality = {
+			    target_country = TER
+			    character = RUS_lazar_bicherakhov
+			}
+			hidden_effect = {
+				RUS_gerasim_vdovenko = { 
+					promote_character = despotism 
+				}
+				RUS_gerasim_vdovenko = { 
+					promote_character = fascism_ideology 
+				}
+			}
+			TER = {
+				hidden_effect = { 
+					remove_ideas = cossack_isolated_from_moscow
+					load_oob = "TER_1936"
+        			delete_unit_template_and_units = {
+        			    division_template = "NKVD Pogranichnaya Diviziya"
+        			    disband = no
+        			}
+        			delete_unit_template_and_units = {
+        			    division_template = "Mekhanizirovaniy Korpus"
+        			    disband = no
+        			}
+        			delete_unit_template_and_units = {
+        			    division_template = "Motostrelkovaya Diviziya"
+        			    disband = no
+        			}
+        			delete_unit_template_and_units = {
+        			    division_template = "Vozdushno-Desantnaya Brigada"
+        			    disband = no
+        			}
+        			delete_unit_template_and_units = {
+        			    division_template = "NKVD Pogranichnaya Diviziya 2"
+        			    disband = no
+        			}
+				}	
+				set_cosmetic_tag = TER_RUS_puppet
+				add_ideas = RUS_law_on_land
+        		add_ideas = RUS_law_on_volost_zemstvos
+			}
+		}
+}
+
+country_event = { #TER Denies
+	id = rus.40
+	title = rus.40.t
+	desc = rus.40.d
+
+	picture = GFX_report_event_SOV_mongolia_cavalry
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #fuck you, time to kill
+		name = rus.40.a
+		IF = {
+			limit = { TER = { exists = yes } }
+			create_wargoal = {
+				type = annex_everything
+				target = TER
+				expire = 0
+				generator = { 0 }
+			}
+		}
+	}
+}
+
+country_event = { #Bogaewsky goes to don
+	id = rus.41
+	title = rus.41.t
+	desc = rus.41.d
+
+	picture = GFX_report_event_SOV_cossack_cavalry #GFX_report_event_SOV_cossack_cavalry
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #Afrikan holds more popularity
+		name = rus.41.a
+		hidden_effect = {
+			DON = {
+				remove_country_leader_role = {
+    				character = DON_ivan_kononov
+    				ideology = fascism_ideology
+				}
+				retire_character = DON_provisional_government
+			}
+		}
+		ai_chance = {
+			base = 10
+        }
+        set_global_flag = RUS_send_sidorin_to_don
+        trigger = {
+        	NOT = {
+        		has_government = fascism
+        	}
+        }
+		IF = {
+			limit = {
+				OR = {
+					218 = { is_controlled_by = RUS }
+					AND = {
+						218 = { is_controlled_by = KUB }
+						KUB = { is_subject_of = RUS }
+					}
+				}
+			}
+			218 = { 
+				transfer_state_to = DON
+			}
+		}
+		IF = {
+			limit = {
+				OR = {
+					238 = { is_controlled_by = RUS }
+					AND = {
+						238 = { is_controlled_by = KUB }
+						KUB = { is_subject_of = RUS }
+					}
+				}
+			}
+			238 = { 
+				transfer_state_to = DON
+			}
+		}
+		every_state = { 
+			limit = {
+				OR = {
+					state = 218
+					state = 238
+					state = 245
+					state = 265
+				}
+			}
+			set_state_owner_to = DON
+		}
+		DON = {
+		    add_ideas = RUS_law_on_land
+        	add_ideas = RUS_law_on_volost_zemstvos
+        	set_capital = { #just incase
+                state = 218
+                remember_old_capital = no
+            }
+        }
+		RUS = {		
+			every_army_leader = {
+				limit = { is_character = RUS_afrikan_bogaevskyi }
+				set_nationality = DON
+			}
+			every_army_leader = {
+				limit = { is_character = RUS_pyotr_konovalov }
+				set_nationality = DON
+			}
+			every_army_leader = {
+				limit = { is_character = RUS_pyotr_popov }
+				set_nationality = DON
+			}
+			every_army_leader = {
+				limit = { is_character = RUS_ivan_polyakov }
+				set_nationality = DON
+			}
+			every_army_leader = {
+				limit = { is_character = DON_pyotr_krasnov }
+				set_nationality = DON
+			}
+			add_manpower = -5000
+		}
+		KUB = {
+			every_army_leader = {
+				limit = { is_character = RUS_Vladimir_Sidorin }
+				set_nationality = DON
+			}
+		}
+		DON = {
+           division_template = { 
+                name = "Donskaya Kazach'ya Kavaleriyskaya Diviziya" #Cavalry Division
+                division_names_group = RUS_CAV_02
+                regiments = {
+                    cavalry = { x = 0 y = 0 }
+                    cavalry = { x = 0 y = 1 }
+                    cavalry = { x = 0 y = 2 }
+                    cavalry = { x = 1 y = 0 }
+                    cavalry = { x = 1 y = 1 }
+                    cavalry = { x = 1 y = 2 }
+                    cavalry = { x = 2 y = 0 }
+                    cavalry = { x = 2 y = 1 }
+                    cavalry = { x = 2 y = 2 }
+                }
+                support = {
+                    recon = { x = 0 y = 0 }
+                    artillery = { x = 0 y = 1 } 
+                }
+            }
+            random_owned_controlled_state = {
+                #limit = { ROOT = { controls_state = PREV } }
+                prioritize = { 218 }
+                create_unit = {
+                    division = "name = \"Donskaya Kazach'ya Kavaleriyskaya Diviziya\" division_template = \"Donskaya Kazach'ya Kavaleriyskaya Diviziya\" start_experience_factor = 0.7" 
+                    owner = DON 
+                    count = 2
+                }
+            }
+			RUS_afrikan_bogaevskyi = { promote_leader = yes }
+			hidden_effect = {
+			add_country_leader_role = {
+				character = "RUS_afrikan_bogaevskyi"
+				country_leader = {
+					ideology=oligarchism
+					traits = { cossack_ataman anti_communist }
+					expire="1965.1.1.1"
+				}
+				promote_leader = yes
+			}
+			add_country_leader_role = {
+				character = "RUS_afrikan_bogaevskyi"
+				country_leader = {
+					ideology=conservatism
+					traits = { cossack_ataman anti_communist }
+					expire="1965.1.1.1"
+				}
+				promote_leader = yes
+			}
+			promote_character = {
+			    character = DON_pyotr_krasnov
+			    ideology = fascism_ideology
+			}
+			}
+		}
+	}
+	option = { #Install Krasnov, watch him closely
+		name = rus.41.b
+		hidden_effect = {
+			DON = {
+				remove_country_leader_role = {
+    				character = DON_ivan_kononov
+    				ideology = fascism_ideology
+				}
+				retire_character = DON_provisional_government
+			}
+		}
+		trigger = {
+		}
+		ai_chance = {
+			base = 10
+        }
+        set_global_flag = RUS_send_sidorin_to_don
+		IF = {
+			limit = {
+				OR = {
+					218 = { is_controlled_by = RUS }
+					AND = {
+						218 = { is_controlled_by = KUB }
+						KUB = { is_subject_of = RUS }
+					}
+				}
+			}
+			218 = { 
+				transfer_state_to = DON
+			}
+		}
+		IF = {
+			limit = {
+				OR = {
+					238 = { is_controlled_by = RUS }
+					AND = {
+						238 = { is_controlled_by = KUB }
+						KUB = { is_subject_of = RUS }
+					}
+				}
+			}
+			238 = { 
+				transfer_state_to = DON
+			}
+		}
+		every_state = { 
+			limit = {
+				OR = {
+					state = 218
+					state = 238
+					state = 245
+					state = 265
+				}
+			}
+			set_state_owner_to = DON
+		}
+		RUS = {	
+			every_army_leader = {
+				limit = { is_character = RUS_afrikan_bogaevskyi }
+				set_nationality = DON
+			}
+			every_army_leader = {
+				limit = { is_character = RUS_pyotr_konovalov }
+				set_nationality = DON
+			}
+			every_army_leader = {
+				limit = { is_character = RUS_pyotr_popov }
+				set_nationality = DON
+			}
+			every_army_leader = {
+				limit = { is_character = RUS_ivan_polyakov }
+				set_nationality = DON
+			}
+			every_army_leader = {
+				limit = { is_character = DON_pyotr_krasnov }
+				set_nationality = DON
+			}
+			add_manpower = -5000
+		}
+		KUB = {
+			every_army_leader = {
+				limit = { is_character = RUS_Vladimir_Sidorin }
+				set_nationality = DON
+			}
+		}
+		DON = {
+           division_template = { 
+                name = "Donskaya Kazach'ya Kavaleriyskaya Diviziya" #Cavalry Division
+                division_names_group = RUS_CAV_02
+                regiments = {
+                    cavalry = { x = 0 y = 0 }
+                    cavalry = { x = 0 y = 1 }
+                    cavalry = { x = 0 y = 2 }
+                    cavalry = { x = 1 y = 0 }
+                    cavalry = { x = 1 y = 1 }
+                    cavalry = { x = 1 y = 2 }
+                    cavalry = { x = 2 y = 0 }
+                    cavalry = { x = 2 y = 1 }
+                    cavalry = { x = 2 y = 2 }
+                }
+                support = {
+                    recon = { x = 0 y = 0 }
+                	artillery = { x = 0 y = 1 } 
+                }
+            }
+            random_owned_controlled_state = {
+                #limit = { ROOT = { controls_state = PREV } }
+                prioritize = { 218 }
+                create_unit = {
+                    division = "name = \"Donskaya Kazach'ya Kavaleriyskaya Diviziya\" division_template = \"Donskaya Kazach'ya Kavaleriyskaya Diviziya\" start_experience_factor = 0.7" 
+                   	owner = DON 
+                   	count = 2
+                }
+            }
+			hidden_effect = {
+				promote_character = {
+				    character = DON_pyotr_krasnov
+				    ideology = fascism_ideology
+				}
+				promote_character = {
+				    character = DON_pyotr_krasnov
+				    ideology = despotism
+				}
+				add_country_leader_role = {
+					character = "RUS_afrikan_bogaevskyi"
+					country_leader = {
+						ideology=oligarchism
+						traits = { cossack_ataman anti_communist }
+						expire="1965.1.1.1"
+					}
+					#promote_leader = yes
+				}
+				add_country_leader_role = {
+					character = "RUS_afrikan_bogaevskyi"
+					country_leader = {
+						ideology=conservatism
+						traits = { cossack_ataman anti_communist }
+						expire="1965.1.1.1"
+					}
+					promote_leader = yes
+				}
+				DON_pyotr_krasnov = { promote_leader = yes } 
+			}
+		}
+		add_political_power = -50
+	}
+}
+
+
+country_event = { #event to make sure DON communist general joins commies
+	id = rus.42
+	title = rus.42.t
+	desc = rus.42.d
+
+	picture = GFX_report_event_SOV_mongolia_cavalry
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #
+		name = rus.42.a
+		add_war_support = 0.05
+		ai_chance = {
+			base = 5
+        }
+		DON = {		
+			every_army_leader = {
+				limit = { is_character = DON_evgeny_trifonov }
+				set_nationality = ROOT
+			}
+		}
+	}
+}
+
+country_event = { #junkers white cadet schools
+	id = rus.43
+	title = rus.43.t
+	desc = rus.43.d
+
+	picture = GFX_RUS_event_picture_1#GFX_report_event_SOV_purge_young_officers
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	# loyalty to the cause
+	option = {
+		name = rus.43.a
+		ai_chance = {
+			base = 0
+		}
+		trigger = { 
+			has_government = neutrality
+		}
+		IF = {
+			limit = { has_dlc = "No Step Back" }
+			add_ideas = political_loyalty_spirit
+		}
+	}
+	# proper heritage
+	option = {
+		name = rus.43.b
+		ai_chance = {
+			base = 10
+		}
+		IF = {
+			limit = { has_dlc = "No Step Back" }
+			add_ideas = proper_heritage_spirit
+		}
+	}
+	# accomplished heritage
+	option = {
+		name = rus.43.c
+		ai_chance = {
+			base = 5
+		}
+		IF = {
+			limit = { has_dlc = "No Step Back" }
+			add_ideas = heritage_of_accomplishment
+		}
+	}
+}
+
+
+country_event = { #RUS gives Astrakhan to KAL
+	id = rus.44
+	title = rus.44.t
+	desc = rus.44.d
+
+	picture = GFX_report_event_SOV_mongolia_cavalry
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	# neat
+	option = {
+		name = rus.44.a
+		ai_chance = {
+			base = 1
+		}
+		add_political_power = 100
+		add_war_support = 0.05
+		KAL = { set_state_owner = 236 }	
+   		add_autonomy_score = {
+    		value = -250
+    		localization = rus.35.t
+		}
+	}
+}
+country_event = { #choose a rus fascist leader
+	id = rus.45
+	title = rus.45.t
+	desc = rus.45.d
+
+	picture = GFX_report_event_chinese_army_training #change
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+
+	option = {
+		name = rus.45.a 
+			RUS_victor_baydalakov = { 
+				promote_character = fascism_ideology
+			}
+		ai_chance = {
+			base = 1
+		}
+	}
+	option = {
+		name = rus.45.b #
+			RUS_vasily_shulgin = { 
+				promote_character = fascism_ideology
+			}
+		ai_chance = {
+			base = 1
+		}
+	}
+	option = {
+		name = rus.45.c #keep turkul - not a great choice since the others have more political experience.
+			RUS_anton_turkul = { 
+				promote_character = fascism_ideology
+			}
+			add_political_power = -50
+		ai_chance = {
+			base = 0
+		}
+	}
+	#
+}
+
+country_event = { #choose ship to sell
+	id = rus.46
+	title = rus.46.t
+	desc = rus.46.d
+
+	picture = GFX_report_event_sailors_in_working_rig
+
+	fire_only_once = no
+	is_triggered_only = yes
+
+
+	option = { 
+		name = rus.46.a #Rostislav
+        	trigger = { has_country_flag = has_rostislav }
+        	set_country_flag = selling_rostislav
+        	country_event = rus.47
+		ai_chance = {
+			base = 1
+		}
+	}
+	option = {
+		name = rus.46.b #Tri Sviatitelia
+       		 trigger = { has_country_flag = has_tri }
+       		 set_country_flag = selling_tri_sviatitelia
+       		 country_event = rus.47
+		ai_chance = {
+			base = 1
+		}
+	}
+	option = {
+		name = rus.46.c #Dvenadsat Apostolov
+        	trigger = { has_country_flag = has_dvenadsat }
+        	set_country_flag = selling_dvenadsat_apostolov
+            country_event = rus.47
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+country_event = { #RUS - choose someone to offer the ship to.
+	id = rus.47
+	title = rus.47.t
+	desc = rus.47.d
+
+	picture = GFX_report_event_sailors_in_working_rig
+
+	fire_only_once = no
+	is_triggered_only = yes
+
+
+	option = {  #offer it to Ukraine
+		name = rus.47.a
+		trigger = {
+			UKR = {
+				NOT = { 
+					has_idea = RUS_sold_a_predreadnought1 
+					has_war_with = RUS
+				}
+				any_controlled_state = {
+					is_coastal = yes
+				}
+				exists = yes
+			}
+		}
+        UKR = {
+            country_event = rus.49
+        }
+		ai_chance = {
+			base = 1
+		}
+	}
+	option = { #offer it to Georgia
+		name = rus.47.b
+		trigger = {
+			GEO = {
+				NOT = { 
+					has_idea = RUS_sold_a_predreadnought1 
+					has_war_with = RUS
+				}
+				any_controlled_state = {
+					is_coastal = yes
+				}
+				exists = yes
+			}
+		}
+        GEO = {
+            country_event = rus.49
+        }
+		ai_chance = {
+			base = 1
+		}
+	}
+	option = { #offer it to Bulgaria
+		name = rus.47.c
+		trigger = {
+			BUL = {
+				NOT = { 
+					has_idea = RUS_sold_a_predreadnought1 
+					has_war_with = RUS
+				}
+				any_controlled_state = {
+					is_coastal = yes
+				}
+				exists = yes
+			}
+		}
+        trigger = { 
+        	BUL = { 
+        		NOT = {
+        			has_idea = BUL_army_restrictions
+        		}
+        	}
+        }
+        BUL = {
+            country_event = rus.49
+        }
+		ai_chance = {
+			base = 1
+		}
+	}
+	option = { #Offer it to someone else (Turkey or Romania)
+		name = rus.47.e
+            RUS = {
+                country_event = rus.48
+            }
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+country_event = { #RUS - choose someone to offer the ship to p2
+	id = rus.48
+	title = rus.48.t
+	desc = rus.48.d
+
+	picture = GFX_report_event_sailors_in_working_rig
+
+	fire_only_once = no
+	is_triggered_only = yes
+
+
+	option = {  #offer it to Turkey
+		name = rus.48.a
+		trigger = {
+			TUR = {
+				NOT = { 
+					has_idea = RUS_sold_a_predreadnought1 
+					has_war_with = RUS
+				}
+				any_controlled_state = {
+					is_coastal = yes
+				}
+				exists = yes
+			}
+		}
+        TUR = {
+            country_event = rus.49
+        }
+		ai_chance = {
+			base = 1
+		}
+	}
+	option = { #offer it to Romania
+		name = rus.48.b
+		trigger = {
+			ROM = {
+				NOT = { 
+					has_idea = RUS_sold_a_predreadnought1 
+					has_war_with = RUS
+				}
+				any_controlled_state = {
+					is_coastal = yes
+				}
+				exists = yes
+			}
+		}
+        ROM = {
+            country_event = rus.49
+        }
+		ai_chance = {
+			base = 1
+		}
+	}
+	option = { #go back to the previous options
+		name = rus.48.c
+        RUS = {
+            country_event = rus.47
+        }
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+country_event = { #event for the buyers, from RUS
+	id = rus.49
+	title = rus.49.t
+	desc = rus.49.d
+
+	picture = GFX_report_event_sailors_in_working_rig
+
+	fire_only_once = no
+	is_triggered_only = yes
+
+
+	option = {  #We shall purchase it!
+		name = rus.49.a
+		set_country_flag = bought_a_ship_alr
+		add_timed_idea = {
+		    idea = RUS_purchased_a_predreadnought1
+		    days = 365
+		}
+		add_political_power = -25
+		effect_tooltip = { #
+            add_opinion_modifier = {
+                target = FROM
+                modifier = medium_increase
+            }
+			add_equipment_production = {
+				equipment = {
+					type = ship_hull_pre_dreadnought
+					#creator = "ROOT"
+					version_name = "Potemkin-Evstafi class"
+				}
+				name = "Rostislav"
+				requested_factories = 1
+				progress = 0.7
+				amount = 1
+			}
+			RUS = {
+				add_political_power = 50
+				add_timed_idea = {
+				    idea = RUS_sold_a_predreadnought1
+				    days = 365
+				}				
+			}
+		}
+        RUS = {
+            country_event = rus.50
+        }
+		ai_chance = {
+			base = 10
+			#modifier = { has_country_flag = bought_a_ship_alr factor = 0 }
+		}
+	}
+	option = { #we will not buy this one
+		name = rus.49.b
+            RUS = {
+                country_event = rus.51
+				clr_country_flag = selling_rostislav
+				clr_country_flag = selling_tri_sviatitelia
+				clr_country_flag = selling_dvenadsat_apostolov
+            }
+		ai_chance = {
+			base = 5
+			modifier = { has_country_flag = bought_a_ship_alr factor = 10 }
+		}
+	}
+	#option = { #we will not buy any ships from you. 
+	#	name = rus.49.b
+    #        RUS = {
+    #            country_event = rus.52
+    #        }
+	#	ai_chance = {
+	#		base = 1
+	#	}
+	#}
+}
+
+country_event = { #event FROM buyers, to RUS - ship bought.
+	id = rus.50
+	title = rus.50.t
+	desc = rus.50.d
+
+	picture = GFX_report_event_sailors_in_working_rig
+
+	fire_only_once = no
+	is_triggered_only = yes
+
+
+	option = {  #Good to hear!
+		name = rus.50.a
+		IF = { limit = { has_dlc = "Man the Guns" }
+			IF = { limit = { has_country_flag = selling_rostislav }
+            	add_opinion_modifier = {
+            	    target = FROM
+            	    modifier = medium_increase 
+            	}
+            	FROM = {
+            		add_opinion_modifier = {
+            		    target = RUS
+            		    modifier = medium_increase
+            		}
+            	}
+				add_political_power = 50
+				add_timed_idea = {
+				    idea = RUS_sold_a_predreadnought1
+				    days = 365
+				}
+				clr_country_flag = has_rostislav
+				clr_country_flag = selling_rostislav
+				FROM = { 
+					create_equipment_variant = {
+						name = "Potemkin-Evstafi class"				
+						type = ship_hull_pre_dreadnought
+						name_group = RUS_ADMIRALS_NAVY
+						parent_version = 0
+						modules = {
+							fixed_ship_battery_slot = ship_heavy_battery_1
+							fixed_ship_anti_air_slot = ship_anti_air_1
+							fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+							fixed_ship_radar_slot = empty
+							fixed_ship_engine_slot = heavy_ship_engine_1
+							fixed_ship_secondaries_slot = ship_secondaries_1
+							fixed_ship_armor_slot = ship_armor_bb_1
+							front_1_custom_slot = empty #ship_torpedo_1
+							mid_1_custom_slot = ship_secondaries_1
+							rear_1_custom_slot = empty ###ship_medium_battery_1
+						}
+						obsolete = yes
+					}	
+					add_equipment_production = {
+						equipment = {
+							type = ship_hull_pre_dreadnought
+							#creator = "ROOT"
+							version_name = "Potemkin-Evstafi class"
+						}
+						name = "Rostislav"
+						requested_factories = 1
+						progress = 0.7
+						amount = 1
+					}
+				}
+			}
+			IF = { limit = { has_country_flag = selling_tri_sviatitelia } 
+            	add_opinion_modifier = {
+            	    target = FROM
+            	    modifier = medium_increase
+            	}
+            	FROM = {
+            		add_opinion_modifier = {
+            		    target = RUS
+            		    modifier = medium_increase
+            		}
+            	}
+				add_political_power = 50
+				add_timed_idea = {
+				    idea = RUS_sold_a_predreadnought2
+				    days = 365
+				}
+				clr_country_flag = has_tri
+				clr_country_flag = selling_tri_sviatitelia
+				FROM = { 
+					create_equipment_variant = {
+						name = "Potemkin-Evstafi class"				
+						type = ship_hull_pre_dreadnought
+						name_group = RUS_ADMIRALS_NAVY
+						parent_version = 0
+						modules = {
+							fixed_ship_battery_slot = ship_heavy_battery_1
+							fixed_ship_anti_air_slot = ship_anti_air_1
+							fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+							fixed_ship_radar_slot = empty
+							fixed_ship_engine_slot = heavy_ship_engine_1
+							fixed_ship_secondaries_slot = ship_secondaries_1
+							fixed_ship_armor_slot = ship_armor_bb_1
+							front_1_custom_slot = empty #ship_torpedo_1
+							mid_1_custom_slot = ship_secondaries_1
+							rear_1_custom_slot = empty ###ship_medium_battery_1
+						}
+						obsolete = yes
+					}
+					add_equipment_production = {
+						equipment = {
+							type = ship_hull_pre_dreadnought
+							#creator = "ROOT"
+							version_name = "Potemkin-Evstafi class"
+						}
+						name = "Tri Sviatitelia"
+						requested_factories = 1
+						progress = 0.7
+						amount = 1
+					}
+				}
+			}
+			IF = { limit = { has_country_flag = selling_dvenadsat_apostolov }
+            	add_opinion_modifier = {
+            	    target = FROM
+            	    modifier = medium_increase
+            	}
+            	FROM = {
+            		add_opinion_modifier = {
+            		    target = RUS
+            		    modifier = medium_increase
+            		}
+            	}
+				add_political_power = 50
+				add_timed_idea = {
+				    idea = RUS_sold_a_predreadnought3
+				    days = 365
+				}
+				clr_country_flag = has_dvenadsat
+				clr_country_flag = selling_dvenadsat_apostolov
+				FROM = { 
+					create_equipment_variant = {
+						name = "Potemkin-Evstafi class"				
+						type = ship_hull_pre_dreadnought
+						name_group = RUS_ADMIRALS_NAVY
+						parent_version = 0
+						modules = {
+							fixed_ship_battery_slot = ship_heavy_battery_1
+							fixed_ship_anti_air_slot = ship_anti_air_1
+							fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+							fixed_ship_radar_slot = empty
+							fixed_ship_engine_slot = heavy_ship_engine_1
+							fixed_ship_secondaries_slot = ship_secondaries_1
+							fixed_ship_armor_slot = ship_armor_bb_1
+							front_1_custom_slot = empty #ship_torpedo_1
+							mid_1_custom_slot = ship_secondaries_1
+							rear_1_custom_slot = empty ###ship_medium_battery_1
+						}
+						obsolete = yes
+					}
+					add_equipment_production = {
+						equipment = {
+							type = ship_hull_pre_dreadnought
+							#creator = "ROOT"
+							version_name = "Potemkin-Evstafi class"
+						}
+						name = "Dvenadsat Apostolov"
+						requested_factories = 1
+						progress = 0.7
+						amount = 1
+					}
+				}
+			}
+		}
+		IF = { limit = { NOT = { has_dlc = "Man the Guns" } }
+			IF = { limit = { has_country_flag = selling_rostislav }
+            	add_opinion_modifier = {
+            	    target = FROM
+            	    modifier = medium_increase
+            	}
+            	FROM = {
+            		add_opinion_modifier = {
+            		    target = RUS
+            		    modifier = medium_increase
+            		}
+            	}
+				add_political_power = 50
+				add_timed_idea = {
+				    idea = RUS_sold_a_predreadnought1
+				    days = 365
+				}
+				clr_country_flag = has_rostislav
+				clr_country_flag = selling_rostislav
+				FROM = {  create_ship = { type = heavy_cruiser_1 name = "Rostislav" strength = 65 creator = ROOT } }
+			}
+			IF = { limit = { has_country_flag = selling_tri_sviatitelia }
+            	add_opinion_modifier = {
+            	    target = FROM
+            	    modifier = medium_increase
+            	}
+            	FROM = {
+            		add_opinion_modifier = {
+            		    target = RUS
+            		    modifier = medium_increase
+            		}
+            	}
+				add_political_power = 50
+				add_timed_idea = {
+				    idea = RUS_sold_a_predreadnought2
+				    days = 365
+				}
+				clr_country_flag = has_tri
+				clr_country_flag = selling_tri_sviatitelia
+				FROM = { create_ship = { type = heavy_cruiser_1 name = "Tri Sviatitelia" strength = 65 creator = ROOT } }
+			}
+			IF = { limit = { has_country_flag = selling_dvenadsat_apostolov }
+            	add_opinion_modifier = {
+            	    target = FROM
+            	    modifier = medium_increase
+            	}
+            	FROM = {
+            		add_opinion_modifier = {
+            		    target = RUS
+            		    modifier = medium_increase
+            		}
+            	}
+				add_political_power = 50
+				add_timed_idea = {
+				    idea = RUS_sold_a_predreadnought3
+				    days = 365
+				}
+				clr_country_flag = has_dvenadsat
+				clr_country_flag = selling_dvenadsat_apostolov
+				FROM = { create_ship = { type = heavy_cruiser_1 name = "Dvenadsat Apostolov" strength = 65 creator = ROOT } }
+			}
+		}
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+country_event = { #event FROM buyers, to RUS - no purchase this time
+	id = rus.51
+	title = rus.51.t
+	desc = rus.51.d
+
+	picture = GFX_report_event_sailors_in_working_rig
+
+	fire_only_once = no
+	is_triggered_only = yes
+
+
+	option = {  #Shame
+		name = rus.51.a
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+country_event = { #event FROM buyers, to RUS - no purchase of ships, ever.
+	id = rus.52
+	title = rus.52.t
+	desc = rus.52.d
+
+	picture = GFX_report_event_sailors_in_working_rig
+
+	fire_only_once = no
+	is_triggered_only = yes
+
+
+	option = {  # Unfortunate.
+		name = rus.52.a
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+#53 is kornilov coup
+
+country_event = { #KUB's event
+	id = rus.54
+	title = rus.54.t
+	desc = rus.54.d
+
+	picture = GFX_report_event_SOV_demands
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #accept annexation
+		name = rus.54.a
+		RUS = { country_event = rus.55 }
+		ai_chance = {
+			base = 0
+            modifier = {
+            	RUS = { has_completed_focus = RUS_united_front }
+            	has_global_flag = RUS_supported_KUB
+                add = 25
+            }
+            modifier = {
+            	RUS = { has_completed_focus = RUS_russia_one_and_indivisible }
+                add = 0
+            }
+        }
+	}
+
+	option = { #ask for being a puppet instead
+		name = rus.54.b
+		set_cosmetic_tag = KUB_RUS_puppet
+		promote_character = KUB_ivanis_vasily_nikolaevich
+		RUS = {
+			country_event = rus.56 
+			set_autonomy = {
+    			target = KUB
+    			autonomous_state = cossack_host
+    			end_wars = no
+    			end_civil_wars = no
+			}
+			every_army_leader = {
+				limit = { is_character = RUS_vyacheslav_naumenko }
+				set_nationality = KUB
+			}
+			every_army_leader = {
+				limit = { is_character = RUS_fyodor_eliseev }
+				set_nationality = KUB
+			}
+			every_army_leader = {
+				limit = { is_character = RUS_Viktor_Pokrovsky }
+				set_nationality = KUB
+			}
+			every_army_leader = {
+				limit = { is_character = RUS_sergei_ulagay }
+				set_nationality = KUB
+			}
+		}
+		#add_country_leader_role = {
+		#	character = "RUS_vyacheslav_naumenko"
+		#	country_leader = {
+		#		ideology=conservatism
+		#		traits = { cossack_ataman anti_communist }
+		#		expire="1965.1.1.1"
+		#	}
+		#	promote_leader = yes
+		#}
+		#add_country_leader_role = {
+		#	character = "RUS_vyacheslav_naumenko"
+		#	country_leader = {
+		#		ideology=oligarchism
+		#		traits = { cossack_ataman anti_communist }
+		#		expire="1965.1.1.1"
+		#	}
+		#	promote_leader = yes
+		#}
+		ai_chance = {
+			base = 0
+            modifier = {
+            	RUS = { has_completed_focus = RUS_united_front }
+                add = 100
+            }
+            modifier = {
+            	RUS = { has_completed_focus = RUS_russia_one_and_indivisible }
+                add = 0
+            }
+            modifier = {
+            	has_global_flag = RUS_supported_KUB
+                add = 10
+            }
+        }
+	}
+
+	option = { #deny
+		name = rus.54.c
+		RUS = { country_event = rus.57 }
+		add_war_support = 0.05
+		every_army_leader = {
+			limit = { is_character = KUB_ivanis_vasily_nikolaevich }
+			set_nationality = RUS
+		}
+		ai_chance = {
+			base = 0
+            modifier = {
+            	RUS = { has_completed_focus = RUS_united_front }
+                add = 0
+            }
+            modifier = {
+            	RUS = { has_completed_focus = RUS_russia_one_and_indivisible }
+                add = 100
+            }
+        }
+	}
+}
+
+country_event = { #KUB Accepts
+	id = rus.55
+	title = rus.55.t
+	desc = rus.55.d
+
+	picture = GFX_report_event_por_salazar_military
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = rus.55.a
+		ai_chance = {
+            modifier = {
+            factor = 100
+            }
+        }
+        add_stability = 0.05
+        add_war_support = 0.05
+        add_political_power = 25
+		KUB = {
+			every_character = {
+				set_nationality = RUS
+			}
+		}
+		RUS = { 
+			annex_country = {
+    			target = KUB
+    			transfer_troops = yes
+			}
+		}
+		234 = { add_core_of = RUS }
+		233 = { add_core_of = RUS }
+	}
+}
+
+country_event = { #KUB Offers Submission
+	id = rus.56
+	title = rus.56.t
+	desc = rus.56.d
+
+	picture = GFX_report_event_SOV_demands
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #accept puppeting
+		name = rus.56.a
+		ai_chance = {
+            modifier = {
+            factor = 100
+            }
+        }
+        KUB = { 
+        	IF = {
+        		limit = {
+        			has_idea = KUB_ukrainian_kuban_treaty
+        		}
+        		remove_ideas = KUB_ukrainian_kuban_treaty
+        	}
+        	IF = {
+        		limit = {
+        			has_idea = KUB_cossack_seperatist_exiles
+        		}
+        		remove_ideas = KUB_cossack_seperatist_exiles
+        	}
+        	add_ideas = RUS_law_on_land
+        	add_ideas = RUS_law_on_volost_zemstvos
+        }
+        KUB = { custom_effect_tooltip = RUS_kub_puppet_ttp }
+        effect_tooltip = {
+			set_autonomy = {
+    			target = KUB
+    			autonomous_state = cossack_host
+    			end_wars = no
+    			end_civil_wars = no
+			}
+        #	KUB = { 
+		#		promote_character = KUB_ivanis_vasily_nikolaevich
+        #	}
+		#	RUS = {
+		#		#country_event = rus.56 
+		#		set_autonomy = {
+    	#			target = KUB
+    	#			autonomous_state = cossack_host
+    	#			end_wars = no
+    	#			end_civil_wars = no
+		#		}
+		#		every_army_leader = {
+		#			limit = { is_character = RUS_vyacheslav_naumenko }
+		#			set_nationality = KUB
+		#		}
+		#		every_army_leader = {
+		#			limit = { is_character = RUS_fyodor_eliseev }
+		#			set_nationality = KUB
+		#		}
+		#		every_army_leader = {
+		#			limit = { is_character = RUS_Viktor_Pokrovsky }
+		#			set_nationality = KUB
+		#		}
+		#		every_army_leader = {
+		#			limit = { is_character = RUS_sergei_ulagay }
+		#			set_nationality = KUB
+		#		}
+		#	}
+		}
+	}
+}
+
+country_event = { #KUB Denies
+	id = rus.57
+	title = rus.57.t
+	desc = rus.57.d
+
+	picture = GFX_report_event_SOV_cossack_cavalry
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #fuck you, time to kill
+		name = rus.57.a
+		ai_chance = {
+            modifier = {
+            factor = 100
+            }
+        }
+        effect_tooltip = {
+        	KUB = {
+				every_army_leader = {
+					limit = { is_character = KUB_ivanis_vasily_nikolaevich }
+					set_nationality = RUS
+				}
+			}
+		}
+		create_wargoal = {
+			type = annex_everything
+			target = KUB
+			expire = 0
+			generator = { 0 }
+		}
+	}
+}
+
+country_event = { #puppet asks for manpower
+	id = rus.58
+	title = rus.58.t
+	desc = rus.58.d
+
+	picture = GFX_report_event_german_volunteers
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #send recruitment specialists
+		name = rus.58.a
+		add_political_power = -50
+		#add_manpower = -100
+		FROM = { 			
+			add_timed_idea = {
+				idea = RUS_recruitment_funding
+				days = 365
+			}
+			country_event = rus.61
+   			add_autonomy_score = {
+    			value = -50
+    			localization = rus.35.t
+			}
+		}
+		ai_chance = {
+			base = 30
+		}	
+	}
+	option = { #send our own men
+		name = rus.58.b
+		add_command_power = -10
+		add_manpower = -20000
+		FROM = { 
+			add_manpower = 20000 
+			country_event = rus.59
+   			add_autonomy_score = {
+    			value = -50
+    			localization = rus.59.t
+			}
+		}
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 40
+            	has_manpower > 200000
+			}
+		}	
+	}
+	option = { #we cant help right now.
+		name = rus.58.c
+			FROM = {
+				country_event = rus.60
+   				add_autonomy_score = {
+    				value = 25
+    				localization = rus.35.t
+				}
+			}
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 40
+            	has_manpower < 50000
+			}
+		}	
+	}
+}
+
+country_event = { #RUS sends us raw men (yum!)
+	id = rus.59
+	title = rus.59.t
+	desc = rus.59.d
+
+	picture = GFX_report_event_german_volunteers
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #neat
+		name = rus.59.a
+		effect_tooltip = {	
+			RUS = { add_manpower = -20000 }
+			add_manpower = 20000	
+   			add_autonomy_score = {
+    			value = -50
+    			localization = rus.59.t
+			}
+		}
+		ai_chance = {
+			base = 50
+		}	
+	}
+}
+
+country_event = { #RUS sends us nothing this time
+	id = rus.60
+	title = rus.60.t
+	desc = rus.60.d
+
+	picture = GFX_report_event_german_volunteers
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #darn!
+		name = rus.60.a
+		effect_tooltip = {	
+   			add_autonomy_score = {
+    			value = 25
+    			localization = rus.60.t
+			}
+		}
+		ai_chance = {
+			base = 50
+		}	
+	}
+}
+
+
+country_event = { #RUS sends us recreuitment specialists
+	id = rus.61
+	title = rus.61.t
+	desc = rus.61.d
+
+	picture = GFX_report_event_german_volunteers
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #neat
+		name = rus.61.a
+		effect_tooltip = {		
+			add_timed_idea = {
+				idea = RUS_recruitment_funding
+				days = 365
+			}
+   			add_autonomy_score = {
+    			value = -50
+    			localization = rus.61.t
+			}
+		}
+		ai_chance = {
+			base = 50
+		}	
+	}
+}
+
+country_event = { #RUS democratic election. Include that Guchkov is not an option due to his age.
+	id = rus.62
+	title = rus.62.t
+	desc = rus.62.d
+
+	picture = GFX_report_event_generic_conference
+
+	fire_only_once = no
+	is_triggered_only = yes
+
+	option = { 
+		name = rus.62.a #Peter Struve 
+		set_politics = { ruling_party = democratic }
+		RUS_pyotr_struve = { promote_character = conservatism } #was was a liberal conservative (thats within conservatism)
+		ai_chance = {
+			base = 50
+		}	
+	}
+	option = { 
+		name = rus.62.b #Sofia Panina 
+		set_politics = { ruling_party = democratic }
+		RUS_sofia_panina = { promote_character = liberalism }
+		ai_chance = {
+			base = 10
+		}	
+	}
+	option = { 
+		name = rus.62.c #Pavel Milyukov
+		set_politics = { ruling_party = democratic }
+		RUS_pavel_milyukov = { promote_character = liberalism }
+		ai_chance = {
+			base = 50
+		}	
+	}
+	option = { 
+		name = rus.62.e #more options
+		country_event = rus.64
+		custom_effect_tooltip = RUS_election_menu_ttp
+		ai_chance = {
+			base = 50
+		}	
+	}
+}
+
+country_event = { #RUS democratic election. Include that Guchkov is not an option due to his age. part2
+	id = rus.64
+	title = rus.64.t
+	desc = rus.64.d
+
+	picture = GFX_report_event_generic_conference
+
+	fire_only_once = no
+	is_triggered_only = yes
+
+	option = { 
+		name = rus.64.a #Vasily Maklakov
+		set_politics = { ruling_party = democratic }
+		RUS_vasily_maklakov = { promote_character = liberalism }
+		ai_chance = {
+			base = 0
+		}	
+	}
+	option = { 
+		name = rus.64.b #Alexander Krivoshein
+		trigger = { always = no }
+		set_politics = { ruling_party = democratic }
+		RUS_alexander_krivosein = { promote_character = conservatism  } #he sorta goes back and forth, but im going to stick with conservativm to balance against liberal options
+		ai_chance = {
+			base = 50
+		}	
+	}
+	option = { #(work in progress)
+		name = rus.64.c #Boris Savinkov
+		trigger = {
+			RUS = { has_character = RUS_boris_savinkov }
+		}
+		set_politics = { ruling_party = democratic }
+		RUS_boris_savinkov = { promote_character = socialism  }
+		add_political_power = -50
+		ai_chance = {
+			base = 50
+		}	
+	}
+	option = { 
+		name = rus.64.e #go back to the first options
+		country_event = rus.62
+		ai_chance = {
+			base = 50
+		}	
+	}
+}
+
+
+country_event = {
+	id = rus.63
+	title = rus.63.t
+	desc = rus.63.desc
+
+	picture = GFX_report_event_SOV_national_academy_of_sciences
+	is_triggered_only = yes
+
+	immediate = {
+		
+	}
+	# Volgograd
+	option = {
+		name = rus.63.a
+		ai_chance = { 
+			base = 10
+		}
+		trigger = {
+			always = yes 
+		}
+		set_country_flag = RUS_decom_mio
+		custom_effect_tooltip = RUS_decom_mio_ttp
+		mio:SOV_kirov_organization = { 
+			set_mio_icon = GFX_idea_putilov 
+		}
+		# Stalingrad
+		set_province_name = {
+			id = 3529
+			name = SOV_Volgograd
+		}
+		hidden_effect = { 217 = { set_state_name = SOV_Volgograd } }
+		#hidden_effect = { 742 = { set_state_name = SOV_Dushanbe set_state_flag = dushanbe_flag } }
+		set_province_name = {
+			id = 6245
+			name = SOV_Tver
+		}
+		hidden_effect = { 247 = { set_state_name = SOV_Tver } }
+		# Kalinin / Tver
+		hidden_effect = { 247 = { set_state_name = SOV_Tver } }
+		# Leningrad / Petrograd / St. Petersburg
+		set_province_name = {
+			id = 3151
+			name = "Petrograd"#SOV_StPetersburg
+		}
+		hidden_effect = { 195 = { set_state_name = SOV_StPetersburg } }
+		# Engels / Pokrovsk / Kosakenstadt + Marksshtadt / Yekaterinograd / Baronsk
+		set_province_name = {
+			id = 11523
+			name = SOV_Pokrovsk
+		}
+		set_province_name = {
+			id = 9432
+			name = SOV_Baronsk
+		}
+		hidden_effect = { 829 = { set_state_name = SOV_Pokrovsk } }
+		# Kirov / Vyatka
+		set_province_name = {
+			id = 6124
+			name = SOV_Vyatka
+		}
+		hidden_effect = { 400 = { set_state_name = SOV_Vyatka } }
+
+		# Gorky / Nizhny Novgorod
+		set_province_name = {
+			id = 11375
+			name = SOV_Nizhny_Novgorod
+		}
+		hidden_effect = { 252 = { set_state_name = SOV_Nizhny_Novgorod } }
+
+		# Ordzhonikidze / Vladikavkaz
+		set_province_name = {
+			id = 9628
+			name = SOV_Vladikavkaz
+		}
+
+		# Yoshkar-Ola / Tsaryovokokshaysk / Krasnokokshaysk
+		set_province_name = {
+			id = 9402
+			name = SOV_Krasnokokshaysk
+		}
+		# Kyzil / Belotsarsk / Khem-Beldir
+		#set_province_name = {
+		#	id = 10627
+		#	name = SOV_Khem-Beldir
+		#}
+		# Makhachkala / Petrovskoye / Petrovsk-Port
+		#IF = {
+		#	limit = { SOV_is_exiles = yes }
+		#	set_province_name = {
+		#		id = 6701
+		#		name = SOV_Petrovsk-Port
+		#	}
+		#}
+		# Sverdlovsk / Yekaterinburg /  
+		set_province_name = {
+			id = 1821
+			name = SOV_Yekaterinburg
+		}
+		hidden_effect = { 653 = { set_state_name = SOV_Yekaterinburg } }
+
+		# Kuybyshev / Samara / Samara
+		set_province_name = {
+			id = 11225
+			name = SOV_Samara
+		}
+		hidden_effect = { 251 = { set_state_name = SOV_Samara } }
+		# Ulyanovsk / Simbirsk / Simbirsk
+		set_province_name = {
+			id = 392
+			name = SOV_Simbirsk
+		}
+		hidden_effect = { 250 = { set_state_name = SOV_Simbirsk } }
+	}
+	# Tsaritsyn
+	option = {
+		name = rus.63.b
+		
+		ai_chance = { 
+			base = 10
+		}
+		trigger = {
+			always = yes 
+		}
+		set_country_flag = RUS_decom_mio
+		mio:SOV_kirov_organization = { 
+			set_mio_icon = GFX_idea_putilov 
+		}
+		custom_effect_tooltip = RUS_decom_mio_ttp
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.03
+		}
+		# Stalingrad
+		set_province_name = {
+			id = 3529
+			name = SOV_Tsaritsyn
+		}
+		hidden_effect = { 217 = { set_state_name = SOV_Tsaritsyn } }
+		# Stalino / Donetsk / Yuzovka / Trotsk 
+		#set_province_name = {
+		#	id = 6474
+		#	name = SOV_Yuzovka
+		#}
+		#hidden_effect = { 227 = { set_state_name = SOV_Yuzovka } }
+		# Stalinabad / Dushanbe
+		#set_province_name = {
+		#	id = 1384
+		#	name = SOV_Dushanbe
+		#}
+		#hidden_effect = { 742 = { set_state_name = SOV_Dushanbe set_state_flag = dushanbe_flag } }
+		# Kalinin / Tver
+		set_province_name = {
+			id = 6245
+			name = SOV_Tver
+		}
+		hidden_effect = { 247 = { set_state_name = SOV_Tver } }
+		# Leningrad / Petrograd / St. Petersburg
+		set_province_name = {
+			id = 3151
+			name = SOV_StPetersburg
+		}
+		hidden_effect = { 195 = { set_state_name = SOV_StPetersburg } }
+		# Engels / Pokrovsk / Kosakenstadt + Marksshtadt / Yekaterinograd / Baronsk
+		set_province_name = {
+			id = 11523
+			name = SOV_Kosakenstadt
+		}
+		set_province_name = {
+			id = 9432
+			name = SOV_Yekaterinograd
+		}
+		hidden_effect = { 829 = { set_state_name = SOV_Yekaterinograd } }
+		# Kirov / Vyatka
+		set_province_name = {
+			id = 6124
+			name = SOV_Vyatka
+		}
+		hidden_effect = { 400 = { set_state_name = SOV_Vyatka } }
+
+		# Gorky / Nizhny Novgorod
+		set_province_name = {
+			id = 11375
+			name = SOV_Nizhny_Novgorod
+		}
+		hidden_effect = { 252 = { set_state_name = SOV_Nizhny_Novgorod } }
+
+		# Ordzhonikidze / Vladikavkaz
+		set_province_name = {
+			id = 9628
+			name = SOV_Vladikavkaz
+		}
+
+		# Yoshkar-Ola / Tsaryovokokshaysk / Krasnokokshaysk
+		set_province_name = {
+			id = 9402
+			name = SOV_Tsaryovokokshaysk
+		}
+		# Kyzil / Belotsarsk / Khem-Beldir
+		set_province_name = {
+			id = 10627
+			name = SOV_Belotsarsk
+		}
+		# Makhachkala / Petrovskoye / Petrovsk-Port
+		set_province_name = {
+			id = 6701
+			name = SOV_Petrovskoye
+		}
+
+		# Sverdlovsk / Yekaterinburg /  
+		set_province_name = {
+			id = 1821
+			name = SOV_Yekaterinburg
+		}
+		hidden_effect = { 653 = { set_state_name = SOV_Yekaterinburg } }
+
+		# Kuybyshev / Samara / Samara
+		set_province_name = {
+			id = 11225
+			name = SOV_Samara
+		}
+		hidden_effect = { 251 = { set_state_name = SOV_Samara } }
+
+		# Ulyanovsk / Simbirsk / Simbirsk
+		set_province_name = {
+			id = 392
+			name = SOV_Simbirsk
+		}
+		hidden_effect = { 250 = { set_state_name = SOV_Simbirsk } }
+	}
+}
+
+country_event = { #Drozdovites under on fire book released
+	id = rus.65
+	title = rus.65.t
+	desc = rus.65.d
+
+	picture = GFX_RUS_event_picture_2
+    trigger = {
+		original_tag = RUS #important so that the event fires for RUS
+      	date > 1937.01.01
+    }
+	mean_time_to_happen = {
+	    days = 25
+	}
+	fire_only_once = yes
+	is_triggered_only = no
+
+	option = {  # interesting
+		name = rus.65.a
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.01
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.02
+		}
+		add_war_support = 0.01
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+country_event = { #Rostov Arms Depot captured
+	id = rus.66
+	title = rus.66.t
+	desc = rus.66.d
+
+	picture = GFX_report_event_generic_rifles
+    trigger = { 
+		original_tag = RUS 
+		218 = {
+			controls_or_subject_of = yes
+		}
+    }
+	fire_only_once = yes
+	is_triggered_only = no
+
+	option = {  # 
+		name = rus.66.a
+		add_war_support = 0.01
+		add_command_power = -50
+			add_fuel = 30000
+            add_equipment_to_stockpile = {
+                type = infantry_equipment_0
+                amount = 5000
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = infantry_equipment_1
+                amount = 1000
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment_1
+                amount = 100
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment_1
+                amount = 300
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = motorized_equipment_1
+                amount = 100
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = train_equipment_1
+                amount = 10
+                producer = SOV
+            }
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "No Step Back"
+					}
+				}
+				add_equipment_to_stockpile = { type = light_tank_equipment_1 amount = 60 producer = SOV }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 60 producer = SOV variant_name = "T-26TU mod. 1933" }				
+			}
+            IF = {
+                limit = {
+                    has_dlc = "La Resistance"
+                }
+                add_equipment_to_stockpile = {
+                    type = gw_armored_car_equipment
+                    amount = 20
+                    producer = SOV
+                }
+            }
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+
+country_event = { #operation trust hits crimea
+	id = rus.67
+	title = rus.67.t
+	desc = rus.67.d
+
+	picture = GFX_report_event_generic_communist_congress
+	fire_only_once = no
+	is_triggered_only = yes
+
+	option = {  # 
+		name = rus.67.a
+		add_ideas = RUS_soviet_infiltrations
+		activate_decision = RUS_operation_trust_attack
+	}
+}
+
+country_event = { #bashkir exiles
+	id = rus.68
+	title = rus.68.t
+	desc = rus.68.d
+
+	picture = GFX_report_event_DEN_denmark_surrenders #change this
+	fire_only_once = no
+	is_triggered_only = yes
+
+	option = {  
+	# Just translators and limited recruitment, in exchange for resistance funding and political promises
+		name = rus.68.a
+		651 = { remove_core_of = SOV }
+		#651 = { add_core_of = RUS }
+		every_owned_state = {
+			limit = {
+				OR = {
+					state = 96 
+					state = 95 
+					state = 94 
+					state = 93 
+					state = 91 
+					state = 89 
+					state = 88  
+					state = 97
+				} 
+			}
+			#add_dynamic_modifier = { modifier = RUS_resistance_funded scope = RUS }
+		}
+		add_manpower = 1000
+		add_political_power = -25
+        #add_intel = {
+        #    target = SOV
+        #    civilian_intel = 1
+        #    army_intel = 1
+        #    navy_intel = 1
+        #    airforce_intel = 1
+        #}
+	}
+	option = {  # some autonomy in exchange for some units under russian control
+		name = rus.68.b
+			add_manpower = 20000
+			division_template = {
+			    name = "Bashkirskaya Strelkovaya Brigada"
+			    division_names_group = RUS_INF_01
+			    #priority = 0
+			    regiments = {
+			        infantry = { x = 0 y = 0 }
+			        infantry = { x = 0 y = 1 }
+			        infantry = { x = 1 y = 0 }
+			        infantry = { x = 1 y = 1 }
+			    }
+			    support = {
+					engineer = { x = 0 y = 0 } 
+					artillery = { x = 0 y = 1 } 
+			    }
+			}
+			random_owned_controlled_state = {
+				limit = { ROOT = { controls_state = PREV } }
+				prioritize = { 137 }
+				create_unit = {
+					division = "name = \"Bashkirskaya Strelkovaya Brigada\" division_template = \"Bashkirskaya Strelkovaya Brigada\" start_experience_factor = 0.6 start_equipment_factor = 1"
+					count = 2
+    				owner = RUS
+				}
+			}
+		add_political_power = -50
+	}
+	option = {  # set up a bashkir exile gov in federatio with RUS
+		name = rus.68.c
+		BSK = { 
+			651 = { set_state_owner_to = BSK }
+			651 = { 
+				remove_core_of = SOV
+				start_resistance = yes
+			}
+			IF = {
+				limit = { RUS = { has_war_with = SOV } }
+				declare_war_on = { target = SOV type = independence_wargoal }
+			}
+			#become_exiled_in = { target = RUS legitimacy = 50 }
+			add_ideas = RUS_national_exiles
+			division_template = {
+			    name = "Bashkirskaya Strelkovaya Brigada"
+			    division_names_group = RUS_INF_01
+			    #priority = 0
+			    regiments = {
+			        infantry = { x = 0 y = 0 }
+			        infantry = { x = 0 y = 1 }
+			        infantry = { x = 0 y = 2 }
+			        infantry = { x = 1 y = 0 }
+			        infantry = { x = 1 y = 1 }
+			        infantry = { x = 1 y = 2 }
+			    }
+			    support = {
+					engineer = { x = 0 y = 0 } 
+					artillery = { x = 0 y = 1 } 
+			    }
+			}
+			add_ideas = RUS_law_on_land
+        	add_ideas = RUS_law_on_volost_zemstvos
+        }
+		puppet = {
+		    target = BSK
+		    end_wars = no
+		}
+		random_state = {
+			limit = { RUS = { controls_state = PREV } }
+			prioritize = { 137 }
+			create_unit = {
+				division = "name = \"Bashkirskaya Strelkovaya Brigada\" division_template = \"Bashkirskaya Strelkovaya Brigada\" start_experience_factor = 0.6 start_equipment_factor = 1"
+				count = 3
+    			owner = BSK
+			}
+		}
+		add_political_power = -100
+			IF = { 
+				limit = { fascism > 0.9 }
+				add_stability = -0.1
+				add_political_power = -50
+			}
+		custom_effect_tooltip = RUS_limited_cooperation_with_mensheviks_ttp
+	}
+}
+
+country_event = { #karelian exiles
+	id = rus.69
+	title = rus.69.t
+	desc = rus.69.d
+
+	picture = GFX_report_event_FIN_heimosodat_volunteers
+	fire_only_once = no
+	is_triggered_only = yes
+
+	option = {  
+	# Just translators and limited recruitment, in exchange for resistance funding and political promises
+		name = rus.69.a
+		216 = { 
+			remove_core_of = SOV 
+			start_resistance = yes
+			force_enable_resistance = SOV
+			}
+		215 = { 
+			remove_core_of = SOV 
+			start_resistance = yes
+			force_enable_resistance = SOV
+			}
+		216 = { 
+			#add_ideas = RUS_resistance_funded
+		}
+		215 = { 
+			#add_ideas = RUS_resistance_funded
+		}
+		add_manpower = 1000
+		add_political_power = -25
+        #add_intel = {
+        #    target = SOV
+        #    civilian_intel = 1
+        #    army_intel = 1
+        #    navy_intel = 1
+        #    airforce_intel = 1
+        #}
+	}
+	option = {  # some autonomy in exchange for some units under russian control
+		name = rus.69.b
+			add_manpower = 10000
+			division_template = {
+			    name = "Karel'skaya Strelkovaya Brigada"
+			    division_names_group = RUS_INF_01
+			    priority = 2
+			    regiments = {
+			        light_infantry = { x = 0 y = 0 }
+			        light_infantry = { x = 0 y = 1 }
+			        light_infantry = { x = 1 y = 0 }
+			        light_infantry = { x = 1 y = 1 }
+			    }
+			    support = {
+					engineer = { x = 0 y = 0 } 
+					artillery = { x = 0 y = 1 } 
+					recon = { x = 0 y = 2 } 
+			    }
+			}
+			random_owned_controlled_state = {
+				limit = { ROOT = { controls_state = PREV } }
+				prioritize = { 137 }
+				create_unit = {
+					division = "name = \"Karel'skaya Strelkovaya Brigada\" division_template = \"Karel'skaya Strelkovaya Brigada\" start_experience_factor = 0.6 start_equipment_factor = 1"
+					count = 1
+    				owner = RUS
+				}
+			}
+		add_political_power = -50
+	}
+	option = {  # set up a bashkir exile gov in federatio with RUS
+		name = rus.69.c
+		KAR = { 
+			215 = { set_state_owner_to = KAR }
+			215 = { 
+				remove_core_of = SOV
+			}
+			216 = { set_state_owner_to = KAR }
+			216 = { 
+				remove_core_of = SOV
+			}
+			IF = {
+				limit = { RUS = { has_war_with = SOV } }
+				declare_war_on = { target = SOV type = independence_wargoal }
+			}
+			#become_exiled_in = { target = RUS legitimacy = 50 }
+			add_ideas = RUS_national_exiles
+			division_template = {
+			    name = "Karel'skaya Strelkovaya Brigada"
+			    division_names_group = RUS_INF_01
+			    priority = 2
+			    regiments = {
+			        light_infantry = { x = 0 y = 0 }
+			        light_infantry = { x = 0 y = 1 }
+			        light_infantry = { x = 0 y = 2 }
+			        light_infantry = { x = 1 y = 0 }
+			        light_infantry = { x = 1 y = 1 }
+			        light_infantry = { x = 1 y = 2 }
+			    }
+			    support = {
+					engineer = { x = 0 y = 0 } 
+					artillery = { x = 0 y = 1 } 
+					recon = { x = 0 y = 2 }
+			    }
+			}
+			add_ideas = RUS_law_on_land
+        	add_ideas = RUS_law_on_volost_zemstvos
+        }
+		puppet = {
+		    target = KAR
+		    end_wars = no
+		}
+		random_state = {
+			limit = { RUS = { controls_state = PREV } }
+			prioritize = { 137 }
+			create_unit = {
+				division = "name = \"Karel'skaya Strelkovaya Brigada\" division_template = \"Karel'skaya Strelkovaya Brigada\" start_experience_factor = 0.6 start_equipment_factor = 1"
+				count = 2
+    			owner = KAR
+			}
+		}
+		add_political_power = -100
+			IF = { 
+				limit = { fascism > 0.9 }
+				add_stability = -0.1
+				add_political_power = -50
+			}
+		custom_effect_tooltip = RUS_limited_cooperation_with_mensheviks_ttp
+	}
+}
+
+country_event = { #scrap a predreadnought
+	id = rus.70
+	title = rus.70.t
+	desc = rus.70.d
+
+	picture = GFX_report_event_sailors_in_working_rig
+	fire_only_once = no
+	is_triggered_only = yes
+
+	option = {  #scrap rostislav
+		name = rus.70.a
+		trigger = { has_country_flag = has_rostislav }
+		#set_country_flag = rostislav_scrapped
+		navy_experience = 5
+		add_political_power = -10
+		clr_country_flag = has_rostislav
+        137 = {
+            add_resource = {
+                type = steel
+                amount = 1
+            }
+        }
+        activate_decision = RUS_scrapping_a_predreadnought
+        country_event = rus.71
+	}
+	option = { #scrap tri
+		name = rus.70.b
+		trigger = { has_country_flag = has_tri }
+		#set_country_flag = tri_scrapped
+		navy_experience = 5
+		add_political_power = -10
+		clr_country_flag = has_tri
+        137 = {
+            add_resource = {
+                type = steel
+                amount = 1
+            }
+        }
+        activate_decision = RUS_scrapping_a_predreadnought
+        country_event = rus.71
+	}
+	option = {
+		name = rus.70.c #scrap dvenadsat
+		trigger = { has_country_flag = has_dvenadsat }
+		#set_country_flag = dvenadsat_scrapped
+		navy_experience = 5
+		add_political_power = -10
+		clr_country_flag = has_dvenadsat
+        137 = {
+            add_resource = {
+                type = steel
+                amount = 1
+            }
+        }
+        activate_decision = RUS_scrapping_a_predreadnought
+        country_event = rus.71
+	}
+	option = {
+		name = rus.70.e #scrap potemkin
+		trigger = { has_country_flag = has_potemkin }
+		#set_country_flag = potemkin_scrapped
+		navy_experience = 5
+		add_political_power = -10
+		clr_country_flag = has_potemkin
+        137 = {
+            add_resource = {
+                type = steel
+                amount = 1
+            }
+        }
+        activate_decision = RUS_scrapping_a_predreadnought
+        country_event = rus.71
+	}
+}
+
+country_event = { #what to do with battleship armament
+	id = rus.71
+	title = rus.71.t
+	desc = rus.71.d
+
+	picture = GFX_report_event_sailors_in_working_rig #change this
+	fire_only_once = no
+	is_triggered_only = yes
+
+	option = {  #just turn it into army field/heavy artillery
+		name = rus.71.a
+		ai_chance = {
+			base = 1
+		}
+        add_equipment_to_stockpile = {
+            type = artillery_equipment_1
+            amount = 15
+            producer = RUS
+        }
+        add_equipment_to_stockpile = {
+            type = anti_air_equipment_1
+            amount = 5
+            producer = RUS
+        }
+	}
+	option = { #mount it onto trains!
+		name = rus.71.b
+		ai_chance = {
+			base = 5
+			modifier = { has_country_flag = alr_got_railwaygun add = -4 }
+		}
+		trigger = { 
+			has_dlc = "No Step Back"
+			has_tech = armored_train
+			has_tech = railway_gun
+		}
+		create_railway_gun = {
+    		equipment = railway_gun_equipment_1
+			name = "305-mm Artilleriya Zheleznodorozhnogo Bronenostsa"
+			location = 3686
+		}
+		add_equipment_to_stockpile = {
+		    type = train_equipment_3
+		    amount = 5
+		    producer = RUS
+		}
+		set_country_flag = alr_got_railwaygun
+	}
+	option = {
+		name = rus.71.c #emplace it around Sevastopol
+		ai_chance = {
+			base = 15
+		}
+		trigger = { NOT = { has_country_flag = sevastopol_fortified } }
+		set_country_flag = sevastopol_fortified
+		if = {
+			limit = {
+				controls_province = 3686 #Sevastopol
+			}
+			137 = { #CRIMEA
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					province = 3686
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 3
+					province = 3686
+					instant_build = yes
+				}
+				add_dynamic_modifier = { modifier = SOV_armored_battery_35 scope = RUS }
+			}
+		}
+	}
+}
+
+country_event = { #event for FRA, RUS offers to sell them Potemkin
+	id = rus.72
+	title = rus.72.t
+	desc = rus.72.d
+
+	picture = GFX_report_event_sailors_in_working_rig #change this
+	fire_only_once = no
+	is_triggered_only = yes
+
+	#ideology triggers alr handled in the decision availability
+	option = { #buy the ship to make it a museum
+		name = rus.72.a
+		add_political_power = -25
+		add_timed_idea = {
+		    idea = RUS_purchased_a_predreadnought1
+		    days = 250
+		}
+		add_stability = 0.02
+		add_popularity = {
+			ideology = communism
+			popularity = 0.02
+		}
+        RUS = {
+            country_event = rus.73
+			add_political_power = 25
+			clr_country_flag = has_potemkin
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+			add_timed_idea = {
+			    idea = RUS_sold_a_predreadnought1
+			    days = 250
+			}
+        }
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = { #deny the sale (AI wont do this)
+		name = rus.72.b
+		ai_chance = {
+			base = 0
+		}
+		RUS = {
+            country_event = rus.74
+        }
+	}
+}
+
+country_event = { #event for RUS, FRA accepts
+	id = rus.73
+	title = rus.73.t
+	desc = rus.73.d
+
+	picture = GFX_report_event_sailors_in_working_rig #change this
+	fire_only_once = no
+	is_triggered_only = yes
+
+	option = { #Neat!
+		name = rus.73.a
+		effect_tooltip = {
+			FRA = {
+				add_political_power = -25
+				add_timed_idea = {
+				    idea = RUS_purchased_a_predreadnought1
+				    days = 250
+				}
+				add_stability = 0.02
+				add_popularity = {
+					ideology = communism
+					popularity = 0.02
+				}
+			}
+            country_event = rus.73
+			#add_political_power = 25
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+			clr_country_flag = has_potemkin
+			add_timed_idea = {
+			    idea = RUS_sold_a_predreadnought1
+			    days = 250
+			}
+        	add_equipment_to_stockpile = {
+        	    type = artillery_equipment_1
+        	    amount = 8
+        	    producer = RUS
+        	}
+        }
+	}
+}
+
+country_event = { #event for RUS, FRA does not accept
+	id = rus.74
+	title = rus.74.t
+	desc = rus.74.d
+
+	picture = GFX_report_event_sailors_in_working_rig #change this
+	fire_only_once = no
+	is_triggered_only = yes
+
+	option = { #darn
+		name = rus.74.a
+	}
+}
+
+country_event = { #activate a predreadnought
+	id = rus.75
+	title = rus.75.t
+	desc = rus.75.d
+
+	picture = GFX_report_event_sailors_in_working_rig
+	fire_only_once = no
+	is_triggered_only = yes
+
+	option = {  #activate rostislav
+		name = rus.75.a
+		trigger = { has_country_flag = has_rostislav }
+		clr_country_flag = has_rostislav
+		IF = {
+			limit = { has_dlc = "Man the Guns"}
+			add_equipment_production = {
+				equipment = {
+					type = ship_hull_pre_dreadnought
+					#creator = "ROOT"
+					version_name = "Potemkin-Evstafi class"
+				}
+				name = "Rostislav"
+				requested_factories = 1
+				progress = 0.7
+				amount = 1
+			}
+		}
+		IF = { 
+			limit = { 
+				NOT = { 
+					has_dlc = "Man the Guns" 
+				} 
+			}
+			FROM = {  
+				create_ship = { type = heavy_cruiser_1 name = "Rostislav" strength = 65 creator = ROOT }
+			}
+		}
+	}
+	option = { #activate tri
+		name = rus.75.b
+		trigger = { has_country_flag = has_tri }
+		clr_country_flag = has_tri
+		IF = {
+			limit = { has_dlc = "Man the Guns"}
+			add_equipment_production = {
+				equipment = {
+					type = ship_hull_pre_dreadnought
+					#creator = "ROOT"
+					version_name = "Potemkin-Evstafi class"
+				}
+				name = "Tri Sviatitelia"
+				requested_factories = 1
+				progress = 0.7
+				amount = 1
+			}
+		}
+		IF = { 
+			limit = { 
+				NOT = { 
+					has_dlc = "Man the Guns" 
+				} 
+			}
+			FROM = {  
+				create_ship = { type = heavy_cruiser_1 name = "Tri Sviatitelia" strength = 65 creator = ROOT }
+			}
+		}
+	}
+	option = {
+		name = rus.75.c #activate dvenadsat
+		trigger = { has_country_flag = has_dvenadsat }
+		clr_country_flag = has_dvenadsat
+		IF = {
+			limit = { has_dlc = "Man the Guns"}
+			add_equipment_production = {
+				equipment = {
+					type = ship_hull_pre_dreadnought
+					#creator = "ROOT"
+					version_name = "Potemkin-Evstafi class"
+				}
+				name = "Dvenadsat Apostolov"
+				requested_factories = 1
+				progress = 0.7
+				amount = 1
+			}
+		}
+		IF = { 
+			limit = { 
+				NOT = { 
+					has_dlc = "Man the Guns" 
+				} 
+			}
+			FROM = {  
+				create_ship = { type = heavy_cruiser_1 name = "Dvenadsat Apostolov" strength = 65 creator = ROOT }
+			}
+		}
+	}
+}
+
+country_event = { #army dilution
+	id = rus.76
+	title = rus.76.t
+	desc = rus.76.d
+
+	picture = GFX_report_event_chinese_army_training
+	fire_only_once = yes
+	is_triggered_only = no
+
+	trigger = {
+		tag = RUS
+		RUS = { 
+			has_completed_focus = RUS_the_army_of_wrangel 
+			has_army_manpower = {
+    			size > 499999
+			}
+		}
+	}
+
+	option = {  #ok
+		name = rus.76.a
+		add_to_variable = { RUS_russian_army_army_org_factor = -0.05 }
+		add_to_variable = { RUS_russian_army_experience_loss_factor = -0.10 }
+		custom_effect_tooltip = RUS_army_dilution_ttp
+	}
+}
+
+
+country_event = { #event for BLR, RUS proposes union state
+	id = rus.77
+	title = rus.77.t
+	desc = rus.77.d
+
+	picture = GFX_report_event_chinese_army_training
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #accept
+		name = rus.77.a
+		hidden_effect = {
+			RUS = {
+				puppet = {
+    				target = BLR
+    				end_wars = no
+				}
+			}
+		}
+		RUS = {
+			IF = {
+				limit = { has_dlc = "No Step Back" }
+				set_autonomy = { target = BLR autonomy_state = autonomy_personal_union }
+			}
+			ELSE = {
+				set_autonomy = { target = BLR autonomy_state = autonomy_integrated_puppet }
+			}
+		}
+		RUS = { country_event = rus.78 }
+		IF = {
+			limit = { NOT = { has_country_flag = BLR_rus_supports } }
+			custom_effect_tooltip = rus77ttp
+		}
+	}
+	option = { #deny
+		name = rus.77.a
+		trigger = { NOT = { has_country_flag = BLR_rus_supports } }
+		RUS = { country_event = rus.79 }
+	}
+}
+
+country_event = { #event for RUS, BLR accepts
+	id = rus.78
+	title = rus.78.t
+	desc = rus.78.d
+
+	picture = GFX_report_event_chinese_army_training
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #accept
+		name = rus.78.a
+		effect_tooltip = {
+			RUS = {
+				IF = {
+					limit = { has_dlc = "No Step Back" }
+					set_autonomy = { target = BLR autonomy_state = autonomy_personal_union }
+				}
+				ELSE = {
+					set_autonomy = { target = BLR autonomy_state = autonomy_integrated_puppet }
+				}
+			}
+		}
+		add_political_power = 25
+	}
+}
+
+country_event = { #event for RUS, BLR denies
+	id = rus.79
+	title = rus.79.t
+	desc = rus.79.d
+
+	picture = GFX_report_event_chinese_army_training
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #invade
+		name = rus.79.a
+		create_wargoal = {
+ 		  	type = annex_everything
+		    target = BLR
+		}
+	}
+	option = { #darn them
+		name = rus.79.b
+		trigger = {
+			RUS = {
+				AND = {
+					has_government = democratic
+					NOT = {
+						has_country_leader = {
+							character = RUS_pavel_milyukov
+							ruling_only = yes
+						}
+					}
+				}
+			}
+		}
+		add_political_power = -25
+	}
+}
+
+
+country_event = { #second russian civil war
+	id = rus.80
+	title = rus.80.t
+	desc = rus.80.d
+
+	picture = GFX_report_event_SOV_military_offensive
+	fire_only_once = yes
+	is_triggered_only = yes #no
+
+	#trigger = {
+	#	RUS = { has_war_with = SOV }
+	#	tag = RUS
+	#}
+
+	option = {  #ok
+		name = rus.80.a
+		effect_tooltip = {
+			add_ideas = RUS_second_russian_civil_war
+		}
+	}
+}
+
+country_event = { #post-cw wreckers
+	id = rus.81
+	title = rus.81.t
+	desc = rus.81.d
+
+	picture = GFX_report_event_tank_factory
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {  #state guard can fix this
+		name = rus.81.a
+		add_ideas = RUS_communist_wreckers
+	}
+}
+
+country_event = { #event for KUB, nationalist exiles return to RUS
+	id = rus.82
+	title = rus.82.t
+	desc = rus.82.d
+
+	picture = GFX_report_event_tur_soviets
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {  #huh ok
+		name = rus.82.a
+		effect_tooltip = {
+			RUS = { custom_effect_tooltip = RUS_invite_the_wrangel_opposition_ttp1 }
+		}
+		add_manpower = -2500
+	}
+}
+
+country_event = { #event for RUS, declare war on anarchists
+	id = rus.83
+	title = rus.83.t
+	desc = rus.83.d
+
+	picture = GFX_report_event_SOV_military_offensive
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {  #
+		name = rus.83.a
+		effect_tooltip = { #alr done in on action
+			every_other_country = { 
+				limit = {
+					original_tag = SOV
+					has_government = anarchism
+				}
+				RUS = {
+					#add_civil_war_target = PREV
+					declare_war_on = {
+					    target = PREV
+					    type = civil_war
+					}
+				}
+			}
+			every_other_country = { 
+				limit = {
+					original_tag = SOV
+					has_government = communism
+				}
+				RUS = {
+					#add_civil_war_target = PREV
+					declare_war_on = {
+					    target = PREV
+					    type = civil_war
+					}
+				}
+			}
+		}
+	}
+}
+
+
+######################################################################### troll with the tereks
+#defectors:
+#requires CAU to give up peacefully
+#CAU_nukh_bek_tarkovsky 
+#CAU_sultan_klych_girey if fascist
+
+country_event = { #RUS's event
+	id = rus.19
+	title = rus.19.t
+	desc = rus.19.d
+
+	picture = GFX_report_event_baltic_entente_one
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = { # demand anchluss (can merge with TER but TER only gains cores Dagestan). If denial can try Terek coup
+		name = rus.19.a
+		trigger = {
+			RUS = { has_completed_focus = RUS_russia_one_and_indivisible }
+		}
+		CAU = { country_event = rus.84 }
+		every_state = {
+			limit = {
+				is_owned_by = CAU
+			}
+			add_claim_by = RUS 
+		}
+		custom_effect_tooltip = rus19ttp1
+		ai_chance = {
+			base = 0
+            modifier = {
+            	RUS = { has_completed_focus = RUS_russia_one_and_indivisible }
+                add = 100
+            }
+        }
+	}
+	option = { # offer autonomy (puppet, can merge with TER)
+		name = rus.19.b
+		trigger = {
+			RUS = { has_completed_focus = RUS_united_front }
+		}
+		CAU = { country_event = rus.22 }
+		custom_effect_tooltip = rus19ttp2
+		ai_chance = {
+			base = 0
+            modifier = {
+            	RUS = { has_completed_focus = RUS_united_front }
+                add = 100
+            }
+        }
+	}
+	option = { # offer alliance (CAU can counter-off and only offer military access)
+		name = rus.19.c
+		trigger = {
+			RUS = { has_completed_focus = RUS_united_front }
+			always = no #not implemented yet
+		}
+		custom_effect_tooltip = rus19ttp3
+		ai_chance = {
+			base = 20
+            modifier = {
+            	RUS = { has_completed_focus = RUS_russia_one_and_indivisible }
+                add = -15
+            }
+        }
+	}
+	option = { # use the tereks to stage a coup and puppet - annexes CAU into TER and renames it Union of Highlanders. Only available if TER is a puppet of RUS.
+		name = rus.19.e
+		trigger = {
+			TER = { is_subject_of = RUS }
+		}
+		ai_chance = {
+            modifier = {
+           		factor = 60
+            }
+        }
+		random_list = {
+		    45 = {
+    			CAU = { country_event = rus.20 }  
+		    }
+		    55 = {
+				CAU = { country_event = rus.21 }
+		    }
+		}
+		custom_effect_tooltip = rus19ttp4
+	}
+}
+
+country_event = { #CAU's event. Terek successful. 
+	id = rus.20
+	title = rus.20.t
+	desc = rus.20.d
+
+	picture = GFX_report_event_bul_partisans_plovdiv
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #terek cossack coup successful
+		name = rus.20.a
+		ai_chance = {
+            modifier = {
+            factor = 100
+            }
+        }
+		add_stability = -50
+		add_manpower = -1000
+		add_equipment_to_stockpile = {
+    		type = infantry_equipment
+    		amount = -240
+    		producer = CAU
+		}
+		RUS = { country_event = rus.23 }
+	}
+}
+
+
+country_event = { #CAU's event. Terek coup failed. 
+	id = rus.21
+	title = rus.21.t
+	desc = rus.21.d
+
+	picture = GFX_report_event_chinese_soldiers_city_ruin
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #victory over the coup
+		name = rus.21.b
+		ai_chance = {
+            modifier = {
+            factor = 100
+            }
+        }
+		add_ideas = CAU_defense_of_the_nation
+		RUS = { country_event = rus.24 }
+		add_manpower = -1000
+		army_experience = 10
+		add_political_power = 100
+		add_war_support = 0.15
+		add_equipment_to_stockpile = {
+    		type = infantry_equipment
+    		amount = -120
+    		producer = CAU
+		}
+	}
+}
+
+country_event = { #CAU's event. RUS offers  autonomy
+	id = rus.22
+	title = rus.22.t
+	desc = rus.22.d
+
+	picture = GFX_report_event_generic_read_write
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #yeah sure sounds good
+		name = rus.22.a
+		ai_chance = {
+			base = 30
+            modifier = {
+				fighting_army_strength_ratio = {
+				    tag = RUS
+				    ratio > 3
+				}
+            	add = 120
+            }
+        }
+		RUS = { country_event = rus.25 }
+	}
+	option = { #idk bro maybe not
+		name = rus.22.b
+		ai_chance = {
+			base = 10
+        }
+		add_political_power = 50
+		RUS = { country_event = rus.26 }
+	}
+}
+country_event = { #RUS's event. Terek successful. 
+	id = rus.23
+	title = rus.23.t
+	desc = rus.23.d
+	picture = GFX_report_event_tur_ataturk_inonu_parliament
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #terek cossack coup successful
+		name = rus.23.a
+		ai_chance = {
+            modifier = {
+            factor = 100
+            }
+        }
+		add_political_power = 50
+		232 = { add_core_of = TER }
+		#the terek and dagestani authority was not accepted by the chechens, and most likely not by the karabins/etc
+		#821 = { add_core_of = TER }
+		#828 = { add_core_of = TER }
+		TER = { 
+			set_cosmetic_tag = TERCAU_RUS_puppet
+			add_political_power = 50
+			annex_country = {
+    			target = CAU
+    			transfer_troops = no
+			}
+		}
+	}
+}
+
+
+country_event = { #RUS's event. Terek coup failed. 
+	id = rus.24
+	title = rus.24.t
+	desc = rus.24.d
+
+	picture = GFX_report_event_chinese_soldiers_city_ruin
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #terek cossack coup L
+		name = rus.24.a
+		ai_chance = {
+            modifier = {
+            factor = 100
+            }
+        }
+		add_political_power = -50
+		add_stability = -0.05
+		create_wargoal = {
+			type = annex_everything
+			target = CAU
+			expire = 0
+			generator = { 0 }
+		}
+	}
+}
+
+country_event = { #RUS's event. CAU accepts 'protection' 
+	id = rus.25
+	title = rus.25.t
+	desc = rus.25.d
+
+	picture = GFX_report_event_hitler_handshake
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #
+		name = rus.25.a
+		ai_chance = {
+            modifier = {
+            	factor = 100
+            }
+        }
+		CAU = { give_resource_rights = { receiver = RUS state = 232 } }
+		RUS = { puppet = CAU }
+	}
+}
+
+country_event = { #RUS's event. CAU denies demands 
+	id = rus.26
+	title = rus.26.t
+	desc = rus.26.d
+
+	picture = GFX_report_event_spr_the_maquis
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #suck my bayonet
+		name = rus.26.a
+		ai_chance = {
+			base = 100
+        }
+		add_war_support = 0.05
+		every_state = {
+			limit = {
+				is_owned_by = CAU
+			}
+			add_claim_by = RUS 
+		}
+		create_wargoal = {
+			type = annex_everything
+			target = CAU
+			expire = 0
+			generator = { 0 }
+		}
+	}
+	option = { #we can't afford a war
+		name = rus.26.b
+		ai_chance = {
+			base = 10
+            modifier = {
+				fighting_army_strength_ratio = {
+				    tag = RUS
+				    ratio > 3
+				}
+            	add = 190
+            }
+        }
+		every_state = {
+			limit = {
+				is_owned_by = CAU
+			}
+			add_claim_by = RUS 
+		}
+		add_political_power = -25
+		add_war_support = -0.02
+	}
+}
+
+country_event = { #CAU's event, RUS demands anschluss
+	id = rus.84
+	title = rus.84.t
+	desc = rus.84.d
+
+	picture = GFX_report_event_spr_the_maquis
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #we accept
+		name = rus.84.a
+		RUS = { country_event = rus.85 }
+		ai_chance = {
+			base = 10
+            modifier = {
+				fighting_army_strength_ratio = {
+				    tag = RUS
+				    ratio > 3
+				}
+            	add = 120
+            }
+        }
+	}
+	option = { #we deny
+		name = rus.84.b
+		RUS = { country_event = rus.26 }
+		add_war_support = 0.05
+		ai_chance = {
+			base = 100
+        }
+	}
+}
+
+country_event = { #RUS's event, CAU accepts anschluss
+	id = rus.85
+	title = rus.85.t
+	desc = rus.85.d
+
+	picture = GFX_report_event_spr_the_maquis
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #neat
+		name = rus.85.a
+		annex_country = {
+    		target = CAU
+    		transfer_troops = no
+		}
+		every_state = {
+			limit = {
+				is_core_of = CAU
+				is_controlled_by = RUS
+			}
+			add_compliance = 25
+		}
+		CAU = { 
+			CAU_sultan_klych_girey = { set_nationality = RUS }
+			CAU_nukh_bek_tarkovsky = { set_nationality = RUS } 
+		}
+		ai_chance = {
+			base = 10
+        }
+	}
+}
+
+country_event = { #And Quiet Flows the Don finished
+	id = rus.86
+	title = rus.86.t
+	desc = rus.86.d
+
+	picture = GFX_RUS_event_picture_3
+    trigger = {
+		original_tag = RUS #important so that the event fires for RUS
+      	date > 1940.01.01
+    }
+	mean_time_to_happen = {
+	    days = 25
+	}
+	fire_only_once = yes
+	is_triggered_only = no
+
+	option = {  # interesting
+		name = rus.86.a
+		add_war_support = -0.01
+		add_stability = 0.01
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+
+country_event = { #Belarusian exiles
+	id = rus.87
+	title = rus.87.t
+	desc = rus.87.d
+
+	picture = GFX_report_event_FIN_heimosodat_volunteers
+	fire_only_once = no
+	is_triggered_only = yes
+
+	#cannot fund resistance as the code would be complicated + the civil war just crushed anyway so wouldnt make sense
+
+	option = {  # some autonomy in exchange for some units under russian control
+		name = rus.87.a
+			add_manpower = 35000
+			division_template = {
+			    name = "Belorusskaya Strelkovaya Brigada"
+			    division_names_group = BLR_INF_01
+			    priority = 1
+			    regiments = {
+			        infantry = { x = 0 y = 0 }
+			        infantry = { x = 0 y = 1 }
+			        infantry = { x = 0 y = 2 }
+			        infantry = { x = 1 y = 0 }
+			        infantry = { x = 1 y = 1 }
+			        infantry = { x = 1 y = 2 }
+			    }
+			    support = {
+					engineer = { x = 0 y = 0 } 
+					artillery = { x = 0 y = 1 } 
+					recon = { x = 0 y = 2 } 
+			    }
+			}
+			division_template = {
+			    name = "Belorusskaya Legkaya Pekhotnaya Brigada"
+			    division_names_group = BLR_INF_01
+			    priority = 2
+			    regiments = {
+			        light_infantry = { x = 0 y = 0 }
+			        light_infantry = { x = 0 y = 1 }
+			        light_infantry = { x = 0 y = 2 }
+			        light_infantry = { x = 1 y = 0 }
+			        light_infantry = { x = 1 y = 1 }
+			        light_infantry = { x = 1 y = 2 }
+			    }
+			    support = {
+					engineer = { x = 0 y = 0 } 
+					artillery = { x = 0 y = 1 } 
+					recon = { x = 0 y = 2 }
+			    }
+			}
+			random_owned_controlled_state = {
+				limit = { ROOT = { controls_state = PREV } }
+				prioritize = { 137 }
+				create_unit = {
+					division = "name = \"Belorusskaya Strelkovaya Brigada\" division_template = \"Belorusskaya Strelkovaya Brigada\" start_experience_factor = 0.6 start_equipment_factor = 0.5"
+					count = 2
+    				owner = RUS
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { ROOT = { controls_state = PREV } }
+				prioritize = { 137 }
+				create_unit = {
+					division = "name = \"Belorusskaya Legkaya Pekhotnaya Brigada\" division_template = \"Belorusskaya Legkaya Pekhotnaya Brigada\" start_experience_factor = 0.6 start_equipment_factor = 0.5"
+					count = 1
+    				owner = RUS
+				}
+			}
+			BLR = {
+				BLR_stanislaw_bulk = { 
+					set_nationality = RUS
+					demote_leader = yes
+				} 
+			}
+			#RUS = {	#might not be needed, will hold off on removing incase he needs to go back
+			#	remove_country_leader_role = {
+			#		character = BLR_stanislaw_bulk
+			#		ideology = liberalism
+			#	}
+			#	remove_country_leader_role = {
+			#		character = BLR_stanislaw_bulk
+			#		ideology = moderatism
+			#	}
+			#}
+			add_political_power = -50
+	}
+	option = {  # set up a Belarussian exile gov in federation with RUS
+		name = rus.87.b
+		RUS = { country_event = blr.22 }
+		BLR = { 
+			206 = {
+				set_state_owner_to = BLR
+			}
+			set_country_flag = BLR_rus_supports
+			#every_state = {
+			#	limit = {
+			#		is_core_of = BLR
+			#		OR = {
+			#			is_owned_by = SOV
+			#			is_owned_by = BYL
+			#		}
+			#	}
+			#	set_state_owner_to = BLR
+			#	remove_core_of = SOV
+			#}
+			IF = {
+				limit = { RUS = { has_war_with = SOV } }
+				declare_war_on = { target = SOV type = independence_wargoal }
+			}
+			IF = {
+				limit = { BYL = { exists = yes } }
+				declare_war_on = { target = BYL type = independence_wargoal }
+			}
+			#become_exiled_in = { target = RUS legitimacy = 50 }
+			add_ideas = RUS_national_exiles
+			division_template = {
+			    name = "Belorusskaya Strelkovaya Brigada"
+			    division_names_group = RUS_INF_01
+			    priority = 1
+			    regiments = {
+			        infantry = { x = 0 y = 0 }
+			        infantry = { x = 0 y = 1 }
+			        infantry = { x = 0 y = 2 }
+			        infantry = { x = 1 y = 0 }
+			        infantry = { x = 1 y = 1 }
+			        infantry = { x = 1 y = 2 }
+			    }
+			    support = {
+					engineer = { x = 0 y = 0 } 
+					artillery = { x = 0 y = 1 } 
+					recon = { x = 0 y = 2 }
+			    }
+			}
+			division_template = {
+			    name = "Belorusskaya Legkaya Pekhotnaya Brigada"
+			    division_names_group = RUS_INF_01
+			    priority = 2
+			    regiments = {
+			        light_infantry = { x = 0 y = 0 }
+			        light_infantry = { x = 0 y = 1 }
+			        light_infantry = { x = 0 y = 2 }
+			        light_infantry = { x = 1 y = 0 }
+			        light_infantry = { x = 1 y = 1 }
+			        light_infantry = { x = 1 y = 2 }
+			    }
+			    support = {
+					engineer = { x = 0 y = 0 } 
+					artillery = { x = 0 y = 1 } 
+					recon = { x = 0 y = 2 }
+			    }
+			}
+			add_ideas = RUS_law_on_land
+        	add_ideas = RUS_law_on_volost_zemstvos
+        	hidden_effect = {
+        		unlock_national_focus = BLR_liberation
+        		unlock_national_focus = BLR_smuggle_weapons_to_peasants
+        		unlock_national_focus = BLR_council_of_sluchchyna
+        		unlock_national_focus = BLR_intermarium_support
+        		unlock_national_focus = BLR_support_from_lithuania
+        		unlock_national_focus = BLR_secure_the_border_guard_corp
+        		unlock_national_focus = BLR_sabotage_communist_factories
+        		unlock_national_focus = BLR_out_of_the_shadows_and_into_the_light
+        		unlock_national_focus = BLR_belarusian_political_commitee
+        		unlock_national_focus = BLR_enlist_white_russians
+        	}
+        }
+		puppet = {
+		    target = BLR
+		    end_wars = no
+		}
+		random_state = {
+			limit = { RUS = { controls_state = PREV } }
+			prioritize = { 137 }
+			create_unit = {
+				division = "name = \"Belorusskaya Strelkovaya Brigada\" division_template = \"Belorusskaya Strelkovaya Brigada\" start_experience_factor = 0.6 start_equipment_factor = 1"
+				count = 4
+    			owner = BLR
+			}
+			create_unit = {
+				division = "name = \"Belorusskaya Legkaya Pekhotnaya Brigada\" division_template = \"Belorusskaya Legkaya Pekhotnaya Brigada\" start_experience_factor = 0.6 start_equipment_factor = 1"
+				count = 1
+    			owner = BLR
+			}
+		}
+		add_political_power = -100
+			IF = { 
+				limit = { fascism > 0.9 }
+				add_stability = -0.1
+				add_political_power = -50
+			}
+		custom_effect_tooltip = RUS_limited_cooperation_with_mensheviks_ttp
+	}
+}
+
+country_event = { #woes of unification
+	id = rus.88
+	title = rus.88.t
+	desc = rus.88.d
+
+	picture = GFX_report_event_generic_riot
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {  #
+		name = rus.88.a
+		add_stability = -0.25
+		add_war_support = -0.55
+		add_popularity = {
+			ideology = communism
+			popularity = 0.10
+		}
+		add_popularity = {
+			ideology = anarchism
+			popularity = 0.05
+		}
+		add_ideas = RUS_unreliable_conscripts
+            IF = {
+            	limit = {
+            		218 = { is_owned_and_controlled_by = RUS } 
+            	}
+            	218 = {
+            		force_enable_resistance = RUS
+            		start_resistance = yes
+            		add_resistance = 30
+            		add_compliance = 30
+            	}
+            }
+            IF = {
+            	limit = {
+            		195 = { is_owned_and_controlled_by = RUS }
+            	}
+            	195 = {
+            		force_enable_resistance = RUS
+            		start_resistance = yes
+            		add_resistance = 30
+            		add_compliance = 30
+            	}
+            }
+            IF = {
+            	limit = {
+            		253 = { is_owned_and_controlled_by = RUS }
+            	}
+            	253 = {
+            		force_enable_resistance = RUS
+            		start_resistance = yes
+            		add_resistance = 30
+            		add_compliance = 30
+            	}
+            }
+            IF = {
+            	limit = {
+            		223 = { is_owned_and_controlled_by = RUS }
+            	}
+            	223 = {
+            		force_enable_resistance = RUS
+            		start_resistance = yes
+            		add_resistance = 30
+            		add_compliance = 30
+            	}
+            }
+            IF = {
+            	limit = {
+            		252 = { is_owned_and_controlled_by = RUS }
+            	}
+            	252 = {
+            		force_enable_resistance = RUS
+            		start_resistance = yes
+            		add_resistance = 30
+            		add_compliance = 30
+            	}
+            }
+            IF = {
+            	limit = {
+            		653 = { is_owned_and_controlled_by = RUS }
+            	}
+            	653 = {
+            		force_enable_resistance = RUS
+            		start_resistance = yes
+            		add_resistance = 30
+            		add_compliance = 30
+            	}
+            }
+        custom_effect_tooltip = woes_resistance_ttp
+	}
+}
+
+country_event = { #Tula Arms Depot captured
+	id = rus.89
+	title = rus.89.t
+	desc = rus.89.d
+
+	picture = GFX_report_event_generic_rifles
+    trigger = { 
+		original_tag = RUS 
+		223 = {
+			controls_or_subject_of = yes
+		}
+    }
+	fire_only_once = yes
+	is_triggered_only = no
+
+	option = {  # 
+		name = rus.89.a
+		add_war_support = 0.01
+		add_command_power = -50
+			add_fuel = 5000
+            add_equipment_to_stockpile = {
+                type = infantry_equipment_0
+                amount = 5000
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = infantry_equipment_1
+                amount = 5000
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment_1
+                amount = 50
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment_1
+                amount = 200
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = motorized_equipment_1
+                amount = 50
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = train_equipment_1
+                amount = 10
+                producer = SOV
+            }
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "No Step Back"
+					}
+				}
+				add_equipment_to_stockpile = { type = light_tank_equipment_1 amount = 20 producer = SOV }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 20 producer = SOV variant_name = "T-26TU mod. 1933" }				
+			}
+            IF = {
+                limit = {
+                    has_dlc = "La Resistance"
+                }
+                add_equipment_to_stockpile = {
+                    type = gw_armored_car_equipment
+                    amount = 20
+                    producer = SOV
+                }
+            }
+		ai_chance = {
+			base = 1
+		}
+	}
+}

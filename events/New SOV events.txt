@@ -1,0 +1,590 @@
+add_namespace = newsov
+
+###COUNTRY EVENTS###
+country_event = { #Huge discontent in the south - set up regional republics for now?
+	id = newsov.1
+	title = newsov.1.t
+	desc = newsov.1.d
+	picture = GFX_report_event_gre_greek_cavalry
+	is_triggered_only = yes
+	fire_only_once = yes
+ 
+	option = { #it is the only choice we got - buys time against a white invasion of moscow
+		name = newsov.1.a
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+		trigger = {
+			always = no
+		}
+		add_stability = 0.05
+		add_political_power = 50
+		#Don Soviet Republic #915 218 918 245 265 238 914
+		IF = {
+			limit = {
+				218 = { is_owned_and_controlled_by = SOV } #rostov
+			}
+			218 = { 
+				remove_core_of = SOV
+				transfer_state_to = DON 
+			}
+		}
+		IF = {
+			limit = {
+				238 = { is_owned_and_controlled_by = SOV } #salsk
+			}
+			238 = { 
+				remove_core_of = SOV
+				transfer_state_to = DON 
+			}
+		}
+		IF = {
+			limit = {
+				265 = { is_owned_and_controlled_by = SOV }#mikhaylovka
+			}
+			265 = { 
+				remove_core_of = SOV
+				transfer_state_to = DON 
+			}
+		}
+		IF = {
+			limit = {
+				245 = { is_owned_and_controlled_by = SOV } #millerovo
+			}
+			245 = { 
+				remove_core_of = SOV
+				transfer_state_to = DON 
+			}
+		}
+		SOV = {
+			give_military_access = DON
+			diplomatic_relation = {
+				country = DON
+				relation = non_aggression_pact
+				active = yes
+			}
+		}
+		DON = {
+			give_military_access = SOV
+			add_ideas = cossack_isolated_from_moscow
+			load_oob = "DON_cossack_host" 
+			set_cosmetic_tag = SOV_puppet
+			}
+		#Terek Soviet Republic #235 925
+		IF = {
+			limit = {
+				235 = { is_owned_and_controlled_by = SOV } #stravropol
+			}
+			235 = { 
+				remove_core_of = SOV
+				transfer_state_to = TER 
+			}
+		}
+		#IF = {
+		#	limit = {
+		#		925 = { is_owned_and_controlled_by = SOV }
+		#	}
+		#	925 = { 
+		#		remove_core_of = SOV
+		#		transfer_state_to = TER 
+		#	}
+		#}
+		SOV = {
+			give_military_access = TER
+			diplomatic_relation = {
+				country = TER
+				relation = non_aggression_pact
+				active = yes
+			}
+		}
+		TER = { 
+			give_military_access = SOV
+			add_ideas = cossack_isolated_from_moscow
+			load_oob = "TER_1936" 
+			set_cosmetic_tag = SOV_puppet
+			}
+		#Kalmyk ASSR 237
+		IF = {
+			limit = {
+				237 = { is_owned_and_controlled_by = SOV } #kalmykia
+			}
+			237 = { 
+				remove_core_of = SOV
+				transfer_state_to = KAL 
+			}
+		}
+		SOV = {
+			give_military_access = KAL
+			diplomatic_relation = {
+				country = KAL
+				relation = non_aggression_pact
+				active = yes
+			}
+		}
+		KAL = { 
+			give_military_access = KAL
+			load_oob = "KAL_cossack_host" 
+			set_cosmetic_tag = SOV_puppet
+			}
+		#Astrakhan Soviet #236
+		IF = {
+			limit = {
+				236 = { is_owned_and_controlled_by = SOV } #Astrakhan
+			}
+			236 = { 
+				remove_core_of = SOV
+				transfer_state_to = ATR 
+			}
+		}
+		SOV = {
+			give_military_access = ATR
+			diplomatic_relation = {
+				country = ATR
+				relation = non_aggression_pact
+				active = yes
+			}
+		}
+		ATR = { 
+			give_military_access = SOV
+			add_ideas = cossack_isolated_from_moscow
+			load_oob = "ATR_1936" 
+			set_cosmetic_tag = SOV_puppet
+		}
+		set_country_flag = SKVO_exists
+		ai_chance = {
+            modifier = {
+            factor = 0
+            }
+        }
+	}
+	option = { #it is the only choice we got - buys time against a white invasion of moscow - but we will consolidate our holdings there.
+		name = newsov.1.b
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+		trigger = {
+			#always = no
+		}
+		add_stability = 0.05
+		add_political_power = 50
+		IF = {
+			limit = {
+				914 = { is_owned_and_controlled_by = SOV }
+			}
+			914 = { 
+				remove_core_of = SOV
+				transfer_state_to = DON 
+			}
+		}
+		IF = {
+			limit = {
+				915 = { is_owned_and_controlled_by = SOV }
+			}
+			915 = { 
+				remove_core_of = SOV
+				transfer_state_to = DON 
+			}
+		}
+		IF = {
+			limit = {
+				918 = { is_owned_and_controlled_by = SOV }
+			}
+			918 = { 
+				remove_core_of = SOV
+				transfer_state_to = DON 
+			}
+		}
+		IF = {
+			limit = {
+				218 = { is_owned_and_controlled_by = SOV }
+			}
+			218 = { 
+				remove_core_of = SOV
+				transfer_state_to = DON 
+			}
+		}
+		IF = {
+			limit = {
+				245 = { is_owned_and_controlled_by = SOV }
+			}
+			245 = { 
+				remove_core_of = SOV
+				transfer_state_to = DON 
+			}
+		}
+		IF = {
+			limit = {
+				265 = { is_owned_and_controlled_by = SOV }
+			}
+			265 = { 
+				remove_core_of = SOV
+				transfer_state_to = DON 
+			}
+		}
+		IF = {
+			limit = {
+				238 = { is_owned_and_controlled_by = SOV }
+			}
+			238 = { 
+				remove_core_of = SOV
+				transfer_state_to = DON 
+			}
+		}
+		SOV = {
+			give_military_access = DON
+			diplomatic_relation = {
+				country = DON
+				relation = non_aggression_pact
+				active = yes
+			}
+		}
+		DON = { 
+			load_oob = "DON_cossack_host" 
+			give_military_access = SOV
+			add_ideas = cossack_isolated_from_moscow
+			hidden_effect = { 
+				add_equipment_to_stockpile = { type = train_equipment amount = 5 producer = SOV } 
+			}
+		}
+		IF = {
+			limit = {
+				235 = { is_owned_and_controlled_by = SOV }
+			}
+			235 = { 
+				remove_core_of = SOV
+				transfer_state_to = ATR 
+			}
+		}
+		IF = {
+			limit = {
+				925 = { is_owned_and_controlled_by = SOV }
+			}
+			925 = { transfer_state_to = ATR }
+		}
+		IF = {
+			limit = {
+				237 = { is_owned_and_controlled_by = SOV }
+			}
+			237 = { 
+				remove_core_of = SOV
+				transfer_state_to = ATR 
+			}
+		}
+		IF = {
+			limit = {
+				236 = { is_owned_and_controlled_by = SOV }
+			}
+			236 = { 
+				remove_core_of = SOV
+				transfer_state_to = ATR 
+			}
+		}
+		IF = {
+			limit = {
+				406 = { is_owned_and_controlled_by = SOV }
+			}
+			406 = { 
+				remove_core_of = SOV
+				transfer_state_to = ATR 
+			}
+		}
+		IF = {
+			limit = {
+				407 = { is_owned_and_controlled_by = SOV }
+			}
+			407 = { 
+				remove_core_of = SOV
+				transfer_state_to = ATR 
+			}
+		}
+		235 = { 
+			#add_core_of = ATR 
+			add_compliance = 50
+			add_resistance = 15
+		}
+		237 = { 
+			#add_core_of = ATR 
+			add_compliance = 50
+			add_resistance = 15
+		}
+		406 = { 
+			#add_core_of = ATR 
+			add_compliance = 50
+			add_resistance = 15
+		}
+		407 = { 
+			#add_core_of = ATR 
+			add_compliance = 50
+			add_resistance = 15
+		}
+		set_country_flag = SKVO_exists
+		SOV = {
+			give_military_access = ATR
+			diplomatic_relation = {
+				country = ATR
+				relation = non_aggression_pact
+				active = yes
+			}
+		}
+		ATR = {
+			set_cosmetic_tag = skvo_tag
+			give_military_access = SOV
+			add_ideas = cossack_isolated_from_moscow
+			load_oob = "skvo_oob"
+			load_oob = "ATR_1936" 
+			remove_ideas = cossack_obsolete_army
+			add_ideas = SKVO_army
+			hidden_effect = { add_equipment_to_stockpile = { type = train_equipment amount = 10 producer = SOV } }
+			#add_equipment_to_stockpile = { type = infantry_equipment_0 amount = 2000 producer = SOV }
+		}
+		ai_chance = {
+            modifier = {
+            factor = 100
+            }
+        }
+	}
+	option = { #no. we must hold on! - causes uprisings, meant to be the objectively very bad option. 
+		name = newsov.1.c
+		add_popularity = {
+			ideology = communism
+			popularity = -0.1
+		}
+		trigger = {
+			always = no
+		}
+		every_state = {
+			limit = { 
+				OR = {
+				 is_core_of = KAL
+				 is_core_of = DON
+				 is_core_of = TER
+				 is_core_of = ATR
+				}
+				is_owned_and_controlled_by = SOV
+			}
+			remove_core_of = SOV
+			add_resistance = 65
+		}
+		add_stability = -0.15
+		add_war_support = -0.15
+		add_political_power = -250
+		ai_chance = {
+            modifier = {
+            factor = 0
+            }
+        }
+	}
+}
+country_event = { #major attack on rails & infrastructure
+	id = newsov.2
+	title = newsov.2.t
+	desc = newsov.2.d
+	picture = GFX_report_event_DEN_sabotage
+	is_triggered_only = yes
+	fire_only_once = no
+ 
+	option = { 
+		name = newsov.2.a #major attack on rails & infrastructure
+		random_state = {
+    		prioritize = { 219 223 254 257 258 222 260 220 } 
+			damage_building = {
+			    type = infrastructure
+			    damage = 1
+			}
+			damage_building = {
+			    type = rail_way
+			    damage = 1
+			}
+		}
+		add_stability = -0.025
+	}
+}
+
+country_event = {  #attack on factory
+	id = newsov.3
+	title = newsov.3.t
+	desc = newsov.3.d
+	picture = GFX_report_event_DEN_sabotage
+	is_triggered_only = yes
+	fire_only_once = no
+	option = {
+		name = newsov.3.a
+		random_state = {
+    		prioritize = { 219 223 195 217 252 } 
+			damage_building = {
+			    type = industrial_complex
+			    damage = 1
+			}
+			damage_building = {
+			    type = arms_factory
+			    damage = 1
+			}
+		}
+		add_stability = -0.025
+	}
+}
+
+country_event = { #attack on barracks
+	id = newsov.4
+	title = newsov.4.t
+	desc = newsov.4.d
+	picture = GFX_report_event_DEN_sabotage
+	is_triggered_only = yes
+	fire_only_once = no
+	option = { 
+		name = newsov.4.a #attack on barracks (rarer)
+			add_manpower = -51
+			add_stability = -0.01
+			add_war_support = -0.02
+			random_state = {
+    			prioritize = { 219 223 195 217 252 } 
+				damage_building = {
+				    type = supply_node
+				    damage = 1
+				}
+			}
+            add_equipment_to_stockpile = {
+                type = infantry_equipment_0
+                amount = -500
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment_1
+                amount = -10
+                producer = RUS
+            }
+		add_days_mission_timeout = {
+		    mission = SOV_anarchists_planning_attack
+		    days = -10
+		}
+		add_days_mission_timeout = {
+		    mission = SOV_impending_anarchist_uprising
+		    days = -10
+		}
+	}
+}
+
+country_event = { #attack foiled by NKVD
+	id = newsov.5
+	title = newsov.5.t
+	desc = newsov.5.d
+	picture = GFX_report_event_DEN_sabotage
+	is_triggered_only = yes
+	fire_only_once = no
+	option = { 
+		name = newsov.5.a #attack foiled by NKVD
+		add_stability = 0.025
+		add_political_power = 5
+		army_experience = 2
+		add_days_mission_timeout = {
+		    mission = SOV_anarchists_planning_attack
+		    days = 30
+		}
+		add_days_mission_timeout = {
+		    mission = SOV_impending_anarchist_uprising
+		    days = 30
+		}
+	}
+}
+
+country_event = { #dev event so non-ROOT anarchsit SOV gets troops
+	id = newsov.6
+	title = newsov.6.t
+	desc = newsov.6.d
+	picture = GFX_report_event_DEN_sabotage
+	is_triggered_only = yes
+	fire_only_once = no
+	option = { 
+		name = newsov.6.a 
+		division_template = {
+			name = "Chernaya Gvardeyskaya Militsiya"
+		    is_locked = yes
+		    division_cap = 48
+		    division_names_group = AFS_GAR_01
+		    priority = 0
+		    template_counter = 42
+		    regiments = {
+		        militia = { x = 0 y = 0 }
+		        militia = { x = 0 y = 1 }
+		        militia = { x = 0 y = 2 }
+		        light_infantry = { x = 1 y = 0 }
+		    }
+		    support = {
+		    }
+		}
+		random_owned_controlled_state = {
+        	limit = { ROOT = { controls_state = PREV } }
+        	prioritize = { 219 }
+        	create_unit = {
+            	division = "name = \"Chernaya Gvardeyskaya Militsiya\" division_template = \"Chernaya Gvardeyskaya Militsiya\" start_experience_factor = 0.6"
+            	count = 8
+            	owner = ROOT
+         	}
+     	}
+        random_owned_controlled_state = {
+            limit = { ROOT = { controls_state = PREV } }
+            prioritize = { 223 }
+            create_unit = {
+                division = "name = \"Chernaya Gvardeyskaya Militsiya\" division_template = \"Chernaya Gvardeyskaya Militsiya\" start_experience_factor = 0.2"
+                count = 5
+                owner = ROOT
+            }
+        }
+        random_owned_controlled_state = {
+            limit = { ROOT = { controls_state = PREV } }
+            prioritize = { 260 }
+            create_unit = {
+                division = "name = \"Chernaya Gvardeyskaya Militsiya\" division_template = \"Chernaya Gvardeyskaya Militsiya\" start_experience_factor = 0.2"
+                count = 3
+                owner = ROOT
+            }
+        }
+        random_owned_controlled_state = {
+            limit = { ROOT = { controls_state = PREV } }
+            prioritize = { 205 }
+            create_unit = {
+                division = "name = \"Chernaya Gvardeyskaya Militsiya\" division_template = \"Chernaya Gvardeyskaya Militsiya\" start_experience_factor = 0.2"
+                count = 5
+                owner = ROOT
+            }
+        }
+        random_owned_controlled_state = {
+            limit = { ROOT = { controls_state = PREV } }
+            prioritize = { 254 }
+            create_unit = {                 
+            	division = "name = \"Chernaya Gvardeyskaya Militsiya\" division_template = \"Chernaya Gvardeyskaya Militsiya\" start_experience_factor = 0.2"
+                count = 3
+                owner = ROOT
+            }
+        }
+        random_owned_controlled_state = {
+            limit = { ROOT = { controls_state = PREV } }
+            prioritize = { 255 }
+            create_unit = {
+                division = "name = \"Chernaya Gvardeyskaya Militsiya\" division_template = \"Chernaya Gvardeyskaya Militsiya\" start_experience_factor = 0.2"
+                count = 8
+                owner = ROOT
+            }
+        }
+        random_owned_controlled_state = {
+            limit = { ROOT = { controls_state = PREV } }
+            prioritize = { 239 }
+            create_unit = {
+                division = "name = \"Chernaya Gvardeyskaya Militsiya\" division_template = \"Chernaya Gvardeyskaya Militsiya\" start_experience_factor = 0.2"
+                count = 5
+                owner = ROOT
+            }
+        }
+        random_owned_controlled_state = {
+            limit = { ROOT = { controls_state = PREV } }
+            prioritize = { 257 }
+            create_unit = {
+                division = "name = \"Chernaya Gvardeyskaya Militsiya\" division_template = \"Chernaya Gvardeyskaya Militsiya\" start_experience_factor = 0.2"
+                count = 5
+                owner = ROOT
+            }
+        }
+	}
+}
