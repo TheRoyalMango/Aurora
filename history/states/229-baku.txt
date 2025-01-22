@@ -1,0 +1,56 @@
+state={
+	id=229
+	name="STATE_229"
+	resources={
+		oil=70 # was: 126.000
+	}
+
+	history={
+		owner = AZR
+		victory_points = {
+			7661 10 #beku
+		}
+		victory_points = {
+			11674 3 #ganju
+		}
+		victory_points = {
+			6763 2 #Zagatala
+		}
+		victory_points = {
+			9715 3 #Susha
+		}
+		victory_points = {
+			4545 1 #Quba
+		}
+		victory_points = {
+			4473 1 #Astara
+		}
+		victory_points = {
+			4477 1 #Agdash
+		}
+		victory_points = {
+			4614 1 #Shamakhi
+		}
+		buildings = {
+			infrastructure = 3
+			arms_factory = 2
+			industrial_complex = 2 #i would make it 4, but they get a shit load from exporting oil
+			fuel_silo = 1
+			air_base = 4
+			7661 = {
+				bunker = 2
+			}
+		}
+		add_core_of = AZR
+
+	}
+
+	provinces={
+		1467 1536 1539 1610 4458 4473 4477 4545 4614 6763 7495 7661 9715 11645 11674 11704 12434 
+	}
+	manpower=2881049
+	buildings_max_level_factor=1.000
+	state_category=large_town
+
+	local_supplies=7.0 
+}

@@ -1,0 +1,49 @@
+state={
+	id=230
+	name="STATE_230"
+
+	history={
+		owner = ARM
+		victory_points = {
+			12320 5 #Yerevan
+		}
+		victory_points = {
+			12441 3 #Gyumri
+		}
+		victory_points = {
+			12380 2 #Vanadzor
+		}
+		victory_points = {
+			3564 1 #Vagharshapat
+		}
+		victory_points = {
+			6642 1 #Kapan
+		}
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 2
+			air_base = 2
+			arms_factory = 1
+			12320 = {
+				bunker = 1 #forts built in the 20s-30s against turkey (ahist)
+			}
+			3564 = {
+				bunker = 1 #forts built in the 20s-30s against turkey (ahist)
+			}
+			12441 = {
+				bunker = 2 #the artillery workshop/fortress
+			}
+		}
+		add_core_of = ARM
+
+	}
+
+	provinces={
+		3564 4660 6642 6997 11708 12320 12380 12441 12450 13123 
+	}
+	manpower=1250082
+	buildings_max_level_factor=1.000
+	state_category=town
+
+	local_supplies=0.0 
+}

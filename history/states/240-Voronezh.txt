@@ -1,0 +1,32 @@
+
+state={
+	id=240
+	name="STATE_240" # Belgorod
+	manpower = 1364537
+	
+	state_category = town
+
+	history={
+		victory_points = {
+			9449 3
+		}
+		owner = UKR
+		buildings = {
+			infrastructure = 3 #was: 5
+			industrial_complex = 1
+		}
+		add_core_of = SOV
+		add_core_of = UKR
+		1939.1.1 = {
+			buildings = {
+				industrial_complex = 1
+			}
+		}
+	}
+
+	provinces={ #534 6577 sent to state 220. added 3469 11412 11475 from state 260
+		473 3469 3492 6432 6481 6517 9424 9449 9489 9518 11412 11439 11475 11500
+	}
+
+	local_supplies=0.0 
+}
