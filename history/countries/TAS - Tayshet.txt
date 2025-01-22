@@ -1,0 +1,67 @@
+﻿capital = 567
+
+oob = "TAS_1936"
+
+set_research_slots = 1
+
+add_manpower = 5000
+
+add_ideas = {
+	NFE_peasant_army
+	cossack_obsolete_army
+	neutrality_idea
+	closed_economy
+	isolation
+	NFE_peasant_militia_1
+	RUS_weak_industrial_base
+	NFE_peasant_republic_faction_member
+	NFE_peasant_republic
+}
+
+# Starting tech
+#if = {
+#	limit = { has_dlc = "By Blood Alone" }
+#		set_technology = {
+#			aa_lmg = 1
+#			#iw_small_airframe = 1
+#			#engines_1 = 1
+#			#early_bombs = 1
+#		}
+#	else = {
+#		set_technology = {
+#			early_fighter = 1
+#		}
+#	}
+#}
+# Starting tech
+set_technology = {
+	#basic_train = 1
+	infantry_weapons = 1
+	tech_support = 1		
+	tech_recon = 1
+	tech_mountaineers = 1
+	#gw_artillery = 1
+	#early_fighter = 1
+	tech_maintenance_company = 1
+}
+
+set_politics = {
+	ruling_party = anarchism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+set_popularities = {
+	democratic = 25
+	neutrality = 5
+	communism = 20
+	anarchism = 50
+	fascism = 0
+}
+
+recruit_character = TAS_anarchist_commune
+recruit_character = TAS_anarcho_commune
+recruit_character = TAS_elected_commune
+recruit_character = TAS_white_army_junta
+recruit_character = TAS_white_army_fascist_junta

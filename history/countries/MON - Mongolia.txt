@@ -1,0 +1,90 @@
+﻿capital = 330
+
+oob = "MON_1936"
+set_fuel_ratio = 0.1
+set_convoys = 0
+starting_train_buffer = 0
+set_stability = 0.30 #
+set_war_support = 0.35
+add_manpower = 10000
+add_ideas = {
+	MON_bogd_khan
+	#BYA_japanese_advisors
+	MON_nomadic
+	MON_japanese_railways_assistance
+	cossack_obsolete_army
+	RUS_weak_industrial_base
+	MON_asiatic_division
+}
+
+329 = {
+	start_resistance = yes
+	set_compliance = 35
+	set_resistance = 10
+	set_garrison_strength = 1.0
+}
+
+add_ideas = {
+	extensive_conscription
+	low_economic_mobilisation
+	limited_exports
+}
+give_military_access = JAP
+recruit_character = MON_roman_von_ungernsternberg
+recruit_character = MON_boris_rezukhin
+recruit_character = MON_andrey_bakich
+recruit_character = MON_mikhail_tornovsky #anti-fascist. could be part of an anti-sternburg path
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+	tech_support = 1		
+	tech_engineers = 1
+	tech_recon = 1
+	tech_mountaineers = 1
+	gw_artillery = 1
+	basic_train = 1
+	fuel_silos = 1
+	#tech_maintenance_company = 1
+	mobile_warfare = 1
+}
+
+add_equipment_to_stockpile = {
+	type = train_equipment
+	amount = 5
+	producer = JAP
+}
+
+
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+		set_air_oob = "MON_1936_air_bba"
+		set_technology = {
+			aa_lmg = 1
+			iw_small_airframe = 1
+			#iw_medium_airframe = 1
+			engines_1 = 1
+			#early_bombs = 1
+			#aircraft_construction = 1
+		}
+	else = {
+		set_air_oob = "MON_1936_air_legacy"
+		set_technology = {
+			early_fighter = 1
+		}
+	}
+}
+
+set_politics = {
+	ruling_party = fascism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	democratic = 15
+	fascism = 55
+	communism = 15
+	neutrality = 15
+}
+add_opinion_modifier = { target = SOV modifier = hostile_status }
+SOV = { add_opinion_modifier = { target = MON modifier = hostile_status } }

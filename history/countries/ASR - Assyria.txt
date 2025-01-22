@@ -1,0 +1,107 @@
+﻿capital = 352 #Hakkari
+
+#oob = "ASR_1936"
+
+add_manpower = 20000
+set_research_slots = 1
+set_fuel_ratio = 0.1
+set_stability = 0.25
+set_war_support = 0.35
+#set_convoys = 4
+starting_train_buffer = 1
+
+diplomatic_relation = {
+	country = ARM
+	relation = non_aggression_pact
+	active = yes
+}
+
+ARM = {
+	#give_military_access = ASR
+	#give_guarantee = ASR
+}
+
+add_ideas = {
+	cossack_obsolete_army
+	RUS_weak_industrial_base
+	ASR_support_of_the_church
+	ASR_kurdish_opposition
+	ASR_precarious_independence
+}
+
+add_ideas = {
+	extensive_conscription
+	partial_economic_mobilisation
+}
+
+recruit_character = ASY_shimun_xxi_eshai
+
+### Corps Commander
+recruit_character = ASY_dawid_mar_shimun
+recruit_character = ASY_agha_petros
+recruit_character = ASY_odisho_moshe
+
+### advisors
+recruit_character = ASY_mar_yosip_khnanisho
+recruit_character = ASY_malik_yosep_khoshaba
+recruit_character = ASY_surma_dbait_mar_shimun
+recruit_character = ASY_freydun_atturaya
+recruit_character = ASY_mar_zaya_sargis
+recruit_character = ASY_yaqo_dmalik_Ismael
+recruit_character = ASY_yusuf_malek
+recruit_character = ASY_malik_qambar
+recruit_character = ASY_allan_poland
+recruit_character = ASY_cosmo_moray_graham
+recruit_character = ASY_john_hugh_samuel_tyssen
+recruit_character = ASY_harry_george_smart
+recruit_character = ASY_shayin_giwargis_kikkeh
+recruit_character = ASY_yacob_khoshaba_aboona
+
+
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+		#set_air_oob = "ASR_1936_air_bba"
+		set_technology = {
+			aa_lmg = 1
+			#aa_cannon_1 = 1
+			iw_small_airframe = 1
+			#basic_small_airframe = 1
+			engines_1 = 1
+			#early_bombs = 1
+		}
+	else = {
+		#set_air_oob = "ASR_1936_air_legacy"
+		set_technology = {
+			early_fighter = 1
+			#early_bomber = 1
+			#CAS1 = 1
+		}
+	}
+}
+
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+	tech_support = 1		
+	tech_engineers = 1
+	tech_recon = 1
+	tech_mountaineers = 1
+	gw_artillery = 1
+	tech_maintenance_company = 1
+}
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+set_popularities = {
+	fascism = 20
+	democratic = 50
+	communism = 12
+	neutrality = 18
+}
+
+
