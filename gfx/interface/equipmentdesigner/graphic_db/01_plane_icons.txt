@@ -1,0 +1,94 @@
+
+RUS = {
+	small_plane_airframe = {
+		pool = {
+			icons = {
+				GFX_SOV_CAS3_medium
+				GFX_SOV_fighter3_medium
+				GFX_SOV_CAS2_medium
+				GFX_SOV_fighter2_medium
+				GFX_SOV_jet_plane_1_medium
+				GFX_SOV_rocket_plane_1_medium
+				GFX_SOV_jet_plane_2_medium
+				GFX_SOV_light_plane_5_medium
+				GFX_SOV_light_plane_4_medium
+				GFX_SOV_light_plane_3_medium
+				GFX_SOV_light_plane_2_medium
+				GFX_SOV_light_plane_1_medium
+				GFX_SOV_fighter1_medium
+				GFX_SOV_CAS1_medium
+				GFX_SOV_early_fighter_medium
+			}
+			models = {
+				SOV_light_plane_entity
+			}
+		}
+	}
+	cv_small_plane_airframe = {
+		pool = {
+			icons = {
+				GFX_SOV_CAS3_medium
+				GFX_SOV_fighter3_medium
+				GFX_SOV_jet_plane_1_medium
+				GFX_SOV_rocket_plane_1_medium
+				GFX_SOV_jet_plane_2_medium
+				GFX_SOV_CAS2_medium
+				GFX_SOV_fighter2_medium
+				GFX_SOV_light_plane_5_medium
+				GFX_SOV_light_plane_4_medium
+				GFX_SOV_light_plane_3_medium
+				GFX_SOV_light_plane_2_medium
+				GFX_SOV_light_plane_1_medium
+				GFX_SOV_fighter1_medium
+				GFX_SOV_CAS1_medium
+				GFX_SOV_early_fighter_medium
+			}
+			models = {
+				SOV_light_plane_entity
+			}
+		}
+	}
+	medium_plane_airframe = {
+		pool = {
+			icons = {
+				GFX_SOV_naval_bomber3_medium
+				GFX_SOV_naval_bomber2_medium
+				GFX_SOV_naval_bomber1_medium
+				GFX_SOV_jet_medium_plane_1_medium
+				GFX_SOV_tactical_bomber3_medium
+				GFX_SOV_heavy_fighter3_medium
+				GFX_SOV_tactical_bomber2_medium
+				GFX_SOV_medium_plane_1_medium
+				GFX_SOV_heavy_fighter2_medium
+				GFX_SOV_tactical_bomber1_medium
+				GFX_SOV_heavy_fighter1_medium
+				GFX_SOV_early_bomber_medium
+			}
+			models = {
+				SOV_medium_plane_entity
+			}
+		}
+		pool = {
+			limit = { has_dlc = "La Resistance"}
+			icons = {
+				GFX_SOV_scout_plane1_medium
+				GFX_SOV_scout_plane2_medium
+			}
+		}
+	}
+	large_plane_airframe = {
+		pool = {
+			icons = {
+				GFX_SOV_strategic_bomber3_medium
+				GFX_SOV_strategic_bomber2_medium
+				GFX_SOV_strategic_bomber1_medium
+				GFX_SOV_modern_large_airframe_medium
+				GFX_SOV_transport_plane_equipment_1_medium
+				GFX_SOV_heavy_plane_1_medium
+			}
+			models = {
+				SOV_heavy_plane_entity
+			}
+		}
+	}
+}
