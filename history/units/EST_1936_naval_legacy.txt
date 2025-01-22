@@ -1,0 +1,32 @@
+﻿units = {
+	fleet = {
+		name = "Merevägi"			
+		naval_base = 3152 # 	
+		task_force = {				
+			name = "Merevägi"
+			location = 3152		
+		} 			
+	}
+}
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = submarine_2
+			creator = "EST" 
+		}
+		name = "Kalev" 
+		requested_factories = 1
+		progress = 0.35
+		amount = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = submarine_2
+			creator = "EST" 
+		}
+		name = "Lembit" 
+		requested_factories = 1
+		progress = 0.35
+		amount = 1
+	}
+}

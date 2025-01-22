@@ -1,0 +1,12 @@
+﻿
+##### AIR WINGS #####
+air_wings = { 
+	230 = { 
+		small_plane_airframe_0 =  {
+			owner = "ARM" 
+			creator = "FRA"
+			amount = 12
+			version_name = "NiD 62"
+		}
+	}  
+} 

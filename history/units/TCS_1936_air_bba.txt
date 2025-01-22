@@ -1,0 +1,24 @@
+﻿
+##### AIR WINGS #####
+air_wings = { 
+	584 = { 
+		small_plane_airframe_0 =  {
+			owner = "TCS" 
+			creator = "ENG"
+			amount = 12
+			version_name = "Hawker Fury"
+		}
+		small_plane_airframe_0 =  {
+			owner = "TCS" 
+			creator = "TCS"
+			amount = 12
+			version_name = "Nieuport 28"
+		}
+		small_plane_cas_airframe_0 = {
+			owner = "TCS" 
+			amount = 12
+			creator = "ENG"
+			version_name = "Fairey Gordon"
+		}
+	}  
+} 

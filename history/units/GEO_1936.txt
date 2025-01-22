@@ -1,0 +1,259 @@
+﻿instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+		}
+		requested_factories = 1
+		progress = 0.82
+		efficiency = 100
+	}
+}
+
+division_template = { #people's guard 
+	name = "Sakhalkho Gvardia" 
+	division_names_group = GEO_GAR_01
+	template_counter = 3
+	is_locked = yes
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 0 y = 2 }
+		irregular_infantry = { x = 1 y = 0 }
+		irregular_infantry = { x = 1 y = 1 }
+		#add more battalions via focus
+		#add a cavalry via focus 
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+		#add armored cars and engineers via focus
+	}
+	priority = 2
+}
+division_template = {
+	name = "Mtielta P’olk’i" 
+	division_names_group = GEO_MTN_01
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+		recon = { x = 0 y = 1 } 
+	}
+}
+division_template = {
+	name = "Kveiti Divizia"
+	division_names_group = GEO_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_brigade = { x = 3 y = 0 }	
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		#artillery = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Tsikhis P’olk’i"
+	division_names_group = GEO_GAR_01
+	template_counter = 6
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	priority = 0
+}
+division_template = {
+	name = "Sak’avalerio P’olk’i"
+	division_names_group = GEO_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+	support = {
+		#artillery = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "Sak’avalerio Brigada"
+	division_names_group = GEO_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+		recon = { x = 0 y = 1 } 
+	}
+}
+
+units = {
+#wiki is unclear but from what i can tell
+
+#1919-1920 reorganization
+#0 briagdes (were consolidated into a divsion)
+#1 people's guard
+#1 divison
+#1 cav brigade
+#1 cav regiment
+#2 fortress regiments
+#3 artillery brigades (can be just support arty in other units)
+#"motor squadron with armored car detachment" (can just be tech)
+
+#After 1920 re-organization
+#1 sapper battalion
+#16 infantry battalions (1 army division and a regiment)
+#5 field artillery divisions, 
+#2 cavalry legions, 
+#2 motor squadrons with 
+# armored car detachments, 
+#an air detachment and 4 armored trains.
+# navy possessed 1 destroyer, 4 fighter aircraft, 4 torpedo boats, 4 mineboats, and 10 steamboats
+
+
+#
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 1530
+		division_template = "Sakhalkho Gvardia"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.5
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 4605
+		division_template = "Sakhalkho Gvardia"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 1599
+		division_template = "Sakhalkho Gvardia"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+		location = 1599
+		division_template = "Sakhalkho Gvardia"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	division = { #ahistorical
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 6669
+		division_template = "Mtielta P’olk’i"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.5
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 1599
+		division_template = "Kveiti Divizia"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+		force_equipment_variants = { infantry_equipment_0 = { owner = "ENG" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 3656
+		division_template = "Sakhalkho Gvardia"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+#	division = {
+#		division_name = {
+#			is_name_ordered = yes
+#			name_order = 1
+#		}
+#		location = 3656
+#		division_template = "Tsikhis P’olk’i"
+#		start_experience_factor = 0.3
+#		start_equipment_factor = 0.6
+#	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 772
+		division_template = "Tsikhis P’olk’i"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 1599
+		division_template = "Tsikhis P’olk’i"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 772
+		division_template = "Sak’avalerio P’olk’i"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7
+		force_equipment_variants = { infantry_equipment_0 = { owner = "FRA" } }
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 11617
+		division_template = "Sak’avalerio Brigada"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7
+	}
+}
+

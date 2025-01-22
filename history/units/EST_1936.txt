@@ -1,0 +1,240 @@
+﻿division_template = {
+	name = "Jalaväediviisi"				# Infantry Division	
+	division_names_group = EST_INF_01
+	# Note: Divisions were nowhere near full strength until mobilized
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 } 
+	}
+}
+
+division_template = {
+	name = "Kaitseliit"				# national guards
+	division_names_group = EST_GAR_01
+	# Note: Divisions were nowhere near full strength until mobilized
+	#is_locked = no
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		light_infantry = { x = 0 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 } 
+		engineer = { x = 0 y = 1 } 
+		recon = { x = 0 y = 2 } 
+		#Tallin had artillery, Saarema had cav recon, labor battalion, and hospital. 
+	}
+	priority = 0	
+}
+#i should add a system similar to Italy's irregulars where you can upgrade them to include more regiments (max of 3?) and support
+#should be like switzerland's militia where they can only be spawned if at war (or wargoal being justified/exists, etc)
+
+division_template = {
+	name = "Ratsavägi"			# Cavalry
+	division_names_group = EST_INF_01
+	# Note: Divisions were nowhere near full strength until mobilized
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 } 	
+		artillery = { x = 0 y = 1 } 
+	}
+	#priority = 0
+}
+
+units = {
+	######## LAND OOB ########
+	##### Eesti Ülemjuhatus #####
+	division = { # "I Jalaväediviisi"
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 3152
+		division_template = "Jalaväediviisi"
+		force_equipment_variants = { infantry_equipment_0 = { owner = "RUS" } }
+		force_equipment_variants = { artillery_equipment_1 = { owner = "RUS" } } #amount = x
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.5
+
+	}
+	division = { # "II Jalaväediviisi"
+		division_name = {
+				is_name_ordered = yes
+				name_order = 2
+		}
+		location = 4640
+		division_template = "Jalaväediviisi"
+		force_equipment_variants = { infantry_equipment_0 = { owner = "RUS" } }
+		force_equipment_variants = { artillery_equipment_1 = { owner = "RUS" } } #amount = x
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.5
+
+	}
+	division = { # "III Jalaväediviisi"
+		division_name = {
+				is_name_ordered = yes
+				name_order = 3
+		}
+		location = 6099
+		division_template = "Jalaväediviisi"
+		force_equipment_variants = { infantry_equipment_0 = { owner = "ENG" } }
+		force_equipment_variants = { artillery_equipment_1 = { owner = "ENG" } } #amount = x
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = {
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 11127
+		division_template = "Ratsavägi"
+		force_equipment_variants = { infantry_equipment_0 = { owner = "ENG" } }
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.45
+
+	}
+	
+	division = {
+		division_name = {
+				is_name_ordered = yes
+				name_order = 2
+		}
+		location = 592
+		division_template = "Ratsavägi"
+		force_equipment_variants = { infantry_equipment_0 = { owner = "EST" } }
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.35
+
+	}
+	division = {
+		division_name = {
+				is_name_ordered = yes
+				name_order = 3
+		}
+		location = 592
+		division_template = "Ratsavägi"
+		force_equipment_variants = { infantry_equipment_0 = { owner = "EST" } }
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.3
+	}
+	division = {
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 3152
+		division_template = "Kaitseliit"
+		force_equipment_variants = { infantry_equipment_0 = { owner = "EST" } }
+		force_equipment_variants = { support_equipment_1 = { owner = "EST" amount = 30 } }
+		force_equipment_variants = { artillery_equipment_1 = { owner = "EST" amount = 6 } }
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+				is_name_ordered = yes
+				name_order = 2
+		}
+		location = 185
+		division_template = "Kaitseliit"
+		force_equipment_variants = { infantry_equipment_0 = { owner = "EST" } }
+		force_equipment_variants = { support_equipment_1 = { owner = "EST" amount = 30 } }
+		force_equipment_variants = { artillery_equipment_1 = { owner = "EST" amount = 6 } }
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+				is_name_ordered = yes
+				name_order = 3
+		}
+		location = 3174
+		division_template = "Kaitseliit"
+		force_equipment_variants = { infantry_equipment_0 = { owner = "EST" } }
+		force_equipment_variants = { support_equipment_1 = { owner = "EST" amount = 0 } }
+		force_equipment_variants = { artillery_equipment_1 = { owner = "EST" amount = 0 } }
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+				is_name_ordered = yes
+				name_order = 4
+		}
+		location = 9221
+		division_template = "Kaitseliit"
+		force_equipment_variants = { infantry_equipment_0 = { owner = "EST" } }
+		force_equipment_variants = { support_equipment_1 = { owner = "EST" amount = 0 } }
+		force_equipment_variants = { artillery_equipment_1 = { owner = "EST" amount = 0 } }
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+				is_name_ordered = yes
+				name_order = 5
+		}
+		location = 592
+		division_template = "Kaitseliit"
+		force_equipment_variants = { infantry_equipment_0 = { owner = "EST" } }
+		force_equipment_variants = { support_equipment_1 = { owner = "EST" amount = 0 } }
+		force_equipment_variants = { artillery_equipment_1 = { owner = "EST" amount = 0 } }
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+				is_name_ordered = yes
+				name_order = 6
+		}
+		location = 11127
+		division_template = "Kaitseliit"
+		force_equipment_variants = { infantry_equipment_0 = { owner = "EST" } }
+		force_equipment_variants = { support_equipment_1 = { owner = "EST" amount = 0 } }
+		force_equipment_variants = { artillery_equipment_1 = { owner = "EST" amount = 0 } }
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+				is_name_ordered = yes
+				name_order = 7
+		}
+		location = 4640
+		division_template = "Kaitseliit"
+		force_equipment_variants = { infantry_equipment_0 = { owner = "EST" } }
+		force_equipment_variants = { support_equipment_1 = { owner = "EST" amount = 0 } }
+		force_equipment_variants = { artillery_equipment_1 = { owner = "EST" amount = 0 } }
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.6
+	}
+#removed 3 cav regiments vanilla had as they are a-historical. techn they should only have 2 but im keeping another since a 3rd did exist, it just was dissolved in 1920. but for balance, im re-solving it.
+}
+
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "EST"
+		}
+		requested_factories = 1
+		progress = 0.88
+		efficiency = 100
+	}
+}

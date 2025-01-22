@@ -1,0 +1,15 @@
+﻿
+air_wings = { 
+	821 = { 
+		fighter_equipment_0 = { 
+			amount = 24
+			owner = "CAU" 
+			creator = "ENG"
+		} 
+		#cas_equipment_1 = {
+		#	owner = "CAU" 
+		#	creator = "ENG"
+		#	amount = 12
+		#}
+	}  
+} 

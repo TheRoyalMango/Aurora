@@ -1,0 +1,28 @@
+﻿units = {
+	fleet = {
+		name = "Georgian Navy"			
+		naval_base = 3686 # 
+		task_force = {				
+			name = "Georgian Navy"
+			location = 11617 # 
+#DD
+			ship = { name = "Sukhumi" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = GEO } } }
+
+			ship = { name = "Oni" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = GEO } } }
+
+			ship = { name = "Gori" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = GEO } } }
+
+			ship = { name = "Sagarejo" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = GEO } } }
+		}	
+		task_force = {				
+			name = "Submarine Fleet"
+			location = 11617 # 
+			ship = { name = "Tevzi" definition = submarine equipment = { submarine_1 = { amount = 1 owner = GEO } } }
+
+			ship = { name = "Delpini" definition = submarine equipment = { submarine_1 = { amount = 1 owner = GEO } } }
+			
+		} 			
+	}
+}
+instant_effect = {
+}

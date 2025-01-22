@@ -1,0 +1,29 @@
+﻿
+air_wings = { 
+	202 = { 
+		fighter_equipment_0 = { 
+			amount = 50 
+			owner = "UKR" 
+			creator = "POL"
+		}
+		tac_bomber_equipment_0 = { 
+			amount = 15
+			owner = "UKR" 
+			creator = "UKR"
+		}
+	}
+	226 = {
+		fighter_equipment_0 = { 
+			amount = 24 
+			owner = "POL" 
+			creator = "POL"
+		} 		 
+	}
+	192 = {
+		nav_bomber_equipment_1 = {
+			owner = "UKR" 
+			creator = "FRA"
+			amount = 12
+		}
+	}  
+} 

@@ -1,0 +1,252 @@
+﻿division_template = {
+	name = "Pestininku Divizija"			# Infantry Division
+	division_names_group = LIT_INF_01
+	# Note: Divisions were nowhere near full strength until mobilized
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_brigade = { x = 3 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } ##Engineers from the technical group
+		anti_air = { x = 0 y = 1 } ##AA guns from the Anti-aircraft defense team
+	}
+}
+
+#division_template = {
+#	name = "Artilerija Divizija"			# Artillery Division
+#	division_names_group = LIT_INF_01
+#	# Note: Divisions were nowhere near full strength until mobilized
+#	regiments = {
+#		infantry = { x = 0 y = 0 }
+#		infantry = { x = 0 y = 1 }
+#		infantry = { x = 0 y = 2 }
+#		artillery_brigade = { x = 1 y = 0 }
+#		artillery_brigade = { x = 1 y = 1 }
+#		#artillery_brigade = { x = 1 y = 2 }
+#	}
+#	support = {
+#		#artillery = { x = 0 y = 0 }
+#	}
+#}
+
+division_template = {
+	name = "Valstybės Sienos Apsaugos Skyrius"			# Border guard
+	division_names_group = LIT_INF_01
+	# Note: Divisions were nowhere near full strength until mobilized
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 } 
+		#cavalry = { x = 1 y = 1 }
+	}
+	support = {
+	}
+	priority = 0
+}
+
+#division_template = {
+#	name = "Raitelių Pulkas"			# Cav and tanks combined for balance
+#	division_names_group = LIT_CAV_01
+#	regiments = {
+#		cavalry = { x = 0 y = 0 }
+#		cavalry = { x = 0 y = 1 }
+#		cavalry = { x = 0 y = 2 }
+#		motorized = { x = 1 y = 0 }
+#		mot_anti_air_brigade = { x = 1 y = 1 }
+#		light_armor = { x = 2 y = 0 }
+#	}
+#	support = {
+#	armored_car_recon = { x = 0 y = 0 }
+#	artillery = { x = 0 y = 1 }
+#	}
+#	#priority = 0
+#}
+
+division_template = {
+	name = "Raitelių Pulkas"			# Cav
+	division_names_group = LIT_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+	}
+	support = {
+	}
+	priority = 2
+}
+
+#division_template = {
+#	name = "Šarvuotų Komanda"			# tanks
+#	division_names_group = LIT_Arm_01
+#	regiments = {
+#		light_armor = { x = 0 y = 0 }
+#		motorized = { x = 0 y = 1 }
+#		motorized_aa = { x = 0 y = 2 }
+#	}
+#	support = {
+#	armored_car_recon = { x = 0 y = 0 }
+#	}
+#	priority = 0
+#}
+
+#Šarvuotų komanda
+units = {
+	######## LAND OOB ########
+	##### Lietuva Aukaèiausiosios Vadaviete #####
+	division = { # 
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 6296
+		division_template = "Raitelių Pulkas"
+		#force_equipment_variants = { infantry_equipment_0 = { owner = "LIT" } }
+		start_experience_factor = 0.4
+		start_equipment_factor = 1
+		#force_equipment_variants = { gw_armored_car_equipment = { owner = "GER" } }
+		#force_equipment_variants = { light_tank_chassis_0 = { owner = "FRA" version_name = "FT mod. 31" amount = 42 } }
+
+	}
+
+
+	division = { # "I. Divizija"
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 6296
+		division_template = "Pestininku Divizija"
+		#force_equipment_variants = { infantry_equipment_0 = { owner = "LIT" } }
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	division = { # "II. Divizija"
+		division_name = {
+				is_name_ordered = yes
+				name_order = 2
+		}
+		location = 6296
+		division_template = "Pestininku Divizija"
+		#force_equipment_variants = { infantry_equipment_0 = { owner = "LIT" } }
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	division = { # "III. Divizija"
+		division_name = {
+				is_name_ordered = yes
+				name_order = 3
+		}
+		location = 6296
+		division_template = "Pestininku Divizija"
+		#force_equipment_variants = { infantry_equipment_0 = { owner = "LIT" } }
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = { # "District Kaunas"
+		name = "District Kaunas"
+		location = 327
+		division_template = "Valstybės Sienos Apsaugos Skyrius"
+		force_equipment_variants = { infantry_equipment_0 = { owner = "LIT" } }
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = { # "District Utenos"
+		name = "District Utenos"
+		location = 6281
+		division_template = "Valstybės Sienos Apsaugos Skyrius"
+		force_equipment_variants = { infantry_equipment_0 = { owner = "LIT" } }
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = { # "District Telsiu"
+		name = "District Telsiu"
+		location = 9404
+		division_template = "Valstybės Sienos Apsaugos Skyrius"
+		force_equipment_variants = { infantry_equipment_0 = { owner = "LIT" } }
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = { # "District Taurage"
+		name = "District Taurage"
+		location = 11498
+		division_template = "Valstybės Sienos Apsaugos Skyrius"
+		force_equipment_variants = { infantry_equipment_0 = { owner = "LIT" } }
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+
+	}
+	
+	division = { # "District Klaipėda"
+		name = "District Klaipėda"
+		location = 3288
+		division_template = "Valstybės Sienos Apsaugos Skyrius"
+		force_equipment_variants = { infantry_equipment_0 = { owner = "LIT" } }
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+
+	}
+	
+#	division = { # "Artillery Division"
+#		division_name = {
+#				is_name_ordered = yes
+#				name_order = 1
+#		}
+#		location = 9483
+#		division_template = "Artilerija Divizija"
+#		force_equipment_variants = { infantry_equipment_0 = { owner = "LIT" } }
+#		start_experience_factor = 0.1
+#		start_equipment_factor = 0.2
+#
+#	}
+
+	##### No Naval OOB #####
+}
+
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "LIT"
+		}
+		requested_factories = 1
+		progress = 0.28
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_1
+			creator = "LIT"
+		}
+		requested_factories = 1
+		progress = 0.28
+		efficiency = 50
+	}
+#	add_equipment_production = {
+#		equipment = {
+#			type = fighter_equipment_0
+#			creator = "LIT"
+#		}
+#		requested_factories = 1
+#		progress = 0
+#		efficiency = 100
+#	}
+}

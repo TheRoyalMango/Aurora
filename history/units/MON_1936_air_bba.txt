@@ -1,0 +1,18 @@
+﻿
+##### AIR WINGS #####
+air_wings = { 
+	330 = { 
+		small_plane_airframe_0 =  {
+			owner = "MON" 
+			creator = "JAP"
+			amount = 30
+			version_name = "Ki-10"
+		}
+		medium_plane_airframe_0 = { 
+			owner = "MON" 
+			creator = "JAP"
+			amount = 20
+			version_name = "Ki-1"
+		}
+	}  
+} 

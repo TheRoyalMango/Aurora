@@ -1,0 +1,45 @@
+﻿units = {
+	fleet = {
+		name = "Arctic Ocean Flotilla"			
+		naval_base = 3134 # Murmansk
+		task_force = {				
+			name = "Main Battle Force"
+			location = 3134 # 	
+					
+			ship = { name = "Chesma" definition = battleship start_experience_factor = 0 equipment = { ship_hull_pre_dreadnought = { amount = 1 owner = MUR version_name = "Petropavlovsk class" } } }	
+
+			ship = { name = "Basisty" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = MUR version_name = "Kerch class" } } }
+
+			ship = { name = "Zhadny" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = MUR version_name = "Kerch class" } } }
+
+			ship = { name = "Veliky" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = MUR version_name = "Kerch class" } } }
+
+			ship = { name = "Admiralsky" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = MUR version_name = "Kerch class" } } }
+
+		}	
+		task_force = {				
+			name = "Submarine Fleet"
+			location = 3134 # 
+			ship = { name = "Luna" definition = submarine start_experience_factor = 0 equipment = { ship_hull_submarine_1 = { amount = 1 owner = MUR version_name = "AG class" } } }
+			
+		}
+		task_force = {				
+			name = "Auxilary Fleet"
+			location = 3134 # 
+			ship = { name = "Fevralsky" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = MUR version_name = "Auxilary Ship" } } }
+
+			ship = { name = "Razitelny" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = MUR version_name = "Auxilary Ship" } } }
+
+			ship = { name = "Neukrotimy" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = MUR version_name = "Auxilary Ship" } } }
+
+			ship = { name = "Geroysky" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = MUR version_name = "Auxilary Ship" } } }
+
+			ship = { name = "Pobedny" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = MUR version_name = "Auxilary Ship" } } }
+
+			ship = { name = "Ratny" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = MUR version_name = "Auxilary Ship" } } }
+			
+		}  			
+	}	
+}
+instant_effect = {
+}

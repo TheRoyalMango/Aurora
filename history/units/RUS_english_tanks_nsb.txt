@@ -1,0 +1,43 @@
+﻿
+division_template = {
+	name = "Experimental Mechanized Force"
+	priority = 2
+	division_names_group = RUS_ARM_01 
+					regiments = { ####all based on the historical british e.m.f
+						medium_armor = { x = 0 y = 0 } #5th Battalion RTC
+						light_armor = { x = 0 y = 1 } #Main Reconnaissance Group
+						#medium_sp_artillery_brigade = { x = 0 y = 2 }
+																		
+						#9th Field Brigade Royal Artillery 
+						mot_artillery_brigade = { x = 1 y = 0 } 
+						motorized = { x = 1 y = 1 } #2nd Battalion Cheshire Regiment 
+
+						light_infantry = { x = 2 y = 0 } #2nd Battalion Somerset Light Infantry
+
+					}
+					support = {
+						mot_recon = { x = 0 y = 0 } ##Flank Reconnaissance Group 
+						#^armored_car_recon removed cuz DLC
+						engineer = { x = 0 y = 1 } ##17th Field Company Royal
+						anti_air = { x = 0 y = 2 } ##birch guns aa effect is abstracted
+					}
+}
+
+units = {
+	##### Army #####
+	division= {	# "1st Infantry Regiment"
+		name = "Anglo-Russian Experimental Mechanized Force"
+		location = 3686 #sevastopol
+		division_template = "Experimental Mechanized Force"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1
+		force_equipment_variants = { medium_tank_chassis_0 = { owner = "ENG" version_name = "Medium Mk. II" } } 
+		force_equipment_variants = { light_tank_chassis_1 = { owner = "ENG" version_name = "Light Tank Mk. IV" } } 
+		force_equipment_variants = { gw_armored_car_equipment = { owner = "ENG" } } 
+		force_equipment_variants = { infantry_equipment_1 = { owner = "ENG" } } 
+		force_equipment_variants = { support_equipment_1 = { owner = "ENG" } } 
+		force_equipment_variants = { artillery_equipment_1 = { owner = "ENG" } } 
+		force_equipment_variants = { motorized_equipment_1 = { owner = "ENG" } } 
+		force_equipment_variants = { anti_air_equipment_1 = { owner = "ENG" } } 
+	}
+}

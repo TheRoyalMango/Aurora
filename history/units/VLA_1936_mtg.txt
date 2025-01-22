@@ -1,0 +1,42 @@
+﻿units = {
+	fleet = {
+		name = "Sibirskaya Voyennaya Flotiliya"			
+		naval_base = 957 # 
+		task_force = {				
+			name = "Sibirskaya Voyennaya Flotiliya"
+			location = 957 # 
+#BB					
+			ship = { name = "Retvizan" definition = battleship start_experience_factor = 0 equipment = { ship_hull_pre_dreadnought = { amount = 1 owner = VLA version_name = "Potemkin-Evstafi class" } } }
+
+			ship = { name = "Oryol" definition = battleship start_experience_factor = 0 equipment = { ship_hull_pre_dreadnought = { amount = 1 owner = VLA version_name = "Potemkin-Evstafi class" } } }
+#destroyers
+			ship = { name = "Tochny" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = VLA version_name = "Tverdy-class" } } }
+
+			ship = { name = "Trevozhny" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = VLA version_name = "Tverdy-class" } } }
+
+			ship = { name = "Tvyordy" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = VLA version_name = "Tverdy-class" } } }
+
+			ship = { name = "Mechanical Engineer Anastasov" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = VLA version_name = "Tverdy-class" } } }
+
+			ship = { name = "Lieutenant Maleev" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = VLA version_name = "Tverdy-class" } } }
+
+			ship = { name = "Bravy" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = VLA version_name = "Tverdy-class" } } }
+
+			ship = { name = "Bodry" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = VLA version_name = "Tverdy-class" } } }
+
+			ship = { name = "Boykiy" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = VLA version_name = "Tverdy-class" } } }
+
+			ship = { name = "Grozny" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = VLA version_name = "Tverdy-class" } } }
+
+			ship = { name = "Serdityy" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = VLA version_name = "Tverdy-class" } } }
+
+			ship = { name = "Skory" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = VLA version_name = "Tverdy-class" } } }
+
+			ship = { name = "Statnyy" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = VLA version_name = "Tverdy-class" } } }
+
+			ship = { name = "Smely" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = VLA version_name = "Tverdy-class" } } }
+		}	
+	}
+}
+instant_effect = {
+}

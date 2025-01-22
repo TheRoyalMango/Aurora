@@ -1,0 +1,43 @@
+﻿units = {
+	fleet = {
+		name = "Sibirskaya Voyennaya Flotiliya"			
+		naval_base = 957 # 
+		task_force = {				
+			name = "Sibirskaya Voyennaya Flotiliya"
+			location = 957 # 
+#BB					
+			ship = { name = "Retvizan" definition = heavy_cruiser  equipment = { heavy_cruiser_1 = { amount = 1 owner = RUS } } }		
+
+			ship = { name = "Oryol" definition = heavy_cruiser  equipment = { heavy_cruiser_1 = { amount = 1 owner = RUS } } }
+#DD
+			ship = { name = "Tochny" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = RUS } } }
+
+			ship = { name = "Trevozhny" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = RUS } } }
+
+			ship = { name = "Tvyordy" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = RUS } } }
+
+			ship = { name = "Mechanical Engineer Anastasov" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = RUS } } }
+			
+			ship = { name = "Lieutenant Maleev" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = RUS } } }
+
+			ship = { name = "Bravy" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = RUS } } }
+
+			ship = { name = "Bodry" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = RUS } } }
+
+			ship = { name = "Boykiy" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = RUS } } }
+
+			ship = { name = "Grozny" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = RUS } } }
+			
+			ship = { name = "Serdityy" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = RUS } } }
+
+			ship = { name = "Skory" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = RUS } } }
+
+			ship = { name = "Statnyy" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = RUS } } }
+
+			ship = { name = "Smely" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = RUS } } }
+		}	 			
+	}
+}
+instant_effect = {
+
+}

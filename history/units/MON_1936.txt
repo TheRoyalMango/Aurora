@@ -1,0 +1,231 @@
+﻿division_template = {
+	name = "Morin Tsergiin Brigad"
+
+	division_names_group = MON_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+	}
+}
+
+division_template = { #
+	name = "Konnaya Diviziya"  
+	division_names_group = RUS_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 2 y = 0 }
+		cavalry = { x = 3 y = 0 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 } 
+	}
+	priority = 2
+}
+division_template = { 
+	name = "Yavgan tsergiin deglem"
+	division_names_group = MON_GAR_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+
+	}
+	support = {
+		#engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 } 
+	}
+	priority = 0
+}
+
+division_template = {  #ahistorical. represents light infantry and such.
+	name = "Khöngön/Uulyn Yavgan Tsereg" 
+	division_names_group = RUS_MNT_01
+
+	regiments = { 
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 } 
+		mountaineers = { x = 0 y = 2 } 
+		light_infantry = { x = 1 y = 0 }
+	} 
+	support = { 
+		recon = { x = 0 y = 0 } 
+	} 
+	priority = 2
+} 
+
+division_template = {
+	name = "Togtmol Bus Yavgan Tsereg"		
+	division_names_group = RUS_GAR_01
+	is_locked = yes
+#	template_counter = 66
+	regiments = {
+		irregular_infantry = { x = 0 y = 0 }
+		irregular_infantry = { x = 0 y = 1 }
+		irregular_infantry = { x = 1 y = 0 }
+		irregular_infantry = { x = 1 y = 1 }
+	}
+	support = { 
+		recon = { x = 0 y = 0 } 
+	} 
+	priority = 0 
+}
+
+
+units = {
+	##### Asiatic Mounted Division #####
+	division = {
+		name = "Aziatskaya Konnaya Diviziya"
+		location = 4801
+		division_template = "Konnaya Diviziya"  
+		start_experience_factor = 0.7
+		start_equipment_factor = 1.0
+		force_equipment_variants = { infantry_equipment_1 = { owner = "JAP" } }
+		force_equipment_variants = { artillery_equipment_1 = { owner = "JAP" } }
+	}
+	division = {
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 7799
+		division_template = "Khöngön/Uulyn Yavgan Tsereg"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+		force_equipment_variants = { infantry_equipment_1 = { owner = "JAP" } }
+	}
+	division = {
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 12669
+		division_template = "Togtmol Bus Yavgan Tsereg"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 4858
+		division_template = "Togtmol Bus Yavgan Tsereg"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.8
+	}
+	##### Mongol Ardyn Armiin #####
+	division = {
+		#name = "1-r Morin Tsergiin Brigad"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 4801
+		division_template = "Morin Tsergiin Brigad"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+		force_equipment_variants = { infantry_equipment_0 = { owner = "JAP" } }
+	}
+	division = {
+		#name = "2-p Morin Tsergiin Brigad"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 7717 #border with BYA, under lake
+		division_template = "Morin Tsergiin Brigad"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+		force_equipment_variants = { infantry_equipment_0 = { owner = "JAP" } }
+	}
+	division = {
+		#name = "3-p Morin Tsergiin Brigad"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 12557
+		division_template = "Morin Tsergiin Brigad"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+	}
+	division = {
+		#name = "4-p Morin Tsergiin Brigad"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 12625 #Tayshet border
+		division_template = "Morin Tsergiin Brigad"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+	}
+	division = {
+		#name = "5-p Morin Tsergiin Brigad"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 5
+		}
+		location = 10627 #Kyzyl
+		division_template = "Morin Tsergiin Brigad"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+	}
+	division = {
+		name = "6-p Morin Tsergiin Brigad"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 6
+		}
+		location = 10575
+		division_template = "Morin Tsergiin Brigad"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+	}
+	division = {
+		name = "7-p Morin Tsergiin Brigad"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 7
+		}
+		location = 4856
+		division_template = "Morin Tsergiin Brigad"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+    
+	}
+
+	division = {
+		name = "8-p Morin Tsergiin Brigad"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 8
+		}
+		location = 7843 #ulaangom
+		division_template = "Morin Tsergiin Brigad"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+	}
+}
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "MON"
+		}
+		requested_factories = 1
+		progress = 0.20
+		efficiency = 50
+	}
+}

@@ -1,0 +1,11 @@
+﻿
+##### AIR WINGS #####
+air_wings = { 
+	230 = { 
+		fighter_equipment_0 = { 
+			amount = 12
+			owner = "ARM" 
+			creator = "FRA"
+		} 
+	}  
+} 

@@ -1,0 +1,269 @@
+division_template = {
+	name = "Pikhotna Diviziya"
+	division_names_group = UKR_INF_01	
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+	}
+}
+division_template = {
+	name = "Kavaleriyska Brihada" 
+	division_names_group = UKR_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }     
+	}
+}
+division_template = {
+	# based of Serduky divisions, 8 infantry regiments + 1 cav regiment + artillery and engineer support
+	name = "Serdutska Diviziya"
+	division_names_group = UKR_GAR_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+		cavalry = { x = 2 y = 0 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 } 
+	}
+}
+division_template = { # the numbers were hard to find out, so this template is an approximation
+	name = "Sichovi Striltsi"
+	division_names_group = UKR_INF_01
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 0 y = 2 }
+		light_infantry = { x = 0 y = 3 }
+		light_infantry = { x = 0 y = 4 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 } 
+	}
+	priority = 2 
+}
+division_template = { 
+	# fictional, but based on the socialist belief in people's militia's eventually replacing the army
+	# guard the smaller cities? maybe?
+	name = "Narodne Opolchennya"
+	division_names_group = UKR_INF_01
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	priority = 0 
+}
+division_template = {
+	# represents militarised police and border guard units to man the borders with the terrorists
+	name = "Militaryzovana Militseyska Brihada"
+	division_names_group = UKR_GAR_01
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+	}
+	support = {
+		military_police = { x = 0 y = 0 }
+	}
+	priority = 0
+}
+units = {
+	# Kyiv
+	division = {
+		name = "1a Serdutska Diviziya"
+		location = 525
+		division_template = "Serdutska Diviziya"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "2a Serdutska Diviziya"
+		location = 504
+		division_template = "Serdutska Diviziya"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+	# 3 real infantry divisions - scattered around the whole country, of course
+	division = {
+		name = "1a Pikhotna Diviziya"
+		location = 418 # Kharkiv
+		division_template = "Pikhotna Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "2a Pikhotna Diviziya"
+		location = 11670 # Odesa
+		division_template = "Pikhotna Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "3a Pikhotna Diviziya"
+		location = 11437 # Dnipro
+		division_template = "Pikhotna Diviziya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+	# 1 cavalry division in the west, 2 near the soviet border - just for good measure
+	division = {
+		name = "1a Kavaleriyska Brihada"
+		location = 476 # Vinnytsia
+		division_template = "Kavaleriyska Brihada"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+	}
+	division = {
+		name = "2a Kavaleriyska Brihada"
+		location = 9566 # Shostka
+		division_template = "Kavaleriyska Brihada"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+	}
+	division = {
+		name = "3a Kavaleriyska Brihada"
+		location = 3520 # Sumy
+		division_template = "Kavaleriyska Brihada"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+	}
+	# Sichovi Striltsi
+	division = {
+		name = "1yi Polk Sichovyh Striltsiv"
+		location = 3457
+		division_template = "Sichovi Striltsi"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "2yi Polk Sichovyh Striltsiv"
+		location = 9533
+		division_template = "Sichovi Striltsi"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "3yi Polk Sichovyh Striltsiv"
+		location = 6429
+		division_template = "Sichovi Striltsi"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "4yi Polk Sichovyh Striltsiv"
+		location = 9481
+		division_template = "Sichovi Striltsi"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.3
+	}
+	# Militarised Border Guard/Police Units
+	division = {
+		name = "1a Prykordonna Bryhada"
+		location = 741 # tiraspol
+		division_template = "Militaryzovana Militseyska Brihada"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.4
+	}
+	division = {
+		name = "2a Prykordonna Bryhada"
+		location = 9423 # airport on border with ROM
+		division_template = "Militaryzovana Militseyska Brihada"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.4
+	}
+	division = {
+		name = "3a Prykordonna Bryhada"
+		location = 546 # tile that borders the Reds near Chernihiv
+		division_template = "Militaryzovana Militseyska Brihada"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.4
+	}
+	division = {
+		name = "4a Prykordonna Bryhada"
+		location = 6565 # another border tile with the Soviets
+		division_template = "Militaryzovana Militseyska Brihada"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.4
+	}
+	# division on the border with DON and anarchists
+	division = {
+		name = "1a Voyenizovana Militseyska Bryhada"
+		location = 472
+		division_template = "Militaryzovana Militseyska Brihada"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.4
+	}
+	division = {
+		name = "2a Voyenizovana Militseyska Bryhada"
+		location = 6530
+		division_template = "Militaryzovana Militseyska Brihada"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.4
+	}
+	division = {
+		name = "3a Voyenizovana Militseyska Bryhada"
+		location = 767
+		division_template = "Militaryzovana Militseyska Brihada"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.4
+	}
+	# last and least - popular militia brigades
+	division = {
+		name = "1a Brihada Narodnoho Opolchennya"
+		location = 11561 # Kryvyi Rih
+		division_template = "Narodne Opolchennya"
+		start_experience_factor = 0
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "2a Brihada Narodnoho Opolchennya"
+		location = 488 #Cherkasy
+		division_template = "Narodne Opolchennya"
+		start_experience_factor = 0
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "3a Brihada Narodnoho Opolchennya"
+		location = 11504 #Poltava
+		division_template = "Narodne Opolchennya"
+		start_experience_factor = 0
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "4a Brihada Narodnoho Opolchennya"
+		location = 3757 # Balta
+		division_template = "Narodne Opolchennya"
+		start_experience_factor = 0
+		start_equipment_factor = 0.6
+	}
+}

@@ -1,0 +1,94 @@
+﻿division_template = { #
+	name = "Kavaleriyskaya Brigada"  
+	division_names_group = RUS_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+	}
+	support = { 
+		#recon = { x = 0 y = 0 } 
+	}
+}
+division_template = {  #
+	name = "Pekhotnyy Polk" 
+	division_names_group = RUS_INF_01
+
+	regiments = { 
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 } 
+		infantry = { x = 0 y = 2 } 
+		#infantry = { x = 0 y = 3 }
+		light_infantry = { x = 1 y = 0 }  
+	} 
+	support = { 
+		recon = { x = 0 y = 0 } 
+		#artillery = { x = 0 y = 0 } 
+	} 
+} 
+
+division_template = {
+	name = "Altayskiye Vooruzhennyye Formirovaniya"		
+	division_names_group = RUS_GAR_01
+	is_locked = yes
+#	template_counter = 66
+	regiments = {
+		irregular_infantry = { x = 0 y = 0 }
+		irregular_infantry = { x = 0 y = 1 }
+		irregular_infantry = { x = 1 y = 0 }
+		irregular_infantry = { x = 1 y = 1 }
+	}
+	support = { 
+		recon = { x = 0 y = 0 } 
+	} 
+	priority = 0 
+}
+
+
+units = {
+	division = {
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 10531 #afs border
+		division_template = "Pekhotnyy Polk"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+#	division = {
+#		division_name = {    # New syntax for compatibility with name lists
+#			is_name_ordered = yes
+#			name_order = 4
+#		}
+#		location = 10531 #afs border
+#		division_template = "Altayskiye Vooruzhennyye Formirovaniya"
+#		start_experience_factor = 0.1
+#		start_equipment_factor = 1.0
+#	}
+	division = {
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location =  10713 #sik border
+		division_template = "Altayskiye Vooruzhennyye Formirovaniya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Svodnyy Rossiysko-Inostrannyy Partizanskiy Otryad"
+		location = 4800 #capital
+		division_template = "Altayskiye Vooruzhennyye Formirovaniya"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Altayskaya Kavaleriyskaya Tuzemnaya Diviziya"
+		location = 4800 #capital
+		division_template = "Kavaleriyskaya Brigada"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+}

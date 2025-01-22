@@ -1,0 +1,24 @@
+﻿
+##### AIR WINGS #####
+air_wings = { 
+	229 = { 
+		small_plane_airframe_0 =  {
+			owner = "AZR" 
+			creator = "ENG"
+			amount = 24
+			version_name = "Hawker Fury"
+		}
+		small_plane_airframe_0 =  {
+			owner = "AZR" 
+			creator = "ITA"
+			amount = 24
+			version_name = "CR.32"
+		}
+		small_plane_cas_airframe_0 = {
+			owner = "AZR" 
+			amount = 24
+			creator = "ENG"
+			version_name = "Fairey Gordon"
+		}
+	}  
+} 

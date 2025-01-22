@@ -1,0 +1,57 @@
+﻿
+
+division_template = {   #based off of cossack brigades of the volunteer army.
+	name = "Cavalry Brigade"  
+	division_names_group = RUS_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+	support = {
+		#artillery = { x = 0 y = 0 } 
+	}
+}
+units = {
+	##### Army #####
+
+############################
+	division= {	# "1st cav Division"
+		name = "1st Terek Cossack Brigade"
+		location = 6701 #
+		division_template = "Cavalry Brigade" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.85
+		force_equipment_variants = { infantry_equipment_0 = { owner = "RUS" } }
+
+	}
+
+	division= {	# "1srt cav Division"
+		name = "2nd Terek Cossack Brigade"
+		location = 6701 # 
+		division_template = "Cavalry Brigade" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.85
+		force_equipment_variants = { infantry_equipment_0 = { owner = "RUS" } }
+
+	}
+
+	division= {	# "2nd cav Division"
+		name = "3rd Terek Cossack Brigade"
+		location = 3672 # 
+		division_template = "Cavalry Brigade" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.85
+		force_equipment_variants = { infantry_equipment_0 = { owner = "RUS" } }
+	}
+}
+##### AIR WINGS #####
+
+
+
+#########################
+## STARTING PRODUCTION ##
+#########################
+

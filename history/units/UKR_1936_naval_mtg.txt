@@ -1,0 +1,91 @@
+﻿units = {
+	fleet = {
+		name = "Black Sea Fleet"			
+		naval_base = 11683 # Odesa
+		task_force = {				
+			name = "First Brigade"
+			location = 11683 # 
+	#battleships and pre-deadnoughts				
+			ship = { name = "Soborna Ukraina" pride_of_the_fleet = yes definition = battleship start_experience_factor = 0.1 equipment = { ship_hull_heavy_1 = { amount = 1 owner = UKR version_name = "Soborna Ukraina class" } } }
+			ship = { name = "Imperatritsa Mariya" definition = battleship start_experience_factor = 0 equipment = { ship_hull_heavy_1 = { amount = 1 owner = UKR version_name = "Soborna Ukraina class" } } }	
+	#Heavy Cruisers
+			ship = { name = "Hetman Ivan Mazepa" definition = heavy_cruiser start_experience_factor = 0 equipment = { ship_hull_cruiser_1 = { amount = 1 owner = UKR version_name = "Bogatyr class" } } }
+	#Light Cruisers
+			ship = { name = "Hetman Bogdan Khmelnitsky" definition = light_cruiser start_experience_factor = 0 equipment = { ship_hull_cruiser_1 = { amount = 1 owner = UKR version_name = "Admiral Nakhimov-class" } } }
+			ship = { name = "Hetman Petro Doroshenko" definition = light_cruiser start_experience_factor = 0 equipment = { ship_hull_cruiser_1 = { amount = 1 owner = UKR version_name = "Admiral Nakhimov-class" } } }
+			ship = { name = "Hetman Petro Konashevich-Sagaidachny" definition = light_cruiser start_experience_factor = 0 equipment = { ship_hull_cruiser_1 = { amount = 1 owner = UKR version_name = "Admiral Nakhimov-class" } } }
+			ship = { name = "Taras Shevchenko" definition = light_cruiser start_experience_factor = 0 equipment = { ship_hull_cruiser_1 = { amount = 1 owner = UKR version_name = "Admiral Nakhimov-class" } } }
+	#Destroyers
+			ship = { name = "Kyiv" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = UKR version_name = "Kerch class" } } }
+			ship = { name = "Chigyrin" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = UKR version_name = "Kerch class" } } }
+			ship = { name = "Baturin" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = UKR version_name = "Kerch class" } } }
+			ship = { name = "Lviv" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = UKR version_name = "Kerch class" } } }
+			ship = { name = "Ivan Vyhovskyi" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = UKR version_name = "Kerch class" } } }
+			ship = { name = "Ivan Sirko" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = UKR version_name = "Kerch class" } } }
+			ship = { name = "Pylip Orlyk" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = UKR version_name = "Kerch class" } } }
+			ship = { name = "Kost Hordienko" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = UKR version_name = "Kerch class" } } }
+			ship = { name = "Martyn Nebaba" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = UKR version_name = "Kerch class" } } }
+			ship = { name = "Ivan Pidkova" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = UKR version_name = "Kerch class" } } }
+			ship = { name = "Bystry" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = UKR version_name = "Kerch class" } } }
+			ship = { name = "Fierce" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = UKR version_name = "Kerch class" } } }
+
+		}	
+		task_force = {				
+			name = "Submarine Fleet"
+			location = 3755 # 
+			ship = { name = "AG 21" definition = submarine start_experience_factor = 0 equipment = { ship_hull_submarine_1 = { amount = 1 owner = UKR version_name = "AG class" } } }
+			ship = { name = "AG 23" definition = submarine start_experience_factor = 0 equipment = { ship_hull_submarine_1 = { amount = 1 owner = UKR version_name = "AG class" } } }
+			ship = { name = "AG 24" definition = submarine start_experience_factor = 0 equipment = { ship_hull_submarine_1 = { amount = 1 owner = UKR version_name = "AG class" } } }
+			ship = { name = "AG 25" definition = submarine start_experience_factor = 0 equipment = { ship_hull_submarine_1 = { amount = 1 owner = UKR version_name = "AG class" } } }
+			ship = { name = "AG 26" definition = submarine start_experience_factor = 0 equipment = { ship_hull_submarine_1 = { amount = 1 owner = UKR version_name = "AG class" } } }
+			ship = { name = "Swan" definition = submarine start_experience_factor = 0 equipment = { ship_hull_submarine_1 = { amount = 1 owner = UKR version_name = "AG class" } } }
+			ship = { name = "Pelikan" definition = submarine start_experience_factor = 0 equipment = { ship_hull_submarine_1 = { amount = 1 owner = UKR version_name = "AG class" } } }
+			ship = { name = "Nerpa" definition = submarine start_experience_factor = 0 equipment = { ship_hull_submarine_1 = { amount = 1 owner = UKR version_name = "AG class" } } }
+		} 			
+	}
+	fleet = { 
+	name = "Reserve Fleet"
+	naval_base = 11670 # 
+			task_force = {				
+			name = "Second Brigade"
+			location = 11670 #
+			### Pantlelion ###			
+						
+			ship = { name = "Evstafi " definition = battleship start_experience_factor = 0 equipment = { ship_hull_pre_dreadnought = { amount = 1 owner = UKR version_name = "Potemkin-Evstafi class" } } }
+
+			ship = { name = "Ioann Zlatoust" definition = battleship start_experience_factor = 0 equipment = { ship_hull_pre_dreadnought = { amount = 1 owner = UKR version_name = "Potemkin-Evstafi class" } } }
+
+#
+			}
+		task_force = {				
+			name = "Auxilary Fleet"
+			location = 11670 # 
+			ship = { name = "Alexei" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = UKR version_name = "Auxilary Ship" } } }
+			ship = { name = "Georgiy" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = UKR version_name = "Auxilary Ship" } } }
+			ship = { name = "Danube" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = UKR version_name = "Auxilary Ship" } } }
+			ship = { name = "Konstantyn" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = UKR version_name = "Auxilary Ship" } } }
+			ship = { name = "Ksenia" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = UKR version_name = "Auxilary Ship" } } }
+			ship = { name = "Mina" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = UKR version_name = "Auxilary Ship" } } }
+			ship = { name = "Nikolai" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = UKR version_name = "Auxilary Ship" } } }
+			ship = { name = "Ayu-Dag" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = UKR version_name = "Auxilary Ship" } } }
+			ship = { name = "Brusylov" definition = destroyer start_experience_factor = 0 equipment = { ship_hull_light_1 = { amount = 1 owner = UKR version_name = "Auxilary Ship" } } }
+			
+		} 
+	}	
+}
+instant_effect = {
+
+	# Ship Production
+	# DD: Sitka class
+#	add_equipment_production = {
+#		equipment = {
+#			type = ship_hull_light_2
+#			creator = "UKR" 
+#			version_name = "Odesa class"
+#		}
+#		name = "Zhivoi II" 
+#		requested_factories = 1
+#		progress = 0.35
+#		amount = 1
+#	}
+}

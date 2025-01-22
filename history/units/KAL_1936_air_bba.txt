@@ -1,0 +1,12 @@
+﻿
+##### AIR WINGS #####
+air_wings = { 
+	237 = { 
+		small_plane_airframe_0 =  {
+			owner = "KAL" 
+			creator = "RUS"
+			amount = 5
+			version_name = "Nieuport 28"
+		}
+	}  
+} 
