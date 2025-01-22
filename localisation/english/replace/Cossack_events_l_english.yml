@@ -1,0 +1,44 @@
+﻿l_english:
+ ter.1.t:0 "Soviet Victory in the Third Caucasus War"
+ ter.2.t:0 "Soviet Defeat in the Third Caucasus War"
+ ter.3.t:0 "The End of the Third Caucasus War"
+
+ kal.1.t:0 "Kalmyk Emigrees Return Home"
+ kal.1.d:0 "At the end of the Russian Civil War, thousands of Kalmyks left Kalmykia and became refugees. With the fall of communism in Kalmykia, these Kalmyks are now able to return to their homes and live their lives free from Bolshevik repression."
+ kal.1.a:0 "Welcome home"
+
+ urc.1.t:0 "Ural Cossack Emigrees Return Home"
+ urc.1.d:0 "At the end of the Russian Civil War, thousands of Ural Cossacks left Ural Cossacks and became refugees. With the fall of communism in the Ural Cossack Host, these Cossacks are now able to return to their homes and live their lives free from Bolshevik repression."
+ urc.1.a:0 "Welcome home"
+
+ kub.1.t:0 "Cossack Uprising in the Kuban!"
+ kub.1.d:0 "With the uprising of the Black Guards in Moscow, the Kuban Cossacks have taken advantage of the chaos to attempt a re-establishment of their republic. Cossacks loyal to the Kuban People's Republic in exile have emerged from Georgia and begun an invasion of the region. Spurred on by their advance and Kuban Rada agitation, an uprising has also taken place in Yekaterinodar. The NKVD notes that while the White Russians are not yet involved, it is almost guaranteed they contact the Kuban Rada soon with offers to assist them and thus start a new White Russian southern front in Russia.\n \n We can always choose to withdrawl from the region and peacefully allow the Kuban to re-establish their state. This will buy us time to deal with the anarchists first, and if the Kuban Rada resists the White Russian overtures then they can act as a buffer co-belligerent."
+ kub.1.a:0 "Withdrawl to allow a Cossack takeover"
+ kub.1.b:0 "Resist the Kuban Cossacks"
+
+ kub.2.t:0 "Cossack Uprising in the Kuban!"
+ kub.2.d:0 "With the uprising of the Black Guards in Moscow, the Kuban Cossacks have taken advantage of the chaos to attempt a re-establishment of their republic. Cossacks loyal to the Kuban People's Republic in exile have emerged from Georgia and begun an invasion of the region. Spurred on by their advance and Kuban Rada agitation, an uprising has also taken place in Yekaterinodar. We note that while the White Russians are not yet involved, it is almost guaranteed they contact the Kuban Rada soon with offers to assist them and thus start a new White Russian southern front in Russia.\n \n Many in the Rada support sending military aid to the Kuban Cossacks, who many view themselves as Ukrainian. Establishment of a new Kuban Republic will not only bring out trade deals, but also weaken our Bolshevik neighbor and possibly open the opprotunity to federal integration of the Kuban in the future. \n \n If the White Russians turn towards a 'Russia One and Indivisible' approach to the Kuban, our arms will surely help the Cossacks resist a White Russian invasion."
+ kub.2.a:0 "Send them aid"
+ kub.2.b:0 "Reject any support for them"
+
+ kub.3.t:0 "Kuban Cossacks Propose a Trade Treaty"
+ kub.3.d:0 "With the re-establishment of the Kuban as an independent state, they have send a delegation to Ukraine to negotiate a trade deal with Ukraine. They wish to export certain agricultural & equestrian products in exchange for technical assistance alongside a general mutual free trade agreement."
+ kub.3.a:0 "Agree to the deal"
+ kub.3.b:0 "Reject the deal"
+
+ kub.4.t:0 "Ukraine Accepts the Trade Agreement!"
+ kub.4.d:0 "Ukraine has accepted our proposal for a trade agreement, boosting our technical base and economy."
+ kub.4.a:0 "Time to import some borscht"
+
+ kub.5.t:0 "Ukraine Rejects the Trade Agreement!"
+ kub.5.d:0 "Ukraine has reject our proposal for a trade agreement. Despite our cultural ties, it appears the political differences and geopolitical situation were too important."
+ kub.5.a:0 "No borscht imports then"
+
+ kub.6.t:0 "Kuban Cossacks Offer Peace!"
+ kub.6.d:0 "With the storming of Yekaterinodar, the Kuban Cossacks have offered a cease-fire. They demand that we recognize the new Kuban Republic, cease combat against them, and withdrawl our troops. With their capital under their control, they appear confident enough in their position to make these demands. If we do not accept their demands, the war will continue."
+ kub.6.a:0 "We must accept"
+ kub.6.b:0 "Continue the struggle"
+
+ KAL_neutrality_party:0 "KTT"
+ KAL_neutrality_party_long:0 "Khalmg Tangchin Tuk" #Banner of the Kalmyk people
+ 

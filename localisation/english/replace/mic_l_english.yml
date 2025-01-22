@@ -1,0 +1,14 @@
+﻿l_english:
+ unequal_intermarium_partner:0 "Unequal Intermarium Partner"
+ anarchism_noun:0 "Anarchism"
+ communist_anarchism_desc:0 "Anarchism is a radical ideology that champions a stateless society built on voluntary cooperation, rejecting all forms of hierarchy and oppression."
+ syndicalism_desc:0 "Anarchism is a radical ideology that champions a stateless society built on voluntary cooperation, rejecting all forms of hierarchy and oppression."
+ individualist_anarchism_desc:0 "Anarchism is a radical ideology that champions a stateless society built on voluntary cooperation, rejecting all forms of hierarchy and oppression."
+ synthesis_anarchism_desc:0 "Anarchism is a radical ideology that champions a stateless society built on voluntary cooperation, rejecting all forms of hierarchy and oppression."
+ #unlocalized in vanilla:
+ maintenance_company_tech:0 "Maintenance Company Technology"
+ cat_anti_air_research:0 "Anti-Air Research Speed"
+ #excavation_tech:0 "Excavation Technology"
+  tactic_guerrilla_tactics_preferred_weight_factor:0 "Additional §YGuerilla Tactics§! Tactic Chance if it is Preferred tactic:"
+  anarchism_acceptance:0 "Anarchism Acceptance"
+  anarchism_drift:0 "Anarchism Drift"

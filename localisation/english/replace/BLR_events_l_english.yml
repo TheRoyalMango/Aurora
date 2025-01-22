@@ -1,0 +1,171 @@
+﻿l_english:
+ blr.1.t:0 "Belrussian Civil War!"
+ blr.1.d:0 "Using Ukraine and Poland as a safe haven, Belarusian democratic forces have been propogating and preparing for an uprising ever since the end of the Polish-Soviet War. Now with the stability of the political situation in Moscow at an all time low, everyday Belarusians have risen up against Minsk following a call to arms by General Stanisław Bułak-Bałachowicz. The uprising was well timed, as it came before a crack-down on anti-communists that was being planned. The entire western half of the nation has rallied to our side, and Belarusians from northern Ukraine crossed the border and captured Homiel. \n\n We have failed to capture or turn any elements of the airforce or Soviet-equipped infantry divisions and tank brigade. Homiel has come under almost immediate siege, and only remains supplied via the Pripyat and Dniepr rivers, unless we gain military access from Ukraine to move supplies via their rail network. With the majority of the military and arms industry in communist hands, securing foreign arms will be essential."
+ blr.1.a:0 "Liberation Is in Our Grasp"
+
+ blr.99.t:0 "Byelorussian Civil War!"
+ blr.99.d:0 "Balls!"
+ blr.99.a:0 "Mobilize the Armed Forces!"
+
+ blr.2.t:0 "Belarusian Rada Wants Reassurances"
+ blr.2.d:0 "Poland throughout the 1920s and 1930s has sheltered Belarusian anti-communists and allowed them to operate freely in the east of country, organizing militias for an eventual liberation of Belarus. Now it appears they feel ready to strike and have asked our government to donate weapons to their cause in order to arm their underground forces. \n While sending the arms could be a good way to weaken a hostile communist neighbor, some members of our military believe the threat of Germany requires every weapon possible to stay in the country. Acceptance of this request will allow the Belarusian Rada to conduct further diplomacy with us in the future."
+ blr.2.a:0 "Agree to donate weapons"
+ blr.2.b:0 "We have our own problems"
+
+ blr.3.t:0 "Poland Will Not Support"
+ blr.3.d:0 "Poland has expressed that they cannot donate weapons to our cause at this time. They cite the growing threat of Germany on their border and increasing security needs."
+ blr.3.a:0 "This is unfortunate"
+
+ blr.4.t:0 "Poland Will Support"
+ blr.4.d:0 "Poland has agreed to donate weapons to our cause! Belarusian anti-communists in Eastern Poland have recieved the weapons, and begun transfering them to underground groups in Hrodna and Pisnk in preparation of our uprising."
+ blr.4.a:0 "Like Poland, Belarus is not yet lost!"
+
+ blr.5.t:0 "Belarus Wants Reassurances"
+ blr.5.d:0 "Ukraine throughout the 1920s and 1930s has sheltered Belarusian anti-communists and allowed them to operate freely in the north of country, organizing militias for an eventual liberation of Belarus. Now it appears they feel ready to strike and have asked our government to donate weapons to their cause in order to arm their underground forces. \n While sending the arms could be a good way to weaken a hostile communist neighbor, some members of our military believe our volatile political situation requires every weapon possible to stay in the country. Acceptance of this request will allow the Belarusian Rada to conduct further diplomacy with us in the future."
+ blr.5.a:0 "Agree to donate weapons"
+ blr.5.b:0 "We have our own problems"
+
+ blr.6.t:0 "Ukraine Will Not Support"
+ blr.6.d:0 "Ukraine has expressed that they cannot donate weapons to our cause at this time. They cite the increasingly volatile political situation in their country and the threat of Moscow on their border. Honestly we can hardly blame them, but we really needed those rifles."
+ blr.6.a:0 "We will need to manage without them"
+
+ blr.7.t:0 "Ukraine Will Support"
+ blr.7.d:0 "Ukraine has agreed to donate weapons to our cause! Belarusian anti-communists in Northern Ukraine have recieved the weapons, and begun transfering them to underground groups in Mazyr and Homiel in preparation of our uprising."
+ blr.7.a:0 "Slava Ukraini!"
+
+ blr.8.t:0 "" #old LIT-BLR border war event. now defunct
+ blr.8.d:0 ""
+ blr.8.a:0 ""
+
+ blr.13.t:0 "Poles Rise up in Vilnius!"
+ blr.13.d:0 "Byelorussia has occupied our capital since the end of the Polish-Soviet war, but this has not stopped the people of Vilnius from fighting for their freedom. Both Polish and Lithuanian partisans worked to weaken the Byelorussian occupation, but for different reasons. Lithuanians want the city for Lithuania, and Poland wants it for Poland. Additionally, Byelorussian NKVD black propoganda and the poor Lithuanian-Polish relations mean the partisans did not work together at all. \n Now, it appears the Byelorussian grip on the city has finally given away with the start of their civil war, but the stronger Polish partisans have seized the city and declared their intent to merge with Poland. The international community supports us though, and Poland has been forced to remain uninvolved. We do not believe Poland will intervene for at least a year if we choose to invade the city and reclaim our capital."
+ blr.13.a:0 "March to liberate Vilnius"
+ blr.13.b:0 "We aren't ready"
+
+ blr.16.t:0 "Diplomatic Mission From [BLR.GetNameDefCap]!"
+ blr.16.d:0 "The Rada of the BNR (the anti-communist faction of the Belarusian Civil War) has sent us a diplomatic mission! They request for Lithuania to recognize their government as legitimate and lay the groundwork for a future alliance. If we agree, the Belarusians offer to rescind their claim on Vilnius. A small number of Lithuanians may volunteer for [BLR.GetNameDefCap]'s militias anyway if we refuse their diplomatic mission."
+ blr.16.a:0 "Democracy in Belarus is essential to us"
+ blr.16.b:0 "We'd rather not tie ourselves to you"
+
+ blr.17.t:0 "Lithuania Recognizes Our Government!"
+ blr.17.d:0 ""
+ blr.17.a:0 "The future is ours!"
+
+ blr.18.t:0 "Lithuania Rejects Our Delegation"
+ blr.18.d:0 "Some noble Lithuanians who disagree with their government's descision have joined our militias anyways."
+ blr.18.a:0 "Disapointing"
+
+ blr.19.t:0 "[BLR.GetNameDefCap] Invites a Polish General Staff!"
+ blr.19.d:0 "With the pro-Polish BPK gaining authority over the BNR Rada, they have convinced the Rada to approve a request to Poland for military aid. They request a strong military mission from Poland led by a Polish general staff, along with the ability to bring in further Polish aid. If we accept, Belarus will come into our sphere of influence as they increasingly rely on us."
+ blr.19.a:0 "Belarus could be an asset"
+ blr.19.a:0 "We'd rather not get involved so directly"
+
+ blr.20.t:0 "Poland Accepts Our Request!"
+ blr.20.d:0 ""
+ blr.20.a:0 "I hope its worth it"
+
+ blr.21.t:0 "Poland Denies Our Request!"
+ blr.21.d:0 ""
+ blr.21.a:0 "Damn them! We'll do it alone!"
+
+ blr.22.t:0 "[BLR.GetNameDefCap] Proposes the Savinkov-Bałachowicz Pact"
+ blr.22.d:0 "[BLR.GetNameDefCap] has formally requested that Boris Savinkov travel to Belarus and join the fight against the communist government. According to their request, they wish for Savinkov to re-create the 3rd Russian Army in Belarus. In exchange, they pledge to support us in our fight against Moscow after their victory. \n\n Savinkov, for his part, is quite enthusiastic about the idea. He created the Russian Political Comittee in Poland and the 3rd Russian Army during the civil war, which was composed of Ukrainians, Belarusians, Russians, Poles, and Green Partisans. They fought alongside the Belarusians in the later stages of the civil war and were evacuated to Poland following their defeat, where they were dissolved. \n\n Re-creating the 3rd Russian Army will significantly assist the anti-communist Belarusians. In the case of an anti-communist victory, the troops will return. If the civil war is lost, the soldiers will flee the region and trickle back to us"
+ blr.22.a:0 "Send Savinkov - Belarus could be useful"
+ blr.22.b:0 "Refuse - we can't divert our resources"
+
+ blr.23.t:0 "[RUS.GetNameDefCap] Agrees to Send Savinkov"
+ blr.23.d:0 "[RUS.GetNameDefCap] has agreed affirm recognition of [BLR.GetNameDefCap] and to send Boris Savinkov to organize a military mission and organization of a new 3rd Russian Army. This deal has left open the road for the re-formation of the 3rd Russian Army in Belarus, but [RUS.GetNameDefCap] has made it clear such a large measure of support will require an offensive alliance against Moscow in the future."
+ blr.23.a:0 "It's worth the price."
+
+ blr.24.t:0 "[RUS.GetNameDefCap] Will Not Send Savinkov"
+ blr.24.d:0 "[RUS.GetNameDefCap] has rejected our request for Savinkov to form a military mission, and didn't even bother rejecting our request for talks on a re-formation of the 3rd Russian Army."
+ blr.24.a:0 "Fools!"
+
+ blr.25.t:0 "[BLR.GetNameDefCap] Proposes Aviation Deal"
+ blr.25.d:0 "[BLR.GetNameDefCap] has requested that [EST.GetNameDefCap] assist their anti-communist cause by using our nation as a go-between for buying foreign airplanes. We'll buy the planes, likely form England, and then re-sell them to [BLR.GetNameDefCap] at a higher price. \n Just like when we sold captured WW1-era destroyers to Peru in the 1930s, this sale will provide funds we can use to improve our military. "
+ blr.25.a:0 "This will be mutually beneficial"
+ blr.25.b:0 "Seems like a bad investment"
+
+ blr.26.t:0 "[EST.GetNameDefCap] Accepts Aviation Deal!"
+ blr.26.d:0 "[EST.GetNameDefCap] has accepted our aviation deal, purchasing multiple fighters and bombers from [ENG.GetNameDefCap]. The fighters and bombers were then quickly re-sold to our military dealers at a higher price, but not an unfair one considering our desperate situation. We have also noticed their poor military budget has benfited from the deal, so perhaps we have just helped an anti-communist ally in their own situation."
+ blr.26.a:0 "Let's paint some roundels!"
+
+ blr.27.t:0 "[EST.GetNameDefCap] Rules Out Aviation Deal"
+ blr.27.d:0 "[EST.GetNameDefCap] has rejected our aviation deal, citing fears that such a move would provoke relations with Moscow. We will have to make do without the airplanes. "
+ blr.27.a:0 "The skies are Bolshevik now..."
+
+ blr.28.t:0 "[BLR.GetNameDefCap] Requests Our Mothballed Tanks"
+ blr.28.d:0 "[BLR.GetNameDefCap] has requested we sell them our mothballed tank stockpile. Purchased throughout the 1920s and 1930s, we have accumulated quite a number of old light tanks from various nations. While mostly obsolete, some are still well-designed foreign models. The majority have cannons, and even some Lativan-ordered British designs have high-velocity cannons. \n  Supplying Belarus with these tanks will provide them with much needed aid - by our estimates, they only possessed 60 old French FT-17 tanks at the start of the uprising. However, their request also presents the opprotunity to reactive the tanks for ourselves."
+ blr.28.a:0 "This will be mutually beneficial"
+ blr.28.b:0 "We'd rather keep them for ourselves"
+
+ blr.29.t:0 "[LAT.GetNameDefCap] Accepts Tank Request!"
+ blr.29.d:0 "[LAT.GetNameDefCap] has accepted our tank deal, agreeing to transfer their old mothballed talks to us. While most are obsolete, a number of them are still well-designed foreign models. While some of the tanks are only armed with machineguns, the majority do have cannons. A small number of special Latvian-ordered British designs even have high-velocity cannons."
+ blr.29.a:0 "Tank you!"
+
+ blr.30.t:0 "[LAT.GetNameDefCap] Denies Tank Request!"
+ blr.30.d:0 "[LAT.GetNameDefCap] has communicated that they are unable to comply with our request. They have cited their own security needed as a priority, although some in our government grumble that pro-Soviet elements in their government could've had a sway as well. Either way, our tank battalion from the borderguards we secured are just going to have to cope with FT-17 models and whatever we can capture."
+ blr.30.a:0 "Disappointing"
+
+ blr.31.t:0 "Victory in Vilnius!"
+ blr.31.d:0 "Our forces have successfully liberated our capital from the yoke of the upstart Polish partisans who attempted to declare the city for Poland. Lithuanian troops now parade through the streets, and the Polish partisans have agreed to lay down their arms. To avoid further conflict, and especially to avoid further issues with Poland, we have assured the Polish population they will not be treated as second class citizens and have offered amnesty to all fighters."
+ blr.31.a:0 "Vilnius is ours!"
+
+ blr.32.t:0 "Defeat in Vilnius!"
+ blr.32.d:0 "With the marking of one year since the start of our war against Central Lithuania, we have been forced to sue for peace. Poland has successfully made their case for the city to the League of Nations, aided by the Belarusian Rada supporting their cause out of desire to avoid complications with Poland. If the war were to continue any further, Poland would get involved directly. Morale in the army is at an all time low and the civilian population questions our government. Theoretically we could not relent, but after a year of failing to take a single city our military would simply not follow the order to wage war with Poland and would probably coup the government."
+ blr.32.a:0 "I guess it is Wilno now..."
+
+ blr.33.t:0 "Wilno is Ours!"
+ blr.33.d:0 "With the marking of one year since the start of Lithuania's war against Central Lithuania, they have been forced to sue for peace. We have successfully made our case for the city to the League of Nations, aided by the Belarusian Rada supporting our cause out of desire to avoid complications with Poland. With the Entente's and League of Nation's backing, we could've invaded Lithuania without issue. However, Lithuania sued for peace before the situation esclated to war. \n General Żeligowski has met with our government and formally requested that Central Lithuania be annexed by Poland."
+ blr.33.a:0 "It is Wilno now!"
+
+ blr.34.t:0 "Belarusian Rada Request our Belarusian Regiment!"
+ blr.34.d:0 "The 1st Belarusian regiment was a Belarusian national military formation in the army of the Republic of Lithuania in 1918-1919, managed by the Ministry of Belarusian Affairs of Lithuania. It was demobilized after the creation to the Byelorusian SSR to avoid tensions but remains organized and equipped. The Belarusian Rada, preparing for their uprising, have asked that the regiment be transfered to their cause fully upon the start of their uprising. \n Accepting their request as this stage will open the door for Belarusian to conduct further diplomacy with us down the line, such as trade deals and an alliance. \n If we do not accept, the regiment will disband and join them anyway, but won't be able to take their arms with them. BNR Belarus will not be able to conduct any further diplomacy with us."
+ blr.34.a:0 "We agree, and let's clean those rifles too. Good luck Belarus!"
+ blr.34.b:0 "Our rifles are not for you."
+
+ blr.35.t:0 "Lithuania Accepts our Request!"
+ blr.35.d:0 "Lithuania has fully accepted our request, and thus the 1st Belarusian regiment will be fully transfered to our command upon the start of our uprising, intact with their equipment! Lithuania appears to be open to further diplomacy with us, and wishes us good luck against our common enemy of the communists. Our attaches in Lithuania have noticed the Lithuanians are even performing maintenence on the weapons of the regiment to ensure they are ready for action."
+ blr.35.a:0 "Thank you Lithuania!"
+
+ blr.36.t:0 "Lithuania Denies our Request!"
+ blr.36.d:0 "Lithuania has denied our request for the intact transfer of the 1st Belarusian regiment. This was not an outcome we expected, and our government believes this is likely due to pro-Soviet sentiment in their government. Anyhow, the regiment has protested the decision and will join our cause anyway, albiet without any equipment."
+ blr.36.a:0 "We'll need to acquire weapons for the regiment ourselves."
+
+ blr.37.t:0 "Third All-Belarusian Conference"
+ blr.37.d:0 "With the volatile situation in Belarus creating ripe conditions for an uprising, the Belarusian intelligentsia in exile have called for a Third All-Belarusian Conference by the BNR Rada in exile to discuss the unification of various Belarusian anti-communist causes under one command. Currently, multiple organizations small and large independently command leadership of peasant militias and resistance groups ranging from a few dozen to thousands of soldiers. \n\n To unify these forces, the intelligentsia call for the BNR Rada, the government in exile of the Belarusian People's Republic created in 1917, to negotiate with these groups and form a unified plan of action for the uprising. Most notably, the remnants of the Belarusian Political Commitee (BPK), created by General Bulak-Balachowicz with White Russian and Polish support in 1920, still do not recognize the BNR Rada. It is hoped these negotiations will reconcile the two groups, although the future of General Bulak-Balachowicz in a new government is yet to be seen. There are worries that Balachowicz will leverage his foreign and military support to to gain authority over the Rada and force the conference to proclaim the BPK as the sole government of Belarus.\nWhatever the result of the conference, all parties have agreed to accept the outcome in the name of anti-communist unity."
+ blr.37.a:0 "The Rada absorbs the BPK"
+ blr.37.b:0 "The BPK gains authority over the Rada"
+
+ blr.38.t:0 "Role of Fascists in the Uprising"
+ blr.38.d:0 "With the Third All-Belarusian Conference coming to a successful conclusion, there is still the question of fascsts. In Germany, Belarusian fascists have been secretly laying the groundwork for a planned Belarusian collaborationist government within a German overlordship - the Belarusian Central Council. Despite technically not yet existing (they only plan to officially exist once Germany "liberates" Belarus), these organizers have come to command some decent political power in Germany and amongst ultra-nationalists circles. Should the BNR Rada choose to reach out the planned Central Council's leaders and offer them status as a political party, it could grant Belarus their support and Germany's. However, doing so will increase their power which may become dangerous in the future - not to mention give Communist Belarus extra propoganda value against us."
+ blr.38.a:0 "No cooperation with fascists!"
+ blr.38.b:0 "Engage in limited cooperation"
+ blr.38.c:0 "Extensively support the fascists"
+
+ blr.39.t:0 "Belarus Requests Direct Intervention!"
+ blr.39.d:0 ""
+ blr.39.a:0 "To arms, for Belarus!"
+ blr.39.b:0 "No, we can only spare increased materiel aid"
+ blr.39.c:0 "We've already done enough"
+
+ blr.40.t:0 "Polish Troops Stream Through Hrodna!"
+ blr.40.d:0 "Poland accepted our request for direction intervention almost as quickly as they ordered their troops to march across the border into Hrodna and Belarusian Polesie. As Polish troops march to reinforce our frontlines and begin battle, international reporters have noted how eager the Polish troops are to kill communists. With Poland entering into war against our foe, they will likely expect even greater compensation as the end of the war."
+ blr.40.a:0 "Towards Viciebsk!"
+
+ blr.41.t:0 "Poland Instead Sends Massive Shipment"
+ blr.41.d:0 "Poland has expressed that they are unable to intervene directly in the conflict due to developing international situations. However, they emphasized this decision was not taken lightly and wish to compensate us by sending a massive equipment shipment consisting of rifles, artillery, and planes. The only silver lining is that they probably won't espect as heavy compensation as if they had entered directly."
+ blr.41.a:0 "Better than nothing"
+
+ blr.42.t:0 "Poland Denies Request for Intervention"
+ blr.42.d:0 "Poland has communicated that they are unable to provide troops for a direct intervention in Belarus. This came as a surprise to us, especially so that the Polish government did not offer any compensation either. At least we won't have to be in even more debt to them."
+ blr.42.a:0 "A set back, for sure"
+
+ blr.43.t:0 "Savinkov's Mission Recalled!"
+ blr.43.d:0 "[RUS.GetNameDef] has decided to recall Boris Savinkov and his military mission from Belarus. As we understand it, this is not a termination of the relationship between our countries but rather a belief by [RUS.GetNameDef] that Savinkov is needed at home."
+ blr.43.a:0 "Farewell, Boris Viktorovich"
+
+ blr.44.t:0 "Polish Partisans Rise up in Wilno!"
+ blr.44.d:0 "Following the outbreak of the Belarusian civil war, Polish partisans have staged a successful uprising in the city of Wilno. They have declared the independent "Republic of Central Lithuania" and state their intention is to unite with Poland. General Lucjan Zeligowski, who has long maintained contact with the rebels, has quickly traveled to Wilno to take command of the uprising.\n\nOur military intelligence strongly believes Lithuania may now invade the region to take control of their historic capital. However, we are unable to respond in kind. The League of Nations held an emergency session and has granted Lithuania the right to take the city, and has warned us of crippling consequences if we decide to declare war on Lithuania. With war with either Russia or Germany coming soon, our hands are tied. \n\nHowever, we believe that if the partisans can hold out for at least 6 months, Lithuania will be forced to sign a cease-fire and hand the city over to us."
+ blr.44.a:0 "Support the partisans with arms"
+ blr.44.a:0 "Good luck to them!"
