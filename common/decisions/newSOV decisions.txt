@@ -1,0 +1,605 @@
+SOV_soviet_political_crisis = {
+    #add a dec to annex SKVO and DON if the anarchists have been crushed
+    #
+
+    SOV_collapse_in_the_south = {
+        allowed = {
+            original_tag = SOV
+            always = no #under rework, otherwise works fine
+        }   
+        available = {
+            always = no
+        }
+        #highlight_states = {
+        #    highlight_states_trigger = { state = 218 }
+        #}
+        fire_only_once = yes
+
+        icon = SWI_consolidate_council_power
+
+        days_mission_timeout = 100
+        
+        activation = {
+            NOT = { has_government = anarchism }
+            NOT = { has_country_flag = SKVO_exists }
+        }
+        cancel_trigger = {
+            has_government = anarchism
+            has_country_flag = SKVO_exists
+        }
+        fire_only_once = yes
+        is_good = no
+        timeout_effect = {
+             country_event = newsov.1
+        }
+    }
+    SOV_send_arms_to_SKVO = { #actually requires NKVD units to move places
+        icon = GFX_decision_generic_industry
+        available = {
+            has_country_flag = SKVO_exists
+            has_equipment = {
+                train_equipment_1 > 9
+            }
+            #always = yes
+        }
+        
+        visible = {
+            has_country_flag = SKVO_exists
+            #always = yes
+        }
+
+        ai_will_do = {
+            base = 20
+        }
+        on_map_mode = map_and_decisions_view
+        custom_cost_trigger = {
+            command_power > 14.9
+        }
+        custom_cost_text = decision_cost_CP_15
+
+        fire_only_once = yes
+        days_remove = 20
+        complete_effect = {
+            add_equipment_to_stockpile = {
+                type = train_equipment_1
+                amount = -10
+                producer = SOV
+            }
+        }
+        remove_effect = {
+            army_experience = 5
+            add_equipment_to_stockpile = {
+                type = train_equipment_1
+                amount = 10
+                producer = SOV
+            }
+            send_equipment = {
+                equipment = infantry_equipment_0
+                amount = 5000
+                target = ATR
+            }
+            send_equipment = {
+                equipment = support_equipment_1
+                amount = 100
+                target = ATR
+            }
+            send_equipment = {
+                equipment = artillery_equipment_1
+                amount = 100
+                target = ATR
+            }
+            send_equipment = {
+                equipment = motorized_equipment_1
+                amount = 200
+                target = ATR
+            }
+        }
+    }
+
+    SOV_transfer_volgograd_to_skvo = { 
+        icon = GFX_decision_hol_draw_up_staff_plans
+        available = {
+            has_country_flag = SKVO_exists
+            controls_state = 217
+        }
+        
+        visible = {
+            has_country_flag = SKVO_exists
+            owns_state = 217
+        }
+
+        ai_will_do = {
+            base = 50
+        }
+        on_map_mode = map_and_decisions_view
+
+        cost = 10
+
+        fire_only_once = yes
+        #days_remove = 1
+        complete_effect = {
+            217 = { transfer_state_to = ATR }
+            217 = { add_core_of = ATR }
+            add_political_power = 50
+        }
+    }
+
+    SOV_operation_trust = { 
+        icon = GFX_decision_hol_draw_up_staff_plans
+        available = {
+            RUS = { 
+                has_completed_focus = RUS_second_kornilov_affair
+            }
+        }
+        
+        visible = {
+            RUS = { exists = yes }
+        }
+
+        ai_will_do = {
+            base = 50
+        }
+        on_map_mode = map_and_decisions_view
+
+        cost = 10
+
+        fire_only_once = yes
+        #days_remove = 1
+        complete_effect = {
+            RUS = {
+                country_event = rus.67
+            }
+            effect_tooltip = {  
+                RUS = { add_ideas = RUS_soviet_infiltrations }
+            }    
+        }
+    }
+
+#
+}
+SOV_anarchist_activity = {
+    SOV_impending_anarchist_uprising = {
+        allowed = {
+            original_tag = SOV
+        }   
+        available = {
+            always = no
+        }
+        #highlight_states = {
+        #    highlight_states_trigger = { state = 218 }
+        #}
+        fire_only_once = yes
+        #days_remove = 70
+        #cost = 15
+
+        icon = SOV_the_workers_dictatorship
+
+        days_mission_timeout = 10#400
+        activation = {
+            NOT = { has_government = anarchism }
+        }
+        cancel_trigger = {
+            OR = {
+            has_government = anarchism
+            has_global_flag = SOV_anarchist_cw_started
+            }
+        }
+        fire_only_once = yes
+        is_good = no
+        timeout_effect = {
+            country_event = KUB.1
+            set_global_flag = SOV_anarchist_cw_started 
+            add_ideas = SOV_soviet_anarchist_civil_war
+            add_stability = 0.15 #balance against SOV_soviet_anarchist_civil_war
+            add_popularity = {
+                ideology = anarchism
+                popularity = -0.25
+            }
+            start_civil_war = {
+                ruling_party = communism
+                ideology = anarchism
+                #save_global_event_target_as = SOV_communist_side
+                size = 0.35
+                navy_ratio = 0 #anarchists have no ports. could do a kronstad and give them ships in the baltic, but theyd be useless.
+                air_ratio = 0.15
+                capital = 219
+                states = all
+                states_filter = {
+                    NOT = {
+                        OR = {
+                            state = 351 
+                            state = 879 
+                            state = 216 
+                            state = 264 
+                            state = 244 
+                            state = 215 
+                            state = 213 
+                            state = 214 
+                            state = 880 
+                            state = 248 
+                            state = 263 
+                            state = 243 
+                            state = 242 
+                            state = 224 
+                            state = 222 
+                            state = 220 
+                            state = 217 
+                            state = 829 
+                            state = 252 
+                            state = 250 
+                            state = 251 
+                            state = 401 
+                            state = 253 
+                            state = 208 
+                            state = 209 
+                            state = 210 
+                            state = 246 
+                            state = 247 
+                            state = 407 
+                            state = 406 
+                            state = 195 
+                            state = 400 
+                            state = 397 
+                            state = 262 
+                            state = 825 
+                            state = 653 
+                            state = 572 
+                            state = 403 
+                            state = 571 
+                            state = 398 
+                            state = 581 
+                            state = 573
+                            #
+                            state = 577
+                            state = 824
+                            state = 516
+                            #
+                            state = 249
+                            state = 833
+                            state = 256
+                            state = 399
+                            state = 651
+                            state = 652
+                            state = 582
+                            #
+                            state = 579
+                            state = 580
+                            #
+                            state = 218
+                            state = 238
+                            state = 235
+                            state = 237
+                            state = 236
+                            state = 245
+                            state = 217
+                            #
+                            state = 234
+                            state = 233
+                        }
+                    }
+                }
+                hidden_effect = {
+                    country_event = newsov.6
+                    swap_ideas = {
+                        remove_idea = SOV_anarchist_militias
+                        add_idea = SOV_anarchist_militias_2
+                    }
+                    add_ideas = SOV_soviet_anarchist_civil_war
+                    add_ideas = closed_economy
+                    add_ideas = AFS_obligatory_mobilization #conscription law
+                    add_ideas = SPR_collectivized_society
+                    add_stability = 0.15 #balance against SOV_soviet_anarchist_civil_war
+                    delete_unit_template_and_units = {
+                        division_template = "NKVD Pogranichnaya Diviziya"
+                        disband = yes
+                    }
+                    add_popularity = {
+                        ideology = anarchism
+                        popularity = 0.15
+                    }
+                    set_cosmetic_tag = SOV_anarchist
+                }
+            }
+            hidden_effect = {
+                IF = {
+                    limit = {
+                        580 = { is_owned_and_controlled_by = SOV }
+                    }
+                    580 = { 
+                        remove_core_of = SOV
+                        transfer_state_to = TOB
+                    }
+                }
+                IF = {
+                    limit = {
+                        579 = { is_owned_and_controlled_by = SOV }
+                    }
+                    579 = { 
+                        remove_core_of = SOV
+                        transfer_state_to = TOB
+                    }
+                }
+            }
+            TOB = { 
+                declare_war_on = {
+                    target = SOV
+                    type = independence_wargoal
+                }
+                hidden_effect = {
+                    load_oob = "TOB_1936"
+                    add_ideas = SOV_anarchist_militias_2
+                    add_ideas = SOV_soviet_anarchist_civil_war
+                    add_ideas = closed_economy
+                    add_ideas = SPR_collectivized_society
+                    division_template = {
+                        name = "Chernaya Gvardeyskaya Militsiya"
+                        is_locked = yes
+                        division_cap = 20
+                        division_names_group = AFS_GAR_01
+                        priority = 0
+                        template_counter = 42
+                        regiments = {
+                            militia = { x = 0 y = 0 }
+                            militia = { x = 0 y = 1 }
+                            militia = { x = 0 y = 2 }
+                            light_infantry = { x = 1 y = 0 }
+                        }
+                        support = {
+                        }
+                    }
+                    random_owned_controlled_state = {
+                        limit = { ROOT = { controls_state = PREV } }
+                        prioritize = { 580 }
+                        create_unit = {
+                            division = "name = \"Chernaya Gvardeyskaya Militsiya\" division_template = \"Chernaya Gvardeyskaya Militsiya\" start_experience_factor = 0.3"
+                            count = 3
+                            owner = ROOT
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    SOV_deploy_nkvd_to_fight_anarchists1 = { #actually requires NKVD units to move places
+        icon = GFX_decision_generic_prepare_civil_war
+        allowed = {
+            original_tag = SOV
+        }
+
+        available = {
+            #has_completed_focus = SOV_deal_with_the_anarchists
+
+            custom_trigger_tooltip = {
+                tooltip = SOV_deploy_nkvd_to_fight_anarchists_ttp       
+            }
+            hidden_trigger = {
+                num_battalions_in_states = {
+                    count > 0
+                    states = { 219 }
+                    types = { military_police }
+                }
+            }
+        }
+        
+        visible = {
+            always = yes
+            NOT = {
+                OR = {
+                has_government = anarchism
+                has_global_flag = SOV_anarchist_cw_started
+                } 
+            }
+        }
+
+        ai_will_do = {
+            base = 100
+            #modifier = {
+            #    factor = 10
+            #    has_stability < 0.4
+            #}
+        }
+        state_target = yes
+        target_trigger = {
+            FROM = {
+                is_fully_controlled_by = ROOT
+                OR = { 
+                    state = 219 #moscow
+                    #state = 257 #tambov
+                    #state = 258 #Lipetsk
+                    #state = 260 #Voronezh
+                    #state = 254 #Ryazan
+                    #state = 233 #Tula
+                    #state = 205 #Kaluga
+                }
+            }
+        }
+        on_map_mode = map_and_decisions_view
+        custom_cost_trigger = {
+            command_power > 24.9
+        }
+        custom_cost_text = BRA_decision_cost_cangaceiro
+
+        fire_only_once = no
+        days_remove = 30
+        complete_effect = {
+            add_command_power = -25
+        }
+        remove_effect = {
+            random_list = {
+                5 = { #failure
+                }
+                95 = { #success
+                    army_experience = 1
+                    add_stability = 0.05
+                    add_command_power = 5
+                    add_days_mission_timeout = {
+                        mission = SOV_anarchists_planning_attack
+                        days = 15
+                    }
+                    add_days_mission_timeout = {
+                        mission = SOV_impending_anarchist_uprising
+                        days = 30
+                    }
+                }
+            }
+        }
+    }
+
+    SOV_deploy_nkvd_to_fight_anarchists2 = { #actually requires NKVD units to move places
+        icon = GFX_decision_generic_prepare_civil_war
+        allowed = {
+            original_tag = SOV
+        }
+
+        available = {
+            #has_completed_focus = SOV_deal_with_the_anarchists
+            
+            custom_trigger_tooltip = {
+                tooltip = SOV_deploy_nkvd_to_fight_anarchists_ttp       
+            }
+            hidden_trigger = {
+                num_battalions_in_states = {
+                    count > 0
+                    states = { 195 }
+                    types = { military_police }
+                }
+            }
+        }
+        
+        visible = {
+            always = yes
+            NOT = {
+                OR = {
+                has_government = anarchism
+                has_global_flag = SOV_anarchist_cw_started
+                } 
+            }
+        }
+
+        ai_will_do = {
+            base = 100
+            #modifier = {
+            #    factor = 10
+            #    has_stability < 0.4
+            #}
+        }
+        state_target = yes
+        target_trigger = {
+            FROM = {
+                is_fully_controlled_by = ROOT
+                state = 195 #leningrad
+            }
+        }
+        on_map_mode = map_and_decisions_view
+        custom_cost_trigger = {
+            command_power > 24.9
+        }
+        custom_cost_text = BRA_decision_cost_cangaceiro
+
+        fire_only_once = no
+        days_remove = 30
+        complete_effect = {
+            add_command_power = -25
+        }
+        remove_effect = {
+            random_list = {
+                5 = { #failure
+                }
+                95 = { #success
+                    army_experience = 1
+                    add_stability = 0.05
+                    add_command_power = 5
+                    add_days_mission_timeout = {
+                        mission = SOV_anarchists_planning_attack
+                        days = 15
+                    }
+                    add_days_mission_timeout = {
+                        mission = SOV_impending_anarchist_uprising
+                        days = 30
+                    }
+                }
+            }
+        }
+    }
+
+    SOV_get_command_power = { 
+        icon = GFX_decision_generic_prepare_civil_war
+        allowed = {
+            original_tag = SOV
+        }
+        available = {
+            #has_completed_focus = SOV_deal_with_the_anarchists
+            has_army_experience > 0.99
+        }
+        visible = {
+            always = yes
+            NOT = {
+                OR = {
+                    has_government = anarchism
+                    has_global_flag = SOV_anarchist_cw_started
+                } 
+            }
+        }
+
+        cost = 50
+        ai_will_do = {
+            base = 10
+            modifier = {
+                factor = 100
+                command_power < 0.30
+            }
+        }
+        fire_only_once = no
+        days_remove = 50
+        complete_effect = {
+            add_command_power = 25
+            army_experience = -1
+        }
+    }
+
+    SOV_anarchists_planning_attack = {
+        icon = GFX_decision_revolt
+        allowed = {
+            original_tag = SOV
+        }   
+        available = {
+            always = no
+        }
+        days_mission_timeout = 75
+        activation = {
+            NOT = {
+                OR = {
+                    has_government = anarchism
+                    has_global_flag = SOV_anarchist_cw_started
+                }
+            }
+        }
+        cancel_trigger = {
+            OR = {
+                has_government = anarchism
+                has_global_flag = SOV_anarchist_cw_started
+            }
+        }
+        fire_only_once = no
+        is_good = no
+        timeout_effect = {
+            hidden_effect = { activate_mission = SOV_anarchists_planning_attack }
+            random_list = {
+                30 = {
+                    country_event = newsov.2
+                }
+                30 = {
+                    country_event = newsov.3
+                }
+                25 = {
+                    country_event = newsov.4
+                }
+                15 = {
+                    country_event = newsov.5
+                }
+            }
+        }
+    }
+}    

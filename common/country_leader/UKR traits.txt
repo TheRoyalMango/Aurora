@@ -1,0 +1,21 @@
+#hello welcome to my modding lets play
+leader_traits = {
+
+leader_traits = {
+#	UKR_pacifist_intellectual = {
+#		random = no
+#		ai_will_do = {
+#			factor = 1
+#		}
+#		war_support_factor = -0.05
+#		research_speed_factor = 0.01
+#	}
+#	UKR_architect_of_the_republic = {
+#		random = no
+#		ai_will_do = {
+#			factor = 1
+#		}
+#		stability_factor = 0.05
+#		political_power_factor = 0.05
+#	}
+}

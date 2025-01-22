@@ -1,0 +1,570 @@
+﻿focus_tree = { 
+	id = joe_focus
+	
+	country = { #could also add this for nations like Abkhazia, Ossetia, Dagestan, etc
+		factor = 0
+
+		modifier = {
+			add = 10
+			tag = GEO
+		}
+		modifier = {
+			add = 10
+			tag = AZR
+		}
+		modifier = {
+			add = 10
+			tag = ARM
+		}
+		modifier = {
+			add = 10
+			tag = CAU
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 1000 y = 1000 }
+
+
+	focus = {
+		id = cau_develop_capitalstate
+		icon = GFX_focus_generic_industry_1
+		#prerequisite = { focus = }
+
+		x = 3
+		y = 0
+		#relative_position_id = 
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+			capital_scope = {
+				ETH_upgrade_state_category = yes 
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				#random_owned_controlled_state = {
+				#	add_building_construction = {
+				#		type = infrastructure
+				#		level = 1
+				#		instant_build = yes
+				#	}
+				#}
+			}
+		}
+	}
+	focus = {
+		id = cau_rural_development
+		icon = GFX_goal_reichsautobahn
+		prerequisite = { focus = cau_develop_capitalstate }
+
+		x = 1
+		y = 1
+		relative_position_id = cau_develop_capitalstate
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 75
+			IF = {
+				limit = { tag = GEO }
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				971 = { 
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+					add_compliance = 10
+				}
+			}
+			else = {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = cau_subsidize_local_crafts
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = cau_develop_capitalstate }
+
+		x = -1
+		y = 1
+		relative_position_id = cau_develop_capitalstate
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 1
+				category = cat_production
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = cau_urbanization
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = cau_subsidize_local_crafts }
+		mutually_exclusive = { focus = cau_agrarian_reform }
+		x = -2
+		y = 2
+		relative_position_id = cau_develop_capitalstate
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_political_power = -75
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = cau_invest_in_metallurgy
+		icon = GFX_goal_factory_complex
+		prerequisite = { focus = cau_urbanization }
+		x = -2
+		y = 3
+		relative_position_id = cau_develop_capitalstate
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+			random_owned_controlled_state = {
+				limit = { is_capital = yes }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+					type = steel
+					amount = 6
+				}
+			}
+		}
+	}
+
+
+	focus = {
+		id = cau_agrarian_reform
+		icon = GFX_goal_reichsautobahn
+		prerequisite = { focus = cau_rural_development }
+		mutually_exclusive = { focus = cau_urbanization }
+
+		x = 2
+		y = 2
+		relative_position_id = cau_develop_capitalstate
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 100
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = cau_local_village_rifle_workshops
+		icon = GFX_RUS_rifle1
+		prerequisite = { focus = cau_agrarian_reform }
+
+		x = 2
+		y = 3
+		relative_position_id = cau_develop_capitalstate
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 1
+				category = cat_production
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_ideas = NFE_rifle_workshops
+		}
+	}
+
+	focus = {
+		id = cau_university
+		icon = GFX_focus_research
+		prerequisite = { 
+			focus = cau_urbanization 
+			focus = cau_agrarian_reform 
+		}
+
+		x = 0
+		y = 4
+		relative_position_id = cau_develop_capitalstate
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = cau_domestic_weapons_development
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { 
+			focus = cau_university 
+		}
+
+		x = -2
+		y = 5
+		relative_position_id = cau_develop_capitalstate
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 2
+				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = cau_domestic_artillery_production
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { 
+			focus = cau_domestic_weapons_development 
+		}
+
+		x = -2
+		y = 6
+		relative_position_id = cau_develop_capitalstate
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 2
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = cau_armored_vehicles
+		icon = GFX_RUS_ft17
+		prerequisite = { 
+			focus = cau_domestic_artillery_production 
+		}
+		prerequisite = { 
+			focus = cau_domestic_engines 
+		}
+		x = -1
+		y = 7
+		relative_position_id = cau_develop_capitalstate
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				#T-18 tank template
+				create_equipment_variant = {
+					name = "T-18" #Russian FT
+					type = light_tank_chassis_0
+					parent_version = 0
+					modules = {
+						main_armament_slot = tank_small_cannon
+						turret_type_slot = tank_light_one_man_tank_turret
+						suspension_type_slot = tank_bogie_suspension
+						armor_type_slot = tank_riveted_armor
+						engine_type_slot = tank_gasoline_engine
+					}
+					upgrades = {
+						tank_nsb_engine_upgrade = 3
+						tank_nsb_armor_upgrade = 2
+					}
+				}
+			}
+			IF = {
+				limit = {
+					has_dlc = "No Step Back"
+					NOT = { has_tech = gwtank_chassis }
+				}
+				set_technology = { 
+					gwtank_chassis  = 1
+					popup = no
+				}
+
+			}
+			ELSE_IF = {
+				limit = {
+					NOT = { has_dlc = "No Step Back" }
+					NOT = { has_tech = gwtank }
+				}
+				set_technology = { 
+					gwtank = 1
+					popup = no
+				}
+				
+			}
+			add_tech_bonus = {
+				name = HOA_metal_beasts
+				bonus = 0.5
+				uses = 2
+				category = armor 
+			}
+		}
+	}
+
+	focus = {
+		id = cau_domestic_engines
+		icon = GFX_goal_reichsautobahn
+		prerequisite = { 
+			focus = cau_university 
+		}
+
+		x = 0
+		y = 5
+		relative_position_id = cau_develop_capitalstate
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = cau_domestic_engines
+				bonus = 1
+				uses = 1
+				category = motorized_equipment 
+			}
+			IF = { 
+				limit = { has_dlc = "No Step Back" }
+				set_technology = { 
+					engines_2 = 1
+					#popup = no
+				}
+				#add_tech_bonus = {
+				#	name = cau_domestic_engines
+				#	bonus = 1
+				#	uses = 1
+				#	category = cat_air_engine 
+				#}
+			}
+			IF = { 
+				limit = { has_dlc = "By Blood Alone" }
+				set_technology = { 
+					engine_tech_1  = 1
+					#popup = no
+				}
+				#add_tech_bonus = {
+				#	name = cau_domestic_engines
+				#	bonus = 1
+				#	uses = 1
+				#	tech = engine_tech_1 
+				#}
+			}
+			#both tank & plane engine research, and motorized research
+		}
+	}
+
+	focus = {
+		id = cau_aircraft
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { 
+			focus = cau_domestic_engines 
+		}
+
+		x = 0
+		y = 6
+		relative_position_id = cau_develop_capitalstate
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = cau_industrial_grants
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { 
+			focus = cau_university 
+		}
+
+		x = 2
+		y = 5
+		relative_position_id = cau_develop_capitalstate
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = cau_electronics_research
+		icon = GFX_goal_reichsautobahn
+		prerequisite = { 
+			focus = cau_industrial_grants 
+		}
+
+		x = 2
+		y = 6
+		relative_position_id = cau_develop_capitalstate
+		cost = 10
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+		}
+	}
+
+
+	#   # ### #   ### ###  ##  ###  #   # 
+	## ##  #  #    #   #  #  # #  #  # #  
+	# # #  #  #    #   #  #### ###    #   
+	#   #  #  #    #   #  #  # #  #   #   
+	#   # ### ### ###  #  #  # #  #   #    
+
+}		

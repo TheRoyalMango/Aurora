@@ -1,0 +1,403 @@
+﻿# Division template historical names system. Is a new method of naming the divisions based on the names-group assigned to it's template.
+# If we run out of all historical names, the names will be assigned in the old way.
+#
+# Each group has a made up tag. Use it if you want to append more, or replace existing names with the extra txt files (modding).
+#
+# for_countries - lists all countries that can use it. If empty, or entire tag is missing, all countries in the world can use it.
+#
+# can_use - is a trigger that locks/unlocks the group under specific circumstances. The trigger is in a country scope.
+#
+# division_types - is a list of tokens to corresponding unit types. A player can in fact use any group of names for a div.template
+#			however this tag is a helper for an automated choice (for AI, or if the group must switch on it's own, because
+#			for example the current one is no longer available due to the can_use trigger saying so).
+#			In automated choice, the division template must have at least 1 of the following types for it to be chosen.
+#
+# fallback_name - Is going to be used if we run out of the scripted historical names. If you want to use the old division naming
+#			mechanics to be used for fallbacks, then just skip this option.
+#
+# unordered - It's a list of historical division names that did not have a number. Regardless if such names happened in history or not
+#			this option is available here mainly for a mods.
+#
+# ordered - Is a list of all historical names.
+#			Numbers must start from 1 and up.
+#			Numbers can't repeat in one scope.
+#			If you script the name for this group, at the same number (for example in a mod in another file), the name will be override.
+#			All arguments between the brackets must be separated by spaces. Each argument is wrapped in "quotas".
+#			1st argument = The name. It must contain either:
+#						%d (for decimal number placement)
+#						%s (for string number placement - ROMAN numbers like XIV).
+#			2nd argument is optional = A localizable text describing this historical division. The text will be visible in the tooltip
+#									where you choose the historical division name.
+#			3rd argument is optional = An URL preferably pointing to the WIKI. It's a future feature that is not currently working in
+#									the current game version.
+
+AFS_INF_01 = {
+	name = "Insurgent Rifle Divisions" #the tobolsk specific names can just be given directly to each unit in the OOB
+	for_countries = { AFS TOB }
+	can_use = { always = yes }
+	division_types = { "infantry" }
+	link_numbering_with = { AFS_MEC_01 AFS_MOT_01 }
+
+	fallback_name = "%dya Pekhotnaya Diviziya"
+
+	ordered = {
+		1 = { "%dya Povstancheskiye Strelkovyye Diviziya" }
+		2 = { "%dya Povstancheskiye Strelkovyye Diviziya" }
+		3 = { "%dya Povstancheskiye Strelkovyye Diviziya" }
+		4 = { "%dya Povstancheskiye Strelkovyye Diviziya" }
+		5 = { "%dya Povstancheskiye Strelkovyye Diviziya" }
+		6 = { "%dya Povstancheskiye Strelkovyye Diviziya" }
+		7 = { "%dya Povstancheskiye Strelkovyye Diviziya" }
+		8 = { "%dya Povstancheskiye Strelkovyye Diviziya" }
+		9 = { "%dya Povstancheskiye Strelkovyye Diviziya" }
+		10 = { "%dya Povstancheskiye Strelkovyye Diviziya" }
+	}
+}
+
+AFS_CAV_01 = {
+	name = "Cavalry Division"
+	for_countries = { AFS TOB }
+	can_use = { always = yes }
+	division_types = { "cavalry" }
+
+	fallback_name = "%dya Kavaleriyskaya Diviziya"
+
+	ordered = {
+		1 = { "%dya Kavaleriyskaya Diviziya" }
+		2 = { "%dya Kavaleriyskaya Diviziya" }
+		3 = { "%dya Kavaleriyskaya Diviziya" }
+	}
+}
+
+AFS_MOT_01 = {
+	name = "Motor Infantry Division"
+	for_countries = { AFS TOB }
+	can_use = { always = yes }
+	division_types = { "motorized" }
+	link_numbering_with = { AFS_INF_01 AFS_MEC_01 }
+
+	fallback_name = "%dya Motopekhotnaya Diviziya"
+
+	ordered = {
+		1 = { "%dya Motopekhotnaya Diviziya" }
+		2 = { "%dya Motopekhotnaya Diviziya" }
+		3 = { "%dya Motopekhotnaya Diviziya" }
+		4 = { "%dya Motopekhotnaya Diviziya" }
+		5 = { "%dya Motopekhotnaya Diviziya" }
+		6 = { "%dya Motopekhotnaya Diviziya" }
+		7 = { "%dya Motopekhotnaya Diviziya" }
+		8 = { "%dya Motopekhotnaya Diviziya" }
+		9 = { "%dya Motopekhotnaya Diviziya" }
+		10 = { "%dya Motopekhotnaya Diviziya" }
+		11 = { "%dya Motopekhotnaya Diviziya" }
+		12 = { "%dya Motopekhotnaya Diviziya" }
+		13 = { "%dya Motopekhotnaya Diviziya" }
+	}
+}
+
+AFS_MEC_01 = {
+	name = "Mechanized Division"
+	for_countries = { AFS TOB }
+	can_use = { always = yes }
+	division_types = { "mechanized" "motorized" }
+	link_numbering_with = { AFS_INF_01 AFS_MOT_01 }
+
+	fallback_name = "%dya Mekhanizirovanaya Diviziya"
+
+	ordered = {
+		1 = { "%dya Mekhanizirovanaya Diviziya" }
+		2 = { "%dya Mekhanizirovanaya Diviziya" }
+		3 = { "%dya Mekhanizirovanaya Diviziya" }
+		4 = { "%dya Mekhanizirovanaya Diviziya" }
+		5 = { "%dya Mekhanizirovanaya Diviziya" }
+		6 = { "%dya Mekhanizirovanaya Diviziya" }
+		7 = { "%dya Mekhanizirovanaya Diviziya" }
+		8 = { "%dya Mekhanizirovanaya Diviziya" }
+		9 = { "%dya Mekhanizirovanaya Diviziya" }
+		10 = { "%dya Mekhanizirovanaya Diviziya" }
+		11 = { "%dya Mekhanizirovanaya Diviziya" }
+		12 = { "%dya Mekhanizirovanaya Diviziya" }
+		13 = { "%dya Mekhanizirovanaya Diviziya" }
+	}
+}
+
+AFS_ARM_01 = {
+	name = "Tank Division"
+	for_countries = { AFS TOB }
+	can_use = { always = yes }
+	division_types = { "light_armor" "medium_armor" "heavy_armor" "modern_armor" }
+	link_numbering_with = { AFS_ARM_02 }
+
+	fallback_name = "%dya Tankovaya Diviziya"
+
+	ordered = {
+		1 = { "%dya Tankovaya Diviziya" }
+		2 = { "%dya Tankovaya Diviziya" }
+		3 = { "%dya Tankovaya Diviziya" }
+		4 = { "%dya Tankovaya Diviziya" }
+		5 = { "%dya Tankovaya Diviziya" }
+		6 = { "%dya Tankovaya Diviziya" }
+		7 = { "%dya Tankovaya Diviziya" }
+		8 = { "%dya Tankovaya Diviziya" }
+		9 = { "%dya Tankovaya Diviziya" }
+	}
+}
+
+AFS_ARM_02 = {
+	name = "Tank Corps"
+	for_countries = { AFS TOB }
+	can_use = { always = yes }
+	division_types = { "light_armor" "medium_armor" "heavy_armor" "modern_armor" }
+	link_numbering_with = { AFS_ARM_01 }
+
+	fallback_name = "%dy Tankovy Korpus"
+
+	ordered = {
+		1 = { "%dy Tankovy Korpus" }
+		2 = { "%dy Tankovy Korpus" }
+		3 = { "%dy Tankovy Korpus" }
+		4 = { "%dy Tankovy Korpus" }
+		5 = { "%dy Tankovy Korpus" }
+		6 = { "%dy Tankovy Korpus" }
+		7 = { "%dy Tankovy Korpus" }
+		8 = { "%dy Tankovy Korpus" }
+		9 = { "%dy Tankovy Korpus" }
+	}
+}
+
+
+AFS_PAR_01 = {
+	name = "Paratrooper Division"
+	for_countries = { AFS TOB }
+	can_use = { always = yes }
+	division_types = { "paratrooper" }
+
+	fallback_name = "%dya Vozdushno-Desantnaya Diviziya"
+
+	ordered = {
+		1 = { "%dya Vozdushno-Desantnaya Diviziya" }
+		2 = { "%dya Vozdushno-Desantnaya Diviziya" }
+		3 = { "%dya Vozdushno-Desantnaya Diviziya" }
+		4 = { "%dya Vozdushno-Desantnaya Diviziya" }
+		5 = { "%dya Vozdushno-Desantnaya Diviziya" }
+		6 = { "%dya Vozdushno-Desantnaya Diviziya" }
+		7 = { "%dya Vozdushno-Desantnaya Diviziya" }
+	}
+}
+
+AFS_MAR_01 = {
+	name = "Marine Division"
+	for_countries = { AFS TOB }
+	can_use = { always = yes }
+	division_types = { "marine" }
+
+	fallback_name = "%dya Diviziya Morskoy Pekhoty"
+
+	ordered = {
+		1 = { "%dya Diviziya Morskoy Pekhoty" }
+		2 = { "%dya Diviziya Morskoy Pekhoty" }
+		3 = { "%dya Diviziya Morskoy Pekhoty" }
+		4 = { "%dya Diviziya Morskoy Pekhoty" }
+		5 = { "%dya Diviziya Morskoy Pekhoty" }
+		6 = { "%dya Diviziya Morskoy Pekhoty" }
+		7 = { "%dya Diviziya Morskoy Pekhoty" }
+		8 = { "%dya Diviziya Morskoy Pekhoty" }
+		9 = { "%dya Diviziya Morskoy Pekhoty" }
+	}
+}
+
+AFS_MNT_01 = {
+	name = "Mountain Infantry Division"
+	for_countries = { AFS TOB }
+	can_use = { always = yes }
+	division_types = { "mountaineers" }
+
+	fallback_name = "%dya Gornopekhotnaya Diviziya" #see comment to MOT_01 imperial name of this divisions - Gornaya Diviziya (Mountain Division)
+
+	ordered = {
+		1 = { "%dya Gornopekhotnaya Diviziya" }
+		2 = { "%dya Gornopekhotnaya Diviziya" }
+		3 = { "%dya Gornopekhotnaya Diviziya" }
+		4 = { "%dya Gornopekhotnaya Diviziya" }
+		5 = { "1ya Plastunskaya Diviziya" } #semi-fictional (Plastun battalions - it's imperial army battalions of mountain infantry)
+		6 = { "2ya Plastunskaya Diviziya" }
+		7 = { "3ya Plastunskaya Diviziya" }
+		8 = { "4ya Plastunskaya Diviziya" }
+		9 = { "5ya Plastunskaya Diviziya" }
+		10 = { "6ya Plastunskaya Diviziya" }
+	}
+}
+
+AFS_GAR_02 = {
+	name = "Rebel Detachments" #(for irregulars)
+	for_countries = { AFS TOB }
+	can_use = { always = yes }
+	division_types = { "infantry" }
+
+	fallback_name = "%dya Otryady Povstantsev" 
+
+	ordered = {
+		1 = { "%dya Otryady Povstantsev" }
+		2 = { "%dya Otryady Povstantsev" }
+		3 = { "%dya Otryady Povstantsev" }
+		4 = { "%dya Otryady Povstantsev" }
+		5 = { "%dya Otryady Povstantsev" }
+		6 = { "%dya Otryady Povstantsev" }
+		7 = { "%dya Otryady Povstantsev" }
+		8 = { "%dya Otryady Povstantsev" }
+		9 = { "%dya Otryady Povstantsev" }
+		10 = { "%dya Otryady Povstantsev" }
+		11 = { "%dya Otryady Povstantsev" }
+	}
+}
+
+AFS_GAR_01 = {
+	name = "Garrison Regiment"
+	for_countries = { AFS TOB }
+	can_use = { always = yes }
+	division_types = { "infantry" }
+
+	fallback_name = "%dya Garnizonnyy Polk" 
+
+	ordered = {
+		1 = { "%dya Garnizonnyy Polk" } #
+		2 = { "%dya Garnizonnyy Polk" }
+		3 = { "%dya Garnizonnyy Polk" }
+		4 = { "%dya Garnizonnyy Polk" }
+		5 = { "%dya Garnizonnyy Polk" }
+		6 = { "%dya Garnizonnyy Polk" }
+		7 = { "%dya Garnizonnyy Polk" }
+		8 = { "%dya Garnizonnyy Polk" }
+		9 = { "%dya Garnizonnyy Polk" }
+		10 = { "%dya Garnizonnyy Polk" }
+		11 = { "%dya Garnizonnyy Polk" }
+	}
+}
+
+AFS_CAV_02 = #COSSACK CAVALRY
+{
+	name = "Cossack Cavalry Division"
+
+	for_countries = { AFS TOB }
+
+	can_use = {
+	}
+
+	division_types = { "cavalry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SOV_INF_01 }
+
+	fallback_name = "%dya Kazachya Kavaleriyskaya Diviziya"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		3 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		5 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		7 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		8 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		9 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		11 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		13 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		14 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		15 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		16 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		17 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		18 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		19 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		20 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		21 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		22 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		23 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		24 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		25 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		26 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		29 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		30 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		31 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		32 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		33 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		34 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		36 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		48 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		67 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		27 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		28 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		35 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		38 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		40 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		41 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		43 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		44 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		46 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		47 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		49 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		50 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		51 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		52 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		53 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		54 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		55 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		56 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		57 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		60 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		61 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		62 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		63 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		64 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		66 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		68 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		70 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		72 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		73 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		74 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		75 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		76 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		77 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		78 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		79 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		80 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		81 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		82 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		83 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		87 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		91 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		94 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		97 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		98 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		99 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		100 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		101 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		102 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		103 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		104 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		105 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		106 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		107 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		108 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		109 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		110 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		111 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		112 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		113 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		114 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		115 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		116 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		307 = { "7ya Gvds. Kazachya Kavaleriyskaya Div." }
+		308 = { "8ya Gvds. Kazachya Kavaleriyskaya Div." }
+		309 = { "9ya Gvds. Kazachya Kavaleriyskaya Div." }
+		310 = { "10ya Gvds. Kazachya Kavaleriyskaya Div." }
+		311 = { "11ya Gvds. Kazachya Kavaleriyskaya Div." }
+		312 = { "12ya Gvds. Kazachya Kavaleriyskaya Div." }
+		313 = { "13ya Gvds. Kazachya Kavaleriyskaya Div." }
+		314 = { "14ya Gvds. Kazachya Kavaleriyskaya Div." }
+		315 = { "15ya Gvds. Kazachya Kavaleriyskaya Div." }
+		316 = { "16ya Gvds. Kazachya Kavaleriyskaya Div." }
+		317 = { "17ya Gvds. Kazachya Kavaleriyskaya Div." }
+		59 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+		84 = { "%dya Kazachya Kavaleriyskaya Diviziya" }
+	}
+}

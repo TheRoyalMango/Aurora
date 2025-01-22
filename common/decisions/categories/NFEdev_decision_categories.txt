@@ -1,0 +1,12 @@
+NFE_dev_toolkit = { 
+    priority = 100
+    icon = generic 
+
+	visible = {
+        is_debug = yes
+    }
+
+    allowed = {
+    	always = yes
+    }
+}

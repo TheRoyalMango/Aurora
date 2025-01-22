@@ -1,0 +1,1366 @@
+﻿### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+
+focus_tree = {
+	id = siberia_tree
+	
+	country = {
+		factor = 0
+		modifier = {
+			add = 10 
+			OR = {
+				original_tag = KRA
+				original_tag = KHA
+				original_tag = TAS
+				original_tag = KIR
+				original_tag = YAK
+				original_tag = TOM
+				original_tag = SIB
+				original_tag = ALT
+				original_tag = TOB
+			}
+		}
+	}
+
+	default = no
+
+	continuous_focus_position = { x = 20 y = 1250 }  
+	initial_show_position = {
+		x = 12
+		y = 0
+	}
+
+
+	###   ##  #   ### ### ###  ##   ##  #   
+	#  # #  # #    #   #   #  #  # #  # #   
+	###  #  # #    #   #   #  #    #### #   
+	#    #  # #    #   #   #  #  # #  # #   
+	#     ##  ### ###  #  ###  ##  #  # ### 
+
+
+	focus = {
+		id = SIB_the_first_album
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		#prerequisite = { focus = }
+
+		x = 9
+		y = 0
+		#relative_position_id =
+		cost = 5
+		available = {
+		}
+		ai_will_do = {
+			base = 10
+		}
+		search_filters = {}
+
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+#
+	focus = {
+		id = SIB_maintain_stability
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = SIB_the_first_album }
+		mutually_exclusive = { focus = SIB_anarchist_movement }
+		mutually_exclusive = { focus = SIB_local_soviets }
+		x = -5
+		y = 1
+		relative_position_id = SIB_the_first_album
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.05
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = anarchism
+				popularity = -0.05
+			}
+			add_timed_idea = { idea = SIB_idea_political_stability days = 730 }
+		}
+	}
+
+	focus = {
+		id = SIB_anarchist_movement
+		icon = GFX_focus_ARG_no_gods_no_masters
+		prerequisite = { focus = SIB_the_first_album }
+		mutually_exclusive = { focus = SIB_maintain_stability }
+		mutually_exclusive = { focus = SIB_local_soviets }
+		x = 0
+		y = 1
+		relative_position_id = SIB_the_first_album
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+		completion_reward = {
+			add_stability = -0.05
+			add_popularity = {
+				ideology = anarchism
+				popularity = 0.1
+			}
+			add_timed_idea = { idea = SIB_idea_peasant_councils days = 730 }
+		}
+	}
+
+#
+	focus = {
+		id = SIB_local_soviets
+		icon = GFX_focus_generic_spur_communist_revolutions
+		prerequisite = { focus = SIB_the_first_album }
+		mutually_exclusive = { focus = SIB_maintain_stability }
+		mutually_exclusive = { focus = SIB_anarchist_movement }
+		x = 5
+		y = 1
+		relative_position_id = SIB_the_first_album
+		cost = 5
+		available = {
+		}
+		search_filters = {}
+
+		completion_reward = {
+			add_timed_idea = { idea = SIB_idea_local_soviets days = 730 }
+		}
+	}
+
+	focus = {
+		id = SIB_communist_style_reforms
+		icon = GFX_focus_NOR_moscows_education_centers
+		prerequisite = { focus = SIB_local_soviets }
+
+		x = 1
+		y = 1
+		relative_position_id = SIB_local_soviets
+		cost = 5
+		available = {
+			has_government = communism
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = NFE_peasant_republic
+				add_idea = NFE_peasant_republic2
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = SIB_communist_education
+		icon = GFX_focus_NOR_moscows_education_centers
+		prerequisite = { focus = SIB_communist_style_reforms }
+
+		x = 1
+		y = 2
+		relative_position_id = SIB_local_soviets
+		cost = 5
+		available = {
+			has_government = communism
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = NFE_peasant_republic2
+				add_idea = NFE_peasant_republic3
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = SIB_armed_peasants
+		icon = GFX_focus_GER_support_the_proletarian_uprising
+		prerequisite = { 
+			focus = SIB_local_soviets
+			focus = SIB_anarchist_movement
+		}
+		x = 2
+		y = 1
+		relative_position_id = SIB_anarchist_movement
+		cost = 5
+		available = {
+			OR = {
+				has_government = communism
+				has_government = anarchism
+			}
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_ideas = SIB_armed_peasants
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = anarchism
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = SIB_black_guards
+		icon = GFX_black_guards
+		prerequisite = { 
+			focus = SIB_anarchist_movement
+		}
+		x = 0
+		y = 1
+		relative_position_id = SIB_anarchist_movement
+		cost = 5
+		available = {
+			has_government = anarchism
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = anarchism
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = SIB_free_soviets
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { 
+			focus = SIB_black_guards
+		}
+		x = 0
+		y = 2
+		relative_position_id = SIB_anarchist_movement
+		cost = 5
+		available = {
+			has_government = anarchism
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = NFE_peasant_republic
+				add_idea = NFE_peasant_republic2
+			}
+			add_political_power = 50
+			add_popularity = {
+				ideology = anarchism
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = SIB_torchbearers_of_tomorrow
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { 
+			focus = SIB_free_soviets
+		}
+		x = 0
+		y = 3
+		relative_position_id = SIB_anarchist_movement
+		cost = 5
+		available = {
+			has_government = anarchism
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = NFE_peasant_republic2
+				add_idea = NFE_peasant_republic3
+			}
+			add_manpower = 10000
+			add_popularity = {
+				ideology = anarchism
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = SIB_invite_russian_settlers
+		icon = GFX_RUS_rusflag
+		prerequisite = { 
+			focus = SIB_maintain_stability
+		}
+		x = -1
+		y = 1
+		relative_position_id = SIB_maintain_stability
+		cost = 5
+		available = {
+			NOT = { has_government = communism }
+			NOT = { has_government = anarchism }
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_stability = -0.05
+			capital_scope = {
+				ETH_upgrade_state_category = yes 
+				add_manpower = 20000
+			}
+			add_manpower = 10000
+			army_experience = 5
+		}
+	}
+	focus = {
+		id = SIB_support_of_the_orthodox_support
+		icon = GFX_goal_orthodox_state
+		prerequisite = { 
+			focus = SIB_invite_russian_settlers
+		}
+		x = -1
+		y = 2
+		relative_position_id = SIB_maintain_stability
+		cost = 5
+		available = {
+			NOT = { has_government = communism }
+			NOT = { has_government = anarchism }
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+
+	focus = {
+		id = SIB_state_guard
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { 
+			focus = SIB_invite_russian_settlers
+		}
+		x = -3
+		y = 2
+		relative_position_id = SIB_maintain_stability
+		cost = 5
+		available = {
+			NOT = { has_government = communism }
+			NOT = { has_government = anarchism }
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_ideas = RUS_state_guard_spirit
+			add_tech_bonus = {
+				name = RUS_state_guard
+				bonus = 1.0
+				uses = 1
+				category = military_police_tech
+			}
+		}
+	}
+
+	focus = {
+		id = SIB_legal_code
+		icon = GFX_focus_AUS_lawmaking_leniency
+		prerequisite = { 
+			focus = SIB_maintain_stability
+		}
+		x = 1
+		y = 1
+		relative_position_id = SIB_maintain_stability
+		cost = 5
+		available = {
+			NOT = { has_government = communism }
+			NOT = { has_government = anarchism }
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 50
+			add_popularity = {
+				ideology = anarchism
+				popularity = -0.1
+			}
+		}
+	}
+
+	focus = {
+		id = SIB_proper_governance
+		icon = GFX_focus_BRA_reach_out_to_military_dem
+		prerequisite = { 
+			focus = SIB_legal_code
+		}
+		x = 1
+		y = 2
+		relative_position_id = SIB_maintain_stability
+		cost = 5
+		available = {
+			NOT = { has_government = communism }
+			NOT = { has_government = anarchism }
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_political_power = 100
+			swap_ideas = {
+				remove_idea = NFE_peasant_republic
+				add_idea = NFE_peasant_republic2
+			}
+		}
+	}
+
+
+	focus = {
+		id = SIB_secondary_education
+		icon = GFX_goal_PAN_Create_the_Universidad_de_Panama
+		prerequisite = { focus = SIB_proper_governance }
+
+		x = 0
+		y = 1
+		relative_position_id = SIB_proper_governance
+		cost = 5
+		available = {
+			NOT = { has_government = communism }
+			NOT = { has_government = anarchism }
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = NFE_peasant_republic2
+				add_idea = NFE_peasant_republic3
+			}
+		}
+	}
+
+	#   # ### #   ### ###  ##  ###  #   # 
+	## ##  #  #    #   #  #  # #  #  # #  
+	# # #  #  #    #   #  #### ###    #   
+	#   #  #  #    #   #  #  # #  #   #   
+	#   # ### ### ###  #  #  # #  #   #   
+
+	focus = {
+		id = SIB_shooting_ranges
+		icon = GFX_focus_focus_fra_maquis
+		#prerequisite = { focus = }
+
+		x = 22
+		y = 0
+		#relative_position_id =
+		cost = 5
+		available = {
+			has_war_support > 0.1
+		}
+
+		search_filters = {}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_war = yes 
+			}
+		}
+		completion_reward = {
+			army_experience = 15
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = SIB_improve_our_traditional_warfare
+		icon = GFX_focus_ITA_peasants_rise
+		prerequisite = { focus = SIB_shooting_ranges }
+		mutually_exclusive = { focus = SIB_towards_a_professional_military }
+		x = -3
+		y = 1
+		relative_position_id = SIB_shooting_ranges
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_war = yes 
+			}
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = cossack_obsolete_army
+				add_idea = cossack_obsolete_army2
+			}
+			add_war_support = 0.05
+			custom_effect_tooltip = improve_traditional_warfare_ttp
+		}
+	}
+
+	focus = {
+		id = SIB_universal_shooting_lessons
+		icon = GFX_focus_SWE_lottakoren
+		prerequisite = { 
+			focus = SIB_improve_our_traditional_warfare 
+			focus = SIB_towards_a_professional_military
+		}
+		x = 2
+		y = 2
+		relative_position_id = SIB_shooting_ranges
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_war = yes 
+			}
+		}
+		completion_reward = {	
+			army_experience = 10
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = SIB_cavalry_battalions
+		icon = GFX_cavalry_march 
+		prerequisite = { focus = SIB_universal_shooting_lessons }
+		x = 0
+		y = 1
+		relative_position_id = SIB_universal_shooting_lessons
+		cost = 5
+		available = {
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_war = yes 
+			}
+		}
+		search_filters = {}
+
+		completion_reward = {
+			army_experience = 5
+		}
+	}
+
+	focus = {
+		id = SIB_construct_fortifications
+		icon = GFX_mountain_defence #GFX_mountain_supa_troopas
+		prerequisite = { focus = SIB_cavalry_battalions }
+		x = 0
+		y = 2
+		relative_position_id = SIB_universal_shooting_lessons
+		cost = 5
+		available = {
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_war = yes 
+			}
+		}
+		search_filters = {}
+
+		completion_reward = {
+			army_experience = 5
+		}
+	}
+
+	focus = {
+		id = SIB_guerrilla_tactics
+		icon = GFX_Peasant_Militias 
+		prerequisite = { 
+			focus = SIB_improve_our_traditional_warfare 
+			focus = SIB_towards_a_professional_military
+		}
+		x = -2
+		y = 2
+		relative_position_id = SIB_shooting_ranges
+		cost = 5
+		available = {
+			NOT = {
+				has_tech = guerilla_warfare
+			}
+		}
+
+		search_filters = {}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 5
+				has_war = yes 
+			}
+		}
+		completion_reward = {	
+			army_experience = 5
+			add_doctrine_cost_reduction = {
+				name = SIB_guerrilla_tactics 
+				cost_reduction = 0.15
+				uses = 1
+				category = land_doctrine
+			}
+			set_technology = {
+   	 			guerilla_warfare = 1
+			}
+		}
+	}
+
+	focus = {
+		id = SIB_salvage_captured_equipment
+		icon = GFX_focus_ETH_scavenging_tactics 
+		prerequisite = { 
+			focus = SIB_guerrilla_tactics 
+		}
+		x = -2
+		y = 3
+		relative_position_id = SIB_shooting_ranges
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 5
+				has_war = yes 
+			}
+		}
+		completion_reward = {	
+			add_ideas = RUS_weapon_scavenging_idea
+			add_tech_bonus = {
+				name = SIB_salvage_captured_equipment
+			    bonus = 0.25
+			    uses = 1
+			    category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = SIB_stockpile_provisions
+		icon = GFX_focus_SWE_rations
+		prerequisite = { 
+			focus = SIB_improve_our_traditional_warfare 
+			focus = SIB_towards_a_professional_military
+		}
+		x = 0
+		y = 2
+		relative_position_id = SIB_shooting_ranges
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_war = yes 
+			}
+		}
+		completion_reward = {
+			add_ideas = SIB_stockpiled_provisions
+            add_equipment_to_stockpile = {
+                type = support_equipment_1
+                amount = 20
+                producer = ROOT
+            }
+            add_war_support = 0.05
+		}
+	}
+
+	focus = { 
+		id = SIB_winter_clothing
+		icon = GFX_focus_generic_winter_warfare#GFX_RUS_mountain_soldier
+		x = 0
+		y = 1
+		relative_position_id = SIB_stockpile_provisions
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = SIB_stockpile_provisions
+		}
+
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_war = yes 
+			}
+		}
+	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = RUS_winter_clothing_idea
+			custom_effect_tooltip = FIN_winter_warfare_battalion_tt
+			hidden_effect = {
+				set_technology = {
+					winter_logistics_support_tech = 1
+					popup = no
+				}
+			}
+			custom_effect_tooltip = FIN_long_range_patrols_battalion_tt
+			hidden_effect = {
+				set_technology = {
+					long_range_patrol_support_tech = 1
+					popup = no
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SIB_green_like_forests
+		icon = GFX_focus_SWE_beneath_sticks_and_stone
+		#GFX_focus_CHL_expand_the_forestry
+		x = 0
+		y = 2
+		relative_position_id = SIB_stockpile_provisions
+		available = {
+		}
+		bypass = {
+
+		}
+		
+		cost = 5
+		prerequisite = { 
+			focus = SIB_winter_clothing
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_war = yes 
+			}
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = RUS_green_like_forests_idea
+			#also a focus called "Green, Like Forests" for similar buffs to forest terriain. both these foci for peasant republics!
+		}
+	}
+
+
+	focus = {
+		id = SIB_improve_irregular_tactics 
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = SIB_improve_our_traditional_warfare }
+		x = -1
+		y = 1
+		relative_position_id = SIB_improve_our_traditional_warfare
+		cost = 5
+		available = {
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_war = yes 
+			}
+		}
+		search_filters = {}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = cossack_obsolete_army2
+				add_idea = cossack_obsolete_army3
+			}
+		}
+	}
+
+	focus = {
+		id = SIB_command_structure_reform
+		icon = GFX_focus_ITA_comandante_diavolo
+		prerequisite = { focus = SIB_improve_irregular_tactics }
+		x = -1
+		y = 2
+		relative_position_id = SIB_improve_our_traditional_warfare
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_war = yes 
+			}
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = cossack_obsolete_army3
+				add_idea = cossack_obsolete_army4
+			}
+		}
+	}
+	focus = {
+		id = SIB_towards_a_professional_military
+		icon = GFX_focus_SWE_varnplikt
+		prerequisite = { focus = SIB_shooting_ranges }
+		mutually_exclusive = { focus = SIB_improve_our_traditional_warfare }
+		x = 3
+		y = 1
+		relative_position_id = SIB_shooting_ranges
+		cost = 5
+		available = {
+			#NOT = {
+			#	has_government = anarchism
+			#}
+		}
+
+		search_filters = {}
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 2
+				has_war = yes 
+			}
+		}
+		completion_reward = {
+			hidden_effect = { remove_ideas = cossack_obsolete_army }
+			add_doctrine_cost_reduction = {
+				name = SIB_towards_a_professional_military 
+				cost_reduction = 0.35
+				uses = 1
+				category = land_doctrine
+			}
+			add_war_support = 0.05
+			custom_effect_tooltip = remove_traditional_warfare_ttp
+		}
+	}
+	focus = {
+		id = SIB_leadership_wargames
+		icon = GFX_focus_ETH_ecole_militaire_haile_selassie_1er
+		prerequisite = { focus = SIB_towards_a_professional_military }
+		x = 1
+		y = 1 
+		relative_position_id = SIB_towards_a_professional_military
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_war = yes 
+			}
+		}
+		completion_reward = {
+			army_experience = 25
+			add_doctrine_cost_reduction = {
+				name = SIB_leadership_wargames
+				cost_reduction = 0.25
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = SIB_integrate_automatic_weapons_and_mortars
+		icon = GFX_RUS_rifle1 
+		prerequisite = { focus = SIB_leadership_wargames }
+		x = 1
+		y = 2
+		relative_position_id = SIB_towards_a_professional_military
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_war = yes 
+			}
+		}
+		completion_reward = {
+			army_experience = 15
+			add_tech_bonus = {
+				name = SIB_integrate_automatic_weapons_and_mortars
+				bonus = 1.0
+				uses = 2
+				technology = support_weapons
+				technology = support_weapons2
+				technology = support_weapons3
+			}
+			add_tech_bonus = {
+				name = SIB_integrate_automatic_weapons_and_mortars
+			    bonus = 0.5
+			    uses = 2
+			    category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = SIB_munitions_plant
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = SIB_leadership_wargames }
+		prerequisite = { focus = SIB_rifle_workshops }
+		x = 3
+		y = 2
+		relative_position_id = SIB_towards_a_professional_military
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_war = yes 
+			}
+		}
+		completion_reward = {
+			random_controlled_state = {
+				limit = { is_core_of = ROOT }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SIB_artillery_studies
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = SIB_integrate_automatic_weapons_and_mortars }
+		x = 1
+		y = 3
+		relative_position_id = SIB_towards_a_professional_military
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_war = yes 
+			}
+		}
+		completion_reward = {
+			army_experience = 5
+			add_tech_bonus = {
+				name = SIB_artillery_studies
+				bonus = 1.0
+				uses = 2
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = SIB_aircraft_workshop
+		icon = GFX_RUS_biplane
+		prerequisite = { focus = SIB_artillery_studies }
+		x = 2
+		y = 4
+		relative_position_id = SIB_towards_a_professional_military
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_war = yes 
+			}
+		}
+		completion_reward = {
+			air_experience = 20
+		}
+	}
+
+	focus = {
+		id = SIB_armored_tractors
+		icon = GFX_focus_NOR_rikstanken
+		prerequisite = { focus = SIB_artillery_studies }
+		x = 0
+		y = 4
+		relative_position_id = SIB_towards_a_professional_military
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_war = yes 
+			}
+		}
+		completion_reward = {
+			army_experience = 20
+		}
+	}
+
+
+###############################################			########################
+############################################### Economy ########################
+###############################################			########################
+
+	focus = {
+		id = SIB_develop_capitalstate
+		icon = GFX_focus_generic_industry_1 
+		#prerequisite = { focus = }
+
+		x = 32
+		y = 0
+		#relative_position_id = 
+		cost = 5
+		available = {
+		}
+		ai_will_do = {
+			base = 10
+		}
+		search_filters = {}
+
+		completion_reward = {
+			capital_scope = {
+				ETH_upgrade_state_category = yes 
+				add_extra_state_shared_building_slots = 1
+				#add_building_construction = {
+				#	type = industrial_complex
+				#	level = 1
+				#	instant_build = yes
+				#}
+			}
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}
+	}
+	focus = {
+		id = SIB_tame_siberia 
+		icon = GFX_focus_CHL_expand_the_forestry#GFX_focus_SWE_beneath_sticks_and_stone
+		prerequisite = { focus = SIB_develop_capitalstate }
+
+		x = -2
+		y = 1
+		relative_position_id = SIB_develop_capitalstate
+		cost = 5
+		available = {
+		}
+		ai_will_do = {
+			base = 10
+		}
+		search_filters = {}
+
+		completion_reward = {
+			add_political_power = 50
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	focus = {
+		id = SIB_pave_the_roads
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = SIB_develop_capitalstate }
+
+		x = 2
+		y = 1
+		relative_position_id = SIB_develop_capitalstate
+		cost = 5
+		available = {
+		}
+		ai_will_do = {
+			base = 5
+		}
+		search_filters = {}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = SIB_pave_the_roads
+				bonus = 1.0
+				uses = 1
+				category = engineers_tech
+			}
+		}
+	}
+	focus = {
+		id = SIB_perform_rail_maintenance 
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = SIB_pave_the_roads }
+
+		x = 0
+		y = 1
+		relative_position_id = SIB_pave_the_roads
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+		ai_will_do = {
+			base = 5
+		}
+		completion_reward = {
+			IF = {
+				limit = {
+					NOT = { has_tech = basic_train }
+				}
+				set_technology = { 
+					basic_train = 1
+					popup = yes
+				}
+			}
+			add_equipment_to_stockpile = { 
+				type = train_equipment_1
+				amount = 10 
+				producer = ROOT
+			}
+		}
+	}
+	focus = {
+		id = SIB_trans_siberian_railroad
+		icon = GFX_RUS_train
+		prerequisite = { focus = SIB_perform_rail_maintenance }
+
+		x = 0
+		y = 1
+		relative_position_id = SIB_perform_rail_maintenance
+		cost = 5
+		available = {
+		}
+		ai_will_do = {
+			base = 6
+		}
+		search_filters = {}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = isolation
+				add_idea = civilian_economy
+			}
+		}
+	}
+	focus = {
+		id = SIB_import_supplies
+		icon = GFX_focus_generic_reinforcing_the_supply_network
+		prerequisite = { focus = SIB_trans_siberian_railroad }
+
+		x = 2
+		y = 1
+		relative_position_id = SIB_trans_siberian_railroad
+		cost = 5
+		available = {
+		}
+		ai_will_do = {
+			base = 5
+		}
+		search_filters = {}
+
+		completion_reward = {
+			#unlocks decisions to import tech
+		}
+	}
+	focus = {
+		id = SIB_arms_imports
+		icon = GFX_focus_SOV_south_manchuria_railway
+		prerequisite = { focus = SIB_trans_siberian_railroad }
+
+		x = 0
+		y = 1
+		relative_position_id = SIB_trans_siberian_railroad
+		cost = 5
+		available = {
+		}
+		ai_will_do = {
+			base = 5
+		}
+		search_filters = {}
+
+		completion_reward = {
+			#unlocks decisions to import weapons
+		}
+	}
+	focus = {
+		id = SIB_trade_agreements
+		icon = GFX_focus_CHL_silverworking
+		prerequisite = { focus = SIB_trans_siberian_railroad }
+
+		x = -2
+		y = 1
+		relative_position_id = SIB_trans_siberian_railroad
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+		ai_will_do = {
+			base = 5
+		}
+		completion_reward = {
+			#unlocks decisions for CG and civ boost if neighbors join in
+		}
+	}
+	focus = {
+		id = SIB_rifle_workshops
+		icon = GFX_RUS_rifle1
+		prerequisite = { focus = SIB_tame_siberia }
+		dynamic = yes 
+		x = -1
+		y = 1
+		relative_position_id = SIB_tame_siberia
+		cost = 5
+		available = {
+		}
+		ai_will_do = {
+			base = 15
+		}
+		search_filters = {}
+
+		completion_reward = {
+			add_ideas = NFE_rifle_workshops
+			add_tech_bonus = {
+				name = SIB_rifle_workshops
+			    bonus = 0.5
+			    uses = 1
+			    category = infantry_weapons
+			}
+			add_offsite_building = { type = arms_factory level = 1 }
+			#random_owned_controlled_state = {
+			#	add_extra_state_shared_building_slots = 1
+			#	add_building_construction = {
+			#		type = arms_factory
+			#		level = 1
+			#		instant_build = yes
+			#	}
+			#}
+		}
+	}
+	focus = {
+		id = SIB_celebrate_village_life
+		icon = GFX_focus_CHL_mapuche_reconcilliation_campaigns_export
+		prerequisite = { focus = SIB_tame_siberia }
+		x = 1
+		y = 1
+		relative_position_id = SIB_tame_siberia
+		cost = 5
+		available = {
+		}
+		ai_will_do = {
+			base = 10
+		}
+		search_filters = {}
+
+		completion_reward = { 
+			add_offsite_building = { type = industrial_complex level = 1 }
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+			add_stability = 0.05
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = SIB_merge_workshops
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = SIB_celebrate_village_life }
+		x = 1
+		y = 2
+		relative_position_id = SIB_tame_siberia
+		cost = 5
+		available = {
+		}
+		ai_will_do = {
+			base = 10
+		}
+		search_filters = {}
+
+		completion_reward = { 
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 2
+				category = cat_production
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+			random_controlled_state = {
+            	add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+
+		}
+	}
+
+#
+}

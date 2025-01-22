@@ -1,0 +1,26 @@
+idea_BLR_river_navy = { #STATE MODIFIER
+	remove_trigger = { 
+		BLR = { has_capitulated = yes } 
+
+		#even if polish support ended, they'v still have the river monitor anyway
+		#POL = { has_completed_focus = POL_surrender_the_east }
+		#POL = { exists = no }	
+		#BLR = {
+		#		NOT = { has_country_flag = polish_support }
+     	#	has_war_with = POL
+		#}
+	}
+	icon = GFX_MODIFIER_NAVAL_INVASION_CAPACITY
+	army_core_defence_factor = 0.15
+	#removed resistance stuff for now as they seem OP, and BLR-BYL have mutual cores anyway
+	#resistance_target = 0.5
+	#resistance_growth_on_our_occupied_states = 0.25
+	#resistance_activity = 0.5
+	#resistance_damage_to_garrison_on_our_occupied_states = 1
+	#resistance_garrison_penetration_chance = 0.5
+	cas_damage_reduction = 0.15
+	supply_factor = 0.15
+	no_supply_grace = 120
+	supply_node_range = 0.15
+	river_crossing_factor = -0.15 #might not work due to being in unit leader scope
+}

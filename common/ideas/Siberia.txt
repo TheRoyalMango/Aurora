@@ -1,0 +1,549 @@
+ideas = {
+	country = {
+
+		SIB_armed_peasants = { #
+
+			picture = MEX_revolutionary_army
+
+			removal_cost = -1
+			
+			allowed = {
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = 0.02
+					instant = yes
+				}
+			}
+			modifier = {
+				communism_drift = 0.01
+				anarchism_drift = 0.01
+				resistance_growth_on_our_occupied_states = 0.1
+				resistance_damage_to_garrison_on_our_occupied_states = 0.15
+			}
+		}
+
+		KHA_mountain_cavalry_partisan_detachment = { #Mountain-cavalry partisan detachment named after Grand Duke Mikhail Alexandrovich
+
+			picture = cos_cossack_host
+
+			removal_cost = -1
+			
+			allowed = {
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				army_core_defence_factor = 0.05
+				conscription = 0.01
+				supply_combat_penalties_on_core_factor = -0.1
+				#terrain_penalty_reduction = 0.1 #unit leader scope only due to vanilla bug
+				cavalry_attack_factor = 0.1
+				neutrality_drift = 0.01
+				democratic_drift = 0.01
+				communism_drift = -0.01
+				war_support_factor = 0.05
+				resistance_growth_on_our_occupied_states = 0.15
+				resistance_decay_on_our_occupied_states = -0.15
+			}
+		}
+
+		YAK_yakut_peoples_army = {
+
+			picture = FIN_sami_pathfinders
+
+			removal_cost = -1
+			
+			allowed = {
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				army_core_defence_factor = 0.05
+				conscription = 0.01
+				supply_consumption_factor = -0.1
+				supply_combat_penalties_on_core_factor = -0.1
+				#equipment_capture_factor = 0.50
+				#equipment_capture = 0.05
+				#terrain_penalty_reduction = 0.1 #unit leader scope only due to vanilla bug
+				acclimatization_cold_climate_gain_factor = 0.5
+				winter_attrition_factor = -0.25
+				army_speed_factor = 0.10
+				terrain_trait_xp_gain_factor = 0.1
+				trait_winter_specialist_xp_gain_factor = 0.1
+			}
+		}
+
+		KIR_kirensk = {
+
+			picture = SOV_new_old_church #SOV_crowning_jewel_of_russia - for when its upgraded
+
+			removal_cost = -1
+			
+			allowed = {
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				stability_factor = 0.2
+				communism_drift = -0.02
+				neutrality_drift = 0.02
+				army_core_defence_factor = 0.05
+				conscription = 0.01
+				drift_defence_factor = 0.1
+				communism_acceptance = -50
+				anarchism_acceptance = -25
+			}
+		}
+
+		TOM_heavy_soviet_influence = {
+
+			picture = SOV_soviet_hegemony
+
+			removal_cost = -1
+			
+			allowed = {
+			}
+			rule = {
+				can_join_factions = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				political_power_cost = 0.2
+				stability_factor = -0.05
+				communism_drift = 0.06
+				drift_defence_factor = -0.1
+				communism_acceptance = 50
+			}
+		}
+		NFE_peasant_republic_faction_member = {
+
+			picture = armed_internal_security #MEX_politicised_army
+
+			removal_cost = -1
+			
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				defensive_war_stability_factor = 0.15 
+				mobilization_speed = 0.15
+				army_core_defence_factor = 0.05
+				surrender_limit = 1
+				max_surrender_limit_offset = 0.15
+				#drift_defence_factor = 0.1
+				army_morale_factor = 0.05
+				#consumer_goods_factor = -0.05 #trade deal. improved via focus
+			}
+			targeted_modifier = {
+				tag = MON
+				defense_bonus_against = 0.05
+				#attack bonus added via focus
+			}
+		}
+
+		ALT_religious_conflict = {
+
+			picture = SOV_a_church_of_the_catacombs
+
+			removal_cost = -1
+			
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				political_power_factor = -0.1
+				stability_factor = -0.05
+				war_support_factor = -0.05
+				drift_defence_factor = -0.1
+			}
+		}
+
+		ALT_karakorum = {
+
+			picture = tur_kemalist_army_officers_powerful_neutral #chi_army_corruption2 #generic_supply_depot
+
+			removal_cost = -1
+			
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				conscription = 0.03
+				army_core_defence_factor = 0.05
+				army_core_attack_factor = 0.05
+				stability_factor = 0.05
+				war_support_factor = 0.1
+				weekly_manpower = 50
+			}
+			#targeted_modifier = {
+			#	tag = AFS
+			#	defense_bonus_against = 0.05
+			#	#attack bonus added via focus
+			#}
+		}
+
+		TAM_united_partisan_army_of_tambov = {
+
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+
+			picture = citizen_militia_1
+			#POL_looming_peasants_strike 
+			#idea_mex_revolutionary_army 
+			#idea_POL_the_peasants_strike
+
+			modifier = {
+				#army
+				army_org_factor = -0.1
+				land_doctrine_cost_factor = 0.10
+				army_core_defence_factor = 0.15
+				conscription_factor = 0.15
+				minimum_training_level = -0.15
+				supply_combat_penalties_on_core_factor = -0.3
+				supply_consumption_factor = -0.05
+
+				resistance_growth_on_our_occupied_states = 0.25
+				resistance_decay_on_our_occupied_states = -0.25
+			}
+			targeted_modifier = {
+				tag = SOV
+				defense_bonus_against = 0.10
+			}
+		}
+
+		NFE_peasant_republic = {
+
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			rule = {
+				can_not_declare_war = yes
+				can_access_market = no
+				can_join_factions = no
+			}
+
+			picture = HUN_agrarian_tradition #POL_looming_peasants_strike
+
+			modifier = {
+				research_speed_factor = -0.10
+				conscription_factor = 0.15
+				drift_defence_factor = 0.15
+				political_power_factor = -0.1
+				anarchism_acceptance = 25
+				stability_factor = 0.2
+				war_support_factor = -0.5
+				industrial_capacity_factory = -0.1
+				production_speed_arms_factory_factor = -0.15
+				experience_gain_army_factor = -0.15
+				trait_ranger_xp_gain_factor = 0.1
+			}
+		}
+
+		NFE_peasant_republic2 = { #removes political power maulus, improves it & war support
+
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			rule = {
+				can_not_declare_war = yes
+				can_access_market = no
+			}
+
+			picture = HUN_agrarian_tradition
+
+			modifier = {
+				research_speed_factor = -0.10
+				conscription_factor = 0.2
+				drift_defence_factor = 0.15
+				political_power_factor = 0.05
+				anarchism_acceptance = 25
+				stability_factor = 0.2
+				war_support_factor = -0.4
+				industrial_capacity_factory = -0.1
+				production_speed_arms_factory_factor = -0.15
+				experience_gain_army_factor = -0.15
+				trait_ranger_xp_gain_factor = 0.1
+			}
+		}
+
+		NFE_peasant_republic3 = { #removes research speed maulus & xp maulus, improves war support
+
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			rule = {
+				can_not_declare_war = yes
+				can_access_market = no
+			}
+
+			picture = HUN_agrarian_tradition
+
+			modifier = {
+				conscription_factor = 0.2
+				drift_defence_factor = 0.15
+				political_power_factor = 0.05
+				anarchism_acceptance = 25
+				stability_factor = 0.2
+				war_support_factor = -0.4
+				industrial_capacity_factory = -0.1
+				production_speed_arms_factory_factor = -0.15
+				#experience_gain_army_factor = -0.15
+				trait_ranger_xp_gain_factor = 0.1
+			}
+		}
+
+		SIB_stockpiled_provisions = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = green_army_spirit #citizen_militia_1
+
+			modifier = {
+				out_of_supply_factor = -0.05
+				supply_consumption_factor = -0.05
+				supply_factor = 0.05
+				acclimatization_cold_climate_gain_factor = 0.2
+				winter_attrition_factor = -0.1
+				production_factory_max_efficiency_factor = -0.05
+				war_stability_factor = 0.1
+			}
+		}
+
+		SIB_idea_political_stability = {
+
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = green_army_spirit #citizen_militia_1
+
+			modifier = {
+				anarchism_drift = -0.15
+				communism_drift = -0.15
+				political_power_factor = 0.1
+			}
+		}
+		SIB_idea_local_soviets = {
+
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = green_army_spirit #citizen_militia_1
+
+			modifier = {
+				communism_drift = 0.3
+				political_power_factor = 0.05
+				industrial_capacity_factory = 0.1
+			}
+		}
+		SIB_idea_peasant_councils = {
+
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = green_army_spirit #citizen_militia_1
+
+			modifier = {
+				anarchism_drift = 0.3
+				political_power_factor = -0.1
+				stability_factor = 0.05
+			}
+		}
+
+		TOB_peoples_rebel_army = { #almost same as green army
+
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = green_army_spirit #citizen_militia_1
+
+			modifier = {
+				army_core_attack_factor = 0.05
+				army_core_defence_factor = 0.05
+				modifier_army_sub_unit_irregular_infantry_defence_factor = 0.1
+				resistance_growth_on_our_occupied_states = 0.15
+				resistance_decay_on_our_occupied_states = -0.15
+				compliance_growth_on_our_occupied_states = -0.1
+				drift_defence_factor = 0.2
+				communism_drift = -0.04
+				communism_acceptance = -50
+				tactic_infantry_charge_preferred_weight_factor = 0.5
+				tactic_guerrilla_tactics_preferred_weight_factor = 1
+			}
+		}
+
+		NFE_peasant_army = { #green army
+
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = green_army_spirit #citizen_militia_1
+
+			modifier = {
+				#army_core_defence_factor = 0.05
+				modifier_army_sub_unit_irregular_infantry_defence_factor = 0.1
+				resistance_growth_on_our_occupied_states = 0.15
+				resistance_decay_on_our_occupied_states = -0.15
+				compliance_growth_on_our_occupied_states = -0.1
+				local_resources_factor = -0.1
+				drift_defence_factor = 0.2
+				political_power_factor = -0.1
+				production_speed_buildings_factor = -0.1
+				anarchism_drift = 0.01
+				tactic_infantry_charge_preferred_weight_factor = 0.5
+				tactic_guerrilla_tactics_preferred_weight_factor = 1
+			}
+		}
+		NFE_rifle_workshops = {
+
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			allowed_civil_war = {
+				always = yes
+			}
+			picture = generic_supply_depot #generic_central_management
+			
+			equipment_bonus = {
+				infantry_equipment = {
+					reliability = -0.1
+					hard_attack = -0.15
+					breakthrough = -0.05
+					ap_attack = -0.15
+					build_cost_ic = -0.15
+					instant = yes
+				}
+			}
+			modifier = { 
+				#equipment_capture_factor = 0.60 
+				#equipment_capture = 0.05
+
+				#equipment_capture = 0.03
+				#equipment_capture_factor = 0.25
+			}
+		}
+#
+	}
+#
+	mobilization_laws = {
+		law = yes
+		use_list_view = yes
+
+		NFE_peasant_militia_1 = {
+			cost = 200
+			picture = citizen_militia_1
+			removal_cost = -1
+			level = 6
+
+			allowed = {
+				always = no
+			}
+			allowed_to_remove = {
+				always = no
+			}
+			ai_will_do = {
+				factor = 0
+			}
+
+			modifier = {
+				conscription = 0.1
+				conscription_factor = 0.1
+				#army_org_factor = -0.025
+				industrial_capacity_factory = -0.1
+				industrial_capacity_dockyard = -0.1
+				mobilization_speed = 0.05
+				ai_desired_divisions_factor = 0.1
+				training_time_factor = 0.1
+			}
+		}
+
+		AFS_obligatory_mobilization = {
+			cost = 200
+			picture = MEX_revolutionary_army
+			removal_cost = -1
+			level = 7
+
+			allowed = {
+				always = no
+			}
+			allowed_to_remove = {
+				always = no
+			}
+			ai_will_do = {
+				factor = 0
+			}
+
+			modifier = {
+				conscription = 0.03
+				conscription_factor = 0.1
+				mobilization_speed = -0.05
+				training_time_factor = 0.02
+			}
+		}
+	}
+}

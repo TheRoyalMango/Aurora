@@ -1,0 +1,1069 @@
+﻿focus_tree = { 
+	id = mongolia_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = MON
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 50 y = 1000 }
+
+	focus = {
+		id = MON_request_machine_tools_from_japan
+		icon = GFX_RUS_gears
+		x = 4
+		y = 0
+		
+		available = {
+		}
+
+		bypass = {
+		}
+
+		ai_will_do = {
+			factor = 5
+		}
+		
+		cost = 10
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = train_equipment
+				amount = 1
+				producer = JAP
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 1
+				category = cat_production
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+		}
+	}
+
+		
+	focus = {
+		id = MON_electrify_the_country
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = MON_request_machine_tools_from_japan }
+		x = 0
+		y = 1
+		relative_position_id = MON_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			330 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_stability = 0.05
+			329 = { add_compliance = 5 }
+		}
+	}	
+
+	focus = {
+		id = MON_russian_refugee_settelers
+		icon = GFX_RUS_rusflag
+		prerequisite = { focus = MON_electrify_the_country }
+		prerequisite = { focus = MON_homesteading }
+		x = 0
+		y = 2
+		relative_position_id = MON_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_manpower = 10000
+			#army_experience = 5
+			random_owned_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				prioritize = { 819 }
+				add_manpower = 26354
+				add_extra_state_shared_building_slots = 1
+				#add_building_construction = {
+				#	type = industrial_complex
+				#	level = 1
+				#	instant_build = yes
+				#}
+			}
+			random_owned_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				prioritize = { 329 }
+				add_manpower = 13894
+				add_extra_state_shared_building_slots = 1
+				#add_building_construction = {
+				#	type = industrial_complex
+				#	level = 1
+				#	instant_build = yes
+				#}
+			}
+			add_stability = -0.03
+			329 = { add_compliance = 5 }
+		}
+	}
+
+	focus = {
+		id = MON_domestic_machine_tools
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = MON_electrify_the_country }
+		#prerequisite = { focus = MON_request_machine_tools_from_japan }
+		x = 2
+		y = 2
+		relative_position_id = MON_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			random_owned_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				prioritize = { 330 }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+		}
+	}
+	focus = {
+		id = MON_weapons_manufactury
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = MON_domestic_machine_tools }
+		x = 2
+		y = 3
+		relative_position_id = MON_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			random_owned_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				prioritize = { 330 }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+	}	
+
+	focus = {
+		id = MON_pursue_rapid_industrialization
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = MON_weapons_manufactury }
+		mutually_exclusive = { focus = MON_play_to_our_strengths }
+		x = 2
+		y = 4
+		relative_position_id = MON_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 3
+				category = industry
+			}
+			random_owned_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				prioritize = { 330 }
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_stability = -0.1
+			# ttp for this focus will be better if we have japanese/manchu support
+		}
+	}	
+
+	focus = {
+		id = MON_homesteading
+		icon = GFX_goal_agriculture2
+		prerequisite = { focus = MON_request_machine_tools_from_japan }
+		x = -2
+		y = 1
+		relative_position_id = MON_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			random_owned_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				prioritize = { 819 }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_stability = 0.05
+		}
+	}	
+
+	focus = {
+		id = MON_animal_husbandry
+		icon = GFX_focus_generic_horse_studs
+		prerequisite = { focus = MON_homesteading }
+
+		x = -2
+		y = 2
+		relative_position_id = MON_request_machine_tools_from_japan
+		cost = 5
+		available = {
+		}
+		ai_will_do = {
+			base = 2
+		}
+
+
+		search_filters = {}
+
+		completion_reward = { #without NSB, instead of the officer corps spirit they get an improved national spirit. 
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_ideas = proper_heritage_spirit
+			}
+			else = { 
+				swap_ideas = { 
+					remove_idea = MON_nomadic
+					add_idea = MON_nomadic_2
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = MON_camel_corps
+		icon = GFX_focus_generic_camel_corps
+		prerequisite = { focus = MON_animal_husbandry }
+
+		x = -2
+		y = 3
+		relative_position_id = MON_request_machine_tools_from_japan
+		cost = 5
+		available = {
+		}
+		ai_will_do = {
+			base = 2
+		}
+
+
+		search_filters = {}
+
+		completion_reward = {
+			set_technology = { camelry = 1 }
+			division_template = {
+				name = "Temeenii Deglem" 
+				division_names_group = MON_CAV_01 
+				regiments = { 
+					camelry = { x = 0 y = 0 } 
+					camelry = { x = 0 y = 1 } 
+					camelry = { x = 1 y = 0 } 
+					camelry = { x = 1 y = 1 } 
+				} 
+			}
+			random_controlled_state = {
+				limit = {
+					is_core_of = MON
+					is_fully_controlled_by = ROOT
+				}
+				create_unit = {
+					division = "division_template = \"Temeenii Deglem\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
+					owner = ROOT
+					count = 2
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = MON_play_to_our_strengths
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = MON_camel_corps }
+		mutually_exclusive = { focus = MON_pursue_rapid_industrialization }
+		x = -2
+		y = 4
+		relative_position_id = MON_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.25
+				uses = 3
+				category = industry
+			}
+			random_owned_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				prioritize = { 330 }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_stability = 0.05
+			add_war_support = 0.05
+			# ttp for this focus will be better if we have japanese/manchu support
+		}
+	}	
+
+
+# Political
+
+	focus = {
+		id = MON_power_to_the_baron
+		icon = GFX_MON_baronga#GFX_goal_RUS_white_legacy
+		mutually_exclusive = { focus = MON_oppose_sternburg }
+		x = 16
+		y = 0
+		
+		available = {
+		}
+
+		bypass = {
+		}
+
+		ai_will_do = {
+			factor = 5
+		}
+		
+		cost = 10
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_political_power = 35
+			add_country_leader_trait = spirit_of_genghis
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = MON_reapprochment_with_semyonov
+		icon = GFX_focus_SOV_approach_semyonov
+		prerequisite = { focus = MON_power_to_the_baron }
+		x = 2
+		y = 1
+		relative_position_id = MON_power_to_the_baron
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = MON_upgrade_the_ulaanbaatar_hsinking_rail
+		icon = GFX_goal_OTT_Railroad #GFX_goal_Fix_Shitty_Rails
+		prerequisite = { focus = MON_request_machine_tools_from_japan }
+		x = 4
+		y = 1
+		relative_position_id = MON_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+		}
+		available = { NOT = { has_war_with = MAN } }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = train_equipment
+				amount = 5
+				producer = JAP
+			}
+			swap_ideas = { 
+				remove_idea = MON_japanese_railways_assistance
+				add_idea = MON_japanese_railways_assistance_2
+			}
+			build_railway = {
+				path = { 4801 7752 7749 1868 10578 12557 12690 4745 }
+			}
+		}
+	}	
+
+	focus = {
+		id = MON_tap_into_the_CER
+		icon = GFX_focus_jap_manchurian_project#GFX_goal_Fix_Shitty_Rails
+		prerequisite = { focus = MON_upgrade_the_ulaanbaatar_hsinking_rail }
+		x = 4
+		y = 2
+		relative_position_id = MON_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		available = { NOT = { has_war_with = JAP } }
+
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 1 }
+			add_equipment_to_stockpile = {
+				type = train_equipment
+				amount = 5
+				producer = JAP
+			}
+			swap_ideas = { 
+				remove_idea = MON_japanese_railways_assistance_2
+				add_idea = MON_japanese_railways_assistance_3
+			}
+		}
+	}
+
+	focus = {
+		id = MON_friendship_treaty_with_japan
+		icon = GFX_focus_chi_collaboration_with_the_japanese
+		#prerequisite = { focus = MON_upgrade_the_ulaanbaatar_hsinking_rail }
+		prerequisite = { focus = MON_power_to_the_baron }
+		x = 7
+		y = 1
+		relative_position_id = MON_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+		available = { NOT = { has_war_with = JAP } }
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_equipment_to_stockpile = { type = infantry_equipment_0 amount = 500 producer = JAP }
+			JAP = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = CHI_collaboration_with_the_japanese
+				}
+				#add_ai_strategy = {
+				#	type = alliance
+				#	id = ROOT
+				#	value = 100
+				#}
+				#add_ai_strategy = {
+				#	type = protect
+				#	id = ROOT
+				#	value = 100
+				#}
+				add_ai_strategy = {
+					type = send_volunteers_desire
+					id = ROOT
+					value = 100
+				}
+				add_ai_strategy = {
+					type = support
+					id = ROOT
+					value = 100
+				}
+			}
+			custom_effect_tooltip = foreign_aid_ttp
+		}
+	}
+
+
+	focus = {
+		id = MON_expand_japanese_industrial_cooperation
+		icon = GFX_focus_jap_zaibatsu
+		prerequisite = { focus = MON_tap_into_the_CER }
+		prerequisite = { focus = MON_invite_japanese_settelers }
+		x = 5
+		y = 3
+		relative_position_id = MON_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+		available = { NOT = { has_war_with = JAP } }
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			random_owned_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				prioritize = { 330 }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			swap_ideas = { 
+				remove_idea = MON_japanese_railways_assistance_3
+				add_idea = MON_japanese_railways_assistance_4
+			}
+			IF = { 
+				limit = {
+					OR = {
+						has_idea = limited_exports
+						has_idea = closed_economy
+					}
+				}
+				add_ideas = export_focus
+			}
+		}
+	}
+
+	focus = {
+		id = MON_japanese_weapons_imports
+		icon = GFX_RUS_rifle2
+		prerequisite = { focus = MON_expand_japanese_industrial_cooperation }
+		x = 5
+		y = 4
+		relative_position_id = MON_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+		available = { NOT = { has_war_with = JAP } }
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 3000 producer = JAP }
+			add_equipment_to_stockpile = { type = support_equipment_1 amount = 100 producer = JAP }
+			add_equipment_to_stockpile = { type = motorized_equipment amount = 100 producer = JAP }
+			add_tech_bonus = {
+				name = MON_japanese_weapons_imports
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = MON_order_heavy_arms
+		icon = GFX_goal_national_artillery
+		prerequisite = { focus = MON_japanese_weapons_imports }
+		x = 5
+		y = 5
+		relative_position_id = MON_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+		available = { NOT = { has_war_with = JAP } }
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			330 = {
+				add_building_construction = {
+    				type = anti_air_building
+    				level = 1
+    				instant_build = yes
+				}
+			}
+          	add_equipment_to_stockpile = {
+               	type = artillery_equipment
+               	amount = 300
+              	producer = JAP
+           	}
+			add_tech_bonus = {
+				name = MON_order_heavy_arms
+				bonus = 1.0
+				uses = 1
+				category = artillery
+			}
+		}
+	}
+
+
+	focus = {
+		id = MON_invite_japanese_settelers
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = MON_friendship_treaty_with_japan }
+		x = 7
+		y = 2
+		relative_position_id = MON_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+		available = { NOT = { has_war_with = JAP } }
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.03
+			}
+			random_owned_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				prioritize = { 330 }
+				add_manpower = 25417
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				prioritize = { 819 }
+				add_manpower = 33846
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_stability = -0.03
+		}
+	}
+	focus = {
+		id = MON_japanese_technical_school
+		icon = GFX_goal_KTG_Educate_natives
+		prerequisite = { focus = MON_invite_japanese_settelers }
+		x = 7
+		y = 3
+		relative_position_id = MON_request_machine_tools_from_japan
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+		available = { NOT = { has_war_with = JAP } }
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_stability = 0.05
+			add_research_slot = 1
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 1
+				category = electronics
+			}
+		}
+	}
+
+	focus = {
+		id = MON_prepare_for_war_with_the_peasant_republics
+		icon = GFX_MON_attack_peasants#GFX_EGY_Palestine_Defence
+		prerequisite = { focus = MON_power_to_the_baron }
+		x = 0
+		y = 2
+		relative_position_id = MON_power_to_the_baron
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			#add_opinion_modifier = { target = AFS modifier = hostile_status }
+			AFS = { add_opinion_modifier = { target = MON modifier = hostile_status } }
+
+			#add_opinion_modifier = { target = KHA modifier = hostile_status }
+			KHA = { add_opinion_modifier = { target = MON modifier = hostile_status } }
+
+			#add_opinion_modifier = { target = KRA modifier = hostile_status }
+			KRA = { add_opinion_modifier = { target = MON modifier = hostile_status } }
+
+			#add_opinion_modifier = { target = TAS modifier = hostile_status }
+			TAS = { add_opinion_modifier = { target = MON modifier = hostile_status } }
+
+			random_owned_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				prioritize = { 820 }
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				prioritize = { 329 }
+				#add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_war_support = 0.05
+			army_experience = 10
+		}
+	}
+
+	focus = {
+		id = MON_push_past_the_sayan_mountains
+		icon = GFX_focus_GRE_a_land_of_mountains #GFX_focus_generic_provoke_border_clashes #focus_generic_annex_country
+		prerequisite = { focus = MON_prepare_for_war_with_the_peasant_republics }
+		x = 0
+		y = 1
+		relative_position_id = MON_prepare_for_war_with_the_peasant_republics
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			create_wargoal = {
+				type = take_state
+				target = KHA
+				expire = 0
+				generator = { 0 }
+			}
+			create_wargoal = {
+				type = take_state
+				target = KRA
+				expire = 0
+				generator = { 0 }
+			}
+			create_wargoal = {
+				type = take_state
+				target = TAS
+				expire = 0
+				generator = { 0 }
+			}
+		}
+	}
+
+	focus = {
+		id = MON_support_karakorum 
+		icon = GFX_mountain_supa_troopas_shine
+		prerequisite = { focus = MON_prepare_for_war_with_the_peasant_republics }
+		x = 2
+		y = 1
+		relative_position_id = MON_prepare_for_war_with_the_peasant_republics
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		available = { 
+			NOT = { has_war_with = ALT }
+			654 = {
+				is_controlled_by = ALT 
+			}
+		}
+
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			ALT = {
+				give_military_access = MON
+				add_manpower = 1000
+				add_stability = 0.05
+				add_war_support = 0.05
+				#add_tech_bonus = {
+				#	name = industrial_bonus
+				#	bonus = 0.5
+				#	uses = 1
+				#	category = industry
+				#}
+				army_experience = 10
+			}
+			#654 = {
+			#	add_building_construction = {
+			#		type = infrastructure
+			#		level = 1
+			#		instant_build = yes
+			#	}
+			#}
+			send_equipment = {
+				type = infantry_equipment
+				amount = 500
+				target = ALT
+			}	
+			build_railway = {
+				path = { 7799 4777 12520 7843 12509 4781 4800 }
+			}
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = MON_victory_against_the_peasants
+		icon = GFX_focus_generic_provoke_border_clashes 
+		prerequisite = { focus = MON_push_past_the_sayan_mountains }
+		mutually_exclusive = { focus = MON_defeat_against_the_peasants }
+		x = -1
+		y = 2
+		relative_position_id = MON_prepare_for_war_with_the_peasant_republics
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+		available = {
+			has_war = no
+			931 = { is_controlled_by = MON }
+			932 = { is_controlled_by = MON }
+			933 = { is_controlled_by = MON }
+			934 = { is_controlled_by = MON }
+		}
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.1
+			add_political_power = 100
+			army_experience = 15
+			add_doctrine_cost_reduction = {
+				name = RUS_study_the_civil_war
+				cost_reduction = 0.25
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = MON_defeat_against_the_peasants
+		icon = GFX_focus_generic_provoke_border_clashes 
+		prerequisite = { focus = MON_push_past_the_sayan_mountains }
+		mutually_exclusive = { focus = MON_victory_against_the_peasants }
+		x = 1
+		y = 2
+		relative_position_id = MON_prepare_for_war_with_the_peasant_republics
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		available = { 
+			has_war = no
+			NOT = { 
+				931 = { is_controlled_by = MON }
+				932 = { is_controlled_by = MON }
+				933 = { is_controlled_by = MON }
+				934 = { is_controlled_by = MON }
+			}
+		}
+
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_stability = -0.1
+			add_war_support = -0.1
+			add_political_power = -100
+			army_experience = 5
+			add_doctrine_cost_reduction = {
+				name = RUS_study_the_civil_war
+				cost_reduction = 0.25
+				uses = 1
+				category = land_doctrine
+			}
+
+			#this focus will lock further Sternburg paths and unlock the opposition paths
+		}
+	}
+
+	focus = {
+		id = MON_claim_inner_mongolia
+		icon = GFX_focus_generic_annex_country
+		prerequisite = { focus = MON_power_to_the_baron }
+		x = 3
+		y = 2
+		relative_position_id = MON_power_to_the_baron
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		bypass = {
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+		}
+	}
+
+###Opposition path
+	focus = {
+		id = MON_oppose_sternburg
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		mutually_exclusive = { focus = MON_power_to_the_baron }
+		relative_position_id = MON_power_to_the_baron
+		x = 8
+		y = 0
+		
+		available = {
+		}
+
+		bypass = {
+		}
+
+		ai_will_do = {
+			factor = 5
+		}
+		
+		cost = 10
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = -0.1
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.15
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+	}
+
+#
+}		

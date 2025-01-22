@@ -1,0 +1,3834 @@
+﻿focus_tree = {
+	id = belarus_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			OR = {
+				tag = BLR
+				tag = BYL
+			}
+		}
+	}
+	
+	default = no
+	
+	continuous_focus_position = { x = 1680 y = 300 }
+
+
+	focus = {
+		id = BLR_liberation
+		icon = GFX_BLR_coat_of_arms #GFX_focus_SWE_attack_landsorganisationen#GFX_goal_support_democracy
+		x = 8
+		y = 0
+		mutually_exclusive = { focus = BLR_crush_the_revolt }
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		
+		cost = 3
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			country_event = blr.37 
+            hidden_effect = {
+                activate_decision = BLR_crush_revolt_deci 
+            }
+		}
+	}
+	focus = {
+		id = BLR_smuggle_weapons_to_peasants
+		icon = GFX_focus_focus_fra_maquis
+		x = -1
+		y = 1
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_liberation
+		
+		cost = 3
+		prerequisite = { focus = BLR_liberation }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			custom_effect_tooltip = BLR_peasants_ttp
+			#add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = BLR_council_of_sluchchyna 
+		icon = GFX_focus_ITA_peasants_rise
+		x = 1
+		y = 1
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_liberation
+		
+		cost = 3
+		prerequisite = { focus = BLR_liberation }
+ 
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			custom_effect_tooltip = BLR_council_of_sluchchyna_ttp
+		}
+	}
+
+	focus = {
+		id = BLR_intermarium_support
+		icon = GFX_focus_generic_military_mission
+		x = -1
+		y = 2
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_liberation
+		
+		cost = 3
+		prerequisite = { focus = BLR_smuggle_weapons_to_peasants }
+		prerequisite = { focus = BLR_council_of_sluchchyna }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			UKR = { country_event = BLR.2 }
+			POL = { country_event = BLR.5 }
+			add_war_support = 0.05
+			effect_tooltip = {
+            	#add_equipment_to_stockpile = {
+            	#    type = infantry_equipment_0
+            	#    amount = 500
+            	#    producer = POL
+            	#}
+            	#add_equipment_to_stockpile = {
+            	#    type = infantry_equipment_0
+            	#    amount = 500
+            	#    producer = UKR
+            	#}
+            	custom_effect_tooltip = BLR_intermarium_support_ttp
+				#UKR = { custom_effect_tooltip = needs_approval }
+				#POL = { custom_effect_tooltip = needs_approval }
+     		}
+		}
+	}
+	focus = {
+		id = BLR_support_from_lithuania
+		icon = GFX_focus_LIT_restore_the_grand_duchy
+		x = 1
+		y = 2
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_liberation
+		
+		cost = 3
+		prerequisite = { 
+			focus = BLR_smuggle_weapons_to_peasants
+		}
+		prerequisite = { 
+			focus = BLR_council_of_sluchchyna  
+		}
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			LIT = { country_event = BLR.34 }
+			custom_effect_tooltip = BLR_support_from_lithuania_ttp 
+		}
+	}
+	focus = {
+		id = BLR_secure_the_border_guard_corp
+		icon = GFX_goal_BLR_diplomacy ##GFX_focus_generic_manpower
+		x = 0
+		y = 3
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_liberation
+		
+		cost = 3
+		prerequisite = { focus = BLR_intermarium_support }
+		prerequisite = { focus = BLR_support_from_lithuania }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			custom_effect_tooltip = BLR_border_guards_ttp
+		}
+	}
+	focus = {
+		id = BLR_sabotage_communist_factories
+		icon = GFX_goal_generic_major_war
+		x = 0
+		y = 4
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_liberation
+		
+		cost = 3
+		prerequisite = { focus = BLR_secure_the_border_guard_corp }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			206 = {
+				damage_building = {
+   					type = arms_factory
+    				damage = 1
+				}
+			}
+		}
+	}
+	focus = {
+		id = BLR_out_of_the_shadows_and_into_the_light
+		icon = GFX_warplans #GFX_focus_POL_belarus_army 
+		x = 0
+		y = 5
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_liberation
+		
+		cost = 3
+		prerequisite = { focus = BLR_sabotage_communist_factories }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			set_global_flag = BLR_cw_triggered
+			hidden_effect = { 
+				#due to how BLR is the starting tag but then switched, sometimes ends up at war with RUS or even anarchist SOV if those wars triggered before
+				every_country = { 
+					limit = {
+						has_war_with = BLR
+					}
+					white_peace = BLR 
+				}
+				RCL = {
+					transfer_state = 784
+					load_oob = "Republic of Central Lithuania"
+					add_timed_idea = {
+						idea = BLR_self_defense_of_wilno
+						days = 365
+					}
+				}
+				#784 = {
+				#	add_core_of = RCL
+				#}
+				#every_state = {
+				#	limit = {
+				#		is_core_of = LIT
+				#	}
+				#	add_claim_by = RCL
+				#}
+				POL = {
+					#add_opinion_modifier = {
+					#	target = ROOT
+					#	modifier = blr_diplomacy_focus
+					#}
+					country_event = blr.44
+					add_ai_strategy = {
+						type = alliance
+						id = RCL
+						value = 100
+					}
+					add_ai_strategy = {
+						type = protect
+						id = RCL
+						value = 100
+					}
+					add_ai_strategy = {
+						type = send_volunteers_desire
+						id = RCL
+						value = 1000
+					}
+					add_ai_strategy = {
+						type = support
+						id = RCL
+						value = 1000
+					}
+				}
+			}
+			country_event = blr.1
+			custom_effect_tooltip = BLR_central_lit_ttp
+		}
+	}
+
+	focus = {
+		id = BLR_belarusian_political_commitee 
+		icon = GFX_focus_POL_belarus_army
+		x = -3
+		y = 6
+		available = {
+			has_country_flag = BPK_power
+		}
+		#bypass = {
+		#	has_country_flag = BPK_power
+		#}
+		relative_position_id = BLR_liberation
+		
+		cost = 3
+		prerequisite = { focus = BLR_out_of_the_shadows_and_into_the_light }
+		mutually_exclusive = { focus = BLR_bnr_rada }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			#BLR_stanislaw_bulk = { 
+			#	promote_character = liberalism 
+			#}
+			#BLR_stanislaw_bulk = { 
+			#	promote_character = moderatism 
+			#}
+			set_politics = {
+			    ruling_party = neutrality
+			}
+			add_popularity = {
+			    ideology = neutrality
+			    popularity = 0.15
+			}  
+			#democratic or neutrality path, ally with Poland or Russia, lat and est are also ok
+			#leader is Balachowicz
+			#can get can rada generals via some sort of concession
+			#same with fascists
+			custom_effect_tooltip = BLR_rada_commitee_ttp
+		}
+	}
+
+	focus = {
+		id = BLR_bnr_rada 
+		icon = GFX_BLR_coat_of_arms2
+		x = 3
+		y = 6
+		available = {
+			has_country_flag = BNR_power
+		}
+		#bypass = {
+		#	has_country_flag = BNR_power
+		#}
+		relative_position_id = BLR_liberation
+		
+		cost = 3
+		prerequisite = { focus = BLR_out_of_the_shadows_and_into_the_light }
+		mutually_exclusive = { focus = BLR_belarusian_political_commitee }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_popularity = {
+			    ideology = democratic
+			    popularity = 0.15
+			}
+			add_political_power = 50
+			custom_effect_tooltip = BLR_rada_cze_ttp
+			IF = { limit = { has_dlc = "Arms Against Tyranny" }
+				add_equipment_subsidy = {
+					cic = 500
+					equipment_type = infantry_equipment
+					seller_tags = { CZE } 
+				}
+			}
+			Else = {
+				add_equipment_to_stockpile = { 
+               	 	type = infantry_equipment_0
+                	amount = 500
+                	producer = CZE
+            	}
+			}
+			custom_effect_tooltip = BLR_rada_commitee_ttp
+		}
+	}
+
+#	focus = {
+#		id = BLR_belarusian_central_council
+#		icon = GFX_focus_POL_belarus_army
+#		x = 3
+#		y = 6
+#		available = {
+#			
+#		}
+#		bypass = {
+#
+#		}
+#		relative_position_id = BLR_liberation
+#		
+#		cost = 3
+#		prerequisite = { focus = BLR_out_of_the_shadows_and_into_the_light }
+#
+#
+#		cancel_if_invalid = yes
+#		continue_if_invalid = no
+#		available_if_capitulated = yes
+#
+#		completion_reward = {
+#			#fascist path. mostly pro-independence, can have a path to join russia though. 
+#			#only fascist generals
+#		}
+#	}
+
+##																				Belarus independant
+	focus = {
+		id = BLR_non_submission_to_poland
+		icon = GFX_focus_POL_belarus_army
+		x = 7
+		y = 2
+		mutually_exclusive = { 
+			focus = BLR_polish_general_staff 
+			focus = BLR_enlist_white_russians
+		}
+		available = {
+			BLR = { is_subject = no }
+		}
+		bypass = {
+		}
+		relative_position_id = BLR_out_of_the_shadows_and_into_the_light
+		
+		cost = 2
+		#prerequisite = { focus = BLR_out_of_the_shadows_and_into_the_light }
+		prerequisite = { 
+			focus = BLR_belarusian_political_commitee 
+			focus = BLR_bnr_rada
+			#focus = BLR_belarusian_central_council
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			95 = {
+				create_unit = {
+					division = "name = \"Milicyja\" division_template = \"Milicyja\" start_experience_factor = 0" 
+					owner = ROOT
+				}
+				#create_unit = {
+				#	division = "name = \"Milicyja\" division_template = \"Milicyja\" start_experience_factor = 0" 
+				#	owner = ROOT
+				#}
+			}
+			add_war_support = 0.05
+			add_stability = 0.1
+			add_manpower = 25000
+			#add_ideas = export_focus
+			#add_popularity = {
+			#	ideology = democratic
+			#	popularity = 0.10
+			#}
+		}
+	}
+
+	focus = {
+		id = BLR_mission_to_lithuania
+		icon = GFX_focus_LIT_restore_the_grand_duchy
+		x = 4
+		y = 1
+		available = {
+     		LIT = { exists = yes }		
+     		NOT = { LIT = { has_completed_focus = BALTIC_seek_support_of_soviets } }
+     		NOT = { has_war_with = LIT }
+     		has_country_flag = LIT_BLR_regiment_yes
+		}
+		bypass = {
+ 			NOT = { has_country_flag = LIT_BLR_regiment_yes }
+		}
+		relative_position_id = BLR_non_submission_to_poland
+		
+		cost = 2
+		prerequisite = { focus = BLR_non_submission_to_poland }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			hidden_effect = { LIT = { country_event = blr.16 } }
+			effect_tooltip = {   
+				784 = { remove_claim_by = ROOT }  
+				give_guarantee = LIT
+				diplomatic_relation = {
+					country = LIT
+					relation = non_aggression_pact
+					active = yes
+				}
+     			LIT = {
+     				country_event = blr.16
+     				#set_state_owner = 784
+     				95 = { remove_claim_by = LIT }  
+    				96 = { remove_claim_by = LIT }
+					give_guarantee = BLR
+					diplomatic_relation = {
+						country = BLR
+						relation = non_aggression_pact
+						active = yes
+					}
+					custom_effect_tooltip = needs_approval
+				}
+     		}
+		}
+	}
+
+
+	focus = {
+		id = BLR_formalize_an_alliance_with_lithuania
+		icon = GFX_focus_LIT_restore_order#GFX_goal_BLR_diplomacy
+		x = -1
+		y = 1
+		#mutually_exclusive = { focus = BLR_the_second_3rd_russian_army }
+		available = {
+     		LIT = { exists = yes }		
+     		NOT = { LIT = { has_completed_focus = BALTIC_seek_support_of_soviets } }
+     		NOT = { has_war_with = LIT }	
+     		IF = {
+     			limit = { is_in_faction = yes }
+     			is_faction_leader = yes
+     		}
+      		LIT = { is_subject = no }
+      		is_subject = no
+     		has_country_flag = LIT_BLR_regiment_yes
+		}
+		bypass = {
+ 			NOT = { has_country_flag = LIT_BLR_regiment_yes }
+		}
+		relative_position_id = BLR_mission_to_lithuania
+		
+		cost = 2
+		prerequisite = { focus = BLR_mission_to_lithuania }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			set_rule = { can_create_factions = yes }
+     		create_faction = LIT_BLR_alliance
+			LIT = { country_event = generic.5 }
+     		#custom_effect_tooltip = LIT_invited_to_BLR_faction	
+			#if = {
+			#	limit = {
+			#		LIT = { 
+			#			is_ai = yes
+			#			is_subject = no
+			#			is_in_faction = no
+			#		}					
+			#	}
+			#	add_to_faction = LIT
+			#}
+		}
+	}
+
+
+	focus = {
+		id = BLR_federation_with_lithuania
+		icon = GFX_focus_LIT_restore_the_grand_duchy
+		x = -1
+		y = 2
+		available = {
+     		LIT = { exists = yes }		
+     		NOT = { LIT = { has_completed_focus = BALTIC_seek_support_of_soviets } }
+     		NOT = { has_war_with = LIT }
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_mission_to_lithuania
+		
+		cost = 2
+		prerequisite = { focus = BLR_formalize_an_alliance_with_lithuania }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = BLR_invite_latvia_and_estonia
+		icon = GFX_focus_generic_baltic_entente
+		x = -3
+		y = 3
+		available = {
+			BLR = { is_subject = no }
+     		IF = {
+     			limit = { is_in_faction = yes }
+     			is_faction_leader = yes
+     		}
+			OR = {
+				AND = {	
+     				NOT = { EST = { has_completed_focus = BALTIC_seek_support_of_soviets } }
+     				NOT = { has_war_with = EST }	
+     				EST = {
+     					exists = yes
+     					is_in_faction = no
+     					is_subject = no
+     				}
+     			}
+     			AND = {
+         			LAT = { exists = yes }		
+     				NOT = { LAT = { has_completed_focus = BALTIC_seek_support_of_soviets } }
+     				NOT = { has_war_with = LAT }
+     				LAT = {
+     					exists = yes
+     					is_in_faction = no
+     					is_subject = no
+     				}
+     			}
+     		}
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_mission_to_lithuania
+		
+		cost = 2
+		prerequisite = { focus = BLR_formalize_an_alliance_with_lithuania }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			IF = { 
+				limit = { is_in_faction = no }
+				set_rule = { can_create_factions = yes }
+     			create_faction = BALTIC_BLR_alliance
+			}
+			IF = {
+				limit = {
+     				NOT = { EST = { has_completed_focus = BALTIC_seek_support_of_soviets } }
+     				NOT = { has_war_with = EST }	
+     				is_in_faction = no
+     				EST = {
+     					exists = yes
+     					is_in_faction = no
+     					is_subject = no
+     				}
+     			}
+				EST = { country_event = generic.5 }
+			}
+			IF = {
+				limit = {
+     				NOT = { LAT = { has_completed_focus = BALTIC_seek_support_of_soviets } }
+     				NOT = { has_war_with = LAT }	
+     				is_in_faction = no
+     				LAT = {
+     					exists = yes
+     					is_in_faction = no
+     					is_subject = no
+     				}
+     			}
+				LAT = { country_event = generic.5 }
+			}
+		}
+	}
+
+	focus = {
+		id = BLR_lithuanian_food_shipments
+		icon = GFX_focus_generic_agricultural_subsidies#GFX_focus_prc_agrarian_socialism
+		x = 1
+		y = 1
+		available = {
+			has_global_flag = lit_support_blr
+     		LIT = { exists = yes }		
+     		NOT = { LIT = { has_completed_focus = BALTIC_seek_support_of_soviets } }
+     		NOT = { has_war_with = LIT }
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_mission_to_lithuania
+		
+		cost = 2
+		prerequisite = { focus = BLR_mission_to_lithuania }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = BLR_lithuanian_grain
+				days = 365
+			}
+			LIT = { 
+				add_timed_idea = {
+					idea = BLR_grain_exports_to_belarus
+					days = 365
+				} 
+			}
+		}
+	}
+
+	focus = {
+		id = BLR_lithuanian_surplus_develivery
+		icon = GFX_RUS_ft17 #GFX_goal_generic_army_tanks
+		x = 1
+		y = 2
+		available = {
+     		has_global_flag = lit_support_blr	
+     		LIT = { exists = yes }		
+     		NOT = { LIT = { has_completed_focus = BALTIC_seek_support_of_soviets } }
+     		NOT = { has_war_with = LIT }	
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_mission_to_lithuania
+		
+		cost = 2
+		prerequisite = { focus = BLR_lithuanian_food_shipments }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+            add_equipment_to_stockpile = {
+                type = infantry_equipment_0
+                amount = 300
+                producer = LIT
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment_1
+                amount = 30
+                producer = LIT
+            }
+            if = {
+                limit = {
+                        has_dlc = "La Resistance"
+                }
+                add_equipment_to_stockpile = { type = gw_armored_car_equipment amount = 60 producer = GER }
+            }
+            if = {
+                limit = {
+                    NOT = {
+                        has_dlc = "No Step Back"
+                    }
+                }
+                add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 32 producer = LIT }
+            }
+            else = {
+                add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 32 producer = LIT variant_name = "Vickers-Carden-Loyd" }
+			}
+            if = {
+                limit = {
+                    NOT = {
+                        has_dlc = "No Step Back"
+                    }
+                }
+                add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 12 producer = FRA }
+            }
+            else = {
+                add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 12 producer = FRA variant_name = "FT mod. 31" }
+			}
+		}
+	}
+
+	focus = {
+		id = BLR_lithuanian_aviation_experts
+		icon = GFX_goal_generic_build_airforce
+		x = 3
+		y = 2
+		available = {
+     		has_global_flag = lit_support_blr	
+     		LIT = { exists = yes }		
+     		NOT = { LIT = { has_completed_focus = BALTIC_seek_support_of_soviets } }
+     		NOT = { has_war_with = LIT }	
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_mission_to_lithuania
+		
+		cost = 2
+		prerequisite = { focus = BLR_lithuanian_food_shipments }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			air_experience = 50
+            #add_equipment_to_stockpile = {
+            #    type = fighter_equipment_0
+            #    amount = 50
+            #    producer = LIT
+            #}
+       }
+	}
+	focus = {
+		id = BLR_polish_Belarusian_army
+		icon = GFX_focus_POL_belarus_army
+		x = -1
+		y = 3
+		available = {	
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_out_of_the_shadows_and_into_the_light
+		
+		cost = 5
+		prerequisite = { focus = BLR_belarusian_political_commitee }
+
+		mutually_exclusive = { focus = BLR_belarus_national_army }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 15
+			#add_ideas = extensive_conscription
+			add_ideas = BLR_polish_Belarusian_army_ns
+			add_doctrine_cost_reduction = {
+				name = BLR_polish_Belarusian_army
+				cost_reduction = 0.25
+				uses = 1
+				category = land_doctrine
+			}
+			division_template = { 
+				name = "Krest'yanskaya Brigada"
+				division_names_group = BLR_INF_01
+				regiments = {
+					#from peasant brigade (1200 men)
+					infantry = { x = 0 y = 0 } #Kyiv inf regiment
+					infantry = { x = 0 y = 1 } #Novgorod-Vladimir-Volynsky Inf Regiment
+					cavalry = { x = 1 y = 0 } #Putivl Cavalry Rifle Regiment
+					#from indivudal units i've attached:
+					cavalry = { x = 1 y = 1 } #Don Cossack Regiment (had 1200 so im adding 2 battalions)
+					cavalry = { x = 1 y = 2 } #Don Cossack Regiment ^
+				}
+				support = {
+					recon = { x = 0 y = 0 } #Merkulov's Hundred, Native cossack regiment, Balakhovich hundred
+				}
+			}
+			random_owned_controlled_state = {
+				#limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 986 }
+				create_unit = {
+					division = "name = \"Krest'yanskaya Brigada\" division_template = \"Krest'yanskaya Brigada\" start_experience_factor = 0.4" 
+					owner = ROOT
+				}
+			}
+		}
+	}
+	focus = {
+		id = BLR_belarus_national_army
+		icon = GFX_BLR_coat_of_arms2 #GFX_focus_SWE_varnplikt
+		prerequisite = { 
+			focus = BLR_bnr_rada
+		}
+		x = 1
+		y = 3
+		relative_position_id = BLR_out_of_the_shadows_and_into_the_light
+		mutually_exclusive = { focus = BLR_polish_Belarusian_army }
+		cost = 10
+
+		available = {
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			add_war_support = 0.05
+			army_experience = 15
+			add_ideas = BLR_belarus_national_army_ns
+			add_doctrine_cost_reduction = {
+				name = BLR_belarus_national_army
+				cost_reduction = 0.25
+				uses = 2
+				category = land_doctrine
+			}
+			BLR_Paval_Vent = { promote_leader = yes }
+			BLR_stanislaw_bulk = { demote_leader = yes }
+		}
+	}
+
+	focus = {
+		id = BLR_women_on_the_frontline
+		icon = GFX_focus_generic_women_in_military
+		prerequisite = { 
+			focus = BLR_belarus_national_army
+			focus = BLR_polish_Belarusian_army
+		}
+		x = 0
+		y = 1
+		relative_position_id = BLR_belarus_national_army
+		ai_will_do = {
+			factor = 5
+		}
+		cost = 10
+
+		available = {
+			has_war_support > 0.49
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			#activate_decision = women_in_the_workforce
+			add_ideas = BLR_women_in_the_army
+			add_tech_bonus = {
+				name = BLR_women_in_the_army
+				bonus = 1.0
+				uses = 1
+				category = hospital_tech
+			}
+		}
+	}
+	focus = {
+		id = BLR_estonian_airplane_purchase
+		icon = GFX_focus_SOV_women_in_aviation#GFX_focus_EST_republican_defence_league #focus_LIT_reclaim_courland
+		x = -8
+		y = 2
+		available = {
+			NOT = { EST = { has_completed_focus = BALTIC_seek_support_of_soviets } }
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_non_submission_to_poland
+		
+		cost = 5
+		prerequisite = { 
+			focus = BLR_belarus_national_army
+			focus = BLR_polish_Belarusian_army
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			EST = {
+				country_event = blr.25
+			}
+			effect_tooltip = {   
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
+					}
+				}
+				if = {
+					limit = {
+						not = {
+							has_tech = early_fighter
+						}
+					}
+					set_technology = { early_fighter = 1 }
+				}
+				if = {
+					limit = {
+						not = {
+							has_tech = early_bomber
+						}
+					}
+					set_technology = { CAS1 = 1 }
+				}
+				add_equipment_to_stockpile = { type = fighter_equipment_0 amount = 40 producer = ENG }
+				add_equipment_to_stockpile = { type = tac_bomber_equipment_0 amount = 12 producer = ENG }
+			}
+			else = {
+				if = {
+					limit = {
+						not = {
+							has_tech = iw_small_airframe
+						}
+					}
+					set_technology = { iw_small_airframe = 1 }
+				}
+				add_equipment_to_stockpile = { type = small_plane_airframe_0 amount = 40 producer = ENG variant_name = "Hawker Fury"}
+				add_equipment_to_stockpile = { type = medium_plane_airframe_1 amount = 12 producer = ENG variant_name = "Bristol Blenheim"}
+			}
+				#EST = { 
+				#	#swap_ideas = { 
+				#		remove_ideas = EST_lack_of_funds_for_the_military
+				#		add_idea = EST_lack_of_funds_for_the_military2
+				#	#}
+				#}
+				EST = { custom_effect_tooltip = needs_approval }
+     		}
+		}
+	}
+
+	focus = {
+		id = BLR_latvian_tank_deal 
+		icon = GFX_focus_LIT_reclaim_courland
+		x = -8
+		y = 3
+		available = {
+			NOT = { LAT = { has_completed_focus = BALTIC_seek_support_of_soviets } }
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_non_submission_to_poland
+		ai_will_do = {
+			factor = 5
+		}
+		cost = 5
+		prerequisite = { 
+			focus = BLR_estonian_airplane_purchase 
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			LAT = {
+				country_event = blr.28
+			}
+			effect_tooltip = {
+            	if = {
+            	    limit = {
+            	            has_dlc = "La Resistance"
+            	    }
+            	    add_equipment_to_stockpile = { type = gw_armored_car_equipment amount = 10 producer = RUS }
+            	}
+				if = {
+					limit = {
+						NOT = {
+							has_dlc = "No Step Back"
+						}
+					}
+					add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 72 producer = ENG }
+				}
+				else = { #except for the vickers 6 ton, the rest are historical 
+					add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 40 producer = ENG variant_name = "Vickers 6 ton B" }
+					add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 10 producer = RUS variant_name = "Garford-Putilov" }
+					add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 2 producer = ITA variant_name = "Fiat 3000B" }
+					add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 4 producer = ITA variant_name = "Fiat 3000" }
+					add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 6 producer = LAT variant_name = "Vickers 4-ton B" }
+					add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 12 producer = LAT variant_name = "Vickers 4-ton A" }
+				}
+				add_political_power = -50
+            	LAT = { add_political_power = 50 }
+				LAT = { custom_effect_tooltip = needs_approval }
+     		}
+		}
+	}
+
+
+	focus = {
+		id = BLR_elimate_collective_farms
+		icon = GFX_goal_generic_forceful_treaty
+		x = -7
+		y = 4
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_non_submission_to_poland
+		
+		cost = 5
+		prerequisite = { 
+			focus = BLR_non_submission_to_poland 
+			focus = BLR_polish_general_staff
+			focus = BLR_enlist_white_russians
+		}
+		ai_will_do = {
+			factor = 10
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			swap_ideas = { 
+				remove_idea = BLR_collectivized_farms
+				add_idea = BLR_agrarian_society
+			}
+			add_political_power = 25
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = communism
+				popularity = -0.1
+			}
+		}
+	}
+
+
+	focus = {
+		id = BLR_mobilize_student_circles
+		icon = GFX_focus_research
+		x = 1
+		y = 1
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_elimate_collective_farms
+		
+		cost = 10
+		prerequisite = { 
+			focus = BLR_elimate_collective_farms
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_research_slot = 1
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = BLR_building_a_modern_belarus
+		icon = GFX_focus_SWE_refuge_from_war
+		x = 0
+		y = 2
+		available = {
+			#has_war = no
+			has_civil_war = no			
+		}
+		bypass = {
+		}
+		relative_position_id = BLR_elimate_collective_farms
+		
+		cost = 10
+		prerequisite = { focus = BLR_elimate_collective_farms }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 25
+			random_owned_controlled_state = {
+                add_extra_state_shared_building_slots = 2
+		 		prioritize = { 241 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+                add_extra_state_shared_building_slots = 2
+		 		prioritize = { 95 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+			#set_capital = {
+			#  state = 206
+			#  remember_old_capital = no
+			#}
+		}
+	}
+
+	focus = {
+		id = BLR_prioritize_heavy_industry
+		icon = GFX_focus_SWE_landsverk
+		x = -1
+		y = 3
+		available = {
+		}
+
+		bypass = {
+		}
+		relative_position_id = BLR_elimate_collective_farms
+		
+		cost = 10
+		prerequisite = { focus = BLR_building_a_modern_belarus }
+		mutually_exclusive = { focus = BLR_agrarian_reforms }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			swap_ideas = { 
+				remove_idea = BLR_industrializing_urban_centers
+				add_idea = BLR_industrializing_society
+			}
+			add_political_power = -25
+			#add_stability = -0.05
+			random_owned_controlled_state = {
+                add_extra_state_shared_building_slots = 4
+		 		prioritize = { 241 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+                add_extra_state_shared_building_slots = 4
+		 		prioritize = { 207 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+                add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 1
+				category = cat_production
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1
+				uses = 2
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = BLR_balance_the_economic_situation
+		icon = GFX_goal_generic_construct_civ_factory
+		x = -1
+		y = 1
+		available = {
+		}
+
+		bypass = {
+		}
+		relative_position_id = BLR_prioritize_heavy_industry
+		
+		cost = 10
+		prerequisite = { focus = BLR_prioritize_heavy_industry }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			swap_ideas = { 
+				remove_idea = BLR_agrarian_society
+				add_idea = BLR_agrarian_society4
+			}
+			add_stability = 0.05
+			random_owned_controlled_state = {
+                add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = BLR_agrarian_reforms
+		icon = GFX_focus_SOV_breadbasket_of_the_union
+		x = 1
+		y = 3
+		available = {
+		}
+
+		bypass = {
+		}
+		relative_position_id = BLR_elimate_collective_farms
+		
+		cost = 10
+		prerequisite = { focus = BLR_building_a_modern_belarus }
+		mutually_exclusive = { focus = BLR_prioritize_heavy_industry }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			swap_ideas = { 
+				remove_idea = BLR_agrarian_society
+				add_idea = BLR_agrarian_society2
+			}
+			add_political_power = 25
+			add_stability = 0.05
+			random_owned_controlled_state = {
+                add_extra_state_shared_building_slots = 1
+		 		prioritize = { 919 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+                add_extra_state_shared_building_slots = 1
+		 		prioritize = { 919 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+                add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+                add_extra_state_shared_building_slots = 1
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+		}
+	}
+
+
+	focus = {
+		id = BLR_state_subsidies_into_agriculture
+		icon = GFX_focus_generic_supply_line
+		x = 2
+		y = 4
+		available = {
+		}
+
+		bypass = {
+		}
+		relative_position_id = BLR_elimate_collective_farms
+		
+		cost = 10
+		prerequisite = { focus = BLR_agrarian_reforms }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			swap_ideas = { 
+				remove_idea = BLR_agrarian_society2
+				add_idea = BLR_agrarian_society3
+			}
+			random_owned_controlled_state = {
+                add_extra_state_shared_building_slots = 1
+		 		prioritize = { 919 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 1
+				category = cat_production
+			}
+		}
+	}
+
+	focus = {
+		id = BLR_infrastructure_efforts
+		icon = GFX_focus_generic_road_investment
+		x = 0
+		y = 4
+		available = {
+		}
+
+		bypass = {
+		}
+		relative_position_id = BLR_elimate_collective_farms
+		
+		cost = 5
+		prerequisite = { 
+			focus = BLR_agrarian_reforms 
+			focus = BLR_prioritize_heavy_industry
+		}
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			random_owned_controlled_state = {
+                add_extra_state_shared_building_slots = 1
+		 		prioritize = { 194 }
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+                add_extra_state_shared_building_slots = 1
+		 		prioritize = { 986 }
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+                add_extra_state_shared_building_slots = 1
+		 		prioritize = { 96 }
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_timed_idea = {
+				idea = RUS_railroad_revitalization_idea
+				days = 730
+			}
+		}
+	}
+
+
+	focus = {
+		id = BLR_harness_lignite_deposits
+		icon = GFX_goal_generic_oil_refinery
+		x = 0
+		y = 5
+		available = {
+			OR = {
+				has_full_control_of_state = 194
+				has_full_control_of_state = 986
+			}
+		}
+
+		bypass = {
+		}
+		relative_position_id = BLR_elimate_collective_farms
+		
+		cost = 5
+		prerequisite = { 
+			focus = BLR_infrastructure_efforts
+		}
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = { 
+			IF = {
+				limit = { controls_state = 194 }
+				194 = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = synthetic_refinery
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			IF = {
+				limit = { controls_state = 986 }
+				986 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = synthetic_refinery
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = BLR_arms_and_munitions_board_of_belarus
+		icon = GFX_goal_generic_construct_mil_factory
+		x = -1
+		y = 1
+
+		available = {
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_elimate_collective_farms
+		
+		cost = 5 
+		prerequisite = { 
+			#focus = BLR_non_submission_to_poland 
+			#focus = BLR_polish_general_staff
+		}
+		prerequisite = { 
+			focus = BLR_elimate_collective_farms 
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			#every_state = {
+			#	limit = {
+			#		is_controlled_by = ROOT
+			#	}
+			#	add_building_construction = {
+			#		type = bunker
+			#		province = {
+			#			all_provinces = yes
+			#			limit_to_victory_point = yes
+			#		}
+			#		level = 1
+			#		instant_build = yes
+			#	}
+			#}
+			random_core_state = {
+				prioritize = { 95 }
+				limit = {
+					is_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_core_state = {
+				prioritize = { 986 }
+				limit = {
+					is_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+			}
+			#random_core_state = {
+			#	prioritize = { 241 }
+			#	add_extra_state_shared_building_slots = 1
+			#	add_building_construction = {
+			#		type = anti_air_building
+			#		level = 1
+			#		instant_build = yes
+			#	}
+			#}
+			every_army_leader = {
+				add_logistics = 1
+			}
+            add_equipment_to_stockpile = {
+                type = infantry_equipment_0
+                amount = 500
+                producer = BLR
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment_1
+                amount = 50
+                producer = BLR
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment_1
+                amount = 25
+                producer = BLR
+            }
+			add_tech_bonus = {
+				name = BLR_arms_and_munitions_board_of_belarus
+			    bonus = 1
+			    uses = 1
+			    category = infantry_weapons
+			}
+			add_tech_bonus = {
+				name = BLR_arms_and_munitions_board_of_belarus
+			    bonus = 0.5
+			    uses = 2
+			    category = artillery
+			}
+			add_tech_bonus = {
+				name = RUS_support_equipment_advancements
+				bonus = 1.0
+				uses = 1
+				technology = support_weapons
+				technology = support_weapons2
+				technology = support_weapons3
+			}
+		}
+	}
+	focus = {
+		id = BLR_emergency_powers
+		icon = GFX_goal_generic_forceful_treaty
+		x = 2
+		y = 1
+		available = {
+		}
+		bypass = {
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = BLR_non_submission_to_poland
+		
+		cost = 5
+		prerequisite = { 
+			focus = BLR_non_submission_to_poland 
+			#focus = BLR_polish_general_staff
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 250
+			add_stability = -0.025
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.05
+			}
+			add_ideas = partial_economic_mobilisation
+		}
+	}
+
+	focus = {
+		id = BLR_strength_in_democracy
+		icon = GFX_goal_support_democracy
+		x = 0
+		y = 1
+		available = {
+		}
+		bypass = {
+		}
+		relative_position_id = BLR_non_submission_to_poland
+		
+		cost = 5
+		prerequisite = { focus = BLR_non_submission_to_poland }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = BLR_society_for_aid 
+		icon = GFX_focus_generic_field_hostpital
+		x = 0
+		y = 2
+		available = {
+		}
+		bypass = {
+		}
+		relative_position_id = BLR_non_submission_to_poland
+		
+		cost = 5
+		prerequisite = { focus = BLR_strength_in_democracy }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = BLR_society_for_aid_ns
+			add_tech_bonus = {
+				name = BLR_society_for_aid
+				bonus = 1.0
+				uses = 1
+				category = hospital_tech
+			}
+		}
+	}
+
+	focus = {
+		id = BLR_society_of_belarusian_youth 
+		icon = GFX_focus_generic_university_1
+		x = 0
+		y = 3
+		available = {
+		}
+		bypass = {
+		}
+		relative_position_id = BLR_non_submission_to_poland
+		
+		cost = 5
+		prerequisite = { focus = BLR_society_for_aid }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = BLR_society_of_belarusian_youth_ns 
+		}
+	}
+
+##
+#	focus = {
+#		id = BLR_request_access_through_polesie
+#		icon = GFX_goal_generic_major_alliance
+#		x = -2
+#		y = 1
+#		available = {
+#     	POL = { exists = yes }		
+#     	NOT = { POL = { has_completed_focus = POL_surrender_the_east } }
+#     	NOT = { has_war_with = POL }			
+#		}
+#		bypass = {
+#
+#		}
+#		relative_position_id = BLR_non_submission_to_poland
+#		
+#		cost = 2
+#		prerequisite = { focus = BLR_non_submission_to_poland }
+#
+#
+#		cancel_if_invalid = yes
+#		continue_if_invalid = no
+#		available_if_capitulated = yes
+#
+#		completion_reward = {
+#			#custom_effect_tooltip = BLR_dispora
+#			#add_manpower = 10000
+#			diplomatic_relation = {
+#				country = POL
+#				relation = military_access
+#				active = yes
+#            }
+#		}
+#	}
+
+	focus = {
+		id = BLR_mozr_front
+		icon = GFX_castle #GFX_goal_generic_fortify_city
+		x = 3
+		y = 3
+		available = {
+			controls_province = 9288
+			#controls_province = 9249
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_out_of_the_shadows_and_into_the_light
+		
+		cost = 2
+		prerequisite = { 
+			focus = BLR_non_submission_to_poland 
+			focus = BLR_polish_general_staff
+			focus = BLR_enlist_white_russians
+		}
+		ai_will_do = {
+			factor = 51
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			#maybe a state modifier in Mazyr to build a railline to Homiel to connect it?
+			241 = {
+				add_building_construction = {
+					type = bunker
+					province = {
+						id = 9288
+					}
+					level = 4
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+				create_unit = {
+					division = "name = \"Homiel Milicyja\" division_template = \"Milicyja\" start_experience_factor = 0" 
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Homiel Milicyja\" division_template = \"Milicyja\" start_experience_factor = 0" 
+					owner = ROOT
+				}
+			}
+			#add_building_construction = {
+			#	type = bunker
+			#	province = {
+			#		id = 9249
+			#	}
+			#	level = 1	
+			#	instant_build = yes
+			#}
+			#custom_effect_tooltip = BLR_urban_assault_specialist_random_generals_tt
+			#hidden_effect = {
+			#	random_army_leader = {			
+			#		limit = {
+			#			NOT = {
+			#				has_trait = urban_assault_specialist
+			#			}
+			#		}
+			#		add_trait = { trait = urban_assault_specialist }
+			#	}
+			#}
+		}
+	}
+
+	focus = {
+		id = BLR_swamp_foxes
+		icon = GFX_focus_focus_fra_maquis
+		x = 0
+		y = 1
+		available = {
+			OR = {
+				controls_state = 94
+				controls_state = 194
+			}			
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_mozr_front
+		
+		cost = 5
+		prerequisite = { 
+			focus = BLR_mozr_front 
+		}
+		ai_will_do = {
+			factor = 10
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			division_template = {
+				name = "Balotnyja Lisy"
+				#priority = 2
+				division_names_group = BLR_GAR_01
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					light_infantry = { x = 1 y = 0 }
+					light_infantry = { x = 1 y = 1 }
+					light_infantry = { x = 1 y = 2 }
+				}
+				support = {
+					recon = { x = 0 y = 0 }
+				}
+			}
+			#random_owned_controlled_state = {
+			#	limit = { ROOT = { has_full_control_of_state = PREV } }
+			#	prioritize = { 920 }
+			#	create_unit = {
+			#		division = "name = \"Homieĺskija Balotnyja Lisy\" division_template = \"Balotnyja Lisy\" start_experience_factor = 0.3" 
+			#		owner = ROOT
+			#	}
+			#}
+			random_owned_controlled_state = {
+				#limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 939 }
+				create_unit = {
+					division = "name = \"Pinskija Balotnyja Lisy\" division_template = \"Balotnyja Lisy\" start_experience_factor = 0.3" 
+					owner = ROOT
+				}
+			}
+			random_owned_controlled_state = {
+				#limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 194 }
+				create_unit = {
+					division = "name = \"Mazyrskija Balotnyja Lisy\" division_template = \"Balotnyja Lisy\" start_experience_factor = 0.3" 
+					owner = ROOT
+				}
+			}
+			custom_effect_tooltip = BLR_swamp_fox_random_generals_tt
+			hidden_effect = {
+				random_army_leader = {			
+					limit = {
+						NOT = {
+							has_trait = swamp_fox
+						}
+					}
+					add_trait = {trait = swamp_fox}
+				}
+			}
+		}
+	}
+	focus = {
+		id = BLR_enlist_white_russians
+		icon = GFX_RUS_belarusian_independence#GFX_RUS_rusflag
+		mutually_exclusive = {
+			focus = BLR_polish_general_staff
+			focus = BLR_non_submission_to_poland
+		}
+		x = -3
+		y = 2
+		available = {
+			RUS = { exists = yes }		
+     		NOT = { has_war_with = RUS }
+     		IF = {
+     			limit = {
+     				NOT = {
+     					is_in_faction_with = RUS'
+     				}
+     			}
+     			is_in_faction = no
+     		}
+     		RUS = {
+     			has_completed_focus = RUS_united_front
+     		}
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_out_of_the_shadows_and_into_the_light
+		
+		cost = 2
+		prerequisite = { 
+			focus = BLR_non_submission_to_poland 
+			#focus = BLR_polish_general_staff
+		}
+		prerequisite = { 
+			focus = BLR_belarusian_political_commitee 
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			RUS = { country_event = blr.22 }
+			effect_tooltip = {
+				BLR = { 
+					add_political_power = -50
+					add_manpower = 10000
+					army_experience = 15
+					RUS_boris_savinkov = { set_nationality = BLR }
+					MUR_pyotr_von_glazenap = { set_nationality = BLR }
+					#add_ideas = RUS_boris_savinkov
+            		add_equipment_to_stockpile = {
+            		    type = infantry_equipment_0
+            		    amount = 250
+            		    producer = RUS
+            		}
+					set_country_flag = BLR_rus_supports 
+					give_military_access = RUS
+					#diplomatic_relation = {
+					#	country = RUS
+					#	relation = non_aggression_pact
+					#	active = yes
+					#}
+				}
+				RUS = {
+					#add_manpower = -10000
+					#add_political_power = -25
+					#add_command_power = -25
+					#army_experience = 5
+					#add_war_support = 0.05
+					#diplomatic_relation = {
+					#	country = BLR
+					#	relation = non_aggression_pact
+					#	active = yes
+					#}
+					add_to_faction = BLR
+					custom_effect_tooltip = needs_approval
+				}
+     		}
+		}
+	}
+	focus = {
+		id = BLR_the_second_3rd_russian_army
+		icon = GFX_RUS_brusilov_once_more
+		x = 0
+		y = 1
+		available = {
+			RUS = { exists = yes }		
+     		NOT = { has_war_with = RUS }	
+     		has_country_flag = BLR_rus_supports
+     		#has_idea = RUS_boris_savinkov_sic
+		}
+		#mutually_exclusive = { focus = BLR_formalize_an_alliance_with_lithuania }
+		bypass = {
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = BLR_enlist_white_russians
+		
+		cost = 5
+		prerequisite = { focus = BLR_enlist_white_russians }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+           	add_equipment_to_stockpile = {
+            	type = infantry_equipment_0
+            	amount = 500
+            	producer = RUS
+            }
+			division_template = { 
+			#technically only had 3 regiments of battalion side each + artillery
+				name = "Kavaleriyskiy Polk" #Cavalry Regiment
+				division_names_group = RUS_CAV_02
+				regiments = {
+					cavalry = { x = 0 y = 0 }
+					cavalry = { x = 0 y = 1 }
+					cavalry = { x = 1 y = 0 }
+					cavalry = { x = 1 y = 1 } #an extra cossack brigade was added later
+				}
+				support = {
+					recon = { x = 0 y = 0 }
+					artillery = { x = 0 y = 1 } 
+				}
+			}
+			division_template = { 
+				name = "Pekhotnyy Polk" #Rifle regiment
+				division_names_group = RUS_GAR_01
+				regiments = {
+					#had only 1851 men in inf, less than 2 hoi4 battalions worth...
+					#generic rus army regiments had 4 battalions, so thats what i'll go for
+					infantry = { x = 0 y = 0 } 
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					artillery_brigade = { x = 2 y = 0 } #listed an artillery division of 600. in hoi4 line arty has 500 men, support has 300.
+				}
+				support = {
+					#listed a technical battalion (meaning engineers)
+					#also a cavalry "regiment" of 599 men. hoi4 cav battalions are 1k, recon is 500.
+					engineer = { x = 0 y = 0 }
+					recon = { x = 0 y = 2 } 
+				}
+			}
+			IF = {
+				limit = { num_of_controlled_states > 0 }
+				random_owned_controlled_state = {
+					#limit = { ROOT = { has_full_control_of_state = PREV } }
+					prioritize = { 986 }
+					create_unit = {
+						division = "name = \"Otdel'naya Kazach'ya Brigada\" division_template = \"Kavaleriyskiy Polk\" start_experience_factor = 0.5" 
+						owner = ROOT
+					}
+				}
+				random_owned_controlled_state = {
+					#limit = { ROOT = { has_full_control_of_state = PREV } }
+					prioritize = { 986 }
+					create_unit = {
+						division = "name = \"2-ya Pekhotnaya Diviziya\" division_template = \"Pekhotnyy Polk\" start_experience_factor = 0.5" 
+						owner = ROOT
+					}
+				}
+				random_owned_controlled_state = {
+					#limit = { ROOT = { has_full_control_of_state = PREV } }
+					prioritize = { 986 }
+					create_unit = {
+						division = "name = \"1-ya Strelkovaya Diviziya\" division_template = \"Pekhotnyy Polk\" start_experience_factor = 0.5" 
+						owner = ROOT
+					}
+				}
+			}
+			ELSE = {
+				RUS = {
+				random_owned_controlled_state = {
+					#limit = { ROOT = { has_full_control_of_state = PREV } }
+					prioritize = { 986 }
+					create_unit = {
+						division = "name = \"Otdel'naya Kazach'ya Brigada\" division_template = \"Kavaleriyskiy Polk\" start_experience_factor = 0.5" 
+						owner = ROOT
+					}
+				}
+				random_owned_controlled_state = {
+					#limit = { ROOT = { has_full_control_of_state = PREV } }
+					prioritize = { 986 }
+					create_unit = {
+						division = "name = \"2-ya Pekhotnaya Diviziya\" division_template = \"Pekhotnyy Polk\" start_experience_factor = 0.5" 
+						owner = ROOT
+					}
+				}
+				random_owned_controlled_state = {
+					#limit = { ROOT = { has_full_control_of_state = PREV } }
+					prioritize = { 986 }
+					create_unit = {
+						division = "name = \"1-ya Strelkovaya Diviziya\" division_template = \"Pekhotnyy Polk\" start_experience_factor = 0.5" 
+						owner = ROOT
+					}
+				}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = BLR_russian_peoples_volunteer_army 
+		icon = GFX_RUS_resurrection
+		x = 0
+		y = 2
+		available = {
+			RUS = { exists = yes }		
+     		NOT = { has_war_with = RUS }	
+     		has_country_flag = BLR_rus_supports
+     		#has_idea = RUS_boris_savinkov_sic
+		}
+		#mutually_exclusive = { focus = BLR_formalize_an_alliance_with_lithuania }
+		bypass = {
+
+		}
+		relative_position_id = BLR_enlist_white_russians
+		
+		cost = 5
+		prerequisite = { focus = BLR_the_second_3rd_russian_army }
+		ai_will_do = {
+			factor = 65
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			division_template = { 
+				name = "Kavaleriyskaya Diviziya"
+				division_names_group = RUS_CAV_01
+				regiments = {
+					cavalry = { x = 0 y = 0 }
+					cavalry = { x = 0 y = 1 }
+					cavalry = { x = 1 y = 0 }
+					cavalry = { x = 1 y = 1 }
+				}
+				support = {
+					recon = { x = 0 y = 0 }
+				}
+			}
+			division_template = { 
+				name = "Pekhotnaya Diviziya"
+				division_names_group = RUS_GAR_01
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }
+					artillery = { x = 0 y = 1 } 
+				}
+			}
+			IF = {
+				limit = { num_of_controlled_states > 0 }
+				random_owned_controlled_state = {
+					#limit = { ROOT = { has_full_control_of_state = PREV } }
+					prioritize = { 986 }
+					create_unit = {
+						division = "name = \"Otdel'naya Kazach'ya Brigada\" division_template = \"Kavaleriyskaya Diviziya\" start_experience_factor = 0.5" 
+						owner = ROOT
+					}
+				}
+				random_owned_controlled_state = {
+					#limit = { ROOT = { has_full_control_of_state = PREV } }
+					prioritize = { 986 }
+					create_unit = {
+						division = "name = \"1-ya Pekhotnaya Diviziya Smerti\" division_template = \"Pekhotnaya Diviziya\" start_experience_factor = 0.5" 
+						owner = ROOT
+					}
+				}
+				random_owned_controlled_state = {
+					#limit = { ROOT = { has_full_control_of_state = PREV } }
+					prioritize = { 986 }
+					create_unit = {
+						division = "name = \"2-ya Pekhotnaya Diviziya\" division_template = \"Pekhotnaya Diviziya\" start_experience_factor = 0.5" 
+						owner = ROOT
+					}
+				}
+				random_owned_controlled_state = {
+					#limit = { ROOT = { has_full_control_of_state = PREV } }
+					prioritize = { 986 }
+					create_unit = {
+						division = "name = \"3-ya Volzhskaya Strelkovaya Diviziya\" division_template = \"Pekhotnaya Diviziya\" start_experience_factor = 0.5" 
+						owner = ROOT
+					}
+				}
+			}
+			ELSE = {
+				RUS = {
+				random_owned_controlled_state = {
+					#limit = { ROOT = { has_full_control_of_state = PREV } }
+					prioritize = { 986 }
+					create_unit = {
+						division = "name = \"Otdel'naya Kazach'ya Brigada\" division_template = \"Kavaleriyskaya Diviziya\" start_experience_factor = 0.5" 
+						owner = ROOT
+					}
+				}
+				random_owned_controlled_state = {
+					#limit = { ROOT = { has_full_control_of_state = PREV } }
+					prioritize = { 986 }
+					create_unit = {
+						division = "name = \"1-ya Pekhotnaya Diviziya Smerti\" division_template = \"Pekhotnaya Diviziya\" start_experience_factor = 0.5" 
+						owner = ROOT
+					}
+				}
+				random_owned_controlled_state = {
+					#limit = { ROOT = { has_full_control_of_state = PREV } }
+					prioritize = { 986 }
+					create_unit = {
+						division = "name = \"2-ya Pekhotnaya Diviziya\" division_template = \"Pekhotnaya Diviziya\" start_experience_factor = 0.5" 
+						owner = ROOT
+					}
+				}
+				random_owned_controlled_state = {
+					#limit = { ROOT = { has_full_control_of_state = PREV } }
+					prioritize = { 986 }
+					create_unit = {
+						division = "name = \"3-ya Volzhskaya Strelkovaya Diviziya\" division_template = \"Pekhotnaya Diviziya\" start_experience_factor = 0.5" 
+						owner = ROOT
+					}
+				}
+			}
+			}
+		}
+	}
+	focus = {
+		id = BLR_support_from_ukraine
+		icon = GFX_focus_POL_ukrainian_army
+		x = 5
+		y = 3
+		available = {
+			has_country_flag = ukrainian_support
+     		#NOT = { UKR = { has_completed_focus = ??? } }
+     		NOT = { has_war_with = UKR }
+     		UKR = { 
+     			exists = yes 
+     			has_civil_war = no
+     		}
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_out_of_the_shadows_and_into_the_light
+		
+		cost = 3
+		prerequisite = { 
+			focus = BLR_non_submission_to_poland 
+			focus = BLR_polish_general_staff
+			focus = BLR_enlist_white_russians
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			diplomatic_relation = {
+				country = UKR
+				relation = military_access
+				active = yes
+            }
+			UKR = {
+				diplomatic_relation = {
+					country = BLR
+					relation = military_access
+					active = yes
+            	}
+        	}
+			diplomatic_relation = {
+				country = UKR
+				relation = non_aggression_pact
+				active = yes
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment_1
+                amount = 30
+                producer = UKR
+            }
+            add_equipment_to_stockpile = {
+                type = train_equipment_1
+                amount = 2
+                producer = UKR
+            }
+			custom_effect_tooltip = BLR_support_from_ukraine_ttp
+		}
+	}
+
+	focus = {
+		id = BLR_ukrainian_grain
+		icon = GFX_focus_ITA_grande_rivolta_rurale
+		x = 0
+		y = 1
+		available = {
+			has_country_flag = ukrainian_support
+     		#NOT = { UKR = { has_completed_focus = ??? } }
+     		NOT = { has_war_with = UKR }
+     		UKR = { 
+     			exists = yes 
+     			NOT = { has_civil_war = yes }
+     		}		
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_support_from_ukraine
+		
+		cost = 5
+		prerequisite = { focus = BLR_support_from_ukraine }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = BLR_lithuanian_grain
+				days = 365
+			}
+			UKR = { 
+				add_timed_idea = {
+					idea = BLR_grain_exports_to_belarus
+					days = 365
+				} 
+			}
+		}
+	}
+
+	focus = {
+		id = BLR_ukrainian_mlitary_mission
+		icon = GFX_UKR_Ukrainian_Officers
+		x = 0
+		y = 2
+		available = {
+			has_country_flag = ukrainian_support
+     		#NOT = { UKR = { has_completed_focus = ??? } }
+     		NOT = { has_war_with = UKR }
+     		UKR = { 
+     			exists = yes 
+     			NOT = { has_civil_war = yes }
+     		}		
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_support_from_ukraine
+		
+		cost = 5
+		prerequisite = { focus = BLR_ukrainian_grain }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 25
+            add_equipment_to_stockpile = {
+                type = infantry_equipment_0
+                amount = 1000
+                producer = UKR
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment_1
+                amount = 50
+                producer = UKR
+            }
+			IF = { limit = { has_dlc = "Arms Against Tyranny" }
+				add_equipment_subsidy = {
+					cic = 1000
+					equipment_type = infantry_equipment
+					seller_tags = { UKR } 
+				}
+			}
+		}
+	}
+
+
+	focus = {
+		id = BLR_invite_ukraine
+		icon = GFX_goal_UKR_diplomacy
+		x = -5
+		y = 4
+		available = {
+			#always = no
+			BLR = { is_subject = no }
+     		#NOT = { UKR = { has_completed_focus = ? } }
+     		NOT = { has_war_with = UKR }
+     		IF = {
+     			limit = { is_in_faction = yes }
+     			is_faction_leader = yes
+     		}	
+     		UKR = {  
+     			exists = yes
+     			is_in_faction = no
+     			is_subject = no
+     		}
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_mission_to_lithuania
+		
+		cost = 2
+		prerequisite = { focus = BLR_invite_latvia_and_estonia }
+		prerequisite = { focus = BLR_ukrainian_mlitary_mission }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			IF = { 
+				limit = { is_in_faction = no }
+				set_rule = { can_create_factions = yes }
+     			create_faction = Ukr_Blr_alliance
+			}
+			UKR = { country_event = generic.5 }
+		}
+	}
+
+##########																			POLISH SUPPORT
+	focus = {
+		id = BLR_polish_general_staff
+		icon = GFX_focus_POL_sanation_right
+		x = -7
+		y = 2
+		mutually_exclusive = { 
+			focus = BLR_non_submission_to_poland 
+			focus = BLR_enlist_white_russians
+		}
+		available = {
+			has_country_flag = polish_support
+     		POL = { exists = yes }		
+     		NOT = { POL = { has_completed_focus = POL_surrender_the_east } }
+     		NOT = { has_war_with = POL }	
+     		BLR = { is_subject = no }
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_out_of_the_shadows_and_into_the_light
+		
+		cost = 2
+		#prerequisite = { focus = BLR_out_of_the_shadows_and_into_the_light }
+		prerequisite = { 
+			focus = BLR_belarusian_political_commitee
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+        	POL = { country_event = blr.19 }
+        	effect_tooltip = {
+        		army_experience = 10
+				#set_politics = { ruling_party = neutrality }
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.1
+				}
+				add_ideas = BLR_polish_gen_staff
+     			94 = { remove_claim_by = BLR }  
+    			97 = { remove_claim_by = BLR }
+				diplomatic_relation = {
+					country = POL
+					relation = non_aggression_pact
+					active = yes
+        		}
+				diplomatic_relation = {
+					country = POL
+					relation = military_access
+					active = yes
+        		}
+				add_doctrine_cost_reduction = {
+					name = BLR_polish_general_staff
+					cost_reduction = 0.25
+					uses = 2
+					category = land_doctrine
+				}
+        		POL = { custom_effect_tooltip = needs_approval }
+        	}
+			#custom_effect_tooltip = BLR_polish_gen_staff_event
+			custom_effect_tooltip = BLR_polish_officer_ttp
+		}
+	}
+	focus = {
+		id = BLR_military_commission 
+		icon = GFX_BLR_army_badge #advisors_belarus
+		x = 0
+		y = 1
+		available = {
+			has_country_flag = polish_support
+     		POL = { exists = yes }		
+     		NOT = { POL = { has_completed_focus = POL_surrender_the_east } }
+     		NOT = { has_war_with = POL }	
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_polish_general_staff
+		
+		cost = 3
+		prerequisite = { focus = BLR_polish_general_staff }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = blr_military_commission_ns
+			add_manpower = 20000
+            add_equipment_to_stockpile = {
+                type = support_equipment_1
+                amount = 30
+                producer = POL
+            }
+		}
+	}
+#	focus = {
+#		id = BLR_reintegrate_central_lithuania
+#		icon = GFX_focus_POL_prepare_for_the_inevitable
+#		x = -2
+#		y = 1
+#		available = {
+#			has_country_flag = polish_support
+#     		POL = { exists = yes }		
+#     		RCL = { exists = yes }	
+#     		NOT = { POL = { has_completed_focus = POL_surrender_the_east } }
+#     		NOT = { has_war_with = POL }	
+#     		NOT = { has_war_with = RCL }	
+#     		NOT = { RCL = { has_war_with = LIT } }
+#     		always = no
+#		}
+#		bypass = {
+#
+#		}
+#		relative_position_id = BLR_polish_general_staff
+#		
+#		cost = 3
+#		prerequisite = { focus = BLR_polish_general_staff }
+#
+#		cancel_if_invalid = yes
+#		continue_if_invalid = no
+#		available_if_capitulated = yes
+#
+#		completion_reward = {
+#			custom_effect_tooltip = BLR_central_lit_puppet
+#			puppet = {
+#    			target = RCL
+#   				end_wars = no
+#			}		
+#		}
+#	}
+	focus = {
+		id = BLR_poles_in_Belarusian_uniforms
+		icon = GFX_focus_POL_reach_out_to_underground_state
+		x = -2
+		y = 1
+		available = {
+			has_country_flag = polish_support
+     		POL = { exists = yes }		
+     		NOT = { POL = { has_completed_focus = POL_surrender_the_east } }
+     		NOT = { has_war_with = POL }			
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_polish_general_staff
+		
+		cost = 5
+		prerequisite = { focus = BLR_polish_general_staff }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			hidden_effect = {
+				load_oob = BLR_polish_volunteers
+			}
+			custom_effect_tooltip = BLR_poles_in_Belarusian_uniforms_ttp
+			add_manpower = 10000
+		}
+	}
+	focus = {
+		id = BLR_polish_Belarusian_air_wings
+		icon = GFX_goal_generic_air_fighter
+		x = -2
+		y = 2
+		available = {
+			has_country_flag = polish_support
+     		POL = { exists = yes }		
+     		NOT = { POL = { has_completed_focus = POL_surrender_the_east } }
+     		NOT = { has_war_with = POL }				
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_polish_general_staff
+		
+		cost = 5
+		prerequisite = { focus = BLR_poles_in_Belarusian_uniforms }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			air_experience = 15
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
+					}
+				}
+				if = {
+					limit = {
+						not = {
+							has_tech = early_fighter
+						}
+					}
+					set_technology = { early_fighter = 1 }
+				}
+				if = {
+					limit = {
+						not = {
+							has_tech = early_bomber
+						}
+					}
+					set_technology = { CAS1 = 1 }
+				}
+				add_equipment_to_stockpile = { type = fighter_equipment_0 amount = 50 producer = POL }
+				add_equipment_to_stockpile = { type = CAS_equipment_1 amount = 24 producer = POL }
+			}
+			else = {
+				if = {
+					limit = {
+						not = {
+							has_tech = iw_small_airframe
+						}
+					}
+					set_technology = { iw_small_airframe = 1 }
+				}
+				add_equipment_to_stockpile = { type = small_plane_airframe_0 amount = 50 producer = POL variant_name = "PZL P.11"}
+				add_equipment_to_stockpile = { type = small_plane_cas_airframe_1 amount = 24 producer = POL variant_name = "PZL P.23"}
+			}
+		}
+	}
+	focus = {
+		id = BLR_direct_polish_support
+		icon = GFX_focus_generic_polish_deal
+		x = -1
+		y = 3
+		available = {
+			has_country_flag = polish_support
+     		POL = { exists = yes }		
+     		NOT = { POL = { has_completed_focus = POL_surrender_the_east } }
+     		NOT = { has_war_with = POL }
+  			POL = { has_war = no }
+  			NOT = { GER = { is_justifying_wargoal_against = POL } }
+  			IF = { 
+  				limit = {
+  					SOV = { 
+  						OR = { 
+  							has_government = communism 
+  							#has_government = anarchism
+  						}
+
+  					}
+  				}
+   				OR = {
+   					SOV = { has_civil_war = yes }	
+   					SOV = { has_war_with = RUS }
+   				}
+  			}			
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_polish_general_staff
+		
+		cost = 5
+		prerequisite = { focus = BLR_polish_Belarusian_air_wings }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			country_event = blr.39
+			custom_effect_tooltip = BLR_direct_polish_support_ttp
+		}
+	}
+	focus = {
+		id = BLR_polish_equipment_shipments
+		icon = GFX_focus_focus_fra_maquis
+		x = 2
+		y = 1
+		available = {
+			has_country_flag = polish_support
+     		POL = { exists = yes }		
+     		NOT = { POL = { has_completed_focus = POL_surrender_the_east } }
+     		NOT = { has_war_with = POL }				
+		}
+		bypass = {
+		}
+		ai_will_do = {
+			factor = 40
+		}
+		relative_position_id = BLR_polish_general_staff
+		
+		cost = 5
+		prerequisite = { 
+			focus = BLR_polish_general_staff 
+			#focus = BLR_non_submission_to_poland
+			focus = BLR_enlist_white_russians 
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			custom_effect_tooltip = BLR_polish_equipment_shipments_ttp
+			IF = { 
+				Limit = { 
+					NOT = { has_completed_focus = BLR_polish_general_staff }
+				}
+				add_political_power = -50
+			}
+			IF = { limit = { has_dlc = "Arms Against Tyranny" }
+				add_equipment_subsidy = {
+					cic = 1000
+					equipment_type = infantry_equipment
+					seller_tags = { POL } 
+				}
+			}
+			add_tech_bonus = {
+				name = BLR_polish_equipment_shipments
+			    bonus = 1
+			    uses = 1
+			    category = infantry_weapons
+			}
+		} 
+	}
+	focus = {
+		id = BLR_heavy_equipment_shipments
+		icon = GFX_goal_generic_army_artillery2
+		x = 1
+		y = 2
+		available = {
+			has_country_flag = polish_support
+     		POL = { exists = yes }		
+     		NOT = { POL = { has_completed_focus = POL_surrender_the_east } }
+     		NOT = { has_war_with = POL }				
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_polish_general_staff
+		
+		cost = 5
+		prerequisite = { focus = BLR_polish_equipment_shipments }
+		prerequisite = { focus = BLR_polish_general_staff }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			custom_effect_tooltip = BLR_heavy_equipment_shipments_ttp
+			IF = { limit = { has_dlc = "Arms Against Tyranny" }
+				add_equipment_subsidy = {
+					cic = 1000
+					equipment_type = artillery_equipment
+					seller_tags = { POL } 
+				}
+				add_equipment_subsidy = {
+					cic = 1000
+					equipment_type = anti_air_equipment
+					seller_tags = { POL } 
+				}
+				add_equipment_subsidy = {
+					cic = 1000
+					equipment_type = anti_tank_equipment
+					seller_tags = { POL } 
+				}
+			}
+			add_tech_bonus = {
+				name = BLR_heavy_equipment_shipments
+			    bonus = 0.5
+			    uses = 2
+			    category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = BLR_polish_river_monitors 
+		icon = GFX_focus_generic_cruiser_submarines
+		x = 1
+		y = 4
+		available = {
+			has_country_flag = polish_support
+     		POL = { exists = yes }		
+     		NOT = { POL = { has_completed_focus = POL_surrender_the_east } }
+     		NOT = { has_war_with = POL }				
+		}
+		bypass = {
+		}
+		relative_position_id = BLR_polish_general_staff
+		
+		cost = 5
+		prerequisite = { focus = BLR_heavy_equipment_shipments }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			navy_experience = 15
+			add_tech_bonus = {
+				name = BLR_polish_river_monitors
+				bonus = 1
+				uses = 1
+				category = naval_equipment
+			}
+			986 = {
+				add_dynamic_modifier = { modifier = idea_BLR_river_navy scope = BLR }
+			}
+			194 = {
+				add_dynamic_modifier = { modifier = idea_BLR_river_navy scope = BLR }
+			}
+		}
+	}
+
+	focus = {
+		id = BLR_polish_industrial_aid
+		icon = GFX_goal_generic_build_tank
+		x = 2
+		y = 3
+		available = {
+		has_country_flag = polish_support
+     	POL = { exists = yes }		
+     	NOT = { POL = { has_completed_focus = POL_surrender_the_east } }
+     	NOT = { has_war_with = POL }				
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_polish_general_staff
+		
+		cost = 10
+		prerequisite = { focus = BLR_heavy_equipment_shipments }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			random_owned_controlled_state = {
+                add_extra_state_shared_building_slots = 2
+		 		prioritize = { 986 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+            add_equipment_to_stockpile = {
+                type = train_equipment_1
+                amount = 10
+                producer = POL
+            }
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1
+				uses = 2
+				category = industry
+			}
+		}
+	}
+
+###################################################################################COMMUNIST
+	focus = {
+		id = BLR_crush_the_revolt  
+		icon = GFX_focus_POL_riot_of_37
+		x = 30
+		y = 0
+		mutually_exclusive = { focus = BLR_liberation }
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+			has_government = communism
+		}
+		bypass = {
+
+		}
+		
+		cost = 3
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = BLR_reinforced_nkvd_units
+		icon = GFX_focus_SOV_the_last_purge
+		x = -1
+		y = 1
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_crush_the_revolt
+		
+		cost = 3
+		prerequisite = { focus = BLR_crush_the_revolt }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			custom_effect_tooltip = BLR_reinforced_nkvd_units_ttp
+		}
+	}
+
+	focus = {
+		id = BLR_comintern_support
+		icon = GFX_focus_generic_soviet_politics
+		x = 1
+		y = 1
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_crush_the_revolt
+		
+		cost = 3
+		prerequisite = { focus = BLR_crush_the_revolt }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			custom_effect_tooltip = BLR_comintern_support_ttp
+		}
+	}
+
+
+	focus = {
+		id = BLR_commissars
+		icon = GFX_focus_SOV_penal_battalions
+		x = -1
+		y = 2
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_crush_the_revolt
+		
+		cost = 3
+		prerequisite = { 
+			focus = BLR_reinforced_nkvd_units
+		}
+		prerequisite = { 
+			focus = BLR_comintern_support  
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			custom_effect_tooltip = BLR_commissars_ttp
+		}
+	}
+
+	focus = {
+		id = BLR_secure_the_airfields
+		icon = GFX_focus_generic_aircraft_production
+		x = 1
+		y = 2
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_crush_the_revolt
+		
+		cost = 3
+		prerequisite = { 
+			focus = BLR_reinforced_nkvd_units
+		}
+		prerequisite = { 
+			focus = BLR_comintern_support  
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			custom_effect_tooltip = BLR_secure_the_airfields_ttp
+		}
+	}
+
+	focus = {
+		id = BLR_secure_the_tank_depots
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_communism
+		x = 0
+		y = 3
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_crush_the_revolt   
+		
+		cost = 3
+		prerequisite = { focus = BLR_secure_the_airfields }
+		prerequisite = { focus = BLR_commissars }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			custom_effect_tooltip = BLR_secure_the_tank_depots_ttp
+		}
+	}
+	focus = {
+		id = BLR_secure_and_reinforce_loyal_units
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		x = 0
+		y = 4
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_crush_the_revolt
+		
+		cost = 3
+		prerequisite = { focus = BLR_secure_the_tank_depots }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes 
+
+		completion_reward = {
+			custom_effect_tooltip = BLR_secure_and_reinforce_loyal_units_ttp
+		}
+	}
+	focus = {
+		id = BLR_purge_the_republicans_from_belarus
+		icon = GFX_goal_generic_war_with_comintern #GFX_focus_SOV_builder_of_the_red_army
+		x = 0
+		y = 5
+		available = {
+			
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_crush_the_revolt
+		
+		cost = 3
+		prerequisite = { focus = BLR_secure_and_reinforce_loyal_units }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+		set_global_flag = BLR_cw_triggered
+			hidden_effect = { 
+				#due to how BLR is the starting tag but then switched, sometimes ends up at war with RUS or even anarchist SOV if those wars triggered before
+				every_country = { 
+					limit = {
+						has_war_with = BLR
+					}
+					white_peace = BLR 
+				}
+				RCL = {
+					transfer_state = 784
+					load_oob = "Republic of Central Lithuania"
+					add_timed_idea = {
+						idea = BLR_self_defense_of_wilno
+						days = 365
+					}
+				}
+				#784 = {
+				#	add_core_of = RCL
+				#}
+				#every_state = {
+				#	limit = {
+				#		is_core_of = LIT
+				#	}
+				#	add_claim_by = RCL
+				#}
+				POL = {
+					#add_opinion_modifier = {
+					#	target = ROOT
+					#	modifier = blr_diplomacy_focus
+					#}
+					country_event = blr.44
+					add_ai_strategy = {
+						type = alliance
+						id = RCL
+						value = 100
+					}
+					add_ai_strategy = {
+						type = protect
+						id = RCL
+						value = 100
+					}
+					add_ai_strategy = {
+						type = send_volunteers_desire
+						id = RCL
+						value = 1000
+					}
+					add_ai_strategy = {
+						type = support
+						id = RCL
+						value = 1000
+					}
+				}
+			}
+			BLR = {
+				country_event = blr.99
+			}
+			custom_effect_tooltip = BLR_central_lit_ttp
+		}
+	}
+
+	focus = {
+		id = BLR_arm_anarchist_groups
+		icon = GFX_focus_SWE_refuge_for_revolutionaries
+		x = -3
+		y = 1
+		available = {	
+			#BLR = { has_government = fascism }	
+			OR = {
+				has_global_flag = BLR_fascist_coop_limited
+				has_global_flag = BLR_fascist_coop
+			}
+		}
+		bypass = {
+		}
+		mutually_exclusive = { focus = BLR_maintain_the_workers_dictatorship }
+		relative_position_id = BLR_purge_the_republicans_from_belarus
+		
+		cost = 3
+		prerequisite = { focus = BLR_purge_the_republicans_from_belarus }
+		ai_will_do = {
+			factor = 2
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			AFS = {
+				add_ai_strategy = {
+					type = alliance
+					id = BYL
+					value = 100
+				}
+				add_ai_strategy = {
+					type = protect
+					id = BYL
+					value = 100
+				}
+				add_ai_strategy = {
+					type = send_volunteers_desire
+					id = BYL
+					value = 1000
+				}
+				add_ai_strategy = {
+					type = support
+					id = BYL
+					value = 1000
+				} 
+			}
+			division_template = {
+				name = "Chernaya Gvardeyskaya Militsiya"
+			    is_locked = yes
+			    #division_cap = 48
+			    division_names_group = AFS_GAR_01
+			    priority = 0
+			    template_counter = 42
+			    regiments = {
+			        militia = { x = 0 y = 0 }
+			        militia = { x = 0 y = 1 }
+			        irregular_infantry = { x = 1 y = 0 }
+			        irregular_infantry = { x = 1 y = 1 }
+			    }
+			    support = { 
+			    }
+			}
+			random_owned_controlled_state = {
+        		limit = { ROOT = { controls_state = PREV } }
+        		prioritize = { 206 }
+        		create_unit = {
+        	    	division = "name = \"Chernaya Gvardeyskaya Militsiya\" division_template = \"Chernaya Gvardeyskaya Militsiya\" start_experience_factor = 0.1"
+        	    	count = 3
+        	    	owner = ROOT
+        	 	}
+     		}
+			add_popularity = {
+				ideology = anarchism
+				popularity = 0.10
+			}
+			add_war_support = 0.05
+			#add_stability = -0.05
+			custom_effect_tooltip = BLR_arm_anarchist_groups_ttp
+		}
+	}
+
+
+	focus = {
+		id = BLR_obligatory_mobilization
+		icon = GFX_focus_ARG_no_gods_no_masters
+		x = -1 
+		y = 1
+		available = {			
+		}
+		bypass = {
+		}
+		relative_position_id = BLR_arm_anarchist_groups
+		ai_will_do = {
+			factor = 50
+		}
+		cost = 3
+		prerequisite = { focus = BLR_arm_anarchist_groups }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+     		add_ideas = AFS_obligatory_mobilization
+			random_owned_controlled_state = {
+        		limit = { ROOT = { controls_state = PREV } }
+        		prioritize = { 206 }
+        		create_unit = {
+        	    	division = "name = \"Chernaya Gvardeyskaya Militsiya\" division_template = \"Chernaya Gvardeyskaya Militsiya\" start_experience_factor = 0.1"
+        	    	count = 1
+        	    	owner = ROOT
+        	 	}
+     		}
+			add_popularity = {
+				ideology = anarchism
+				popularity = 0.05
+			}
+		}
+	}
+
+
+
+	focus = {
+		id = BLR_local_committees
+		icon = GFX_focus_ARG_no_gods_no_masters
+		x = -1 
+		y = 2
+		available = {			
+		}
+		bypass = {
+		}
+		relative_position_id = BLR_arm_anarchist_groups
+		ai_will_do = {
+			factor = 50
+		}
+		cost = 3
+		prerequisite = { focus = BLR_obligatory_mobilization }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			set_politics = { ruling_party = neutrality }
+			BLR_anarchist_commune = { 
+				promote_character = communist_anarchism 
+			}
+			add_popularity = {
+				ideology = anarchism
+				popularity = 0.15
+			}
+		}
+	}
+
+	focus = {
+		id = BLR_maintain_the_workers_dictatorship
+		icon = GFX_focus_SWE_socialist_reforms
+		x = 3
+		y = 1
+
+		mutually_exclusive = { focus = BLR_arm_anarchist_groups }
+		available = {
+		}
+		bypass = {
+		}
+		relative_position_id = BLR_purge_the_republicans_from_belarus
+		
+		cost = 3
+		prerequisite = { focus = BLR_purge_the_republicans_from_belarus }
+		ai_will_do = {
+			factor = 10
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			SOV = {
+				add_ai_strategy = {
+					type = alliance
+					id = BYL
+					value = 100
+				}
+				add_ai_strategy = {
+					type = protect
+					id = BYL
+					value = 100
+				}
+				add_ai_strategy = {
+					type = send_volunteers_desire
+					id = BYL
+					value = 1000
+				}
+				add_ai_strategy = {
+					type = support
+					id = BYL
+					value = 1000
+				}
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.10
+			}
+			add_stability = 0.05
+			custom_effect_tooltip = BLR_maintain_the_workers_dictatorship_ttp
+		}
+	}
+
+	focus = { 
+		id = BLR_military_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 2
+		y = 2
+		available = {
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_purge_the_republicans_from_belarus
+		
+		cost = 5 
+		prerequisite = { 
+			focus = BLR_arm_anarchist_groups
+			focus = BLR_maintain_the_workers_dictatorship 
+		}
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			random_core_state = {
+				prioritize = { 207 }
+				limit = {
+					is_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_core_state = {
+				prioritize = { 206 }
+				limit = {
+					is_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+            add_equipment_to_stockpile = {
+                type = infantry_equipment_0
+                amount = 500
+                producer = BYL
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment_1
+                amount = 50
+                producer = BYL
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment_1
+                amount = 25
+                producer = BYL
+            }
+			add_tech_bonus = {
+				name = BLR_military_industry
+			    bonus = 1
+			    uses = 1
+			    category = infantry_weapons
+			}
+			add_tech_bonus = {
+				name = BLR_military_industry
+			    bonus = 0.5
+			    uses = 2
+			    category = artillery
+			}
+			add_tech_bonus = {
+				name = BLR_military_industry
+				bonus = 1.0
+				uses = 1
+				technology = support_weapons
+				technology = support_weapons2
+				technology = support_weapons3
+			}
+		}
+	}
+
+	focus = {
+		id = BLR_aviation_industry
+		icon = GFX_focus_generic_aircraft_production
+		x = 3
+		y = 3
+		available = {
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_purge_the_republicans_from_belarus
+		
+		cost = 5 
+		prerequisite = { 
+			focus = BLR_military_industry
+		}
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			random_core_state = {
+				prioritize = { 207 }
+				limit = {
+					is_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = BLR_aviation_industry
+			    bonus = 0.5
+			    uses = 2
+			    category = air_equipment
+			}
+			add_timed_idea = {
+				idea = BLR_red_skies
+				days = 365
+			}
+		}
+	}
+
+	focus = {
+		id = BLR_artillery_superiority
+		icon = GFX_focus_FIN_foreign_anti_air
+		x = 2
+		y = 4
+		available = {
+		}
+		bypass = {
+
+		}
+		relative_position_id = BLR_purge_the_republicans_from_belarus
+		
+		cost = 5 
+		prerequisite = { 
+			focus = BLR_military_industry
+		}
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			random_core_state = {
+				prioritize = { 207 }
+				limit = {
+					is_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = BLR_artillery_superiority
+			    bonus = 0.5
+			    uses = 2
+			    category = artillery
+			}
+			add_ideas = BLR_mechanized_artillery_ns
+		}
+	}
+
+
+	focus = {
+		id = BLR_civilian_labor_in_defense
+		icon = GFX_goal_generic_fortify_city
+		x = 0
+		y = 2
+		#select_effect = {
+		#	add_ideas = BLR_civilian_labor_ns
+		#}
+		available = {
+			has_full_control_of_state = 206 #using provinces doesnt work well for non-debug if no VP
+		}
+		bypass = {
+		}
+		relative_position_id = BLR_purge_the_republicans_from_belarus
+		
+		cost = 3
+		prerequisite = { 
+			focus = BLR_arm_anarchist_groups
+			focus = BLR_maintain_the_workers_dictatorship 
+		}
+		ai_will_do = {
+			factor = 100
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			#Tooltip purposes (Select Effect)
+			#custom_effect_tooltip = SOV_focus_select_effect_tt
+			#effect_tooltip = {
+			#	add_ideas = BLR_civilian_labor_ns
+			#}
+			#
+			##(Complete Effect)
+			#custom_effect_tooltip = SOV_focus_complete_effect_tt
+			#hidden_effect = {
+			#	remove_ideas = BLR_civilian_labor_ns 
+			#}
+			add_timed_idea = {
+				idea = BLR_civilian_labor_ns
+				days = 100 
+			}
+			206 = {
+				add_building_construction = {
+					type = bunker
+					province = {
+						id = 11370
+					}
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = {
+						id = 277
+					}
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = {
+						id = 11216
+					}
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = {
+						id = 216
+					}
+					level = 2
+					instant_build = yes
+				}
+			}		
+		}
+	}
+
+	focus = {
+		id = BLR_raise_factory_worker_militias
+		icon = GFX_goal_generic_fortify_city
+		x = 0
+		y = 3
+		available = {
+			controls_province = 11370
+			controls_province = 11241
+		}
+		bypass = {
+		}
+		relative_position_id = BLR_purge_the_republicans_from_belarus
+		
+		cost = 3
+		prerequisite = { 
+			focus = BLR_civilian_labor_in_defense
+		}
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {	
+			army_experience = 5
+			add_war_support = 0.05
+			random_owned_controlled_state = {
+        		limit = { ROOT = { controls_state = PREV } }
+        		prioritize = { 206 }
+        		create_unit = {
+        	    	division = "name = \"'Viciebsk' Zavadskaja Rabočaja Milicyja\" division_template = \"Milicyja\" start_experience_factor = 0.1"
+        	    	count = 1
+        	    	owner = ROOT
+        	 	}
+     		}
+    		random_owned_controlled_state = {
+        		limit = { ROOT = { controls_state = PREV } }
+        		prioritize = { 207 }
+        		create_unit = {
+        	    	division = "name = \"'Minsk' Zavadskaja Rabočaja Milicyja\" division_template = \"Milicyja\" start_experience_factor = 0.1"
+        	    	count = 1
+        	    	owner = ROOT
+        	 	}
+     		}
+		}
+	}
+
+	focus = {
+		id = BLR_soviet_aid
+		icon = GFX_focus_generic_supply_line
+		x = 1
+		y = 1
+
+		available = {
+		}
+		bypass = {
+		}
+		relative_position_id = BLR_maintain_the_workers_dictatorship
+		ai_will_do = {
+			factor = 50
+		}
+		cost = 3
+		prerequisite = { focus = BLR_maintain_the_workers_dictatorship }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 15
+			add_political_power = 35
+			custom_effect_tooltip = BLR_soviet_aid_ttp
+		}
+	}
+
+#
+}
+
+																																																																																	

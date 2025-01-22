@@ -1,0 +1,29 @@
+SOV_soviet_political_crisis = { 
+    priority = 5
+    icon = GFX_decision_category_SOV_civil_puppet_interaction
+
+   picture = GFX_decision_cat_picture_soviet_comecon
+
+	visible = {
+        original_tag = SOV
+    }
+
+    allowed = {
+        original_tag = SOV
+    }
+}
+
+SOV_anarchist_activity = { 
+    priority = 4
+    icon = GFX_decision_category_border_conflicts
+
+    picture = GFX_decision_cat_picture_macedonian_organizations
+
+    visible = {
+        original_tag = SOV
+    }
+
+    allowed = {
+        original_tag = SOV
+    }
+}

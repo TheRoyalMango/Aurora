@@ -1,0 +1,175 @@
+NFE_dev_toolkit = {
+    NFE_dev_template_unlock = {
+        icon = SWE_set_army_budget
+
+        cost = 0
+
+        fire_only_once = yes
+
+        days_remove = 1
+        visible = { always = yes }
+
+        modifier = {
+        }
+        complete_effect = {
+            country_lock_all_division_template = no 
+        }
+    }
+    NFE_dev_summon_equipment_from_hyperborea = {
+        icon = category_FIN_national_defense
+
+        cost = 0
+
+        fire_only_once = no
+
+        days_remove = 1
+        visible = { always = yes }
+
+        modifier = {
+        }
+
+        complete_effect = {
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 50000
+                producer = ROOT
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment
+                amount = 5000
+                producer = ROOT
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 5000
+                producer = ROOT
+            }
+            add_equipment_to_stockpile = {
+                type = motorized_equipment
+                amount = 5000
+                producer = ROOT
+            }
+            add_equipment_to_stockpile = {
+                type = train_equipment
+                amount = 100
+                producer = ROOT
+            }
+        }
+    }
+    NFE_flip_communist = {
+        icon = SOV_secure_the_administration
+
+        cost = 0
+
+        fire_only_once = no
+
+        days_remove = 1
+        visible = { always = yes }
+
+        modifier = {
+        }
+
+        complete_effect = {
+            set_politics = {
+                ruling_party = communism
+            }
+            add_popularity = {
+                ideology = communism
+                popularity = 0.5
+            }
+        }
+    }
+    NFE_flip_fascist = {
+        icon = ger_reichskommissariats
+
+        cost = 0
+
+        fire_only_once = no
+
+        days_remove = 1
+        visible = { always = yes }
+
+        modifier = {
+        }
+
+        complete_effect = {
+            set_politics = {
+                ruling_party = fascism
+            }
+            add_popularity = {
+                ideology = fascism
+                popularity = 0.5
+            }
+        }
+    }
+    NFE_flip_non_aligned = {
+        icon = category_NOR_monarchist_prep
+
+        cost = 0
+
+        fire_only_once = no
+
+        days_remove = 1
+        visible = { always = yes }
+
+        modifier = {
+        }
+
+        complete_effect = {
+            set_politics = {
+                ruling_party = neutrality
+            }
+            add_popularity = {
+                ideology = neutrality
+                popularity = 0.5
+            }
+        }
+    }
+    NFE_flip_democratic = {
+        icon = category_generic_formable_nations
+
+        cost = 0
+
+        fire_only_once = no
+
+        days_remove = 1
+        visible = { always = yes }
+
+        modifier = {
+        }
+
+        complete_effect = {
+            set_politics = {
+                ruling_party = democratic
+            }
+            add_popularity = {
+                ideology = democratic
+                popularity = 0.5
+            }
+        }
+    }
+    NFE_flip_anarchist = {
+        icon = SOV_the_workers_dictatorship
+
+        cost = 0
+
+        fire_only_once = no
+
+        days_remove = 1
+        visible = { always = yes }
+
+        modifier = {
+        }
+
+        complete_effect = {
+            set_politics = {
+                ruling_party = anarchism
+            }
+            add_popularity = {
+                ideology = anarchism
+                popularity = 0.5
+            }
+        }
+    }
+}
+    

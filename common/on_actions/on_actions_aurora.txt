@@ -1,0 +1,168 @@
+on_actions = {
+	on_startup = {
+		effect = {	
+			826 = {
+				add_dynamic_modifier = { modifier = autonomous_state }
+				#add_dynamic_modifier = { modifier = semi_autonomous_state }
+			}
+			SOV = {
+				#SET_country_flag = SOV_hide_pol_branches
+				#complete_national_focus = SOV_the_path_of_marxism_leninism
+			}
+			#KAZ = { set_cosmetic_tag = SOV_puppet }
+			BLR = { country_lock_all_division_template = yes }
+			RUS = { country_lock_all_division_template = yes }
+			#TCS = { give_resource_rights = { receiver = ENG state = 584 } } #not working due to borders
+			BYA = { give_resource_rights = { receiver = JAP state = 564 } }
+			FER = { give_resource_rights = { receiver = JAP state = 657 } }
+			FER = { give_resource_rights = { receiver = JAP state = 560 } }
+			TOM = { give_resource_rights = { receiver = SOV state = 577 } }
+		}#end of effect
+
+	} #end of on_startup
+	on_join_faction = { 
+		effect = {
+			IF = { 
+				limit = {
+					NOT = { BLR = { has_government = communism } }
+					NOT = { BLR = { has_completed_focus = BLR_enlist_white_russians }}
+					has_global_flag = BLR_cw_triggered
+				}
+				BLR = { complete_national_focus = BLR_enlist_white_russians }
+			}
+		} 
+	}
+	on_state_control_changed = {
+		effect = {
+			IF = {
+				limit = {
+					DON = { exists = yes }
+					DON = { is_subject_of = RUS }
+					OR = {
+						218 = { is_controlled_by = RUS }
+						AND = {
+							218 = { is_controlled_by = KUB }
+							KUB = { is_subject_of = RUS }
+						}
+						AND = {
+							218 = { is_controlled_by = DON }
+							DON = { is_subject_of = RUS }
+						}
+					}
+				}
+				RUS = { country_event = rus.41 }
+			}
+		}
+	}
+	on_state_control_changed = {
+		effect = {
+			IF = {
+				limit = {
+					218 = {
+						RUS = { controls_or_subject_of = yes }
+					}
+				}
+				RUS = { country_event = rus.66 }
+			}
+		}
+	}
+	on_government_change = { 
+		effect = {
+			IF = { 
+				limit = {
+					SOV = { has_civil_war = yes }
+					RUS = { has_war_with = SOV }
+				}
+				RUS = {
+					country_event = rus.83
+					every_other_country = { 
+						limit = {
+							original_tag = SOV
+							has_government = anarchism
+						}
+						RUS = {
+							#add_civil_war_target = PREV
+							declare_war_on = {
+							    target = PREV
+							    type = civil_war
+							}
+						}
+					}
+					every_other_country = { 
+						limit = {
+							original_tag = SOV
+							has_government = communism
+						}
+						RUS = {
+							#add_civil_war_target = PREV
+							declare_war_on = {
+							    target = PREV
+							    type = civil_war
+							}
+						}
+					}
+				}
+			}
+		} 
+	}
+	on_declare_war = { #might use on_war instead incase of weird edge cases
+		effect = {
+			IF = { 
+            	limit = {
+            		OR = {
+            			AND = {
+            	    		tag = RUS
+            	    		FROM = { tag = SOV }
+            	    	}
+            			AND = {
+            	    		tag = SOV
+            	    		FROM = { tag = RUS }
+            	    	}
+            	    }
+            	}
+				RUS = {
+					country_event = rus.80
+					add_ideas = RUS_second_russian_civil_war
+				}
+			}
+		} 
+	}
+	on_civil_war_end = {
+		effect = {
+			#if = {
+			#	limit = {
+			#		DON = { NOT = { has_government = communism } }
+			#		DON = { is_subject_of = RUS }
+			#	}
+			#	RUS = { country_event = rus.41 }
+			#	#set_global_flag = RUS_send_sidorin_to_don
+			#}
+			if = {
+				limit = {
+					BLR = { has_civil_war = no }
+				}
+				BLR = { 
+					#remove_ideas = BLR_belarussian_civil_war
+            		delete_unit_template_and_units = {
+            		    division_template = "Milicyja"
+            		    disband = yes
+            		}
+				}
+			}
+			if = {
+				limit = {
+					BYL = { has_civil_war = no }
+				}
+				BYL = { 
+					#remove_ideas = BLR_belarussian_civil_war
+            		delete_unit_template_and_units = {
+            		    division_template = "Milicyja"
+            		    disband = yes
+            		}
+				}
+			}
+		}
+	}
+#end of on_actions
+}
+

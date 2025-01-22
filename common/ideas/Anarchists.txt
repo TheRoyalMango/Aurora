@@ -1,0 +1,130 @@
+ideas = {
+	country = {
+
+		anarchist_partisan_army = {
+
+			picture = SPR_international_brigades 
+
+			#citizen_militia_1
+			#idea_mex_revolutionary_army 
+			#idea_POL_the_peasants_strike
+
+			removal_cost = -1
+			
+			allowed = {
+			}
+			rule = {
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				#army_core_attack_factor = 0.15
+				army_core_defence_factor = 0.05
+				army_attack_factor = -0.25
+				army_defence_factor = -0.25
+				army_org_factor = -0.1
+				#army_strength_factor = 0.15
+				cavalry_attack_factor = 0.05
+				terrain_penalty_reduction = 0.05
+				supply_consumption_factor = -0.15
+				unit_artillery_design_cost_factor = 0.25
+				unit_artillery_brigade_design_cost_factor = 0.5
+				unit_light_armor_design_cost_factor = 0.5
+				unit_medium_armor_design_cost_factor = 0.5
+				unit_heavy_armor_design_cost_factor = 0.5
+				modifier_army_sub_unit_irregular_infantry_attack_factor = 0.2
+				modifier_army_sub_unit_irregular_infantry_defence_factor = 0.2
+				modifier_army_sub_unit_militia_attack_factor = 0.15
+				modifier_army_sub_unit_militia_defence_factor = 0.15
+				modifier_army_sub_unit_irregular_infantry_speed_factor = 0.05
+				land_night_attack = 0.1
+				pocket_penalty = -0.2
+				coordination_bonus = -0.1
+				#max_dig_in = -3
+				#dig_in_speed_factor = 0.25
+
+				#to add via focus 
+				#army_breakthrough_against_major_factor = 0.05
+				#cas_damage_reduction = -0.15
+				#org_loss_when_moving = -0.05
+			}
+		}
+
+		anarchist_elected_officers = {
+
+			picture = ETH_conservative_high_command
+
+			#MEX_revolutionary_army
+
+			removal_cost = -1
+			
+			allowed = {
+			}
+			rule = {
+			} 
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				coordination_bonus = -0.15
+				max_planning = 0.05
+				planning_speed = -0.50
+				land_doctrine_cost_factor = -0.15
+				army_org_factor = -0.1
+				org_loss_when_moving = 0.05
+				army_morale_factor = 0.15
+			}
+		}
+
+		federation_of_altai_anarchists = {
+
+			picture = SPR_anarchist_society
+
+			removal_cost = -1
+			
+			allowed = {
+			}
+			rule = {
+			} 
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				surrender_limit = 0.15
+				max_surrender_limit_offset = 0.15
+				war_support_factor = -0.2
+				stability_factor = 0.2
+				fascism_acceptance = -50
+			}
+		}
+
+		kuzbass_autonomous_industrial_colony = { #Kuzbass Autonomous Industrial Colony
+
+			picture = SPR_collectivized_society
+
+			removal_cost = -1
+			
+			allowed = {
+			}
+			rule = {
+			} 
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				weekly_manpower = 50
+				production_factory_efficiency_gain_factor = 0.15
+				production_factory_max_efficiency_factor = -0.10
+				production_speed_buildings_factor = 0.1
+				industrial_capacity_factory = 0.1
+				local_resources_factor = 0.20
+				production_lack_of_resource_penalty_factor = -0.10
+				research_speed_factor = 0.05
+				consumer_goods_factor = 0.05
+				political_power_factor = -0.15
+			}
+		}
+#
+	}
+}

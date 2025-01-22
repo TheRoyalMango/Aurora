@@ -1,0 +1,4814 @@
+RUS_operation_trust = {
+
+    RUS_operation_trust_attack = {
+
+        allowed = { tag = RUS }
+
+        icon = GFX_decision_revolt
+        
+        days_remove = 180
+        fire_only_once = no
+        cancel_if_not_visible = yes
+
+        cancel_trigger = {
+            hidden_trigger = {
+                OR = {
+                    has_government = communism
+                    NOT = { has_idea = RUS_soviet_infiltrations }
+                }
+            }
+        }
+        
+        available = {
+            has_idea = RUS_soviet_infiltrations
+        }
+
+        visible = {
+            NOT = {
+                has_government = communism
+            }
+            has_idea = RUS_soviet_infiltrations
+            SOV = { exists = yes }
+            any_country_with_original_tag = {
+                original_tag_to_check = SOV
+                has_government = communism
+            }
+        }
+        
+        remove_effect = {
+            activate_decision = RUS_operation_trust_attack
+            random_list = {
+                5 = { #failure
+                }
+                65 = { #success, something happened
+                    add_stability = -0.03
+                    add_political_power = -15
+                }
+                30 = { #success, general killed
+                    add_stability = -0.05
+                    add_war_support = -0.05
+                    add_political_power = -15
+                    IF = {
+                        limit = {
+                            has_character = RUS_yevgeny_miller
+                        }
+                        retire_character = RUS_yevgeny_miller
+                    }
+                    else = {
+                        IF = {
+                            limit = {
+                                has_character = RUS_aleksander_kutepov
+                            }
+                            retire_character = RUS_aleksander_kutepov
+                        }
+                    }
+                }
+            }
+        }
+        ai_will_do = {
+            factor = 200
+        }
+    }
+        
+    RUS_root_out_bolshevik_infiltrators = {
+        allowed = {
+            original_tag = RUS
+        }   
+        available = {
+            RUS = { has_completed_focus = RUS_inner_line_counterintelligence }
+        }
+
+        days_remove = 60
+
+        visible = { 
+            has_idea = RUS_soviet_infiltrations
+        }
+        fire_only_once = yes
+
+        cost = 100
+
+        icon = SWI_consolidate_council_power
+        
+        fire_only_once = yes
+
+        complete_effect = {
+        }
+
+        remove_effect = {
+            remove_ideas = RUS_soviet_infiltrations
+        }
+    }
+
+    RUS_root_out_communist_wreckers = {
+        allowed = {
+            original_tag = RUS
+        }   
+        available = {
+            RUS = { has_completed_focus = RUS_state_guard }
+        }
+
+        days_remove = 100
+
+        visible = { 
+            has_idea = RUS_communist_wreckers
+        }
+        fire_only_once = yes
+
+        cost = 100
+
+        icon = SWI_consolidate_council_power
+        
+        fire_only_once = yes
+
+        complete_effect = {
+        }
+
+        remove_effect = {
+            remove_ideas = RUS_communist_wreckers
+        }
+    }
+
+
+}
+
+RUS_cossack_decisions = {
+    RUS_reconcile_the_kuban_cossack_army = {
+        available = {
+            original_tag = RUS
+            core_compliance = {
+                occupied_country_tag = KUB
+                value > 25
+            }
+            core_resistance = {
+                occupied_country_tag = KUB
+                value < 5
+            }
+            #has_full_control_of_state = 233
+            has_full_control_of_state = 234
+        }
+
+        highlight_states = {
+            highlight_state_targets = { 
+                state = 234
+                state = 233
+            }
+        }
+        fire_only_once = yes
+        cost = 50
+
+        visible = {
+            original_tag = RUS
+            NOT = { KUB = { is_subject_of = RUS } }
+            NOT = {
+                234 = { is_core_of = RUS }
+                233 = { is_core_of = RUS }
+            }
+        }
+
+        icon = eng_trade_unions_support#generic_cavalry
+
+        ai_will_do = {
+            base = 5
+            modifier = {
+                add = 5
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            KUB = {
+                set_nationality = {
+                    target_country = RUS
+                    character = KUB_alexander_filimonov 
+                }
+                set_nationality = {
+                    target_country = RUS
+                    character = KUB_ivanis_vasily_nikolaevich 
+                }
+            }
+            add_stability = 0.02
+            add_war_support = 0.02
+            add_state_core = 233
+            add_state_core = 234
+            add_manpower = 10000
+        }
+    }
+
+    RUS_reconcile_the_don_cossack_army = {
+        available = {
+            original_tag = RUS
+            core_compliance = {
+                occupied_country_tag = DON
+                value > 25
+            }
+            core_resistance = {
+                occupied_country_tag = DON
+                value < 5
+            }
+            has_full_control_of_state = 218
+        }
+        highlight_states = {
+            highlight_state_targets = { 
+                state = 218
+                state = 238
+                state = 245
+                state = 265
+            }
+        }
+        fire_only_once = yes
+        cost = 50
+
+        visible = {
+            original_tag = RUS
+            NOT = { DON = { is_subject_of = RUS } }
+            NOT = {
+                218 = { is_core_of = RUS }
+                238 = { is_core_of = RUS }
+                245 = { is_core_of = RUS }
+                265 = { is_core_of = RUS }
+            }
+        }
+
+        icon = eng_trade_unions_support#generic_cavalry
+
+        ai_will_do = {
+            base = 5
+            modifier = {
+                add = 5
+                always = yes
+            }
+        }
+        complete_effect = {
+            DON = {
+                set_nationality = {
+                    target_country = RUS
+                    character = DON_ivan_kononov 
+                }
+            }
+            add_stability = 0.02
+            add_war_support = 0.02
+            add_state_core = 218
+            add_state_core = 238
+            add_state_core = 245
+            add_state_core = 265
+            add_manpower = 10000
+        }
+    }
+
+    RUS_reconcile_the_terek_cossack_army = {
+        available = {
+            original_tag = RUS
+            core_compliance = {
+                occupied_country_tag = TER
+                value > 25
+            }
+            core_resistance = {
+                occupied_country_tag = TER
+                value < 5
+            }
+            has_full_control_of_state = 235
+        }
+        highlight_states = {
+            highlight_states_trigger = { state = 235 }
+        }
+        fire_only_once = yes
+        cost = 50
+
+        visible = {
+            original_tag = RUS
+            NOT = { TER = { is_subject_of = RUS } }
+            NOT = {
+                235 = { is_core_of = RUS }
+            }
+        }
+
+        icon = eng_trade_unions_support#generic_cavalry
+
+        ai_will_do = {
+            base = 5
+            modifier = {
+                add = 5
+                always = yes
+            }
+        }
+        complete_effect = {
+            TER = {
+                set_nationality = {
+                    target_country = RUS
+                    character = RUS_lazar_bicherakhov 
+                }
+            }
+            add_stability = 0.01
+            add_war_support = 0.01
+            add_state_core = 235
+            add_manpower = 5000
+        }
+    }
+
+    RUS_reconcile_the_kalmyk_cossack_army = {
+        available = {
+            original_tag = RUS
+            core_compliance = {
+                occupied_country_tag = KAL
+                value > 25
+            }
+            core_resistance = {
+                occupied_country_tag = KAL
+                value < 5
+            }
+            has_full_control_of_state = 237
+            has_full_control_of_state = 236
+        }
+        highlight_states = {
+            highlight_state_targets = { 
+                state = 237
+                state = 236
+            }
+        }
+        fire_only_once = yes
+        cost = 50
+
+        visible = {
+            original_tag = RUS
+            NOT = { KAL = { is_subject_of = RUS } }
+            NOT = {
+                237 = { is_core_of = RUS }
+            }
+            NOT = {
+                236 = { is_core_of = RUS }
+            }
+        }
+
+        icon = eng_trade_unions_support#generic_cavalry
+
+        ai_will_do = {
+            base = 5
+            modifier = {
+                add = 5
+                always = yes
+            }
+        }
+        complete_effect = {
+            KAL = {
+                every_character = {
+                    limit = {
+                        is_character = KAL_nomto_ochirov
+                    }
+                    set_nationality = RUS
+                }
+            }
+            add_stability = 0.01
+            add_war_support = 0.01
+            add_state_core = 237
+            add_state_core = 236
+            add_manpower = 5000
+        }
+    }
+
+    RUS_reconcile_the_ural_cossack_army = {
+        available = {
+            original_tag = RUS
+            core_compliance = {
+                occupied_country_tag = URC
+                value > 25
+            }
+            core_resistance = {
+                occupied_country_tag = URC
+                value < 5
+            }
+            has_full_control_of_state = 407
+            has_full_control_of_state = 406
+        }
+        highlight_states = {
+            highlight_state_targets = { 
+                state = 406
+                state = 407
+            }
+        }
+        fire_only_once = yes
+        cost = 50
+
+        visible = {
+            original_tag = RUS
+            NOT = { URC = { is_subject_of = RUS } }
+            NOT = {
+                407 = { is_core_of = RUS }
+            }
+            NOT = {
+                406 = { is_core_of = RUS }
+            }
+        }
+
+        icon = eng_trade_unions_support#generic_cavalry
+
+        ai_will_do = {
+            base = 5
+            modifier = {
+                add = 5
+                always = yes
+            }
+        }
+        complete_effect = {
+            URC = {
+                #every_character = {
+                #    limit = {
+                #        is_character = KAL_nomto_ochirov
+                #    }
+                #    set_nationality = RUS
+                #}
+            }
+            add_stability = 0.01
+            add_war_support = 0.01
+            add_state_core = 407
+            add_state_core = 406
+            add_manpower = 1000
+        }
+    }
+
+    RUS_establish_the_terek_cossack_army = {
+
+        available = {
+            original_tag = RUS
+            235 = {
+                controller = {
+                    controls_or_subject_of = yes
+                }
+            }
+        }
+
+        fire_only_once = yes
+        days_remove = 1
+        cost = 5
+
+        visible = {
+            original_tag = RUS
+            #NOT = { TER = { exists = yes } }
+            always = no
+        }
+
+        icon = eng_trade_unions_support#generic_cavalry
+
+        ai_will_do = {
+            base = 75
+            modifier = {
+                add = 75
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            country_event = rus.39
+            #TER = { 
+            #    IF = {
+            #        limit = { 
+            #            RUS = { has_full_control_of_state = 235 }
+            #       }
+            #        TER = { transfer_state = 235 }
+            #    }
+            #}
+            #hidden_effect = { 
+            #    puppet = TER 
+            #}
+            #set_autonomy = { target = TER autonomy_state = autonomy_integrated_puppet }
+            #TER = {
+            #    set_cosmetic_tag = TER_RUS_puppet
+            #    add_ideas = RUS_law_on_land
+            #    add_ideas = RUS_law_on_volost_zemstvos
+            #    IF = { 
+            #        limit = { TER = { has_idea = cossack_isolated_from_moscow } }
+            #        remove_ideas = cossack_isolated_from_moscow
+            #    }
+            #}
+        }
+    }
+
+
+    RUS_establish_the_don_cossack_army = {
+
+        available = {
+            original_tag = RUS
+            218 = {
+                controller = {
+                    controls_or_subject_of = yes
+                }
+            }
+        }
+
+        fire_only_once = yes
+        days_remove = 1
+        cost = 5
+
+        visible = {
+            original_tag = RUS
+            #NOT = { DON = { exists = yes } }
+            always = no
+        }
+
+        icon = eng_trade_unions_support#generic_cavalry
+
+        ai_will_do = {
+            base = 75
+            modifier = {
+                add = 75
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            country_event = rus.16
+        }
+    }
+
+    RUS_raise_kub_cossacks = {
+        available = {
+            NOT = {
+                has_idea = RUS_mixed_equipment_and_horse_stock_shortage
+                has_idea = RUS_horse_stock_shortage
+            }
+            any_state = {
+                is_core_of = KUB
+                OR = {
+                    is_core_of = RUS
+                    controls_or_subject_of = yes
+                }
+            }
+        }
+        highlight_states = {
+            highlight_state_targets = { 
+                state = 234 
+                state = 233 
+            }
+        }
+        fire_only_once = no
+        days_remove = 7
+        days_re_enable = 365
+        cost = 25
+
+        visible = {
+            original_tag = RUS
+            NOT = {
+                has_country_flag = RUS_cossack_line_formed
+            }
+        }
+
+        icon = generic_cavalry
+
+        ai_will_do = {
+            base = 5
+            modifier = {
+                add = 5
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            add_war_support = 0.01
+        }
+        remove_effect = {
+            add_manpower = 30000
+            division_template = { 
+                name = "Kubanskaya Kazach'ya Brigada" #Cavalry brigade
+                division_names_group = RUS_CAV_02
+                regiments = {
+                    cavalry = { x = 0 y = 0 }
+                    cavalry = { x = 0 y = 1 }
+                    cavalry = { x = 1 y = 0 }
+                    cavalry = { x = 1 y = 1 }
+                }
+                support = {
+                    recon = { x = 0 y = 0 }
+                }
+            }
+            random_state = {
+                prioritize = { 234 }
+                create_unit = {
+                    division = "name = \"Kubanskaya Brigada\" division_template = \"Kubanskaya Kazach'ya Brigada\" start_experience_factor = 1.0" 
+                    owner = RUS
+                }
+                create_unit = {
+                    division = "name = \"Kubanskaya Brigada\" division_template = \"Kubanskaya Kazach'ya Brigada\" start_experience_factor = 1.0" 
+                    owner = RUS
+                }
+            }
+            custom_effect_tooltip = RUS_establish_the_kuban_cossack_army_ttp
+            IF = {
+                limit = { has_completed_focus = RUS_reinforce_cossack_units }    
+                random_state = {
+                    prioritize = { 234 }
+                    create_unit = {
+                        division = "name = \"Kubanskaya Brigada\" division_template = \"Kubanskaya Kazach'ya Brigada\" start_experience_factor = 1.0" 
+                        owner = RUS
+                    }
+                    create_unit = {
+                        division = "name = \"Kubanskaya Brigada\" division_template = \"Kubanskaya Kazach'ya Brigada\" start_experience_factor = 1.0" 
+                        owner = RUS
+                    }
+                }
+            }
+        }
+    }
+
+    RUS_raise_line_cossacks = {
+        available = {
+            NOT = {
+                has_idea = RUS_mixed_equipment_and_horse_stock_shortage
+                has_idea = RUS_horse_stock_shortage
+            }
+            any_state = {
+                OR = {
+                    is_core_of = KUB
+                    is_core_of = TER
+                }
+                OR = {
+                    is_core_of = RUS
+                    controls_or_subject_of = yes
+                }
+            }
+        }
+        highlight_states = {
+            highlight_state_targets  = { 
+                state = 234 
+                state = 233 
+                state = 235
+            }
+        }
+        fire_only_once = no
+        days_remove = 7
+        days_re_enable = 365
+        cost = 25
+
+        visible = {
+            original_tag = RUS
+            has_country_flag = RUS_cossack_line_formed
+        }
+
+        icon = generic_cavalry
+
+        ai_will_do = {
+            base = 5
+            modifier = {
+                add = 5
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            add_war_support = 0.01
+        }
+        remove_effect = {
+            add_manpower = 50000
+            division_template = { 
+                name = "Lineynaya Kazach'ya Brigada" #Cavalry brigade
+                division_names_group = RUS_CAV_02
+                regiments = {
+                    cavalry = { x = 0 y = 0 }
+                    cavalry = { x = 0 y = 1 }
+                    cavalry = { x = 1 y = 0 }
+                    cavalry = { x = 1 y = 1 }
+                }
+                support = {
+                    recon = { x = 0 y = 0 }
+                }
+            }
+            random_state = {
+                prioritize = { 234 }
+                create_unit = {
+                    division = "name = \"Lineynaya Kazach'ya Brigada\" division_template = \"Lineynaya Kazach'ya Brigada\" start_experience_factor = 1.0" 
+                    owner = RUS
+                }
+                create_unit = {
+                    division = "name = \"Lineynaya Kazach'ya Brigada\" division_template = \"Lineynaya Kazach'ya Brigada\" start_experience_factor = 1.0" 
+                    owner = RUS
+                }
+                create_unit = {
+                    division = "name = \"Lineynaya Kazach'ya Brigada\" division_template = \"Lineynaya Kazach'ya Brigada\" start_experience_factor = 1.0" 
+                    owner = RUS
+                }
+            }
+            custom_effect_tooltip = RUS_establish_the_kuban_cossack_army_ttp
+            IF = {
+                limit = { has_completed_focus = RUS_reinforce_cossack_units }    
+                random_state = {
+                    prioritize = { 234 }
+                    create_unit = {
+                        division = "name = \"Lineynaya Kazach'ya Brigada\" division_template = \"Lineynaya Kazach'ya Brigada\" start_experience_factor = 1.0" 
+                        owner = RUS
+                    }
+                    create_unit = {
+                        division = "name = \"Lineynaya Kazach'ya Brigada\" division_template = \"Lineynaya Kazach'ya Brigada\" start_experience_factor = 1.0" 
+                        owner = RUS
+                    }
+                    create_unit = {
+                        division = "name = \"Lineynaya Kazach'ya Brigada\" division_template = \"Lineynaya Kazach'ya Brigada\" start_experience_factor = 1.0" 
+                        owner = RUS
+                    }
+                }
+            }
+        }
+    }
+
+    RUS_raise_ter_cossacks = {
+        available = {
+            NOT = {
+                has_idea = RUS_mixed_equipment_and_horse_stock_shortage
+                has_idea = RUS_horse_stock_shortage
+            }
+            any_state = {
+                is_core_of = TER
+                OR = {
+                    is_core_of = RUS
+                    controls_or_subject_of = yes
+                }
+            }
+        }
+        highlight_states = {
+            highlight_state_targets  = { 
+                state = 235 
+            }
+        }
+        fire_only_once = no
+        days_re_enable = 365
+        days_remove = 7
+        cost = 25
+
+        visible = {
+            original_tag = RUS
+            NOT = {
+                has_country_flag = RUS_cossack_line_formed
+            }
+        }
+
+        icon = generic_cavalry
+
+        ai_will_do = {
+            base = 5
+            modifier = {
+                add = 5
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            add_war_support = 0.01
+        }
+        remove_effect = {
+            add_manpower = 20000
+            division_template = { 
+                name = "Terekskaya Kazach'ya Brigada" #Cavalry brigade
+                division_names_group = RUS_CAV_02
+                regiments = {
+                    cavalry = { x = 0 y = 0 }
+                    cavalry = { x = 0 y = 1 }
+                    cavalry = { x = 1 y = 0 }
+                    cavalry = { x = 1 y = 1 }
+                }
+                support = {
+                    recon = { x = 0 y = 0 }
+                }
+            }
+            random_state = {
+                prioritize = { 235 }
+                create_unit = {
+                    division = "name = \"Terekskaya Brigada\" division_template = \"Terekskaya Kazach'ya Brigada\" start_experience_factor = 1.0" 
+                    owner = RUS
+                }
+                create_unit = {
+                    division = "name = \"Terekskaya Brigada\" division_template = \"Terekskaya Kazach'ya Brigada\" start_experience_factor = 1.0" 
+                    owner = RUS
+                }
+            }
+            custom_effect_tooltip = RUS_establish_the_kuban_cossack_army_ttp
+            IF = {
+                limit = { has_completed_focus = RUS_reinforce_cossack_units }    
+                random_state = {
+                    prioritize = { 235 }
+                    create_unit = {
+                        division = "name = \"Terekskaya Brigada\" division_template = \"Terekskaya Kazach'ya Brigada\" start_experience_factor = 1.0" 
+                        owner = RUS
+                    }
+                    create_unit = {
+                        division = "name = \"Terekskaya Brigada\" division_template = \"Terekskaya Kazach'ya Brigada\" start_experience_factor = 1.0" 
+                        owner = RUS
+                    }
+                }
+            }
+        }
+    }
+
+    RUS_raise_don_cossacks = { #raise don cossacks
+        available = {
+            NOT = {
+                has_idea = RUS_mixed_equipment_and_horse_stock_shortage
+                has_idea = RUS_horse_stock_shortage
+            }
+            any_state = {
+                is_core_of = DON
+                OR = {
+                    is_core_of = RUS
+                    controls_or_subject_of = yes
+                }
+            }
+        }
+        highlight_states = {
+            highlight_state_targets  = { 
+                state = 218 
+                state = 238 
+                state = 265
+                state = 245
+            }
+        }
+        fire_only_once = no
+        days_re_enable = 365
+        days_remove = 7
+        cost = 25
+
+        visible = {
+            original_tag = RUS
+        }
+
+        icon = generic_cavalry
+
+        ai_will_do = {
+            base = 5
+            modifier = {
+                add = 5
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            add_war_support = 0.01
+        }
+        remove_effect = {
+            add_manpower = 30000
+            division_template = { 
+                name = "Donskaya Kazach'ya Brigada" #Cavalry brigade
+                division_names_group = RUS_CAV_02
+                regiments = {
+                    cavalry = { x = 0 y = 0 }
+                    cavalry = { x = 0 y = 1 }
+                    cavalry = { x = 1 y = 0 }
+                    cavalry = { x = 1 y = 1 }
+                }
+                support = {
+                    recon = { x = 0 y = 0 }
+                }
+            }
+            random_state = {
+                prioritize = { 218 }
+                create_unit = {
+                    division = "name = \"1-ya Donskaya Kazach'ya Kavaleriyskaya Diviziya\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 1.0" 
+                    owner = RUS
+                }
+                create_unit = {
+                    division = "name = \"2-ya Donskaya Kazach'ya Kavaleriyskaya Diviziya\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 1.0" 
+                    owner = RUS
+                }
+            }
+            custom_effect_tooltip = RUS_establish_the_kuban_cossack_army_ttp
+            IF = {
+                limit = { has_completed_focus = RUS_reinforce_cossack_units }    
+                random_state = {
+                    prioritize = { 218 }
+                    create_unit = {
+                        division = "name = \"3-ya Donskaya Kazach'ya Kavaleriyskaya Diviziya\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 1.0" 
+                        owner = RUS
+                    }
+                    create_unit = {
+                        division = "name = \"4-ya Donskaya Kazach'ya Kavaleriyskaya Diviziya\" division_template = \"Donskaya Kazach'ya Brigada\" start_experience_factor = 1.0" 
+                        owner = RUS
+                    }
+                }
+            }
+        }
+    }
+
+    RUS_raise_ural_cossacks = {
+        available = {
+            NOT = {
+                has_idea = RUS_mixed_equipment_and_horse_stock_shortage
+                has_idea = RUS_horse_stock_shortage
+            }
+            TCS = { 
+                NOT = { has_idea = TCS_URC_from_the_red_paws_to_an_unknown_distance }
+            }
+            any_state = {
+                is_core_of = URC
+                OR = {
+                    is_core_of = RUS
+                    controls_or_subject_of = yes
+                }
+            }
+        }
+        highlight_states = {
+            highlight_state_targets  = { 
+                state = 407 
+                state = 406 
+            }
+        }
+        fire_only_once = no
+        days_re_enable = 365
+        days_remove = 7
+        cost = 25
+
+        visible = {
+            original_tag = RUS
+        }
+
+        icon = generic_cavalry
+
+        ai_will_do = {
+            base = 5
+            modifier = {
+                add = 5
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            add_war_support = 0.01
+        }
+        remove_effect = {
+            add_manpower = 5000
+            division_template = { 
+                name = "Ural'skaya Kazach'ya Brigada" #Cavalry brigade
+                division_names_group = RUS_CAV_02
+                regiments = {
+                    cavalry = { x = 0 y = 0 }
+                    cavalry = { x = 0 y = 1 }
+                    cavalry = { x = 1 y = 0 }
+                    cavalry = { x = 1 y = 1 }
+                }
+                support = {
+                    recon = { x = 0 y = 0 }
+                }
+            }
+            random_state = {
+                prioritize = { 407 }
+                create_unit = {
+                    division = "name = \"1-ya Ural'skaya Kazach'ya Brigada\" division_template = \"Ural'skaya Kazach'ya Brigada\" start_experience_factor = 1.0" 
+                    owner = RUS
+                }
+            }
+            custom_effect_tooltip = RUS_establish_the_kuban_cossack_army_ttp
+            IF = {
+                limit = { has_completed_focus = RUS_reinforce_cossack_units }    
+                random_state = {
+                    prioritize = { 407 }
+                    create_unit = {
+                        division = "name = \"2-ya Ural'skaya Kazach'ya Kavaleriyskaya Diviziya\" division_template = \"Ural'skaya Kazach'ya Brigada\" start_experience_factor = 1.0" 
+                        owner = RUS
+                    }
+                }
+            }
+        }
+    }
+
+    RUS_raise_astrakhan_cossacks = {
+        available = {
+            NOT = {
+                has_idea = RUS_mixed_equipment_and_horse_stock_shortage
+                has_idea = RUS_horse_stock_shortage
+            }
+            OR = {
+                any_state = {
+                    is_core_of = KAL
+                    OR = {
+                        is_core_of = RUS
+                        controls_or_subject_of = yes
+                    }
+                }
+                any_state = {
+                    is_core_of = ATR
+                    OR = {
+                        is_core_of = RUS
+                        controls_or_subject_of = yes
+                    }
+                }
+            }
+        }
+        highlight_states = {
+            highlight_state_targets  = { 
+                state = 237 
+                state = 236 
+            }
+        }
+        fire_only_once = no
+        days_re_enable = 365
+        days_remove = 7
+        cost = 25
+
+        visible = {
+            original_tag = RUS
+        }
+
+        icon = generic_cavalry
+
+        ai_will_do = {
+            base = 5
+            modifier = {
+                add = 5
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            add_war_support = 0.01
+        }
+        remove_effect = {
+            add_manpower = 5000
+            division_template = { 
+                name = "Kalmytsko-Astrakhanskaya Kazach'ya Brigada" #Cavalry brigade
+                division_names_group = RUS_CAV_02
+                regiments = {
+                    cavalry = { x = 0 y = 0 }
+                    cavalry = { x = 0 y = 1 }
+                    cavalry = { x = 1 y = 0 }
+                    cavalry = { x = 1 y = 1 }
+                }
+                support = {
+                    recon = { x = 0 y = 0 }
+                }
+            }
+            random_state = {
+                prioritize = { 237 }
+                create_unit = {
+                    division = "name = \"1-ya Kalmytsko-Astrakhanskaya Kazach'ya Brigada\" division_template = \"Kalmytsko-Astrakhanskaya Kazach'ya Brigada\" start_experience_factor = 1.0" 
+                    owner = RUS
+                }
+            }
+            custom_effect_tooltip = RUS_establish_the_kuban_cossack_army_ttp
+            IF = {
+                limit = { has_completed_focus = RUS_reinforce_cossack_units }    
+                random_state = {
+                    prioritize = { 237 }
+                    create_unit = {
+                        division = "name = \"2-ya Kalmytsko-Astrakhanskaya Kazach'ya Kavaleriyskaya Diviziya\" division_template = \"Kalmytsko-Astrakhanskaya Kazach'ya Brigada\" start_experience_factor = 1.0" 
+                        owner = RUS
+                    }
+                }
+            }
+        }
+    }    
+    RUS_merge_the_terek_host_with_kuban = {
+        available = {
+            original_tag = RUS
+            234 = { 
+                controller = {
+                    controls_or_subject_of = yes
+                }
+            }
+            235 = { 
+                controller = {
+                    controls_or_subject_of = yes
+                    NOT = {
+                        tag = KUB
+                    }
+                }
+            }
+        }
+
+        fire_only_once = yes
+        cost = 100
+
+        visible = {
+            original_tag = RUS
+            OR = {
+                KUB = { is_subject_of = RUS }
+                TER = { is_subject_of = RUS }
+            }
+        }
+
+        icon = eng_trade_unions_support#generic_cavalry
+
+        ai_will_do = {
+            base = 75
+            modifier = {
+                add = 75
+                always = yes
+            }
+        }
+        complete_effect = {
+            set_country_flag = RUS_cossack_line_formed
+            IF = {
+                limit = {
+                    KUB = { is_subject_of = RUS }
+                    TER = { is_subject_of = RUS }
+                }
+                KUB = {
+                    annex_country = {
+                        target = TER
+                        transfer_troops = yes
+                    }
+                    set_cosmetic_tag = cossack_line_host
+                    TER = {
+                        every_character = {
+                            set_nationality = KUB
+                        }
+                    }
+                }
+            }
+            IF = {
+                limit = {
+                    KUB = { is_subject_of = RUS }
+                    NOT = { TER = { is_subject_of = RUS } }
+                }
+                235 = {
+                    set_state_owner_to = KUB
+                }
+                KUB = { set_cosmetic_tag = cossack_line_host }
+            }
+            IF = {
+                limit = {
+                    TER = { is_subject_of = RUS }
+                    NOT = { KUB = { is_subject_of = RUS } }
+                }
+                234 = {
+                    set_state_owner_to = TER
+                }
+                KUB = { set_cosmetic_tag = cossack_line_host }
+            }
+            custom_effect_tooltip = RUS_establish_the_kuban_cossack_army_ttp
+            IF = {
+                limit = { has_completed_focus = RUS_reinforce_cossack_units }
+                random_owned_controlled_state = {
+                    limit = { ROOT = { has_full_control_of_state = PREV } }
+                    prioritize = { 46 }
+                    create_unit = {
+                        division = "name = \"3-ya Kubanskaya Kazach'ya Kavaleriyskaya Diviziya\" division_template = \"Kazach'ya Kavaleriyskaya Diviziya\" start_experience_factor = 1.0" 
+                        owner = RUS
+                    }
+                }
+            }
+        }
+    }
+
+    RUS_transfer_astrakhan_to_the_kalmyk_astrakhan_army = {
+        available = {
+            original_tag = RUS
+            KAL = { is_subject_of = RUS }
+            236 = {
+                controller = {
+                    controls_or_subject_of = yes
+                }
+            }
+        }
+
+        fire_only_once = yes
+        days_remove = 1
+        cost = 25
+
+        visible = {
+            original_tag = RUS
+            KAL = { is_subject_of = RUS }
+            236 = {
+                controller = {
+                    controls_or_subject_of = yes
+                }
+            }
+            #KAL = {
+                NOT = { 236 = { is_controlled_by = KAL } }
+            #}
+        }
+
+        icon = generic_operation#generic_cavalry
+
+        ai_will_do = {
+            base = 75
+            modifier = {
+                add = 75
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            KAL = { 
+                country_event = rus.44 
+            }
+            effect_tooltip = {
+                KAL = { 
+                    add_political_power = 100
+                    add_war_support = 0.05
+                    #set_state_controller = 236
+                    KAL = { set_state_owner = 236 }
+                    add_autonomy_score = {
+                        value = -250
+                        localization = rus.35.t
+                    }
+                }
+            }
+        }
+    }
+}
+
+RUS_fascist_discontent_category = {
+
+    RUS_fascist_discontent = {
+
+        allowed = { tag = RUS }
+
+        icon = GFX_decision_revolt
+        
+        days_remove = 180
+        fire_only_once = no
+        cancel_if_not_visible = yes
+
+        cancel_trigger = {
+            hidden_trigger = {
+                OR = {
+                    has_government = fascism
+                    has_country_flag = fought_rus_fascists_flag
+                }
+            }
+        }
+        
+        available = {
+            fascism > 0.20
+        }
+
+        visible = {
+            NOT = {
+                has_government = fascism
+                has_country_flag = fought_rus_fascists_flag
+            }
+        }
+        
+        remove_effect = {
+            add_stability = -0.05
+            add_political_power = -15
+            add_popularity = {
+                ideology = fascism
+                popularity = 0.05
+            }
+            activate_decision = RUS_fascist_discontent
+        }
+        ai_will_do = {
+            factor = 200
+        }
+    }
+
+    RUS_reinforce_non_predetermination = {
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        icon = eng_blackshirt_speech
+        
+        days_remove = 100
+        
+        cost = 35
+
+        available = {
+            has_decision = RUS_fascist_discontent
+        }
+
+        ai_will_do = {
+            factor = 0
+            modifier = {
+                fascism > 0.05
+                factor = 100
+            }
+        }
+
+        visible = {
+            has_decision = RUS_fascist_discontent
+        }
+        
+        modifier = {
+            fascism_drift = -0.1
+            neutrality_drift = 0.01
+        }
+        
+        complete_effect = {
+            add_stability = 0.02
+            retire_character = RUS_anton_turkul
+            custom_effect_tooltip = retire_krasnov
+            clr_country_flag = krasnov_allowed
+        }
+    }
+
+    RUS_empower_democrats = {
+
+        allowed = {
+            original_tag = RUS
+        }
+        
+        days_remove = 100
+        
+        #custom_cost_trigger = {
+        #    command_power > 49
+        #}
+        icon = SWI_swiss_democratic_tradition_campaign
+        #custom_cost_text = decision_cost_CP_50
+        cost = 35
+
+        available = {
+            has_decision = RUS_fascist_discontent
+        }
+
+        ai_will_do = {
+            factor = 0
+            modifier = {
+                fascism > 0.10
+                factor = 100
+            }
+        }
+
+        visible = {
+            has_decision = RUS_fascist_discontent
+        }
+        
+        modifier = {
+            fascism_drift = -0.2
+            democratic_drift = 0.1
+        }
+        
+        fire_only_once = yes
+        complete_effect = {
+            hidden_effect = {
+                add_command_power = -50
+            }
+        }
+    }
+
+    RUS_leverage_influential_figures = {
+
+        allowed = {
+            original_tag = RUS
+        }
+        
+        #days_remove = 70
+
+        icon = generic_political_discourse
+        
+        cost = 35
+
+        available = {
+            has_decision = RUS_fascist_discontent
+            has_character = RUS_alexander_guchkov 
+        }
+
+        ai_will_do = {
+            factor = 0
+            modifier = {
+                fascism > 0.15
+                factor = 100
+            }
+        }
+
+        visible = {
+            has_decision = RUS_fascist_discontent
+            has_character = RUS_alexander_guchkov 
+        }
+        fire_only_once = yes
+        complete_effect = {
+            add_popularity = {
+                ideology = fascism
+                popularity = -0.1
+            }
+        }
+    }
+
+    RUS_root_out_fascist_agitators = {
+
+        allowed = {
+            original_tag = RUS
+        }
+        
+        days_remove = 70
+
+        icon = generic_arrest
+        
+        cost = 75
+
+        available = {
+            has_decision = RUS_fascist_discontent
+            fascism < 0.05
+        }
+
+        ai_will_do = {
+            factor = 500
+        }
+
+        visible = {
+            has_decision = RUS_fascist_discontent
+        }
+        fire_only_once = yes
+        complete_effect = {
+            set_country_flag = fought_rus_fascists_flag
+            remove_ideas = RUS_disgruntled_military
+            add_popularity = {
+                ideology = fascism
+                popularity = -0.15
+            }
+            custom_effect_tooltip = fought_rus_fascists_ttp
+        }
+    }
+}
+
+RUS_merge_designers_dec_cat = {
+    #####################
+    ### TANK DESIGNER ###
+    #####################
+    RUS_merge_tank_plant = {
+        name = SOV_merge_tank_plant
+        priority = 53
+
+        icon = GFX_decision_generic_merge_plant_tank
+
+        ai_will_do = {
+            base = 0.5
+        }
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        available = {
+            has_full_control_of_state = 195 #LENINGRAD
+            num_of_civilian_factories_available_for_projects > 0
+            SOV_has_active_tank_designer_any = yes
+            NOT = { has_country_flag = SOV_merge_tank_decision_ongoing_flag }
+        }
+
+        visible = {
+            #has_completed_focus = RUS_merge_tank_and_materiel_plants
+            #SOV_has_tank_merged_1 = no
+            always = yes
+        }
+
+        cancel_trigger = {
+            OR = {
+                SOV_has_active_tank_designer_any = no
+                NOT = { has_full_control_of_state = 195 } #LENINGRAD
+            }
+        }
+
+        cancel_effect = {
+            clr_country_flag = SOV_merge_tank_decision_ongoing_flag
+        }
+
+        cost = SOV_merge_designers_cost
+
+        days_remove = SOV_merge_designers_time
+
+        modifier = {
+            civilian_factory_use = 1
+        }
+
+        complete_effect = {
+            set_country_flag = SOV_merge_tank_decision_ongoing_flag
+        }
+
+        remove_effect = {
+            clr_country_flag = SOV_merge_tank_decision_ongoing_flag
+
+            custom_effect_tooltip = SOV_merge_tank_plant_tt
+            hidden_effect = {
+                SOV_upgrade_appropriate_tank_designer_1_effect = yes
+            }
+        }
+    }
+
+    RUS_merge_tank_plant_2 = {
+        name = SOV_merge_tank_plant_2
+        priority = 52
+
+        icon = GFX_decision_generic_merge_plant_tank
+
+        ai_will_do = {
+            base = 0.5
+        }
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        available = {
+            has_full_control_of_state = 252 #GORKY
+            num_of_civilian_factories_available_for_projects > 0
+            SOV_has_active_tank_designer_any = yes
+            NOT = { has_country_flag = SOV_merge_tank_decision_ongoing_flag }
+        }
+
+        visible = {
+            has_completed_focus = RUS_merge_tank_and_materiel_plants
+            SOV_has_tank_merged_2 = no
+        }
+
+        cancel_trigger = {
+            OR = {
+                SOV_has_active_tank_designer_any = no
+                NOT = { has_full_control_of_state = 252 } #GORKY
+            }
+        }
+
+        cancel_effect = {
+            clr_country_flag = SOV_merge_tank_decision_ongoing_flag
+        }
+
+        cost = SOV_merge_designers_cost
+
+        days_remove = SOV_merge_designers_time
+
+        modifier = {
+            civilian_factory_use = 1
+        }
+
+        complete_effect = {
+            set_country_flag = SOV_merge_tank_decision_ongoing_flag
+        }
+
+        remove_effect = {
+            clr_country_flag = SOV_merge_tank_decision_ongoing_flag
+
+            custom_effect_tooltip = SOV_merge_tank_plant_2_tt
+            hidden_effect = {
+                SOV_upgrade_appropriate_tank_designer_2_effect = yes
+            }
+        }
+    }
+
+    RUS_merge_tank_plant_3 = {
+        name = SOV_merge_tank_plant_3
+        priority = 51
+
+        icon = GFX_decision_generic_merge_plant_tank
+
+        ai_will_do = {
+            base = 0.5
+        }
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        available = {
+            has_full_control_of_state = 653 #SVERDLOVSK
+            num_of_civilian_factories_available_for_projects > 0
+            SOV_has_active_tank_designer_any = yes
+            NOT = { has_country_flag = SOV_merge_tank_decision_ongoing_flag }
+        }
+
+        visible = {
+            has_completed_focus = RUS_merge_tank_and_materiel_plants
+            SOV_has_tank_merged_3 = no
+        }
+
+        cancel_trigger = {
+            OR = {
+                SOV_has_active_tank_designer_any = no
+                NOT = { has_full_control_of_state = 653 } #SVERDLOVSK
+            }
+        }
+
+        cancel_effect = {
+            clr_country_flag = SOV_merge_tank_decision_ongoing_flag
+        }
+
+        cost = SOV_merge_designers_cost
+
+        days_remove = SOV_merge_designers_time
+
+        modifier = {
+            civilian_factory_use = 1
+        }
+
+        complete_effect = {
+            set_country_flag = SOV_merge_tank_decision_ongoing_flag
+        }
+
+        remove_effect = {
+            clr_country_flag = SOV_merge_tank_decision_ongoing_flag
+
+            custom_effect_tooltip = SOV_merge_tank_plant_3_tt
+            hidden_effect = {
+                SOV_upgrade_appropriate_tank_designer_3_effect = yes
+            }
+        }
+    }
+
+
+    ######################
+    ### NAVAL DESIGNER ###
+    ######################
+
+    RUS_merge_ship_plant_1_baltic = {
+        name = SOV_merge_ship_plant_1_baltic
+        priority = 24
+
+        icon = GFX_decision_generic_merge_plant_ship
+
+        ai_will_do = {
+            base = 0.5
+        }
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        available = {
+            has_full_control_of_state = 195 #LENINGRAD
+            num_of_civilian_factories_available_for_projects > 0
+            SOV_has_active_ship_designer_any_baltic = yes
+            NOT = { has_country_flag = SOV_merge_ship_decision_ongoing_flag }
+        }
+
+        visible = {
+            has_dlc = "Man the Guns" #Coastal Defense Ships
+            has_completed_focus = RUS_merge_naval_plants
+            SOV_has_ship_merged_1_baltic = no
+            SOV_has_active_ship_designer_any_black_sea = no
+        }
+
+        cancel_trigger = {
+            OR = {
+                SOV_has_active_ship_designer_any_baltic = no
+                NOT = { has_full_control_of_state = 195 } #LENINGRAD
+            }
+        }
+
+        cancel_effect = {
+            clr_country_flag = SOV_merge_ship_decision_ongoing_flag
+        }
+
+        cost = SOV_merge_designers_cost
+
+        days_remove = SOV_merge_designers_time
+
+        modifier = {
+            civilian_factory_use = 1
+        }
+
+        complete_effect = {
+            set_country_flag = SOV_merge_ship_decision_ongoing_flag
+        }
+
+        remove_effect = {
+            clr_country_flag = SOV_merge_ship_decision_ongoing_flag
+
+            custom_effect_tooltip = SOV_merge_ship_plant_1_tt
+            hidden_effect = {
+                SOV_upgrade_appropriate_ship_designer_1_baltic_effect = yes
+            }
+            set_technology = { coastal_defense_ships = 1 }
+        }
+    }
+
+    RUS_merge_ship_plant_2_baltic = {
+        name = SOV_merge_ship_plant_2_baltic
+        priority = 23
+
+        icon = GFX_decision_generic_merge_plant_ship
+
+        ai_will_do = {
+            base = 0.5
+        }
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        available = {
+            has_full_control_of_state = 195 #LENINGRAD
+            has_completed_focus = SOV_surface_warfare
+            num_of_civilian_factories_available_for_projects > 0
+            SOV_has_active_ship_designer_any_baltic = yes
+            NOT = { has_country_flag = SOV_merge_ship_decision_ongoing_flag }
+        }
+
+        visible = {
+            has_completed_focus = RUS_merge_naval_plants
+            SOV_has_ship_merged_2_baltic = no
+            NOT = { has_completed_focus = SOV_submarine_warfare }
+            SOV_has_active_ship_designer_any_black_sea = no
+        }
+
+        cancel_trigger = {
+            OR = {
+                SOV_has_active_ship_designer_any_baltic = no
+                NOT = { has_full_control_of_state = 195 } #LENINGRAD
+            }
+        }
+
+        cancel_effect = {
+            clr_country_flag = SOV_merge_ship_decision_ongoing_flag
+        }
+
+        cost = SOV_merge_designers_cost
+
+        days_remove = SOV_merge_designers_time
+
+        modifier = {
+            civilian_factory_use = 1
+        }
+
+        complete_effect = {
+            set_country_flag = SOV_merge_ship_decision_ongoing_flag
+        }
+
+        remove_effect = {
+            clr_country_flag = SOV_merge_ship_decision_ongoing_flag
+
+            custom_effect_tooltip = SOV_merge_ship_plant_2_tt
+            hidden_effect = {
+                SOV_upgrade_appropriate_ship_designer_2_baltic_effect = yes
+            }
+        }
+    }
+
+    RUS_merge_ship_plant_3_baltic = {
+        name = SOV_merge_ship_plant_3_baltic
+        priority = 22
+
+        icon = GFX_decision_generic_merge_plant_ship
+
+        ai_will_do = {
+            base = 0.5
+        }
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        available = {
+            has_full_control_of_state = 195 #LENINGRAD
+            has_completed_focus = SOV_submarine_warfare
+            num_of_civilian_factories_available_for_projects > 0
+            SOV_has_active_ship_designer_any_baltic = yes
+            NOT = { has_country_flag = SOV_merge_ship_decision_ongoing_flag }
+        }
+
+        visible = {
+            has_completed_focus = RUS_merge_naval_plants
+            SOV_has_ship_merged_3_baltic = no
+            NOT = { has_completed_focus = SOV_surface_warfare }
+            SOV_has_active_ship_designer_any_black_sea = no
+        }
+
+        cancel_trigger = {
+            OR = {
+                SOV_has_active_ship_designer_any_baltic = no
+                NOT = { has_full_control_of_state = 195 } #LENINGRAD
+            }
+        }
+
+        cancel_effect = {
+            clr_country_flag = SOV_merge_ship_decision_ongoing_flag
+        }
+
+        cost = SOV_merge_designers_cost
+
+        days_remove = SOV_merge_designers_time
+
+        modifier = {
+            civilian_factory_use = 1
+        }
+
+        complete_effect = {
+            set_country_flag = SOV_merge_ship_decision_ongoing_flag
+        }
+
+        remove_effect = {
+            clr_country_flag = SOV_merge_ship_decision_ongoing_flag
+
+            custom_effect_tooltip = SOV_merge_ship_plant_3_tt
+            hidden_effect = {
+                SOV_upgrade_appropriate_ship_designer_3_baltic_effect = yes
+            }
+        }
+    }
+
+    RUS_merge_ship_plant_4_baltic = {
+        name = SOV_merge_ship_plant_4_baltic
+        priority = 21
+
+        icon = GFX_decision_generic_merge_plant_ship
+
+        ai_will_do = {
+            base = 0.5
+        }
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        available = {
+            has_full_control_of_state = 195 #LENINGRAD
+            num_of_civilian_factories_available_for_projects > 0
+            SOV_has_active_ship_designer_any_baltic = yes
+            NOT = { has_country_flag = SOV_merge_ship_decision_ongoing_flag }
+        }
+
+        visible = {
+            has_completed_focus = RUS_merge_naval_plants
+            SOV_has_ship_merged_4_baltic = no
+            SOV_has_active_ship_designer_any_black_sea = no
+        }
+
+        cancel_trigger = {
+            OR = {
+                SOV_has_active_ship_designer_any_baltic = no
+                NOT = { has_full_control_of_state = 195 } #LENINGRAD
+            }
+        }
+
+        cancel_effect = {
+            clr_country_flag = SOV_merge_ship_decision_ongoing_flag
+        }
+
+        cost = SOV_merge_designers_cost
+
+        days_remove = SOV_merge_designers_time
+
+        modifier = {
+            civilian_factory_use = 1
+        }
+
+        complete_effect = {
+            set_country_flag = SOV_merge_ship_decision_ongoing_flag
+        }
+
+        remove_effect = {
+            clr_country_flag = SOV_merge_ship_decision_ongoing_flag
+
+            custom_effect_tooltip = SOV_merge_ship_plant_4_tt
+            hidden_effect = {
+                SOV_upgrade_appropriate_ship_designer_4_baltic_effect = yes
+            }
+        }
+    }
+
+    RUS_merge_ship_plant_1_black_sea = {
+        name = SOV_merge_ship_plant_1_black_sea
+        priority = 14
+
+        icon = GFX_decision_generic_merge_plant_ship
+
+        ai_will_do = {
+            base = 0.5
+        }
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        available = {
+            has_full_control_of_state = 197 #MYKOLAIV
+            num_of_civilian_factories_available_for_projects > 0
+            SOV_has_active_ship_designer_any_black_sea = yes
+            NOT = { has_country_flag = SOV_merge_ship_decision_ongoing_flag }
+        }
+
+        visible = {
+            has_dlc = "Man the Guns" #Coastal Defense Ships
+            has_completed_focus = RUS_merge_naval_plants
+            SOV_has_ship_merged_1_black_sea = no
+            SOV_has_active_ship_designer_any_baltic = no
+        }
+
+        cancel_trigger = {
+            OR = {
+                SOV_has_active_ship_designer_any_black_sea = no
+                NOT = { has_full_control_of_state = 197 } #MYKOLAIV
+            }
+        }
+
+        cancel_effect = {
+            clr_country_flag = SOV_merge_ship_decision_ongoing_flag
+        }
+
+        cost = SOV_merge_designers_cost
+
+        days_remove = SOV_merge_designers_time
+
+        modifier = {
+            civilian_factory_use = 1
+        }
+
+        complete_effect = {
+            set_country_flag = SOV_merge_ship_decision_ongoing_flag
+        }
+
+        remove_effect = {
+            clr_country_flag = SOV_merge_ship_decision_ongoing_flag
+
+            custom_effect_tooltip = SOV_merge_ship_plant_1_tt
+            hidden_effect = {
+                SOV_upgrade_appropriate_ship_designer_1_black_sea_effect = yes
+            }
+            set_technology = { coastal_defense_ships = 1 }
+        }
+    }
+
+    RUS_merge_ship_plant_2_black_sea = {
+        name = SOV_merge_ship_plant_2_black_sea
+        priority = 13
+
+        icon = GFX_decision_generic_merge_plant_ship
+
+        ai_will_do = {
+            base = 0.5
+        }
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        available = {
+            has_full_control_of_state = 202 #KIEV
+            has_completed_focus = SOV_surface_warfare
+            num_of_civilian_factories_available_for_projects > 0
+            SOV_has_active_ship_designer_any_black_sea = yes
+            NOT = { has_country_flag = SOV_merge_ship_decision_ongoing_flag }
+        }
+
+        visible = {
+            has_completed_focus = RUS_merge_naval_plants
+            SOV_has_ship_merged_2_black_sea = no
+            NOT = { has_completed_focus = SOV_submarine_warfare }
+            SOV_has_active_ship_designer_any_baltic = no
+        }
+
+        cancel_trigger = {
+            OR = {
+                SOV_has_active_ship_designer_any_black_sea = no
+                NOT = { has_full_control_of_state = 202 } #KIEV
+            }
+        }
+
+        cancel_effect = {
+            clr_country_flag = SOV_merge_ship_decision_ongoing_flag
+        }
+
+        cost = SOV_merge_designers_cost
+
+        days_remove = SOV_merge_designers_time
+
+        modifier = {
+            civilian_factory_use = 1
+        }
+
+        complete_effect = {
+            set_country_flag = SOV_merge_ship_decision_ongoing_flag
+        }
+
+        remove_effect = {
+            clr_country_flag = SOV_merge_ship_decision_ongoing_flag
+
+            custom_effect_tooltip = SOV_merge_ship_plant_2_tt
+            hidden_effect = {
+                SOV_upgrade_appropriate_ship_designer_2_black_sea_effect = yes
+            }
+        }
+    }
+
+    RUS_merge_ship_plant_3_black_sea = {
+        name = SOV_merge_ship_plant_3_black_sea
+        priority = 12
+
+        icon = GFX_decision_generic_merge_plant_ship
+
+        ai_will_do = {
+            base = 0.5
+        }
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        available = {
+            has_full_control_of_state = 227 #STALINO
+            has_completed_focus = SOV_submarine_warfare
+            num_of_civilian_factories_available_for_projects > 0
+            SOV_has_active_ship_designer_any_black_sea = yes
+            NOT = { has_country_flag = SOV_merge_ship_decision_ongoing_flag }
+        }
+
+        visible = {
+            has_completed_focus = RUS_merge_naval_plants
+            SOV_has_ship_merged_3_black_sea = no
+            NOT = { has_completed_focus = SOV_surface_warfare }
+            SOV_has_active_ship_designer_any_baltic = no
+        }
+
+        cancel_trigger = {
+            OR = {
+                SOV_has_active_ship_designer_any_black_sea = no
+                NOT = { has_full_control_of_state = 227 } #STALINO
+            }
+        }
+
+        cancel_effect = {
+            clr_country_flag = SOV_merge_ship_decision_ongoing_flag
+        }
+
+        cost = SOV_merge_designers_cost
+
+        days_remove = SOV_merge_designers_time
+
+        modifier = {
+            civilian_factory_use = 1
+        }
+
+        complete_effect = {
+            set_country_flag = SOV_merge_ship_decision_ongoing_flag
+        }
+
+        remove_effect = {
+            clr_country_flag = SOV_merge_ship_decision_ongoing_flag
+
+            custom_effect_tooltip = SOV_merge_ship_plant_3_tt
+            hidden_effect = {
+                SOV_upgrade_appropriate_ship_designer_3_black_sea_effect = yes
+            }
+        }
+    }
+
+    RUS_merge_ship_plant_4_black_sea = {
+        name = SOV_merge_ship_plant_4_black_sea
+        priority = 11
+
+        icon = GFX_decision_generic_merge_plant_ship
+
+        ai_will_do = {
+            base = 0.5
+        }
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        available = {
+            has_full_control_of_state = 227 #STALINO
+            num_of_civilian_factories_available_for_projects > 0
+            SOV_has_active_ship_designer_any_black_sea = yes
+            NOT = { has_country_flag = SOV_merge_ship_decision_ongoing_flag }
+        }
+
+        visible = {
+            has_completed_focus = RUS_merge_naval_plants
+            SOV_has_ship_merged_4_black_sea = no
+            SOV_has_active_ship_designer_any_baltic = no
+        }
+
+        cancel_trigger = {
+            OR = {
+                SOV_has_active_ship_designer_any_black_sea = no
+                NOT = { has_full_control_of_state = 227 } #STALINO
+            }
+        }
+
+        cancel_effect = {
+            clr_country_flag = SOV_merge_ship_decision_ongoing_flag
+        }
+
+        cost = SOV_merge_designers_cost
+
+        days_remove = SOV_merge_designers_time
+
+        modifier = {
+            civilian_factory_use = 1
+        }
+
+        complete_effect = {
+            set_country_flag = SOV_merge_ship_decision_ongoing_flag
+        }
+
+        remove_effect = {
+            clr_country_flag = SOV_merge_ship_decision_ongoing_flag
+
+            custom_effect_tooltip = SOV_merge_ship_plant_4_tt
+            hidden_effect = {
+                SOV_upgrade_appropriate_ship_designer_4_black_sea_effect = yes
+            }
+        }
+    }
+
+
+    #########################
+    ### AIRCRAFT DESIGNER ###
+    #########################
+    RUS_merge_aircraft_plant_1 = {
+        priority = 33
+
+        icon = GFX_decision_generic_merge_plant_aircraft
+
+        ai_will_do = {
+            base = 0.5
+        }
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        available = {
+            has_full_control_of_state = 251 #KUYBYSHEV
+            num_of_civilian_factories_available_for_projects > 0
+            SOV_has_active_aircraft_designer_any = yes
+            NOT = { has_country_flag = SOV_merge_aircraft_decision_ongoing_flag }
+        }
+
+        visible = {
+            has_completed_focus = SOV_merge_aircraft_plants
+            SOV_has_aircraft_merged_1 = no
+        }
+
+        cancel_trigger = {
+            OR = {
+                SOV_has_active_aircraft_designer_any = no
+                NOT = { has_full_control_of_state = 251 } #KUYBYSHEV
+            }
+        }
+
+        cancel_effect = {
+            clr_country_flag = SOV_merge_aircraft_decision_ongoing_flag
+        }
+
+        cost = SOV_merge_designers_cost
+
+        days_remove = SOV_merge_designers_time
+
+        modifier = {
+            civilian_factory_use = 1
+        }
+
+        complete_effect = {
+            set_country_flag = SOV_merge_aircraft_decision_ongoing_flag
+        }
+
+        remove_effect = {
+            clr_country_flag = SOV_merge_aircraft_decision_ongoing_flag
+
+            custom_effect_tooltip = SOV_merge_aircraft_plant_1_tt
+            hidden_effect = {
+                SOV_upgrade_appropriate_aircraft_designer_1_effect = yes
+            }
+        }
+    }
+
+    RUS_merge_aircraft_plant_2 = {
+        priority = 32
+
+        icon = GFX_decision_generic_merge_plant_aircraft
+
+        ai_will_do = {
+            base = 0.5
+        }
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        available = {
+            has_full_control_of_state = 219 #MOSCOW
+            num_of_civilian_factories_available_for_projects > 0
+            SOV_has_active_aircraft_designer_any = yes
+            NOT = { has_country_flag = SOV_merge_aircraft_decision_ongoing_flag }
+        }
+
+        visible = {
+            has_completed_focus = SOV_merge_aircraft_plants
+            SOV_has_aircraft_merged_2 = no
+        }
+
+        cancel_trigger = {
+            OR = {
+                SOV_has_active_aircraft_designer_any = no
+                NOT = { has_full_control_of_state = 219 } #MOSCOW
+            }
+        }
+
+        cancel_effect = {
+            clr_country_flag = SOV_merge_aircraft_decision_ongoing_flag
+        }
+
+        cost = SOV_merge_designers_cost
+
+        days_remove = SOV_merge_designers_time
+
+        modifier = {
+            civilian_factory_use = 1
+        }
+
+        complete_effect = {
+            set_country_flag = SOV_merge_aircraft_decision_ongoing_flag
+        }
+
+        remove_effect = {
+            clr_country_flag = SOV_merge_aircraft_decision_ongoing_flag
+
+            custom_effect_tooltip = SOV_merge_aircraft_plant_2_tt
+            hidden_effect = {
+                SOV_upgrade_appropriate_aircraft_designer_2_effect = yes
+            }
+
+            add_resource = {
+                type = aluminium
+                amount = 3
+                state = 219
+            }
+        }
+    }
+
+    RUS_merge_aircraft_plant_3 = {
+        priority = 31
+
+        icon = GFX_decision_generic_merge_plant_aircraft
+
+        ai_will_do = {
+            base = 0.5
+        }
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        available = {
+            has_full_control_of_state = 808 #RIGA
+            num_of_civilian_factories_available_for_projects > 0
+            SOV_has_active_aircraft_designer_any = yes
+            NOT = { has_country_flag = SOV_merge_aircraft_decision_ongoing_flag }
+        }
+
+        visible = {
+            has_completed_focus = SOV_merge_aircraft_plants
+            SOV_has_aircraft_merged_3 = no
+        }
+
+        cancel_trigger = {
+            OR = {
+                SOV_has_active_aircraft_designer_any = no
+                NOT = { has_full_control_of_state = 808 } #RIGA
+            }
+        }
+
+        cancel_effect = {
+            clr_country_flag = SOV_merge_aircraft_decision_ongoing_flag
+        }
+
+        cost = SOV_merge_designers_cost
+
+        days_remove = SOV_merge_designers_time
+
+        modifier = {
+            civilian_factory_use = 1
+        }
+
+        complete_effect = {
+            set_country_flag = SOV_merge_aircraft_decision_ongoing_flag
+        }
+
+        remove_effect = {
+            clr_country_flag = SOV_merge_aircraft_decision_ongoing_flag
+
+            custom_effect_tooltip = SOV_merge_aircraft_plant_3_tt
+            hidden_effect = {
+                SOV_upgrade_appropriate_aircraft_designer_3_effect = yes
+            }
+        }
+    }
+
+
+    #########################
+    ### MATERIEL DESIGNER ###
+    #########################
+    RUS_merge_materiel_plant_1_artillery = {
+        priority = 45
+
+        icon = GFX_decision_generic_merge_plant_materiel
+
+        ai_will_do = {
+            base = 0.5
+        }
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        available = {
+            has_full_control_of_state = 398 #PERM
+            num_of_civilian_factories_available_for_projects > 0
+            SOV_has_active_materiel_designer_grabin = yes
+            NOT = { has_country_flag = SOV_merge_materiel_decision_ongoing_flag }
+        }
+
+        visible = {
+            has_completed_focus = RUS_merge_tank_and_materiel_plants
+            SOV_has_materiel_merged_1_artillery = no
+            SOV_has_active_materiel_designer_tula = no
+            SOV_has_active_materiel_designer_gaz = no
+        }
+
+        cancel_trigger = {
+            OR = {
+                SOV_has_active_materiel_designer_grabin = no
+                NOT = { has_full_control_of_state = 398 } #PERM
+            }
+        }
+
+        cancel_effect = {
+            clr_country_flag = SOV_merge_materiel_decision_ongoing_flag
+        }
+
+        cost = SOV_merge_designers_cost
+
+        days_remove = SOV_merge_designers_time
+
+        modifier = {
+            civilian_factory_use = 1
+        }
+
+        complete_effect = {
+            set_country_flag = SOV_merge_materiel_decision_ongoing_flag
+        }
+
+        remove_effect = {
+            clr_country_flag = SOV_merge_materiel_decision_ongoing_flag
+
+            custom_effect_tooltip = SOV_merge_materiel_plant_1_artillery_tt
+            hidden_effect = {
+                SOV_upgrade_appropriate_materiel_designer_1_artillery_effect = yes
+            }
+        }
+    }
+
+    RUS_merge_materiel_plant_1_infantry = {
+        priority = 44
+
+        icon = GFX_decision_generic_merge_plant_materiel
+
+        ai_will_do = {
+            base = 0.5
+        }
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        available = {
+            has_full_control_of_state = 399 #UDMURTIA (Izhevsk)
+            num_of_civilian_factories_available_for_projects > 0
+            SOV_has_active_materiel_designer_tula = yes
+            NOT = { has_country_flag = SOV_merge_materiel_decision_ongoing_flag }
+        }
+
+        visible = {
+            has_completed_focus = RUS_merge_tank_and_materiel_plants
+            SOV_has_materiel_merged_1_infantry = no
+            SOV_has_active_materiel_designer_grabin = no
+            SOV_has_active_materiel_designer_gaz = no
+        }
+
+        cancel_trigger = {
+            OR = {
+                SOV_has_active_materiel_designer_tula = no
+                NOT = { has_full_control_of_state = 399 } #UDMURTIA (Izhevsk)
+            }
+        }
+
+        cancel_effect = {
+            clr_country_flag = SOV_merge_materiel_decision_ongoing_flag
+        }
+
+        cost = SOV_merge_designers_cost
+
+        days_remove = SOV_merge_designers_time
+
+        modifier = {
+            civilian_factory_use = 1
+        }
+
+        complete_effect = {
+            set_country_flag = SOV_merge_materiel_decision_ongoing_flag
+        }
+
+        remove_effect = {
+            clr_country_flag = SOV_merge_materiel_decision_ongoing_flag
+
+            custom_effect_tooltip = SOV_merge_materiel_plant_1_infantry_tt
+            hidden_effect = {
+                SOV_upgrade_appropriate_materiel_designer_1_infantry_effect = yes
+            }
+        }
+    }
+
+    RUS_merge_materiel_plant_1_motorized = {
+        priority = 43
+
+        icon = GFX_decision_generic_merge_plant_materiel
+
+        ai_will_do = {
+            base = 0.5
+        }
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        available = {
+            has_full_control_of_state = 252 #GORKY
+            num_of_civilian_factories_available_for_projects > 0
+            SOV_has_active_materiel_designer_gaz = yes
+            NOT = { has_country_flag = SOV_merge_materiel_decision_ongoing_flag }
+        }
+
+        visible = {
+            has_completed_focus = RUS_merge_tank_and_materiel_plants
+            SOV_has_materiel_merged_1_motorized = no
+            SOV_has_active_materiel_designer_grabin = no
+            SOV_has_active_materiel_designer_tula = no
+        }
+
+        cancel_trigger = {
+            OR = {
+                SOV_has_active_materiel_designer_gaz = no
+                NOT = { has_full_control_of_state = 252 } #GORKY
+            }
+        }
+
+        cancel_effect = {
+            clr_country_flag = SOV_merge_materiel_decision_ongoing_flag
+        }
+
+        cost = SOV_merge_designers_cost
+
+        days_remove = SOV_merge_designers_time
+
+        modifier = {
+            civilian_factory_use = 1
+        }
+
+        complete_effect = {
+            set_country_flag = SOV_merge_materiel_decision_ongoing_flag
+        }
+
+        remove_effect = {
+            clr_country_flag = SOV_merge_materiel_decision_ongoing_flag
+
+            custom_effect_tooltip = SOV_merge_materiel_plant_1_motorized_tt
+            hidden_effect = {
+                SOV_upgrade_appropriate_materiel_designer_1_motorized_effect = yes
+            }
+        }
+    }
+
+    RUS_merge_materiel_plant_2 = {
+        priority = 42
+
+        icon = GFX_decision_generic_merge_plant_materiel
+
+        ai_will_do = {
+            base = 0.5
+        }
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        available = {
+            has_full_control_of_state = 227 #STALINO
+            num_of_civilian_factories_available_for_projects > 0
+            SOV_has_active_materiel_designer_any = yes
+            NOT = { has_country_flag = SOV_merge_materiel_decision_ongoing_flag }
+        }
+
+        visible = {
+            has_completed_focus = RUS_merge_tank_and_materiel_plants
+            SOV_has_materiel_merged_2 = no
+        }
+
+        cancel_trigger = {
+            OR = {
+                SOV_has_active_materiel_designer_any = no
+                NOT = { has_full_control_of_state = 227 } #STALINO
+            }
+        }
+
+        cancel_effect = {
+            clr_country_flag = SOV_merge_materiel_decision_ongoing_flag
+        }
+
+        cost = SOV_merge_designers_cost
+
+        days_remove = SOV_merge_designers_time
+
+        modifier = {
+            civilian_factory_use = 1
+        }
+
+        complete_effect = {
+            set_country_flag = SOV_merge_materiel_decision_ongoing_flag
+        }
+
+        remove_effect = {
+            clr_country_flag = SOV_merge_materiel_decision_ongoing_flag
+
+            custom_effect_tooltip = SOV_merge_materiel_plant_2_tt
+            hidden_effect = {
+                SOV_upgrade_appropriate_materiel_designer_2_effect = yes
+            }
+        }
+    }
+
+    RUS_merge_materiel_plant_3 = {
+        priority = 41
+
+        icon = GFX_decision_generic_merge_plant_materiel
+
+        ai_will_do = {
+            base = 0.5
+        }
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        available = {
+            has_full_control_of_state = 582 #MAGNITOGORSK
+            num_of_civilian_factories_available_for_projects > 0
+            SOV_has_active_materiel_designer_any = yes
+            NOT = { has_country_flag = SOV_merge_materiel_decision_ongoing_flag }
+        }
+
+        visible = {
+            has_completed_focus = RUS_merge_tank_and_materiel_plants
+            SOV_has_materiel_merged_3 = no
+        }
+
+        cancel_trigger = {
+            OR = {
+                SOV_has_active_materiel_designer_any = no
+                NOT = { has_full_control_of_state = 582 } #MAGNITOGORSK
+            }
+        }
+
+        cancel_effect = {
+            clr_country_flag = SOV_merge_materiel_decision_ongoing_flag
+        }
+
+        cost = SOV_merge_designers_cost
+
+        days_remove = SOV_merge_designers_time
+
+        modifier = {
+            civilian_factory_use = 1
+        }
+
+        complete_effect = {
+            set_country_flag = SOV_merge_materiel_decision_ongoing_flag
+        }
+
+        remove_effect = {
+            clr_country_flag = SOV_merge_materiel_decision_ongoing_flag
+
+            custom_effect_tooltip = SOV_merge_materiel_plant_3_tt
+            hidden_effect = {
+                SOV_upgrade_appropriate_materiel_designer_3_effect = yes
+            }
+        }
+    }
+}
+
+
+RUS_industry_relocation = {
+
+    RUS_generic_industry_relocation = {
+    name = SOV_generic_industry_relocation
+        priority = 10
+
+        icon = generic_construction
+
+        ai_will_do = {
+            factor = 0
+            modifier = {
+                add = 200 # oh shit they are getting close!
+                FROM = {
+                    OR = {
+                        state = 219 #MOSCOW
+                        state = 195 #LENINGRAD
+                        state = 202 #KIEV
+                        state = 206 #MINSK
+                        state = 217 #STALINGRAD
+                        state = 218 #ROSTOV
+                    }
+                    any_neighbor_state = {
+                        NOT = { is_fully_controlled_by = ROOT }
+                    }
+                }
+            }
+            modifier = {
+                factor = 0
+                SOV_save_pp_for_manpower_trouble = yes
+            }
+        }
+
+        state_target = yes
+
+        #targets = { core_states }
+
+        target_trigger = {
+            FROM = {
+                is_owned_by = ROOT
+                is_core_of = ROOT
+                is_fully_controlled_by = ROOT
+                is_on_continent = europe
+                OR = {
+                    has_state_category = town
+                    has_state_category = large_town
+                    has_state_category = city
+                    has_state_category = large_city
+                    has_state_category = megalopolis
+                    has_state_category = metropolis
+                }
+                infrastructure > 2
+            }
+        }
+
+        target_root_trigger = {
+            original_tag = RUS
+            has_completed_focus = RUS_move_industry_to_the_urals
+            has_civil_war = no
+        }
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        available = {
+            OR = { 
+                AND = {
+                    572 = {
+                        OR = {
+                            is_fully_controlled_by = ROOT
+                            controller = {
+                                is_subject_of = ROOT
+                                has_full_control_of_state = PREV
+                            }
+                        }
+                    }
+                    653 = {
+                        OR = {
+                            is_fully_controlled_by = ROOT
+                            controller = {
+                                is_subject_of = ROOT
+                                has_full_control_of_state = PREV
+                            }
+                        }
+                    }
+                }
+                398 = {
+                    OR = {
+                        is_fully_controlled_by = ROOT
+                        controller = {
+                            is_subject_of = ROOT
+                            has_full_control_of_state = PREV
+                        }
+                    }
+                }
+            }
+            FROM = {
+                is_fully_controlled_by = ROOT
+                infrastructure > 2
+            }
+            has_equipment = { train_equipment > 79 } #20 trains per factory
+        }
+
+        visible = {
+            FROM = {
+                OR = { #Has at least 2 factories
+                    arms_factory > 1
+                    industrial_complex > 1
+                    AND = {
+                        arms_factory > 0
+                        industrial_complex > 0
+                    }
+                }
+            }
+        }
+
+        cancel_if_not_visible = no
+
+        cost = 25
+
+        days_remove = 60
+
+        complete_effect = {  #Attempt to remove 2 CIVS & 2 MILS
+            hidden_effect = {
+                add_equipment_to_stockpile = {
+                    type = train_equipment
+                    amount = -80
+                }
+            }
+            custom_effect_tooltip = RUS_industry_relocation_trains_tt
+            custom_effect_tooltip = SOV_industry_relocation_complete_effect_tt
+            #REMOVE factories
+            FROM = {
+                hidden_effect = {
+                    set_temp_variable = { SOV_factories_counter = 0 }
+
+                    #Attempt to relocate 50%-50% of mils-civs
+                    set_temp_variable = { SOV_half_the_factories_to_relocate = SOV.SOV_industrial_relocation_max_factories }
+                    divide_temp_variable = { SOV_half_the_factories_to_relocate = 2 }
+                    while_loop_effect = {
+                        limit = {
+                            check_variable = { SOV_factories_counter = SOV.SOV_industrial_relocation_max_factories compare = less_than }
+                        }
+                        if = { #GO MILS (if possible)
+                            limit = {
+                                check_variable = { SOV_factories_counter = SOV_half_the_factories_to_relocate compare = less_than }
+                            }
+                            if = {
+                                limit = {
+                                    arms_factory > 0
+                                }
+                                remove_building = {
+                                    type = arms_factory
+                                    level = 1
+                                }
+                                if = {
+                                    limit = {
+                                        has_state_flag = SOV_mils_removed_flag
+                                    }
+                                    modify_state_flag = { flag = SOV_mils_removed_flag value = 1 }
+                                }
+                                else = {
+                                    set_state_flag = SOV_mils_removed_flag
+                                }
+                            }
+                            else_if = {
+                                limit = {
+                                    industrial_complex > 0
+                                }
+                                remove_building = {
+                                    type = industrial_complex
+                                    level = 1
+                                }
+                                if = {
+                                    limit = {
+                                        has_state_flag = SOV_civs_removed_flag
+                                    }
+                                    modify_state_flag = { flag = SOV_civs_removed_flag value = 1 }
+                                }
+                                else = {
+                                    set_state_flag = SOV_civs_removed_flag
+                                }
+                            }
+                        }
+                        else = { #GO CIVS (if possible)
+                            if = {
+                                limit = {
+                                    industrial_complex > 0
+                                }
+                                remove_building = {
+                                    type = industrial_complex
+                                    level = 1
+                                }
+                                if = {
+                                    limit = {
+                                        has_state_flag = SOV_civs_removed_flag
+                                    }
+                                    modify_state_flag = { flag = SOV_civs_removed_flag value = 1 }
+                                }
+                                else = {
+                                    set_state_flag = SOV_civs_removed_flag
+                                }
+                            }
+                            else_if = {
+                                limit = {
+                                    arms_factory > 0
+                                }
+                                remove_building = {
+                                    type = arms_factory
+                                    level = 1
+                                }
+                                if = {
+                                    limit = {
+                                        has_state_flag = SOV_mils_removed_flag
+                                    }
+                                    modify_state_flag = { flag = SOV_mils_removed_flag value = 1 }
+                                }
+                                else = {
+                                    set_state_flag = SOV_mils_removed_flag
+                                }
+                            }
+                        }
+                        add_to_temp_variable = { SOV_factories_counter = 1 }
+                    }
+                }
+            }
+        }
+
+        remove_effect = {
+            hidden_effect = {
+                add_equipment_to_stockpile = {
+                    type = train_equipment
+                    amount = 80
+                    producer = RUS
+                }
+            }
+            custom_effect_tooltip = SOV_industry_relocation_remove_effect_tt
+            #RELOCATE FACTORIES
+            FROM = {
+                set_temp_variable = { SOV_factories_counter = 0 }
+                #Factories attempt to get relocated in 2 different states
+                set_temp_variable = { SOV_half_the_factories_to_relocate = SOV.SOV_industrial_relocation_max_factories }
+                divide_temp_variable = { SOV_half_the_factories_to_relocate = 2 }
+                while_loop_effect = { #NOTE: Due to the seed not changing during the execution of this effect, the same state will always be chosen, UNLESS it runs out of slots -> That's the reason for this
+                    limit = {
+                        check_variable = { SOV_factories_counter = SOV_half_the_factories_to_relocate compare = less_than }
+                    }
+                    SOV_relocate_industry_in_appropriate_state_effect = yes
+                    add_to_temp_variable = { SOV_factories_counter = 1 }
+                }
+            }
+            custom_effect_tooltip = SOV_relocate_industry_repair_tt
+            custom_effect_tooltip = SOV_relocate_industry_lose_control_tt
+        }
+    }
+
+    RUS_move_leningrad_aluminium_plant = { #195
+        name = move_leningrad_aluminium_plant
+
+        icon = aluminium
+
+        highlight_states = {
+            highlight_state_targets = {
+                state = 195
+            }
+        }
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        available = {
+            has_full_control_of_state = 195
+            has_full_control_of_state = 569
+            has_equipment = { train_equipment > 19 } #20 trains per factory
+        }
+
+        visible = {
+            has_completed_focus = RUS_move_industry_to_the_urals
+            controls_state = 195
+            controls_state = 569
+            195 = { has_state_flag = leningrad_aluminium_developed }
+            has_civil_war = no
+        }
+
+        fire_only_once = yes
+
+        cost = 25
+        days_remove = 60
+
+        modifier = {
+
+        }
+
+        ai_will_do = {
+            factor = 0.5
+            modifier = {
+                factor = 200 # oh shit they are getting close!
+                OR = {
+                    AND = {
+                        owns_state = 208
+                        NOT = { controls_state = 208 }
+                    }
+                    AND = {
+                        owns_state = 209
+                        NOT = { controls_state = 209 }
+                    }
+                    AND = {
+                        owns_state = 244
+                        NOT = { controls_state = 244 }
+                    }
+                    AND = {
+                        owns_state = 263
+                        NOT = { controls_state = 263 }
+                    }
+                    AND = {
+                        owns_state = 191
+                        NOT = { controls_state = 191 }
+                    }
+                    AND = {
+                        owns_state = 146
+                        NOT = { controls_state = 146 }
+                    }
+                }
+            }
+            modifier = {
+                factor = 0
+                SOV_save_pp_for_manpower_trouble = yes
+            }
+        }
+
+        complete_effect = {
+            hidden_effect = {
+                add_equipment_to_stockpile = {
+                    type = train_equipment
+                    amount = -20
+                    #producer = RUS
+                }
+            }
+            195 = {
+                add_resource = {
+                    type = aluminium
+                    amount = -12
+                }
+            }
+            custom_effect_tooltip = RUS_industry_relocation_aluminium_plant_trains_tt
+        }
+
+        remove_effect = {
+            hidden_effect = {
+                add_equipment_to_stockpile = {
+                    type = train_equipment
+                    amount = 20
+                    producer = RUS
+                }
+            }
+            if = {
+                limit = {
+                    controls_state = 569
+                }
+                569 = {
+                    add_resource = {
+                        type = aluminium
+                        amount = 12
+                    }
+                }
+            }
+            custom_effect_tooltip = SOV_relocate_industry_from_leningrad_tt
+        }
+    }
+}
+
+
+
+
+RUS_internal_factions = {
+########    ###     ######  ######## ####  #######  ##    ##
+##         ## ##   ##    ##    ##     ##  ##     ## ###   ##
+##        ##   ##  ##          ##     ##  ##     ## ####  ##
+######   ##     ## ##          ##     ##  ##     ## ## ## ##  
+##       ######### ##          ##     ##  ##     ## ##  ####      
+##       ##     ## ##    ##    ##     ##  ##     ## ##   ###               
+##       ##     ##  ######     ##    ####  #######  ##    ##       
+#Democratic parties (Kadets, right-SRs, Octobrists)
+#ROVS
+#Cossacks
+#fascists
+#peasants
+#workers
+
+#monarchism is not a faction of itself.
+
+}
+
+RUS_exile_units = {
+    RUS_bashkir_exiles = {
+        available = {
+            BSK = { exists = no }
+            SOV = { owns_state = 651 }
+        }
+        highlight_states = {
+            highlight_states_trigger = { state = 651 }
+        }
+        fire_only_once = yes
+        #days_remove = 20
+        cost = 25
+
+        visible = {
+            original_tag = RUS
+            always = yes
+        }
+
+        icon = generic_nationalism
+
+        ai_will_do = {
+            base = 5
+            modifier = {
+                add = 5
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            RUS = { country_event = rus.68 }
+        }
+        highlight_states = {
+            highlight_states_trigger = { state = 651 } #ufa
+        }
+        remove_effect = {
+            #add_intel = {
+            #    target = SOV
+            #    civilian_intel = 1
+            #    army_intel = 1
+            #    navy_intel = 1
+            #    airforce_intel = 1
+            #}
+        }
+    }    
+
+    RUS_karelian_exiles = {
+        available = {
+            KAR = { exists = no }
+            OR = {
+                SOV = { owns_state = 216 }
+                SOV = { owns_state = 215 }
+                SOV = { owns_state = 146 }
+                SOV = { owns_state = 147 }
+            }
+        }
+        highlight_states = {
+            highlight_states_trigger = { state = 216 }
+        }
+        fire_only_once = yes
+        #days_remove = 20
+        cost = 25
+
+        visible = {
+            original_tag = RUS
+            always = yes
+        }
+
+        icon = generic_nationalism #generic_forestry #eng_trade_unions_support
+
+        ai_will_do = {
+            base = 5
+            modifier = {
+                add = 5
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            RUS = { country_event = rus.69 }
+        }
+        highlight_states = {
+            highlight_states_trigger = { state = 216 }
+        }
+    }  
+    RUS_belarus_exiles = {
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = RUS_belarus_lost_cw       
+                has_global_flag = BLR_cw_triggered
+                BLR = { exists = no }
+            }
+            OR = {
+                AND = {
+                    BLR = { exists = no }
+                    OR = {
+                        any_state = {
+                            is_core_of = BLR
+                            is_owned_and_controlled_by = SOV
+                        }
+                        any_state = {
+                            is_core_of = BLR
+                            is_owned_and_controlled_by = BYL
+                        }
+                    }
+                }
+                BLR = { has_government = communism }
+            }
+        }
+        highlight_states = {
+            highlight_states_trigger = { state = 206 }
+        }
+        fire_only_once = yes
+        #days_remove = 20
+        cost = 25
+
+        visible = {
+            original_tag = RUS
+            OR = {
+                AND = {
+                    BLR = { exists = no }
+                    OR = {
+                        any_state = {
+                            is_core_of = BLR
+                            is_owned_and_controlled_by = SOV
+                        }
+                        any_state = {
+                            is_core_of = BLR
+                            is_owned_and_controlled_by = BYL
+                        }
+                    }
+                }
+                BLR = { has_government = communism }
+            }
+        } 
+
+        icon = generic_nationalism
+
+        ai_will_do = {
+            base = 5
+            modifier = {
+                add = 5
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            RUS = { country_event = rus.87 }
+        } 
+        highlight_states = {
+            highlight_states_trigger = { state = 206 }
+        }
+    }  
+}
+
+RUS_south_russian_affairs = {
+
+    RUS_take_control_over_state = {
+        allowed = {
+            original_tag = RUS
+        }   
+        available = {
+            any_state = {
+                controller = { is_subject_of = RUS }
+                is_owned_by = SOV
+            }
+        }
+
+        days_remove = 60
+
+        visible = { 
+            has_war_with = SOV
+            num_subjects > 0
+            any_state = {
+                controller = { is_subject_of = RUS }
+                is_owned_by = SOV
+            }
+        }
+        fire_only_once = no
+
+        cost = 25
+
+        icon = decision_infiltrate_state
+        
+        fire_only_once = yes
+
+        complete_effect = {
+            every_state = {
+                limit = {
+                    controller = { is_subject_of = RUS }
+                    is_owned_by = SOV
+                }
+                set_state_controller_to = RUS
+            }
+        }
+    }
+
+    RUS_rear_rats = {
+        allowed = {
+            original_tag = RUS
+        }   
+        available = {
+            RUS = { has_completed_focus = RUS_prevent_disorder }
+        }
+
+        days_remove = 1
+
+        visible = { 
+            #has_completed_focus = RUS_the_army_of_wrangel
+        }
+        fire_only_once = yes
+
+        cost = 25
+
+        icon = SWI_guisan_speech
+        
+        fire_only_once = yes
+
+        complete_effect = {
+        }
+
+        remove_effect = {
+            custom_effect_tooltip = RUS_rear_rats_ttp2 
+            add_to_variable = { RUS_russian_army_conscription_factor = 0.05 }
+        }
+    }
+
+    RUS_send_arms_to_the_west_siberian_revolt = {
+        allowed = {
+            original_tag = RUS
+        }   
+        available = {
+            has_completed_focus = RUS_united_front
+            #has_equipment = {
+            #    infantry_equipment_1 > 1999
+            #}
+            #has_equipment = {
+            #    convoy > 7
+            #}
+            has_navy_size = {
+                size > 3
+                type = submarine
+                #archetype = ship_hull_heavy
+            }
+        }
+
+        days_remove = 30
+
+        visible = { 
+            TOB = { 
+                exists = yes
+                has_war_with = SOV 
+                has_government = anarchism
+            }
+        }
+        fire_only_once = yes
+
+        cost = 20
+
+        icon = SWI_consolidate_council_power
+        
+        fire_only_once = yes
+
+        complete_effect = {
+            add_war_support = 0.02
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -2000
+            }
+            #add_equipment_to_stockpile = {
+            #    type = convoy
+            #    amount = -8
+            #}
+        }
+
+        remove_effect = {
+            set_country_flag = RUS_sent_aid_to_TOB
+            TOB = {
+                add_war_support = 0.05
+                add_equipment_to_stockpile = {
+                    type = infantry_equipment
+                    amount = 2000
+                    producer = RUS
+                }
+                #add_equipment_to_stockpile = {
+                #    type = convoy
+                #    amount = 8
+                #}
+                add_popularity = {
+                    ideology = anarchism
+                    popularity = -0.05
+                }
+            }
+            custom_effect_tooltip = RUS_west_siberian_revolt_aid_ttp
+        }
+    }
+
+    RUS_assume_leadership_of_west_siberian_revolt = {
+        allowed = {
+            original_tag = RUS
+        }   
+        available = {
+            has_completed_focus = RUS_united_front
+            has_country_flag = RUS_sent_aid_to_TOB
+            RUS = {
+                has_war_with = SOV 
+            }
+        }
+
+        days_remove = 30
+
+        visible = { 
+            TOB = { 
+                exists = yes
+                has_war_with = SOV 
+                has_government = anarchism
+            }
+        }
+        fire_only_once = yes
+
+        cost = 20
+
+        icon = SWI_consolidate_council_power
+        
+        fire_only_once = yes
+
+        complete_effect = {
+            set_autonomy = {
+                target = TOB
+                autonomous_state = autonomy_puppet
+                end_wars = no
+                end_civil_wars = no
+            }
+            TOB = {
+                set_politics = {
+                    ruling_party = democratic
+                }
+                remove_ideas = SOV_anarchist_militias_2
+                add_popularity = {
+                    ideology = anarchism
+                    popularity = -0.1
+                }
+                add_popularity = {
+                    ideology = democratic
+                    popularity = 0.35
+                }
+                add_ideas = RUS_law_on_land
+                add_ideas = RUS_law_on_volost_zemstvos
+            }
+        }
+    }
+
+    #RUS_3_weeks_to_tsaritsyn = {
+    #    allowed = {
+    #        original_tag = RUS
+    #        RUS = { has_completed_focus = RUS_moscow_directive }
+    #    }   
+    #    available = {
+    #        217 = {
+    #            is_controlled_by = ROOT
+    #        }
+    #    }
+    #    #highlight_states = {
+    #    #    highlight_states_trigger = { state = 218 }
+    #    #}
+    #    state_target = yes
+    #    target_trigger = {
+    #        FROM = {
+    #            state = 217
+    #        }
+    #    }
+    #    on_map_mode = map_and_decisions_view
+    #    fire_only_once = yes
+
+    #    icon = SWI_consolidate_council_power
+
+    #    days_mission_timeout = 28
+    #    
+    #    activation = {
+    #        RUS = { has_completed_focus = RUS_moscow_directive }
+    #        original_tag = RUS
+    #        #RUS_march_on_tsaritsyn_once_more
+    #    }
+
+    #    cancel_trigger = {
+    #        #NOT = { 
+    #        #    217 = {
+    #        #        is_controlled_by = ROOT
+    #        #    }
+    #        #}
+    #    }
+    #    fire_only_once = yes
+    #    is_good = no
+    #    complete_effect = {
+    #         add_war_support = 0.05
+    #         army_experience = 15
+    #    }
+    #    timeout_effect = {
+    #         add_war_support = -0.05
+    #         army_experience = -5
+    #    }
+    #}
+
+    RUS_brusilov_once_more = {
+        available = {
+        }
+        fire_only_once = yes
+        days_remove = 150
+
+        custom_cost_trigger = {
+            command_power > 49.9
+        }
+
+        custom_cost_text = RUS_brusilov_cost
+
+        visible = {
+            original_tag = RUS
+            has_completed_focus = RUS_brusilov_once_more
+        }
+
+        icon = generic_military
+
+        ai_will_do = {
+            base = 100
+        }
+
+        complete_effect = {
+            add_ideas = RUS_massive_army_offensive
+        }
+
+        remove_effect = { #
+            remove_ideas = RUS_massive_army_offensive #
+            add_timed_idea = {
+                idea = RUS_depleted_army
+                days = 150
+            }
+        }
+    }
+
+    RUS_raise_penal_units = {
+        priority = 21
+
+        icon = GFX_decision_generic_arrest
+
+        ai_will_do = {
+            base = 5
+        }
+
+        allowed = {
+            original_tag = RUS
+        }
+
+        available = {
+            has_country_flag = { flag = SOV_penal_units_raised_flag days > 365 }
+            custom_trigger_tooltip = {
+                tooltip = SOV_raise_penal_units_days_tt
+                has_country_flag = {
+                    flag = SOV_penal_units_raised_flag
+                    days > 365
+                }
+            }
+            any_enemy_country = { is_major = yes }
+        }
+
+        visible = {
+            has_completed_focus = RUS_penal_battalions
+            any_enemy_country = { is_major = yes }
+        }
+
+        cost = 50
+
+        days_remove = 35
+
+        complete_effect = {
+        }
+
+        remove_effect = {
+            clr_country_flag = SOV_penal_units_raised_flag
+            SOV_spawn_penal_divisions_effect = yes
+        }
+    }
+
+    RUS_recall_savinkov_from_belarus = {
+        available = {
+        }
+        fire_only_once = yes
+
+        visible = {
+            original_tag = RUS
+            BLR = { has_country_flag = BLR_rus_supports }
+        }
+
+        icon = generic_military
+
+        ai_will_do = {
+            base = 100
+        }
+
+        cost = 25
+
+        complete_effect = {
+            #BLR = {
+                country_event = blr.43
+                RUS_boris_savinkov = { remove_unit_leader_trait  = trait_SOV_foreign_military_advisor }
+                MUR_pyotr_von_glazenap = { remove_unit_leader_trait  = trait_SOV_foreign_military_advisor }
+                set_nationality = {
+                    target_country = RUS
+                    character = RUS_boris_savinkov
+                }
+                set_nationality = {
+                    target_country = RUS
+                    character = MUR_pyotr_von_glazenap
+                }
+            #}
+        }
+    }
+    RUS_reign_in_the_military_dictatorship = {
+        available = {
+            #has_completed_focus = RUS_military_dictatorship
+        }
+
+        fire_only_once = yes
+        cost = 50
+
+        visible = {
+            original_tag = RUS
+            has_completed_focus = RUS_military_dictatorship
+        }
+
+        icon = generic_military
+
+        ai_will_do = {
+            base = 10 #rework later to take this when has control of moscow?
+        }
+
+        complete_effect = {
+            swap_ideas = { 
+               remove_idea = RUS_military_dictatorship_ns
+               add_idea = RUS_military_dictatorship_ns2
+            }
+        }
+    }
+
+    RUS_fix_the_caliber_crisis = {
+        available = {
+            has_completed_focus = RUS_repair_workshops
+            #218 = {
+            #    OR = {
+            #        is_controlled_by = RUS
+            #        controller = {
+            #            is_subject_of = RUS
+            #            has_control_of_state = 218
+            #        }
+            #    }
+            #}
+        }
+        #highlight_states = {
+        #    highlight_states_trigger = { state = 218 }
+        #}
+        fire_only_once = yes
+        days_remove = 60
+        cost = 15
+
+        visible = {
+            original_tag = RUS
+            OR = { 
+                has_idea = RUS_mixed_equipment_and_horse_stock_shortage
+                has_idea = RUS_mixed_equipment
+            }
+        }
+
+        icon = generic_merge_plant_materiel#ger_military_buildup
+
+        ai_will_do = {
+            base = 100
+        }
+
+        complete_effect = {
+            add_ideas = RUS_small_arms_conversions
+            add_equipment_to_stockpile = { 
+                type = infantry_equipment
+                amount = -200
+                producer = RUS
+            }
+            add_equipment_to_stockpile = { #
+                type = artillery_equipment_1
+                amount = -20
+                producer = RUS
+            }
+        }
+
+        remove_effect = { #
+            remove_ideas = RUS_small_arms_conversions #
+            IF = { 
+                limit = { has_idea = RUS_mixed_equipment }
+                remove_ideas = RUS_mixed_equipment
+            }
+            IF = { 
+                limit = { has_idea = RUS_mixed_equipment_and_horse_stock_shortage }
+                swap_ideas = {
+                    remove_idea = RUS_mixed_equipment_and_horse_stock_shortage
+                    add_idea = RUS_horse_stock_shortage
+                }
+            }
+        }
+    }
+
+    RUS_acquire_horses = {
+        available = {
+            original_tag = RUS
+            NOT = { has_country_flag = solving_horse_issue }
+            OR = {
+                234 = {
+                    OR = {
+                        is_fully_controlled_by = ROOT
+                        controller = {
+                            is_subject_of = ROOT
+                            has_full_control_of_state = PREV
+                        }
+                        controller = {
+                            is_in_faction_with = ROOT
+                            has_full_control_of_state = PREV
+                        }
+                    }
+                }
+                AND = { 
+                    245 = {
+                        OR = {
+                            is_fully_controlled_by = ROOT
+                            controller = {
+                                is_subject_of = ROOT
+                                has_full_control_of_state = PREV
+                            }
+                            controller = {
+                                is_in_faction_with = ROOT
+                                has_full_control_of_state = PREV
+                            }
+                        }
+                    }
+                    238 = {
+                        OR = {
+                            is_fully_controlled_by = ROOT
+                            controller = {
+                                is_subject_of = ROOT
+                                has_full_control_of_state = PREV
+                            }
+                            controller = {
+                                is_in_faction_with = ROOT
+                                has_full_control_of_state = PREV
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        highlight_states = {
+        }
+        fire_only_once = yes
+        days_remove = 5
+        cost = 25
+
+        visible = {
+            original_tag = RUS
+            OR = { 
+                has_idea = RUS_mixed_equipment_and_horse_stock_shortage
+                has_idea = RUS_horse_stock_shortage
+            }
+        }
+
+        icon = generic_cavalry
+
+        ai_will_do = {
+            base = 1000
+        }
+
+        complete_effect = {
+            set_country_flag = solving_horse_issue
+        }
+
+        remove_effect = {
+            clr_country_flag = solving_horse_issue
+            IF = { 
+                limit = { has_idea = RUS_horse_stock_shortage }
+                remove_ideas = RUS_horse_stock_shortage
+            }
+            IF = { 
+                limit = { has_idea = RUS_mixed_equipment_and_horse_stock_shortage }
+                swap_ideas = {
+                    remove_idea = RUS_mixed_equipment_and_horse_stock_shortage
+                    add_idea = RUS_mixed_equipment
+                }
+            }
+        }
+    }
+
+
+    RUS_purchase_horses = {
+        available = {
+            original_tag = RUS
+            NOT = { has_idea = RUS_the_crimean_mandate }
+            NOT = { has_country_flag = solving_horse_issue }
+            mine_threat < 0.5
+            SOV = {
+                has_mined = {
+                    target = RUS
+                    value < 200
+                }
+            }
+        }
+        highlight_states = {
+        }
+        fire_only_once = yes
+        days_remove = 65
+        cost = 175
+
+        visible = {
+            original_tag = RUS
+            OR = { 
+                has_idea = RUS_mixed_equipment_and_horse_stock_shortage
+                has_idea = RUS_horse_stock_shortage
+            }
+        }
+
+        icon = generic_cavalry
+
+        ai_will_do = {
+            base = 10
+        }
+
+        complete_effect = {
+            set_country_flag = solving_horse_issue
+        }
+
+        remove_effect = {
+            clr_country_flag = solving_horse_issue
+            IF = { 
+                limit = { has_idea = RUS_horse_stock_shortage }
+                remove_ideas = RUS_horse_stock_shortage
+            }
+            IF = { 
+                limit = { has_idea = RUS_mixed_equipment_and_horse_stock_shortage }
+                swap_ideas = {
+                    remove_idea = RUS_mixed_equipment_and_horse_stock_shortage
+                    add_idea = RUS_mixed_equipment
+                }
+            }
+        }
+    }
+
+    RUS_rostov_depot = {
+        icon = ger_military_buildup
+        available = {
+            original_tag = RUS
+                OR = {
+                    RUS = { controls_province = 9417 }
+                    any_country = {
+                        is_subject_of = ROOT
+                        controls_province = 9417
+                    }
+                }
+        }
+
+        fire_only_once = yes
+        days_remove = 1
+        highlight_states = {
+            highlight_state_targets = { state = 218 }
+            highlight_provinces = { 9417 }
+        }
+        custom_cost_trigger = {
+            command_power > 14.9
+        }
+
+        custom_cost_text = decision_cost_CP_15
+
+        visible = {
+            original_tag = RUS
+            always = no # goes automatically now thx to bug fix
+        }
+
+        ai_will_do = {
+            base = 1000
+            #Pretty damn important
+            modifier = {
+                add = 100
+                always = yes
+            }
+        }
+
+        complete_effect = {  
+             RUS = { country_event = rus.66 }
+        }
+    }
+
+    RUS_integrate_tsaritsyn = {
+        available = {
+            original_tag = RUS
+            has_full_control_of_state = 217
+            217 = { resistance < 10 }
+            217 = { compliance > 14 }
+            has_completed_focus = RUS_prikaze_no_1 
+        }
+        highlight_states = {
+            highlight_states_trigger = { state = 217 }
+        }
+        fire_only_once = yes
+        days_remove = 10
+        cost = 30
+
+        visible = {
+            original_tag = RUS
+        }
+
+        icon = oppression
+
+        ai_will_do = {
+            base = 1000
+        }
+
+        complete_effect = {
+        }
+
+        remove_effect = {
+            set_province_name = { id = 3529 name = "Tsaritsyn" }
+            hidden_effect = { 
+                217  = { set_state_name = "Tsaritsyn" }
+            }
+            add_stability = -0.01
+            add_state_core = 217
+        }  
+    }
+    RUS_move_capital_to_moscow = { 
+        available = {
+            original_tag = RUS
+            has_full_control_of_state = 219
+            219 = { is_core_of = ROOT }
+            has_completed_focus = RUS_resurrection 
+        }
+
+        fire_only_once = yes
+        days_remove = 5
+        cost = 25
+
+        visible = {
+            original_tag = RUS
+            has_completed_focus = RUS_resurrection
+            219 = {
+                is_capital = no
+            }
+        }
+
+        icon = generic_colonial_administration
+
+        highlight_states = {
+            highlight_states_trigger = { state = 219 }
+        }
+
+        ai_will_do = {
+            base = 1
+        }
+
+        remove_effect = {
+            set_capital = {
+                state = 219
+                remember_old_capital = no
+            }
+        }
+    }
+    RUS_move_capital_to_rostov = { 
+        available = {
+            original_tag = RUS
+            has_full_control_of_state = 218
+            218 = { is_core_of = ROOT }
+            has_completed_focus = RUS_prikaze_no_1 
+        }
+
+        fire_only_once = yes
+        days_remove = 5
+        cost = 5
+
+        visible = {
+            original_tag = RUS
+            NOT = { has_completed_focus = RUS_resurrection }
+            always = no #not very possible for RUS to get rostov, constributes to clutter
+        }
+
+        icon = generic_colonial_administration
+
+        highlight_states = {
+            highlight_states_trigger = { state = 218 }
+        }
+
+        ai_will_do = {
+            base = 5
+            modifier = {
+                add = 5
+                always = yes
+            }
+        }
+
+        remove_effect = {
+            set_capital = {
+                state = 218
+                remember_old_capital = no
+            }
+        }
+    }
+    RUS_move_capital_to_ekaterinodar = {
+        available = {
+            original_tag = RUS
+            has_full_control_of_state = 234
+            234 = { is_core_of = ROOT }
+            has_completed_focus = RUS_prikaze_no_1 
+        }
+
+        fire_only_once = yes
+        days_remove = 5
+        cost = 5
+
+        visible = {
+            original_tag = RUS
+            NOT = { has_completed_focus = RUS_resurrection }
+        }
+
+        icon = generic_colonial_administration
+
+        ai_will_do = {
+            base = 100
+        }
+        #highlight_states = {
+        #    highlight_states_trigger = { state = 234 }
+        #}
+        remove_effect = {
+            set_capital = {
+                state = 234
+                remember_old_capital = no
+            }
+        }
+    }
+
+    RUS_move_capital_to_tsaritsyn = { 
+        available = {
+            original_tag = RUS
+            has_full_control_of_state = 217
+            217 = { is_core_of = ROOT }
+            has_completed_focus = RUS_prikaze_no_1 
+        }
+
+        fire_only_once = yes
+        days_remove = 5
+        cost = 5
+
+        visible = {
+            original_tag = RUS
+            NOT = { has_completed_focus = RUS_resurrection }
+        }
+
+        icon = generic_colonial_administration
+        #highlight_states = {
+        #    highlight_states_trigger = { state = 217 }
+        #}
+        ai_will_do = {
+            base = 5
+            modifier = {
+                add = 5
+                always = yes
+            }
+        }
+
+        remove_effect = {
+            #also rename city in another descision
+            set_capital = {
+                state = 217
+                remember_old_capital = no
+            }
+        }
+    }
+    RUS_admin_reform = { 
+        available = {
+            original_tag = RUS
+            has_completed_focus = RUS_prikaze_no_1 
+        }
+
+        fire_only_once = yes
+        days_remove = 30
+        cost = 50
+
+        visible = {
+            original_tag = RUS
+        }
+
+        icon = eng_trade_unions_support
+        ai_will_do = {
+            base = 15
+            modifier = {
+                has_stability < 0.3
+                add = 50
+            }
+            modifier = {
+                has_stability < 0.2
+                add = 50
+            }
+        }
+
+        remove_effect = {
+            add_stability = 0.05
+            custom_effect_tooltip = prikaze_reforms_ttp
+            every_controlled_state = {
+                limit = {
+                    NOT = { is_core_of = RUS }
+                    is_owned_by = SOV
+                }
+                add_compliance = 10
+            }
+        }
+    }
+    RUS_fund_the_sentinel = { 
+        available = {
+            original_tag = RUS
+            has_idea = RUS_ROVS_idea
+            has_government = neutrality
+        }
+
+        fire_only_once = yes
+        days_remove = 7
+        cost = 30
+
+        visible = {
+            original_tag = RUS
+            has_idea = RUS_ROVS_idea
+            OR = {
+                has_completed_focus = RUS_printing_department
+                has_completed_focus = RUS_OSVAG
+            }
+        }
+
+        icon = eng_trade_unions_support
+        ai_will_do = {
+            base = 15
+            modifier = {
+                has_stability < 0.3
+                add = 10
+            }
+            modifier = {
+                has_stability < 0.2
+                add = 10
+            }
+        }
+
+        remove_effect = {
+            add_stability = 0.025
+            add_war_support = 0.025
+            army_experience = 10
+            air_experience = 5
+            navy_experience = 5
+            add_popularity = {
+                ideology = neutrality
+                popularity = 0.025
+            }
+        }
+    }
+    RUS_court_reform = { 
+        available = {
+            original_tag = RUS
+            has_completed_focus = RUS_prikaze_no_1 
+            OR = {
+                num_of_controlled_states > 2
+                any_country = {
+                    is_subject_of = RUS
+                }
+            }
+        }
+
+        fire_only_once = yes
+        days_remove = 60
+        cost = 50
+
+        visible = {
+            original_tag = RUS
+        }
+
+        icon = generic_political_address
+        ai_will_do = {
+            base = 15
+            modifier = {
+                has_stability < 0.3
+                add = 50
+            }
+            modifier = {
+                has_stability < 0.2
+                add = 50
+            }
+        }
+
+        remove_effect = {
+            add_stability = 0.05
+            custom_effect_tooltip = prikaze_reforms_ttp
+            every_controlled_state = {
+                limit = {
+                    NOT = { is_core_of = RUS }
+                    is_owned_by = SOV
+                }
+                add_compliance = 15
+            }
+        }
+    }
+    RUS_typhus_medicine = { 
+        available = {
+            original_tag = RUS
+            has_completed_focus = RUS_prikaze_no_1 
+            OR = {
+                num_of_controlled_states > 2
+                any_country = {
+                    is_subject_of = RUS
+                }
+            }
+            has_stability < 0.45
+        }
+
+        fire_only_once = yes
+        days_remove = 30
+        cost = 50
+
+        visible = {
+            original_tag = RUS
+        }
+
+        icon = SWI_support_humanitarian_efforts
+        ai_will_do = {
+            base = 15
+            modifier = {
+                has_stability < 0.3
+                add = 50
+            }
+            modifier = {
+                has_stability < 0.2
+                add = 50
+            }
+        }
+
+        complete_effect = {
+        }
+        remove_effect = {
+            add_stability = 0.05
+            custom_effect_tooltip = prikaze_reforms_ttp
+            every_controlled_state = {
+                limit = {
+                    NOT = { is_core_of = RUS }
+                    is_owned_by = SOV
+                }
+                add_compliance = 10
+            }
+        }
+    }
+    RUS_peoples_government = { 
+        available = {
+            original_tag = RUS
+            has_completed_focus = RUS_prikaze_no_1 
+            has_completed_focus = RUS_democratic_military_dictatorship 
+        }
+
+        fire_only_once = yes
+        #days_remove = 5
+        cost = 50
+
+        visible = {
+            original_tag = RUS
+            has_completed_focus = RUS_democratic_military_dictatorship 
+        }
+
+        icon = SWI_swiss_democratic_tradition_campaign
+        ai_will_do = {
+            base = 15
+            modifier = {
+                has_stability < 0.3
+                add = 50
+            }
+            modifier = {
+                has_stability < 0.2
+                add = 50
+            }
+        }
+
+        complete_effect = {
+            add_war_support = 0.05
+            add_stability = 0.05
+            add_popularity = {
+                ideology = democratic
+                popularity = 0.1
+            }
+            custom_effect_tooltip = prikaze_reforms_ttp
+            every_controlled_state = {
+                limit = {
+                    NOT = { is_core_of = RUS }
+                    is_owned_by = SOV
+                }
+                add_compliance = 15
+            }
+        }
+    }
+#
+    RUS_markv_tanks_for_agriculture = {
+        available = {
+            original_tag = RUS
+            has_country_flag = RUS_markv_stock
+        }
+
+        fire_only_once = yes
+        days_remove = 10
+        cost = 5
+
+        visible = {
+            original_tag = RUS
+            has_country_flag = RUS_markv_stock
+        }
+
+        icon = generic_construction
+
+        ai_will_do = {
+            base = 5
+            modifier = {
+                add = 5
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            clr_country_flag = RUS_markv_stock
+                #add_equipment_to_stockpile = { #Mark V 
+                #    type = medium_tank_chassis_0
+                #    amount = -20
+                #    producer = RUS
+                #    variant_name = "Mark V (R)"
+                #}
+                add_equipment_to_stockpile = { #guns stripped off the tanks
+                    type = infantry_equipment_0
+                    amount = 20
+                    producer = RUS
+                }
+                add_equipment_to_stockpile = { #guns stripped off the tanks
+                    type = artillery_equipment_1
+                    amount = 10
+                    producer = RUS
+                }
+            random_owned_controlled_state = {
+                prioritize = { 234 }
+                add_extra_state_shared_building_slots = 1
+            }
+        }
+    }
+
+    RUS_connect_rail_in_north_don = {
+
+        available = {
+            original_tag = RUS
+
+            265 = {
+                OR = {
+                    is_fully_controlled_by = ROOT
+                    controller = {
+                        is_subject_of = ROOT
+                        has_full_control_of_state = PREV
+                    }
+                }
+            }
+            custom_trigger_tooltip = {
+                tooltip = RUS_connect_rail_in_north_don_tt   
+                num_battalions_in_states = {
+                    count > 0
+                    states = { 265 }
+                    types  = { engineer }
+                }
+            }
+        }
+
+        fire_only_once = yes
+        days_remove = 3
+        cost = 20
+
+        visible = {
+            original_tag = RUS
+            NOT = {
+                217 = {
+                    OR = {
+                        is_fully_controlled_by = ROOT
+                        controller = {
+                            is_subject_of = ROOT
+                            has_full_control_of_state = PREV
+                        }
+                    }
+                }
+            }
+            265 = {
+                OR = {
+                    is_fully_controlled_by = ROOT
+                    controller = {
+                        is_subject_of = ROOT
+                        has_full_control_of_state = PREV
+                    }
+                }
+            }
+        }
+
+        icon = generic_train#generic_cavalry
+
+        ai_will_do = {
+            base = 75
+            modifier = {
+                add = 75
+                always = yes
+            }
+        }
+
+        remove_effect = {
+            build_railway = {
+                path = { 533 11527 3582 }
+                level = 2
+            }
+        }
+    }
+
+    RUS_centralize_the_airforce = {
+        allowed = {
+            original_tag = RUS
+        }   
+        available = {
+            any_country = {
+                is_puppet_of = RUS
+                has_deployed_air_force_size = {
+                    size > 0
+                }
+            }
+        }
+
+        days_remove = 100
+
+        visible = { 
+            any_country = {
+                is_puppet_of = RUS
+                has_deployed_air_force_size = {
+                    size > 0
+                }
+            }
+        }
+        fire_only_once = no
+
+        cost = 35
+
+        icon = SWE_set_air_budget
+        
+        fire_only_once = yes
+
+        complete_effect = {
+            air_experience = 5
+            every_subject_country = {
+                limit = {
+                    has_deployed_air_force_size = {
+                        size > 0
+                    }
+                }
+                custom_effect_tooltip = airforce_centralization_ttp
+                hidden_effect = {
+                    transfer_units_fraction= {
+                        target = RUS
+                        size = 0
+                        air_ratio = 1
+                        army_ratio = 0
+                        navy_ratio = 0
+                        stockpile_ratio = 0
+                    }
+                }
+            }
+        }
+    }
+    RUS_open_stockpiles = {
+
+        icon = generic_ignite_civil_war#FIN_weapon_caches#ger_military_buildup
+
+        available = {
+            original_tag = RUS
+            RUS = { controls_province = 3686 }
+            OR = { 
+                has_defensive_war = yes
+                has_completed_focus = RUS_prikaze_no_1 
+            } 
+            custom_trigger_tooltip = {
+                tooltip = RUS_open_stockpiles_tt     
+                num_battalions_in_states = {
+                    count > 0
+                    states = { 137 }
+                    types  = { artillery artillery_brigade mot_artillery_brigade }
+                }
+            }
+            #has_equipment = {
+            #    artillery_equipment_1 > 1
+            #}
+        }
+
+        fire_only_once = yes
+        days_remove = 1
+        highlight_states = {
+            highlight_states_trigger = { state = 137 }
+        }
+
+        custom_cost_trigger = {
+            command_power > 14.9
+        }
+
+        custom_cost_text = TUR_decision_cost_kurd_rebels
+
+        visible = {
+            original_tag = RUS
+        }
+
+        ai_will_do = {
+            base = 100
+            #Pretty damn important
+            modifier = {
+                add = 100
+                always = yes
+            }
+        }
+
+        complete_effect = {
+            add_command_power = -15
+            #add_equipment_to_stockpile = {
+            #    type = artillery_equipment_1
+            #    amount = -2
+            #}
+            add_equipment_to_stockpile = {
+                type = artillery_equipment_1
+                amount = 24
+                producer = FRA
+            }
+            add_equipment_to_stockpile = {
+                type = infantry_equipment_0
+                amount = 1000
+                producer = RUS
+            }
+            add_equipment_to_stockpile = {
+                type = infantry_equipment_0
+                amount = 1000
+                producer = ENG
+            }
+            add_equipment_to_stockpile = {
+                type = infantry_equipment_0
+                amount = 1000
+                producer = FRA
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment_1
+                amount = 120
+                producer = RUS
+            }
+            add_equipment_to_stockpile = {
+                type = motorized_equipment_1
+                amount = 20
+                producer = RUS
+            }
+            IF = {
+                limit = {
+                    NOT = { has_dlc = "No Step Back" } #no dlc damn
+                }
+                add_equipment_to_stockpile = {
+                    type = gw_tank_equipment
+                    amount = 20
+                    producer = FRA
+                }
+            }
+            else = {
+                add_equipment_to_stockpile = {
+                    type = light_tank_chassis_0
+                    amount = 20
+                    producer = RUS
+                    variant_name = "Garford-Putilov"
+            }    }
+            IF = {
+                limit = {
+                    has_dlc = "La Resistance"
+                }
+                add_equipment_to_stockpile = {
+                    type = gw_armored_car_equipment
+                    amount = 40
+                    producer = RUS
+                }
+            }
+            custom_effect_tooltip = RUS_markv_stock_ttp 
+            set_country_flag = RUS_markv_stock
+        }
+    }
+
+    RUS_invite_denikin = {
+ 
+        icon = SOV_exiles_state
+
+        available = {
+            original_tag = RUS
+            NOT = { 
+                has_country_leader = {
+                    character = RUS_anton_denikin
+                    ruling_only = yes
+                }
+            }
+            has_completed_focus = RUS_invite_the_exiles_i
+        }
+
+        cost = 5
+
+        fire_only_once = yes
+        days_remove = 1
+        highlight_states = {
+        }
+
+        custom_cost_text = TUR_decision_cost_kurd_rebels
+
+        visible = {
+            original_tag = RUS
+            NOT = { 
+                has_country_leader = {
+                    character = RUS_anton_denikin
+                    ruling_only = yes
+                }
+            }
+        }
+
+        ai_will_do = {
+            base = 10
+        }
+
+        complete_effect = {
+            show_unit_leaders_tooltip = RUS_anton_denikin
+            add_popularity = {
+                ideology = neutrality
+                popularity = 0.01
+            }
+            set_country_flag = RUS_deniken_invited
+            IF = {
+                limit = {
+                    has_country_leader = {
+                        character = RUS_pyotr_wrangel
+                        ruling_only = yes
+                    }
+                }
+                add_political_power = -25
+            }
+        }
+    }
+    RUS_order_of_st_nicholas = {
+        available = {
+            original_tag = RUS
+            has_completed_focus = RUS_prikaze_no_1 
+            has_idea = RUS_ROVS_idea
+            #has_country_leader = {
+            #    character = RUS_pyotr_wrangel
+            #    ruling_only = yes
+            #}
+        }
+        fire_only_once = yes
+        cost = 5
+
+        visible = {
+            original_tag = RUS
+            has_dlc = "By Blood Alone"
+            has_completed_focus = RUS_prikaze_no_1 
+        }
+
+        icon = generic_protection
+
+        ai_will_do = {
+            base = 1000
+        }
+
+        complete_effect = {
+            custom_effect_tooltip = RUS_order_of_st_nicholas_ttp
+            set_country_flag = RUS_order_of_st_nicholas_flag
+        }
+    }
+
+    RUS_order_of_st_george = {
+        available = {
+            original_tag = RUS
+            has_completed_focus = RUS_prikaze_no_1 
+        }
+        fire_only_once = yes
+        cost = 5
+
+        visible = {
+            original_tag = RUS
+            has_dlc = "By Blood Alone"
+            has_completed_focus = RUS_prikaze_no_1 
+        }
+
+        icon = generic_protection
+
+        ai_will_do = {
+            base = 1000
+        }
+
+        complete_effect = {
+            custom_effect_tooltip = RUS_order_of_st_george_ttp
+            set_country_flag = RUS_order_of_st_george_flag
+        }
+    }
+}
+
+RUS_fate_of_the_predreadnoughts = {
+            #options: 
+            #scrap 2 ships: adds 1 steel to crimea, gain small amount of arty and AA
+            #sell a ship: sends event to ROM, BUL, TUR, GEO, and UKR to see if they wan to buy. RUS can deny sale.
+            #musuem the Potemkin to france: gain the same 'sold ship' spirit bonus as the above.
+            #activate the ship into military service
+            #perhaps meuseum a ship in crimea for 2% war support?
+
+            #the ships are Panteleimon(Potemkin), Rostislav, Tri Sviatitelia, Dvenadsat Apostolov
+    RUS_scrapping_a_predreadnought = {
+        available = {
+            original_tag = RUS
+        }
+
+        fire_only_once = no
+        days_remove = 100
+        cost = 25
+
+        visible = { 
+            original_tag = RUS
+            has_country_flag = currently_scrapping
+        } 
+
+        icon = steel#generic_construction
+
+        ai_will_do = {
+            base = 1
+        }
+
+        remove_effect = {
+            137 = {
+                add_resource = {
+                    type = steel
+                    amount = -1
+                }
+            }
+            clr_country_flag = currently_scrapping
+        }
+    }
+
+    RUS_scrap_a_predreadnought = { 
+        available = {
+            original_tag = RUS
+            NOT = { has_country_flag = currently_scrapping }
+            OR = {
+                has_country_flag = has_rostislav
+                has_country_flag = has_tri
+                has_country_flag = has_dvenadsat
+                has_country_flag = has_potemkin
+            }
+            137 = {
+                OR = {
+                    is_fully_controlled_by = ROOT
+                    controller = {
+                        is_subject_of = ROOT
+                        has_full_control_of_state = PREV
+                    }
+                    controller = {
+                        is_in_faction_with = ROOT
+                        has_full_control_of_state = PREV
+                    }
+                }
+            }
+        }
+
+        fire_only_once = no
+        #days_remove = 360
+        cost = 25
+
+        visible = {
+            original_tag = RUS
+            OR = {
+                has_country_flag = has_rostislav
+                has_country_flag = has_tri
+                has_country_flag = has_dvenadsat
+                has_country_flag = has_potemkin
+            }
+        }
+
+        icon = steel
+
+        ai_will_do = {
+            base = 1
+        }
+
+        complete_effect = {
+            RUS = {
+                country_event = rus.70
+            }
+        custom_effect_tooltip = RUS_scrap_a_predreadnought_ttp
+        }
+    }
+
+    RUS_activate_a_predreadnought_into_the_navy = { 
+        available = {
+            original_tag = RUS
+            OR = {
+                has_country_flag = has_rostislav
+                has_country_flag = has_tri
+                has_country_flag = has_dvenadsat
+            }
+            137 = {
+                OR = {
+                    is_fully_controlled_by = ROOT
+                    controller = {
+                        is_subject_of = ROOT
+                        has_full_control_of_state = PREV
+                    }
+                    controller = {
+                        is_in_faction_with = ROOT
+                        has_full_control_of_state = PREV
+                    }
+                }
+            }
+        }
+
+        fire_only_once = no
+        cost = 25
+
+        visible = {
+            original_tag = RUS
+            OR = {
+                has_country_flag = has_rostislav
+                has_country_flag = has_tri
+                has_country_flag = has_dvenadsat
+            }
+        }
+
+        icon = SWE_set_navy_budget
+
+        ai_will_do = {
+            base = 1
+        }
+
+        complete_effect = {
+            RUS = {
+                country_event = rus.75
+            }
+        }
+    }
+
+    RUS_sell_the_potemkin_to_a_french_mueseum = {
+        available = {
+            original_tag = RUS
+            has_country_flag = has_potemkin
+            FRA = { 
+                exists = yes 
+                NOT = { has_government = fascism }
+                NOT = { has_government = neutrality }
+                has_war = no
+            }
+            137 = {
+                OR = {
+                    is_fully_controlled_by = ROOT
+                    controller = {
+                        is_subject_of = ROOT
+                        has_full_control_of_state = PREV
+                    }
+                    controller = {
+                        is_in_faction_with = ROOT
+                        has_full_control_of_state = PREV
+                    }
+                }
+            }
+        }
+
+        fire_only_once = no
+        #days_remove = 360
+        cost = 20
+
+        visible = {
+            original_tag = RUS
+            has_country_flag = has_potemkin
+        }
+
+        icon = generic_fundraising
+
+        ai_will_do = {
+            base = 1
+        }
+
+        complete_effect = { 
+            FRA = {
+                country_event = rus.72
+            }
+            #asks france if they want to make the Potemkin a muesuem (AI always says yes, unless fascist or non-aligned.)
+            #if yes, gain the same amount of CG% as selling a ship normally below
+        }
+    }
+
+    RUS_sell_a_predreadnought = {
+        available = {
+            original_tag = RUS
+            OR = {
+                has_country_flag = has_rostislav
+                has_country_flag = has_tri
+                has_country_flag = has_dvenadsat
+            }
+            137 = {
+                OR = {
+                    is_fully_controlled_by = ROOT
+                    controller = {
+                        is_subject_of = ROOT
+                        has_full_control_of_state = PREV
+                    }
+                    controller = {
+                        is_in_faction_with = ROOT
+                        has_full_control_of_state = PREV
+                    }
+                }
+            }
+        }
+
+        fire_only_once = no
+        #days_remove = 360
+        cost = 20
+
+        visible = {
+            original_tag = RUS
+            OR = {
+                has_country_flag = has_rostislav
+                has_country_flag = has_tri
+                has_country_flag = has_dvenadsat
+            }
+        }
+
+        icon = generic_human_torpedo#SWE_set_navy_budget
+
+        ai_will_do = {
+            base = 1
+        }
+
+        complete_effect = {
+
+        #RUS will get an event per ship (that is not alr gone) to see who will be offered the sale of it. (ROM BUL TUR GEO UKR)
+            RUS = {
+                country_event = rus.46
+            }
+        }
+    }
+#decision_generic_merge_plant_ship for activating them
+}
+    

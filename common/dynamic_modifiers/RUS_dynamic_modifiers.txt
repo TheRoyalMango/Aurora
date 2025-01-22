@@ -1,0 +1,151 @@
+#	Example:
+# 
+#	example_dynamic_modifier = {
+#		icon = "GFX_idea_unknown" # optional, will show up in guis if icon is specified
+#		enable = { always = yes } #optional, the modifier won't apply if not enabled
+#		remove_trigger = { always = no } #optional, will remove the modifier if true
+#       attacker_modifier = no  # if yes this modifier will also be read in combat for 
+#                               # people engaging in the combat even if not in the state
+#
+#		# list of modifiers
+#		fuel_cost = 321
+#		max_fuel = var_max_fuel # will be taken from a variable
+#	}
+#
+#
+#	In a script file:
+#
+#	effect = {
+#		add_dynamic_modifier = {
+#			modifier = example_dynamic_modifier
+#			scope = GER # optional, if you specify this your dynamic modifier scoped to this scope (root is the effect scope)
+#			days = 14 # optional, will be removed after this many days passes
+#		}
+#	}
+#
+#	can be added to countries, states or unit leaders
+#	will only updated daily, unless forced by force_update_dynamic_modifier effect
+
+
+
+####
+#### WHITE RUSSIAN NATIONAL SPIRITS ####
+####
+
+
+RUS_defense_industry_dynamic_modifier = { #NATIONAL SPIRIT
+	enable = { always = yes }
+
+	icon = GFX_idea_RUS_tank_academy
+
+	#INITIAL
+	conversion_cost_civ_to_mil_factor = RUS_defense_industry_conversion_cost_civ_to_mil_factor #-0.2
+	production_factory_max_efficiency_factor = RUS_defense_industry_production_factory_max_efficiency_factor #0.05
+	production_factory_efficiency_gain_factor = RUS_defense_industry_production_factory_efficiency_gain_factor #-0.05
+	line_change_production_efficiency_factor = RUS_defense_industry_line_change_production_efficiency_factor #-0.1
+
+	#FUTURE
+	tank_manufacturer_cost_factor = RUS_defense_industry_tank_manufacturer_cost_factor #-0.25 -> Tank Designer focus
+	land_equipment_upgrade_xp_cost = RUS_defense_industry_land_equipment_upgrade_xp_cost #-0.1 -> Tankograd
+	materiel_manufacturer_cost_factor = RUS_defense_industry_materiel_manufacturer_cost_factor #-0.25 -> Equipment Designers focus
+	breakthrough_factor = RUS_defense_industry_breakthrough_factor #0.05 -> PC of Mortar Armament
+	army_artillery_defence_factor = RUS_defense_industry_army_artillery_defence_factor #0.05 -> PC of Mortar Armament
+
+	production_speed_coastal_bunker_factor = RUS_defense_industry_production_speed_coastal_bunker_factor #0.05 -> Military Engineering University
+	production_speed_bunker_factor = RUS_defense_industry_production_speed_bunker_factor #0.05 -> Military Engineering University
+	max_dig_in_factor = RUS_defense_industry_max_dig_in_factor #0.05 -> Military Engineering University
+	custom_modifier_tooltip = RUS_defense_industry_dynamic_modifier_tt
+}
+
+RUS_equipment_crisis = { #NATIONAL SPIRIT
+	enable = { always = yes }
+
+	icon = generic_mountain_warfare #is it possible to change this? idk
+
+		equipment_capture_factor = RUS_equipment_crisis_equipment_capture_factor #0.25 
+		equipment_capture = RUS_equipment_crisis_equipment_capture #0.05
+		out_of_supply_factor = RUS_equipment_crisis_out_of_supply_factor #0.05
+		supply_factor = RUS_equipment_crisis_supply_factor #-0.15
+		army_artillery_attack_factor = RUS_equipment_crisis_army_artillery_attack_factor #-0.05
+		army_attack_factor = RUS_equipment_crisis_army_attack_factor #-0.1
+		army_defence_factor = RUS_equipment_crisis_army_defence_factor #-0.1
+		cavalry_attack_factor = RUS_equipment_crisis_cavalry_attack_factor #-0.1
+		modifier_army_sub_unit_cavalry_speed_factor = RUS_equipment_crisis_modifier_army_sub_unit_cavalry_speed_factor #-0.15
+		supply_node_range = RUS_equipment_crisis_supply_node_range #-0.1
+		command_power_gain_mult = RUS_equipment_crisis_command_power_gain_mult #-0.15
+		disable_strategic_redeployment = RUS_equipment_crisis_disable_strategic_redeployment #1
+
+		#equipment bonuses are in hidden spirit RUS_equipment_crisis_hidden
+		custom_modifier_tooltip = RUS_equipment_crisis_dynamic_modifier_tt
+
+}
+
+RUS_russian_army_dynamic_modifier = { #NATIONAL SPIRIT
+	enable = { always = yes }
+
+	icon = GFX_idea_russia_dominate
+
+#INITIAL
+
+	#veteran army
+	army_core_attack_factor = RUS_russian_army_army_core_attack_factor #0.05
+	#communism_drift = RUS_russian_army_communism_drift #-0.02
+	experience_loss_factor = RUS_russian_army_experience_loss_factor #-0.15
+	cavalry_attack_factor = RUS_russian_army_cavalry_attack_factor #0.05
+	org_loss_when_moving = RUS_russian_army_org_loss_when_moving #0.05
+
+	army_attack_factor = RUS_russian_army_army_attack_factor #0.1
+	army_defence_factor = RUS_russian_army_army_defence_factor #0.05
+
+	#benefits of very high number of officers
+	army_org_factor = RUS_russian_army_army_org_factor #0.05 
+  	max_planning = RUS_russian_army_max_planning #0.15
+    planning_speed = RUS_russian_army_planning_speed #-0.15 #lots of officers bicker and squable over plans
+	command_power_gain_mult = RUS_russian_army_command_power_gain_mult #0.25
+
+	#negative modifiers (mostly issues of old guard / harsh policies)
+	experience_gain_factor = RUS_russian_army_experience_gain_factor #-0.15, not working atm due to being unit leader scope
+  	compliance_growth = RUS_russian_army_compliance_growth #-0.15 #represents harsh military policies
+	experience_gain_army_factor = RUS_russian_army_experience_gain_army_factor #-0.10 #old guard
+	land_doctrine_cost_factor = RUS_russian_army_land_doctrine_cost_factor #0.15 #old guard
+	army_morale_factor = RUS_russian_army_army_morale_factor #-0.1 #represents harsh military policies
+	mobilization_speed = RUS_russian_army_mobilization_speed #-0.05 #vastness of russia
+	conscription_factor = RUS_russian_army_conscription_factor #-0.05 #rear rats
+	unit_sturmtruppe_battalion_design_cost_factor = RUS_russian_army_unit_sturmtruppe_battalion_design_cost_factor #50.1 #for Kornilov's division
+#FUTURE
+
+	#prevent disorder
+	army_org_regain = RUS_russian_army_army_org_regain #0.10
+
+	#restack_the_officer_corps
+	army_leader_cost_factor = RUS_russian_army_army_leader_cost_factor #-0.15
+	promote_cost_factor = RUS_russian_army_promote_cost_factor #-0.15
+
+	#Cossack units
+	cavalry_defence_factor = RUS_russian_army_cavalry_defence_factor #0.1
+	#
+	#custom_modifier_tooltip = RUS_russian_army_desc
+
+	#Shock battalions
+	breakthrough_factor = RUS_russian_army_breakthrough_factor #0.05
+	modifier_army_sub_unit_blackshirt_assault_battalion_attack_factor = RUS_russian_modifier_army_sub_unit_blackshirt_assault_battalion_attack_factor #0.15
+
+	#Army modernizaiton
+	initiative_factor = RUS_russian_army_initiatve_factor #0.05
+	air_superiority_bonus_in_combat = RUS_russian_army_air_superiority_bonus_in_combat #0.05 #unused yet
+	coordination_bonus = RUS_russian_army_coordination_bonus #0.05 #unused yet
+
+	#
+	unit_cavalry_design_cost_factor = RUS_russian_army_unit_cavalry_design_cost_factor #
+	unit_infantry_design_cost_factor = RUS_russian_army_unit_infantry_design_cost_factor #
+	unit_artillery_brigade_design_cost_factor = RUS_russian_army_unit_artillery_brigade_design_cost_factor #
+	unit_light_armor_design_cost_factor = RUS_russian_army_unit_light_armor_design_cost_factor
+	unit_medium_armor_design_cost_factor = RUS_russian_army_unit_medium_armor_design_cost_factor
+
+	#SNIPER PROGRAM
+	recon_factor_while_entrenched = RUS_russian_army_recon_factor_while_entrenched #0.1
+	recon_factor = RUS_russian_army_recon_factor #0.1
+	modifier_army_sub_unit_long_range_patrol_support_attack_factor = RUS_russian_army_modifier_army_sub_unit_long_range_patrol_support_attack_factor #0.05
+	modifier_army_sub_unit_long_range_patrol_support_defence_factor = RUS_russian_army_modifier_army_sub_unit_long_range_patrol_support_defence_factor #0.05
+}
+

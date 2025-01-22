@@ -1,0 +1,49 @@
+
+TER_invasion_of_cau = {
+    TER_occupy_cau = {
+        available = {
+            #original_tag = TER
+            always = no
+        }
+        highlight_states = {
+        }
+        fire_only_once = yes
+        days_remove = 30
+        cost = 0
+
+        visible = {
+            original_tag = TER
+        }
+
+        icon = SOV_the_workers_dictatorship
+
+        ai_will_do = {
+            base = 5
+            modifier = {
+                add = 5
+                always = yes
+            }
+        }
+
+        complete_effect = {
+        }
+
+        remove_effect = {
+            TER = { country_event = ter.3 }
+            #IF = {
+            #    limit = {   
+            #        OR = {
+            #            NOT = { country_exists = CAU }
+            #            CAU = { has_government = communism }
+            #       }        
+            #    }
+            #    country_event = ter.1
+            #}
+            #else = {
+            #    country_event = ter.2
+            #}
+        }  
+    }
+
+}
+    

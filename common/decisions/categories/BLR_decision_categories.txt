@@ -1,0 +1,37 @@
+BLR_communist_focus_deci_chain = { #for the BLR anti-communists
+   icon = decision_category_border_conflicts
+   priority = 10
+   visible = {
+      original_tag = BLR
+      has_completed_focus = BLR_liberation
+   }
+   allowed = {
+       original_tag = BLR
+   }
+}
+
+BLR_belarus_descisions = { 
+   icon = decision_category_border_conflicts
+   priority = 10
+	visible = {
+      original_tag = BLR
+      #has_completed_focus = BLR_out_of_the_shadows_and_into_the_light
+   }
+
+   allowed = {
+       original_tag = BLR
+   }
+}
+
+BLRC_belarus_descisions = { 
+   icon = decision_category_border_conflicts
+   priority = 10
+	visible = {
+      original_tag = BYL
+      #has_completed_focus = BLR_out_of_the_shadows_and_into_the_light
+   }
+
+   allowed = {
+       original_tag = BYL
+   }
+}

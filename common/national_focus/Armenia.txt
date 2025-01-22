@@ -1,0 +1,139 @@
+﻿focus_tree = { 
+	id = armenia_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = ARM
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 50 y = 1000 }
+
+	focus = {
+		id = ARM_criticize_the_treaty_of_alexandropol
+		icon = GFX_focus_generic_attack_turkey
+		mutually_exclusive = { focus = ARM_maintain_neutrality }
+		mutually_exclusive = { focus = ARM_socialization_of_the_economy }
+		x = 16
+		y = 0
+		
+		available = {
+		}
+
+		bypass = {
+		}
+
+		ai_will_do = {
+			factor = 5
+		}
+		
+		cost = 10
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_political_power = 50
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = ARM_remember_armenian_martyrs
+		icon = GFX_focus_generic_attack_turkey
+		x = 16
+		y = 0
+		
+		available = {
+		}
+
+		bypass = {
+		}
+
+		ai_will_do = {
+			factor = 5
+		}
+		
+		cost = 10
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = ARM_maintain_neutrality
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		mutually_exclusive = { focus = ARM_criticize_the_treaty_of_alexandropol }
+		mutually_exclusive = { focus = ARM_socialization_of_the_economy }
+		relative_position_id = ARM_criticize_the_treaty_of_alexandropol
+		x = 8
+		y = 0
+		
+		available = {
+		}
+
+		bypass = {
+		}
+
+		ai_will_do = {
+			factor = 5
+		}
+		
+		cost = 10
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = -25
+			add_war_support = -0.05
+		}
+	}
+	#
+	focus = {
+		id = ARM_socialization_of_the_economy 
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		mutually_exclusive = { focus = ARM_criticize_the_treaty_of_alexandropol }
+		mutually_exclusive = { focus = ARM_maintain_neutrality }
+		relative_position_id = ARM_criticize_the_treaty_of_alexandropol
+		x = 16
+		y = 0
+		
+		available = {
+		}
+
+		bypass = {
+		}
+
+		ai_will_do = {
+			factor = 5
+		}
+		
+		cost = 10
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+	}
+
+#
+}		

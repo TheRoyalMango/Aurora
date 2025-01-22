@@ -1,0 +1,326 @@
+ideas = {
+
+#not included:
+#RUS_weak_industrial_base (from South Russia's spirits)
+
+	country = {
+		OMK_kolchak1 = { 
+			#each level weaken's Kolchak's dictatorship, providing stability and government support but also weakening his benefits
+			picture = alexander_kolchak
+			name = kolchak
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				#has_global_flag = kolchak_in_charge
+				NOT = {
+						has_government = communism
+				}
+			}
+			available = {
+				#has_global_flag = kolchak_in_charge
+				NOT = {
+						has_government = communism
+				}
+			}
+			removal_cost = -1
+			modifier = {
+				resistance_growth = -0.15
+  				compliance_growth = -0.15
+  				drift_defence_factor = 0.15
+  				stability_factor = -0.1
+  				war_support_factor = 0.05
+  				political_power_factor = 0.15
+  				surrender_limit = 0.1
+				max_surrender_limit_offset = 0.1
+			}
+		}
+		OMK_kolchak2 = {
+			picture = alexander_kolchak
+			name = kolchak
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				#has_global_flag = kolchak_in_charge
+				NOT = {
+						has_government = communism
+				}
+			}
+			available = {
+				#has_global_flag = kolchak_in_charge
+				NOT = {
+						has_government = communism
+				}
+			}
+			removal_cost = -1
+			modifier = {
+				resistance_growth = -0.1
+  				compliance_growth = -0.1
+  				drift_defence_factor = 0.1
+  				stability_factor = -0.05
+  				war_support_factor = 0.1
+  				political_power_factor = 0.1
+  	  			surrender_limit = 0.05
+				max_surrender_limit_offset = 0.05
+			}
+		}
+		OMK_kolchak3 = {
+			picture = alexander_kolchak
+			name = kolchak
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				#has_global_flag = kolchak_in_charge
+				NOT = {
+						has_government = communism
+				}
+			}
+			available = {
+				#has_global_flag = kolchak_in_charge
+				NOT = {
+						has_government = communism
+				}
+			}
+			removal_cost = -1
+			modifier = {
+				resistance_growth = -0.1
+  				compliance_growth = -0.05
+  				drift_defence_factor = 0.1
+  				#stability_factor = -0.05
+  				war_support_factor = 0.15
+  				political_power_factor = 0.05
+    			surrender_limit = 0.02
+				max_surrender_limit_offset = 0.02
+  	
+			}
+		}
+
+	OMK_semyonov_kolchak_split = { #dark cloud hanging over Omsk remembering Semyonov's betrayal. 
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				original_tag = OMK
+			}
+			
+			removal_cost = -1
+
+			picture = generic_war_preparation
+			modifier = {
+				political_power_factor = -0.05
+			}
+		}
+
+	OMK_intermitten_raids_and_skirmishes = { #representing the anarchists fucking with us
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				original_tag = OMK
+			}
+			
+			removal_cost = -1
+
+			picture = generic_war_preparation
+			modifier = {
+				political_power_factor = -0.05
+				stability_factor = -0.15
+				war_support_factor = 0.05
+				experience_gain_army = 0.01
+				weekly_manpower = -10
+			}
+		}
+###########################################Siberian Army
+
+		OMK_officer_surplus = { 
+			#maybe name "Overstacked Officer Corps"
+			#should maybe include negative modifiers, due to a large Old Guard since most of these plentiful officers are old. 
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = OMK
+			}
+			
+			removal_cost = -1
+
+			picture = generic_reserve_divisions
+			
+			modifier = {
+  				land_doctrine_cost_factor = 0.15
+  				max_planning = 0.10
+    			planning_speed = 0.10
+  				mobilization_speed = 0.05
+  				training_time_factor = -0.05
+  				army_org_factor = 0.10
+  				army_leader_cost_factor = -0.15
+				promote_cost_factor = -0.15
+				command_power_gain_mult = 0.25
+				experience_gain_army_factor = -0.20
+			}
+		}
+
+		OMK_the_white_siberian_army1 = { #starting spirirt
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = OMK
+			}
+			
+			removal_cost = -1
+
+			picture = chi_army_corruption
+			
+			modifier = { #should be expanded
+				#Siberian Army was able to mobilize a surprising number of recruits in short order. 
+  				conscription = 0.005
+    			mobilization_speed = 0.05
+  				training_time_factor = 0.05
+
+  				#needed for siberia, plus they've learned a thing or two after all this time
+  				acclimatization_cold_climate_gain_factor = 0.10
+  				supply_consumption_factor = -0.05
+
+  				#low morale
+  				army_org_factor = -0.10
+  				army_morale_factor = -0.15
+			}
+		}
+
+		OMK_the_white_siberian_army2 = { #intermidate
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = OMK
+			}
+			
+			removal_cost = -1
+
+			picture = tur_kemalist_army_officers_minimal_power_disloyal
+			
+			modifier = {
+  				conscription = 0.005
+  				acclimatization_cold_climate_gain_factor = 0.15
+  				supply_consumption_factor = -0.1
+  				mobilization_speed = 0.1
+  				training_time_factor = 0.05
+  				army_org_factor = -0.05
+				army_leader_start_logistics_level = 1
+				winter_attrition_factor = -0.1
+  				army_morale_factor = -0.1
+			}
+		}
+
+		OMK_the_white_siberian_army3 = { #reformed
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = OMK
+			}
+			
+			removal_cost = -1
+
+			picture = tur_kemalist_army_officers_minimal_power_disloyal
+			
+			modifier = {
+  				conscription = 0.01
+  				acclimatization_cold_climate_gain_factor = 0.15
+  				supply_consumption_factor = -0.1
+  				mobilization_speed = 0.15
+				army_leader_start_logistics_level = 2
+				winter_attrition_factor = -0.15
+			}
+		}
+
+		OMK_the_white_siberian_army4 = { #special forces
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				original_tag = OMK
+			}
+			
+			removal_cost = -1
+
+			picture = tur_sub_zero_survival_training
+			
+			modifier = {
+  				conscription = 0.01
+  				acclimatization_cold_climate_gain_factor = 0.15
+  				supply_consumption_factor = -0.1
+  				mobilization_speed = 0.15
+				army_leader_start_logistics_level = 2
+				winter_attrition_factor = -0.15
+				special_forces_cap = 0.20
+				special_forces_training_time_factor = -0.05
+			}
+		}
+
+##########################################
+
+		OMK_siberian_workshops = { #mass production over reliability
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				original_tag = OMK
+			}
+			
+			removal_cost = -1
+
+			picture = generic_central_management
+			
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1
+					reliability = -0.1
+					instant = yes
+				}
+			}
+		}
+
+		OMK_trappers_rifle = { #reliability over production
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				original_tag = OMK
+			}
+			
+			removal_cost = -1
+
+			picture = generic_central_management
+			
+			equipment_bonus = {
+				infantry_equipment = {
+					reliability = 0.15
+					build_cost_ic = 0.05
+					instant = yes
+				}
+			}
+		}
+	}
+}

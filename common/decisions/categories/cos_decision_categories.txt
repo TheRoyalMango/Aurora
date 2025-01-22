@@ -1,0 +1,12 @@
+#cos_economic_situation_cat = {  #moved to generic category. keeping incase i add future cossack dec
+#    priority = 5
+#    icon = generic #generic_political_actions #decision_SOV_exiles_state
+#
+#	visible = {
+#        has_idea = RUS_weak_industrial_base
+#    }
+#
+#    allowed = {
+#        has_idea = RUS_weak_industrial_base
+#    }
+#}

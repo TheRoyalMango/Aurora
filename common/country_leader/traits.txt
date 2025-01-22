@@ -1,0 +1,874 @@
+#hello welcome to my modding lets play
+
+#interesting ones from vanilla I havent used:
+#various anti-commie ones
+#various liberal ones / reform
+#the swedish king ones, such as: unbreakable the_spider
+
+@tier1_cp_cap_increase = 10
+@tier2_cp_cap_increase = 20
+@tier3_cp_cap_increase = 30
+
+@tier1_cp_cost = 0
+@tier2_cp_cost = 0
+@tier3_cp_cost = 0
+
+@experience_gain_low = 0.03
+@experience_gain_medium = 0.06
+@experience_gain_high = 0.08
+
+@chief_experience_gain_low = 0.20
+@chief_experience_gain_medium = 0.30
+@chief_experience_gain_high = 0.40
+
+@army_chief_factor_1 = 0.42
+@army_chief_factor_2 = 0.68
+@army_chief_factor_3 = 0.84
+
+@navy_chief_factor_1 = 0.31
+@navy_chief_factor_2 = 0.57
+@navy_chief_factor_3 = 0.73
+
+@air_chief_factor_1 = 0.10
+@air_chief_factor_2 = 0.13
+@air_chief_factor_3 = 0.16
+
+@army_command_factor_1 = 0.42
+@army_command_factor_2 = 0.64
+@army_command_factor_3 = 0.86
+
+@navy_command_factor_1 = 0.41
+@navy_command_factor_2 = 0.62
+@navy_command_factor_3 = 0.83
+
+@air_command_factor_1 = 0.40
+@air_command_factor_2 = 0.60
+@air_command_factor_3 = 0.80
+
+
+leader_traits = {
+
+ 	local_junta_neutral = { #greens, neutral
+		random = no
+		sprite = 13
+		war_support_factor = 0.1
+		anarchism_acceptance = -50
+		political_power_factor = 0.10
+		drift_defence_factor = 0.15
+		mobilization_speed = 0.05
+		training_time_army_factor = -0.1
+		neutrality_acceptance = 35
+	}
+
+ 	local_junta_fascist = { #greens, fascist
+		random = no
+		sprite = 13
+		war_support_factor = 0.1
+		stability_factor = -0.05
+		anarchism_acceptance = -50
+		political_power_factor = 0.15
+		mobilization_speed = 0.05
+		training_time_army_factor = -0.1
+		fascism_acceptance = 35
+	}
+
+ 	peasant_assembly = { #greens, Roots of Power
+		random = no
+		sprite = 13
+		stability_factor = 0.05
+		army_morale_factor = 0.05
+		resistance_target = -0.05
+		conscription_factor = 0.05
+		anarchism_acceptance = 15
+	}
+
+
+ 	for_holy_russia = { #Turkul, could also work for Drozdovsky if he becomes a leader option
+		random = no
+		sprite = 13
+		stability_factor = 0.05
+		war_support_factor = 0.1
+		army_core_attack_factor = 0.05
+		army_morale_factor = 0.05
+	}
+
+	RUS_minister_of_industry = {
+		random = no
+		sprite = 13
+		stability_factor = -0.02
+		democratic_acceptance = -10
+		production_factory_max_efficiency_factor = 0.05
+		trade_opinion_factor = 0.20
+		industrial_capacity_factory = 0.05
+		#consumer_goods_factor = -0.05
+	}
+
+	RUS_minister_of_justice = {
+		random = no
+		sprite = 13
+		resistance_target = -0.05
+		stability_factor = 0.05
+	}
+
+	black_fanatic = {
+		stability_factor = -0.05
+		fascism_drift = 0.06
+		political_power_factor = 0.10
+	}
+
+	mustache = { #CAU Kotsev
+		random = no
+		sprite = 13
+		political_power_factor = 0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	conservative_philosopher = { 
+		random = no
+		sprite = 13
+		political_power_factor = 0.10
+		drift_defence_factor = 0.25
+		neutrality_drift = 0.02 
+		war_support_factor = 0.1
+		#generate_wargoal_tension = -0.25
+		#justify_war_goal_time = -0.25
+		democratic_drift = -0.02
+		communism_acceptance = -50	
+		democratic_acceptance = -25	
+		#fascism_acceptance = 25	
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	hospital_patron = { 
+		random = no
+		sprite = 13
+		stability_factor = 0.05
+		army_morale_factor = 0.05
+		monthly_population = 0.025
+		experience_loss_factor = -0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	father_bulak = { 
+		random = no
+		sprite = 13
+		war_support_factor = 0.05
+		army_core_defence_factor = 0.05
+		political_power_factor = 0.05
+		mobilization_speed = 0.05
+		party_popularity_stability_factor = 0.05	
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	ocean_liner_designer = { #yourkevitch, loc as naval engineer
+		random = no
+		sprite = 14
+		equipment_bonus = {
+			convoy = {
+				build_cost_ic = -0.05
+			}
+			capital_ship = {
+				armor_value = 0.1
+			}
+		}
+		#custom_modifier_tooltip = ocean_liner_designer_ttp
+		#industrial_capacity_dockyard = 0.05
+		#production_speed_dockyard_factor = 0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	geologist = { #nazarov (TCS)
+		random = no
+		sprite = 14
+		local_resources_factor = 0.10
+		research_speed_factor = 0.02
+		terrain_penalty_reduction = 0.025
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	khakass_regionalist = { 
+		random = no
+		sprite = 13
+		local_resources_factor = 0.05
+		production_speed_buildings_factor = 0.10
+		army_core_defence_factor = 0.05
+		political_power_factor = 0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	defected_bolshevik = { #osipov
+		random = no
+		sprite = 13
+		political_power_factor = -0.05
+		drift_defence_factor = 0.05
+		stability_factor = 0.02
+		communism_acceptance = -25	
+		conscription_factor = 0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	ambitious_leader = { #osipov
+		random = no
+		sprite = 12
+		political_power_factor = 0.10
+		stability_factor = -0.05
+		war_support_factor = 0.10
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	militant_socialist_revolutionary = { #Kulikovsky(Sakha) and Savinkov
+		random = no
+		sprite = 13
+		democratic_drift = 0.035
+		#neutrality_drift = -0.01 
+		#fascism_drift = -0.02
+		neutrality_acceptance = -15
+		fascism_acceptance = -10
+		communism_acceptance = 10	
+		#drift_defence_factor = 0.15
+		party_popularity_stability_factor = 0.05
+		stability_factor = -0.02
+		war_support_factor = 0.05
+		#political_power_factor = 0.05
+		global_building_slots_factor = 0.1
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	socialist_revolutionary = { #funtikov
+		random = no
+		sprite = 13
+		stability_factor = 0.05
+		democratic_drift = 0.02
+		#communism_drift = 0.01
+		neutrality_acceptance = -10
+		fascism_acceptance = -10
+		communism_acceptance = 10	
+		party_popularity_stability_factor = 0.05	
+		global_building_slots_factor = 0.1
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	engineer_trait = { 
+		random = no
+		sprite = 14
+		production_speed_rail_way_factor = 0.05
+		production_factory_max_efficiency_factor = 0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	head_of_the_inner_line = { 
+		random = no
+		sprite = 15
+		agency_upgrade_time = -0.10
+		foreign_subversive_activites = -0.1
+		intelligence_agency_defense = 0.05
+		enemy_operative_detection_chance_factor = 0.1
+		operative_slot = 1
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	quartermaster_general_of_russian_army = { 
+		random = no
+		sprite = 6
+		production_speed_supply_node_factor = 0.1
+		supply_factor = 0.05
+		#supply_consumption_factor = -0.025
+		#production_speed_rail_way_factor = 0.05
+		#production_speed_infrastructure_factor = 0.05
+		#repair_speed_infrastructure_factor = 0.05
+		#repair_speed_rail_way_factor = 0.05
+		terrain_penalty_reduction = 0.025
+		org_loss_when_moving = -0.05
+		mobilization_speed = 0.05
+
+		command_cap_increase = @tier1_cp_cap_increase
+		command_power = @tier1_cp_cost
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	caucasian_republican_general = { #RUS_lazar_bicherakhov
+		random = no
+		sprite = 5
+		political_power_gain = 0.05
+		#cavalry_attack_factor = 0.025
+		#cavalry_defence_factor = 0.025
+		army_core_defence_factor = 0.05
+		terrain_penalty_reduction = 0.1
+		army_morale_factor = 0.05
+		#conscription_factor = 0.1
+		#mobilization_speed = 0.05
+		democratic_drift = 0.02
+		ai_desired_divisions_factor = 0.1
+		ai_badass_factor = 0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	aurora_cossack_ataman = { #various cossack leaders
+		random = no
+		sprite = 17
+		#political_power_gain = 0.05
+		war_support_factor = 0.1
+		cavalry_attack_factor = 0.05
+		cavalry_defence_factor = 0.025
+		conscription_factor = 0.1
+		army_attack_speed_factor = 0.05
+		unit_cavalry_design_cost_factor = -0.20
+		ai_desired_divisions_factor = 0.1
+		ai_badass_factor = 0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	liberal_imperialist = { #Milyukov
+		random = no
+		sprite = 13
+		war_support_factor = 0.1
+		generate_wargoal_tension = -0.25
+		justify_war_goal_time = -0.25
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	kadet_leader = { #Maklakov and Milyukov
+		random = no
+		sprite = 13
+		#stability_factor = 0.05
+		political_power_gain = 0.05
+		#war_support_factor = 0.02
+		democratic_drift = 0.02
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	legal_reformer = { #Maklakov
+		random = no
+		sprite = 13
+		stability_factor = 0.05
+		political_power_gain = 0.1
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	minister_of_foreign_affairs = { #Struve, also Milyukov. removed from Struve's advisor to reduce OP-ness
+		random = no
+		sprite = 13
+		request_lease_tension = -0.25 #Struve got aid from france very easily, in conjunction with Krivoshein
+		lend_lease_tension = -0.15
+		guarantee_cost = -0.1
+		opinion_gain_monthly_factor = 0.15
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	left_politics_right_hands = { #Struve left-wing politics with right hands
+		random = no
+		sprite = 13
+		stability_factor = 0.10
+		political_power_gain = 0.1
+		drift_defence_factor = 0.15
+		neutrality_drift = 0.01
+		democratic_drift = 0.02
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	minister_of_welfare_and_education = { #Sofia Panina
+		random = no
+		sprite = 13
+		stability_factor = 0.15
+		#stability_weekly = 0.001
+		research_speed_factor = 0.05
+		consumer_goods_factor = 0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	professor_of_education_and_economics = { #(also editor and politician)#Struve
+		random = no
+		sprite = 13
+		research_speed_factor = 0.05
+		consumer_goods_factor = -0.05
+		#political_power_gain = 0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	anarchist_writer = { #Lev Chernyi
+		random = no
+		sprite = 13
+			anarchism_drift = 0.04
+			#political_power_factor = 0.1
+			mobilization_speed = 0.05
+			stability_factor = -0.1
+			non_core_manpower = 0.05
+			conscription_factor = 0.1
+			drift_defence_factor = 0.15
+			improve_relations_maintain_cost_factor = 0.50
+			#modifier_army_sub_unit_militia_morale_factor = 0.05
+			#army_morale_factor = 0.05
+			#modifier_army_sub_unit_militia_defence_factor = 0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+ 	gov_of_yakut_region = { #Pyotr Kulikovsky
+		random = no
+		sprite = 13
+			stability_factor = 0.05
+			political_power_factor = 0.1
+			#army_core_defence_factor = 0.05
+			production_speed_infrastructure_factor = 0.1
+			conscription_factor = 0.1
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	political_unifier = { #Diterikhs
+		random = no
+		sprite = 13
+		stability_factor = 0.05
+		political_power_factor = 0.05
+		conscription_factor = 0.1	
+		drift_defence_factor = 0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	voyevoda = { #Diterikhs
+		random = no
+		sprite = 13
+		war_support_factor = 0.05
+		political_power_factor = 0.1
+		neutrality_drift = 0.04
+		fascism_acceptance = 25
+		neutrality_acceptance = 25
+		mobilization_speed = 0.1
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	famous_painter = { #Altai Grigory Gurkin
+		random = no
+		sprite = 12
+		stability_factor = 0.02
+		political_power_factor = 0.05
+		recon_factor = 0.05 #chad altai scouts paint photo-realistic paintings of enemy positions instead of using cameras or sketches
+		improve_relations_maintain_cost_factor = -0.1
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	usurper = { #Derber
+		random = no
+		sprite = 13
+		stability_factor = -0.05
+		war_support_factor = -0.05
+		political_power_cost = 0.25
+		drift_defence_factor = -0.1
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	agrarian_reformist = { #Krivoshein - localized as "Exceptional Statesman"
+		random = no
+		sprite = 13
+		stability_factor = 0.1
+		consumer_goods_factor = -0.05
+		political_power_gain = 0.15
+		request_lease_tension = -0.25 #got aid from france very easily., in conjunction with Struve
+		opinion_gain_monthly_factor = 0.15
+		#democratic_drift = 0.02
+		#democratic_acceptance = 25
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	white_industrialist_and_financier = { #Alexei Ivanovich Putilov
+		random = no
+		sprite = 10
+		#production_speed_buildings_factor = 0.05
+		#production_speed_industrial_complex_factor = 0.05
+		industrial_capacity_factory = 0.1
+		industrial_capacity_dockyard = 0.1
+		consumer_goods_factor = -0.1
+		#industrial_factory_donations = 1 #now handleed via on_add in character file
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	the_last_octobrist = { #Guchkov
+	#also was on the central war industry committee. support whites finacially, also was represntative in europe. anti-fascist. army reformer
+	#did adventures in boer wars and mongolia, but this is in the adventurer trait
+		random = no
+		sprite = 13
+		production_speed_arms_factory_factor = 0.05
+		war_support_factor = 0.05
+		#army_org_factor = 0.05
+		experience_gain_army_factor = 0.05 #could be a focus instead. "Guchkov's Purge" it was called. good focus name.
+		#request_lease_tension = -0.15
+		neutrality_drift = 0.02
+		democratic_drift = 0.04
+		fascism_acceptance = -30
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	orthodox_monarchist = { #metropolitcan anthony
+		random = no
+		sprite = 13
+		war_support_factor = 0.05
+		stability_factor = 0.05
+		neutrality_drift = 0.02
+		fascism_acceptance = 15
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	a_rider_named_death = { #savinkov
+		random = no
+		sprite = 13
+		#political_power_factor = 0.15
+		war_support_factor = 0.1
+		conscription_factor = 0.1
+		mobilization_speed = 0.1
+		#communism_acceptance = -50
+		resistance_damage_to_garrison_on_our_occupied_states = 0.1
+		resistance_growth_on_our_occupied_states = 0.1
+		#non_core_manpower = 0.05
+		#compliance_growth_on_our_occupied_states = -0.15
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	admiral_dictator_of_siberia = { #Kolchak
+		random = no
+		sprite = 13
+		#political_power_cost = 0.05
+		political_power_factor = 0.1
+		naval_equipment_upgrade_xp_cost = -0.5 #something naval, maybe doctrine cost and research speed?
+		stability_factor = -0.05
+		winter_attrition_factor = -0.10
+
+		compliance_growth = -0.01
+		resistance_target = -0.1
+		supply_consumption_factor = -0.1
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	bloody_ataman_of_the_don = { #Krasnov
+		random = no
+		sprite = 13
+			stability_factor = -0.1
+			war_support_factor = 0.05
+			compliance_growth = -0.1
+			resistance_target = -0.1
+			supply_consumption_factor = -0.05 #stealing stuff from the locals
+			#fascism_drift = 0.02
+			fascism_acceptance = 25
+			cavalry_attack_factor = 0.05
+			cavalry_defence_factor = 0.025
+			conscription_factor = 0.05
+			army_attack_speed_factor = 0.05
+			unit_cavalry_design_cost_factor = -0.20
+			ai_desired_divisions_factor = 0.1
+			ai_badass_factor = 0.05
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+ 
+	apathetic_to_politics = { #Wrangel & Kornilov
+		random = no
+		sprite = 13
+		#war_support_factor = 0.03
+		political_power_factor = -0.15
+		drift_defence_factor = 0.15
+		#opinion_gain_monthly_factor = -0.1
+		#stability_factor = 0.05
+		neutrality_drift = 0.02
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	denikinism = { #guess.
+		random = no
+		sprite = 13
+		political_power_gain = 0.05
+		war_support_factor = 0.05
+		army_core_attack_factor = 0.05
+		neutrality_drift = 0.02
+		compliance_growth = -0.05
+		resistance_target = -0.1
+		ai_badass_factor = 0.05
+		training_time_army_factor = -0.1
+	}
+	always_with_honor = { #Wrangel 
+		random = no
+		sprite = 13
+		political_power_gain = 0.1
+		war_stability_factor = 0.1
+		opinion_gain_monthly_factor = 0.1
+		fascism_acceptance = -20
+		compliance_growth = 0.05
+		resistance_target = -0.1
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	the_black_baron = { #Wrangel
+		random = no
+		sprite = 13
+		#ai_badass_factor = 0.15
+		war_support_factor = 0.05
+		#cavalry_attack_factor = 0.025
+		#army_core_attack_factor = 0.025
+		#org_loss_when_moving = -0.05
+		army_attack_speed_factor = 0.05
+		unit_cavalry_design_cost_factor = -0.20
+		army_morale_factor = 0.05
+		ai_badass_factor = 0.05
+		initiative_factor = 0.02
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	national_champion = { #Kornilov & Denikin, actually Symbol of the Volunteer Army
+		random = no
+		sprite = 13
+		political_power_factor = 0.05
+		mobilization_speed = 0.05
+		war_support_factor = 0.1
+		#conscription_factor = 0.02
+		army_core_attack_factor = 0.05
+		army_morale_factor = 0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	commander_of_the_shock_troops = { #Kornilov
+		random = no
+		sprite = 13
+		#army_infantry_attack_factor = 0.025
+		army_artillery_attack_factor = 0.025
+		special_forces_attack_factor = 0.05
+		land_night_attack = 0.1
+		breakthrough_factor = 0.05
+		ai_badass_factor = 0.10
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	MON_the_mad_baron = { #Sternburg
+		random = no
+		sprite = 13
+		stability_factor = -0.1
+		war_support_factor = 0.05
+		opinion_gain_monthly_factor = -0.15
+		#resistance_growth = 0.05
+		war_stability_factor = 0.05
+		cavalry_attack_factor = 0.025
+		experience_gain_army_factor = -0.15
+		ai_focus_aggressive_factor = 0.5
+
+		compliance_growth = -0.05
+		#resistance_target = -0.1
+		#supply_consumption_factor = -0.1
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	king_of_the_skies = { #chen jitang
+		random = no
+		sprite = 13
+		stability_factor = 0.05
+		army_core_defence_factor = 0.05
+		production_speed_infrastructure_factor = 0.1
+		production_speed_arms_factory_factor = 0.1
+		#air_accidents_factor = -0.15
+		air_mission_efficiency = 0.15
+		#ground_attack_factor = 0.15
+		experience_gain_air_factor = 0.10
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	electronics_inventor = { #research bonus given in character file
+		random = no
+		sprite = 13
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	founder_of_russian_scouting = { #
+		random = no
+		sprite = 18
+		conscription_factor = 0.02
+		special_forces_training_time_factor = -0.1
+		recon_factor = 0.25
+		terrain_penalty_reduction = 0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	gifted_orator = { #Novoselov + derber + kerensky
+		random = no
+		sprite = 13
+		#stability_factor = 0.05
+		political_power_factor = 0.10
+		drift_defence_factor = 0.15
+		mobilization_speed = 0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	jewish_ta_condem = { #Santislaw Bulak-Balachowicz
+		random = no
+		sprite = 13
+		stability_factor = -0.01
+		political_power_factor = -0.01
+		research_speed_factor = -0.01
+		conscription_factor = -0.01
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	anti_semetic = { #semyonov, and sadly Santislaw Bulak-Balachowicz
+		random = no
+		sprite = 13
+		stability_factor = -0.01
+		political_power_factor = -0.05
+		#consumer_goods_factor = 0.01
+		fascism_acceptance = 10
+		conscription_factor = -0.02
+		research_speed_factor = -0.02
+		compliance_growth = -0.02
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	short = { #derber
+		random = no
+		sprite = 13
+		stability_factor = -0.01
+		war_support_factor = 0.01
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	agriculture_land_reformist = { #Vicky
+		random = no
+		sprite = 13
+		stability_factor = 0.05
+		global_building_slots_factor = 0.1
+		consumer_goods_factor = -0.03
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	the_failed_president = { #Kerensky
+		random = no
+		sprite = 13
+		stability_factor = -0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	no_enemies_on_the_left = { #Kerensky, not ued rn
+		random = no
+		sprite = 13
+		war_support_factor = -0.05
+		democratic_drift = 0.05
+		communism_drift = 0.02
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#persuader-in-chief - Kerensky
+	#reduces war support, division org by 5%, army xp gain, morale. 
+
+	hemophilia = { #Alexei
+		random = no
+		sprite = 13
+		political_power_factor = -0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	mladorossi_ties = { #Kirill
+		random = no
+		sprite = 13
+		stability_factor = -0.05
+		communism_drift = 0.05
+		fascism_drift = 0.1
+		fascism_acceptance = 20
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

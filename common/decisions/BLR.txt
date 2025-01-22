@@ -1,0 +1,706 @@
+political_actions = { 
+    LIT_operation_taras_blinda = { #
+
+        priority = 25
+
+        allowed = { tag = LIT }
+
+        icon = GFX_decision_revolt
+        
+        days_remove = 180
+        fire_only_once = yes
+        cancel_if_not_visible = yes
+        
+        available = {
+            has_country_flag = war_with_RCL
+        }
+
+        visible = {
+            LIT = {
+                has_war_with = RCL
+            }
+            tag = LIT
+            RCL = { 
+                exists = yes 
+                controls_province = 3320
+            }
+        }
+
+        cancel_trigger = { 
+            LIT = {
+                controls_state = 784
+            }
+            RCL = { exists = no }
+        }
+
+        cancel_effect  = {
+            country_event = blr.33 #LIT victory
+        }
+        
+        remove_effect = {
+            IF = {
+                limit = {
+                    RCL = { 
+                        exists = no 
+                    }
+                    LIT = { controls_province = 3320 }
+                }
+                country_event = blr.33 #LIT victory
+            }
+            IF = {
+                limit = {
+                    RCL = { 
+                        exists = yes 
+                        controls_province = 3320
+                    }
+                }
+                country_event = blr.32 #RCL victory
+            }
+        }
+        ai_will_do = {
+            factor = 200
+        }
+    }
+}
+
+BLR_communist_focus_deci_chain = {
+#### civil war auto fires
+    BLR_crush_revolt_deci = {
+        name = BLR_crush_the_revolt
+        icon = generic_decision
+        priority = 15
+        cost = 0
+        ai_will_do = {
+            factor = 500
+        }
+        fire_only_once = yes
+
+        available = {
+            always = no
+        }
+
+        visible = { 
+            always = no
+            NOT = { has_global_flag = BLR_cw_triggered }
+        }
+        cancel_trigger = { has_global_flag = BLR_cw_triggered }
+        modifier = {
+        }
+
+        days_remove = 21
+
+        remove_effect = {
+            hidden_effect = {
+                activate_decision = BLR_reinforce_nkvd_deci
+            }
+        }
+    }
+    BLR_reinforce_nkvd_deci = {
+        name = BLR_reinforced_nkvd_units
+        icon = generic_decision
+        priority = 15
+        cost = 0
+        ai_will_do = {
+            factor = 500
+        }
+        fire_only_once = yes
+
+        available = {
+            always = no
+        }
+
+        visible = { 
+            always = no
+            NOT = { has_global_flag = BLR_cw_triggered }
+        }
+        cancel_trigger = { has_global_flag = BLR_cw_triggered }
+        modifier = {
+        }
+        days_remove = 21
+        remove_effect = {
+            custom_effect_tooltip = BLR_reinforced_nkvd_units_ttp
+            hidden_effect = {
+                activate_decision = BLR_moscow_support_deci
+            }
+        }
+    }
+    BLR_moscow_support_deci = {
+        name = BLR_comintern_support
+        icon = generic_decision
+        priority = 15
+        cost = 0
+        ai_will_do = {
+            factor = 500
+        }
+        fire_only_once = yes
+
+        available = {
+            always = no
+        }
+
+        visible = { 
+            always = no
+            NOT = { has_global_flag = BLR_cw_triggered }
+        }
+        cancel_trigger = { has_global_flag = BLR_cw_triggered }
+        modifier = {
+        }
+        days_remove = 21
+        remove_effect = {
+            custom_effect_tooltip = BLR_comintern_support_ttp
+            hidden_effect = {
+                activate_decision = BLR_commissars_deci
+            }
+        }
+    }
+    BLR_commissars_deci = {
+        name = BLR_commissars
+        icon = generic_decision
+        priority = 15
+        cost = 0
+        ai_will_do = {
+            factor = 500
+        }
+        fire_only_once = yes
+
+        available = {
+            always = no
+        }
+
+        visible = { 
+            always = no
+            NOT = { has_global_flag = BLR_cw_triggered }
+        }
+        cancel_trigger = { has_global_flag = BLR_cw_triggered }
+        modifier = {
+        }
+        days_remove = 21
+        remove_effect = {
+            custom_effect_tooltip = BLR_commissars_ttp
+            hidden_effect = {
+                activate_decision = BLR_airfields_deci
+            }
+        }
+    }
+    BLR_airfields_deci = {
+        name = BLR_secure_the_airfields
+        icon = generic_decision
+        priority = 15
+        cost = 0
+        ai_will_do = {
+            factor = 500
+        }
+        fire_only_once = yes
+
+        available = {
+            always = no
+        }
+
+        visible = { 
+            always = no
+            NOT = { has_global_flag = BLR_cw_triggered }
+        }
+        cancel_trigger = { has_global_flag = BLR_cw_triggered }
+        modifier = {
+        }
+        days_remove = 21
+        remove_effect = {
+            custom_effect_tooltip = BLR_secure_the_airfields_ttp
+            hidden_effect = {
+                activate_decision = BLR_tanks_deci
+            }
+        }
+    }
+    BLR_tanks_deci = {
+        name = BLR_secure_the_tank_depots
+        icon = generic_decision
+        priority = 15
+        cost = 0
+        ai_will_do = {
+            factor = 500
+        }
+        fire_only_once = yes
+
+        available = {
+             always = no
+        }
+
+        visible = { 
+            always = no
+            NOT = { has_global_flag = BLR_cw_triggered }
+        }
+        cancel_trigger = { has_global_flag = BLR_cw_triggered }
+        modifier = {
+        }
+        days_remove = 21
+        remove_effect = {
+            custom_effect_tooltip = BLR_secure_the_tank_depots_ttp
+            hidden_effect = {
+                activate_decision = BLR_divisions
+            }
+        }
+    }
+    BLR_divisions = {
+        name = BLR_secure_and_reinforce_loyal_units
+        icon = generic_decision
+        priority = 15
+        cost = 0
+        ai_will_do = {
+            factor = 500
+        }
+        fire_only_once = yes
+
+        available = {
+            always = no
+        }
+
+        visible = { 
+            always = no
+            NOT = { has_global_flag = BLR_cw_triggered }
+        }
+        cancel_trigger = { has_global_flag = BLR_cw_triggered }
+        modifier = {
+        }
+        days_remove = 21
+        remove_effect = {
+            custom_effect_tooltip = BLR_secure_and_reinforce_loyal_units_ttp
+        }
+    }
+}
+BLR_belarus_descisions = {
+    BLR_appoint_savinkov = {
+        icon = generic_decision
+        priority = 15
+        cost = 5
+        ai_will_do = {
+            factor = 500
+        }
+        fire_only_once = yes
+
+        available = {
+            BLR = { has_character = RUS_boris_savinkov }
+            amount_taken_ideas = {
+                amount < 3
+                slots = {
+                    political_advisor
+                }
+            }
+        }
+
+        visible = { 
+            has_country_flag = BLR_rus_supports
+            any_country = { RUS_boris_savinkov = { is_hired_as_advisor = no } }
+            BLR = { has_character = RUS_boris_savinkov }
+        }
+
+        modifier = {
+        }
+
+        complete_effect = {
+            activate_advisor = RUS_boris_savinkov_sic
+            add_command_power = 15
+            army_experience = 5
+        }
+    }
+
+##############                                      HEAVY SHIPMENT
+    BLR_polish_monthly_shipments_heavy1 = {
+        icon = generic_decision
+        priority = 14
+        cost = 25
+        ai_will_do = {
+            factor = 500
+        }
+        fire_only_once = yes
+
+        days_remove = 30
+
+        visible = { 
+        has_completed_focus = BLR_heavy_equipment_shipments
+            NOT = { 
+                has_country_flag = rifle_shipments_in_progress_heavy1
+                has_country_flag = rifle_shipments_in_progress_heavy2   
+                has_country_flag = rifle_shipments_in_progress_heavy3
+                has_country_flag = rifle_shipments_in_progress_heavy4
+                has_country_flag = rifle_shipments_in_progress_heavy5             
+            }
+        }
+
+        modifier = {
+            political_power_gain = -0.1
+            command_power_gain_mult = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        set_country_flag = rifle_shipments_in_progress_heavy1
+            add_equipment_to_stockpile = {
+                type = artillery_equipment
+                amount = 24
+                producer = POL
+            }
+            if = {
+                limit = {
+                    NOT = {
+                        has_dlc = "No Step Back"
+                    }
+                }
+                add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 20 producer = POL }
+            }
+            else = {
+                add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 5 producer = POL variant_name = "7TP jw" }
+                add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 15 producer = POL variant_name = "TKS" }
+                }
+            hidden_effect = {
+                activate_decision = BLR_polish_monthly_shipments_heavy1.1
+            }
+        }
+    }
+    BLR_polish_monthly_shipments_heavy1.1 = {
+        icon = generic_decision
+        priority = 14
+        cost = 25
+
+        fire_only_once = yes
+
+        days_remove = 30
+        visible = { has_country_flag = rifle_shipments_in_progress_heavy1 }
+
+        modifier = {
+            political_power_gain = -0.1
+            command_power_gain_mult = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = rifle_shipments_in_progress_heavy1
+        set_country_flag = rifle_shipments_in_progress_heavy2
+            add_equipment_to_stockpile = {
+                type = artillery_equipment
+                amount = 24
+                producer = POL
+            }
+            if = {
+                limit = {
+                    NOT = {
+                        has_dlc = "No Step Back"
+                    }
+                }
+                add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 20 producer = POL }
+            }
+            else = {
+                add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 5 producer = POL variant_name = "7TP jw" }
+                add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 15 producer = POL variant_name = "TKS" }
+                }
+            hidden_effect = {
+                activate_decision = BLR_polish_monthly_shipments_heavy1.2
+            }
+        }
+    }
+    BLR_polish_monthly_shipments_heavy1.2 = {
+        icon = generic_decision
+        priority = 14
+        cost = 25
+
+        fire_only_once = yes
+
+        days_remove = 30
+        visible = { has_country_flag = rifle_shipments_in_progress_heavy2 }
+
+        modifier = {
+            political_power_gain = -0.1
+            command_power_gain_mult = -0.15 #command_power_gain_mult = -0.20
+        }
+
+        complete_effect = {
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = rifle_shipments_in_progress_heavy2
+        set_country_flag = rifle_shipments_in_progress_heavy3
+            add_equipment_to_stockpile = {
+                type = artillery_equipment
+                amount = 24
+                producer = POL
+            }
+            if = {
+                limit = {
+                    NOT = {
+                        has_dlc = "No Step Back"
+                    }
+                }
+                add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 20 producer = POL }
+            }
+            else = {
+                add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 5 producer = POL variant_name = "7TP jw" }
+                add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 15 producer = POL variant_name = "TKS" }
+                }
+            hidden_effect = {
+                #activate_decision = BLR_polish_monthly_shipments_heavy1.3
+            }
+        }
+    }
+    ######################################
+    BLR_polish_monthly_shipments1 = {
+        icon = generic_decision
+        priority = 15
+        cost = 25
+        ai_will_do = {
+            factor = 500
+        }
+        fire_only_once = yes
+
+        days_remove = 30
+
+        visible = { 
+        has_completed_focus = BLR_polish_equipment_shipments
+            NOT = { 
+                has_country_flag = rifle_shipments_in_progress1
+                has_country_flag = rifle_shipments_in_progress2   
+                has_country_flag = rifle_shipments_in_progress3
+                has_country_flag = rifle_shipments_in_progress4
+                has_country_flag = rifle_shipments_in_progress5             
+            }
+        }
+
+        modifier = {
+            political_power_gain = -0.1
+            command_power_gain_mult = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        set_country_flag = rifle_shipments_in_progress1
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 500
+                producer = POL
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 15
+                producer = POL
+            }
+            hidden_effect = {
+                activate_decision = BLR_polish_monthly_shipments1.1
+            }
+        }
+    }
+
+    BLR_polish_monthly_shipments1.1 = {
+        icon = generic_decision
+        priority = 15
+        cost = 25
+
+        fire_only_once = yes
+
+        days_remove = 30
+        visible = { has_country_flag = rifle_shipments_in_progress1 }
+
+        modifier = {
+            political_power_gain = -0.1
+            command_power_gain_mult = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = rifle_shipments_in_progress1
+        set_country_flag = rifle_shipments_in_progress2
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 500
+                producer = POL
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 15
+                producer = POL
+            }
+            hidden_effect = {
+                activate_decision = BLR_polish_monthly_shipments1.2
+            }
+        }
+    }
+
+    BLR_polish_monthly_shipments1.2 = {
+        icon = generic_decision
+        priority = 15
+        cost = 25
+
+        fire_only_once = yes
+
+        days_remove = 30
+        visible = { has_country_flag = rifle_shipments_in_progress2 }
+
+        modifier = {
+            political_power_gain = -0.1
+            command_power_gain_mult = -0.15 #command_power_gain_mult = -0.20
+        }
+
+        complete_effect = {
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = rifle_shipments_in_progress2
+        set_country_flag = rifle_shipments_in_progress3
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 500
+                producer = POL
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 15
+                producer = POL
+            }
+            hidden_effect = {
+                activate_decision = BLR_polish_monthly_shipments1.3
+            }
+        }
+    }
+
+    BLR_polish_monthly_shipments1.3 = {
+        icon = generic_decision
+        priority = 15
+        cost = 25
+
+        fire_only_once = yes
+
+        days_remove = 30
+        visible = { has_country_flag = rifle_shipments_in_progress3 }
+
+        modifier = {
+            political_power_gain = -0.1
+            command_power_gain_mult = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = rifle_shipments_in_progress3
+        set_country_flag = rifle_shipments_in_progress4
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 500
+                producer = POL
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 15
+                producer = POL
+            }
+            hidden_effect = {
+                activate_decision = BLR_polish_monthly_shipments1.4
+            }
+        }
+    }
+
+    BLR_polish_monthly_shipments1.4 = {
+        icon = generic_decision
+        priority = 15
+        cost = 25
+
+        fire_only_once = yes
+
+        days_remove = 30
+        visible = { has_country_flag = rifle_shipments_in_progress4 }
+
+        modifier = {
+            political_power_gain = -0.1
+            command_power_gain_mult = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = rifle_shipments_in_progress4
+        set_country_flag = rifle_shipments_in_progress5
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 500
+                producer = POL
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 15
+                producer = POL
+            }
+            hidden_effect = {
+                activate_decision = BLR_polish_monthly_shipments1.5
+            }
+        }
+    }
+
+    BLR_polish_monthly_shipments1.5 = {
+        icon = generic_decision
+        priority = 15
+        cost = 25
+
+        fire_only_once = yes
+
+        days_remove = 30
+        visible = { has_country_flag = rifle_shipments_in_progress5 }
+
+        modifier = {
+            political_power_gain = -0.1
+            command_power_gain_mult = -0.15
+        }
+
+        complete_effect = {
+            hidden_effect = {
+
+            }
+        }
+
+        remove_effect = {
+        clr_country_flag = rifle_shipments_in_progress5
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 500
+                producer = POL
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 15
+                producer = POL
+            }
+            hidden_effect = {
+                #activate_decision = BLR_polish_monthly_shipments1.6
+            }
+        }
+    }
+}
