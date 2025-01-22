@@ -1,0 +1,68 @@
+spriteTypes = {
+	### RUS
+
+	SpriteType = {
+		name = "GFX_RUS_advanced_heavy_art_medium"
+		texturefile = "gfx/interface/technologies/SOV_advanced_heavy_tank_artillery.dds"
+	}
+
+	SpriteType = {
+		name = "GFX_RUS_advanced_heavy_td_medium"
+		texturefile = "gfx/interface/technologies/SOV_advanced_heavy_tank_destroyer.dds"
+	}
+
+	SpriteType = {
+		name = "GFX_RUS_advanced_light_art_medium"
+		texturefile = "gfx/interface/technologies/SOV_advanced_light_tank_artillery.dds"
+	}
+
+	SpriteType = {
+		name = "GFX_RUS_advanced_light_td_medium"
+		texturefile = "gfx/interface/technologies/SOV_advanced_light_tank_destroyer.dds"
+	}
+
+	SpriteType = {
+		name = "GFX_RUS_advanced_medium_spaa_medium"
+		texturefile = "gfx/interface/technologies/SOV_advanced_medium_tank_aa.dds"
+	}
+
+	SpriteType = {
+		name = "GFX_RUS_advanced_medium_td_medium"
+		texturefile = "gfx/interface/technologies/SOV_advanced_medium_tank_destroyer.dds"
+	}
+
+	SpriteType = {
+		name = "GFX_RUS_basic_heavy_art_medium"
+		texturefile = "gfx/interface/technologies/SOV_basic_heavy_tank_artillery.dds"
+	}
+
+	SpriteType = {
+		name = "GFX_RUS_basic_light_td_medium"
+		texturefile = "gfx/interface/technologies/SOV_basic_light_tank_destroyer.dds"
+	}
+
+	SpriteType = {
+		name = "GFX_RUS_basic_medium_spaa_medium"
+		texturefile = "gfx/interface/technologies/SOV_basic_medium_tank_aa.dds"
+	}
+
+	SpriteType = {
+		name = "GFX_RUS_improved_light_art_medium"
+		texturefile = "gfx/interface/technologies/SOV_improved_light_tank_artillery.dds"
+	}
+
+	SpriteType = {
+		name = "GFX_RUS_improved_light_td_medium"
+		texturefile = "gfx/interface/technologies/SOV_improved_light_tank_destroyer.dds"
+	}
+
+	SpriteType = {
+		name = "GFX_RUS_improved_medium_art_medium"
+		texturefile = "gfx/interface/technologies/SOV_improved_medium_tank_artillery.dds"
+	}
+
+	SpriteType = {
+		name = "GFX_RUS_improved_medium_td_medium"
+		texturefile = "gfx/interface/technologies/SOV_improved_medium_tank_destroyer.dds"
+	}
+}

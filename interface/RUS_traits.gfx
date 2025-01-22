@@ -1,0 +1,22 @@
+spriteTypes = {	#
+	spriteType = {
+		name = "GFX_trait_trait_rus_badge_1st_kuban"
+		texturefile = "gfx/interface/traits/personal/trait_BALTIC_ex_russian.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_trait_trait_rus_st_nicholas"
+		texturefile = "gfx/interface/traits/personal/trait_BALTIC_ex_russian.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_trait_trait_rus_st_george"
+		texturefile = "gfx/interface/traits/personal/trait_BALTIC_ex_russian.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_trait_trait_artillery_leader"
+		texturefile = "gfx/interface/traits/scientist_traits/scientist_trait_artillery_specialist.dds"
+		legacy_lazy_load = no
+	}
+}
