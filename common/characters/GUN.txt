@@ -1,0 +1,437 @@
+characters={
+
+	GUN_chen_jitang={
+		name=GUN_chen_jitang
+		portraits={
+			army={
+				large=GFX_portrait_GUN_chen_jitang
+				small=GFX_portrait_GUN_chen_jitang_small
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = GUN_chen_jitang
+			allowed = {
+				original_tag = GUN
+			}
+			traits = {
+				army_chief_defensive_2
+			}
+				cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
+		country_leader={
+			ideology=despotism
+			desc = GUN_chen_jitang_desc
+			expire="1965.1.1.1"
+			id=-1
+			traits = {
+				king_of_the_skies
+			}
+		}
+		
+		corps_commander={
+			skill=3
+			attack_skill=2
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+
+	GUN_liu_peng={
+		name=GUN_liu_peng
+		portraits={
+			civilian={
+				large=GFX_portrait_GUN_liu_peng
+			}
+		}
+		country_leader={
+			ideology=conservatism
+			traits={ editor ideological_crusader }
+			expire="1943.1.1.12"
+			id=-1
+		}
+	}
+
+	GUN_zhang_lu={
+		name=GUN_zhang_lu
+		portraits={
+			civilian={
+				large=GFX_portrait_GUN_zhang_lu
+			}
+		}
+		country_leader={
+			ideology=leninism
+			traits={ dealbroker }
+			expire="1948.1.1.12"
+			id=-1
+		}
+	}
+
+	GUN_li_ting={
+		name=GUN_li_ting
+		portraits={
+			civilian={
+				large=GFX_portrait_GUN_li_ting
+			}
+		}
+		country_leader={
+			ideology=rexism
+			traits={ compassionate_gentleman }
+			expire="1953.1.1.12"
+			id=-1
+		}
+	}
+
+
+	### THEORISTS ###
+
+	# Claire Lee Chennault is in shared file
+
+	GUN_yu_hanmou={
+		name=GUN_yu_hanmou
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_4"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = GUN_yu_hanmou
+			ledger = army
+			allowed = {
+				original_tag = GUN
+			}
+			
+			traits = {
+				military_theorist
+			}
+		}
+	}
+
+	GUN_bai_yeung={
+		name=GUN_bai_yeung
+		portraits={
+			army={
+				small="GFX_idea_generic_air_asia_2"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = GUN_bai_yeung
+			ledger = air
+			allowed = {
+				original_tag = GUN
+			}
+			
+			traits = {
+				air_warfare_theorist
+			}
+		}
+	}
+
+	GUN_heng_lo={
+		name=GUN_heng_lo
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_asia_1"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = GUN_heng_lo
+			ledger = navy
+			allowed = {
+				original_tag = GUN
+			}
+			
+			traits = {
+				naval_theorist
+			}
+		}
+	}
+
+
+	### ARMY CHIEFS ###
+
+	# Alexander von Falkenhausen in shared file
+
+	# Chen Jitang is up there in this file along with other Unit and Country Leaders
+
+	GUN_huang_shaohong={
+		name=GUN_huang_shaohong
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_1"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = GUN_huang_shaohong
+			allowed = {
+				original_tag = GUN
+			}
+			traits = {
+				army_chief_offensive_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+
+	### NAVY CHIEFS ###
+
+	GUN_huo_duyi={
+		name=GUN_huo_duyi
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_asia_1"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = GUN_huo_duyi
+			allowed = {
+				original_tag = GUN
+			}
+			traits = {
+				navy_chief_naval_aviation_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	GUN_bai_chongxi={
+		name=GUN_bai_chongxi
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_asia_3"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = GUN_bai_chongxi
+			allowed = {
+				original_tag = GUN
+			}
+			traits = {
+				navy_chief_reform_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+
+	### AIR CHIEFS ###
+
+	# Claire Lee Chennault is in shared file
+
+	GUN_wang_shuming={
+		name=GUN_wang_shuming
+		portraits={
+			army={
+				small="GFX_idea_generic_air_asia_1"
+			}
+		}
+		advisor={
+			slot = air_chief
+			idea_token = GUN_wang_shuming
+			allowed = {
+				original_tag = GUN
+			}
+			traits = {
+				air_chief_ground_support_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	GUN_niu_keung={
+		name=GUN_niu_keung
+		portraits={
+			army={
+				small="GFX_idea_generic_air_asia_2"
+			}
+		}
+		advisor={
+			slot = air_chief
+			idea_token = GUN_niu_keung
+			allowed = {
+				original_tag = GUN
+			}
+			traits = {
+				air_chief_safety_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+
+	### MILITARY HIGH COMMAND ###
+
+	GUN_yang_hulin={
+		name=GUN_yang_hulin
+		portraits={
+			army={
+				small="GFX_idea_generic_air_asia_2"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = GUN_yang_hulin
+			ledger = air
+			allowed = {
+				original_tag = GUN
+			}
+			traits = {
+				air_air_superiority_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	GUN_do_liang={
+		name=GUN_do_liang
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_1"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = GUN_do_liang
+			ledger = army
+			allowed = {
+				original_tag = GUN
+			}
+			traits = {
+				army_armored_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	GUN_teng_qingshan={
+		name=GUN_teng_qingshan
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_5"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = GUN_teng_qingshan
+			ledger = army
+			allowed = {
+				original_tag = GUN
+			}
+			traits = {
+				army_regrouping_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	GUN_zha_zemin={
+		name=GUN_zha_zemin
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_asia_2"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = GUN_zha_zemin
+			ledger = navy
+			allowed = {
+				original_tag = GUN
+			}
+			traits = {
+				navy_screen_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+
+	### POLITICAL ADVISORS ###
+
+	# Dai Li in shared file
+	# T.V. Soong in shared file
+	# Deng Xiaoping in shared file
+	# Kang Sheng in shared file
+	# Luo Ruiqing in shared file
+
+	GUN_li_jishen={
+		name=GUN_li_jishen
+		portraits={
+			army={
+				small="GFX_idea_generic_political_advisor_asia_2"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = GUN_li_jishen
+			allowed  = {
+				original_tag  = GUN
+			}
+			traits  = {
+				smooth_talking_charmer 
+			}
+		}
+	}
+
+	GUN_lei_zhong={
+		name=GUN_lei_zhong
+		portraits={
+			army={
+				small="GFX_idea_generic_political_advisor_asia_3"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = GUN_lei_zhong
+			allowed  = {
+				original_tag  = GUN
+			}
+			traits  = {
+				popular_figurehead 
+			}
+		}
+	}
+}

@@ -1,0 +1,47 @@
+characters = {
+	BUK_alim_khan = { #Seyid Mir Muhammad Alim Khan
+		name = BUK_alim_khan
+		portraits = {
+			army = {
+				#small = "GFX_idea_BUK_alim_khan"
+				#large = "GFX_portrait_BUK_alim_khan"
+				large = "gfx/leaders/BUK/GFX_portrait_BUK_alim_khan.png"
+			}
+		}
+
+		country_leader = {
+			ideology = despotism
+			traits = {
+			}
+			expire = "1943.1.1.1"
+			id = -1
+		}
+
+		field_marshal = {
+			traits = { cavalry_officer politically_connected }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+			legacy_id = 0
+			visible = {
+			}
+		}
+	
+	}
+	BUK_polat_usmon = {
+		name = "Polat Usmon Khodzhayev" 
+		portraits = {
+			civilian = {
+				large = GFX_portrait_Polat_Usmon_Khodzhayev
+			}
+		}
+		country_leader = {
+			ideology = leninism
+			expire = "1944.1.1.1"
+			id = -1
+		}
+	}
+}
+	

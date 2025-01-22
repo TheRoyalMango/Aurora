@@ -1,0 +1,223 @@
+characters={
+	#---------------------------------------------------TAS
+	TAS_anarchist_commune = { # anarchist leader
+		name = RUS_anarchist_commune
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/AFS/portrait_anarchist_commune.dds"
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		country_leader = {
+			ideology = communist_anarchism #anarchist
+			traits = { 
+				anarcho_communist_council
+			}
+			id = -1
+		}
+	}
+	TAS_anarcho_commune = { # anarchist leader
+		name = RUS_anarchist_commune
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/AFS/portrait_anarchist_commune.dds"
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		country_leader = {
+			ideology = anarchist_communism #communist
+			traits = { 
+				anarcho_communist_council
+			}
+			id = -1
+		}
+	}
+	TAS_elected_commune = { # democratic leader
+		name = TAS_elected_commune
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/Greens/portrait_peasant_commune.dds"
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		country_leader = {
+			ideology = socialism 
+			traits = { 
+				peasant_assembly
+			}
+			id = -1
+		}
+	}
+	TAS_white_army_junta = { # neutrality leader
+		name = TAS_white_army_junta
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_SOV_white_transitionary_council"
+			}
+		}
+		country_leader = {
+			ideology = oligarchism
+			traits = { 
+				local_junta_neutral
+				anti_communist
+			}
+			id = -1
+		}
+	}
+	TAS_white_army_fascist_junta = { # fascist leader
+		name = TAS_white_army_fascist_junta
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_SOV_white_transitionary_council"
+			}
+		}
+		country_leader = {
+			ideology = fascism_ideology
+			traits = { 
+				local_junta_fascist
+				anti_communist
+			}
+			id = -1
+		}
+	}
+	#---------------------------------------------------TOB
+	TOB_anarchist_commune = { # anarchist leader
+		name = RUS_anarchist_commune
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/AFS/portrait_anarchist_commune.dds"
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		country_leader = {
+			ideology = communist_anarchism #anarchist
+			traits = { 
+				anarcho_communist_council
+			}
+			id = -1
+		}
+	}
+	TOB_anarcho_commune = { # anarchist leader
+		name = RUS_anarchist_commune
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/AFS/portrait_anarchist_commune.dds"
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		country_leader = {
+			ideology = anarchist_communism #communist
+			traits = { 
+				anarcho_communist_council
+			}
+			id = -1
+		}
+	}
+	TOB_elected_commune = { # democratic leader
+		name = TAS_elected_commune
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/Greens/portrait_peasant_commune.dds"
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		country_leader = {
+			ideology = socialism 
+			traits = { 
+				peasant_assembly
+			}
+			id = -1
+		}
+	}
+	TOB_white_army_junta = { # neutrality leader
+		name = TAS_white_army_junta
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_SOV_white_transitionary_council"
+			}
+		}
+		country_leader = {
+			ideology = oligarchism
+			traits = { 
+				local_junta_neutral
+				anti_communist
+			}
+			id = -1
+		}
+	}
+	TOB_white_army_fascist_junta = { # fascist leader
+		name = TAS_white_army_fascist_junta
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_SOV_white_transitionary_council"
+			}
+		}
+		country_leader = {
+			ideology = fascism_ideology
+			traits = { 
+				local_junta_fascist
+				anti_communist
+			}
+			id = -1
+		}
+	}
+	TOB_vasily_zheltovsky = { # Vasily Maksimovich Zheltovsky 
+		name = TOB_vasily_zheltovsky
+		portraits = {
+			army = {
+				large = GFX_portrait_TOB_vasily_zheltovsky
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = TOB_vasily_zheltovsky_ac
+			traits = {
+				army_chief_drill_2
+			}
+			cost = 75
+			ai_will_do = {
+				base = 1.000
+			}
+		}
+		field_marshal = {
+			traits = { guerilla_fighter scavenger ranger ambusher inspirational_leader winter_specialist } #commando
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+			visible = {
+			}
+		}
+	}
+	TOB_vladimir_rodin = { # Vladimir Alekseevich Rodin 
+		name = TOB_vladimir_rodin
+		portraits = {
+			army = {
+				large = GFX_portrait_TOB_vladimir_rodin
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = TOB_vladimir_rodin_ac
+			traits = {
+				army_infantry_1
+			}
+			cost = 75
+			ai_will_do = {
+				base = 1.000
+			}
+		}
+		corps_commander = {
+			traits = { guerilla_fighter scavenger ranger ambusher winter_specialist }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+			visible = {
+			}
+		}
+	}
+}
+	

@@ -1,0 +1,57 @@
+characters = {
+	URC_vladimir_tolstov = { #Vladimir Sergeevich Tolstov 
+		name = URC_vladimir_tolstov
+		portraits = {
+			army = {
+				large = "gfx/leaders/URC/portrait_URC_vladimir_tolstov.png"
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = URC_vladimir_tolstov 
+			allowed = {
+			}
+			available = {
+			}				
+			traits = {
+				army_chief_morale_3
+			}
+			cost = 50
+			ai_will_do = {
+				base = 1.000
+			}
+		}
+		country_leader = {
+			ideology = despotism
+			traits = {
+				aurora_cossack_ataman
+				great_survivor
+				anti_communist
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+		country_leader = {
+			ideology = conservatism
+			traits = {
+				aurora_cossack_ataman
+				great_survivor
+				anti_communist
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+		corps_commander = {
+			traits = { cavalry_leader desert_fox winter_specialist war_hero commando scavenger }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 4
+			logistics_skill = 5
+			legacy_id = 0
+			visible = {
+				NOT = { has_government = communism }
+			}
+		}
+	}
+}

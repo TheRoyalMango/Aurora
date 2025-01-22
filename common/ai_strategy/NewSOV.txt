@@ -1,0 +1,86 @@
+NSOV_garrison_moscow = {
+    allowed = {
+        original_tag = SOV
+        has_government = anarchism
+        has_war_with = SOV
+    }
+    enable = {
+        original_tag = SOV
+        has_government = anarchism
+        has_war_with = SOV
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = put_unit_buffers
+        ratio = 0.2
+        states = {
+            219
+        }
+        #subtract_fronts_from_need = yes
+    }
+}
+
+NSOV_garrison_rostov = {
+    allowed = {
+        original_tag = SOV
+    }
+    enable = {
+        OR = {
+            has_war_with = RUS
+            has_war_with = KUB
+            has_war_with = DON
+            has_war_with = UKR
+        }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = put_unit_buffers
+        ratio = 0.05
+        states = {
+            218
+        }
+        #subtract_fronts_from_need = yes
+    }
+}
+
+NSOV_garrison_stravropol = {
+    allowed = {
+        original_tag = SOV
+    }
+    enable = {
+        original_tag = SOV
+        has_war_with = KUB
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = put_unit_buffers
+        ratio = 0.1
+        states = {
+            235
+        }
+        #subtract_fronts_from_need = yes
+    }
+}
+
+NSOV_defend_moscow = {
+    allowed = {
+        original_tag = SOV
+        has_government = anarchism
+        has_war_with = SOV
+    }
+    enable = {
+        original_tag = SOV
+        has_government = anarchism
+        has_war_with = SOV
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = front_unit_request
+        state = 219
+        value = 100
+    }
+}

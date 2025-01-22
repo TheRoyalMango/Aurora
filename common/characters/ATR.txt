@@ -1,0 +1,48 @@
+characters = {
+	ATR_nikolai_kashirin = { #Nikolai Dmitrievich Kashirin
+		name = ATR_nikolai_kashirin
+
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ATR/portrait_ATR_nikolai_kashirin.png"
+			}
+		}
+		country_leader = {
+			ideology = leninism
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				cossack_ataman
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = ATR_nikolai_kashirin
+			ledger = army
+			allowed = {
+				has_government = communism
+			}
+			traits = {
+				army_chief_offensive_1
+			}
+			cost = 50
+			ai_will_do = {
+				factor = 2.000
+			}
+		}
+		corps_commander = {
+			traits = { career_officer politically_connected cavalry_leader commando scavenger }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 4
+			visible = {
+				has_government = communism
+			}
+		}
+
+	}
+
+#
+}

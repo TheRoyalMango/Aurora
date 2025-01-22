@@ -1,0 +1,117 @@
+characters={
+	KHA_mikhail_torosov = { #Mikhail Grigorievich Torosov 
+		#traits = { }
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/KHA/KHA_mikhail_torosov.png"
+			}
+		}
+		country_leader = {
+			ideology = socialism #was a bolshevik, later repressed for speaking in favor of Khakass autonomy
+			expire = "1940.1.1.1"
+			id = -1
+			traits = { khakass_regionalist }
+		}
+		country_leader = {
+			ideology = leninism
+			expire = "1940.1.1.1"
+			id = -1
+			traits = { khakass_regionalist }
+		}
+		corps_commander = { #only just to give them *somebody*. plus it does say he fought against bandits
+			traits = { politically_connected ranger organizer }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			visible = {
+			}	
+		}
+	}
+
+	KHA_ivan_solovyov = { #Ivan Nikolaevich Solovyov (
+		#traits = { }
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/KHA/KHA_ivan_solovyov.png"
+				small = "gfx/interface/advisors/KHA/idea_KHA_ivan_solovyov.png"
+			}
+		}
+		country_leader = { 
+			ideology = moderatism #was for the tsar named his group after Grand Duke Michael Alexandrovich 
+			expire = "1940.1.1.1"
+			id = -1
+			traits = { partisans_organizer aurora_cossack_ataman }
+		}
+		country_leader = { 
+			ideology = conservatism #was also for the constituent assembly
+			expire = "1940.1.1.1"
+			id = -1
+			traits = { partisans_organizer aurora_cossack_ataman }
+		}
+
+		advisor = {
+			slot = army_chief
+			idea_token = KHA_ivan_solovyov_ac
+			traits = {
+				army_chief_morale_3
+			}
+			cost = 75
+			ai_will_do = {
+				base = 1.000
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = KHA_ivan_solovyov_hc
+			available = {
+			}				
+			traits = {
+				army_cavalry_2
+			}
+			cost = 75
+			ai_will_do = {
+				base = 2.000
+			}
+		}
+		corps_commander = { #
+			desc = KHA_ivan_solovyov_desc
+			traits = { ranger cavalry_leader scavenger guerilla_fighter trait_mountaineer war_hero }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+			visible = {
+				NOT = { has_government = communism }
+				NOT = { has_government = anarchism }
+			}	
+		}
+	}
+
+	KHA_anarchist_commune = { # anarchist leader
+		name = RUS_anarchist_commune
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/AFS/portrait_anarchist_commune.dds"
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		country_leader = {
+			ideology = anarchist_communism #communist
+			traits = { 
+				anarcho_communist_council
+			}
+			id = -1
+		}
+		country_leader = {
+			ideology = communist_anarchism #anarchist
+			traits = { 
+				anarcho_communist_council
+			}
+			id = -1
+		}
+	}
+}
+	

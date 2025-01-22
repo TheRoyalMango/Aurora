@@ -1,0 +1,466 @@
+RUS_rovs_dislikes_germany = {
+	allowed = {
+		tag = RUS
+	}
+	enable = {
+		has_idea = RUS_ROVS_idea
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = antagonize
+		id = "GER"
+		value = 75
+	}
+	ai_strategy = {
+		type = alliance
+		id = "GER"
+		value = -200
+	}
+}
+
+RUS_germany_dont_send_volunteers_to_rovs = {
+	allowed = {
+		tag = GER
+	}
+	enable = {
+		RUS = { has_idea = RUS_ROVS_idea }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+   	 	type = send_volunteers_desire
+    	id = RUS
+    	value = -150
+	}	
+}
+
+RUS_invade_soviets = {
+	allowed = {
+		tag = RUS
+	}
+	enable = {
+		has_war_with = SOV
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+    	type = invade
+    	id = SOV
+    	value = 5000
+	}
+}
+
+RUS_invade_soviets2 = {
+	allowed = {
+		tag = RUS
+	}
+	enable = {
+		has_war_with = SOV
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+	    type = front_control
+	    state_trigger = {
+	        is_controlled_by = SOV
+	 	}
+	    ratio = 0
+	    ordertype = invasion
+	    execution_type = rush
+	    manual_attack = yes
+	}
+}
+
+RUS_rush_rostov = {
+	allowed = {
+		tag = RUS
+	}
+	enable = {
+		OR = {
+			has_war_with = SOV
+			has_war_with = DON
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+    	type = front_control
+	    state_trigger = {
+	        state = 218
+	    }
+	    ratio = 0
+	    ordertype = front
+	    execution_type = rush
+	    manual_attack = yes
+	}
+}
+
+RUS_invade_kuban = {
+	allowed = {
+		tag = RUS
+	}
+	enable = {
+		has_war_with = KUB
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+    	type = invade
+    	id = KUB
+    	value = 5000
+	}
+}
+
+RUS_invade_kuban2 = {
+	allowed = {
+		tag = RUS
+	}
+	enable = {
+		has_war_with = KUB
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+	    type = front_control
+	    state_trigger = {
+	        is_controlled_by = KUB
+	 	}
+	    ratio = 0
+	    ordertype = invasion
+	    execution_type = rush
+	    manual_attack = yes
+	}
+}
+
+RUS_hate_soviets = {
+	allowed = {
+		tag = RUS
+	}
+	enable = {
+		OR = {
+			NOT = { has_government = communism }
+			NOT = { has_government = anarchism }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = "SOV"
+		value = 500
+	}
+}
+
+RUS_scorched_earth_german_front_baltics = {
+
+	allowed = { original_tag = RUS }
+	enable = {
+		has_war_with_major = yes
+		NOT = { # please don't spend PP on blowing up your own stuff when you need it for manpower
+			has_manpower < 500000
+			has_political_power < 200
+			OR = {
+				has_idea = volunteer_only
+				has_idea = limited_conscription
+				has_idea = extensive_conscription
+			}
+		}
+		count_triggers = {
+			amount = 4 #if 4 baltic states are owned by an enemy, burn the rest of the Baltics
+			814 = { CONTROLLER = { has_war_with = RUS } }
+			11 = { CONTROLLER = { has_war_with = RUS } }
+			189 = { CONTROLLER = { has_war_with = RUS } }
+			815 = { CONTROLLER = { has_war_with = RUS } }
+			190 = { CONTROLLER = { has_war_with = RUS } }
+			809 = { CONTROLLER = { has_war_with = RUS } }
+			810 = { CONTROLLER = { has_war_with = RUS } }
+			808 = { CONTROLLER = { has_war_with = RUS } }
+			811 = { CONTROLLER = { has_war_with = RUS } }
+			13 = { CONTROLLER = { has_war_with = RUS } }
+			812 = { CONTROLLER = { has_war_with = RUS } }
+			813 = { CONTROLLER = { has_war_with = RUS } }
+			191 = { CONTROLLER = { has_war_with = RUS } }
+		}
+	}
+
+	abort = {
+		OR = {
+			NOT = { has_war_with_major = yes }
+			strength_ratio = { tag = GER ratio > 1.5 }
+			date > 1944.1.1
+		}
+	}
+
+	ai_strategy = {
+		type = scorched_earth_prio
+		id = RUS
+		states = {
+			814
+			11
+			189
+			815
+			190
+			809
+			810
+			808
+			811
+			13
+			812
+			813
+			191
+		}
+	}
+}
+
+RUS_scorched_earth_german_front_Poland = {
+
+	allowed = { original_tag = RUS }
+	enable = {
+		has_war_with_major = yes
+		NOT = { # please don't spend PP on blowing up your own stuff when you need it for manpower
+			has_manpower < 500000
+			has_political_power < 200
+			OR = {
+				has_idea = volunteer_only
+				has_idea = limited_conscription
+				has_idea = extensive_conscription
+			}
+		}
+		count_triggers = {
+			amount = 2 #if 2 states are owned by an enemy, burn the rest of the area
+			784 = { CONTROLLER = { has_war_with = RUS } }
+			96 = { CONTROLLER = { has_war_with = RUS } }
+			95 = { CONTROLLER = { has_war_with = RUS } }
+			94 = { CONTROLLER = { has_war_with = RUS } }
+			93 = { CONTROLLER = { has_war_with = RUS } }
+			91 = { CONTROLLER = { has_war_with = RUS } }
+			89 = { CONTROLLER = { has_war_with = RUS } }
+
+		}
+	}
+
+	abort = {
+		OR = {
+			NOT = { has_war_with_major = yes }
+			strength_ratio = { tag = GER ratio > 1.5 }
+			date > 1944.1.1
+		}
+	}
+
+	ai_strategy = {
+		type = scorched_earth_prio
+		id = RUS
+		states = {
+			784
+			96
+			95
+			94
+			93
+			91
+			89
+		}
+	}
+}
+
+RUS_scorched_earth_german_front_north = {
+
+	allowed = { original_tag = RUS }
+	enable = {
+		has_war_with_major = yes
+		NOT = { # please don't spend PP on blowing up your own stuff when you need it for manpower
+			has_manpower < 500000
+			has_political_power < 200
+			OR = {
+				has_idea = volunteer_only
+				has_idea = limited_conscription
+				has_idea = extensive_conscription
+			}
+		}
+		count_triggers = {
+			amount = 2 #if 2 states are owned by an enemy, burn the rest of the area
+			208 = { CONTROLLER = { has_war_with = RUS } }
+			209 = { CONTROLLER = { has_war_with = RUS } }
+			210 = { CONTROLLER = { has_war_with = RUS } }
+			195 = { CONTROLLER = { has_war_with = RUS } }
+			263 = { CONTROLLER = { has_war_with = RUS } }
+			246 = { CONTROLLER = { has_war_with = RUS } }
+		}
+	}
+
+	abort = {
+		OR = {
+			NOT = { has_war_with_major = yes }
+			surrender_progress > 0.1
+			strength_ratio = { tag = GER ratio > 1.5 }
+			date > 1944.1.1
+		}
+	}
+
+	ai_strategy = {
+		type = scorched_earth_prio
+		id = RUS
+		states = {
+			208
+			209
+			210
+			195
+			263
+			246
+		}
+	}
+}
+
+RUS_scorched_earth_german_front_center = {
+
+	allowed = { original_tag = RUS }
+	enable = {
+		has_war_with_major = yes
+		NOT = { # please don't spend PP on blowing up your own stuff when you need it for manpower
+			has_manpower < 500000
+			has_political_power < 200
+			OR = {
+				has_idea = volunteer_only
+				has_idea = limited_conscription
+				has_idea = extensive_conscription
+			}
+		}
+		count_triggers = {
+			amount = 4 #if 4 states are owned by an enemy, burn the rest of the area
+			207 = { CONTROLLER = { has_war_with = RUS } }
+			206 = { CONTROLLER = { has_war_with = RUS } }
+			204 = { CONTROLLER = { has_war_with = RUS } }
+			194 = { CONTROLLER = { has_war_with = RUS } }
+			201 = { CONTROLLER = { has_war_with = RUS } }
+			199 = { CONTROLLER = { has_war_with = RUS } }
+			202 = { CONTROLLER = { has_war_with = RUS } }
+			193 = { CONTROLLER = { has_war_with = RUS } }
+			241 = { CONTROLLER = { has_war_with = RUS } }
+			242 = { CONTROLLER = { has_war_with = RUS } }
+			243 = { CONTROLLER = { has_war_with = RUS } }
+			224 = { CONTROLLER = { has_war_with = RUS } }
+		}
+	}
+
+	abort = {
+		OR = {
+			NOT = { has_war_with_major = yes }
+			strength_ratio = { tag = GER ratio > 1.5 }
+			date > 1944.1.1
+		}
+	}
+
+	ai_strategy = {
+		type = scorched_earth_prio
+		id = RUS
+		states = {
+			207
+			206
+			204
+			194
+			201
+			199
+			202
+			193
+			241
+			242
+			243
+			224
+		}
+	}
+}
+
+RUS_scorched_earth_german_front_moscow = {
+
+	allowed = { original_tag = RUS }
+	enable = {
+		has_war_with_major = yes
+		NOT = { # please don't spend PP on blowing up your own stuff when you need it for manpower
+			has_manpower < 500000
+			has_political_power < 200
+			OR = {
+				has_idea = volunteer_only
+				has_idea = limited_conscription
+				has_idea = extensive_conscription
+			}
+		}
+		count_triggers = {
+			amount = 1 #if 1 states are owned by an enemy, burn the rest of the area
+			219 = { CONTROLLER = { has_war_with = RUS } }
+			246 = { CONTROLLER = { has_war_with = RUS } }
+			242 = { CONTROLLER = { has_war_with = RUS } }
+			205 = { CONTROLLER = { has_war_with = RUS } }
+			223 = { CONTROLLER = { has_war_with = RUS } }
+
+		}
+	}
+
+	abort = {
+		OR = {
+			NOT = { has_war_with_major = yes }
+			strength_ratio = { tag = GER ratio > 1.5 }
+			date > 1944.1.1
+		}
+		controls_state = 220
+		controls_state = 224
+		controls_state = 243
+		controls_state = 207
+		controls_state = 210
+	}
+
+	ai_strategy = {
+		type = scorched_earth_prio
+		id = RUS
+		states = {
+			219
+			246
+			242
+			205
+			223
+		}
+	}
+}
+
+RUS_scorched_earth_german_front_stalingrad = {
+
+	allowed = { original_tag = RUS }
+	enable = {
+		has_war_with_major = yes
+		NOT = { # please don't spend PP on blowing up your own stuff when you need it for manpower
+			has_manpower < 500000
+			has_political_power < 200
+			OR = {
+				has_idea = volunteer_only
+				has_idea = limited_conscription
+				has_idea = extensive_conscription
+			}
+		}
+		count_triggers = {
+			amount = 1 #if 1 states are owned by an enemy, burn the rest of the area
+			217 = { CONTROLLER = { has_war_with = RUS } }
+			265 = { CONTROLLER = { has_war_with = RUS } }
+			245 = { CONTROLLER = { has_war_with = RUS } }
+			238 = { CONTROLLER = { has_war_with = RUS } }
+			829 = { CONTROLLER = { has_war_with = RUS } }
+
+		}
+	}
+
+	abort = {
+		OR = {
+			NOT = { has_war_with_major = yes }
+			strength_ratio = { tag = GER ratio > 1.5 }
+			date > 1944.1.1
+		}
+		controls_state = 218
+		controls_state = 228
+		controls_state = 260
+		controls_state = 239
+	}
+
+	ai_strategy = {
+		type = scorched_earth_prio
+		id = RUS
+		states = {
+			217
+			265
+			245
+			238
+			829
+		}
+	}
+}
+

@@ -1,0 +1,154 @@
+BYL_siege_homiel = {
+	allowed = {
+		tag = BYL
+	}
+	enable = {
+		has_war_with = BLR
+		241 = { CONTROLLER = { tag = BLR } }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+	    type = front_control
+	    state_trigger = {
+	       state = 241
+	    }
+	    ratio = 0
+	    ordertype = front
+	    execution_type = rush
+	    manual_attack = yes
+	}
+}
+
+LIT_attack_vilnius = {
+	allowed = {
+		tag = LIT
+	}
+	enable = {
+		has_war_with = RCL
+		784 = { CONTROLLER = { tag = RCL } }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+	    type = front_control
+	    state_trigger = {
+	       state = 784
+	    }
+	    ratio = 0
+	    ordertype = front
+	    execution_type = rush
+	    manual_attack = yes
+	}
+}
+
+BLR_scorched_earth_german_front = { 
+
+	allowed = { 
+		original_tag = BLR 
+	}
+
+	enable = {
+		has_war_with_major = yes
+		NOT = { # please don't spend PP on blowing up your own stuff when you need it for manpower
+			has_manpower < 100000
+			has_political_power < 200
+			OR = {
+				has_idea = volunteer_only
+				has_idea = limited_conscription
+				has_idea = extensive_conscription
+			}
+		}
+		count_triggers = {
+			amount = 2 #if 2 states are owned by an enemy, burn the rest of the Baltics
+			94 = { CONTROLLER = { has_war_with =  BLR } }
+			95 = { CONTROLLER = { has_war_with =  BLR } }
+			194 = { CONTROLLER = { has_war_with =  BLR } }
+			204 = { CONTROLLER = { has_war_with =  BLR } }
+			206 = { CONTROLLER = { has_war_with =  BLR } }
+			96 = { CONTROLLER = { has_war_with =  BLR } }
+			241 = { CONTROLLER = { has_war_with =  BLR } }
+			207 = { CONTROLLER = { has_war_with =  BLR } }
+			986 = { CONTROLLER = { has_war_with =  BLR } }
+		}
+	}
+
+	abort = {
+		OR = {
+			NOT = { has_war_with_major = yes }
+			strength_ratio = { tag = GER ratio > 1.5 }
+			date > 1944.1.1
+		}
+	}
+
+	ai_strategy = {
+		type = scorched_earth_prio
+		id = BLR
+		states = {
+			94
+			95
+			194
+			204
+			206
+			96
+			241
+			207
+			986
+		}
+	}
+}
+
+
+BYL_scorched_earth_german_front = {
+
+	allowed = { 
+		original_tag = BYL 
+	}
+
+	enable = {
+		has_war_with_major = yes
+		NOT = { # please don't spend PP on blowing up your own stuff when you need it for manpower
+			has_manpower < 100000
+			has_political_power < 200
+			OR = {
+				has_idea = volunteer_only
+				has_idea = limited_conscription
+				has_idea = extensive_conscription
+			}
+		}
+		count_triggers = {
+			amount = 2 #if 2 states are owned by an enemy, burn the rest of the Baltics
+			94 = { CONTROLLER = { has_war_with =  BYL } }
+			95 = { CONTROLLER = { has_war_with =  BYL } }
+			194 = { CONTROLLER = { has_war_with =  BYL } }
+			204 = { CONTROLLER = { has_war_with =  BYL } }
+			206 = { CONTROLLER = { has_war_with =  BYL } }
+			96 = { CONTROLLER = { has_war_with =  BYL } }
+			241 = { CONTROLLER = { has_war_with =  BYL } }
+			207 = { CONTROLLER = { has_war_with =  BYL } }
+			986 = { CONTROLLER = { has_war_with =  BYL } }
+		}
+	}
+
+	abort = {
+		OR = {
+			NOT = { has_war_with_major = yes }
+			strength_ratio = { tag = GER ratio > 1.5 }
+			date > 1944.1.1
+		}
+	}
+
+	ai_strategy = {
+		type = scorched_earth_prio
+		id = BYL
+		states = {
+			94
+			95
+			194
+			204
+			206
+			96
+			241
+			207
+			986
+		}
+	}
+}

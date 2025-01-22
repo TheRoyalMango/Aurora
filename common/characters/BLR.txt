@@ -1,0 +1,1154 @@
+characters = {
+	BLR_stanislaw_bulk = { #Stanisław Bułak-Bałachowicz
+		name = BLR_stanislaw_bulk
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BLR/GFX_portrait_stanislav_bulak_civilian.png"
+			}
+			army = {
+				large = "gfx/leaders/BLR/GFX_portrait_stanislav_bulak.png"
+				small=GFX_idea_BLR_stanislaw_bulk
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = BLR_stanislaw_bulk
+			available = {
+				has_country_flag = BLR_generals_return
+				NOT = {
+					has_country_leader = {
+						character = BLR_stanislaw_bulk
+						ruling_only = yes
+					}
+				}
+			}
+			allowed = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+			}
+			traits = {
+				father_bulak
+			}
+			ai_will_do = {
+				base = 1.000
+			}
+			cost = 150
+			#can_be_fired = no
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = stanislaw_bulk 
+			allowed = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+			}
+			available = {
+				has_country_flag = BLR_generals_return
+			}				
+			traits = {
+				army_chief_organizational_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
+		country_leader = {
+			ideology = liberalism
+			traits = { 
+				father_bulak
+				#hardened_officer 
+				#indomitable_perseverance
+				#popular_figurehead2
+				#jewish_ta_condem
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+
+		country_leader = {
+			ideology = moderatism
+			traits = { 
+				father_bulak
+				#hardened_officer 
+				#indomitable_perseverance
+				#popular_figurehead2
+				#SWI_guisan_leader_trait
+				#jewish_ta_condem
+				#generallissimo
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+
+		
+		field_marshal = {  #some removed due to too much clutter
+			traits = {  
+				#scavenger
+				cavalry_leader
+				commando
+				ambusher
+				guerilla_fighter
+				media_personality
+			}
+			skill = 4
+			attack_skill = 4
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 4
+			visible = {
+				OR = {
+					has_country_flag = BLR_generals_return
+					tag = RUS
+				}
+			}
+		}
+	}
+
+	BLR_anarchist_commune = { # anarchist leader
+		name = BLR_anarchist_commune
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/AFS/portrait_anarchist_commune.dds"
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+
+		country_leader = {
+			ideology = anarchist_communism #communist
+			traits = { 
+				anarcho_communist_council
+			}
+			id = -1
+		}
+
+		country_leader = {
+			ideology = communist_anarchism #anarchist
+			traits = { 
+				anarcho_communist_council
+			}
+			id = -1
+		}
+	}
+
+	BLR_anarchist_commune_theorists = { #
+		name = BLR_anarchist_commune
+		portraits = {
+			civilian = {
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = BLR_anarchist_commune_theorists
+			ledger = military
+			allowed = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			visible = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			available = {
+				has_country_flag = BLR_anarchists
+			}
+			traits = { council_of_theorists }
+		}
+	}
+
+
+	BLR_anarchist_commune_defensive = { #
+		name = BLR_anarchist_commune
+		portraits = {
+			civilian = {
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = BLR_anarchist_commune_defensive
+			ledger = military
+			allowed = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			visible = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			available = {
+				has_country_flag = BLR_anarchists
+			}
+			traits = { army_chief_defensive_2 }
+		}
+	}
+
+	BLR_anarchist_commune_offensive = { #
+		name = BLR_anarchist_commune
+		portraits = {
+			civilian = {
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = BLR_anarchist_commune_defensive
+			ledger = military
+			allowed = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			visible = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			available = {
+				has_country_flag = BLR_anarchists
+			}
+			traits = { army_chief_offensive_2 }
+		}
+	}
+
+	BLR_anarchist_commune_organizational = { #
+		name = BLR_anarchist_commune
+		portraits = {
+			civilian = {
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = BLR_anarchist_commune_organizational
+			ledger = military
+			allowed = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			visible = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			available = {
+				has_country_flag = BLR_anarchists
+			}
+			traits = { army_chief_organizational_2 }
+		}
+	}
+
+
+	BLR_air_safety_aviation_council = { # Anarchist
+		name=BLR_air_safety_aviation_council
+		portraits={
+			army={
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		advisor={	
+			slot = air_chief
+			idea_token = BLR_air_safety_aviation_council
+			ledger = air
+			allowed = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			visible = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			available = {
+				has_country_flag = BLR_anarchists
+			}
+			traits = { air_chief_safety_2 }
+			cost = 100
+		}
+	}
+
+	BLR_all_weather_aviation_council = { # Anarchist
+		name=BLR_all_weather_aviation_council
+		portraits={
+			army={
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		advisor={
+			slot = air_chief
+			idea_token = BLR_all_weather_aviation_council
+			ledger = air
+			allowed = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			visible = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			available = {
+				has_country_flag = BLR_anarchists
+			}
+			traits = { air_chief_all_weather_2 }
+			cost = 100
+		}
+	}
+
+
+	BLR_commerce_raiding_naval_council = { # Anarchist
+		name=BLR_commerce_raiding_naval_council
+		portraits={
+			army={
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = BLR_commerce_raiding_naval_council
+			ledger = navy
+			allowed = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			visible = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			available = {
+				has_country_flag = BLR_anarchists
+			}
+			traits = { navy_chief_commerce_raiding_2 }
+			cost = 100
+		}
+	}
+
+	BLR_reform_naval_council = { # Anarchist
+		name=BLR_reform_naval_council
+		portraits={
+			army={
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = BLR_reform_naval_council
+			ledger = navy
+			allowed = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			visible = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			available = {
+				has_country_flag = BLR_anarchists
+			}
+			traits = { navy_chief_reform_2 }
+			cost = 100
+		}
+	}
+
+
+	BLR_infantry_military_council = { # Anarchist
+		name=BLR_infantry_military_council
+		portraits={
+			army={
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = BLR_infantry_military_council
+			ledger = army
+			allowed = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			visible = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			available = {
+				has_country_flag = BLR_anarchists
+			}
+			traits = { army_infantry_3 }
+			cost = 200
+		}
+	}
+
+	BLR_army_regrouping_military_council = { # Anarchist
+		name=BLR_army_regrouping_military_council
+		portraits={
+			army={
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = BLR_army_regrouping_military_council
+			ledger = army
+			allowed = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			visible = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			available = {
+				has_country_flag = BLR_anarchists
+			}
+			traits = { army_regrouping_2 }
+			cost = 100
+		}
+	}
+
+	BLR_concealment_military_council = { # Anarchist
+		name=BLR_concealment_military_council
+		portraits={
+			army={
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = BLR_concealment_military_council
+			ledger = army
+			allowed = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			visible = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			available = {
+				has_country_flag = BLR_anarchists
+			}
+			traits = { army_concealment_2 }
+			cost = 100
+		}
+	}
+
+	BLR_naval_strike_aviation_council = { # Anarchist
+		name=BLR_naval_strike_aviation_council
+		portraits={
+			army={
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = BLR_naval_strike_aviation_council
+			ledger = navy
+			allowed = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			visible = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			available = {
+				has_country_flag = BLR_anarchists
+			}
+			traits = { air_naval_strike_2 }
+			cost = 100
+		}
+	}
+
+	BLR_close_air_support_aviation_council = { # Anarchist
+		name=BLR_close_air_support_aviation_council
+		portraits={
+			army={
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = BLR_close_air_support_aviation_council
+			ledger = air
+			allowed = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			visible = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			available = {
+				has_country_flag = BLR_anarchists
+			}
+			traits = { air_close_air_support_2 }
+			cost = 100
+		}
+	}
+
+	BLR_logistics_naval_council = { # Anarchist
+		name=BLR_logistics_naval_council
+		portraits={
+			army={
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = BLR_logistics_naval_council
+			ledger = navy
+			allowed = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			visible = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			available = {
+				has_country_flag = BLR_anarchists
+			}
+			traits = { navy_fleet_logistics_2 }
+			cost = 100
+		}
+	}
+
+	BLR_anti_submarine_naval_council = { # Anarchist
+		name=BLR_anti_submarine_naval_council
+		portraits={
+			army={
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = BLR_anti_submarine_naval_council
+			ledger = navy
+			allowed = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			visible = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				has_country_flag = BLR_anarchists
+			}
+			available = {
+				has_country_flag = BLR_anarchists
+			}
+			traits = { navy_anti_submarine_2 }
+			cost = 100
+		}
+	}
+
+	BLR_Panteleimon_Ponomarenko = { 
+		name = BLR_panteleimon_ponomarenko
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BLR/Portrait_Belarus_Panteleimon_Ponomarenko.png"
+			}
+		}
+		allowed_civil_war = {
+			has_government = communism
+		}
+		field_marshal = { 
+			traits = {  
+				scavenger
+				ambusher
+				guerilla_fighter
+			}
+			skill = 3
+			attack_skill = 4
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 3
+			visible = {
+				has_government = communism
+			}
+		}
+		country_leader = {
+			ideology = leninism
+			traits = { }#partisans_organizer #famous partisan leadfer in ww2, maybe can gain this trait via focus.
+			expire = "1953.3.1.1"
+			id = -1
+		}
+	}
+
+	BLR_branislau_taraskievic = {
+		name = BLR_branislau_taraskievic
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BLR/Portrait_BLR_Branislau_Taraskievic.png"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+		}
+		#country_leader = {
+		#	ideology = socialism
+		#}
+	}
+                                                                                       
+
+	BLR_Vasil_Zacharka = {
+		name = "Vasil Zacharka"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BLR/Portrait_Belarus_Vasil_Zacharka.png"
+			}
+		}
+		country_leader = {
+			ideology = socialism
+			traits = { financial_expert }
+			expire = "1953.3.1.1"
+			id = -1
+		}
+	}
+	BLR_Adam_Stankievic = {
+		name = BLR_adam_stankievic
+		#name = "Adam Stankievič"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BLR/Portrait_WHR_Adam_Stankievic.png"
+			}
+		}
+		country_leader = {
+			ideology = socialism
+			traits = {  }
+			expire = "1953.3.1.1"
+			id = -1
+		}
+	}
+
+	BLR_vasily_korzh = {
+		name = SOV_vasily_korzh
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_vasily_korzh"
+				small = "GFX_portrait_SOV_vasily_korzh_small"
+			}
+		}
+		allowed_civil_war = {
+			has_government = communism
+		}
+		corps_commander = {
+			traits = { trait_cautious war_hero trickster ambusher guerilla_fighter scavenger }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 3
+			legacy_id = 0
+			visible = {
+				has_government = communism
+			}
+		}
+	}
+
+	BLR_pyotr_masherov = { #Pyotr Masherov
+		name = BLR_pyotr_masherov
+		portraits = {
+			army = {
+				large = "GFX_portrait_BLR_pyotr_masherov"
+				small = "GFX_portrait_BLR_pyotr_masherov_small"
+			}
+		}
+		allowed_civil_war = {
+			has_government = communism
+		}
+		corps_commander = {
+			traits = { trickster guerilla_fighter scavenger politically_connected }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 3
+			legacy_id = 0
+			visible = {
+				has_government = communism
+			}
+		}
+	}
+	
+	BLR_Francisak_Kusal= { 
+		name = "Francisak Kusal"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BLR/Portrait_WHR_Francisak_Kusal.png"
+				small = "gfx/interface/ideas/idea_WHR_Francisak_Kusal.dds"
+			}
+		}
+		corps_commander = {
+			traits = {
+				politically_connected
+				infantry_officer
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+			visible = {
+				has_country_flag = BLR_generals_return
+			}
+		}
+	}
+	BLR_Hasan_Kanapatski= { 
+		name = "Hasan Kanapatski"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BLR/Portrait_WHR_Hasan_Kanapatski.png"
+				small = "gfx/interface/ideas/idea_WHR_Hasan_Kanapatski.dds"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = Hasan_Kanapatski
+			allowed = {
+				OR = {
+					original_tag = BLR
+					original_tag = BYL
+				}
+				always = no #too many
+			}
+			available = {
+				has_country_flag = BLR_generals_return
+			}				
+			traits = {
+				army_artillery_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
+		corps_commander = {
+		traits = {
+			infantry_officer
+			career_officer
+			
+		}
+		skill = 2
+		attack_skill = 2
+		defense_skill = 3
+		planning_skill = 2
+		logistics_skill = 2
+			visible = {
+				has_country_flag = BLR_generals_return
+			}
+		}
+	}
+
+	BLR_jozef_bulak = {  #Józef Bułak-Bałachowicz
+		name = "Józef Bułak-Bałachowicz"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BLR/GFX_portrait_jozef_bulak.png"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = BLR_jozef_bulak
+			allowed = {
+				original_tag = BLR
+			}
+			available = {
+				has_country_flag = BLR_generals_return
+			}				
+			traits = {
+				army_cavalry_1
+			}
+			cost = 100
+			ai_will_do = {
+				base = 2.000
+			}
+		}
+		corps_commander = {
+			traits = {
+				infantry_officer
+				cavalry_leader
+				ambusher
+				guerilla_fighter
+			}
+		skill = 2
+		attack_skill = 2
+		defense_skill = 2
+		planning_skill = 2
+		logistics_skill = 2
+			visible = {
+				has_country_flag = BLR_generals_return
+			}
+		}
+	}
+		
+	BLR_Mikalaj_Janicki= { 
+		name = "Mikalaj Janicki"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BLR/Portrait_WHR_Mikalaj_Janicki.png"
+				small = "gfx/interface/ideas/idea_WHR_Mikalaj_Janicki.dds"
+			}
+		}
+		corps_commander = {
+			traits = {
+				infantry_officer
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+			visible = {
+				has_country_flag = BLR_generals_return
+			}
+		}
+	}
+
+	BLR_pavel_zhavryd= {
+		name = "Pavel Zhavryd"
+		portraits = {
+			army = {
+				large=GFX_portrait_BLR_pavel_zhavryd
+				small=GFX_idea_BLR_pavel_zhavryd
+			}
+		}
+		corps_commander = {
+			traits = {
+				war_hero
+				scavenger
+				militias_officer
+				#commando
+				ambusher
+				guerilla_fighter		
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 4
+			visible = {
+				has_country_flag = BLR_generals_return
+			}
+		}
+	}
+	BLR_Kanstancin_Jezavitau= { 
+		name = "Kanstancin Jezavitau"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BLR/Portrait_WHR_Kanstancin_Jezavitau.png"
+				small = "gfx/interface/ideas/idea_WHR_Kanstancin_Jezavitau.dds"
+			}
+			#army = {
+			#	large = "gfx/leaders/BLR/Portrait_BLR_konstantin_yezavitau.png"
+			#}
+			#civilian = {
+			#	large = "gfx/leaders/BLR/Portrait_BLR_konstantin_yezavitau_civ.png"
+			#}
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = BLR_Kanstancin_Jezavitau
+			available = {
+				has_country_flag = BLR_generals_return
+			}
+			traits = {
+				education_reformer
+			}
+			ai_will_do = {
+				base = 1.000
+			}
+			cost = 150
+			#can_be_fired = no
+		}
+		country_leader = {
+			ideology = socialism
+			traits = { education_reformer }
+			expire = "1953.3.1.1"
+			id = -1
+		}
+		corps_commander = {
+			traits = {
+				charismatic_leader
+				career_officer
+				infantry_officer
+				politically_connected
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 3
+			visible = {
+				has_country_flag = BLR_generals_return
+			}
+		}
+	}
+
+	BLR_alexander_ruzhantsov = { #Alexander Ruzhantsov
+		name = BLR_alexander_ruzhantsov
+		portraits = {
+			army = {
+				large = "gfx/leaders/BLR/Portrait_BLR_alexander_ruzhantsov.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = BLR_alexander_ruzhantsov
+			available = {
+				has_country_flag = BLR_generals_return
+			}
+			traits = {
+				editor
+			}
+			ai_will_do = {
+				base = 1.000
+			}
+			cost = 150
+			#can_be_fired = no
+		}
+		corps_commander = {
+			traits = {
+				inspirational_leader
+				infantry_officer
+			}
+			skill = 1
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+			visible = {
+				has_country_flag = BLR_generals_return
+			}
+		}
+	}
+		
+	BLR_Paval_Vent= { 
+		name = "Paval Vent"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BLR/Portrait_WHR_Paval_Vent.png"
+				small = "gfx/interface/ideas/idea_WHR_Paval_Vent.dds"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = BLR_Paval_Vent
+			ledger = army
+			allowed = {
+				has_country_flag = BLR_generals_return
+			}
+			available = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+				has_country_flag = BLR_generals_return
+			}	
+			traits = {
+				army_artillery_2
+			}
+			#cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		corps_commander = {
+			traits = {
+				trait_engineer
+				career_officer
+				bearer_of_artillery
+				cavalry_officer #combined_arms_expert #went to the russian military automobile school
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 3
+			visible = {
+				has_country_flag = BLR_generals_return
+			}
+		}
+	}
+	BLR_Timokh_Khvedashchenya = { 
+		name = "Tomokh Khvedashchenya"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BLR/Portrait_WHR_Timokh_Khvedashchenya.png"
+				small = "gfx/interface/ideas/idea_WHR_Timokh_Khvedashchenya.dds"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = BLR_Timokh_Khvedashchenya
+			ledger = army
+			allowed = {
+				has_country_flag = BLR_generals_return
+			}
+			available = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+				has_country_flag = BLR_generals_return
+			}	
+			traits = {
+				army_infantry_1
+			}
+			#cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		corps_commander = {
+			traits = {
+				guerilla_fighter
+				inspirational_leader
+				swamp_fox
+				ambusher
+				infantry_leader
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 3
+			visible = {
+				has_country_flag = BLR_generals_return
+			}
+		}
+	}
+	BLR_Vital_Kazlou = { 
+		name = "Vital Kazlou"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BLR/Portrait_WHR_Vital_Kazlou.png"
+				small = "gfx/interface/ideas/idea_WHR_Vital_Kazlou.dds"
+			}
+		}
+		corps_commander = { #	
+			traits = {
+				trait_cautious
+			}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+			visible = {
+				ROOT = { has_country_flag = BLR_generals_return }
+			}
+		}
+	}
+
+#FROM VANILLA (can cause errors if removed)
+
+	BLR_radislau_astrouski = {
+		name = BLR_radislau_astrouski
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BLR/Portrait_Belarus_Radaslau_Astrouski.png"
+			}
+		}
+		country_leader = {
+			ideology = fascism_ideology
+			expire = "1965.3.1"
+			id = -1
+			traits = { anti_communist conservative_nationalist }
+		}
+		country_leader = {
+			ideology = despotism
+			expire = "1965.3.1"
+			id = -1
+			traits = { anti_communist conservative_nationalist }
+		}
+	}
+}

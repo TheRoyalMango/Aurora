@@ -1,0 +1,55 @@
+characters = { #
+
+#ATTENTION! two other tereks, Rogozhin and Vdovenko, are in the RUS character file. Vdov is the terek leader once RUS sends him there
+#thanks for your attention
+
+	RUS_lazar_bicherakhov = {  #Lazar Fedorovich Bicherakhov, republican. did not go the Crimea
+	#"Major General L. F. Bicherakhov, known for his republican views, did not receive a position in the Russian Army and in 1919 emigrated to Great Britain"
+		name = RUS_lazar_bicherakhov
+		portraits = {
+			civilian = {
+				large = "GFX_TER_Lazar_Bicherakhov"
+				large = "gfx/leaders/TER/portrait_TER_Lazar_Bicherakhov.png"
+			}
+		}
+
+		country_leader = {
+			ideology = liberalism
+			traits = { 
+				caucasian_republican_general #ataman equivelent
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+
+		corps_commander  = { #field_marshal if  adding to DON
+			traits = {  
+				career_officer
+				cavalry_leader
+				scavenger
+				trait_mountaineer
+				hill_fighter
+			}
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+				NOT = { has_government = fascism }
+				OR = {
+					AND = {
+						original_tag = RUS 
+						has_country_flag = RUS_invite_the_exiles_i
+					}
+					original_tag = TER 
+					original_tag = KUB 
+				}
+			}
+		}
+	}
+
+#
+}

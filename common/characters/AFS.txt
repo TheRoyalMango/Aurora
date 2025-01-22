@@ -1,0 +1,141 @@
+characters = {
+	AFS_ivan_novoselov = { #Ivan Panfilovich Novoselov
+		name = AFS_ivan_novoselov
+		portraits = {
+			army = {
+				#small = "gfx/interface/advisors/AFS/AFS_ivan_novoselov.png"
+			}
+			civilian = {
+				large = "gfx/leaders/AFS/portrait_AFS_ivan_novoselov.png"
+			}
+		}
+		field_marshal = { #was not a military man like Rogov, so less skill level.
+			desc = AFS_ivan_novoselov_desc
+			traits = { guerilla_fighter scavenger ranger ambusher winter_specialist }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 4
+		}
+		country_leader = { #non-aligned
+			desc = AFS_ivan_novoselov
+			ideology = anarchism
+			traits = { gifted_orator partisans_organizer }
+		}
+		country_leader = { #anarchist 
+			desc = AFS_ivan_novoselov
+			ideology = communist_anarchism
+			traits = { gifted_orator partisans_organizer }
+		} 
+		#could remove partisans_organizer from Novoselov to balance against Rogov
+	}
+
+	AFS_grigory_rogov = { #Grigory Fedorovich Rogov
+		name = AFS_grigory_rogov
+		portraits = {
+			army = {
+				#small = "gfx/interface/advisors/AFS/AFS_grigory_rogov.png"
+			}
+			civilian = {
+				large = "gfx/leaders/AFS/portrait_AFS_grigory_rogov.png"
+			}
+		}
+		field_marshal = { 
+			desc = AFS_grigory_rogov_desc
+			traits = { guerilla_fighter scavenger ranger ambusher winter_specialist harsh_leader camouflage_expert }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 4
+		}
+		country_leader = { #non-aligned
+			desc = AFS_grigory_rogov
+			ideology = anarchism
+			traits = { experienced_insurgent partisans_organizer }
+		}
+		country_leader = { #anarchist 
+			desc = AFS_grigory_rogov
+			ideology = communist_anarchism
+			traits = { experienced_insurgent partisans_organizer }
+		}
+	}
+	########
+	######## Generals
+	########
+
+	#Useful Traits:
+	#commando 					out_of_supply_factor = -0.25
+	#guerilla_fighter 			dig_in_speed_factor = 0.5
+	#trickster					recon_factor = 0.25
+	#scavenger					equipment_capture = 0.03
+	#ranger						move, attack, defence on forest
+	#militias_officer			beefs miltia speed, defence, org
+	#winter_specialist			winter_attrition_factor = -0.5
+	#camouflage_expert 			cas_damage_reduction, air_superiority_bonus_in_combat = -0.5
+	#skirmisher					enables probing attack
+	#ambusher					max_dig_in = 5, recon_factor_while_entrenched = 0.25
+
+	#irregulars_officer			beefs cav/camerly speed, desert speed, irreg attack, out_of_supply,
+	#i like this one but the camerly and desert speed are way too out of place
+
+	AFS_ivan_sizikov = { # Ivan Sizikov Nestor
+		name = AFS_ivan_sizikov
+		portraits = {
+			army = {
+				large = "GFX_portrait_AFS_ivan_sizikov"
+				small = "GFX_idea_AFS_ivan_sizikov"
+			}
+		}
+		corps_commander = {
+			traits = { guerilla_fighter ambusher scavenger ranger commando }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 4
+			visible = {
+			}
+		}
+	}
+	AFS_nestor_kalandarishvili = { # Nestor Kalandarishvili
+		name = AFS_nestor_kalandarishvili
+		portraits = {
+			army = {
+				large = "GFX_portrait_AFS_nestor_kalandarishvili"
+				small = "GFX_idea_AFS_nestor_kalandarishvili"
+			}
+		}
+		corps_commander = {
+			traits = { guerilla_fighter trickster scavenger ranger ambusher cavalry_leader }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 5
+			visible = {
+			}
+		}
+	}
+	AFS_peter_lubkov = { # Peter Lubkov
+		name = AFS_peter_lubkov
+		portraits = {
+			army = {
+				large = "GFX_portrait_AFS_peter_lubkov"
+				small = "GFX_idea_AFS_peter_lubkov"
+			}
+		}
+		corps_commander = {
+			traits = { guerilla_fighter commando scavenger ranger ambusher }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 4
+			planning_skill = 3
+			logistics_skill = 4
+			visible = {
+			}
+		}
+	}
+#
+}

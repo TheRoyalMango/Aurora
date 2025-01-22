@@ -1,0 +1,205 @@
+characters = {
+	KAL_dazan_tundutov = { #Danzan Tundutov 
+		name = KAL_dazan_tundutov
+
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/RUS/portrait_dazan_tundutov.png"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = KAL_dazan_tundutov
+			ledger = army
+			allowed = {
+				original_tag = KAL
+			}
+			traits = {
+				army_chief_drill_1
+			}
+			cost = 50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = KAL_dazan_tundutov
+			allowed = {
+				original_tag = KAL
+			}
+			available = {
+				NOT = { has_government = communism }
+			}
+			traits = {
+				aurora_cossack_ataman 
+				anti_communist
+			}
+			ai_will_do = {
+				factor = 100
+			}
+		}
+		corps_commander = {
+			traits = { politically_connected cavalry_leader scavenger }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 4
+			visible = {
+				IF = { 
+					limit = { original_tag = RUS }
+					has_country_flag = RUS_officer_corps_flag
+				}
+			}
+		}
+
+		country_leader = {
+			ideology = despotism
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				aurora_cossack_ataman
+				anti_communist
+			}
+		}
+		#country_leader = {
+		#	ideology = conservatism
+		#	expire = "1953.3.1.1"
+		#	id = -1
+		#	traits = {
+		#		aurora_cossack_ataman
+		#		anti_communist
+		#	}
+		#}
+	}
+
+	KAL_nomto_ochirov = { #Nomto Ochirovich Ochirov
+		name = KAL_nomto_ochirov
+
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/KAL/portrait_KAL_nomto_ochirov.png"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = KAL_nomto_ochirov
+			ledger = army
+			allowed = {
+				original_tag = KAL
+			}
+			available = { 
+				NOT = { has_government = communism }
+			}
+			traits = {
+				army_logistics_2 #was in charge of food matters
+			}
+			cost = 50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = KAL_nomto_ochirov
+			allowed = {
+				original_tag = KAL
+			}
+			available = {
+				NOT = { is_country_leader = yes }
+			}
+			traits = {
+				education_reformer 
+			}
+			ai_will_do = {
+				factor = 5
+			}
+		}
+		country_leader = {
+			ideology = liberalism
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				education_reformer
+			}
+		}
+	}
+
+	KAL_sanji_bayanov = { #Sanji Bayanovich Bayanov ... the one piece is real?
+		name = KAL_sanji_bayanov
+
+		portraits = {
+			civilian = {
+				large = GFX_portrait_KAL_sanji_bayanov
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = KAL_sanji_bayanov
+			allowed = {
+				original_tag = KAL
+			}
+			available = {
+				NOT = { is_country_leader = yes }
+			}
+			traits = {
+				socialist_revolutionary 
+			}
+			ai_will_do = {
+				factor = 5
+			}
+		}
+		country_leader = {
+			ideology = socialism
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				socialist_revolutionary
+			}
+		}
+	}
+
+	KAL_narma_shapshukova = { #Narma Shapshukova
+		name = KAL_narma_shapshukova
+
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/KAL/portrait_KAL_narma_shapshukova.png"
+			}
+		}
+		corps_commander = {
+			traits = { cavalry_leader guerilla_fighter }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 2
+			visible = {
+				has_government = communism
+			}
+		}
+		country_leader = {
+			ideology = leninism
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+			}
+		}
+	}
+
+	KAL_im_badmayev = {
+		name = "I.M Badmayev" 
+		portraits = {
+			civilian = {
+				large = GFX_portrait_IM_Badmayev
+			}
+		}
+		country_leader = {
+			ideology = leninism
+			expire = "1940.1.1.1"
+			id = -1
+		}
+	}
+#
+}

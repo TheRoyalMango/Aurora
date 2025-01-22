@@ -1,0 +1,22 @@
+KUB_Yekat = {
+	allowed = {
+		tag = KUB
+	}
+	enable = {
+		OR = {
+			has_war_with = SOV
+			has_war_with = RUS
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+    	type = front_control
+	    state = 234
+	    ratio = 0
+	    ordertype = front
+	    execution_type = rush
+	    manual_attack = yes
+	    execute_order = yes
+	}
+}
+

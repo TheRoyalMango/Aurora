@@ -1,0 +1,193 @@
+characters = {
+
+	TCS_fyodor_funtikov = { #Fyodor Funtikov
+		name = TCS_fyodor_funtikov
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/TCS/portrait_TCS_fyodor_funtikov.png"
+			}
+		}
+
+		country_leader = {
+			ideology = liberalism
+			traits = { 
+				engineer_trait
+				socialist_revolutionary
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+
+	}
+
+	TCS_konstantin_osipov = { #Konstantin Pavlovich Osipov 
+		name = TCS_konstantin_osipov
+		portraits = {
+			army = {
+				large = "gfx/leaders/TCS/portrait_TCS_konstantin_osipov.png"
+			}
+		}
+		country_leader = {
+			ideology = despotism
+			traits = { 
+				ambitious_leader
+				defected_bolshevik
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+
+		country_leader = {
+			ideology = marxism
+			traits = { 
+				ambitious_leader
+				defected_bolshevik
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+		
+		corps_commander = {
+			traits = {  
+				politically_connected
+				guerilla_fighter
+				career_officer
+				trait_mountaineer
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }	
+			}
+		}
+	}
+
+	TCS_boris_kazanovich = { #Boris Ilyich Kazanovich
+		name = TCS_boris_kazanovich
+		portraits = {
+			army = {
+				large = "gfx/leaders/TCS/portrait_TCS_boris_kazanovich.png"
+			}
+		}
+		advisor = {
+			slot = army_chief
+			allowed = {
+				OR = {
+					original_tag = RUS
+					original_tag = TCS
+				}
+				NOT = { 
+					OR = {
+						has_government = communism 
+						has_government = anarchism 
+					}
+				}
+			}
+			available = {
+			}				
+			traits = {
+				army_chief_planning_2
+			}
+			cost = 100
+			ai_will_do = {
+				base = 1.000
+			}
+		}
+		country_leader = {
+			ideology = despotism
+			traits = { 
+				anti_communist
+			}
+			expire = "1960.3.1.1"
+			id = -1
+		}
+		
+		corps_commander = {
+			traits = {  
+				infantry_leader	
+				aggressive_assaulter
+				organizer
+				inspirational_leader
+				career_officer
+				old_guard
+				urban_assault_specialist
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 5
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }	
+			}
+		}
+	}
+
+	TCS_ippolit_savitsky = { #Ippolit Viktorovich Savitsky
+		name = TCS_ippolit_savitsky
+		portraits = {
+			army = {
+				large = "gfx/leaders/TCS/portrait_TCS_ippolit_savitsky.png"
+			}
+		}
+		advisor = {
+			slot = high_command
+			allowed = {
+				original_tag = TCS
+			}
+			available = {
+				original_tag = TCS
+			}				
+			traits = {
+				army_infantry_1
+			}
+			cost = 100
+			ai_will_do = {
+				base = 2.000
+			}
+		}
+		
+		corps_commander = {
+			traits = {  
+				infantry_leader	
+				old_guard
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 4
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }	
+			}
+		}
+	}
+	TCS_pavel_nazarov = { #Pavel Stepanovich Nazarov
+		name = TCS_pavel_nazarov
+		portraits = {
+			civilian = {
+				small=GFX_idea_TCS_pavel_nazarov
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = TCS_pavel_nazarov
+			available = {
+			}
+			traits = {
+				geologist 
+			}
+			ai_will_do = {
+				base = 1.000
+			}
+			#cost = 150
+			#can_be_fired = no
+		}
+	}
+}

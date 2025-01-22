@@ -1,0 +1,187 @@
+characters = {
+
+	#many Don generals are in the RUS file
+
+	DON_fyodor_podtelkov = {
+		name = DON_fyodor_podtelkov
+
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/DON/portrait_DON_fyodor_podtelkov.png"
+			}
+		}
+		country_leader = {
+			ideology = leninism
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				revolutionary_general
+			}
+		}
+	}
+	DON_evgeny_trifonov = { #Evgeny Andreevich Trifonov
+		name = DON_evgeny_trifonov
+		portraits = {
+			army = {
+				large = "gfx/leaders/DON/portrait_DON_evgeny_trifonov.png"
+				small = "GFX_idea_DON_evgeny_trifonov"
+			}
+		}
+		
+		advisor={
+			slot = army_chief
+			idea_token = DON_evgeny_trifonov
+			ledger = army
+			allowed = {
+				OR = {
+					has_government = anarchism
+					has_government = communism
+				}
+			}
+			traits = {
+				army_chief_drill_1
+			}
+			cost = 50
+			ai_will_do = {
+				factor = 2.000
+			}
+		}
+
+		corps_commander = {
+			traits = { militias_officer career_officer politically_connected cavalry_leader }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 3
+			visible = {
+				OR = {
+					has_government = anarchism
+					has_government = communism
+				}
+			}
+		}
+	}
+	DON_provisional_government = {
+		name = SOV_provisional_government
+
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_SOV_white_transitionary_council"
+			}
+		}
+		country_leader = {
+			ideology = despotism
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				emigre_connections anti_communist desperate_gambit
+			}
+		}
+	}
+	DON_ivan_kononov = {
+		name = DON_ivan_kononov
+
+		portraits = {
+			army = {
+				large = "gfx/leaders/DON/GFX_portrait_DON_ivan_kononov.png"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = DON_ivan_kononov
+			allowed = {
+				original_tag = DON
+			}
+			available = {
+			}				
+			traits = {
+				army_cavalry_1
+			}
+			cost = 100
+			ai_will_do = {
+				base = 2.000
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = DON_ivan_kononov
+			ledger = army
+			allowed = {
+				OR = {
+					has_government = anarchism
+					has_government = communism
+				}
+				tag = DON
+			}
+			traits = {
+				army_chief_offensive_1
+			}
+			cost = 50
+			ai_will_do = {
+				factor = 2.000
+			}
+		}
+		country_leader = {
+			ideology = fascism_ideology #to have someone before Krasnov comes over, same as above for afrikan
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				anti_communist
+				aurora_cossack_ataman
+				desperate_gambit
+			}
+		}
+		corps_commander  = { 
+			traits = {  
+				politically_connected
+				harsh_leader
+				cavalry_leader
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+			visible = {
+			}		
+		}
+	}
+	DON_vladimir_sidorin = {  
+
+	#Vladimir Ilyich Sidorin, DON corps General, fired by Wrangel for supposid DON seperatism and the Novorossyk disaster, but could have been scapegoat
+
+		name = RUS_Vladimir_Sidorin
+		portraits = {
+			army = {
+				large = "GFX_portrait_DON_Vladimir_Sidorin"
+				small = "GFX_idea_DON_vladimir_sidorin"
+			}
+		}
+		corps_commander  = { #field_marshal if  adding to DON
+			traits = {  
+				politically_connected
+				trait_engineer
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+			visible = {
+				NOT = { has_government = anarchism }
+				NOT = { has_government = communism }
+				IF = {
+					limit = { original_tag = DON }		
+					has_global_flag = RUS_send_sidorin_to_don		
+				}
+				IF = {
+					limit = { original_tag = RUS }		
+					has_country_flag = RUS_invite_exile_generals		
+				}
+			}		
+		}
+	}
+
+#
+}

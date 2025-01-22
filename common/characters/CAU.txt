@@ -1,0 +1,126 @@
+characters = {
+
+	CAU_pshemakho_kotsev = { #Pshemakho Kotsev
+
+		name = CAU_pshemakho_kotsev
+
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/CAU/portrait_CAU_pshemakho_kotsev.png"
+			}
+		}
+		country_leader = {
+			ideology = liberalism
+			expire = "1953.3.1.1"
+			id = -1
+			traits = {
+				legal_reformer
+				mustache
+			}
+		}
+	}
+
+	CAU_najmuddin_of_gotzo = { #Najmuddin of Gotzo
+		name = CAU_najmuddin_of_gotzo
+		portraits = {
+			army = {
+				large = "gfx/leaders/CAU/portrait_CAU_najmuddin_of_gotzo.png"
+			}
+		}
+		corps_commander = { #
+			traits = { trait_mountaineer war_hero irregulars_officer guerilla_fighter scavenger }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 3
+		}
+		advisor = {
+			slot = army_chief
+			ledger = army
+			idea_token = CAU_najmuddin_of_gotzo
+			allowed = {
+				original_tag = CAU
+			}
+			traits  = {
+				army_chief_morale_2
+			}
+		}
+	}
+
+	CAU_sultan_klych_girey = { #Sultan Shakhanovich Klych-Girey
+		name = CAU_sultan_klych_girey
+		portraits = {
+			army = {
+				large = "gfx/leaders/CAU/portrait_CAU_sultan_klych_girey.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = idea_CAU_sultan_klych_girey
+			available = {
+				NOT = {
+					has_country_leader = {
+						character = CAU_sultan_klych_girey
+						ruling_only = yes
+					}
+				}
+				if = {
+					limit = {
+						has_dlc = "Man the Guns"
+					}
+					NOT = {
+						has_autonomy_state = autonomy_supervised_state
+					}
+				}
+			}
+			allowed = {
+				tag = CAU
+			}
+			traits = {
+				fascist_demagogue
+			}
+		}
+		country_leader = {
+			ideology = fascism_ideology
+			traits = { 
+				aurora_cossack_ataman
+				anti_communist
+			}
+			#expire = "1960.3.1.1"
+			id = -1
+		}
+		corps_commander = { #
+			traits = { trait_mountaineer guerilla_fighter scavenger cavalry_leader politically_connected }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+		}
+	}
+	CAU_nukh_bek_tarkovsky = { #Nukh-bek Khanovich Tarkovsky
+		name = CAU_nukh_bek_tarkovsky
+		portraits = {
+			army = {
+				large = "gfx/leaders/CAU/portrait_CAU_nukh_bek_tarkovsky.png"
+			}
+		}
+		country_leader = {
+			ideology = despotism
+			traits = { 
+				anti_communist
+			}
+			#expire = "1960.3.1.1"
+			id = -1
+		}
+		corps_commander = { #
+			traits = { trait_mountaineer cavalry_leader guerilla_fighter old_guard career_officer }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+		}
+	}
+}
