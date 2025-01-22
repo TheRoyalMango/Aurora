@@ -1,0 +1,12 @@
+animation = {
+	name = "RUS_heavy_armor_0_idle_animation"
+	file = "RUS_heavy_armor_0_idle.anim"
+}
+animation = {
+	name = "RUS_heavy_armor_0_moving_animation"
+	file = "RUS_heavy_armor_0_moving.anim"
+}
+animation = {
+	name = "RUS_heavy_armor_0_attack_animation"
+	file = "RUS_heavy_armor_0_attack.anim"
+}
