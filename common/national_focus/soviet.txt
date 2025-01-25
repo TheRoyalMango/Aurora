@@ -6958,6 +6958,10 @@ focus_tree = {
 		
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
 
+		ai_will_do = {
+			factor = 1
+		}
+
 		completion_reward = {
 			add_political_power = 25
 
@@ -18862,7 +18866,9 @@ ai_will_do = {
 
 		available = {
 		}
-
+		ai_will_do = {
+			factor = 0
+		}
 		completion_reward = {
 			add_political_power = 25
 			#country_event = newsov.1
